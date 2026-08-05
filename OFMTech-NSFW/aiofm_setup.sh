@@ -338,7 +338,7 @@ TMPDL="$COMFYUI_DIR/.tmpdl"
 mkdir -p "$COMFYUI_DIR"
 
 echo "=========================================="
-echo "  AIOFM · Character Animation v1.2 — setup"
+echo "  AIOFM · OFM Tech NSFW — setup"
 echo "  ComfyUI dir: $COMFYUI_DIR"
 echo "=========================================="
 # printf '%s' rather than echo, because the URL contains %20 and a printf
@@ -1898,7 +1898,7 @@ fi
 
 printf '\n%s' "$C_B"
 echo "=========================================================="
-printf '  AIOFM · Character Animation v1.2 — setup done%s\n' "$C_0"
+printf '  AIOFM · OFM Tech NSFW — setup done%s\n' "$C_0"
 echo "=========================================================="
 printf '  profile        : %s\n' "$PROFILE"
 printf '  time           : %s\n' "$(hms $TOTAL_T)"
