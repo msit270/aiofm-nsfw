@@ -110,9 +110,55 @@ between:
 {id:1497, origin_id:-10, origin_slot:3, target_id:-20, target_slot:4, type:'MODEL'}         model    -> MODEL
 ```
 
-`LLink.resolve()` looks up `getNodeById(-10)`, which is not a real node, so
-`outputNode` is undefined and the throw fires. **This is the only subgraph in the
-file containing `-10 -> -20` links** — all seven were scanned.
+**This is the only subgraph in the file containing `-10 -> -20` links** — all
+seven were scanned.
+
+The precise mechanism, read from `src/lib/litegraph/src/LLink.ts` in the same
+sourcemap (my first reading of this was wrong — see below):
+
+```ts
+resolve(network: BasicReadonlyNetwork): ResolvedConnection {
+  const inputNode = this.target_id === -1 ? undefined : (network.getNodeById(this.target_id) ?? undefined)
+  const input = inputNode?.inputs[this.target_slot]
+  const subgraphInput = this.originIsIoNode ? network.inputNode?.slots[this.origin_slot] : undefined
+  if (subgraphInput) {
+    return { inputNode, input, subgraphInput, link: this }   // <-- no outputNode key at all
+  }
+
+  const outputNode = this.origin_id === -1 ? undefined : (network.getNodeById(this.origin_id) ?? undefined)
+  const output = outputNode?.outputs[this.origin_slot]
+  const subgraphOutput = this.targetIsIoNode ? network.outputNode?.slots[this.target_slot] : undefined
+  if (subgraphOutput) {
+    return { outputNode, output, subgraphInput: undefined, subgraphOutput, link: this }
+  }
+  ...
+}
+```
+
+and the two getters, whose sentinel values I read out of the **shipped minified
+bundle** rather than inferring them, because the sourcemap has no literal:
+
+    originIsIoNode(){return this.origin_id===-10}
+    targetIsIoNode(){return this.target_id===-20}
+
+Link 1497 satisfies **both** predicates. `resolve()` tests the input side first,
+`subgraphInput` is truthy, and it **returns early with an object literal that has
+no `outputNode` property**. `_resolveSubgraphOutput` then reads
+`innerResolved.outputNode`, gets `undefined`, and throws.
+
+So the real defect is narrower and more interesting than "node -10 does not
+exist": **a link that is simultaneously `originIsIoNode` and `targetIsIoNode` can
+never reach the `subgraphOutput` branch**, because the `subgraphInput` branch
+returns first. A direct subgraph-input → subgraph-output connection is
+unrepresentable in `ResolvedConnection`. The `getNodeById(this.origin_id)` line
+is never executed for these links, and note it guards against `-1`, not `-10`, so
+it would have returned `undefined` there too — same outcome, different route.
+
+**Correction to my own earlier claim in this file:** I first wrote that
+`getNodeById(-10)` is called and returns undefined. That was inference stated as
+fact, and it was wrong on the path taken. Corrected above from the source. The
+consequence for the fix is unchanged — the passthrough must go — but the
+explanation in any shipped report should be the branch-order one.
 
 ### How it got there — the origin story
 
