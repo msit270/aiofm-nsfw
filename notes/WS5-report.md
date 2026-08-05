@@ -144,6 +144,19 @@ Junk excluded (declared once, in the script): `__pycache__`, `*.pyc/pyo/pyd`,
 The source tree was already clean of all of them — `find` for every pattern
 returned nothing — so exclusion is insurance, not a repair.
 
+Insurance that is untested is not insurance, so I tested it: copied the tree to
+scratch, planted seven pieces of junk (`__pycache__/foo.cpython-311.pyc`,
+`.ipynb_checkpoints/…-checkpoint.json`, `.DS_Store`, `ideogram.py.orig`,
+`aiofm_setup.sh~`, `setup.log`, `.vscode/settings.json`), and built from it:
+
+```
+=== any junk that survived into the archive? ===
+none — all 7 excluded
+```
+
+Entry count identical to the clean build (170), so nothing legitimate was caught
+by the patterns either.
+
 ### A trap worth recording
 
 The first version of the assertion block was:
@@ -168,7 +181,20 @@ does not read as "164 removed, 170 added".
 
 A note on reading its output: the ADDED block is printed with its count on the
 first line. I clipped that line with `tail` once and briefly thought WS3 had
-added five files rather than six. Read the whole block, or read the count.
+added five files rather than six. Read the whole block, or read the count — and
+cross-check it against the builder's own entry count, which is what caught it
+(164 + 5 ≠ 170).
+
+The published baseline is recoverable from git rather than from anyone's scratch
+space, so this comparison can be redone at any time:
+
+```bash
+git show 8e7b1c3:dist/AIOFMTech-NSFW.tar.gz > /tmp/published.tar.gz
+bash tools/compare_pack.sh /tmp/published.tar.gz dist/AIOFMTech-NSFW.tar.gz
+```
+
+`8e7b1c3` is the last commit before this branch touched `dist/`; its blob is the
+8,202,871-byte artifact with sha256 `3f6d0f2f…aada76` that is live on HF today.
 
 *(Final cut numbers: see §6.)*
 
