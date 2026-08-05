@@ -212,7 +212,16 @@ the `hf upload` command is run by hand.
 - The graph renders end to end in a browser, twice, from two sessions.
 - Output is 2688×3456.
 - D4 cannot alter a submitted prompt (`serialize: false`).
-- Both `popup.js` defects and both fixes, against the real expressions.
+- Both `popup.js` defects and both fixes, against the real expressions — **and
+  the Send-button fix confirmed in a real browser with a real 4-image batch**:
+  `send_enabled_before_pick: false → send_enabled_after_pick: true`, read off the
+  DOM `.disabled` property either side of the click, image on disk, exit 0. On
+  the shipped code that run prints *"clicked image #0 of 4 but the Send button is
+  still disabled — the buyer cannot proceed"*. A logic proof and a click, agreeing
+  without sharing a method. Caveat on the route: the fixture reaches 4 images via
+  `batch_size 4`, not via `#602 BatchFromImageList` as a buyer does; the popup
+  receives a batch-N tensor either way, so the Send-button behaviour is tested and
+  the batch-from-prompts path is not.
 - DMD2 ships, from this pod's own `hf` download record.
 - A naive licence delete breaks the pack (95 → 0), measured on an isolated
   instance.
@@ -258,10 +267,10 @@ the `hf upload` command is run by hand.
   property of this pod under contention, not a number a buyer on a dedicated pod
   would see. (The 48.7 % spread is a coincidence of digits with CLAUDE.md's
   48.7 dB noise figure — different quantity, different units, unrelated.)
-- **The multi-image selector interaction is NOT verified in a browser.** The
-  Send-button fix rests on a logic proof against the real expression, which is
-  exact but is not a click. The single-image path auto-picks and is exactly what
-  masked the defect — do not substitute it.
+- Whether the multi-image selector defect strands a buyer **was** the open
+  question here. It is now **proven and closed** — see the entry in the proven
+  list above. Carried as unresolved in `notes/WS1-report.md` §8, which was
+  written before the test existed; that section is superseded on this point.
 - Whether frontend 1.41.x's **editor** recreates `-10 → -20` links when a node
   between subgraph IO is deleted. If it does, any future save can reintroduce
   this blocker invisibly. Untested; only 1.39.19 is installed here.
