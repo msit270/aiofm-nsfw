@@ -1,0 +1,258 @@
+[
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 3
+        }
+      },
+      "sid": "d1a3676b0ab04bb9b21c6460d1b9fbb3"
+    }
+  },
+  {
+    "type": "feature_flags",
+    "data": {
+      "supports_preview_metadata": true,
+      "max_upload_size": 104857600,
+      "extension": {
+        "manager": {
+          "supports_v4": true
+        }
+      },
+      "node_replacements": true
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 4
+        }
+      }
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 3
+        }
+      }
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 3
+        }
+      }
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 2
+        }
+      }
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 2
+        }
+      }
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 3
+        }
+      }
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 4
+        }
+      }
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 5
+        }
+      }
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 6
+        }
+      }
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 5
+        }
+      }
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 5
+        }
+      }
+    }
+  },
+  {
+    "type": "execution_start",
+    "data": {
+      "prompt_id": "5d8a3345-fe0b-4523-92cb-a3f568d2b5db",
+      "timestamp": 1785971790282
+    }
+  },
+  {
+    "type": "execution_cached",
+    "data": {
+      "nodes": [],
+      "prompt_id": "5d8a3345-fe0b-4523-92cb-a3f568d2b5db",
+      "timestamp": 1785971790501
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "4",
+      "display_node": "4",
+      "prompt_id": "5d8a3345-fe0b-4523-92cb-a3f568d2b5db"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "5",
+      "display_node": "5",
+      "prompt_id": "5d8a3345-fe0b-4523-92cb-a3f568d2b5db"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "7",
+      "display_node": "7",
+      "prompt_id": "5d8a3345-fe0b-4523-92cb-a3f568d2b5db"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "6",
+      "display_node": "6",
+      "prompt_id": "5d8a3345-fe0b-4523-92cb-a3f568d2b5db"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "3",
+      "display_node": "3",
+      "prompt_id": "5d8a3345-fe0b-4523-92cb-a3f568d2b5db"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "8",
+      "display_node": "8",
+      "prompt_id": "5d8a3345-fe0b-4523-92cb-a3f568d2b5db"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "9",
+      "display_node": "9",
+      "prompt_id": "5d8a3345-fe0b-4523-92cb-a3f568d2b5db"
+    }
+  },
+  {
+    "type": "executed",
+    "data": {
+      "node": "9",
+      "display_node": "9",
+      "output": {
+        "images": [
+          {
+            "filename": "harness_known_good_00001_.png",
+            "subfolder": "",
+            "type": "output"
+          }
+        ]
+      },
+      "prompt_id": "5d8a3345-fe0b-4523-92cb-a3f568d2b5db"
+    }
+  },
+  {
+    "type": "execution_success",
+    "data": {
+      "prompt_id": "5d8a3345-fe0b-4523-92cb-a3f568d2b5db",
+      "timestamp": 1785971792096
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 4
+        }
+      }
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": null,
+      "prompt_id": "5d8a3345-fe0b-4523-92cb-a3f568d2b5db"
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 4
+        }
+      }
+    }
+  }
+]

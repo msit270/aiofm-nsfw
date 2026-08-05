@@ -1,0 +1,297 @@
+{
+  "run_id": "20260805-225607-OFMTech_NSFW",
+  "status": "harness-error",
+  "failure_classes": [
+    "frontend-load"
+  ],
+  "failure_class": "frontend-load",
+  "failures": [
+    {
+      "class": "frontend-load",
+      "message": "TypeError: Cannot read properties of undefined (reading 'subgraph')\n    at http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:346:18\n    at Array.forEach (<anonymous>)\n    at Popup.find_node (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:344:9)\n    at Popup._handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:355:25)\n    at Popup.handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:314:16)\n    at WebSocket.<anonymous> (http://127.0.0.1:18188/assets/api-gz4kgzki.js:4:4787)"
+    },
+    {
+      "class": "frontend-load",
+      "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "class": "frontend-load",
+      "message": "[RPG] ERROR: detailsElement not found - probably not on Generate tab"
+    },
+    {
+      "class": "frontend-load",
+      "message": "Uncaught TypeError: Cannot read properties of undefined (reading 'subgraph')\nTypeError: Cannot read properties of undefined (reading 'subgraph')\n    at http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:346:18\n    at Array.forEach (<anonymous>)\n    at Popup.find_node (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:344:9)\n    at Popup._handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:355:25)\n    at Popup.handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:314:16)\n    at WebSocket.<anonymous> (http://127.0.0.1:18188/assets/api-gz4kgzki.js:4:4787)"
+    }
+  ],
+  "message": "an INSTARAW image-selector popup is already open on http://127.0.0.1:18188 and covers the whole page (1 image(s)).\nIt belongs to a render that is ALREADY paused on this server, started by another\nclient — the popup is broadcast to every connected browser. The Run button cannot\nbe clicked through it. This harness will not dismiss it, because Cancel would abort\nsomebody else's render. Resolve that render (or wait for its 600 s timeout) and re-run.",
+  "url": "http://127.0.0.1:18188",
+  "workflow": "OFMTech_NSFW",
+  "mode": "no-submit",
+  "load_path_used": "ui",
+  "comfyui_version": "0.15.1",
+  "frontend_version": "1.39.19",
+  "prompt_posted": false,
+  "prompt_http_status": null,
+  "prompt_id": null,
+  "api_graph": null,
+  "outputs": [],
+  "timings_ms": {
+    "boot_ms": 4212,
+    "load_ms": 3509
+  },
+  "counts": {
+    "boot_errors": 7,
+    "load_errors": 4,
+    "run_errors": 0,
+    "ignored": 10
+  },
+  "errors": [
+    {
+      "t_ms": 200,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "error",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "at": "http://127.0.0.1:18188/user.css:0"
+    },
+    {
+      "t_ms": 202,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "error",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "at": "http://127.0.0.1:18188/api/userdata/user.css:0"
+    },
+    {
+      "t_ms": 647,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "error",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "at": "http://127.0.0.1:18188/api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true:0"
+    },
+    {
+      "t_ms": 788,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "error",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "at": "http://127.0.0.1:18188/api/userdata/comfy.templates.json:0"
+    },
+    {
+      "t_ms": 2077,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "error",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "at": "http://127.0.0.1:18188/api/pysssss/autocomplete:0"
+    },
+    {
+      "t_ms": 2410,
+      "phase": "boot",
+      "kind": "pageerror",
+      "severity": "error",
+      "origin": "instaraw",
+      "product_signal": true,
+      "text": "TypeError: Cannot read properties of undefined (reading 'subgraph')\n    at http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:346:18\n    at Array.forEach (<anonymous>)\n    at Popup.find_node (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:344:9)\n    at Popup._handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:355:25)\n    at Popup.handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:314:16)\n    at WebSocket.<anonymous> (http://127.0.0.1:18188/assets/api-gz4kgzki.js:4:4787)"
+    },
+    {
+      "t_ms": 4363,
+      "phase": "boot",
+      "kind": "window.onerror",
+      "severity": "error",
+      "origin": "instaraw",
+      "product_signal": true,
+      "text": "Uncaught TypeError: Cannot read properties of undefined (reading 'subgraph')\nTypeError: Cannot read properties of undefined (reading 'subgraph')\n    at http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:346:18\n    at Array.forEach (<anonymous>)\n    at Popup.find_node (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:344:9)\n    at Popup._handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:355:25)\n    at Popup.handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:314:16)\n    at WebSocket.<anonymous> (http://127.0.0.1:18188/assets/api-gz4kgzki.js:4:4787)"
+    },
+    {
+      "t_ms": 4398,
+      "phase": "load",
+      "kind": "pageerror",
+      "severity": "error",
+      "origin": "instaraw",
+      "product_signal": true,
+      "text": "TypeError: Cannot read properties of undefined (reading 'subgraph')\n    at http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:346:18\n    at Array.forEach (<anonymous>)\n    at Popup.find_node (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:344:9)\n    at Popup._handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:355:25)\n    at Popup.handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:314:16)\n    at WebSocket.<anonymous> (http://127.0.0.1:18188/assets/api-gz4kgzki.js:4:4787)"
+    },
+    {
+      "t_ms": 4475,
+      "phase": "load",
+      "kind": "console.error",
+      "severity": "error",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "at": "http://127.0.0.1:18188/api/userdata/workflows%2F.index.json:0"
+    },
+    {
+      "t_ms": 4709,
+      "phase": "load",
+      "kind": "console.error",
+      "severity": "error",
+      "origin": "instaraw",
+      "product_signal": true,
+      "text": "[RPG] ERROR: detailsElement not found - probably not on Generate tab",
+      "at": "http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/reality_prompt_generator.js:8280"
+    },
+    {
+      "t_ms": 7873,
+      "phase": "load",
+      "kind": "window.onerror",
+      "severity": "error",
+      "origin": "instaraw",
+      "product_signal": true,
+      "text": "Uncaught TypeError: Cannot read properties of undefined (reading 'subgraph')\nTypeError: Cannot read properties of undefined (reading 'subgraph')\n    at http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:346:18\n    at Array.forEach (<anonymous>)\n    at Popup.find_node (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:344:9)\n    at Popup._handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:355:25)\n    at Popup.handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:314:16)\n    at WebSocket.<anonymous> (http://127.0.0.1:18188/assets/api-gz4kgzki.js:4:4787)"
+    }
+  ],
+  "ignored": [
+    {
+      "t_ms": 1116,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/extensions/ComfyUI_Swwan/config.js:0"
+    },
+    {
+      "t_ms": 1116,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node.js",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1117,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/seed.js",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1117,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node_mode_changer.js",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1117,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_any_input_connected_node.js",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1117,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/rgthree.js",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1117,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/image_comparer.js",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1118,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/utils_dom.js:0"
+    },
+    {
+      "t_ms": 1118,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/dialog.js",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1130,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:rgthree-comfy",
+      "product_signal": false,
+      "text": "[vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at http://127.0.0.1:18188/extensions/rgthree-comfy/feature_import_individual_nodes.js:5:5",
+      "ignored_by": "rgthree-extension-name-collision",
+      "ignored_reason": "ComfyUI_Swwan and rgthree-comfy are both installed on this pod and both register the same extension names. Verified: 'name: \"rgthree.ImportIndividualNodes\"' appears in rgthree-comfy/web/comfyui/feature_import_individual_nodes.js AND ComfyUI_Swwan/web/js/feature_import_individual_nodes.js; rgthree.ImageComparer and rgthree.Seed collide the same way. A buyer installing only the NSFW pack has one of the two, so no collision.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    }
+  ],
+  "ignore_rules_file": "/workspace/nsfw-fix/tools/browser_harness/ignore.json",
+  "selector": {
+    "driven": false,
+    "appeared": false,
+    "images": 0,
+    "picked": null,
+    "sent_at_ms": null
+  },
+  "artifacts_dir": "/workspace/nsfw-fix/results/browser/20260805-225607-OFMTech_NSFW"
+}

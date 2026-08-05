@@ -1,0 +1,37 @@
+{
+ "label": "context only: shipped baseline vs D1+D3-ablation (two variables)",
+ "a": "/workspace/nsfw-fix/results/ws4/A_baseline/HasMetadata_00001_.png",
+ "b": "/workspace/nsfw-fix/results/ws4/C_no_sdxl_face_pass/HasMetadata_00006_.png",
+ "size_a": [
+  2688,
+  3456
+ ],
+ "size_b": [
+  2688,
+  3456
+ ],
+ "full_frame": {
+  "psnr_db": 30.131,
+  "identical": false,
+  "ssim": 0.851048,
+  "mean_abs_diff_levels": 4.464,
+  "max_abs_diff_levels": 167.0,
+  "pct_pixels_gt_1_level": 84.0935,
+  "pct_pixels_gt_8_levels": 16.7671
+ },
+ "face_box_xywh": [
+  1028,
+  498,
+  732,
+  732
+ ],
+ "face_crop": {
+  "psnr_db": 27.22,
+  "identical": false,
+  "ssim": 0.715931,
+  "mean_abs_diff_levels": 7.0111,
+  "max_abs_diff_levels": 167.0,
+  "pct_pixels_gt_1_level": 90.8523,
+  "pct_pixels_gt_8_levels": 33.8817
+ }
+}

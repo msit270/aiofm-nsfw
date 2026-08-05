@@ -1,0 +1,109 @@
+[   211ms][boot][http/warn] HTTP 404 http://127.0.0.1:18188/user.css
+[   211ms][boot][console.error/error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[   211ms][boot][requestfailed/warn] http://127.0.0.1:18188/user.css net::ERR_ABORTED
+[   212ms][boot][http/warn] HTTP 404 http://127.0.0.1:18188/api/userdata/user.css
+[   212ms][boot][requestfailed/warn] http://127.0.0.1:18188/api/userdata/user.css net::ERR_ABORTED
+[   746ms][boot][http/warn] HTTP 404 http://127.0.0.1:18188/api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true
+[   918ms][boot][http/warn] HTTP 404 http://127.0.0.1:18188/api/userdata/comfy.templates.json
+[   918ms][boot][requestfailed/warn] http://127.0.0.1:18188/api/userdata/comfy.templates.json net::ERR_ABORTED
+[  1250ms][boot][console.warning/warn] Extension pysssss.SnapToGrid is disabled.
+[  1250ms][boot][console.warning/warn] Extension pysssss.FaviconStatus is disabled.
+[  1258ms][boot][console.log/info] [BIG] ========== BATCH IMAGE GENERATOR JS LOADED ==========
+[  1268ms][boot][console.warning/warn] [ComfyUI Deprecated] Importing from "scripts/ui.js" is deprecated and will be removed in v1.34.
+[  1280ms][boot][console.warning/warn] [ComfyUI Deprecated] Importing from "extensions/core/groupNode.js" is deprecated and will be removed in v1.34.
+[  1283ms][boot][console.warning/warn] [ComfyUI Notice] "scripts/widgets.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1284ms][boot][console.warning/warn] [ComfyUI Notice] "extensions/core/widgetInputs.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1284ms][boot][console.warning/warn] [ComfyUI Notice] "scripts/utils.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1288ms][boot][http/warn] HTTP 404 http://127.0.0.1:18188/extensions/ComfyUI_Swwan/config.js
+[  1288ms][boot][requestfailed/warn] http://127.0.0.1:18188/extensions/ComfyUI_Swwan/config.js net::ERR_ABORTED
+[  1289ms][boot][http/warn] HTTP 404 http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/utils_dom.js
+[  1289ms][boot][requestfailed/warn] http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/utils_dom.js net::ERR_ABORTED
+[  1293ms][boot][console.warning/warn] [ComfyUI Notice] "scripts/pnginfo.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1295ms][boot][console.error/error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node_mode_changer.js
+[  1296ms][boot][console.error/error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/rgthree.js
+[  1296ms][boot][console.error/error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_any_input_connected_node.js
+[  1296ms][boot][console.error/error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node.js
+[  1296ms][boot][console.error/error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/seed.js
+[  1296ms][boot][console.error/error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/image_comparer.js
+[  1296ms][boot][console.error/error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/dialog.js
+[  1296ms][boot][console.warning/warn] [ComfyUI Notice] "extensions/core/clipspace.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1301ms][boot][console.log/info] [BIG] PhotoSwipe CSS loaded from CDN
+[  1307ms][boot][console.error/error] [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.
+    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)
+    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)
+    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)
+    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)
+    at http://127.0.0.1:18188/extensions/ComfyUI_Swwan/feature_import_individual_nodes.js:5:5
+[  1320ms][boot][console.warning/warn] [MaskEditor] ComfyApp.open_maskeditor is deprecated. Plugins should migrate to using the command system or direct node context menu integration.
+[  1355ms][boot][websocket/info] open ws://127.0.0.1:18188/ws
+[  1391ms][boot][requestfailed/warn] http://127.0.0.1:18188/api/settings/Comfy.CustomColorPalettes net::ERR_ABORTED
+[  1424ms][boot][console.log/info] [BIG] PhotoSwipe scripts loaded
+[  1424ms][boot][console.log/info] [BIG] PhotoSwipe ready
+[  2066ms][boot][console.log/info] [BIG] Registering custom UI for BatchImageGenerator
+[  2148ms][boot][console.warning/warn] Use of defaultInput on required input custom_nodes.ComfyUI-Impact-Pack:ImpactSchedulerAdapter:scheduler is deprecated. Please drop the defaultInput option.
+[  2253ms][boot][console.warning/warn] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "pysssss.GraphArrange")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit
+[  2253ms][boot][console.warning/warn] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "pysssss.NodeFinder")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit
+[  2253ms][boot][console.log/info] [BIG] Extension setup() called - loading CSS
+[  2264ms][boot][console.warning/warn] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "rgthree.QueueNode")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit
+[  2296ms][boot][http/warn] HTTP 404 http://127.0.0.1:18188/api/pysssss/autocomplete
+[  2300ms][boot][console.warning/warn] [ComfyUI Deprecated] Importing from "scripts/ui/components/button.js" is deprecated and will be removed in v1.34.
+[  2316ms][boot][requestfailed/warn] http://127.0.0.1:18188/api/pysssss/autocomplete net::ERR_ABORTED
+[  2350ms][boot][console.warning/warn] [ComfyUI Deprecated] Importing from "scripts/ui/components/buttonGroup.js" is deprecated and will be removed in v1.34.
+[  4710ms][load][http/warn] HTTP 404 http://127.0.0.1:18188/api/userdata/workflows%2F.index.json
+[  4710ms][load][console.error/error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[  4710ms][load][requestfailed/warn] http://127.0.0.1:18188/api/userdata/workflows%2F.index.json net::ERR_ABORTED
+[  4809ms][load][console.log/info] Empty components: policy ignored
+[  4941ms][load][console.warning/warn] [SubgraphNode.configure] No link found for link ID 1488 ComfyNode
+[  4942ms][load][console.warning/warn] [SubgraphNode.configure] No link found for link ID 1489 ComfyNode
+[  4942ms][load][console.warning/warn] [SubgraphNode.configure] No link found for link ID 1490 ComfyNode
+[  4942ms][load][console.warning/warn] [SubgraphNode.configure] No link found for link ID 1491 ComfyNode
+[  4942ms][load][console.warning/warn] [SubgraphNode.configure] No link found for link ID 1492 ComfyNode
+[  4942ms][load][console.warning/warn] [SubgraphNode.configure] No link found for link ID 1164 ComfyNode
+[  4942ms][load][console.warning/warn] [SubgraphNode.configure] No link found for link ID 1414 ComfyNode
+[  4953ms][load][console.log/info] [RPG] Global execution_success listener installed
+[  4972ms][load][console.log/info] [RPG] ============ setupEventHandlers CALLED ============
+[  4972ms][load][console.log/info] [RPG] Current active tab: library
+[  4973ms][load][console.log/info] [RPG] === DEBUG: Looking for MAIN details element ===
+[  4973ms][load][console.log/info] [RPG] Active tab: library
+[  4973ms][load][console.log/info] [RPG] Total <details> elements: 0
+[  4974ms][load][console.log/info] [RPG] Preview button found: false
+[  4974ms][load][console.log/info] [RPG] Details element (with preview) found: false open: undefined preview mode: true
+[  4974ms][load][console.error/error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[  5096ms][load][http/warn] HTTP 404 http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_aggxo_00001_.png&type=temp&subfolder=&rand=0.38625573939016933
+[  5096ms][load][http/warn] HTTP 404 http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_aggxo_00002_.png&type=temp&subfolder=&rand=0.6334233147929259
+[  5097ms][load][http/warn] HTTP 404 http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_fepic_00001_.png&type=temp&subfolder=&rand=0.8823351481460819
+[  5097ms][load][http/warn] HTTP 404 http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_fepic_00002_.png&type=temp&subfolder=&rand=0.6259306129060468
+[  5097ms][load][http/warn] HTTP 404 http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_tpbop_00001_.png&type=temp&subfolder=&rand=0.4849143384465904
+[  5097ms][load][http/warn] HTTP 404 http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_tpbop_00002_.png&type=temp&subfolder=&rand=0.548351700629904
+[  5218ms][load][console.log/info] [RPG] Re-rendering after connection change. AIL mode: null, initialized: true
+[  7052ms][load][console.log/info] [RPG] IndexedDB saved key "prompts_db_cache" successfully
+[  7072ms][load][console.log/info] [RPG] Raw IndexedDB user_prompts: undefined
+[  7072ms][load][console.log/info] [RPG] Loaded 0 user prompts from IndexedDB
+[  7080ms][load][console.log/info] [RPG] Loaded 0 generated prompts
+[  7085ms][load][console.log/info] [RPG] Loaded 0 bookmarks from IndexedDB
+[  7086ms][load][console.log/info] [RPG] Merged database: 0 user + 0 generated + 7891 library = 7891 total
+[  7101ms][load][console.log/info] [RPG] Target dimensions from label: {width: 1, height: 1, aspect_label: 1:1} Aspect ratio: 1
+[  8255ms][run][console.log/info] [KJNodes] Cross-graph Set/Get: frontend native support not found, applying patch
+[  8263ms][run][console.error/error] Error: No output node found for id [647] slot [4] MODEL
+    at ExecutableNodeDTO._resolveSubgraphOutput (http://127.0.0.1:18188/assets/api-gz4kgzki.js:2:210216)
+    at ExecutableNodeDTO.resolveOutput (http://127.0.0.1:18188/assets/api-gz4kgzki.js:2:209110)
+    at proto.resolveOutput (http://127.0.0.1:18188/extensions/ComfyUI-KJNodes/js/setgetnodes.js:1601:35)
+    at ExecutableNodeDTO.resolveInput (http://127.0.0.1:18188/assets/api-gz4kgzki.js:2:208374)
+    at ExecutableNodeDTO.resolveInput (http://127.0.0.1:18188/assets/api-gz4kgzki.js:2:208054)
+    at graphToPrompt (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:163:3857)
+    at async app.graphToPrompt (http://127.0.0.1:18188/extensions/ComfyUI-Manager/components-manager.js:783:10)
+    at async app.graphToPrompt (http://127.0.0.1:18188/extensions/rgthree-comfy/rgthree.js:503:13)
+    at async app.graphToPrompt (http://127.0.0.1:18188/extensions/ComfyUI-Custom-Scripts/js/repeater.js:10:16)
+    at async app.graphToPrompt (http://127.0.0.1:18188/extensions/ComfyUI-Custom-Scripts/js/reroutePrimitive.js:32:16)
+[  8271ms][run][console.info/info] Autofocus processing was blocked because a document already has a focused element.
+[  8288ms][run][toast/error] Error
+No output node found for id [647] slot [4] MODEL

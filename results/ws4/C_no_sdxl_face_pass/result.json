@@ -1,0 +1,22 @@
+{
+ "arm": "C_no_sdxl_face_pass",
+ "prompt_id": "47d54fad-4093-4102-99ac-6b650d06c528",
+ "ok": true,
+ "status": "success",
+ "elapsed_s": 1211.6,
+ "peak_gpu_mib": 41514,
+ "images": [
+  {
+   "node": "505",
+   "file": "/workspace/nsfw-fix/results/ws4/C_no_sdxl_face_pass/HasMetadata_00006_.png",
+   "src": "/workspace/ComfyUI/output/Instaraw/SDXL/Metadata/HasMetadata_00006_.png"
+  }
+ ],
+ "patch_applied": [
+  "619:617.image: ['619:607', 0] -> ['619:596', 0]",
+  "delete node 619:607 (FaceDetailerPipe)"
+ ],
+ "graph_source": "/tmp/claude-0/-workspace-nsfw-fix/47375d2b-87bd-4073-a1e2-67796f8c1345/scratchpad/ws4/api_d1_c.json",
+ "node_count": 85,
+ "at": "2026-08-05T23:16:30"
+}

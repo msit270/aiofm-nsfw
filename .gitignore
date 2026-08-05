@@ -12,3 +12,12 @@ package-lock.json
 # Python bytecode — never ship this inside the pack
 __pycache__/
 *.pyc
+
+# Render evidence: the A/B arms the owner must look at are committed.
+# The four control-repeat images are NOT — they were proved pixel-identical to
+# A_baseline (pairwise MSE exactly 0), so committing ~42 MB of duplicates adds
+# nothing. Their value is in metrics_control.json, which IS committed.
+results/ws4/A2_control_repeat/*.png
+results/ws4/A3_control_repeat/*.png
+results/ws4/A4_control_repeat/*.png
+results/ws4/B2_no_vae_roundtrip_repeat/*.png

@@ -1,0 +1,19 @@
+{
+ "arm": "B2_no_vae_roundtrip_repeat",
+ "prompt_id": "b477f1fd-5c4d-4639-853e-357c6b6d6965",
+ "ok": true,
+ "status": "success",
+ "elapsed_s": 906.0,
+ "peak_gpu_mib": 41516,
+ "images": [
+  {
+   "node": "505",
+   "file": "/workspace/nsfw-fix/results/ws4/B2_no_vae_roundtrip_repeat/HasMetadata_00009_.png",
+   "src": "/workspace/ComfyUI/output/Instaraw/SDXL/Metadata/HasMetadata_00009_.png"
+  }
+ ],
+ "patch_applied": [],
+ "graph_source": "/tmp/claude-0/-workspace-nsfw-fix/47375d2b-87bd-4073-a1e2-67796f8c1345/scratchpad/ws4/api_d1_c.json",
+ "node_count": 86,
+ "at": "2026-08-05T23:29:57"
+}

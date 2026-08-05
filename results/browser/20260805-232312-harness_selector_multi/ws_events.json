@@ -1,0 +1,265 @@
+[
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 2
+        }
+      },
+      "sid": "92ee8aaf687a4d7cb9ba53e76bcdcd35"
+    }
+  },
+  {
+    "type": "feature_flags",
+    "data": {
+      "supports_preview_metadata": true,
+      "max_upload_size": 104857600,
+      "extension": {
+        "manager": {
+          "supports_v4": true
+        }
+      },
+      "node_replacements": true
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 3
+        }
+      }
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 2
+        }
+      }
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 2
+        }
+      }
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 1
+        }
+      }
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 1
+        }
+      }
+    }
+  },
+  {
+    "type": "execution_start",
+    "data": {
+      "prompt_id": "c32645e4-a506-4204-86be-428d47dc3e66",
+      "timestamp": 1785972596206
+    }
+  },
+  {
+    "type": "execution_cached",
+    "data": {
+      "nodes": [],
+      "prompt_id": "c32645e4-a506-4204-86be-428d47dc3e66",
+      "timestamp": 1785972596417
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "4",
+      "display_node": "4",
+      "prompt_id": "c32645e4-a506-4204-86be-428d47dc3e66"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "5",
+      "display_node": "5",
+      "prompt_id": "c32645e4-a506-4204-86be-428d47dc3e66"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "7",
+      "display_node": "7",
+      "prompt_id": "c32645e4-a506-4204-86be-428d47dc3e66"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "6",
+      "display_node": "6",
+      "prompt_id": "c32645e4-a506-4204-86be-428d47dc3e66"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "3",
+      "display_node": "3",
+      "prompt_id": "c32645e4-a506-4204-86be-428d47dc3e66"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "8",
+      "display_node": "8",
+      "prompt_id": "c32645e4-a506-4204-86be-428d47dc3e66"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "10",
+      "display_node": "10",
+      "prompt_id": "c32645e4-a506-4204-86be-428d47dc3e66"
+    }
+  },
+  {
+    "type": "instaraw-interactive-images",
+    "data": {
+      "uid": "10",
+      "urls": [
+        {
+          "filename": "ComfyUI_temp_hjabi_00001_.png",
+          "subfolder": "",
+          "type": "temp"
+        },
+        {
+          "filename": "ComfyUI_temp_hjabi_00002_.png",
+          "subfolder": "",
+          "type": "temp"
+        },
+        {
+          "filename": "ComfyUI_temp_hjabi_00003_.png",
+          "subfolder": "",
+          "type": "temp"
+        },
+        {
+          "filename": "ComfyUI_temp_hjabi_00004_.png",
+          "subfolder": "",
+          "type": "temp"
+        }
+      ],
+      "allsame": false,
+      "extras": [
+        "",
+        "",
+        ""
+      ],
+      "tip": "",
+      "video_frames": 1,
+      "unique": 321186
+    }
+  },
+  {
+    "type": "instaraw-interactive-images",
+    "data": {
+      "tick": 299,
+      "uid": "10",
+      "unique": 321186
+    }
+  },
+  {
+    "type": "instaraw-interactive-images",
+    "data": {
+      "tick": 299,
+      "uid": "10",
+      "unique": 321186
+    }
+  },
+  {
+    "type": "instaraw-interactive-images",
+    "data": {
+      "tick": 298,
+      "uid": "10",
+      "unique": 321186
+    }
+  },
+  {
+    "type": "instaraw-interactive-images",
+    "data": {
+      "tick": 298,
+      "uid": "10",
+      "unique": 321186
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "9",
+      "display_node": "9",
+      "prompt_id": "c32645e4-a506-4204-86be-428d47dc3e66"
+    }
+  },
+  {
+    "type": "executed",
+    "data": {
+      "node": "9",
+      "display_node": "9",
+      "output": {
+        "images": [
+          {
+            "filename": "harness_selector_multi_00001_.png",
+            "subfolder": "",
+            "type": "output"
+          }
+        ]
+      },
+      "prompt_id": "c32645e4-a506-4204-86be-428d47dc3e66"
+    }
+  },
+  {
+    "type": "execution_success",
+    "data": {
+      "prompt_id": "c32645e4-a506-4204-86be-428d47dc3e66",
+      "timestamp": 1785972600055
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": null,
+      "prompt_id": "c32645e4-a506-4204-86be-428d47dc3e66"
+    }
+  }
+]

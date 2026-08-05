@@ -1,0 +1,117 @@
+{
+  "run_id": "20260805-223205-OFMTech_NSFW",
+  "status": "fail",
+  "failure_class": "frontend-load",
+  "message": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "url": "http://127.0.0.1:18188",
+  "workflow": "OFMTech_NSFW",
+  "mode": "no-submit",
+  "load_path_used": "ui",
+  "comfyui_version": "0.15.1",
+  "frontend_version": "1.39.19",
+  "prompt_posted": false,
+  "prompt_http_status": null,
+  "prompt_id": null,
+  "api_graph": null,
+  "outputs": [],
+  "timings_ms": {
+    "boot_ms": 4357,
+    "load_ms": 3561
+  },
+  "counts": {
+    "boot_errors": 9,
+    "load_errors": 2,
+    "run_errors": 0
+  },
+  "errors": [
+    {
+      "t_ms": 247,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "at": "http://127.0.0.1:18188/user.css:0"
+    },
+    {
+      "t_ms": 1356,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "error",
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/rgthree.js",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1357,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "error",
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_any_input_connected_node.js",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1357,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "error",
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/image_comparer.js",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1357,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "error",
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node_mode_changer.js",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1357,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "error",
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/seed.js",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1357,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "error",
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node.js",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1358,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "error",
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/dialog.js",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1372,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "error",
+      "text": "[vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at http://127.0.0.1:18188/extensions/ComfyUI_Swwan/feature_import_individual_nodes.js:5:5",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 4669,
+      "phase": "load",
+      "kind": "console.error",
+      "severity": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "at": "http://127.0.0.1:18188/api/userdata/workflows%2F.index.json:0"
+    },
+    {
+      "t_ms": 4923,
+      "phase": "load",
+      "kind": "console.error",
+      "severity": "error",
+      "text": "[RPG] ERROR: detailsElement not found - probably not on Generate tab",
+      "at": "http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/reality_prompt_generator.js:8280"
+    }
+  ],
+  "artifacts_dir": "/workspace/nsfw-fix/results/browser/20260805-223205-OFMTech_NSFW"
+}
