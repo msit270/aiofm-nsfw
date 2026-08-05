@@ -96,26 +96,33 @@ SWITCH_LIKE = re.compile(r"switch|branch|conditional|impactif|selector|multiplex
 # Loading / normalising
 # ---------------------------------------------------------------------------
 
+def die(msg: str) -> "NoReturn":  # type: ignore[name-defined]
+    """Usage / parse error. Exit 2, per the contract in the module docstring —
+    sys.exit(str) would exit 1 and be indistinguishable from 'graphs differ'."""
+    sys.stderr.write(f"graph_diff: {msg}\n")
+    raise SystemExit(2)
+
+
 def load_graph(path: str) -> dict[str, dict]:
     """Accept either a bare API graph or a full POST /prompt body."""
     try:
         with open(path, "r", encoding="utf-8") as fh:
             data = json.load(fh)
     except FileNotFoundError:
-        sys.exit(f"graph_diff: no such file: {path}")
+        die(f"no such file: {path}")
     except json.JSONDecodeError as exc:
-        sys.exit(f"graph_diff: {path} is not valid JSON: {exc}")
+        die(f"{path} is not valid JSON: {exc}")
 
     if isinstance(data, dict) and "prompt" in data and isinstance(data["prompt"], dict):
         data = data["prompt"]
 
     if not isinstance(data, dict):
-        sys.exit(f"graph_diff: {path} is not an API-format graph (expected an object keyed by node id)")
+        die(f"{path} is not an API-format graph (expected an object keyed by node id)")
 
     bad = [k for k, v in data.items() if not isinstance(v, dict) or "class_type" not in v]
     if bad:
-        sys.exit(
-            f"graph_diff: {path} does not look like an API-format graph: "
+        die(
+            f"{path} does not look like an API-format graph: "
             f"{len(bad)} entr(y|ies) without a class_type, e.g. {bad[:3]}.\n"
             "  This tool takes API format (what the browser POSTs to /prompt), not the\n"
             "  UI/litegraph workflow file. browser_harness writes api_graph.json for you."
@@ -334,7 +341,7 @@ def main() -> int:
     renames = {}
     for item in args.rename:
         if "=" not in item:
-            sys.exit(f"graph_diff: --rename wants OLD=NEW, got {item!r}")
+            die(f"--rename wants OLD=NEW, got {item!r}")
         old, new = item.split("=", 1)
         renames[old] = new
 
@@ -347,7 +354,8 @@ def main() -> int:
     if not args.no_fold:
         ga, log_a, cav_a = fold(ga)
         gb, log_b, cav_b = fold(gb)
-        caveats = cav_a + cav_b
+        seen: set[str] = set()
+        caveats = [c for c in (cav_a + cav_b) if not (c in seen or seen.add(c))]
 
     diffs = diff(ga, gb)
 

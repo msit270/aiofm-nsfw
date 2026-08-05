@@ -437,7 +437,7 @@ async function main() {
   let execInterrupted = false;
   let cancelledByHarness = false;
   let installedAt = null;
-  let selectorInfo = { driven: false, appeared: false, images: 0, picked: null, sent_at_ms: null };
+  let selectorInfo = { driven: false, appeared: false, images: 0, picked: null, sent_at_ms: null, foreignSeen: false };
 
   // finish() is the single exit point. It never decides *whether* the run failed
   // from its argument — that comes from the accumulated `failures` list, so a
@@ -992,6 +992,23 @@ async function main() {
   const POPUP = 'instaraw-imgae-filter-popup.instaraw_popup';
   const driveSelectorIfPresent = async () => {
     if (!opt.driveSelector || selectorInfo.driven) return;
+    // The popup is broadcast to every connected browser, so one can appear here
+    // that belongs to a render queued by somebody else. Only ever answer our own:
+    // clicking Send on a foreign selector would hand another workstream's render
+    // an image it did not choose.
+    try {
+      const q = await (await fetch(`${opt.url}/queue`)).json();
+      if (!(q.queue_running || []).some(it => it[1] === promptId)) {
+        if (!selectorInfo.foreignSeen) {
+          const any = await page.locator(`${POPUP}:not(.hidden) .grid img`).count().catch(() => 0);
+          if (any) {
+            selectorInfo.foreignSeen = true;
+            log('  selector      a selector popup is showing but OUR prompt is not the one running; leaving it alone');
+          }
+        }
+        return;
+      }
+    } catch { return; }
     let imgs;
     try {
       imgs = page.locator(`${POPUP}:not(.hidden) .grid img`);
