@@ -264,10 +264,13 @@ the `hf upload` command is run by hand.
   image. A22 is too strong. It also saved no measurable time, so the "free speed"
   argument is unsupported too. **No change shipped**; it is purely a look
   question and the A/B pair is saved for the owner.
-- **This pipeline appears deterministic under fixed seeds: 4 of 4 control arms
-  pixel-identical**, pairwise MSE exactly 0 and max abs diff 0 levels across all
-  six pairs at 2688×3456, all submitting the identical API graph. Consistent with
-  every sampler being `"fixed"` and the exposed seed not advancing.
+- **This pipeline appears deterministic under fixed seeds: 5 of 5 control arms on
+  the A graph pixel-identical, plus 2 of 2 on the B graph**, pairwise MSE exactly
+  0 and max abs diff 0 levels at 2688×3456. Consistent with every sampler being
+  `"fixed"` and the exposed seed not advancing. The weight is carried by
+  `A3_control_repeat`, which had **zero** cached nodes — every sampler re-ran
+  from scratch — and still matched, so this is not an artifact of ComfyUI handing
+  back a cached tensor.
   **This does not lift the ban on hash-comparing rendered output.** That ban was
   written about the **sibling video pipeline**, it has not been overturned, and
   determinism observed on four samples is not determinism guaranteed. Use the
@@ -386,7 +389,24 @@ New, all paid for this run:
 ## 8. Still open
 
 - The five selling blockers (§4, `QUESTIONS.md` §0).
-- D1's image change needs an eye on it.
+- **Three A/B pairs need an eye on them.** All under `results/ws4/`, each with the
+  exact submitted `api_graph.json` beside it. Nobody here can judge any of them:
+  - **D1**, the VAE round-trip: `A_baseline/…00001_.png` vs
+    `B_no_vae_roundtrip/…00005_.png` — PSNR 30.63 dB, SSIM 0.857.
+  - **D3**, the first face pass: `B…00005_.png` vs
+    `C_no_sdxl_face_pass/…00006_.png` — face crop 27.69 dB, 32.8 % of face pixels
+    moving more than 8 levels.
+  - **A3**, the skin filter at `#87 ImageBlend` 1.0 vs 0.5: `B…00005_.png` vs
+    `D_skinblend_050/…00011_.png` — 33.88 dB, SSIM 0.924; 80.4 % of pixels move
+    but only 7.9 % by more than 8 levels, the signature of a whole-frame filter.
+- **The written negative prompts cannot apply.** `#114`, `#165` and `#406` all run
+  at `cfg = 1`, so classifier-free guidance is off and `#105`'s carefully-written
+  negative has no effect. A buyer told by `#649` to fill in the positive sees a
+  populated negative beside it and will reasonably assume it protects them; if
+  they add to it because of artefacts, nothing changes and nothing tells them
+  why. Unchanged — raising cfg alters output and deleting the text destroys
+  information — but it wants a decision. Note `#167` is already empty, which
+  suggests someone worked this out for one node and not the others.
 - The multi-image selector needs one real browser click.
 - Ten stale `rgthree.compare._temp_*.png` filenames are baked into the shipped
   workflow — a buyer gets 404s the moment they open it. The harness counts them

@@ -1,0 +1,37 @@
+{
+ "label": "A3/Q-D: #87 ImageBlend blend_factor 1.0 vs 0.5",
+ "a": "/workspace/nsfw-fix/results/ws4/B_no_vae_roundtrip/HasMetadata_00005_.png",
+ "b": "/workspace/nsfw-fix/results/ws4/D_skinblend_050/HasMetadata_00011_.png",
+ "size_a": [
+  2688,
+  3456
+ ],
+ "size_b": [
+  2688,
+  3456
+ ],
+ "full_frame": {
+  "psnr_db": 33.88,
+  "identical": false,
+  "ssim": 0.923755,
+  "mean_abs_diff_levels": 2.9733,
+  "max_abs_diff_levels": 170.0,
+  "pct_pixels_gt_1_level": 80.3648,
+  "pct_pixels_gt_8_levels": 7.8988
+ },
+ "face_box_xywh": [
+  1047,
+  507,
+  710,
+  710
+ ],
+ "face_crop": {
+  "psnr_db": 29.05,
+  "identical": false,
+  "ssim": 0.779567,
+  "mean_abs_diff_levels": 5.4317,
+  "max_abs_diff_levels": 170.0,
+  "pct_pixels_gt_1_level": 89.6968,
+  "pct_pixels_gt_8_levels": 24.4988
+ }
+}
