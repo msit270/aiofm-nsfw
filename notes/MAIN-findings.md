@@ -217,6 +217,53 @@ directly to `#587.in[4]` and `#619.in[8]`.
 
 ---
 
+## 3b. The newer frontend the file was authored on has the identical defect
+
+`OFMTech_NSFW.json` carries `extra.frontendVersion: "1.41.20"` while ComfyUI
+0.15.1 pins **1.39.19**. That raised a competing explanation for why the author
+never saw the error: perhaps their newer editor resolved these links fine.
+
+**It does not.** I downloaded `comfyui-frontend-package==1.41.20` from PyPI and
+compared the original TypeScript sources out of both wheels' sourcemaps:
+
+| source file | 1.39.19 sha256[:16] | 1.41.20 sha256[:16] | identical |
+|---|---|---|---|
+| `litegraph/src/LLink.ts` | `65f981e1d43a72ae` | `65f981e1d43a72ae` | **yes** (15,505 B both) |
+| `litegraph/src/subgraph/ExecutableNodeDTO.ts` | `4b0b9c68c4f83953` | `b8dd5ebf3ccec49b` | no (13,909 → 13,999 B) |
+| `litegraph/src/subgraph/SubgraphNode.ts` | `f6a819d9a4d8d31c` | `7d597d3a975b08cd` | no (20,780 → 44,188 B) |
+
+`LLink.resolve` — the function whose branch order causes the throw — is
+**byte-identical between the two versions**. And `ExecutableNodeDTO.ts`, although
+it changed slightly, still contains the same throw reached the same way:
+
+```ts
+const innerResolved = node.resolveSubgraphOutputLink(slot)
+if (!innerResolved) return
+
+const innerNode = innerResolved.outputNode
+if (!innerNode)
+  throw new Error(
+    `No output node found for id [${this.id}] slot [${slot}] ${output.name}`
+  )
+```
+
+**Consequences.**
+1. The author would have hit this error too, had they pressed Run in a browser on
+   the machine that saved the file. Frontend version is **not** why it went
+   unseen — which leaves the API-harness explanation (§4) as the only one
+   standing. This is corroboration by elimination, and it is the kind this
+   project keeps needing: a competing hypothesis killed by comparing against
+   something rather than by thinking harder.
+2. **Upgrading the frontend is not a fix**, and would not have been. Removing the
+   construct, as WS1 did, is the only available repair.
+3. The residual recurrence risk is narrower than feared: not "a newer editor
+   spontaneously emits these", but "deleting a node that sits between a subgraph
+   input and output may reconnect them directly". That is an editing hazard to
+   document, not a version trap. I did not drive 1.41.20's UI to confirm the
+   deletion behaviour — **unverified**.
+
+---
+
 ## 4. Why no test caught it — server side, checked independently of WS1
 
 `server.py:889` takes `prompt = json_data["prompt"]` and passes it to
