@@ -209,8 +209,25 @@ the `hf upload` command is run by hand.
 - The blocker's mechanism, from the frontend source.
 - Flattening is frontend-only, from the server source.
 - The fix is routing-identical: 88 vs 88 nodes, 0 differences.
-- The graph renders end to end in a browser, twice, from two sessions.
+- The graph renders end to end in a browser, from three independent sessions.
 - Output is 2688×3456.
+- **The buyer journey, as one continuous session** — the user's stated bar. Opened
+  `OFMTech_NSFW` from the Workflows sidebar, **picked both LoRAs and typed a
+  prompt and seed in the browser**, pressed Run, answered the selector, got an
+  image. Verified not from the script's own log but from the API graph the
+  **server** embedded in the PNG it wrote:
+
+      618  Lora Loader Stack (rgthree)   lora_01 = 'lunaskye.safetensors'
+      116  Lora Loader Stack (rgthree)   lora_01 = 'luna.safetensors'
+      483  prompt_batch_data            positive_prompt = "photorealistic portrait
+                                        photograph of a woman on a balcony at
+                                        golden hour…"   seed = 987654
+      505  SaveImage → HasMetadata_00010_.png   2688×3456   12,477,643 bytes
+      pageerrors: none
+
+  This is the join that the other two renders did not cover: they used shipped
+  defaults, so they tested *render* but not *configure-then-render*. Nobody has
+  judged the image.
 - D4 cannot alter a submitted prompt (`serialize: false`).
 - Both `popup.js` defects and both fixes, against the real expressions — **and
   the Send-button fix confirmed in a real browser with a real 4-image batch**:
@@ -255,18 +272,40 @@ the `hf upload` command is run by hand.
   written about the **sibling video pipeline**, it has not been overturned, and
   determinism observed on four samples is not determinism guaranteed. Use the
   graph diff.
-- **Timing on this pod cannot be measured at this granularity, and one conclusion
-  was retracted because of it.** Four control arms doing *provably identical*
-  work took **209.8 s, 210.6 s, 214.2 s and 311.9 s** — a 102 s spread. An earlier
-  "removing the round-trip costs +31 %" finding came from n=2 and did not survive:
-  both D1 and D3 land *inside* that band. Wall-clock was rightly discarded for
-  server-side `execution_start → execution_success`, but that only substituted a
-  less noisy instrument and then treated it as noise-free. **There is no measured
-  timing regression from any change this run.** Caveat on the spread itself: it
-  was measured on a GPU shared with three concurrent workstreams, so it is a
-  property of this pod under contention, not a number a buyer on a dedicated pod
-  would see. (The 48.7 % spread is a coincidence of digits with CLAUDE.md's
-  48.7 dB noise figure — different quantity, different units, unrelated.)
+- **No timing number from this run is comparable to any other, and the reason is
+  ComfyUI's execution cache — not GPU contention.** This was got wrong three
+  times, and the third correction is the one to carry forward.
+  Wall-clock was discarded first (it includes queue wait; identical graphs took
+  485.7 s and 752.9 s). Server-side `execution_start → execution_success` on n=2
+  then produced "D1 makes the render 31 % slower", which was a less noisy
+  instrument treated as noise-free. A four-arm control killed that, and the
+  spread was attributed to a shared GPU — **also wrong**: ComfyUI serialises the
+  queue and history timestamps show each prompt starting ~1 s after the previous
+  finished. There was no concurrency to contend for.
+  The server records the real cause in every history entry's `execution_cached`:
+
+  | arm | exec | cached nodes | `619:617` cached? |
+  |---|---|---|---|
+  | `A_baseline` | 214.2 s | 49 | yes |
+  | `A2_control` | 210.6 s | 57 | yes |
+  | `A4_control` | 209.8 s | 57 | yes |
+  | `A3_control` | **311.9 s** | **0** | no — fully cold |
+  | `B_no_roundtrip` | 280.5 s | 53 | no |
+  | `B2_no_roundtrip` | 280.2 s | 53 | no |
+  | `C_no_face_pass` | 280.8 s | 52 | no |
+
+  Each arm did a different amount of real work, decided by what the *previous*
+  prompt left cached. The fast A runs had the whole base generator including
+  `#617 UltimateSDUpscale` served from cache; B and C re-point `619:617.image`,
+  which changes `#617`'s input signature and invalidates it, so `#617` actually
+  ran — that is the ~70 s, not the change. `A3` cached nothing (an unrelated
+  1.8 s prompt ran before it and evicted everything) and is **the only honest
+  full-graph number in the set**.
+  **There is no measured timing regression from any change this run.** To measure
+  timing here at all, control what is cached — or read `execution_cached` and
+  only compare arms that match.
+  (The 48.7 % spread is a coincidence of digits with CLAUDE.md's 48.7 dB noise
+  figure — different quantity, different units, unrelated.)
 - Whether the multi-image selector defect strands a buyer **was** the open
   question here. It is now **proven and closed** — see the entry in the proven
   list above. Carried as unresolved in `notes/WS1-report.md` §8, which was
@@ -330,6 +369,17 @@ New, all paid for this run:
 6. **The graph moves under the documentation faster than the documentation is
    rewritten.** Six claims in `AUDIT.md`/`MAP.md`/`QUESTIONS.md` described nodes
    that no longer exist. Re-check node ids against the file before acting.
+7. **You cannot compare render times across arms without controlling ComfyUI's
+   execution cache.** A change that alters any node's input signature
+   invalidates that node's cache entry, so the *changed* arm re-runs work the
+   baseline skipped — and the difference looks exactly like the change costing
+   time. Read `execution_cached` in the history entry and only compare arms with
+   matching cache state, or force a cold run. This produced a wrong "+31 %"
+   conclusion and then a wrong "it is GPU contention" explanation of the wrong
+   conclusion.
+8. **Substituting a less noisy instrument is not the same as validating it.**
+   Wall-clock → server-side timestamps felt like rigour and was still n=2 treated
+   as noise-free. Ask what the denominator is before believing any measurement.
 
 ---
 
