@@ -1,0 +1,42 @@
+Licence for modules/color_profiles/sRGB_IEC61966-2-1_no_black_scaling.icc
+=========================================================================
+
+Publisher : International Color Consortium (ICC)
+Registry  : https://registry.color.org/rgb-registry/black_scaled_2009_srgb
+File      : https://registry.color.org/rgb-registry/profiles/sRGB_IEC61966-2-1_no_black_scaling.icc
+
+Copyright notice, read from the profile's own `cprt` tag:
+
+    Copyright International Color Consortium, 2009
+
+Licence, quoted verbatim from the ICC registry page above. Note that the ICC
+states this profile "has different licensing terms from the standard ICC
+profile license", so the general ICC profile licence does NOT apply here:
+
+    To anyone who acknowledges that the file
+    sRGB_IEC61966-2-1_no_black_scaling.icc is provided "AS IS" WITH NO
+    EXPRESS OR IMPLIED WARRANTY, permission to use, copy and distribute
+    these file for any purpose is hereby granted without fee, provided that
+    the file is not changed including the ICC copyright notice tag, and that
+    the name of ICC shall not be used in advertising or publicity pertaining
+    to distribution of the software without specific, written prior
+    permission. ICC makes no representations about the suitability of this
+    software for any purpose.
+
+("these file" is the ICC's own wording, reproduced unaltered.)
+
+Conditions this package must keep meeting
+-----------------------------------------
+
+1. The profile must be shipped byte-unchanged, including its embedded `cprt`
+   copyright tag. The copy in this package was verified against the ICC's own
+   file: 3,052 bytes, md5 ce7471dab641af1016dfc8f3482da966. If any colour tool
+   ever re-saves it, the grant lapses.
+2. The ICC's name must not be used in advertising or publicity about the
+   distribution of this package without ICC's prior written permission.
+3. The "AS IS" acknowledgement above is a condition of the grant, which is why
+   this licence text is shipped with the package.
+
+Note (not a licence condition): the ICC registry marks this profile as
+deprecated, superseded by sRGB2014.icc after a 2014 corrigendum to IEC 61966.
+It is still distributed by the ICC for compatibility with existing workflows.
