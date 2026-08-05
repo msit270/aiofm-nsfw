@@ -142,3 +142,46 @@ copied in on demand with `--install`.
 **Open for whoever cuts the tarball:** confirm the packaging step ships only
 `OFMTech_NSFW.json` into `user/default/workflows/`. I have not audited the
 packaging script — that is SETUP.md's territory, not mine.
+
+## Q13. Does rendering a pre-configured fixture prove the buyer journey?
+
+**Taken: no, and I said so rather than banking the easier green run.**
+
+I was offered a pre-built `WS6_acceptance.json` with both LoRA slots and the
+prompt already saved into the file, to run with `--drive-selector`. Rendering it
+would have produced a green result against the user's stated bar — *"open ComfyUI
+once, pick my two LoRAs, set a prompt, press Run, get an image"*.
+
+But it would have proven "a correctly-configured file converts, submits and
+renders", and the **picking** and the **setting** are the claim. Baking them into
+the JSON assumes away the thing under test. My harness drives the selector; it
+does not perform the configure step. Those are two different claims and the
+second is the one that matters.
+
+Main agreed and took the acceptance journey as one continuous browser session
+instead — load, configure, Run, drive selector, image — which is the only version
+that tests the join between configure and render.
+
+**The general rule this is an instance of:** a green result whose setup contains
+the thing being tested is worth less than an honest gap. This project's whole
+problem is a test that passed on a path the buyer does not take.
+
+## Q14. Which failure classes to demonstrate versus claim
+
+**Taken: demonstrate (a) and (b); state plainly that (c) is implemented but not
+yet demonstrated.**
+
+(a) `frontend-conversion` is the red fixture. (b) `server-validation` needed a
+deliberately invalid graph — `steps: -5` against the server's `min: 1` — which
+costs no GPU because the prompt is rejected before it queues.
+
+(c) `execution` cannot be demonstrated without a render that fails mid-flight,
+and GPU time on this shared pod is contended. A fixture is prepared
+(`INSTARAW_ImageFilter` with `timeout: 20` and no `--drive-selector`, which
+raises `InterruptProcessingException` on an empty selection — the documented
+behaviour a buyer hits by walking away) but was not queued, because main is
+waiting on the same GPU for the acceptance journey, which is worth more.
+
+Detection for (c) is via the websocket `execution_error` / `execution_interrupted`
+frames plus `/history` status, and it is deliberately **not** ignorable by the
+ignore-list. That is implementation, not evidence, and the report says so.

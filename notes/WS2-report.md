@@ -493,6 +493,14 @@ Where it must not be over-read, and this is in the vendored file's header:
 Stated plainly rather than papered over.
 
 - **The multi-image selector interaction.** See §8.
+- **Failure class (c), execution error.** Implemented — detected from the
+  websocket `execution_error` / `execution_interrupted` frames and `/history`
+  status, and deliberately not ignorable — but **not demonstrated**. It needs a
+  render that fails mid-flight, and GPU time on this shared pod went to work
+  worth more. A fixture is prepared (`INSTARAW_ImageFilter` with `timeout: 20`
+  and no `--drive-selector`, which raises `InterruptProcessingException` on an
+  empty selection) and not queued. Classes (a) and (b) are demonstrated above;
+  this one is code I have read, not output I have seen.
 - **A buyer's environment.** Everything here is one pod with ~20 extra packs
   installed. The ignore-list's `environment` entries are reasoned from which packs
   the bootstrap installs, not observed on a clean machine.
