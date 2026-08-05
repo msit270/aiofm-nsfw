@@ -331,7 +331,15 @@ New, all paid for this run:
 - The multi-image selector needs one real browser click.
 - Ten stale `rgthree.compare._temp_*.png` filenames are baked into the shipped
   workflow — a buyer gets 404s the moment they open it. The harness counts them
-  under `scope=product-known`; **that counter should be zero.**
+  under `scope=product-known`; **that counter should be zero.** Worse than it
+  first looks: because the sidebar and `loadGraphData` paths were proved to
+  differ on exactly `419.inputs.rgthree_comparer`, that state is **real payload
+  POSTed to the server on every buyer run**, not a UI artifact.
+- **`node_identifier` is persisted in the saved workflow file**, so the `unique`
+  check meant to stop a selector message reaching the wrong client cannot do its
+  job: two browsers with the same workflow open both accept it, and either can
+  answer somebody else's pause. The harness works around it; the product does
+  not.
 - `reality_prompt_generator.js` ships saturated with leftover `console.log`
   developer instrumentation.
 - `INSTALL MODELS.txt` step 1 tells the buyer a one-line `bash <(wget …)` install
