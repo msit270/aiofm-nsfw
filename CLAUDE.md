@@ -24,21 +24,31 @@ around it.
 
 ## Your environment — read this first
 
-**You are running on a local machine. There is no ComfyUI here, no models,
-and no GPU.** You cannot install packs, run the graph, render, or measure
-anything.
+**Check what you are actually on before you believe anything in this section.**
+This repo runs in two very different environments and the section below was
+written for only one of them.
 
-That is deliberate. This session is for the work that does not need a GPU, and
-that is more of the job than it sounds — mapping the graph, naming the stages,
-finding the dead paths, resolving node repos, reading the INSTARAW source.
+    nvidia-smi -L                                    # GPU?
+    curl -s 127.0.0.1:18188/system_stats             # ComfyUI running?
+    ls /workspace/ComfyUI/models                     # models present?
 
-Where something genuinely needs a running graph, **write down what you would
-test and exactly how, in `PROPOSALS.md`, and move on.** A later session on a
-rented pod will execute those. A precise, ordered list of experiments is a real
-deliverable — treat it as one, not as a footnote.
+**If those come back empty — the GPU-less local machine this was written for:**
+you cannot install packs, run the graph, render, or measure anything. That is
+deliberate. The session is for the work that does not need a GPU, and that is
+more of the job than it sounds — mapping the graph, naming the stages, finding
+the dead paths, resolving node repos, reading the INSTARAW source. Where
+something genuinely needs a running graph, **write down what you would test and
+exactly how, in `PROPOSALS.md`, and move on.** A precise, ordered list of
+experiments is a real deliverable — treat it as one, not as a footnote. Do not
+simulate, guess at, or estimate anything that would need a render. If you
+cannot know it there, say so plainly.
 
-Do not simulate, guess at, or estimate anything that would need a render. If
-you cannot know it here, say so plainly.
+**If those come back populated — a pod:** the render half of the work is on the
+table and is expected of you. Run the graph, do the A/Bs, measure. The
+verification standard below does not relax; it gets stricter, because now you
+can be wrong with evidence in hand. In particular the ban on hashing rendered
+output still stands, and everything output-changing still needs an A/B pair
+plus objective deltas rather than a verdict.
 
 ---
 
