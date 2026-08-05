@@ -8278,7 +8278,12 @@ DO NOT use tags like "1girl, solo" or similar categorization prefixes.`;
 						detailsElement.addEventListener('toggle', updateDetailsContent);
 						console.log("[RPG] Event listener attached successfully");
 					} else {
-						console.error("[RPG] ERROR: detailsElement not found - probably not on Generate tab");
+						// Expected: the Advanced <details> and its preview button are only
+						// rendered on some tabs, which is why active_tab is logged just above.
+						// Kept as a diagnostic, not an error -- this fired on every buyer's
+						// first load and was the only thing our own harness flagged as a
+						// shipped defect.
+						console.debug("[RPG] details element absent (not on the Generate tab) - skipping preview toggle");
 					}
 
 					// Unified Generate button (MAIN HANDLER)
