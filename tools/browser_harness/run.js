@@ -1019,12 +1019,30 @@ async function main() {
     selectorInfo.images = await imgs.count();
     const idx = Math.min(Math.max(0, opt.selectorPick), selectorInfo.images - 1);
     log(`  selector      image selector popup appeared with ${selectorInfo.images} image(s); clicking #${idx} then Send`);
+    // The Send button lives on the popup's floating window, which is appended to
+    // document.body rather than inside <instaraw-imgae-filter-popup>, so this query
+    // is deliberately document-wide. popup.js:122-125.
+    const send = page.locator('button.control:visible').filter({ hasText: /^Send$/ });
+    if (!(await send.count())) {
+      addFailure('selector', 'image selector popup appeared but no visible Send button was found');
+      return;
+    }
+    // popup.js disabled() sets the real DOM .disabled property, so this is a true
+    // assertion on the buyer-visible state, not a guess.
+    const enabledBefore = await send.first().isEnabled();
+
     await imgs.nth(idx).click();
     selectorInfo.picked = idx;
-    const send = page.locator(`button.control:visible`).filter({ hasText: /^Send$/ });
-    const n = await send.count();
-    if (!n) {
-      addFailure('selector', 'image selector popup appeared but no visible Send button was found');
+    await sleep(300); // let redraw()/render() run
+
+    const enabledAfter = await send.first().isEnabled();
+    selectorInfo.send_enabled_before_pick = enabledBefore;
+    selectorInfo.send_enabled_after_pick = enabledAfter;
+    log(`  selector      Send enabled before pick=${enabledBefore}, after pick=${enabledAfter}`);
+    if (!enabledAfter) {
+      // This is the shipped defect: with >1 image the button never enabled and the
+      // buyer was stranded until the 600 s timeout sent nothing.
+      addFailure('selector', `clicked image #${idx} of ${selectorInfo.images} but the Send button is still disabled — the buyer cannot proceed`);
       return;
     }
     await send.first().click();

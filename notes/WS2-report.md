@@ -569,6 +569,49 @@ $ python3 tools/preflight/integrity.py tools/fixtures/harness_selector_multi.jso
 
 Four images at `#603`, and it costs seconds of GPU rather than four minutes.
 
+**Which route to multi-image this exercises, and which it does not.** The fixture
+gets four images by setting `batch_size 4` on the latent. A buyer reaches
+multi-image the other way, through `#602 BatchFromImageList` fed by several
+prompts. The popup code downstream of `#603` is identical either way — it
+receives an image tensor of batch N and knows nothing about where N came from —
+so this is a valid test of the Send-button behaviour. It is **not** a test of the
+batch-from-prompts path, and nobody should later read it as one.
+
+### How the harness asserts it
+
+`popup.js:179-181` — `disabled(item, value) { item.disabled = value }` — sets the
+real DOM `.disabled` property, so `isEnabled()` is a true reading of what the
+buyer sees, not an inference. The harness therefore:
+
+1. finds the Send button **before** clicking anything and records `isEnabled()`
+2. clicks the chosen thumbnail
+3. records `isEnabled()` again
+4. **fails** with `clicked image #N of M but the Send button is still disabled —
+   the buyer cannot proceed` if the enable did not happen
+
+That is a positive reading of buyer-visible state rather than the absence of a
+symptom — a click that merely times out could mean many things. Against the
+shipped defect, step 4 is what would fire.
+
+The Send button is located document-wide on purpose: it hangs off
+`this.floating_window.body`, appended to `document.body`, **not** inside
+`<instaraw-imgae-filter-popup>` (`popup.js:122-125`).
+
+### A node-count reconciliation, from two independent directions
+
+The API graph exported from the current tree has **86** nodes, where earlier
+captures had 88. Both numbers are accounted for, and the two lines of evidence do
+not depend on each other:
+
+- *By arithmetic* (main's, GPU-free): 107 nodes in the file − 3 `MarkdownNote`
+  (frontend-only) − 7 subgraph hosts − 11 nodes inside the bypassed anatomy stage
+  = **86**. The drop from 88 is WS4's D1 removing `#597` and `#616`.
+- *By diff* (mine): `graph_diff` on WS1's control/fix pair reports 88 vs 88 and
+  **0 differences**, so the blocker fix itself changed nothing in the submitted
+  graph. The node count moved for a different, known reason.
+
+One counts, the other compares; neither uses the other's method.
+
 ### Result
 
 STATUS_PLACEHOLDER
