@@ -342,8 +342,8 @@ class Popup extends HTMLElement {
 			var graph = app.graph;
 			var node;
 			bits.forEach((bit) => {
-				node = graph._nodes_by_id[bit];
-				graph = node.subgraph;
+				node = graph?._nodes_by_id?.[bit];
+				graph = node?.subgraph;
 			});
 		}
 		return node;
