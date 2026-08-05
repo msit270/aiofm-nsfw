@@ -1,0 +1,156 @@
+OFM Tech NSFW -- installation
+
+Read step 0 before you start. Steps 1-3 are the whole install.
+
+
+0. WHAT YOUR GPU NEEDS
+
+This workflow peaked at 40.3 GB of VRAM on a measured end-to-end render at the
+shipped 896x1152 base resolution, and produced a 2688x3456 image in about four
+minutes.
+
+That was measured on a 95 GB card, which is more than the workflow needs -
+ComfyUI uses the memory that is there. Starting ComfyUI with
+
+    --fast dynamic_vram --reserve-vram N
+
+brought the peak down to 32.6 GB with no change to the workflow, at about 6%
+more time. Note it did NOT leave the image identical, so treat it as a setting
+to test rather than a free win.
+
+No 24 GB card has been tested. We do not know whether a 4090 runs this, and we
+are not going to claim either way until someone measures it. If 24 GB is what
+you have, try it - and if it runs out of memory, lower the base resolution
+(Width/Height inside the "1. Canvas & Routing" subgraph) and expect to lose
+output size with it.
+
+
+1. RUN THE SETUP SCRIPT
+
+Unpack this folder somewhere on the pod - /workspace is fine - then in the
+Jupyter terminal:
+
+    cd /workspace/OFMTech-NSFW
+    bash aiofm_setup.sh
+
+Run it THIS WAY, from inside the unpacked folder. The script copies
+ComfyUI_INSTARAW and the workflow from beside itself, so it has to be able to
+see them. If you paste a one-line "bash <(wget ...)" command instead, the
+models still download but you will NOT get the custom nodes or the workflow,
+and nothing will tell you until the graph opens full of red boxes.
+
+The script will ask for a HuggingFace token if it cannot find one. Put it in
+place first with:
+
+    echo "hf_your_token_here" > /workspace/.hf_token
+
+That is the whole install. It fetches every model, installs every custom node
+pack at the exact version this workflow was built against, copies the
+ComfyUI_INSTARAW folder into custom_nodes for you, and puts the workflow into
+your ComfyUI workflow list.
+
+It needs ~176 GB of disk and lands 89 model files.
+
+How long it takes is dominated by your pod's download speed, so we are not
+going to quote a figure we cannot promise. What we have measured, on a pod
+with an empty custom_nodes directory, is the part that does NOT depend on
+your connection:
+
+    cloning the 18 custom node packs      28 s
+    resolving their pip dependencies      36 s
+
+So roughly a minute of the run is setup and the rest is the models coming
+down. The script prints its own elapsed time and total downloaded when it
+finishes.
+
+If it stops partway, run it again. It resumes downloads rather than starting
+over, and skips anything already present.
+
+When it finishes it prints a summary. The two lines that matter are:
+
+    workflow nodes : all 88 present
+    integrity      : OK
+
+If either says anything else, stop and read the warnings above it.
+
+
+2. ADD YOUR OWN LoRAs
+
+Put your character LoRAs in /workspace/ComfyUI/models/loras
+
+The workflow has two LoRA slots at the top level and they are NOT
+interchangeable -- they feed two different model families:
+
+  "Your SDXL LoRa"  -> SDXLNSFW.safetensors
+                       Drives the base image, the hands pass and both upscales.
+                       This slot needs an SDXL LoRA.
+
+  "Your ZIT LoRa"   -> zimage.safetensors  (Z-Image)
+                       Drives the face detail, mouth detail and eye passes.
+                       This slot needs a Z-Image LoRA.
+
+Putting an SDXL LoRA in the Z-Image slot, or the reverse, will not error
+loudly. It will just fail to apply your character.
+
+Both slots ship set to "None", so the workflow renders a generic person until
+you fill them in.
+
+
+3. RESTART COMFYUI, THEN OPEN THE WORKFLOW
+
+Restart ComfyUI, then hard-reload the browser tab (Ctrl-Shift-R, or Cmd-Shift-R
+on a Mac). Custom nodes only load at startup, and the browser caches the old
+interface across a restart.
+
+Open "OFMTech_NSFW" from your workflow list.
+
+
+DO NOT USE COMFYUI MANAGER
+
+Do not run "Update All" and do not run "Install Missing Custom Nodes".
+
+Every node pack is pinned to a specific commit that this workflow was built
+and tested against. Manager moves those pins, and the failures it causes are
+quiet ones -- a widget silently reading the wrong value rather than an error
+message. If nodes are red after the setup script, you have not restarted
+ComfyUI yet. Restart first.
+
+
+WHEN YOU RENDER: THE IMAGE SELECTOR WILL WAIT FOR YOU
+
+Partway through the render a selector window opens and the pipeline STOPS
+there until you choose. This is deliberate -- it lets you reject a bad base
+image before paying for the expensive detail passes.
+
+If you walk away and it times out, it currently sends nothing onward and you
+get no image at all. That is the shipped default ("send none", 10 minutes).
+
+
+BEFORE YOU EXPECT GOOD FACES: FILL IN THE FACE PROMPT
+
+Inside the face-and-mouth subgraph, the node titled "Face Detailer Prompt"
+ships with the literal placeholder text:
+
+    TRIGGER, PROMPT FOR YOUR MODEL
+
+That text is the prompt for the single most expensive pass in the workflow --
+about 30% of total render time, at the highest denoise setting in the graph.
+Replace it with your LoRA's trigger word and a description of your character.
+
+
+NOTES
+
+- The three detector files (lips_v1.pt, nipple.pt, pussyV2.pt) do NOT need to
+  be moved by hand any more. The setup script places them in
+  models/ultralytics/bbox for you. Earlier versions of these instructions said
+  otherwise and used the names "lipsv1", "pussy2" and "nipple", which do not
+  match the real filenames.
+
+- Do NOT run "pip install -r ComfyUI_INSTARAW/requirements.txt" by hand.
+  Earlier instructions said to. The setup script installs that pack's
+  dependencies through a filter that keeps it from downgrading numpy and
+  swapping your OpenCV build for an incompatible one.
+
+- The "authentic metadata" save nodes also need the exiftool binary, which pip
+  cannot supply:  apt-get install -y libimage-exiftool-perl
+  The main workflow does not use those nodes, so this is optional.
