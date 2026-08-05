@@ -226,15 +226,38 @@ the `hf upload` command is run by hand.
   round-trip was doing. It was a no-op in intent, not in effect. **A/B pair:**
   `results/ws4/A_baseline/HasMetadata_00001_.png` versus
   `results/ws4/B_no_vae_roundtrip/HasMetadata_00005_.png`. **Nobody here can
-  judge which is better.** Reverting is one commit (`423df24`).
-- **The control repeat came back bit-identical** (`ssim 1.0`, `mean_abs_diff 0.0`).
-  That is **not** a zero noise floor — it is a small number of samples from a
-  distribution whose documented failure mode is "five agreed, the sixth did not".
-  It is consistent with genuine determinism, since every sampler is `"fixed"` and
-  the exposed seed does not advance. State it with its sample size attached; do
-  not silently upgrade it into "so any difference I see is real". Note CLAUDE.md
-  attributes the 48.7 dB noise and the three wrong verdicts to the **sibling
-  video pipeline**, not this one.
+  judge which is better.** Reverting is one commit (`423df24`). It was kept
+  because the justification rests on the graph diff — two nodes removed, one
+  input re-pointed, nothing else moved across 86 shared nodes — and **not** on
+  pixels or clocks.
+- **The first face pass is not cosmetically irrelevant.** `AUDIT.md` A22 says
+  pass 3 at denoise 0.80 "largely erases" pass 1. Deleting `#607
+  FaceDetailerPipe` as a single variable gives full-frame PSNR 32.56 dB / SSIM
+  0.900 and face-crop PSNR 27.69 dB / SSIM 0.723, with 32.8 % of face pixels
+  differing by more than 8 levels — pass 1 measurably survives into the final
+  image. A22 is too strong. It also saved no measurable time, so the "free speed"
+  argument is unsupported too. **No change shipped**; it is purely a look
+  question and the A/B pair is saved for the owner.
+- **This pipeline appears deterministic under fixed seeds: 4 of 4 control arms
+  pixel-identical**, pairwise MSE exactly 0 and max abs diff 0 levels across all
+  six pairs at 2688×3456, all submitting the identical API graph. Consistent with
+  every sampler being `"fixed"` and the exposed seed not advancing.
+  **This does not lift the ban on hash-comparing rendered output.** That ban was
+  written about the **sibling video pipeline**, it has not been overturned, and
+  determinism observed on four samples is not determinism guaranteed. Use the
+  graph diff.
+- **Timing on this pod cannot be measured at this granularity, and one conclusion
+  was retracted because of it.** Four control arms doing *provably identical*
+  work took **209.8 s, 210.6 s, 214.2 s and 311.9 s** — a 102 s spread. An earlier
+  "removing the round-trip costs +31 %" finding came from n=2 and did not survive:
+  both D1 and D3 land *inside* that band. Wall-clock was rightly discarded for
+  server-side `execution_start → execution_success`, but that only substituted a
+  less noisy instrument and then treated it as noise-free. **There is no measured
+  timing regression from any change this run.** Caveat on the spread itself: it
+  was measured on a GPU shared with three concurrent workstreams, so it is a
+  property of this pod under contention, not a number a buyer on a dedicated pod
+  would see. (The 48.7 % spread is a coincidence of digits with CLAUDE.md's
+  48.7 dB noise figure — different quantity, different units, unrelated.)
 - **The multi-image selector interaction is NOT verified in a browser.** The
   Send-button fix rests on a logic proof against the real expression, which is
   exact but is not a click. The single-image path auto-picks and is exactly what
