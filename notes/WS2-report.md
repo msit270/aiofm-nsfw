@@ -140,6 +140,38 @@ genuinely usable as a signal rather than permanent noise.
 The 9 s conversion check is the number that matters: it is cheap enough to run on
 every edit, and it is the check that would have caught the shipped blocker.
 
+### Failure class (b) — server-side validation — demonstrated
+
+Claiming the harness distinguishes three failure classes is worth nothing until
+each has been seen. `harness_known_good` with `steps` hand-edited to `-5` (below
+the server's `min: 1`, and no GPU is used because the prompt is rejected before
+it queues):
+
+```
+$ node tools/browser_harness/run.js -w harness_bad_validation \
+    --install .../bad_validation.json --no-execute --cleanup-install
+
+FAILURE — (b) SERVER-SIDE VALIDATION REJECTION (HTTP 400)
+  The frontend converted the graph and POSTed it. ComfyUI refused it at
+  validation. Graph/model/widget problem, not a frontend conversion problem.
+
+    "node_errors": {
+      "3": {
+        "errors": [ { "type": "value_smaller_than_min",
+                      "message": "Value -5 smaller than min of 1",
+                      "details": "steps", ... "received_value": -5 } ],
+        "dependent_outputs": [ "9" ],
+        "class_type": "KSampler"
+
+EXIT=1
+status: fail | classes: ['server-validation'] | http: 400 | posted: True
+```
+
+Contrast with the red fixture: `posted: True` and `http: 400` here, versus
+`prompt_posted: false` and no HTTP status at all there. **That difference is the
+whole point of separating the classes** — one means the graph never left the
+browser, the other means it left and was refused.
+
 ### The ignore-list is auditable, and it is doing real work
 
 `--no-default-ignores` on the same known-good workflow that otherwise passes
