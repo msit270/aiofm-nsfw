@@ -1533,8 +1533,26 @@ echo ""
 stage "Workflow node check"
 CN_DIR="$COMFYUI_DIR/custom_nodes"
 NODE_FAIL=0
+# Counted, not hardcoded. This stage used to end with a literal
+# `all 40 workflow node types present`. The 40 happened to be arithmetically
+# right -- 27 loop-driven check_node calls + 9 direct + 3 check_web_node + 1
+# inline Any Switch -- but only by hand-maintenance, and it sat on the same
+# screen as the summary's `workflow nodes : all 88 present` with nothing to
+# explain why a buyer was being shown two different numbers for what reads like
+# the same thing. They measure different things:
+#
+#   this stage : are the FILES on disk? A source grep or a marker file, over a
+#                fixed baseline list. No Python is imported, so a pack that is
+#                present but broken passes here.
+#   the 88     : the union of that baseline with the node types read out of the
+#                shipped workflow json, checked against a running server's
+#                /object_info. That is the authoritative one.
+#
+# Deriving the number means it can never drift from the list again.
+NODE_CHECKED=0
 
 check_node() {   # $1 = pack directory name, $2 = node type string
+    NODE_CHECKED=$((NODE_CHECKED+1))
     local d="$CN_DIR/$1"
     if [[ ! -d "$d" ]]; then
         printf '      %sMISSING PACK%s  %-34s provides: %s\n' "$C_R" "$C_0" "$1" "$2"
@@ -1599,6 +1617,7 @@ check_node ComfyUI_Swwan              DrawMaskOnImage
 #
 # For all four, check the real marker that proves the node will be available.
 check_web_node() {   # $1 = pack dir, $2 = marker file relative to it, $3 = node name
+    NODE_CHECKED=$((NODE_CHECKED+1))
     if [[ -f "$CN_DIR/$1/$2" ]]; then return 0; fi
     printf '      %sMISSING NODE%s  %-34s expected in: %s/%s\n' "$C_R" "$C_0" "$3" "$1" "$2"
     NODE_FAIL=$((NODE_FAIL+1))
@@ -1609,6 +1628,7 @@ check_web_node ComfyUI-KJNodes web/js/setgetnodes.js      SetNode
 check_web_node ComfyUI-KJNodes web/js/setgetnodes.js      GetNode
 check_web_node rgthree-comfy   web/comfyui/label.js       "Label (rgthree)"
 
+NODE_CHECKED=$((NODE_CHECKED+1))
 if [[ -d "$CN_DIR/rgthree-comfy" ]]; then
     grep -rqF 'get_name("Any Switch")' "$CN_DIR/rgthree-comfy" 2>/dev/null \
         || { printf '      %sMISSING NODE%s  Any Switch (rgthree)\n' "$C_R" "$C_0"; NODE_FAIL=$((NODE_FAIL+1)); }
@@ -1618,9 +1638,9 @@ else
 fi
 
 if [[ "$NODE_FAIL" -eq 0 ]]; then
-    ok "all 40 workflow node types present"
+    ok "all $NODE_CHECKED node types found on disk (static check of the installed packs)"
 else
-    warn "$NODE_FAIL workflow node type(s) unavailable — the graph will show red nodes"
+    warn "$NODE_FAIL of $NODE_CHECKED node types not found on disk — the graph will show red nodes"
 fi
 
 # ============================================
@@ -1731,9 +1751,16 @@ def from_workflow(script_dir):
             nodes.extend(s.get("nodes", []))
         for n in nodes:
             t = n.get("type")
-            # Skip notes and subgraph HOSTS (whose "type" is a subgraph uuid,
-            # not a registered node class). Bypassed nodes are kept on purpose:
-            # they still show red in the UI if their pack is missing.
+            # This filter is LOAD-BEARING, not tidiness. Note and MarkdownNote
+            # are frontend-only: the browser draws them and they never appear in
+            # /object_info. Without this skip, a completely healthy install
+            # reports a phantom missing node type and the buyer is told, by the
+            # one line INSTALL MODELS.txt tells them to check, that their
+            # install failed. Same reasoning for subgraph HOSTS, whose "type" is
+            # a subgraph uuid rather than a registered node class.
+            #
+            # Bypassed nodes are kept on purpose: they still show red in the UI
+            # if their pack is missing.
             if t and t not in ("Note", "MarkdownNote") and t not in subs:
                 found.add(t)
     return found

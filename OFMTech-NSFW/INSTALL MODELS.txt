@@ -49,7 +49,18 @@ pack at the exact version this workflow was built against, copies the
 ComfyUI_INSTARAW folder into custom_nodes for you, and puts the workflow into
 your ComfyUI workflow list.
 
-It needs ~176 GB of disk and lands 89 model files.
+DISK: provision at least 250 GB.
+
+The models come to about 180 GiB, which is ~194 GB in the units pod providers
+usually quote. Those are two different numbers for the same thing and confusing
+them is how an install runs out of space at 95%. ComfyUI and the node packs add
+roughly another gigabyte on top.
+
+The script prints its own total when it finishes, and that is the authority on
+what actually landed. One thing to know before you compare it to anything: its
+file count is every file under models/, which includes 31 empty placeholder and
+config files that ComfyUI itself ships. So that count is larger than the number
+of real model weights, and both numbers are normal.
 
 How long it takes is dominated by your pod's download speed, so we are not
 going to quote a figure we cannot promise. What we have measured, on a pod
