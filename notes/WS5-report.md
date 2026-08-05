@@ -794,12 +794,91 @@ harness does this for you: `bash tools/verify_buyer_path.sh gist`.
   pack has not gone out yet; if it has, the release note should say "delete
   `/workspace/OFMTech-NSFW`".
 - **The `Workflow node check` stage checks the video workflow's node list.**
-  `aiofm_setup.sh:1531-1573` is a hardcoded list of Wan/KJ/VHS node types, and
-  it printed `✓ all 40 workflow node types present` during an NSFW install
-  without checking a single NSFW node type. The workflow-derived check that
-  *would* catch it (`comfy_verify_nodes`) only runs after a successful restart,
-  which is exactly the path I had to disable. Not a defect I introduced and not
-  a blocker, but that green tick means less than it looks like.
+  `aiofm_setup.sh:1531-1573` is a hardcoded list of Wan/KJ/VHS node types, and it
+  printed `✓ all 40 workflow node types present` during an NSFW install without
+  checking a single NSFW node type. The workflow-derived check that *would* catch
+  it (`comfy_verify_nodes`) only runs after a successful restart, which is
+  exactly the path I had to disable. **Partly addressed** — see §8b; the stage
+  still greps the baseline list, but it no longer claims to be checking this
+  workflow, and its count is derived rather than asserted.
+
+---
+
+## 8b. The two numbers a buyer is told to check
+
+`INSTALL MODELS.txt` tells a first-time buyer *"If either says anything else,
+stop and read the warnings above it."* That makes every number on that screen
+load-bearing: a wrong one turns a healthy install into an abandoned one.
+
+### `workflow nodes : all 88 present` — verified
+
+Main reproduced `comfy_verify_nodes`' union exactly:
+
+```
+hardcoded video list : 37
+derived from workflow: 51        (52 distinct types minus MarkdownNote)
+overlap              : 0
+UNION                : 88
+missing on this pod  : 0
+```
+
+That reconciles with my own independent figure — I derived **51** node types from
+`OFMTech_NSFW.json` and saw all 51 register against a live `/object_info`. So
+`INSTALL MODELS.txt:71`'s `all 88 present` is a **verified** figure, not an
+aspirational one, and this is the first time it has been confirmed end to end.
+
+The `Note`/`MarkdownNote` skip in `from_workflow` is what makes it come out
+right: both are frontend-only and never appear in `/object_info`, so without the
+filter a completely healthy install reports a phantom missing type — on the one
+line the buyer has been told to stop at. I have marked that filter
+**LOAD-BEARING** in the source so nobody tidies it away.
+
+### `all 40 workflow node types present` — fixed
+
+This was a hardcoded literal ending a stage that greps files on disk. The 40 was
+arithmetically correct (27 loop-driven `check_node` + 9 direct + 3
+`check_web_node` + 1 inline `Any Switch`), but only by hand-maintenance — and it
+sat on the same screen as `all 88 present` with nothing explaining why a buyer
+saw two different numbers for what reads like the same thing.
+
+Now derived from a `NODE_CHECKED` counter and relabelled to say what it counted:
+
+```
+✓ all 40 node types found on disk (static check of the installed packs)
+```
+
+Both branches verified by running the real block: against a missing
+`custom_nodes` it reports `40 of 40 node types not found`; against the installed
+tree, `NODE_CHECKED = 40, NODE_FAIL = 0`. The two stages now describe different
+kinds of evidence — files on disk versus types registered by a running server —
+and the source says which is authoritative.
+
+### `~176 GB of disk and lands 89 model files` — wrong, in the dangerous direction
+
+Neither figure was reproducible and four different denominators were in play
+(STATE.md's 84 files, the integrity check's 87, the repo's 74, this line's 89).
+Measured here:
+
+```
+  measured du -sb        : 191948075053 bytes
+  minus non-pack LoRAs   : -355845904      (another agent's, left in loras/)
+  plus SD1.5 (symlinked) : +2132696762     (a symlink into the pod image here,
+                                            a real file for a buyer)
+  buyer requirement      : 193724925911 bytes = 180.4 GiB = 193.7 GB decimal
+```
+
+**`~176 GB` under-provisions under either reading**, and a buyer who reads it as
+decimal GB — which is how pod disk is usually sold — is about 18 GB short and
+dies at 95%. Worth knowing why the units are treacherous here: the script's own
+`human()` divides by `1073741824` and labels the result `GB`, so every "GB" it
+prints is really GiB.
+
+Replaced with `provision at least 250 GB`, both units stated explicitly, and the
+sentence no longer depends on a file count. For the record, the count it invited
+buyers to compare against was 89 against a real 87 — of which 20 are empty
+`put_..._here` markers and 11 are ComfyUI `.yaml` configs, leaving **56 actual
+model weights**. The text now says the count includes those 31 so that neither
+number reads as a fault.
 
 ---
 
