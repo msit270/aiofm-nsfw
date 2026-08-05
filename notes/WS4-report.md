@@ -14,9 +14,6 @@ nothing in Part 1 is invalidated. My own two commits then took it to 107 nodes.
 Every claim below is traceable to a node id, a link id, or a file:line. Where I
 am inferring, it is marked **[I]**. Where I have not verified, it says so.
 
-Every claim below is traceable to a node id, a link id, or a file:line. Where I
-am inferring, it is marked **[I]**. Where I have not verified, it says so.
-
 ---
 
 ## Verdict table
