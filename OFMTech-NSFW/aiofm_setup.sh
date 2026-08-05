@@ -36,7 +36,14 @@ set -e
 # serves that exact revision forever, so a buyer who installs next month would
 # fetch today's script no matter how many times the gist had been fixed. This
 # form always serves the current file.
-SETUP_URL="${SETUP_URL:-https://gist.githubusercontent.com/msit270/70256ac1ebf2760e10f78804862db528/raw/aiofm_setupall.sh}"
+#
+# It named aiofm_setupall.sh, which does not exist. That gist holds exactly two
+# files -- aiofm_setupnsfw.sh and aiofm_setupvideo.sh -- confirmed against
+# api.github.com/gists/70256ac1…, and the raw URL for aiofm_setupall.sh returns
+# HTTP 404. Both places this URL is printed are recovery instructions given to a
+# buyer who is already stuck: "no HF_TOKEN" and "retry with fewer workers". Both
+# were handing them a command that pipes a 404 body into bash.
+SETUP_URL="${SETUP_URL:-https://gist.githubusercontent.com/msit270/70256ac1ebf2760e10f78804862db528/raw/aiofm_setupnsfw.sh}"
 
 # The pod image this pack is built and tested against. Printed at startup so it
 # travels with every copy of the script.
