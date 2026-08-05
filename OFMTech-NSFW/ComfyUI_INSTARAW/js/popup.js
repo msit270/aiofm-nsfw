@@ -697,6 +697,10 @@ class Popup extends HTMLElement {
 			if (this.picked.has(s)) this.picked.delete(s);
 			else this.picked.add(s);
 			this.redraw();
+			// redraw() only repaints thumbnail classes. The Send button's
+			// disabled state is computed in render() from this.picked.size,
+			// so without this the button never enables when you pick an image.
+			this.render();
 		}
 	}
 
