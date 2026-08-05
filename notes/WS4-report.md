@@ -894,3 +894,31 @@ next session's risk is repeating them rather than repeating my conclusions:
 The common thread is that every one of these was checkable from data I already
 had, and none of them would have been revealed by looking harder at the numbers
 themselves.
+
+---
+
+## Appendix — the skin-filter A/B (AUDIT.md A3 / Q-D)
+
+Not one of my five defects; run because main asked for it if cheap and because I
+had promised the pair in `WS4-questions.md`.
+
+Arm `D_skinblend_050` (`9760ac4e-a238-4516-a382-67df4ebdcc18`) is arm `B` with
+one input changed: `587:87.blend_factor` 1.0 → 0.5.
+
+| | full frame | face crop |
+|---|---|---|
+| PSNR | 33.88 dB | 29.05 dB |
+| SSIM | 0.924 | 0.780 |
+| pixels differing > 1 level | 80.4 % | 87 % |
+| pixels differing > 8 levels | 7.9 % | 24.5 % |
+
+- filter at 100 % (shipped): `results/ws4/B_no_vae_roundtrip/HasMetadata_00005_.png`
+- filter at 50 %: `results/ws4/D_skinblend_050/HasMetadata_00011_.png`
+
+Confirmed unchanged: at `blend_factor` 1.0 with `blend_mode "normal"`,
+`comfy_extras/nodes_post_processing.py:44-52` computes
+`image1*(1-1.0) + image2*1.0`, so `#87` returns `#91`'s output exactly and the
+un-filtered `#92 HandDetailer` image contributes nothing. The
+`x1_ITF_SkinDiffDetail_Lite_v1` filter runs at full strength with no blend back.
+
+**Shipped no change.** It is a look question. The pair is the deliverable.

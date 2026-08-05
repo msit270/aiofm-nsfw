@@ -149,9 +149,28 @@ Confirmed a genuine no-op: `blend_mode "normal"` returns `image2`, and at
 **My guess:** unintended — you do not wire both the original and the filtered
 image into a blend node and then set the factor so the original is discarded.
 
-**Action taken:** changed nothing (it is a quality call). Added as an extra arm
-to the A/B set so you can look at 1.0 against 0.5 rather than read an argument
-about it.
+**A/B run so you can look rather than read an argument.** Arm `D_skinblend_050`
+is arm `B` with the single input `587:87.blend_factor` changed from 1.0 to 0.5;
+the submitted graph is at `results/ws4/D_skinblend_050/api_graph.json`.
+
+| | full frame | face crop |
+|---|---|---|
+| PSNR | 33.88 dB | 29.05 dB |
+| SSIM | 0.924 | 0.780 |
+| mean abs diff | 2.97 levels | — |
+| pixels differing > 1 level | 80.4 % | — |
+| pixels differing > 8 levels | 7.9 % | 24.5 % |
+
+- filter at 100 % (shipped): `/workspace/nsfw-fix/results/ws4/B_no_vae_roundtrip/HasMetadata_00005_.png`
+- filter at 50 %: `/workspace/nsfw-fix/results/ws4/D_skinblend_050/HasMetadata_00011_.png`
+
+(`results/ws4/metrics_A3_blend_D_vs_B.json`.) Note this is a whole-frame skin
+filter, so the difference is spread across the image rather than concentrated —
+80.4 % of pixels move, but only 7.9 % move by more than 8 levels. Prompt id
+`9760ac4e-a238-4516-a382-67df4ebdcc18`.
+
+**Action taken:** changed nothing in the workflow. It is a quality call and the
+A/B pair is the deliverable.
 
 ---
 
