@@ -437,7 +437,7 @@ async function main() {
   let execInterrupted = false;
   let cancelledByHarness = false;
   let installedAt = null;
-  let selectorInfo = { driven: false, appeared: false, images: 0, picked: null, sent_at_ms: null, foreignSeen: false };
+  let selectorInfo = { driven: false, abandoned: false, appeared: false, images: 0, picked: null, sent_at_ms: null, foreignSeen: false, our_run_started_ms: null };
 
   // finish() is the single exit point. It never decides *whether* the run failed
   // from its argument — that comes from the accumulated `failures` list, so a
@@ -991,14 +991,24 @@ async function main() {
   // this selector depends on it). Send is a button.control created in the same file.
   const POPUP = 'instaraw-imgae-filter-popup.instaraw_popup';
   const driveSelectorIfPresent = async () => {
-    if (!opt.driveSelector || selectorInfo.driven) return;
+    if (!opt.driveSelector || selectorInfo.driven || selectorInfo.abandoned) return;
     // The popup is broadcast to every connected browser, so one can appear here
     // that belongs to a render queued by somebody else. Only ever answer our own:
     // clicking Send on a foreign selector would hand another workstream's render
     // an image it did not choose.
     try {
       const q = await (await fetch(`${opt.url}/queue`)).json();
-      if (!(q.queue_running || []).some(it => it[1] === promptId)) {
+      const oursRunningNow = (q.queue_running || []).some(it => it[1] === promptId);
+      if (oursRunningNow && selectorInfo.our_run_started_ms === null) selectorInfo.our_run_started_ms = Date.now();
+      if (oursRunningNow
+          && selectorInfo.our_run_started_ms !== null
+          && Date.now() - selectorInfo.our_run_started_ms > opt.selectorTimeoutMs
+          && !selectorInfo.appeared) {
+        selectorInfo.abandoned = true;
+        addFailure('selector', `--drive-selector was requested but no image selector popup appeared within ${opt.selectorTimeoutMs} ms of our prompt starting to run`);
+        return;
+      }
+      if (!oursRunningNow) {
         if (!selectorInfo.foreignSeen) {
           const any = await page.locator(`${POPUP}:not(.hidden) .grid img`).count().catch(() => 0);
           if (any) {
@@ -1024,6 +1034,7 @@ async function main() {
     // is deliberately document-wide. popup.js:122-125.
     const send = page.locator('button.control:visible').filter({ hasText: /^Send$/ });
     if (!(await send.count())) {
+      selectorInfo.abandoned = true;
       addFailure('selector', 'image selector popup appeared but no visible Send button was found');
       return;
     }
@@ -1042,6 +1053,7 @@ async function main() {
     if (!enabledAfter) {
       // This is the shipped defect: with >1 image the button never enabled and the
       // buyer was stranded until the 600 s timeout sent nothing.
+      selectorInfo.abandoned = true;
       addFailure('selector', `clicked image #${idx} of ${selectorInfo.images} but the Send button is still disabled — the buyer cannot proceed`);
       return;
     }
