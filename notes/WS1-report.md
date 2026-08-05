@@ -449,6 +449,12 @@ Artifacts: `results/ws1/control-api.json`, `results/ws1/fixed-api.json`,
 `results/ws1/apidiff.py`, `results/ws1/fix_passthrough.py`,
 `results/ws1/integrity.py`.
 
+The control workflow itself was deliberately **not** left in
+`/workspace/ComfyUI/user/default/workflows/` — a stray `ZZ_CONTROL_reroute`
+there is exactly the sort of thing that ends up in a tarball. Regenerate it in
+one command from the pre-fix file:
+`python3 results/ws1/fix_passthrough.py <pre-fix.json> control.json --control`.
+
 Spot-check that the diff is not vacuous — the routing that used to run through
 647 now resolves to the right sources in the fixed API graph:
 
