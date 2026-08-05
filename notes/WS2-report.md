@@ -140,6 +140,31 @@ genuinely usable as a signal rather than permanent noise.
 The 9 s conversion check is the number that matters: it is cheap enough to run on
 every edit, and it is the check that would have caught the shipped blocker.
 
+### The ignore-list is auditable, and it is doing real work
+
+`--no-default-ignores` on the same known-good workflow that otherwise passes
+with `ignored: 16`:
+
+```
+UNIGNORED ERRORS FROM OTHER PACKS (environment, still counted): 9
+  [boot/third-party-pack:ComfyUI_Swwan] ...
+PRODUCT-SIGNAL ERRORS (frontend core / ComfyUI_INSTARAW / unattributable): 7
+  [boot/comfyui-asset] Failed to load resource: ... 404
+  [boot/frontend-core] [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.
+RESULT: FAIL — 1 failure(s) in 1 class(es): frontend-load
+EXIT=1
+```
+
+All 16 reappear and the run goes red. Nothing is being hidden — the flag shows
+the raw truth, and the committed list is what makes the difference.
+
+`--cleanup-install` verified in the same run:
+
+```
+installed       tools/fixtures/harness_known_good.json
+cleanup         removed /workspace/ComfyUI/user/default/workflows/harness_known_good.json
+```
+
 ### graph_diff, both directions
 
 Zero differences on a graph against itself (the 86-node API graph the browser
@@ -206,6 +231,36 @@ EXIT=1
 ```
 
 Timing: **33 ms** on an 86-node graph.
+
+Two more behaviours checked, because a differ that misreports is worse than none:
+
+*It refuses a UI-format file instead of diffing it into nonsense*, and exits 2 so
+the caller can tell "you gave me the wrong file" from "the graphs differ":
+
+```
+$ python3 tools/graph_diff/graph_diff.py tools/fixtures/harness_known_good.json api_postfix.json
+graph_diff: ...harness_known_good.json does not look like an API-format graph:
+  10 entr(y|ies) without a class_type, e.g. ['id', 'revision', 'last_node_id'].
+  This tool takes API format (what the browser POSTs to /prompt), not the
+  UI/litegraph workflow file. browser_harness writes api_graph.json for you.
+EXIT=2
+```
+
+*An unknown switch-like node is reported, not silently skipped.* A synthetic
+`Some Impact Switch` was added to a graph and diffed against itself:
+
+```
+CAVEATS — things this diff did NOT fold or could not reason about: 1
+  ! node ZZ_unknown_switch is a Some Impact Switch: the name looks like it selects
+    between inputs but it is not in the fold table, so it was NOT folded. A change
+    that replaces it with a direct wire will show as a difference.
+
+RESULT: IDENTICAL — 0 differences.
+  NOTE: read the caveats above before reading this as unconditional.
+```
+
+That last line is the point. "0 differences" is qualified by what the differ
+could not reason about, rather than presented as unconditional proof.
 
 ---
 
@@ -406,13 +461,114 @@ Where it must not be over-read, and this is in the vendored file's header:
 Stated plainly rather than papered over.
 
 - **The multi-image selector interaction.** See §8.
-- **`--strict-boot`** has not been exercised on a run where it changes the verdict.
-- **`--load-mode api`** exists but every run in this session used `ui`
-  (`load_path_used: "ui"` in every `result.json`). The fallback path is untested.
 - **A buyer's environment.** Everything here is one pod with ~20 extra packs
-  installed. The ignore-list's `environment` entries are reasoned from which
-  packs the bootstrap installs, not observed on a clean machine.
-- **`graph_diff` on a real before/after pair of the shipped graph.** The pre-fix
-  graph cannot produce an API graph at all — that is the bug — so there is
-  nothing to diff it against. The differ was exercised on synthetic
-  perturbations of a real 86-node captured graph instead.
+  installed. The ignore-list's `environment` entries are reasoned from which packs
+  the bootstrap installs, not observed on a clean machine.
+
+### Closed since the first draft
+
+`--strict-boot` exercised on a run where it changes the verdict:
+
+```
+$ node tools/browser_harness/run.js -w OFMTech_NSFW --no-submit --no-default-ignores --strict-boot
+RESULT: FAIL — 16 failure(s) in 2 class(es): frontend-load, boot-noise
+EXIT=1
+```
+
+`--load-mode api` exercised, and it **reports itself honestly**:
+
+```
+open workflow   3363 ms   path=api-fallback  title="*Unsaved Workflow (2) - ComfyUI"  root-level nodes=17
+api graph       86 nodes
+RESULT: PASS  (no-submit)
+EXIT=0
+```
+
+Note the title still reads `*Unsaved Workflow (2)`. The fallback does not make the
+workflow "active", and the harness does not fake the title to cover that up — it
+records `load_path_used: "api-fallback"` and lets the screenshot show the truth.
+
+**The cross-check between the two load paths found something.** Diffing the API
+graph produced via the sidebar against the one produced via `loadGraphData`:
+
+```
+RESULT: DIFFERENT — 1 difference(s): input_removed=1
+
+  input_removed  419.inputs.rgthree_comparer  (Image Comparer (rgthree))
+                 was {"images": [{"name": "A", "selected": true,
+                      "url": "/api/view?filename=rgthree.compare....
+```
+
+The two paths are **not** equivalent. Opening the saved workflow properly carries
+the persisted comparer state into the submitted prompt; `loadGraphData` on raw
+JSON does not. Two consequences:
+
+1. `--load-mode api` is a genuine fallback, not a shortcut — a run that used it
+   has tested a slightly different graph. That is why the UI path is the default
+   and the path used is recorded on every run.
+2. The stale comparer state in §3.2 is not merely a UI artifact. It is **real
+   payload being POSTed to the server** on every run a buyer makes.
+
+### Now proven: graph_diff on a real before/after of the shipped graph
+
+An earlier draft of this section said this could not be done, because the pre-fix
+graph cannot produce an API graph at all — that is the bug. WS1 got round it by
+making the "before" convertible: a control that keeps the original root wiring and
+inserts frontend-virtual `Reroute` nodes. I ran **my** differ on that pair rather
+than citing the result:
+
+```
+$ python3 tools/graph_diff/graph_diff.py results/ws1/control-api.json results/ws1/fixed-api.json
+  A  results/ws1/control-api.json  (87 nodes after normalisation)
+  B  results/ws1/fixed-api.json    (87 nodes after normalisation)
+RESULT: IDENTICAL — 0 differences.
+EXIT=0
+
+real	0m0.033s
+```
+
+88 nodes each before normalisation, 87 after the `INSTARAW_BooleanBypass`
+passthrough is folded out of both. **WS1's fix is inert**, independently
+confirmed, in 33 ms and without a render.
+
+Incidentally this corroborates a claim `graph_diff`'s own docstring makes: both
+API graphs contain **zero** `Reroute` nodes even though the control was built by
+inserting them, because the frontend resolves virtual reroutes before export.
+That is why the fold table's `Reroute` entries are documented as only mattering
+for API graphs from other sources.
+
+---
+
+## 8. The multi-image image selector
+
+`#603 INSTARAW_ImageFilter` pauses every render for up to 600 s waiting for a
+human to pick an image. Main fixed a defect in it (`3afa7ed`) where, with more
+than one image, `select_unselect()` did not call `render()` after `redraw()`, so
+the Send button never became enabled and the buyer was stranded until the timeout
+sent nothing. That fix was established by logic proof against the real
+`sendDisabled` expression — exact, but not a click.
+
+**The single-image case must not be substituted for it.** With one image
+`handle_filter` auto-picks index 0, so Send opens already enabled; that is
+precisely the path that masked the defect.
+
+### The fixture
+
+`tools/fixtures/harness_selector_multi.json` — SD1.5, `batch_size 4`, 256x256,
+4 steps, feeding an `INSTARAW_ImageFilter` with `pick_list=""` (empty is what
+makes it wait for a human) and `timeout 300`. Built **through the real frontend**
+via the litegraph API so that litegraph did the link bookkeeping rather than me:
+
+```
+$ python3 tools/preflight/integrity.py tools/fixtures/harness_selector_multi.json
+--- tools/fixtures/harness_selector_multi.json: 0 problem(s) ---
+
+10 INSTARAW_ImageFilter [300, 'send none', 'Run selector normally', '', '', '', '', 0, '', 1, 321186]
+5  EmptyLatentImage      [256, 256, 4]
+```
+
+Four images at `#603`, and it costs seconds of GPU rather than four minutes.
+
+### Result
+
+STATUS_PLACEHOLDER
