@@ -1135,7 +1135,7 @@ if (( PIPED )); then
     printf '        ComfyUI_INSTARAW will NOT be installed and the workflow will\n'
     printf '        NOT appear in your workflow list. To get both, unpack the\n'
     printf '        pack and run the copy inside it:\n'
-    printf '            cd /workspace/OFMTech-NSFW && bash aiofm_setup.sh\n'
+    printf '            cd /workspace/AIOFMTech-NSFW && bash aiofm_setup.sh\n'
 fi
 
 # --- ComfyUI_INSTARAW: vendored, not cloned ---

@@ -30,7 +30,7 @@ output size with it.
 Unpack this folder somewhere on the pod - /workspace is fine - then in the
 Jupyter terminal:
 
-    cd /workspace/OFMTech-NSFW
+    cd /workspace/AIOFMTech-NSFW
     bash aiofm_setup.sh
 
 Run it THIS WAY, from inside the unpacked folder. The script copies
