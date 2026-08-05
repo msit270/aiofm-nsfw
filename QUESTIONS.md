@@ -1,180 +1,243 @@
 # QUESTIONS.md
 
-Per `CLAUDE.md`: each question carries my best guess, my reasoning, and the
-lower-risk option I took so the work could continue. Nothing here blocked me.
+Judgement calls, with the option taken and why. Nothing here blocked work.
+
+This file is the index. Each workstream's full working — evidence, file:line,
+rejected alternatives — is in `notes/WS<n>-questions.md`, and is not duplicated
+here.
+
+Read §0 first if you are deciding what to do next. Everything else is detail.
 
 ---
 
-## Q1 — Are `#483`'s five image inputs *meant* to be connected?
+# §0. What actually blocks selling
 
-**Context.** `INSTARAW_RealityPromptGenerator` has all five image inputs unlinked.
-This was framed as "either that is the bug, or it is fed some other way".
+Five things, collected in one place because they were found by four different
+workstreams and none of them is discoverable from the others.
 
-**Answer, from the source — it is neither, quite.** The image inputs are declared
-**`optional`** (`reality_prompt_generator.py:41-77`, all inside the `"optional"`
-dict opened at `:40`), and the workflow's slots carry `"shape": 7`, the
-optional-slot shape. Unlinked is a **legitimate state**: it selects txt2img.
-`execute` sets `resolved = "img2img" if image_count > 0 else "txt2img"` (`:208-212`).
+| # | What | Licence | Ships today? | Cost to fix |
+|---|---|---|---|---|
+| B1 | `SDXLNSFW.safetensors` — **LUSTIFY! GGWP (V7)**, the base checkpoint | `allowCommercialUse: ['RentCivit','Image']`, `allowDerivatives: False` | yes | buyers pull it from Civitai themselves |
+| B2 | `models/loras/dmd2_sdxl_4step_lora_fp16.safetensors` | **cc-by-nc-4.0** — no commercial use | **yes, confirmed** | delete from the HF repo **and** fix the video pack's `aiofm_setup.sh:810` |
+| B3 | UnMarker — `modules/detection_bypass/utils/{adaptive_filter,unmarker_losses}.py` | **non-commercial only**, `ai-watermark` LICENSE §3.3 | yes | code change, not `rm` — see below |
+| B4 | GrainNet — `modules/neural_grain/net.py`, `pretrained/neural_grain/grainnet.pt`, `nodes/utility_nodes/neural_grain_node.py` | **"All rights reserved… academic research use only"** | yes | same |
+| B5 | The pack states **no licence of its own** anywhere | — | — | someone must write it |
 
-Also worth knowing: **only `images` is ever read**. `images2`, `images3`,
-`images4`, `character_image` and `aspect_label` are accepted as parameters and
-referenced nowhere in the function body. Whatever they were for, the Python side
-does not use them; `js/reality_prompt_generator.js:9191-9219` reads linked image
-data client-side instead.
+**B1** permits selling generated images — the product's core use case is fine.
+The problem is redistributing the checkpoint file. **B2, B3 and B4 are stricter
+than B1**: they forbid commercial use outright.
 
-**So the unconnected inputs are not the bug.** The real defect is A0 — the prompt
-batch is stored under a key nothing reads.
+Two mechanics that make these non-obvious, and that caused the earlier
+"replaced" and "audit came back clean" conclusions to be wrong:
 
-**My guess:** these inputs are vestigial for txt2img use and only matter if you
-ship an img2img variant. **Action taken:** documented, changed nothing.
+1. **Dropping a file from the fetch list does not stop it shipping.** The default
+   install is one bulk `hf download --include "models/*"`, and `fnmatch`'s `*`
+   matches `/`, so it sweeps the whole tree recursively. The per-file `dl` lines
+   are only a fallback. **Only deleting from the repo stops delivery.** This is
+   exactly why B2 was recorded as "Replaced" — the graph and fetch list were
+   changed, and every buyer kept receiving the file.
+2. **Deleting B3/B4 naively takes the whole pack down.** Measured on an isolated
+   instance: INSTARAW goes from **95 registered node types to 0**, with
+   `IMPORT FAILED` in a console nobody reads as the only symptom — including
+   `#483`, which supplies the prompt, negative and seed. Every import in the
+   chain is unconditional and top-level. A licence cleanup here is a code change
+   touching two `__init__.py` files plus four modules
+   (`pipeline.py`, `pipeline_v2.py`, `processor.py`, `non_semantic_attack.py`)
+   that **nobody has traced to a conclusion yet**. Trace those before deleting.
 
----
+Neither `INSTARAW_NeuralGrain` nor `INSTARAW_Spectral_Normalizer` appears in
+`OFMTech_NSFW.json`, so removing B3/B4 changes no rendered output.
 
-## Q2 — What should sg2's face detailer prompt actually say?
+**Nothing was deleted this run.** Licensing scope was Apache-only, and nothing
+reaches a buyer until the `hf upload` command is run by hand — so this is fully
+reversible and the decision is the owner's, with the evidence in front of them.
 
-**Context.** `#106` reads `"TRIGGER, PROMT FOR YOUR MODEL"` and drives the face
-pass at denoise 0.8 (`AUDIT.md` A4).
-
-This needs your text — it depends on the LoRA a buyer loads and on whether the
-Z-Image checkpoint wants a trigger word. I cannot invent it.
-
-**My guess:** it is meant to be replaced per-character, and the intended shape is
-`<lora trigger>, <character description>`. The fact that the *negative* (`#105`)
-is fully written while only the positive is a placeholder supports that.
-
-**Action taken:** left it exactly as-is and flagged it at S1. Changing it would
-alter output, which `CLAUDE.md` puts out of scope for this session.
-
-**Sub-question:** should `#105`/`#106` encode through the `#116` "Your ZIT LoRa"
-stack rather than the raw `#110` CLIP? Right now a buyer's Z-Image LoRA does not
-affect these encodes. I think it should, but that is an output-changing edit.
-
----
-
-## Q3 — Revive or delete the ControlNet + IPAdapter + depth path?
-
-**My recommendation: delete, and delete the branding node with it.**
-
-**Reasoning.**
-1. The path is **mis-wired**, not merely disabled — `#641 SetUnionControlNetType`
-   is in parallel with `#638`, so the union type is never applied (`AUDIT.md` A5).
-   Reviving it as-is gives a union ControlNet with no type set.
-2. It needs **four** separate repairs to work (`PROPOSALS.md` P12), including
-   wiring an image source that does not currently exist.
-3. It costs real install weight: `controlnet-union-sdxl-promax.safetensors`
-   (~2.5 GB), `depth_anything_v2_vitl.pth`, plus the IPAdapter models — **none of
-   which the setup script fetches** (`SETUP.md`). So today it is dead weight that
-   would also *fail to install*.
-4. The graph is committed to txt2img elsewhere: `#636 INSTARAW_LatentSwitch` is
-   `false` **and** `#631 VAEEncode` is bypassed. Two independent switches both say
-   txt2img.
-
-**Counter-argument I can see:** ControlNet + IPAdapter face conditioning is a
-plausible premium feature for a character-consistency product, and
-`IPAdapterUnifiedLoader` is set to `"PLUS FACE (portraits)"`, which is exactly
-the character-likeness use case. If that is on the roadmap, repair it properly as
-a separate feature rather than leaving a broken skeleton in the shipped graph.
-
-**Action taken:** the lower-risk option — **changed nothing**. Documented the
-mis-wiring so the decision is informed either way.
+Also unresolved, lower stakes: `models/checkpoints/v1-5-pruned-emaonly-fp16.safetensors`,
+2.13 GB of SD 1.5 under `creativeml-openrail-m`, referenced by nothing in either
+pack. Dead weight plus a milder version of the same flow-down problem. These two
+are the *complete* set of unreferenced non-placeholder files — all 74 `models/`
+entries were checked, not sampled.
 
 ---
 
-## Q4 — What are the `cnr_id: comfy-core, ver: 0.15.1` and `0.17.2` nodes?
+# §1. The pre-existing Q1–Q8, re-checked against this run
 
-**Context.** Six nodes carry `ver: "0.15.1"` and one carries `"0.17.2"` under
-`cnr_id: "comfy-core"`, while every other core node is in the `0.3.x` series
-(`AUDIT.md` A12).
+`Q1`–`Q8` were written before the destroyed-pod session. Four are now settled and
+one is moot. **Do not act on the originals without reading this table** — the
+graph moved underneath several of them.
 
-**My guess:** these are **frontend** package versions, not core versions —
-`comfyui-frontend-package` is in the 1.x range, but an older or differently-scoped
-version string may have been written into `properties.ver` by a particular build.
-I could not confirm this and I do not want to assert it.
+| | Original question | Status now |
+|---|---|---|
+| **Q1** | Are `#483`'s five image inputs meant to be connected? | **Stands.** They are `optional`; unlinked selects txt2img. Only `images` is ever read. |
+| **Q2** | What should sg2's face-detailer prompt say? | **Answered — and the premise was wrong.** See §1.1. |
+| **Q3** | Revive or delete the ControlNet + IPAdapter + depth path? | **Moot.** The path no longer exists. See §1.2. |
+| **Q4** | What are the `cnr_id: comfy-core, ver: 0.15.1 / 0.17.2` nodes? | **Still open.** Constrains nothing at load time; low value. |
+| **Q5** | Is `lumina2` the right `CLIPLoader` type for Qwen on Z-Image? | **Answered: yes.** The graph now renders end to end in a browser, so the encoder loads and drives three Z-Image passes. |
+| **Q6** | Are the six orphaned prompts worth recovering? | **Superseded.** `prompt_batch_data` now ships one real default prompt; the orphans remain unread. |
+| **Q7** | Should `ComfyUI_INSTARAW` be added to `NODE_REPOS`? | **Answered: no.** It is vendored into the archive and copied into place. |
+| **Q8** | Is `#98`'s whole-image tiling deliberate? | **Still open.** Peak VRAM still tracks the frame while the widgets read 512×512. |
 
-**Why it probably does not matter:** `properties.ver` is written at edit time and
-constrains nothing at load time. ComfyUI does not validate it.
+## §1.1 — Q2 was asking the wrong thing
 
-**Action taken:** recorded the fact, labelled the interpretation as unresolved,
-and derived the version floor from the `0.3.x` values only (max `0.3.70`).
+`#106`'s `"TRIGGER, PROMPT FOR YOUR MODEL"` is **not** an unfilled placeholder
+someone forgot. It is documented buyer-facing template text: root `#649
+MarkdownNote` tells the buyer, verbatim, to *"replace `TRIGGER, PROMPT FOR YOUR
+MODEL` with your LoRA's trigger word"*. Changing the node would desynchronise it
+from its own instructions. **Left exactly as-is, deliberately.**
 
----
+Two corrections fall out. `AUDIT.md` A4 and the original Q2 both quote the string
+as `PROMT` and call it "the typo" — **the file says `PROMPT`**; `grep -c "PROMT"`
+returns 0. And `#114` runs at **cfg 1**, so CFG is off and the fully-written
+negative `#105` is not applied at all — the negative is effectively as inert as
+the positive was assumed to be.
 
-## Q5 — Is `lumina2` the right `CLIPLoader` type for a Qwen encoder on Z-Image?
+The real finding underneath Q2 is bigger and was not part of the question:
+**a buyer's Z-Image LoRA reaches the UNet of all three Z-Image passes and the
+text encoder of none.** All three Z-Image text encodes take the raw `#110` CLIP.
+The LoRA'd CLIP that does reach `#114`/`#165` is consumed by nothing, because
+Impact only uses it when `wildcard != ""` and both are empty. The earlier "hidden
+third LoRA stack — Fixed" repaired the model path only.
 
-**Context.** sg2 `#110 CLIPLoader` = `qwen.safetensors`, type `lumina2`.
+**Not rewired, deliberately.** It is a no-op at the shipped all-`None` defaults;
+none of the three Z-Image LoRAs on this pod has any text-encoder tensors at all,
+so it would be a no-op even with one loaded; and the rewire means editing
+subgraph IO `linkIds`, which is the exact structure that produced this run's
+blocker. Latent, not demonstrable, and logged rather than risked. A buyer could
+bring a LoRA with a CLIP component, at which point it would matter.
 
-I cannot check ComfyUI's supported type list without a ComfyUI install, and I will
-not guess at a model-architecture detail.
+## §1.2 — Q3 is moot, and that is how the blocker got in
 
-**My guess:** it is correct, because the graph reportedly runs and a wrong CLIP
-type usually fails loudly at load rather than degrading quietly. But "reportedly
-runs" is not evidence I have.
+Searching every node in root and all seven subgraphs for ControlNet / IPAdapter /
+Depth / Branding / LatentSwitch / SetUnion returns **zero matches**. `#638`,
+`#639`, `#641`, `#645` do not exist. The file is now **109 nodes with exactly one
+bypassed node**, against CLAUDE.md's 132 and 24.
 
-**Action taken:** flagged in `MAP.md` §15 as unresolved. One line of the pod
-session's first run settles it — if the graph loads and sg2 produces sane faces,
-it is right.
-
-**Related, and more suspicious:** the setup script also fetches
-`qwen-4b-zimage-heretic-q8.gguf` into `text_encoders`. That name says
-*Z-Image* explicitly, while `qwen.safetensors` does not. If the graph is meant to
-use the GGUF, it would need `CLIPLoaderGGUF` from ComfyUI-GGUF, **which is not in
-any pack list**. Worth one look on the pod.
-
----
-
-## Q6 — Are the six orphaned prompts worth recovering?
-
-**Context.** `#483.properties.prompt_queue_data` holds six complete prompt
-entries that nothing reads (`AUDIT.md` A0).
-
-**My guess: no.** All six are interior/architectural photography — walk-in
-closets, a home theatre, people floating in a pool. For an NSFW character
-pipeline they read as leftover fixtures from unrelated testing, not as product
-content. They also all share `seed: 1111111`.
-
-**Action taken:** documented both options in `PROPOSALS.md` P0 and recommended
-authoring real prompts rather than migrating these. I did **not** modify the
-workflow — `CLAUDE.md` restricts edits to provably-inert changes, and this is
-not one.
-
----
-
-## Q7 — Should `ComfyUI_INSTARAW` be added to `NODE_REPOS`?
-
-**Context.** The setup script only checks whether the directory exists and prints
-a "still to do" line (`aiofm_setup.sh:1619-1624`); it never installs it.
-
-**Complication:** the pack has **no git remote in this folder, no
-`pyproject.toml`, no LICENSE, and no `cnr_id`** — so it cannot be resolved through
-`api.comfy.org` like the other six packs, and `NODE_REPOS` entries are
-`<url>|<sha>` pairs, which this has no URL for. The node's own metadata gives
-`aux_id: "instara-io/ComfyUI_INSTARAW"` and `ver: 12afb909b3380bd4a3f118061654dd72d1edcd4c`
-(`#645`), implying a private repo at `github.com/instara-io/ComfyUI_INSTARAW`.
-
-**My guess:** it is a private repo, so a buyer-facing script cannot clone it, which
-is exactly why `INSTALL MODELS.txt` step 3 tells the buyer to drag the folder in by
-hand.
-
-**Action taken:** in `SETUP.md` I proposed vendoring it into the distribution
-archive and copying it into place, rather than adding it to `NODE_REPOS` — and
-flagged that its `requirements.txt` must **not** be installed unfiltered
-(`AUDIT.md` A17). Recorded the `12afb909…` SHA as the provenance marker.
+That deletion is what created this run's blocker: `MAP.md` §4 records that
+`#638` carried positive/negative and `#644`→`#643` carried MODEL from the
+subgraph's inputs to its outputs while bypassed. Removing them reconnected the
+wires input-to-output directly, producing links the frontend cannot resolve.
+`AUDIT.md` A5, Q3 and STATE.md's unfixed list all describe a path that was
+already gone.
 
 ---
 
-## Q8 — Is `#98`'s whole-image tiling deliberate?
+# §2. This run's calls, by workstream
 
-**Context.** sg0 `#98 UltimateSDUpscale` has `tile_width`/`tile_height` wired from
-`GetImageSize`, so tiles equal the full frame.
+Full reasoning in the linked files. Only the call and its one-line basis here.
 
-**My guess: deliberate, to avoid tile seams** — `seam_fix_mode` is `"None"`, and
-whole-image tiling is the one configuration where that setting is safe. Someone
-probably hit seams and solved it this way.
+## The blocker — `notes/WS1-questions.md`
 
-**Why it is still a problem:** it makes peak VRAM scale with the buyer's chosen
-resolution, on hardware you do not control, while the widgets display a reassuring
-512×512.
+- **Delete the passthroughs rather than insert identity nodes.** The Reroute
+  variant works and was proven — it became the control — but it preserves a
+  pointless host-level cycle and makes the product depend on a frontend node
+  ComfyUI is actively migrating away from.
+- **Overruled the brief's rewire.** Wiring root consumers straight to 647's
+  sources would have produced a `619 → 619` self-edge; positive/negative belong
+  *inside* subgraph 2. MODEL was genuinely plain fan-out and was wired at root.
+- **Recomputing every subgraph's `linkIds` was in scope.** `linkIds` is
+  authoritative at runtime, five slots were corrupt, and it is covered by the
+  zero-diff proof.
+- **`#614 "ENABLE IMAGE FILTERING?"` ships `true` — flagged, not changed.** Every
+  render pauses behind a popup at ~0% GPU with a 600 s timeout that then sends
+  nothing. Defensible as a feature, questionable as a default. Output-changing,
+  so not touched.
+- **Unverified and worth a pod experiment:** whether frontend 1.41.x *emits*
+  `-10 → -20` links when a node between subgraph IO is deleted. `LLink.resolve`
+  is byte-identical in 1.41.20, so the newer editor throws the same way — but
+  whether its *editor* recreates the construct is untested, and if it does, any
+  future save can reintroduce this blocker invisibly.
 
-**Action taken:** documented in `AUDIT.md` A7, proposed the fixed-tile test in
-`PROPOSALS.md` P11 **with seam-hunting as the explicit kill criterion** rather
-than assuming seams were not the original motivation. Changed nothing.
+## The harness — `notes/WS2-questions.md`
+
+- **Boot errors do not gate; load and run errors do.** `--strict-boot` opts in.
+  A harness that is red before it does anything is one nobody reads.
+- **Ignoring is allowed only from a committed file with a per-entry
+  justification, and never silently** — matched errors are printed, counted and
+  listed. `frontend-conversion` and `execution` are never ignorable.
+- **`product-known` is a third scope with a loud banner**, for real defects in
+  what we ship. Filing them as benign would be a lie; leaving them fatal would
+  make the harness useless. **The list should be empty** — a later session
+  finding it growing is the signal to stop adding to it.
+- **`harness-error` is exit code 2, distinct from failure.** "The environment
+  prevented a verdict" and "the workflow is broken" must never be conflated.
+- **Refuse to dismiss another client's selector popup.** Cancel would abort
+  somebody else's render.
+- **`graph_diff` folds only three node types, each with a cited source.** An
+  over-claiming differ is worse than none; anything switch-like and not in the
+  table is reported as an explicit caveat.
+- **Open for packaging:** confirm only `OFMTech_NSFW.json` ships into
+  `user/default/workflows/`, not the test fixtures.
+
+## Licensing — `notes/WS3-questions.md`
+
+- **No bare `LICENSE` at the pack root.** 28 files carry `PROPRIETARY — ALL
+  RIGHTS RESERVED`; an Apache `LICENSE` there would read as covering the whole
+  pack and would work against the seller. Shipped `THIRD_PARTY_NOTICES.md` plus a
+  `licenses/` directory instead.
+- **The copyright line is constructed, not quoted.** Upstream declares none
+  anywhere. Derived from repository evidence and written into the notices so it
+  can be checked; an upstream-stated line would supersede it.
+- **Three unexplained no-op statements left alone** — `const _aq` in `utils.js`,
+  `const _ax` in `floating_window.js`, and 417 zero-width characters in
+  `image_filter.js`. If they are deliberate markers, someone should know they now
+  sit inside files the pack publicly attributes to a third party.
+
+## The graph defects — `notes/WS4-questions.md`
+
+- **`#106`'s text and the Z-Image CLIP path: changed nothing.** See §1.1.
+- **A/B renders submit `pick_list="0"` in the API prompt only**, identically in
+  every arm, workflow file untouched — otherwise no unattended render can
+  complete. Stated prominently because it is not the buyer's path.
+
+## Distribution — `notes/WS5-questions.md`
+
+- **`AIOFMTech-NSFW` wins; the directory changes, not the archive.** The
+  bootstrap hardcodes the archive path but reads the directory out of the archive
+  at run time, so renaming the directory needs no gist edit and republishes over
+  the same HF path. Renaming the archive would open a window where the user has
+  uploaded a pack no buyer can reach.
+- **The git source directory was not renamed** — it would rewrite paths three
+  other workstreams were editing. `build_pack.sh` renames at pack time and
+  asserts the result. Worth a clean `git mv` after merge.
+- **`INSTALL MODELS.txt` step 1 contradicts the delivery method** and was left
+  alone. It warns that a one-line `bash <(wget …)` install gets no custom nodes
+  or workflow — true of piping the installer, **false of the gist bootstrap**,
+  which is also a one-liner and exists to fix exactly that. A buyer handed the
+  bootstrap and then reading this has been told their working install is broken.
+  The fix is a rewrite, not an edit, and getting it wrong risks talking a buyer
+  out of the working path.
+- **`ComfyUI_INSTARAW` is copied, never overwritten** (`aiofm_setup.sh:1156`).
+  Correct for protecting a buyer's edits; it also means anyone re-running after
+  this re-cut keeps the **old** pack, licence files and all, and nothing tells
+  them. A version-aware update keyed on the `12afb909…` provenance marker is the
+  right answer.
+- **The `Workflow node check` stage checks the wrong workflow** — a hardcoded
+  Wan/KJ/VHS list that reported green during an NSFW install without looking at a
+  single NSFW node type. Reported, not fixed: editing check logic during a
+  distribution cut is the wrong moment.
+
+---
+
+# §3. Raised by the orchestrating session
+
+- **Do not delete B3/B4 in this run.** Scope was Apache-only, the delete is a
+  code change with a whole-pack outage as its failure mode, and nothing reaches a
+  buyer until the upload command is run by hand. Reversible, and the owner
+  decides with the evidence.
+- **`popup.js` fixed twice, both proven by running the real expressions rather
+  than reasoning about them.** `find_node` threw for any client whose graph did
+  not contain the broadcast node; the Send button never tracked the selection,
+  stranding a buyer with more than one image and letting a single-image buyer
+  submit an empty selection. Both ended at `raise InterruptProcessingException()`
+  — no image. **Not verified in a browser with a real multi-image batch.**
+- **`reality_prompt_generator.js`'s `console.error` downgraded to `debug`.**
+  Verified first that the element is conditionally rendered — if it were
+  unconditional its absence would be a real defect and the change would be wrong.
+  **Not fixed, and larger:** that region ships saturated with leftover
+  `console.log` developer instrumentation.
+- **A subagent ran an unscoped `POST /api/queue {"clear":true}`** on the shared
+  server to unstick what it wrongly believed was a hung render. A queue clear
+  removes pending items **without leaving any history entry**, so what was lost
+  cannot be recovered from `/history`. Recorded because the run's A/B evidence
+  depends on no arm having silently vanished.
+</content>
