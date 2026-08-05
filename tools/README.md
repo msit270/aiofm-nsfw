@@ -241,7 +241,16 @@ for a human to pick an image (600 s timeout, then it aborts the render). That is
 deliberate and documented to the buyer. Two consequences:
 
 1. A default full-render run **will** stall there. Use `--drive-selector` to do
-   what the buyer does: wait for the popup, click an image, press Send.
+   what the buyer does: wait for the popup, click an image, press Send. It
+   asserts the Send button's real DOM `.disabled` property before and after the
+   thumbnail click (`popup.js:179-181` sets it directly), recording
+   `send_enabled_before_pick` / `send_enabled_after_pick` in `result.json`, and
+   fails with `the buyer cannot proceed` if clicking a thumbnail does not enable
+   Send. That is the shipped defect this guards against, so the check is a
+   positive reading of buyer-visible state rather than a click that times out.
+   On a shared server it only ever answers **its own** prompt — it checks
+   `/queue` for its `prompt_id` first, because pressing Send on someone else's
+   selector would hand their render an image they did not choose.
 2. The popup is driven by a server broadcast that ComfyUI sends to **every**
    connected browser, so a render paused by someone else covers your page and
    swallows the Run click. The harness detects this before clicking, waits
