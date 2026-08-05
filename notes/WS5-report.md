@@ -37,14 +37,20 @@ That is not a cold install. Precisely:
 - **HF delivery of the *new* artifact**, because I have no upload mandate. The
   leg itself is proven against the *current* artifact (§4).
 
-**What the `integrity: OK` line actually means** — this is most of the value, so
-it is worth stating exactly. `aiofm_setup.sh:1424-1476` walks every file under
-`models/` and compares `stat -c %s` against a manifest of **byte-exact sizes
-fetched from the Hub API** at the start of the run, reporting short and
-over-size files separately with signed deltas. So `integrity: OK` on my run is a
-real, per-file, byte-exact size check of all 87 model files against the Hub's own
-figures — it is **not** a content hash. Hashing is done by `hf download` when it
-downloads; mine did not download, so no content hash was recomputed.
+**What the `integrity: OK` line actually means.** This is a genuinely strong
+check and deserves not to be undersold, but the distinction is exactly the kind
+of thing that gets rounded up later into "verified", so stating it precisely:
+
+> `integrity: OK` is a **per-file byte-exact size check of all 87 files against
+> the Hub API's own figures**. It is **not** a content hash, and my run
+> downloaded nothing.
+
+The mechanism is `aiofm_setup.sh:1424-1476`: it walks every file under `models/`,
+compares `stat -c %s` against a manifest of byte-exact sizes fetched from the Hub
+API at the start of the run, and reports short versus over-size files separately
+with signed deltas — the two having opposite remedies. Content hashing is done by
+`hf download` on the files it actually downloads; mine downloaded none, so no
+content hash was recomputed on this run.
 
 No render was performed and no image was judged.
 
@@ -158,7 +164,11 @@ once into a file and grepped there.
 
 `tools/compare_pack.sh OLD NEW` reports additions, removals and per-entry
 content changes, comparing paths *below* the top-level directory so the rename
-does not read as "164 removed, 167 added".
+does not read as "164 removed, 170 added".
+
+A note on reading its output: the ADDED block is printed with its count on the
+first line. I clipped that line with `tail` once and briefly thought WS3 had
+added five files rather than six. Read the whole block, or read the count.
 
 *(Final cut numbers: see §6.)*
 
@@ -594,13 +604,19 @@ not reading. ComfyUI itself still starts — it wraps custom-node loading — so
 nothing else looks wrong.
 
 **A removal re-cut is therefore a code change, not a file deletion.** It needs,
-at minimum: the two `from .` lines in `nodes/utility_nodes/__init__.py` (82 and
-100) and their two `NODE_CLASS_MAPPINGS` / `NODE_DISPLAY_NAME_MAPPINGS` entries
-removed, the `unmarker_full` import dropped from
-`modules/detection_bypass/utils/__init__.py:12` (and `'SpectralNormalizer'` from
-its `__all__` at line 30), plus whatever `pipeline.py` / `pipeline_v2.py` /
-`processor.py` / `non_semantic_attack.py` then need — those four also reference
-the UnMarker path and were not traced to a conclusion here.
+at minimum:
+
+- the two `from .` lines in `nodes/utility_nodes/__init__.py` (82 and 100), and
+  their `NODE_CLASS_MAPPINGS` / `NODE_DISPLAY_NAME_MAPPINGS` entries, removed;
+- the `unmarker_full` import dropped from
+  `modules/detection_bypass/utils/__init__.py:12`, and `'SpectralNormalizer'`
+  from its `__all__` at line 30;
+- **and then whatever `pipeline.py`, `pipeline_v2.py`, `processor.py` and
+  `non_semantic_attack.py` need. Those four also reference the UnMarker path and
+  I did not trace them to a conclusion.** That is not a caveat to tidy away: it
+  is the unbounded part of the job, and it is why "just delete the files" is the
+  wrong mental model. Anyone picking this up should start by tracing those four,
+  not by deleting anything.
 
 ### What a removal re-cut would cost
 

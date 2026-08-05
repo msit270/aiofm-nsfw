@@ -17,11 +17,39 @@ read from the Hub API, not from memory.
 STATE.md records DMD2 as **"Replaced."** That is true of the graph and of the
 fetch list, and I verified the replacement is genuine (TDD is different bytes,
 matching `RED-AIGC/TDD`, `apache-2.0`). It is **not** true of what a buyer
-receives. The default `PROFILE=all` path is
-`hf download msit270/AIOFM-Pack --include "models/*"`, `fnmatch`'s `*` matches
-`/`, and the file landed on this pod during the install run at 21:25 with an
-`hf` download record to prove the route. Removing it from the fetch list
-achieved nothing; **it has to leave the repo.**
+receives.
+
+### The mechanic that makes this non-obvious — read this before "removing" any other file
+
+**Dropping a file from the fetch list does not stop it shipping.**
+
+The default `PROFILE=all` path does not fetch files one by one. It is a single
+bulk pull, `aiofm_setup.sh:657`:
+
+```bash
+INC=(--include "models/*")
+"$HF_CMD" download "$HF_REPO_ID" "${INC[@]}" --local-dir "$COMFYUI_DIR" …
+```
+
+`huggingface_hub` matches those patterns with `fnmatch`, and **`fnmatch`'s `*`
+matches `/`** — unlike a shell glob. So `models/*` is not "the files directly
+under `models/`", it is **every file under `models/`, recursively, forever**. The
+per-file `dl` lines further down the script are a fallback for when the bulk pull
+fails; they are not the thing that decides what a buyer gets.
+
+That is precisely why the earlier DMD2 replacement looked complete and was not.
+Someone removed the `dl` line, changed the graph, and reasonably concluded the
+file was gone. Nothing in the script mentions DMD2 any more — and every buyer on
+the default profile still receives it, because it is still in the repo.
+
+**The only way to stop a file shipping is to delete it from the repo.** This is
+the sentence that stops the same mistake being made again with the SD 1.5
+checkpoint in Q-WS5-2.
+
+The evidence it ships: the file landed on this pod from the buyer install path at
+21:25, and `hf` wrote its own download record for it at
+`.cache/huggingface/download/models/loras/dmd2_sdxl_4step_lora_fp16.safetensors.metadata`,
+holding that same sha256.
 
 **My best guess:** delete it from the repo. Nothing in either product references
 it, so the cost is zero and the exposure is a non-commercial licence sitting
