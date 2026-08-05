@@ -1,1 +1,14 @@
 .ipynb_checkpoints/
+
+# Playwright / harness toolchain, installed locally, not part of the product.
+# package.json is ignored deliberately: `npm init -y` writes the git remote URL
+# into it, and this repo's remote carries a PAT. GitHub push protection blocked
+# exactly that push once already. Recreate the toolchain with:
+#   npm install playwright && npx playwright install chromium --with-deps
+node_modules/
+package.json
+package-lock.json
+
+# Python bytecode — never ship this inside the pack
+__pycache__/
+*.pyc
