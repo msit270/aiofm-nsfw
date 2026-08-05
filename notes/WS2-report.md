@@ -88,6 +88,45 @@ real	0m9.341s
 
 Red and green differ only in the workflow file. **The harness discriminates.**
 
+### Green, end to end, with a real image on disk — exit 0
+
+`results/browser/20260805-230510-harness_known_good/`:
+
+```
+$ node tools/browser_harness/run.js --workflow harness_known_good \
+    --install tools/fixtures/harness_known_good.json
+
+boot            4452 ms   0 pre-existing error(s) before any workflow was opened
+open workflow   3288 ms   path=ui  title="harness_known_good - ComfyUI"  root-level nodes=7
+press Run       real button, label="Run"
+api graph       7 nodes -> .../api_graph.json
+prompt accepted HTTP 200  prompt_id=5d8a3345-fe0b-4523-92cb-a3f568d2b5db  (970 ms from the click)
+  queue         our prompt is waiting behind 3 other item(s) on this ComfyUI
+render          673748 ms  (674s)
+  output images:
+    OK   /workspace/ComfyUI/output/harness_known_good_00001_.png  (198349 bytes)  [node 9]
+
+RESULT: PASS  (execute)
+GREEN_EXIT=0
+```
+
+```
+status: pass | classes: [] | load_path: ui
+counts: {'boot_errors': 0, 'load_errors': 0, 'run_errors': 0, 'ignored': 16}
+$ ls -la /workspace/ComfyUI/output/harness_known_good_00001_.png
+-rw-rw-r-- 1 root root 198349 Aug  5 23:16 .../harness_known_good_00001_.png
+```
+
+**Read the 674 s correctly.** Almost all of it is queue wait — this pod was
+running other workstreams' 4-minute NSFW renders throughout. From the websocket
+timestamps in `ws_events.json`, `execution_start` → `execution_success` for this
+prompt was **1 814 ms**. The harness reports the wall time it actually waited and
+prints the queue depth, rather than quietly presenting queue time as render time.
+
+`boot_errors: 0` is worth noting on its own: with the ignore-list in place, a
+page load on this pod now produces zero unignored errors, so the boot phase is
+genuinely usable as a signal rather than permanent noise.
+
 ### Wall-clock timings measured
 
 | run | mode | time |
