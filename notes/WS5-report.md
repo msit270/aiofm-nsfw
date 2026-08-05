@@ -718,16 +718,174 @@ curl -fsSL -H "Authorization: Bearer $(tr -d '[:space:]' < /workspace/.hf_token)
   | sha256sum
 ```
 
-It must print the sha256 recorded in §6. If it prints
-`3f6d0f2ffd092cf9a1691684029030e37283dd484cd550573290677400aada76`, that is the
-**old** artifact and the upload did not land — retry rather than assuming CDN
-lag.
+It must print:
+
+```
+15706aa7ca07968d510fa47985330168ee28aa8c29732c0cc309b188ab4d069e
+```
+
+If it prints `3f6d0f2ffd092cf9a1691684029030e37283dd484cd550573290677400aada76`,
+that is the **old** artifact and the upload did not land — retry rather than
+assuming CDN lag.
+
+To confirm the shipped graph is the fixed one, without unpacking anything:
+
+```bash
+tar -xzOf /workspace/nsfw-fix/dist/AIOFMTech-NSFW.tar.gz \
+    AIOFMTech-NSFW/OFMTech_NSFW.json | sha256sum
+# c77087615fa9642eea22e1059416e397a943c2f40da5c0c2ed7a0daf5d0841f7
+```
 
 ---
 
 ## 6. The cut
 
-*(filled in below once main confirmed the tree was final)*
+Cut from a clean tree (`git status --porcelain OFMTech-NSFW/` empty) with WS1
+`41e77f9`, WS3 `663ab16`/`0d42aa5`, WS4 `423df24`/`a01ae3a`, and main's
+`342a038`/`3afa7ed`/`7de8c15` all in.
+
+### The artifact
+
+```
+  archive        : /workspace/nsfw-fix/dist/AIOFMTech-NSFW.tar.gz
+  top-level      : AIOFMTech-NSFW/   (matches archive name)
+  entries        : 170 files
+  size           : 8154042 bytes
+  sha256         : 15706aa7ca07968d510fa47985330168ee28aa8c29732c0cc309b188ab4d069e
+
+  shipped members (hashed out of the archive):
+    OFMTech_NSFW.json  290550 bytes
+      sha256       : c77087615fa9642eea22e1059416e397a943c2f40da5c0c2ed7a0daf5d0841f7
+    aiofm_setup.sh
+      sha256       : 19667d8e96a737bc605b76fbed638ab1d8ccf2c83d374f91e3cb0b8f5c43cd46
+```
+
+**The name mismatch is gone:** `AIOFMTech-NSFW.tar.gz` → `AIOFMTech-NSFW/`.
+
+**Chain of custody on the workflow, the file all of this exists to deliver.**
+The same digest at all three points it can be observed, so "is the shipped graph
+the one we fixed?" needs no investigation:
+
+```
+source tree                                    c77087615fa9642e…0841f7
+member inside dist/AIOFMTech-NSFW.tar.gz       c77087615fa9642e…0841f7
+where it lands: user/default/workflows/…json   c77087615fa9642e…0841f7
+```
+
+The third line is from the fresh install below — it is where a buyer's ComfyUI
+reads it from, not a copy I made.
+
+### Full file-list delta vs the published archive
+
+Baseline recovered from git (`git show 8e7b1c3:dist/AIOFMTech-NSFW.tar.gz`),
+confirmed to be sha256 `3f6d0f2f…aada76`, i.e. the object live on HF today.
+
+```
+  old : top-level OFMTech-NSFW/     8202871 bytes  sha256 3f6d0f2f…aada76
+  new : top-level AIOFMTech-NSFW/   8154042 bytes  sha256 15706aa7…d069e
+
+  files: 164 old -> 170 new
+
+  ADDED (6):
+    + ComfyUI_INSTARAW/THIRD_PARTY_NOTICES.md
+    + ComfyUI_INSTARAW/fonts/OFL.txt
+    + ComfyUI_INSTARAW/licenses/Apache-2.0.txt
+    + ComfyUI_INSTARAW/licenses/ICC-sRGB-profile-license.txt
+    + ComfyUI_INSTARAW/licenses/MIT-Filmgrainer.txt
+    + ComfyUI_INSTARAW/licenses/OFL-1.1-BricolageGrotesque.txt
+
+  REMOVED: none
+
+  CHANGED (21):
+    ~ ComfyUI_INSTARAW/js/filter.css
+    ~ ComfyUI_INSTARAW/js/floating_window.css
+    ~ ComfyUI_INSTARAW/js/floating_window.js
+    ~ ComfyUI_INSTARAW/js/image_filter.js
+    ~ ComfyUI_INSTARAW/js/log.js
+    ~ ComfyUI_INSTARAW/js/mask_utils.js
+    ~ ComfyUI_INSTARAW/js/popup.js
+    ~ ComfyUI_INSTARAW/js/reality_prompt_generator.js
+    ~ ComfyUI_INSTARAW/js/utils.js
+    ~ ComfyUI_INSTARAW/js/zoomed.css
+    ~ ComfyUI_INSTARAW/modules/detection_bypass/filmgrainer_local/filmgrainer.py
+    ~ ComfyUI_INSTARAW/modules/detection_bypass/filmgrainer_local/graingamma.py
+    ~ ComfyUI_INSTARAW/modules/detection_bypass/filmgrainer_local/graingen.py
+    ~ ComfyUI_INSTARAW/nodes/interactive_nodes/image_filter.py
+    ~ ComfyUI_INSTARAW/nodes/interactive_nodes/image_filter_messaging.py
+    ~ ComfyUI_INSTARAW/nodes/utility_nodes/list_utility_nodes.py
+    ~ ComfyUI_INSTARAW/nodes/utility_nodes/mask_utility_nodes.py
+    ~ ComfyUI_INSTARAW/nodes/utility_nodes/string_utility_nodes.py
+    ~ INSTALL MODELS.txt
+    ~ OFMTech_NSFW.json
+    ~ aiofm_setup.sh
+```
+
+**Nothing was dropped: no removals, and the only additions are WS3's six licence
+files.** 164 + 6 = 170, which reconciles against the builder's own independent
+entry count.
+
+The archive is 48,829 bytes *smaller* despite gaining six files — that is the
+reproducible-build normalisation (sorted entries, fixed mtimes, zeroed
+owner/group) compressing better, plus WS4's `#597`/`#616` deletion shrinking the
+workflow.
+
+### The three cases, re-run against THIS artifact
+
+Not carried over from the preview. `pack sha256: 15706aa7…d069e` appears in the
+happy-path log, so these ran against the bytes above.
+
+| case | observed | exit |
+|---|---|---|
+| no token | red banner, names the file to create and the command to re-run | **1** |
+| rejected token | `curl: (22) … 401`, then `✗ could not download dist/AIOFMTech-NSFW.tar.gz`, naming repo and URL | **1** |
+| non-archive at HTTP 200 | `✗ the downloaded file is not a valid archive.` + the usual cause | **1** |
+| happy path | see below | **0** |
+
+Happy path, into a freshly prepared empty ComfyUI (`custom_nodes entries: 0`):
+
+```
+  pack sha256: 15706aa7ca07968d510fa47985330168ee28aa8c29732c0cc309b188ab4d069e
+  ✓ ComfyUI_INSTARAW vendored @ 12afb909 (provenance marker)
+  ✓ all 40 node types found on disk (static check of the installed packs)
+  downloaded     : nothing — everything was already on disk
+  integrity      : OK
+  comfyui core   : 0.15.1 validated
+  node versions  : pinned
+  frontend       : pinned 1.39.19
+  --> exit code 0 after 84s
+  shared venv unchanged (pip freeze identical before/after)
+  unpacked to: /workspace/ws5-verify/dest-happy/AIOFMTech-NSFW/
+```
+
+Then node registration on a fresh `--cpu` instance started from that target:
+
+```
+  node types the workflow references : 51
+  node types registered by ComfyUI    : 1935
+  ✓ all 51 registered
+  live models tree untouched (inode/size/mtime identical for every file)
+```
+
+Blast radius: the live ComfyUI on 18188 was never restarted — supervisord uptime
+2:08:17 unbroken across the whole cut, with main's acceptance render still in its
+queue. Disk 46%, 222 GB free, never near the 85% ceiling.
+
+The `all 40 node types found on disk` line above is the relabelled one from §8b,
+observed printing correctly in a real install.
+
+### ⚠️ This artifact CONTAINS the UnMarker and GrainNet trees
+
+A green cut is **not** a clean licence position. Shipping inside
+`AIOFMTech-NSFW/ComfyUI_INSTARAW/`: UnMarker (non-commercial) at
+`modules/detection_bypass/utils/adaptive_filter.py`, `unmarker_losses.py`,
+`unmarker_full.py`; GrainNet (academic-use-only) at `modules/neural_grain/net.py`,
+`pretrained/neural_grain/grainnet.pt`, `nodes/utility_nodes/neural_grain_node.py`.
+Removing them is a code change, not a deletion — see §4c, where taking them out
+naively drops INSTARAW from 95 registered node types to 0. Nothing reaches a
+buyer until the upload in §5 is run, so this remains fully reversible.
+
+Also still unresolved and independent of this cut: DMD2 and the SD 1.5
+checkpoint are in the HF repo and ship on the default profile (§4b).
 
 ---
 
