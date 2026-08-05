@@ -1,0 +1,115 @@
+[22:47:20][info] opened OFMTech_NSFW
+[22:47:42][info] pressed Run
+[22:47:42][POST /prompt] status=200 {"prompt_id":"4f4d2b7d-6257-434a-8f7b-cd0086559701","number":4,"node_errors":{}}
+[22:47:47][poll] running=1 pending=1 history=2
+[22:47:52][poll] running=1 pending=1 history=2
+[22:47:57][poll] running=1 pending=1 history=2
+[22:48:02][poll] running=1 pending=1 history=2
+[22:48:07][poll] running=1 pending=1 history=2
+[22:48:12][poll] running=1 pending=1 history=2
+[22:48:17][poll] running=1 pending=1 history=2
+[22:48:22][poll] running=1 pending=1 history=2
+[22:48:27][poll] running=1 pending=1 history=2
+[22:48:32][poll] running=1 pending=1 history=2
+[22:48:37][poll] running=1 pending=1 history=2
+[22:48:43][poll] running=1 pending=1 history=2
+[22:48:48][poll] running=1 pending=1 history=2
+[22:48:53][poll] running=1 pending=1 history=2
+[22:48:58][poll] running=1 pending=1 history=2
+[22:49:03][poll] running=1 pending=1 history=2
+[22:49:08][poll] running=1 pending=1 history=2
+[22:49:13][poll] running=1 pending=1 history=2
+[22:49:18][poll] running=1 pending=1 history=2
+[22:49:23][poll] running=1 pending=1 history=2
+[22:49:28][poll] running=1 pending=1 history=2
+[22:49:33][poll] running=1 pending=1 history=2
+[22:49:38][poll] running=1 pending=1 history=2
+[22:49:43][poll] running=1 pending=1 history=2
+[22:49:48][poll] running=1 pending=1 history=2
+[22:49:53][poll] running=1 pending=1 history=2
+[22:49:58][poll] running=1 pending=1 history=2
+[22:50:03][poll] running=1 pending=1 history=2
+[22:50:08][poll] running=1 pending=1 history=2
+[22:50:13][filter] serviced image-filter popup (#1): picked-image-but-send-still-disabled (n=1)
+[22:50:14][poll] running=1 pending=0 history=3
+[22:50:19][filter] serviced image-filter popup (#2): picked-image-but-send-still-disabled (n=1)
+[22:50:19][poll] running=1 pending=0 history=3
+[22:50:24][filter] serviced image-filter popup (#3): picked-image-but-send-still-disabled (n=1)
+[22:50:24][poll] running=1 pending=0 history=3
+[22:50:29][filter] serviced image-filter popup (#4): picked-image-but-send-still-disabled (n=1)
+[22:50:30][poll] running=1 pending=0 history=3
+[22:50:35][filter] serviced image-filter popup (#5): picked-image-but-send-still-disabled (n=1)
+[22:50:35][poll] running=1 pending=0 history=3
+[22:50:40][filter] serviced image-filter popup (#6): picked-image-but-send-still-disabled (n=1)
+[22:50:41][poll] running=1 pending=0 history=3
+[22:50:46][filter] serviced image-filter popup (#7): picked-image-but-send-still-disabled (n=1)
+[22:50:46][poll] running=1 pending=0 history=3
+[22:50:51][filter] serviced image-filter popup (#8): picked-image-but-send-still-disabled (n=1)
+[22:50:52][poll] running=1 pending=0 history=3
+[22:50:57][filter] serviced image-filter popup (#9): picked-image-but-send-still-disabled (n=1)
+[22:50:57][poll] running=1 pending=0 history=3
+[22:51:02][filter] serviced image-filter popup (#10): picked-image-but-send-still-disabled (n=1)
+[22:51:02][poll] running=1 pending=0 history=3
+[22:51:07][filter] serviced image-filter popup (#11): picked-image-but-send-still-disabled (n=1)
+[22:51:08][poll] running=1 pending=1 history=3
+[22:51:13][filter] serviced image-filter popup (#12): picked-image-but-send-still-disabled (n=1)
+[22:51:13][poll] running=1 pending=1 history=3
+[22:51:18][filter] serviced image-filter popup (#13): picked-image-but-send-still-disabled (n=1)
+[22:51:19][poll] running=1 pending=2 history=3
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.waitForTimeout: Target page, context or browser has been closed
+    at /tmp/claude-0/-workspace-nsfw-fix/47375d2b-87bd-4073-a1e2-67796f8c1345/scratchpad/ws1/render.mjs:51:14 {
+  log: []
+}
+
+Node.js v24.12.0
+[22:56:27][info] loaded OFMTech_NSFW, servicing prompt 4f4d2b7d-6257-434a-8f7b-cd0086559701
+[22:56:32][filter] serviced popup #1: clicked-send
+[22:56:32][poll] running=1 pending=4
+[22:56:37][poll] running=1 pending=4
+[22:56:42][poll] running=1 pending=4
+[22:56:47][poll] running=1 pending=4
+[22:56:52][poll] running=1 pending=4
+[22:56:57][poll] running=1 pending=4
+[22:57:02][poll] running=1 pending=4
+[22:57:07][poll] running=1 pending=4
+[22:57:12][poll] running=1 pending=4
+[22:57:17][poll] running=1 pending=4
+[22:57:23][poll] running=1 pending=4
+[22:57:28][poll] running=1 pending=4
+[22:57:33][poll] running=1 pending=4
+[22:57:38][poll] running=1 pending=4
+[22:57:43][poll] running=1 pending=4
+[22:57:48][poll] running=1 pending=4
+[22:57:53][poll] running=1 pending=4
+[22:57:58][poll] running=1 pending=4
+[22:58:03][poll] running=1 pending=4
+[22:58:08][poll] running=1 pending=4
+[22:58:13][poll] running=1 pending=4
+[22:58:18][poll] running=1 pending=4
+[22:58:23][poll] running=1 pending=4
+[22:58:28][poll] running=1 pending=4
+[22:58:33][poll] running=1 pending=4
+[22:58:38][poll] running=1 pending=4
+[22:58:43][poll] running=1 pending=4
+[22:58:48][poll] running=1 pending=4
+[22:58:53][poll] running=1 pending=4
+[22:58:58][poll] running=1 pending=4
+[22:59:03][poll] running=1 pending=4
+[22:59:08][poll] running=1 pending=4
+[22:59:14][poll] running=1 pending=4
+[22:59:19][poll] running=1 pending=4
+[22:59:24][poll] running=1 pending=4
+[22:59:29][poll] running=1 pending=4
+[22:59:34][poll] running=1 pending=4
+[22:59:39][poll] running=1 pending=4
+[22:59:44][poll] running=1 pending=4
+[22:59:49][poll] running=1 pending=4
+[22:59:54][poll] running=1 pending=4
+[22:59:59][poll] running=1 pending=4
+[23:00:04][poll] running=1 pending=4
+[23:00:09][history] {"running":1,"pending":3,"status":"success","messages":"[[\"execution_start\",{\"prompt_id\":\"4f4d2b7d-6257-434a-8f7b-cd0086559701\",\"timestamp\":1785970212133}],[\"execution_cached\",{\"nodes\":[\"116\",\"480\",\"481\",\"483\",\"618\",\"647:625\",\"647:627\",\"647:628\",\"647:635\",\"587:506\",\"587:508\",\"587:509\",\"587:97\",\"587:100\",\"587:89\",\"587:88\",\"587:90\",\"587:93\",\"619:590\",\"619:591\",\"619:592\",\"619:593\",\"619:594\",\"619:595\",\"619:596\",\"619:597\",\"619:598\",\"619:599\",\"619:600\",\"619:602\",\"619:605\",\"619:606\",\"619:607\",\"619:608\",\"619:609\",\"619:611\",\"619:612\",\"619:616\",\"619:617\",\"619:610\",\"619:613\",\"619:615\",\"620:107\",\"620:108\",\"620:106\",\"620:105\",\"620:110\",\"620:109\",\"620:113\",\"620:648\",\"621:166\",\"621:167\",\"621:160\",\"621:161\",\"622:426\",\"622:394\",\"622:398\"],\"prompt_id\":\"4f4d2b7d-6257-434a-8f7b-cd0086559701\",\"timestamp\":1785970212188}],[\"execution_success\",{\"prompt_id\":\"4f4d2b7d-6257-434a-8f7b-cd0086559701\",\"timestamp\":1785970805485}]]","outputs":[["505",["Instaraw/SDXL/Metadata/HasMetadata_00002_.png"]]]}
+[23:00:09][RESULT] SUCCESS outputs=[["505",["Instaraw/SDXL/Metadata/HasMetadata_00002_.png"]]]

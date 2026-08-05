@@ -1,0 +1,87 @@
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[requestfailed] GET http://127.0.0.1:18188/user.css :: net::ERR_ABORTED
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[requestfailed] GET http://127.0.0.1:18188/api/userdata/user.css :: net::ERR_ABORTED
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[requestfailed] GET http://127.0.0.1:18188/api/userdata/comfy.templates.json :: net::ERR_ABORTED
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[requestfailed] GET http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/utils_dom.js :: net::ERR_ABORTED
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[requestfailed] GET http://127.0.0.1:18188/extensions/ComfyUI_Swwan/config.js :: net::ERR_ABORTED
+[console.error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/dialog.js
+[console.error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_any_input_connected_node.js
+[console.error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node.js
+[console.error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/image_comparer.js
+[console.error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/seed.js
+[console.error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/rgthree.js
+[console.error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node_mode_changer.js
+[console.error] [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.
+    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)
+    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)
+    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)
+    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)
+    at http://127.0.0.1:18188/extensions/ComfyUI_Swwan/feature_import_individual_nodes.js:5:5
+[requestfailed] POST http://127.0.0.1:18188/api/settings/Comfy.CustomColorPalettes :: net::ERR_ABORTED
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[requestfailed] GET http://127.0.0.1:18188/api/pysssss/autocomplete :: net::ERR_ABORTED
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[requestfailed] GET http://127.0.0.1:18188/api/userdata/workflows%2F.index.json :: net::ERR_ABORTED
+[info] clicked workflow OFMTech_NSFW
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[console.error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[info] loaded={"activeName":"OFMTech_NSFW","rootNodes":17,"nodeIds":[480,481,419,505,621,647,619,587,620,622,623,483,618,116,649,650,651],"subgraphDefs":7}
+[console.error] Error: No output node found for id [647] slot [4] MODEL
+    at ExecutableNodeDTO._resolveSubgraphOutput (http://127.0.0.1:18188/assets/api-gz4kgzki.js:2:210216)
+    at ExecutableNodeDTO.resolveOutput (http://127.0.0.1:18188/assets/api-gz4kgzki.js:2:209110)
+    at proto.resolveOutput (http://127.0.0.1:18188/extensions/ComfyUI-KJNodes/js/setgetnodes.js:1601:35)
+    at ExecutableNodeDTO.resolveInput (http://127.0.0.1:18188/assets/api-gz4kgzki.js:2:208374)
+    at ExecutableNodeDTO.resolveInput (http://127.0.0.1:18188/assets/api-gz4kgzki.js:2:208054)
+    at graphToPrompt (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:163:3857)
+    at async app.graphToPrompt (http://127.0.0.1:18188/extensions/ComfyUI-Manager/components-manager.js:783:10)
+    at async app.graphToPrompt (http://127.0.0.1:18188/extensions/rgthree-comfy/rgthree.js:503:13)
+    at async app.graphToPrompt (http://127.0.0.1:18188/extensions/ComfyUI-Custom-Scripts/js/repeater.js:10:16)
+    at async app.graphToPrompt (http://127.0.0.1:18188/extensions/ComfyUI-Custom-Scripts/js/reroutePrimitive.js:32:16)
+[info] clicked Run
+[toast/dialog] .p-toast :: Error
+No output node found for id [647] slot [4] MODEL
+[toast/dialog] .p-toast-message :: Error
+No output node found for id [647] slot [4] MODEL
+[toast/dialog] .p-toast-detail :: No output node found for id [647] slot [4] MODEL
+[toast/dialog] .p-toast-summary :: Error
+[graphToPrompt] THREW Error: No output node found for id [647] slot [4] MODEL
+[graphToPrompt-stack] Error: No output node found for id [647] slot [4] MODEL
+    at ExecutableNodeDTO._resolveSubgraphOutput (http://127.0.0.1:18188/assets/api-gz4kgzki.js:2:210216)
+    at ExecutableNodeDTO.resolveOutput (http://127.0.0.1:18188/assets/api-gz4kgzki.js:2:209110)
+    at proto.resolveOutput (http://127.0.0.1:18188/extensions/ComfyUI-KJNodes/js/setgetnodes.js:1601:35)
+    at ExecutableNodeDTO.resolveInput (http://127.0.0.1:18188/assets/api-gz4kgzki.js:2:208374)
+    at ExecutableNodeDTO.resolveInput (http://127.0.0.1:18188/assets/api-gz4kgzki.js:2:208054)
+    at graphToPrompt (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:163:3857)
+    at async app.graphToPrompt (http://127.0.0.1:18188/extensions/ComfyUI-Manager/components-manager.js:783:10)
+    at async app.graphToPrompt (http://127.0.0.1:18188/extensions/rgthree-comfy/rgthree.js:503:13)
+    at async app.graphToPrompt (http://127.0.0.1:18188/extensions/ComfyUI-Custom-Scripts/js/repeater.js:10:16)
+    at async app.graphToPrompt (http://127.0.0.1:18188/extensions/ComfyUI-Custom-Scripts/js/reroutePrimitive.js:32:16)
+[queue] {"running":0,"pending":0,"history":0}
