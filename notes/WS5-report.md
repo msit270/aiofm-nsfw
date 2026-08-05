@@ -185,6 +185,33 @@ added five files rather than six. Read the whole block, or read the count — an
 cross-check it against the builder's own entry count, which is what caught it
 (164 + 5 ≠ 170).
 
+### The build also records the shipped workflow's hash
+
+Every build prints the sha256 of `OFMTech_NSFW.json` and `aiofm_setup.sh`
+**read back out of the finished archive**, not off the source tree — so they are
+statements about the bytes a buyer receives:
+
+```
+  shipped members (hashed out of the archive):
+    OFMTech_NSFW.json  290550 bytes
+      sha256       : c77087615fa9642eea22e1059416e397a943c2f40da5c0c2ed7a0daf5d0841f7
+```
+
+The workflow is the point of the whole pack and the file that changed most this
+run, so having its hash beside the artifact's makes the next session's "is the
+shipped graph the one we fixed?" one command instead of an investigation:
+
+```bash
+tar -xzOf dist/AIOFMTech-NSFW.tar.gz AIOFMTech-NSFW/OFMTech_NSFW.json | sha256sum
+```
+
+Cross-checked against the source tree — `sha256sum OFMTech-NSFW/OFMTech_NSFW.json`
+gives the identical digest, so the tar/gzip round-trip is lossless and the two
+hashes are interchangeable as identity. It is emitted by the builder rather than
+recorded by hand, so it cannot be forgotten on a future cut.
+
+*(The digest above is the pre-D1 tree; §6 carries the final one.)*
+
 The published baseline is recoverable from git rather than from anyone's scratch
 space, so this comparison can be redone at any time:
 

@@ -128,11 +128,30 @@ SIZE="$(stat -c %s "$BUILD_TO")"
 SHA="$(sha256sum "$BUILD_TO" | cut -d' ' -f1)"
 NFILES="$(grep -vc '/$' "$LIST" || true)"
 
-printf '\n  archive   : %s\n' "$BUILD_TO"
-printf '  top-level : %s/   (matches archive name)\n' "$PACK_TOP"
-printf '  entries   : %s files\n' "$NFILES"
-printf '  size      : %s bytes\n' "$SIZE"
-printf '  sha256    : %s\n\n' "$SHA"
+# Hash the shipped members too, read back OUT OF THE ARCHIVE rather than from
+# the source tree, so this is a statement about the bytes a buyer receives and
+# not about what was on disk at build time.
+#
+# The workflow is the point of the whole pack and the file that changes most
+# between cuts, so recording its hash beside the archive's turns the next
+# session's "is the shipped graph the one we fixed?" into one command instead of
+# an investigation. sha256sum consumes all of stdin, so this pipe cannot hit the
+# SIGPIPE/pipefail trap described above.
+member_sha() { tar -xzOf "$BUILD_TO" "$TOP/$1" | sha256sum | cut -d' ' -f1; }
+WF_SHA="$(member_sha OFMTech_NSFW.json)"
+SETUP_SHA="$(member_sha aiofm_setup.sh)"
+WF_SIZE="$(tar -xzOf "$BUILD_TO" "$TOP/OFMTech_NSFW.json" | wc -c)"
+
+printf '\n  archive        : %s\n' "$BUILD_TO"
+printf '  top-level      : %s/   (matches archive name)\n' "$PACK_TOP"
+printf '  entries        : %s files\n' "$NFILES"
+printf '  size           : %s bytes\n' "$SIZE"
+printf '  sha256         : %s\n' "$SHA"
+printf '\n  shipped members (hashed out of the archive):\n'
+printf '    OFMTech_NSFW.json  %s bytes\n' "$WF_SIZE"
+printf '      sha256       : %s\n' "$WF_SHA"
+printf '    aiofm_setup.sh\n'
+printf '      sha256       : %s\n\n' "$SETUP_SHA"
 
 if (( CHECK_ONLY )); then
     echo "  --check: dist/ not written"
