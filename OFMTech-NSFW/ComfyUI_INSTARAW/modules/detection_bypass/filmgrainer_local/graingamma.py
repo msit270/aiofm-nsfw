@@ -1,3 +1,21 @@
+# --------------------------------------------------------------------------
+# This file is taken unchanged from Filmgrainer
+#   https://github.com/larspontoppidan/filmgrainer
+#   Copyright (c) 2022 Lars Ole Pontoppidan
+#
+# Released under the MIT License. The full licence text, including the
+# permission notice and the warranty disclaimer that the MIT License
+# requires to be shipped with all copies, is in licenses/MIT-Filmgrainer.txt
+# at the root of this package.
+#
+# NOTICE: This notice is the only modification to this file. Its content
+# below is byte-for-byte the Filmgrainer original.
+#
+# Full third-party attribution for this package is in
+# ../../../THIRD_PARTY_NOTICES.md (package root). Licence text:
+# ../../../licenses/MIT-Filmgrainer.txt
+# --------------------------------------------------------------------------
+
 
 import numpy as np
 

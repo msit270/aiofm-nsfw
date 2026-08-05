@@ -1,3 +1,32 @@
+# --------------------------------------------------------------------------
+# Portions of this file are derived from cg-image-filter
+#   https://github.com/chrisgoringe/cg-image-filter
+#   Copyright 2024-2025 Chris Goringe
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# NOTICE: This file has been modified from the cg-image-filter original.
+# SplitByCommas, AnyListToString, StringToInt and StringToFloat were
+# prefixed INSTARAW_, their CATEGORY was changed and their tooltips removed.
+# INSTARAW_ConcatenateStringsNullSafe and INSTARAW_StringCombine, further
+# down this file, are not cg-image-filter code and are not covered by the
+# Apache licence.
+#
+# Full third-party attribution for this package is in
+# ../../THIRD_PARTY_NOTICES.md (package root). Licence text:
+# ../../licenses/Apache-2.0.txt
+# --------------------------------------------------------------------------
+
 from comfy.comfy_types.node_typing import IO
 
 class INSTARAW_SplitByCommas:

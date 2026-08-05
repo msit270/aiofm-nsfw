@@ -1,3 +1,25 @@
+# --------------------------------------------------------------------------
+# Portions of this file are derived from Filmgrainer
+#   https://github.com/larspontoppidan/filmgrainer
+#   Copyright (c) 2022 Lars Ole Pontoppidan
+#
+# Released under the MIT License. The full licence text, including the
+# permission notice and the warranty disclaimer that the MIT License
+# requires to be shipped with all copies, is in licenses/MIT-Filmgrainer.txt
+# at the root of this package.
+#
+# NOTICE: This file has been modified from the Filmgrainer original.
+# Absolute `import filmgrainer.*` was changed to relative imports,
+# MASK_CACHE_PATH was changed from the hard-coded /tmp/mask-cache/ to
+# tempfile.gettempdir() with os.path.join, os.mkdir was changed to
+# os.makedirs(..., exist_ok=True), every progress print() was commented out,
+# and the local variable `map` was renamed `map_obj`.
+#
+# Full third-party attribution for this package is in
+# ../../../THIRD_PARTY_NOTICES.md (package root). Licence text:
+# ../../../licenses/MIT-Filmgrainer.txt
+# --------------------------------------------------------------------------
+
 # ---
 # Filename: ../ComfyUI_INSTARAW/modules/detection_bypass/filmgrainer_local/filmgrainer.py
 # ---
