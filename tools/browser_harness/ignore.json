@@ -1,0 +1,98 @@
+{
+  "_README": [
+    "Errors matched here are downgraded from 'error' to 'ignored'. They are NOT hidden:",
+    "every ignored event is printed in the run log under the rule that matched it, counted",
+    "in result.json counts.ignored, and listed in full in result.json 'ignored'.",
+    "",
+    "A rule matches an event when EVERY key present in 'match' matches. 'text' is a regex",
+    "against the message; 'url' is a regex against the event's source URL AND against any",
+    "http(s) URL embedded in the message text (vite reports the failing module in the text,",
+    "not in the location).",
+    "",
+    "'scope' records why the entry is defensible:",
+    "  benign        - happens on a stock ComfyUI including a buyer's, and is not a defect",
+    "                  (an optional resource the frontend probes for unconditionally)",
+    "  environment   - only happens on this pod; a buyer following the NSFW bootstrap",
+    "                  would not have the pack that causes it",
+    "  product-known - a REAL defect in what we ship, deliberately not gating the harness",
+    "                  because it is cosmetic and would otherwise make every run red.",
+    "                  Every entry with this scope must be written up in the WS2 report.",
+    "                  Keep this list at zero if you can.",
+    "",
+    "Disable the whole file with --no-default-ignores. Add ad-hoc rules with --ignore-error.",
+    "frontend-conversion and execution failures are never ignorable, whatever is listed here."
+  ],
+
+  "rules": [
+    {
+      "id": "optional-user-css",
+      "match": {
+        "text": "^Failed to load resource",
+        "url": "(^|/)(api/userdata/)?user\\.css$"
+      },
+      "scope": "benign",
+      "reason": "user.css is ComfyUI's optional user stylesheet override, requested unconditionally on every page load by both the static path and the userdata API. It does not ship with comfyui_frontend_package (verified: no user.css under .../comfyui_frontend_package/static/) and is absent here (verified: no /workspace/ComfyUI/user/default/user.css). Verified live: GET /user.css -> 404 and GET /api/userdata/user.css -> 404. A buyer on a clean install sees both."
+    },
+    {
+      "id": "optional-node-templates",
+      "match": {
+        "text": "^Failed to load resource",
+        "url": "/api/userdata/comfy\\.templates\\.json$"
+      },
+      "scope": "benign",
+      "reason": "comfy.templates.json holds the user's saved node templates. ComfyUI only writes it once the user saves one. Verified live: GET /api/userdata/comfy.templates.json -> 404. A buyer on a clean install sees this."
+    },
+    {
+      "id": "optional-subgraphs-dir",
+      "match": {
+        "text": "^Failed to load resource",
+        "url": "/api/userdata\\?dir=subgraphs"
+      },
+      "scope": "benign",
+      "reason": "The frontend lists the user's saved subgraph-blueprint directory on boot. ComfyUI only creates it once the user saves a blueprint. Verified live: GET /api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true -> 404. A buyer on a clean install sees this."
+    },
+    {
+      "id": "optional-workflows-index",
+      "match": {
+        "text": "^Failed to load resource",
+        "url": "/api/userdata/workflows%2F\\.index\\.json$"
+      },
+      "scope": "benign",
+      "reason": "The frontend probes for an optional per-directory workflow index file. Absent here (verified: /workspace/ComfyUI/user/default/workflows/ holds only the .json workflows themselves) and verified live -> 404. Fires on any install that has never written one, including a buyer's."
+    },
+    {
+      "id": "pysssss-autocomplete-wordlist",
+      "match": {
+        "text": "^Failed to load resource",
+        "url": "/api/pysssss/autocomplete$"
+      },
+      "scope": "environment",
+      "reason": "Served by ComfyUI-Custom-Scripts (verified: @PromptServer.instance.routes.get(\"/pysssss/autocomplete\") in custom_nodes/ComfyUI-Custom-Scripts/py/autocomplete.py); it 404s until the user creates the optional autocomplete word list. ComfyUI-Custom-Scripts is not among the packs the NSFW bootstrap installs, so a buyer does not have this route at all."
+    },
+    {
+      "id": "swwan-missing-web-files",
+      "match": {
+        "url": "/extensions/ComfyUI_Swwan/"
+      },
+      "scope": "environment",
+      "reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only."
+    },
+    {
+      "id": "rgthree-extension-name-collision",
+      "match": {
+        "text": "Extension named 'rgthree\\.[A-Za-z]+' already registered"
+      },
+      "scope": "environment",
+      "reason": "ComfyUI_Swwan and rgthree-comfy are both installed on this pod and both register the same extension names. Verified: 'name: \"rgthree.ImportIndividualNodes\"' appears in rgthree-comfy/web/comfyui/feature_import_individual_nodes.js AND ComfyUI_Swwan/web/js/feature_import_individual_nodes.js; rgthree.ImageComparer and rgthree.Seed collide the same way. A buyer installing only the NSFW pack has one of the two, so no collision."
+    },
+    {
+      "id": "rgthree-comparer-stale-temp-images",
+      "match": {
+        "text": "^Failed to load resource",
+        "url": "/api/view\\?filename=rgthree\\.compare\\._temp_"
+      },
+      "scope": "product-known",
+      "reason": "REAL DEFECT, deliberately not gating. The shipped workflow JSON has ten rgthree.compare._temp_*.png filenames baked into its Image Comparer nodes, left over from a developer's session (verified: 10 matches for 'rgthree.compare._temp' in OFMTech-NSFW/OFMTech_NSFW.json, e.g. rgthree.compare._temp_aggxo_00001_.png). Those temp files do not exist on a fresh install, so a buyer gets six 404s the moment they open the workflow. Cosmetic - the comparer widget just shows nothing - but it is shipped dev instrumentation and the graph should not carry it. Written up in notes/WS2-report.md."
+    }
+  ]
+}
