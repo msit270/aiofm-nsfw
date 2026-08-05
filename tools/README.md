@@ -6,6 +6,7 @@ Two tools:
 
 | tool | what it answers |
 |---|---|
+| `preflight/integrity.py` | "Is the graph's link bookkeeping self-consistent?" (~25 ms, no browser) |
 | `browser_harness` | "Does this workflow work **in a browser**, the way a buyer runs it?" |
 | `graph_diff` | "Is this change to the graph **inert**?" |
 
@@ -14,6 +15,32 @@ That path never exercises the frontend's UI-graph → API-graph conversion, and
 the conversion is where the shipped-graph blocker lived. **A render that only
 passes via the API is not a passing test.** Everything here exists to close that
 gap.
+
+---
+
+## 0. preflight — static, ~25 ms, no browser
+
+A link-bookkeeping lint on the **UI-format** workflow JSON. It runs automatically
+before the browser stage whenever `--install` or `--preflight` names a file.
+
+```bash
+python3 tools/preflight/integrity.py OFMTech-NSFW/OFMTech_NSFW.json
+# --- OFMTech-NSFW/OFMTech_NSFW.json: 0 problem(s) ---
+
+node tools/browser_harness/run.js -w OFMTech_NSFW \
+  --preflight OFMTech-NSFW/OFMTech_NSFW.json --preflight-only
+```
+
+On the pre-fix fixture it reports 14 problems in 23 ms, including
+`SG '1. Canvas & Routing': outputs[4] 'MODEL' linkIds names non-existent link(s) [1498]`
+— the same slot the browser names in `No output node found for id [647] slot [4] MODEL`.
+**It would have caught the shipped blocker before anyone opened a browser.**
+
+**Do not over-read it.** It checks link bookkeeping only — not `widgets_values`
+desync on subgraph hosts, which CLAUDE.md calls the highest-value audit in this
+file. "0 problems" is not "no defects", and "0 problems implies the browser
+converts" is a correlation established on exactly one before/after pair. The
+browser stage remains the authority. Full caveats are in the file's header.
 
 ---
 
@@ -182,6 +209,31 @@ in `result.json` `ignored`. Nothing is silently dropped.
 `frontend-conversion` and `execution` failures are **never** ignorable, whatever
 the list says.
 
+Each rule carries a `scope`:
+
+| scope | meaning |
+|---|---|
+| `benign` | happens on a stock ComfyUI including a buyer's, and is not a defect |
+| `environment` | pod-only; a buyer following the NSFW bootstrap lacks the pack that causes it |
+| `product-known` | a **real defect in what we ship**, ignored only so it does not make every run red |
+
+Every run with a `product-known` match prints:
+
+```
+  !! 7 of the above are scope=product-known: REAL defects in what we ship,
+     ignored only so they do not make every run red.
+```
+
+**This list should be empty. Making it empty is the point.** Currently two
+entries, and here is exactly what makes the counter drop:
+
+| rule | what fixes it | counter goes |
+|---|---|---|
+| `rgthree-comparer-stale-temp-images` | Strip the saved image state from the `Image Comparer (rgthree)` nodes in `OFMTech-NSFW/OFMTech_NSFW.json` (ten `rgthree.compare._temp_*.png` filenames are baked in), then delete the rule | 7 → 1 |
+| `instaraw-rpg-details-element` | `console.error` → `console.debug` at `ComfyUI_INSTARAW/js/reality_prompt_generator.js:8281`, then delete the rule | 1 → 0 |
+
+Whoever does either can watch the banner disappear as their proof.
+
 ### The interactive image selector
 
 The shipped NSFW graph pauses mid-render on `#603 INSTARAW_ImageFilter` and waits
@@ -293,6 +345,16 @@ it cannot mean that.
 |---|---|
 | `tools/fixtures/harness_known_good.json` | Trivial SD1.5 graph (7 nodes, 384x384, 6 steps, `v1-5-pruned-emaonly-fp16.safetensors`). The control: if this does not go green, the harness or the pod is broken, not the workflow under test. |
 | `tools/fixtures/red_OFMTech_NSFW.json` | The shipped graph **as of commit `4d8a9ce`, before the blocker fix** (301 235 bytes, md5 `fa0a7af467ce6d6547805947c3b12d66`). A permanent known-failing case, so the harness can always be shown to still detect the thing it was built to detect. Do not "fix" this file. |
+| `tools/fixtures/harness_selector_multi.json` | SD1.5 at `batch_size 4` feeding an `INSTARAW_ImageFilter` with `pick_list=""`, so the selector opens with **four** thumbnails and waits for a human. Built through the real frontend so litegraph did the link bookkeeping (preflight: 0 problems). Exists to exercise the multi-image Send-enable path, which the single-image path masks. |
+
+Fixtures are copied into the ComfyUI workflows directory by `--install` and stay
+there. They are harmless but they sit in the same list a buyer picks their
+workflow from, so use `--cleanup-install` to remove them again when the run ends:
+
+```bash
+node tools/browser_harness/run.js -w harness_known_good \
+  --install tools/fixtures/harness_known_good.json --cleanup-install
+```
 
 ---
 

@@ -54,10 +54,22 @@ WHAT COUNTS AS A FAILURE
   prevent it from pressing Run, so one run tells you about every phase. The exit
   code is non-zero if ANY failure was recorded; the summary lists them all.
 
+PRE-FLIGHT (static, ~25 ms, no browser)
+  A link-bookkeeping lint runs on the UI-format JSON before the browser starts.
+  It catches the class of defect behind the shipped blocker without a GPU or a
+  browser. It checks link bookkeeping only - NOT widgets_values desync - so
+  "0 problems" is not "no defects", and the browser stage remains the authority.
+  --preflight <file.json> Lint this file (implied by --install)
+  --preflight-only        Lint and stop; never launch a browser
+  --no-preflight          Skip it
+
 OPTIONS
   --url <url>             default http://127.0.0.1:18188  (env COMFY_URL)
   --install <path.json>   Copy this file over the install target before testing,
                           i.e. repo copy -> ComfyUI/user/default/workflows/<name>.json
+  --cleanup-install       Delete the installed workflow again when the run ends,
+                          so test fixtures do not accumulate in the list a buyer
+                          picks their workflow from
   --out <dir>             Artifact dir. Default results/browser/<ts>-<workflow>/
   --api-out <path.json>   Also write the captured API graph here (for graph_diff)
   --load-mode ui|api      "ui" (default) clicks the workflow in the Workflows
@@ -119,6 +131,10 @@ const DEFAULTS = {
   strictBoot: false,
   ignoreError: [],
   noDefaultIgnores: false,
+  preflight: null,
+  preflightOnly: false,
+  noPreflight: false,
+  cleanupInstall: false,
   driveSelector: false,
   selectorPick: 0,
   selectorTimeoutMs: 600000,
@@ -164,6 +180,10 @@ function parseArgs(argv) {
       case '--strict-boot': o.strictBoot = true; break;
       case '--ignore-error': o.ignoreError = o.ignoreError.concat([next()]); break;
       case '--no-default-ignores': o.noDefaultIgnores = true; break;
+      case '--preflight': o.preflight = next(); break;
+      case '--preflight-only': o.preflightOnly = true; break;
+      case '--no-preflight': o.noPreflight = true; break;
+      case '--cleanup-install': o.cleanupInstall = true; break;
       case '--drive-selector': o.driveSelector = true; break;
       case '--selector-pick': o.selectorPick = Number(next()); break;
       case '--selector-timeout-ms': o.selectorTimeoutMs = Number(next()); break;
@@ -199,17 +219,38 @@ function parseArgs(argv) {
 // OUR_PACK is the only custom_nodes directory the NSFW product ships.
 const OUR_PACK = 'ComfyUI_INSTARAW';
 
-function classifyOrigin(text, at) {
+// Every URL we can attribute an event to. Playwright's console location arrives as
+// "<url>:<line>" — the trailing :N must be stripped or a $-anchored path regex in
+// ignore.json can never match, and the whole ignore-list silently does nothing.
+function urlCandidates(text, at) {
   const urls = [];
-  if (at) urls.push(String(at));
+  if (at) {
+    const s = String(at);
+    urls.push(s);
+    urls.push(s.replace(/:\d+$/, ''));
+  }
   const inText = String(text || '').match(/https?:\/\/[^\s'")]+/g);
   if (inText) urls.push(...inText);
+  return urls;
+}
 
-  if (urls.some(u => u.includes(`/extensions/${OUR_PACK}/`))) return { origin: 'instaraw', product: true };
-  const other = urls.map(u => (u.match(/\/extensions\/([^/]+)\//) || [])[1]).find(n => n && n !== OUR_PACK);
-  if (other) return { origin: `third-party-pack:${other}`, product: false };
-  if (urls.some(u => /\/assets\//.test(u))) return { origin: 'frontend-core', product: true };
-  if (urls.length) return { origin: 'comfyui-asset', product: true };
+function classifyOrigin(text, at) {
+  // Order matters. An error's stack often walks through several packs' monkey
+  // patches on the way out; the frame that RAISED it is the one that attributes
+  // it. For a stack in the message that is the first URL in the text; otherwise
+  // it is the console location. Classifying on "any extension URL anywhere in
+  // the stack" blames whichever pack happens to wrap the function.
+  const inText = String(text || '').match(/https?:\/\/[^\s'")]+/g) || [];
+  const loc = at ? [String(at).replace(/:\d+$/, ''), String(at)] : [];
+  const ordered = inText.length ? inText.concat(loc) : loc;
+
+  for (const u of ordered) {
+    if (u.includes(`/extensions/${OUR_PACK}/`)) return { origin: 'instaraw', product: true };
+    const m = u.match(/\/extensions\/([^/]+)\//);
+    if (m && m[1] !== OUR_PACK) return { origin: `third-party-pack:${m[1]}`, product: false };
+    if (/\/assets\//.test(u)) return { origin: 'frontend-core', product: true };
+  }
+  if (ordered.length) return { origin: 'comfyui-asset', product: true };
   return { origin: 'unknown', product: true };
 }
 
@@ -229,7 +270,7 @@ class Recorder {
   setPhase(p) { this.phase = p; }
 
   matchRule(text, at) {
-    const haystackUrls = [String(at || '')].concat(String(text || '').match(/https?:\/\/[^\s'")]+/g) || []);
+    const haystackUrls = urlCandidates(text, at);
     return this.rules.find((r) => {
       if (r._text && !r._text.test(String(text))) return false;
       if (r._url && !haystackUrls.some(u => r._url.test(u))) return false;
@@ -395,6 +436,7 @@ async function main() {
   let execError = null;
   let execInterrupted = false;
   let cancelledByHarness = false;
+  let installedAt = null;
   let selectorInfo = { driven: false, appeared: false, images: 0, picked: null, sent_at_ms: null };
 
   // finish() is the single exit point. It never decides *whether* the run failed
@@ -451,6 +493,12 @@ async function main() {
 
     if (opt.keepOpenMs) await sleep(opt.keepOpenMs);
     if (browser) { try { await browser.close(); } catch { /* ignore */ } }
+
+    // Test fixtures should not linger in the list a buyer picks their workflow from.
+    if (opt.cleanupInstall && installedAt) {
+      try { fs.unlinkSync(installedAt); log(`cleanup         removed ${installedAt}`); }
+      catch (e) { log(`cleanup         could not remove ${installedAt}: ${e.message}`); }
+    }
 
     // ---- summary ----------------------------------------------------------
     log('');
@@ -537,9 +585,36 @@ async function main() {
     const dst = path.join(dstDir, `${wfName}.json`);
     if (path.dirname(dst) !== dstDir) die(`refusing to install outside ${dstDir}`);
     fs.copyFileSync(src, dst);
+    installedAt = dst;
     log(`installed       ${src}`);
     log(`             -> ${dst} (${fs.statSync(dst).size} bytes)`);
   }
+
+  // --- pre-flight: static link-bookkeeping lint on the UI-format JSON -------
+  // Cheap (~25 ms) and it catches the class of defect that produced this run's
+  // blocker, before a browser is launched. It does NOT replace the browser stage:
+  // it checks link bookkeeping only, not widgets_values desync, and "0 problems"
+  // has been shown to correlate with a converting graph on exactly one file pair.
+  const preflightSrc = opt.preflight || opt.install;
+  if (preflightSrc && !opt.noPreflight) {
+    const src = path.resolve(preflightSrc);
+    const script = path.join(__dirname, '..', 'preflight', 'integrity.py');
+    if (!fs.existsSync(src)) die(`--preflight source not found: ${src}`);
+    const r = require('child_process').spawnSync('python3', [script, src], { encoding: 'utf8' });
+    const out = ((r.stdout || '') + (r.stderr || '')).trim();
+    if (r.status === 0) {
+      log(`preflight       integrity.py: ${out.split('\n')[0]}`);
+    } else {
+      log(`preflight       integrity.py FAILED on ${src}`);
+      for (const line of out.split('\n')) log(`   ${line}`);
+      addFailure('preflight-integrity', out);
+      if (opt.preflightOnly) return finish({});
+      log('   continuing to the browser anyway so this run still reports every phase');
+    }
+    log('');
+  }
+  if (opt.preflightOnly && !preflightSrc) die('--preflight-only needs --preflight <file.json> or --install <file.json>');
+  if (opt.preflightOnly) return finish({});
 
   // --- preflight ------------------------------------------------------------
   try {
