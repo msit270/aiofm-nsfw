@@ -261,6 +261,16 @@
   ]
  },
  {
+  "tokens": 42,
+  "n_arms": 1,
+  "n_crash": 0,
+  "n_clean": 1,
+  "verdict": "clean",
+  "arms": [
+   "T_tok42"
+  ]
+ },
+ {
   "tokens": 44,
   "n_arms": 1,
   "n_crash": 1,
