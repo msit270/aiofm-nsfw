@@ -381,11 +381,12 @@ am not recommending a value. Logged, not chased.
 
 ### Determinism, again, from the same pair
 
-A duplicate driver submitted the identical 94-node graph a second time; it ran
-**warm** (57 cached, 150.5 s) against the cold run's 270.5 s. **All seven
+Duplicate drivers submitted the identical 94-node graph twice more; both ran
+**warm** (57 cached, 150.5 s and 149.9 s) against the cold run's 270.5 s. **All seven
 outputs — every tap and the delivered frame — compare at mean absolute
-difference 0.0000 and maximum 0 levels.** The duplicate's PNGs were deleted and
-the cold run kept; the comparison is recorded in the arm's `meta.json`.
+difference 0.0000 and maximum 0 levels, both times.** The duplicates' PNGs were
+deleted and the cold run kept; the comparisons are recorded in the arm's
+`meta.json`.
 
 ---
 
@@ -502,7 +503,7 @@ that tile is not comparable, on top of having no LoRAs.
 | arm | `#114` | pigment % | **bright-blob %** | luma L\* RMS *(fine texture)* | exec |
 |---|---|---|---|---|---|
 | — | *the input, `620:137`* | 2.096 | *3.172* | *1.262* | — |
-| `Z0` | steps 8, den **0.80** | 3.252 | **8.191** | 1.459 | 270.5 s cold / 150.2 s warm |
+| `Z0` | steps 8, den **0.80** | 3.252 | **8.191** | 1.459 | 270.5 s cold / 150.5 + 149.9 s warm |
 | `Z1` | steps 8, den **0.50** | 0.652 | **1.659** | 0.883 | 145.2 s warm |
 | `Z2` | steps 8, den **0.35** | 0.729 | **1.681** | **0.972** | 145.6 s warm |
 
@@ -565,6 +566,11 @@ matter more than the skin, the next investigation is `#98`, not `#114`.
 **Cost: nothing.** In a matched 57-node cache, denoise 0.50 → 0.35 is 145.2 s
 against 145.6 s. Denoise is free, from the source (§4) and from the clock.
 
+**Where I would look next if he wants more texture than `Z2` gives.** Not a
+higher denoise — that brings the crust back, which is what he rejected. The
+texture ceiling is set by what `#98` hands `#114`, and `#98` is also what
+removed the freckles. Both of his complaints point at the same node.
+
 ---
 
 # 6. Timing — **the 189.3 s figure does not survive a cold cache**
@@ -626,7 +632,7 @@ The same graph, cold against warm:
 | graph | cold | warm | difference |
 |---|---|---|---|
 | `L1b` (cf 3, steps 8, den 0.80) | **388.9 s** (0 cached) | 190.1 s (56 cached) | **198.8 s** |
-| `Z0`/tap (cf 1.5, steps 8, den 0.80) | **270.5 s** (0 cached) | 150.2 s (57 cached) | **120.3 s** |
+| `Z0`/tap (cf 1.5, steps 8, den 0.80) | **270.5 s** (0 cached) | 150.5 and 149.9 s (57 cached) | **~120 s** |
 
 **Roughly 120–200 s of a cold render on this pod is model loading, not
 sampling.** That is larger than either lever under discussion, which is exactly
