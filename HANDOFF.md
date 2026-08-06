@@ -97,16 +97,40 @@ lip blister bothers you, 1.0 is one integer away** (`widgets_values[15]`).
 > A proper cold pair was rendering when this was written. Treat steps 8 as a
 > **quality** change until it lands.
 
-> **Freckles — the honest answer to your question.** In *your* configuration the
-> base render has discrete, crisp, flat brown freckles and the delivered image
-> **does not**; what survives is a faint mottle with no discrete marks in it. That
-> is true at steps 30 **and** at steps 8, so this is not something steps 8 took
-> away. A pigment rule says 3.39 % (base) vs 2.43 % (steps 8) — but the same rule
-> scores the **shipped 30-step** render **8.53 %**, higher than the base render
-> that actually has the freckles, because it counts the gaps between raised bumps
-> as pigment. **The rule cannot tell a freckle from an artefact. Trust the crops.**
-> Evidence suggests they die *upstream* of `#114` — a tap render was queued to
-> confirm. If so, no `#114` setting can bring them back.
+### Luna's freckles — answered, and it moves the question off this node
+
+**They die at `#98 UltimateSDUpscale`, two stages before the face pass runs.**
+A tap render saved the image at every stage, with your LoRAs loaded, same seed
+(`results/face/R1_where_freckles_die_1to1.png`):
+
+| # | stage | pigment % | bright blobs % |
+|---|---|---|---|
+| 1 | base generator `619:601` | 3.39 | 3.75 |
+| 2 | `587:92` HandDetailer | 3.39 | 3.75 |
+| 3 | `587:91` skin-detail model | **6.58** | 10.51 |
+| 4 | `587:87` ImageBlend | 6.58 | 10.51 |
+| 5 | **`587:98` UltimateSDUpscale** | **2.09** | 3.14 |
+| 6 | into `#114` | 2.10 | 3.17 |
+| 7 | delivered `#505` | 3.25 | **8.19** |
+
+**So: no value of `#114`'s `steps`, `denoise` or `bbox_crop_factor` can bring
+them back.** Your denoise pick is purely about how the skin looks. If you want
+the freckles, the lever is **`#98`** (1.5x, 2 steps, denoise 0.08) in
+`3. Hands, Skin & Second Upscale` — **logged, not touched, no value recommended.**
+
+Three things fall out that nobody knew:
+- `#92 HandDetailer` does not touch the face at all — stages 1 and 2 are identical
+  to four figures.
+- `#87 ImageBlend` at `blend_factor 1` **is** a pass-through of `#91` — inferred
+  before from the widget, now measured: stages 3 and 4 identical.
+- **The skin-detail model nearly doubles the freckles** (3.39 → 6.58). It does not
+  remove them. An earlier guess that blamed `#87`/`#91` was wrong and is retracted.
+- `#114` does exactly what it was accused of and no more: bright blobs 3.17 → 8.19.
+  **It adds the bumps; it does not remove pigment that had already gone.**
+
+*Scale was controlled for, because stages 1–4 are 1792-wide and 5–7 are 2688: a
+pure LANCZOS resize in either direction moves the measure only 2–5 % relative,
+against the 67 % drop across `#98`. The step is real, not resampling.*
 
 **Still open, and the sheet answers it:** whether denoise moves as well. Four
 arms with your LoRAs were rendering when this was written. **Contact sheets:**
