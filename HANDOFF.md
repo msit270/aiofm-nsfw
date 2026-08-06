@@ -10,9 +10,10 @@ those lines say so.
 
 ## 1. Is the browser bug fixed? **YES**
 
-`No output node found for id [647] slot [4] MODEL` is gone, proved twice in a
-real browser — once on the dev copy, once from the **shipped tarball** into a
-ComfyUI that was empty before the run.
+`No output node found for id [647] slot [4] MODEL` is gone, proved in a real
+browser **from the artifact that ships** — `5f2a0f2b…c5ab1` unpacked into a
+ComfyUI that was empty before the run, on a separately built instance, with the
+live one never restarted.
 
 ```
 110 nodes audited: 0 unregistered (red), 0 has_errors, 0 dialogs, 0 toasts
@@ -22,7 +23,11 @@ prompt typed -> Run pressed -> POST /prompt 200, 88-node API graph
 selector driven -> render -> HasMetadata_00041_.png, 11,140,426 B
 ```
 
-**Screenshots: `results/gate/`.** What it was: three links inside subgraph
+**Screenshots: `results/gate/`** (37 artifacts, three legs). "Zero red nodes" was
+*checked* with the frontend's own predicate across root and every subgraph,
+cross-checked against `/object_info`, with the walk's node count matching the
+file exactly — which is what proves the check complete rather than merely quiet.
+What it was: three links inside subgraph
 `1. Canvas & Routing` ran straight from the SubgraphInputNode `-10` to the
 SubgraphOutputNode `-20` with no node between — `1497 = -10[3] → -20[4] (MODEL)`
 is the exact slot named. `LLink.resolve` returns early on the input side with no
@@ -162,8 +167,9 @@ a requirement, not step 3 of a list.
 4. **Five licence blockers** — `QUESTIONS.md` §0, untouched this run as you
    instructed. DMD2 (cc-by-nc) **still ships** because `--include "models/*"`
    sweeps it regardless of the fetch list.
-5. Ten stale `rgthree.compare._temp_*` names in the workflow — 404s on open, and
-   **real payload POSTed every run**.
+5. Stale `rgthree.compare._temp_*` names baked into the workflow — **observed
+   firing** as 404s on a clean install's first open, present in the shipped
+   bytes, and **real payload POSTed on every run** (not a UI artifact).
 6. `node_identifier` is saved in the workflow, so two open tabs both answer the
    selector.
 7. `AUDIT.md`, `MAP.md`, `PROPOSALS.md`, `SETUP.md` predate this work.
