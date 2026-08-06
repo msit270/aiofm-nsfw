@@ -805,5 +805,166 @@
   "highest_conf": 0.8948104381561279,
   "luma_sd": 59.68,
   "flat_frac": 0.1859
+ },
+ "A3_C1_fisherman_w17": {
+  "status": "success",
+  "prompt_id": "185cb8f6-1890-4bfa-b216-88b9b4fea7c7",
+  "exec_seconds": 79.9,
+  "cached": 0,
+  "text": "a bearded fisherman in his sixties, deep lines around the eyes, sun-darkened forehead, grey stubble along the",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00022_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.89444500207901
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.89444500207901
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.89444500207901
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.89444500207901
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.89444500207901
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.89444500207901
+   }
+  },
+  "highest_conf": 0.89444500207901,
+  "luma_sd": 59.64,
+  "flat_frac": 0.1855
+ },
+ "A3_C2_gardener_w17": {
+  "status": "error",
+  "prompt_id": "c71446c4-68eb-4c68-a4cf-63a9d00d7188",
+  "exec_seconds": 41.5,
+  "cached": 0,
+  "text": "an elderly gardener with a broad flat nose, heavy grey eyebrows, deep creases on both cheeks, a",
+  "error_node": "622:403",
+  "tap": "nTAP163__tap163_00023_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 0,
+    "max_conf": null
+   },
+   "0.5": {
+    "n": 0,
+    "max_conf": null
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   }
+  },
+  "highest_conf": 0.4656447172164917,
+  "luma_sd": 60.57,
+  "flat_frac": 0.3591
+ },
+ "A3_C3_locomotive_w17": {
+  "status": "success",
+  "prompt_id": "719863c8-1fe1-40f0-b68c-a8a201834b2e",
+  "exec_seconds": 83.7,
+  "cached": 0,
+  "text": "a rusting freight locomotive parked on overgrown sidings, bramble climbing the couplings, chipped enamel plates, oil stains",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00025_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8942177891731262
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8942177891731262
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8942177891731262
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8942177891731262
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8942177891731262
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8942177891731262
+   }
+  },
+  "highest_conf": 0.8942177891731262,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1862
+ },
+ "A3_C4_committee_w17": {
+  "status": null,
+  "prompt_id": null,
+  "exec_seconds": null,
+  "cached": null,
+  "text": null,
+  "error_node": null,
+  "tap": null
+ },
+ "CTL_placeholder_after_A3_C2_gardener_w17": {
+  "status": "success",
+  "prompt_id": "a301d88c-fe9a-409a-ab74-dff155705b30",
+  "exec_seconds": 81.4,
+  "cached": 0,
+  "text": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00024_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   }
+  },
+  "highest_conf": 0.8952752351760864,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1876
  }
 }

@@ -1,0 +1,27 @@
+[
+ {
+  "name": "T_tok30",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the",
+  "note": "token-count probe: fixed content + 18 x \" the\" = exactly 30 tokens"
+ },
+ {
+  "name": "T_tok32",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the",
+  "note": "token-count probe: fixed content + 20 x \" the\" = exactly 32 tokens"
+ },
+ {
+  "name": "T_tok29",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the",
+  "note": "token-count probe: fixed content + 17 x \" the\" = exactly 29 tokens"
+ },
+ {
+  "name": "T_tok31",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the",
+  "note": "token-count probe: fixed content + 19 x \" the\" = exactly 31 tokens"
+ },
+ {
+  "name": "T_tok33",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the",
+  "note": "token-count probe: fixed content + 21 x \" the\" = exactly 33 tokens"
+ }
+]

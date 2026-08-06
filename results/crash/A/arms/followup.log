@@ -5,3 +5,7 @@
 [CTL_placeholder_after_A3_C2_gardener_w17] submitted a301d88c-fe9a-409a-ab74-dff155705b30 cid=trackA-CTL_placeholder_after_A3_C2_gardener_w17-a4b0c3e8 queue_before=(0,0) vram_free=79.6GiB
 [CTL_placeholder_after_A3_C2_gardener_w17] success exec=81.4s cached=0 err=None  imgs=['tap163_00024_.png', 'HasMetadata_00078_.png']
 [A3_C3_locomotive_w17] submitted 719863c8-1fe1-40f0-b68c-a8a201834b2e cid=trackA-A3_C3_locomotive_w17-4df66d88 queue_before=(0,0) vram_free=59.5GiB
+[A3_C3_locomotive_w17] success exec=83.7s cached=0 err=None  imgs=['tap163_00025_.png', 'HasMetadata_00079_.png']
+[A3_C4_committee_w17] submitted a69e50d1-972b-4f41-925f-c31c0717417b cid=trackA-A3_C4_committee_w17-70498812 queue_before=(0,0) vram_free=59.1GiB
+[A3_C4_committee_w17] success exec=75.1s cached=0 err=None  imgs=['tap163_00026_.png', 'HasMetadata_00080_.png']
+[A3_swap_fine] submitted ac2c390f-03c5-4058-9487-6af06a18d175 cid=trackA-A3_swap_fine-5e2cebb2 queue_before=(0,0) vram_free=50.5GiB

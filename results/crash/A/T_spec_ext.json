@@ -1,0 +1,52 @@
+[
+ {
+  "name": "T_tok46",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "note": "token-count probe: fixed content + 34 x \" the\" = exactly 46 tokens"
+ },
+ {
+  "name": "T_tok45",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "note": "token-count probe: fixed content + 33 x \" the\" = exactly 45 tokens"
+ },
+ {
+  "name": "T_tok28",
+  "text": "a woman's face the the the the the the the the the the the the the the the the",
+  "note": "token-count probe: fixed content + 16 x \" the\" = exactly 28 tokens"
+ },
+ {
+  "name": "T_tok34",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the",
+  "note": "token-count probe: fixed content + 22 x \" the\" = exactly 34 tokens"
+ },
+ {
+  "name": "T_tok27",
+  "text": "a woman's face the the the the the the the the the the the the the the the",
+  "note": "token-count probe: fixed content + 15 x \" the\" = exactly 27 tokens"
+ },
+ {
+  "name": "T_tok35",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the",
+  "note": "token-count probe: fixed content + 23 x \" the\" = exactly 35 tokens"
+ },
+ {
+  "name": "T_tok26",
+  "text": "a woman's face the the the the the the the the the the the the the the",
+  "note": "token-count probe: fixed content + 14 x \" the\" = exactly 26 tokens"
+ },
+ {
+  "name": "T_tok36",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the",
+  "note": "token-count probe: fixed content + 24 x \" the\" = exactly 36 tokens"
+ },
+ {
+  "name": "T_tok44",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "note": "token-count probe: fixed content + 32 x \" the\" = exactly 44 tokens"
+ },
+ {
+  "name": "T_tok47",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "note": "token-count probe: fixed content + 35 x \" the\" = exactly 47 tokens"
+ }
+]

@@ -1,0 +1,23 @@
+=== L_w16 vs L_w17 ===
+RESULT: DIFFERENT — 1 difference(s): value_changed=1
+  value_changed      620:106.inputs.text  (CLIPTextEncode)
+=== L_w17 vs L_w18 ===
+RESULT: DIFFERENT — 1 difference(s): value_changed=1
+  value_changed      620:106.inputs.text  (CLIPTextEncode)
+=== L_w18 vs L_w19 ===
+RESULT: DIFFERENT — 1 difference(s): value_changed=1
+  value_changed      620:106.inputs.text  (CLIPTextEncode)
+=== L_w17 vs A3_C2_gardener_w17 ===
+RESULT: DIFFERENT — 1 difference(s): value_changed=1
+  value_changed      620:106.inputs.text  (CLIPTextEncode)
+=== L_w16 vs A3_C1_fisherman_w17 ===
+RESULT: DIFFERENT — 1 difference(s): value_changed=1
+  value_changed      620:106.inputs.text  (CLIPTextEncode)
+=== A1_gate_placeholder vs CTL_placeholder_after_w17 ===
+RESULT: IDENTICAL — 0 differences.
+=== A1_gate_placeholder vs CTL_placeholder_after_w18 ===
+RESULT: IDENTICAL — 0 differences.
+=== A1_gate_placeholder vs CTL_placeholder_after_w24 ===
+RESULT: IDENTICAL — 0 differences.
+=== A1_gate_placeholder vs CTL_placeholder_after_A3_C2_gardener_w17 ===
+RESULT: IDENTICAL — 0 differences.
