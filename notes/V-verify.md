@@ -11,6 +11,13 @@ confidence `0.4656`, zero faces at threshold 0.6. The fix does hold everywhere
 measured bands, 4/4 acceptance checks — which is exactly why the proof set alone
 would have passed it.
 
+**The run**: 102 arms on `127.0.0.1:18188`, every one cold
+(`execution_cached: []` confirmed in `/history`, not merely a `/free` issued),
+fresh `client_id` each, full history kept. 67 pass all four checks, 34 error at
+`622:403`, and **exactly one arm passes check A while failing B** —
+`V_E398_tok31_gpu`, which is a `device: default` arm, i.e. the fix removes the
+only silent failure observed. `:28191` was never touched.
+
 ---
 
 ## 0. What was under test, and what I ran it against
@@ -500,10 +507,12 @@ Every arm Track V ran, generated straight from the recorded `meta.json` and the
 measured frames by `results/crash/V/tools/v_report.py`. Two tables: the four
 acceptance checks, then the measurements they were judged on.
 
-`A` no exception · `B` no black / no large single-RGB fill · `C` `face_yolov8m.pt`
-max confidence >= 0.75 (the 0.89 class) · `D` `622:406` in the websocket
-`executing` stream. `cached` is `len(execution_cached)` from `/history` — every
-arm is 0. PSNR column is against `V_P4a`, the 16-token placeholder under the fix.
+`A` no exception · `B` no black and no large contiguous single-RGB fill ·
+`C` `face_yolov8m.pt` max confidence >= 0.75 (the 0.89 class, against the 0.466
+class, with a 0.43 gap containing no observation) · `D` `622:406` present in the
+websocket `executing` stream. `cached` is `len(execution_cached)` from
+`/history` — **it is 0 on every arm**. PSNR is against `V_P4a`, the 16-token
+placeholder under the fix.
 
 | arm | string (`620:106`) | tokens | `110.device` | `114.denoise` | prompt_id | cached | exec s | A | B | C | D | verdict |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -574,12 +583,23 @@ arm is 0. PSNR column is against `V_P4a`, the 16-token placeholder under the fix
 | `V_SW_tok49` | `"a woman's face the the the the the the the th…"` | 49 | cpu | 0.35 | `ecc0e2e5` | 0 | 68.7 | pass | pass | pass | pass | **PASS** |
 | `V_SW_tok50` | `"a woman's face the the the the the the the th…"` | 50 | cpu | 0.35 | `e9659734` | 0 | 68.7 | pass | pass | pass | pass | **PASS** |
 | `V_SEED_1111112_cpu` | `'luna, a young woman with light freckles acros…'` | 46 | cpu | 0.35 | `cdb9e540` | 0 | 67.8 | pass | pass | pass | pass | **PASS** |
+| `V_SEED_1111112_gpu` | `'luna, a young woman with light freckles acros…'` | 46 | default | 0.35 | `d9ad9fb0` | 0 | 37.5 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_SEED_42_cpu` | `'luna, a young woman with light freckles acros…'` | 46 | cpu | 0.35 | `37ea397b` | 0 | 67.2 | pass | pass | pass | pass | **PASS** |
+| `V_SEED_42_gpu` | `'luna, a young woman with light freckles acros…'` | 46 | default | 0.35 | `edf40df3` | 0 | 37.7 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_SEED_7_cpu` | `'luna, a young woman with light freckles acros…'` | 46 | cpu | 0.35 | `ff32449b` | 0 | 69.0 | pass | pass | pass | pass | **PASS** |
+| `V_SEED_987654321_cpu` | `'luna, a young woman with light freckles acros…'` | 46 | cpu | 0.35 | `c1f2410c` | 0 | 68.2 | pass | pass | pass | pass | **PASS** |
+| `V_E398_tok31_cpu` | `'TRIGGER, PROMPT FOR YOUR MODEL'` | 16 | cpu | 0.35 | `39f74b3c` | 0 | 65.4 | pass | pass | pass | pass | **PASS** |
+| `V_E398_tok31_cpu_b` | `'TRIGGER, PROMPT FOR YOUR MODEL'` | 16 | cpu | 0.35 | `f162421f` | 0 | 66.4 | pass | pass | pass | pass | **PASS** |
+| `V_E398_tok31_gpu` | `'TRIGGER, PROMPT FOR YOUR MODEL'` | 16 | default | 0.35 | `6fb0e9aa` | 0 | 50.7 | pass | **FAIL** | pass | pass | **FAIL** |
 | `V_CLEAN_head_16a` | `'TRIGGER, PROMPT FOR YOUR MODEL'` | 16 | cpu | 0.35 | `0c9f75d7` | 0 | 64.7 | pass | pass | pass | pass | **PASS** |
 | `V_CLEAN_head_16b` | `'TRIGGER, PROMPT FOR YOUR MODEL'` | 16 | cpu | 0.35 | `c8eb3918` | 0 | 64.7 | pass | pass | pass | pass | **PASS** |
 | `V_CLEAN_head_40a` | `"a woman's face the the the the the the the th…"` | 40 | cpu | 0.35 | `0d2ca9c2` | 0 | 68.2 | pass | pass | pass | pass | **PASS** |
 | `V_CLEAN_mid_16a` | `'TRIGGER, PROMPT FOR YOUR MODEL'` | 16 | default | 0.35 | `18b35a3b` | 0 | 50.1 | pass | pass | pass | pass | **PASS** |
 | `V_CLEAN_mid_16b` | `'TRIGGER, PROMPT FOR YOUR MODEL'` | 16 | default | 0.35 | `44e5a450` | 0 | 50.9 | pass | pass | pass | pass | **PASS** |
 | `V_CLEAN_mid_40a` | `"a woman's face the the the the the the the th…"` | 40 | default | 0.35 | `beaf1738` | 0 | 50.6 | pass | pass | pass | pass | **PASS** |
+| `V_FULL_head_32` | `'luna, 21 year old woman, freckles, green eyes…'` | 32 | cpu | 0.35 | `2b6c0827` | 0 | 242.3 | pass | pass | pass | pass | **PASS** |
+| `V_FULL_head_46` | `'luna, a young woman with light freckles acros…'` | 46 | cpu | 0.35 | `1b30670d` | 0 | 244.7 | pass | pass | pass | pass | **PASS** |
+| `V_FULL_mid_46` | `'luna, a young woman with light freckles acros…'` | 46 | default | 0.35 | `a7053f11` | 0 | 211.9 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
 | `V_B2_tok110_cpu` | `"a woman's face the the the the the the the th…"` | 110 | cpu | 0.35 | `a691f946` | 0 | 79.0 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
 | `V_B2_tok110_gpu` | `"a woman's face the the the the the the the th…"` | 110 | default | 0.35 | `2161edb9` | 0 | 38.1 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
 | `V_B2_tok120_cpu` | `"a woman's face the the the the the the the th…"` | 120 | cpu | 0.35 | `e7021bc7` | 0 | 80.9 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
@@ -668,12 +688,23 @@ arm is 0. PSNR column is against `V_P4a`, the 16-token placeholder under the fix
 | `V_SW_tok49` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
 | `V_SW_tok50` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
 | `V_SEED_1111112_cpu` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8954 | - |
+| `V_SEED_1111112_gpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_SEED_42_cpu` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8936 | - |
+| `V_SEED_42_gpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_SEED_7_cpu` | 505 | 0.0 | 0.02073 [255, 255, 255] | 0.0 [16, 13, 13] | 0.8934 | - |
+| `V_SEED_987654321_cpu` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8933 | - |
+| `V_E398_tok31_cpu` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8943 | - |
+| `V_E398_tok31_cpu_b` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8943 | - |
+| `V_E398_tok31_gpu` | 505 | 0.004524 | 0.02073 [255, 255, 255] | 0.00251 [0, 0, 0] | 0.8944 | - |
 | `V_CLEAN_head_16a` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8943 | - |
 | `V_CLEAN_head_16b` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8943 | - |
 | `V_CLEAN_head_40a` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.894 | - |
 | `V_CLEAN_mid_16a` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
 | `V_CLEAN_mid_16b` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
 | `V_CLEAN_mid_40a` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8944 | - |
+| `V_FULL_head_32` | 505 | 0.0 | 0.01893 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.9013 | - |
+| `V_FULL_head_46` | 505 | 0.0 | 0.01893 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.9015 | - |
+| `V_FULL_mid_46` | TAP163 | 0.0 | 0.03923 [20, 19, 18] | 0.03923 [20, 19, 18] | None | 622:403 |
 | `V_B2_tok110_cpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
 | `V_B2_tok110_gpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
 | `V_B2_tok120_cpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
@@ -692,7 +723,6 @@ arm is 0. PSNR column is against `V_P4a`, the 16-token placeholder under the fix
 | `V_B2_tok90_gpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
 | `V_B2_tok96_cpu` | 505 | 0.0 | 0.02073 [255, 255, 255] | 0.0 [16, 13, 13] | 0.8941 | - |
 | `V_B2_tok96_gpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
-
 
 ### Voided arms — run but NOT counted
 
