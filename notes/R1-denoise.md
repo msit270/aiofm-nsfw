@@ -115,10 +115,20 @@ In the delivered images, over the identical crop:
 | `L1b_steps08_loras` — *what shipped* | steps 8, denoise 0.80 | yes | **gone** — smooth skin, a faint mottle, no discrete marks |
 | `X2_steps08_denoise050` | steps 8, denoise 0.50 | **no** | n/a — different person |
 
-**Verdict, in the terms he asked for: GONE — and the trade he is worried about
-was already made, by a lever he was not looking at.** Denoise 0.50 is not what
-removed them. They were gone at the settings he shipped before, and they are
-gone at the settings he shipped yesterday.
+**Verdict, in the terms he asked for — present / reduced / gone:**
+
+* **In `X2` itself: not answerable.** It is a different woman. The question
+  cannot be put to that tile.
+* **In `X2`'s settings rendered in his configuration (`Z1`, denoise 0.50 with
+  both Luna LoRAs): GONE.** No discrete brown marks in the nose/upper-cheek
+  crop.
+* **In what he shipped before (`L0b`, steps 30 / denoise 0.80): GONE.**
+* **In what he shipped yesterday (`L1b`, steps 8 / denoise 0.80): GONE.**
+* **In `Z2` (denoise 0.35): REDUCED, not gone** — one distinct brown mark
+  survives, and it is the only arm in which anything does.
+
+**So the trade he is worried about was already made, by a lever he was not
+looking at.** Denoise 0.50 is not what removed them.
 
 **Where my eye and my number disagree, and which I am trusting.** Applying one
 consistent pigment rule (§below) the base render's mask is **3.394 %**
