@@ -1,0 +1,37 @@
+{
+ "arm": "A1_baseline_clean",
+ "note": "BASELINE on 28191: same shipping graph + LoRAs, #106 = shipped placeholder. Must render clean. Doubles as the post-crash health control for A0.",
+ "expect": "clean",
+ "server": "127.0.0.1:28191",
+ "base": "results/r4/R4_CF15_placeholder/api_graph.json",
+ "changes": [],
+ "graph_sha256": "64a926815edead0f87e0176e9d6f8669243756bd740f525c4228904e8ea78c85",
+ "prompt_id": "c75e0d28-1a10-4d84-98e3-f4bf87816d8c",
+ "client_id": "trackB-A1_baseline_clean-4c59a517",
+ "status": "success",
+ "exec_seconds": 306.6,
+ "wall_seconds": 318.3,
+ "cached_count": 0,
+ "cached_nodes": [],
+ "images": [
+  "HasMetadata_00002_.png"
+ ],
+ "health": [
+  {
+   "file": "HasMetadata_00002_.png",
+   "size": [
+    2688,
+    3456
+   ],
+   "flat_frac": 0.03088,
+   "luma_sd": 59.505,
+   "luma_mean": 138.668,
+   "has_nan": false,
+   "suspect_poisoned": false
+  }
+ ],
+ "error_node_id": null,
+ "error_node_type": null,
+ "exception_type": null,
+ "exception_message": null
+}
