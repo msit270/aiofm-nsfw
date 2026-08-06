@@ -454,7 +454,27 @@ cf 1.5 is about the **philtrum, lips, chin and the jaw seam** — different
 regions, and I am not contradicting it. But on the nose and upper cheeks, at
 denoise 0.80, cf 1.5 is not the improvement; **denoise is.**
 
-*(`Z1` denoise 0.50 and `Z3` steps 30 / denoise 0.35 fill in below as they land.)*
+### The full ladder
+
+| arm | `#114` | pigment % | **bright-blob %** | luma L\* RMS *(fine texture)* | exec |
+|---|---|---|---|---|---|
+| — | *the input, `620:137`* | 2.096 | *3.172* | *1.262* | — |
+| `Z0` | steps 8, den **0.80** | 3.252 | **8.191** | 1.459 | 270.5 s cold / 150.2 s warm |
+| `Z1` | steps 8, den **0.50** | 0.652 | **1.659** | 0.883 | 145.2 s warm |
+| `Z2` | steps 8, den **0.35** | 0.729 | **1.681** | **0.972** | 145.6 s warm |
+
+**The step is between 0.80 and 0.50, not between 0.50 and 0.35.** Bright-blob
+falls 8.191 → 1.659 and then stops moving. That matches the schedule
+arithmetic in §4: at denoise 0.80 the pass starts at step 2 of a 10-step
+schedule — near the top of the noise ladder — while 0.50 starts at 8 of 16 and
+0.35 at 14 of 22, which are much closer to each other.
+
+**But 0.35 is the better of the two, on two counts and both visible.** Its fine
+texture is *higher* than 0.50's (luma RMS 0.972 against 0.883) — less
+re-diffusion means more of the input's real pore structure survives — and it is
+the only arm in which the pigment mark below the right eye, plainly present in
+the `620:137` tap, **comes through into the delivered frame.** At 0.50 that
+mark is gone. At 0.80 it is gone.
 
 ---
 
