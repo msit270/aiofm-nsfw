@@ -339,10 +339,59 @@ wrong, changing the widget moves **12.8 % of the frame's pixels**, 2.0 % of them
 by more than one 8-bit level, with a worst-case channel delta of **135 out of
 255**.
 
-Whether that is visible or an improvement is not mine to judge — the pair is at
-`results/crash/V/arms/V_CLEAN_{mid,head}_16a/` and the 1:1 sheets are in
-`results/crash/V/out/`. But "the fix must be inert where nothing was wrong" is
-**not satisfied**, and it is measurable rather than arguable.
+Whether that is visible or an improvement is not mine to judge. But "the fix must
+be inert where nothing was wrong" is **not satisfied**, and it is measurable
+rather than arguable.
+
+### The sheets — and what the 12.8 % actually is
+
+| sheet | tiles |
+|---|---|
+| `results/crash/V/out/V_SHEET_face_sheet1of1.png` | 4 tiles, 1556×2216 each, 1:1. Tiles 1+2 the **cost** pair; tiles 3+4 the **benefit** pair (crash vs cured) |
+| `results/crash/V/out/V_SHEET_EYES_face_sheet1of1.png` | 2 tiles, both eyes, 1:1 — this is where the cost lives |
+| `results/crash/V/out/V_SHEET_skin_sheet1of1.png` | flat cheek patch, identical region in every tile |
+
+Each carries a red banner naming which tiles are which graph and which pairs may
+be compared; across pairs is marked not comparable, because tiles 3+4 are a
+different prompt **and** a different pipeline stage (tile 3 crashed, so no
+delivered frame exists and only the `621:163` tap does).
+
+**Where the difference is.** Inside the face box 42 % of pixels move; outside it
+only 1.7 % move at all and never by more than 2 levels out of 255. Of the pixels
+that move by more than 4 levels — 0.387 % of the frame — the two largest
+connected regions are **the two eyes**: 17 769 px with a peak delta of 135, and
+12 838 px with a peak of 116. **They are 85 % of all visible change.**
+
+**What does not change.** No tone shift (mean signed luma −0.0021 of 255). No
+colour cast (per-channel signed means 0.000 / −0.002 / −0.010). No change in
+sharpness or skin texture: high-frequency energy ratio cpu/default **1.00012**,
+mean local standard deviation 6.3496 vs 6.3588. The cheek reads the same either
+way, and the sheet's skin tile is there so that can be checked rather than taken
+from me.
+
+**What the eyes do — description, not a rating.** At 1:1 on both eyes:
+
+* **`device: default`** — the pupil is a clean, closed dark oval with a crisp
+  edge, and the catchlight sits **beside** it as a fine, branching, wispy white
+  filament.
+* **`device: cpu`** — the catchlight becomes a larger, blockier, harder-edged
+  mass of near-white that **crosses the pupil boundary**, so the pupil outline
+  reads as notched or bitten into rather than closed. The iris fibres immediately
+  around the top of the pupil read coarser and lighter, as a more pronounced
+  crown of pale radial streaks. The same thing happens on both eyes.
+
+**And it is the eyes stage that does it, not the face pass.** In the 8×8 grid of
+mean absolute difference, the two eye cells measure 1.79 and 1.55 on the
+delivered frame but only 0.25 and 0.21 at `621:163` — roughly 8× less. So
+`620:114` (the face pass, the node the fix was aimed at) barely moves the image
+here; `622:406 DetailerForEachDebug` amplifies the tiny conditioning change into
+the visible one.
+
+**One fact I will state without judging it:** `622:398`, the eye prompt the graph
+ships, reads *"perfect eyes, round pupils, round iris, symmetrical eyes, realistic
+eyes, perfect circles, round"*. On this render the fix moves the pupil outline
+away from closed and round. Whether that matters is the owner's call; I am
+recording that the change runs against what that prompt asks for.
 
 ### Cost
 
