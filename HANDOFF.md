@@ -65,6 +65,37 @@ selected — which would also explain why Track D's instance renders the same gr
 and string clean 3/3 while `:18188` and `:28191` both crash. Until that lands, a
 green run proves nothing unless the instance was first shown able to fail.
 
+### Track B: turning things off does not fix it, it makes the failure silent
+
+17 cold arms on a second server, which **reproduced the crash independently** —
+and whose clean render came back *bit-identical* to the first server's.
+
+- **LoRAs off → no crash, but `status: success` with 23.5 % of the frame a single
+  exact RGB.** The face is still destroyed; you just do not get told. **That is
+  worse, not better.**
+- **cfg does not rescue it.** cfg 2 crashes identically to the shipping cfg 1.
+  (cfg 5 arms went lowvram and are recorded as confounded, not as evidence.)
+- **The size-filter hook is ruled out.** Detached, still crashes, detector trace
+  identical step for step.
+- **The mouth prompt does not crash.** So this is not "any prompt on this encoder".
+
+**And the one that matters most — a prompt that is *downstream* of the crash
+causes the crash.** `622:398` is the eyes prompt; it feeds a node that runs
+*after* `622:403`, and no link connects it to `622:403`. Lengthen it, leave `#106`
+safe, and it crashes **3/3** at `622:403`. Track B left this as its highest-value
+unknown, and it is the best lead in the whole run: **the failure is not travelling
+through the wiring.**
+
+> **[I] Reconciling B with A, because they look like they disagree and do not.**
+> B reports that dropping the `luna, ` prefix gives a clean, healthy image and
+> concludes the prefix is load-bearing. `luna, ` is **4 content tokens**; the
+> crashing string is **46**; 46 − 4 = **42**, and A measured 42 as clean. So the
+> prefix most likely matters only because its tokens push the prompt over the
+> 44 edge — which is A's result, not a second effect. Not yet tested directly.
+>
+> B also retracted a published finding mid-run (VRAM pressure as a second route)
+> after a control ran 85 lowvram patches and came back `max_abs_diff 0`.
+
 ### Two more from Track A, unasked
 
 - **"Server poisoning" is a stale execution cache.** Reproduced 2/2: both failed

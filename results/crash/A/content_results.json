@@ -1719,5 +1719,69 @@
   "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
   "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
   "words": 39
+ },
+ {
+  "arm": "CTL_placeholder_after_T_tok48",
+  "prompt_id": "271e9eb4-a12d-418f-80fc-af21e498d14d",
+  "client_id": "trackA-CTL_placeholder_after_T_tok48-b2c56ab8",
+  "wall_seconds": 55.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 54032556652,
+  "note": "health control after an error arm",
+  "status": "success",
+  "exec_seconds": 52.6,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00077_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00112_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
+ },
+ {
+  "arm": "T_tok49",
+  "prompt_id": "7603c769-43bc-4852-af8f-313ce2ff80b1",
+  "client_id": "trackA-T_tok49-3ffdb27e",
+  "wall_seconds": 40.2,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 54032821020,
+  "note": "token-count probe: fixed content + 37 x \" the\" = exactly 49 tokens",
+  "status": "error",
+  "exec_seconds": 39.5,
+  "cached": 0,
+  "cached_ids": [],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00078_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "words": 40
  }
 ]
