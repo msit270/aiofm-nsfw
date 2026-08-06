@@ -1,0 +1,16 @@
+{
+  "arm": "R4_N_A_trigger_only",
+  "changed": "#106 = the trigger prefix alone, no description",
+  "text": "luna, ",
+  "prompt_id": "822e35d8-e2ae-443c-9de9-c8fe2e5555e5",
+  "client_id": "r4-narrow-41d69477",
+  "bbox_crop_factor": 3,
+  "status": "success",
+  "exec_seconds": 307.5,
+  "cached_nodes": 0,
+  "cached_node_ids": [],
+  "images": [
+    "HasMetadata_00057_.png"
+  ],
+  "error": ""
+}

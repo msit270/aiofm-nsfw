@@ -850,6 +850,82 @@ once: the server really was poisoned then (another agent's prompt failed too, an
 trigger underneath it. Settling the first did not settle the second, and it took
 alternation on a proven-healthy server to separate them.
 
+### The narrowing test — three renders, and it refutes the wide reading
+
+Approved and run after the above. All three branch from `L1b_steps08_loras`'s API
+graph and change `620:106.inputs.text` **alone**; `POST /free` before each, so
+every arm reports `execution_cached: 0` and the times are directly comparable.
+All at `bbox_crop_factor 3`, matching the n=2 evidence above.
+
+| arm | `#106.text` | result | exec | cached |
+|---|---|---|---|---|
+| A | `"luna, "` — the trigger prefix alone | **success** | 307.5 s | 0 |
+| B | `"a woman's face"` — a short description, no prefix | **success** | 307.4 s | 0 |
+| C | the full string again | **ERROR** `622:403` | 290.2 s | 0 |
+
+With C, the full string has now crashed **3 / 3** (`94552d00`, `81c9e758`,
+`a92124ac`) and every other `#106` value tried with the same LoRAs is clean.
+
+### What that does and does not narrow it to
+
+The whole grid, so nobody has to reconstruct it:
+
+| LoRAs | `#106.text` | result |
+|---|---|---|
+| none | placeholder | clean (`R4_base`) |
+| none | empty | clean (`R4_D2_empty`) |
+| none | the long description, no `luna, ` prefix | clean (`R4_D2_real`) |
+| **loaded** | placeholder | clean ×2 |
+| **loaded** | `"luna, "` alone | clean |
+| **loaded** | `"a woman's face"` | clean |
+| **loaded** | `"luna, "` + the long description | **CRASH ×3** |
+| **loaded** | the long description, **no** prefix | **UNTESTED — the deciding cell** |
+
+**Refuted, by arms that exist:**
+
+* *"Any filled prompt crashes it with a LoRA loaded."* **No.** A and B are both
+  filled prompts with the LoRAs loaded and both render clean.
+* *"The `luna, ` trigger prefix is the trigger."* **No.** Arm A is exactly that
+  prefix and it renders clean.
+* *"A description is the trigger."* **No, not a short one.** Arm B renders clean.
+
+**Not isolated, and I am not going to pretend otherwise:** *which property of the
+long string* matters — its length, or a particular clause in it — is **unknown**.
+Two short strings being clean does not tell you which of the seven clauses in the
+long one is doing it, or whether it is length at all.
+
+**The honest one-sentence version: the trigger is that specific long string with
+the LoRAs loaded, reproduced 3/3, and every shorter `#106` value tried is clean.
+It is not "filled prompts are unsafe."**
+
+### On whether `R4_D2_real` is a real contrast — main asked me to bet
+
+`R4_D2_real` (no LoRAs, the long description without the `luna, ` prefix, clean)
+**has a second uncontrolled variable and I would not lean on it.** Two things
+differ from the crashing arm: the LoRA stacks, and the prefix.
+
+**[I] My bet: the LoRAs are load-bearing and the `luna, ` prefix is not.
+Confidence moderate — call it 2 in 3, not better.** The reason it is only that:
+arm A shows the prefix alone is harmless *with* the LoRAs loaded, which argues the
+prefix is not the active ingredient, and the same long description ran clean
+without LoRAs. But **the cell that decides it — the long description with LoRAs
+and no prefix — is exactly the one I have not run**, and betting past an untested
+cell is how this project has gone wrong before. One render closes it.
+
+### For `HANDOFF.md` §7, as asked — one line
+
+> **Reproduction:** load `lunaskye.safetensors` on `#618` and `luna.safetensors`
+> on `#116`, set `#106 "Face Detailer Prompt"` to `luna, a young woman with light
+> freckles across her nose and cheeks, natural skin texture with visible pores,
+> detailed eyes, photorealistic portrait photograph, 85mm lens`, leave everything
+> else shipped (`#114` steps 8, `bbox_crop_factor` 3), and run: the graph dies at
+> `622:403 MaskBoundingBox+` with `RuntimeError: min(): Expected reduction dim …
+> input.numel() == 0` (`ComfyUI_essentials/mask.py:184`, `.min()` on an empty face
+> mask). 3/3. The shipped placeholder, `luna, ` alone, and `a woman's face` all
+> render clean in the same configuration, so this is **not** "any filled prompt".
+
+---
+
 ### What is established, and what is not
 
 **Established.** In the owner's own configuration — `lunaskye` on `#618`, `luna`

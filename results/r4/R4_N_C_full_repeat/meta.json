@@ -1,0 +1,14 @@
+{
+  "arm": "R4_N_C_full_repeat",
+  "changed": "#106 = the known-crashing full string again, for n=3",
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens",
+  "prompt_id": "a92124ac-c7c7-4e6f-9805-4ebaf4bc4dd4",
+  "client_id": "r4-narrow-41d69477",
+  "bbox_crop_factor": 3,
+  "status": "error",
+  "exec_seconds": 290.2,
+  "cached_nodes": 0,
+  "cached_node_ids": [],
+  "images": [],
+  "error": "622:403 MaskBoundingBox+ RuntimeError"
+}

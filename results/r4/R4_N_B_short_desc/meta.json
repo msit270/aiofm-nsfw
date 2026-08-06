@@ -1,0 +1,16 @@
+{
+  "arm": "R4_N_B_short_desc",
+  "changed": "#106 = a short description, no trigger prefix",
+  "text": "a woman's face",
+  "prompt_id": "826ba1e6-1348-4f21-98c3-2cc95f8a54f9",
+  "client_id": "r4-narrow-41d69477",
+  "bbox_crop_factor": 3,
+  "status": "success",
+  "exec_seconds": 307.4,
+  "cached_nodes": 0,
+  "cached_node_ids": [],
+  "images": [
+    "HasMetadata_00058_.png"
+  ],
+  "error": ""
+}
