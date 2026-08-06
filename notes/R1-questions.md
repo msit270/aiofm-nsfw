@@ -98,7 +98,62 @@ removed, 0 existing nodes changed.** Same render, same cost, no risk I can see
 beyond six extra PNG writes. I did not change `#87` or anything else, per
 main's instruction.
 
-## 7. What I did not do
+## 7. I rebased every arm onto cf 1.5 rather than deliver a sheet for a graph nobody ships
+
+Main offered me the choice: apply `bbox_crop_factor` 3 → 1.5 now and re-base,
+or hold it until my sheet was delivered. I took the re-base, for two reasons.
+
+The cheap one: **I had rendered nothing.** The queue had not been empty once in
+55 minutes and my driver refuses to `/free` under someone else's render, so
+there was no sunk cost to protect.
+
+The real one: **cf is not an independent axis from denoise.** cf sets how many
+pixels `#114` fabricates; denoise sets how much of the input it is allowed to
+destroy. P2's own sweep puts numbers on the first half — band-pass energy on
+`#114`'s footprint is 5.311 at cf 3 (2688x3456) and 4.196 at cf 1.5
+(1945x2749), against 2.862 for the untouched input. A denoise value picked
+against a pass that fabricates twice as much is not the value you would pick
+otherwise, so a cf-3 sheet answers a question about a graph nobody is going to
+ship.
+
+The three cf-3 tiles the owner has already seen stay on the sheet, labelled
+`cf 3`, so he can see what changed and why.
+
+## 8. Four arms, not two
+
+The brief asked for two. I rendered four because two of them cost nothing extra
+in judgement and one costs nothing extra in GPU:
+
+* **`Z0` (denoise 0.80)** — the sheet needs a same-graph reference or the three
+  new tiles have nothing to be compared against. It is **the tap render**, so
+  it is not an extra render at all: the six `SaveImage` taps are pure sinks
+  (6 added, 0 removed, 0 existing inputs changed) and `#505`'s output is what
+  it would have been without them.
+* **`Z1` (denoise 0.50)** — this is `X2`'s denoise in the owner's
+  configuration, and `X2` is the tile he formed his opinion from. Without it
+  the sheet cannot answer him.
+
+## 9. I submitted the arms warm, with a health control, instead of waiting longer for a cold window
+
+The brief wanted cold-start numbers **or** the word "unmeasured". I could have
+kept waiting for four separate cold windows on a server that had not been idle
+for an hour, and delivered nothing. Instead: one `/free` on a genuinely empty
+queue, then a **byte-identical resubmission of `L1b`'s own submitted graph** as
+a health control — the server had already failed twice today, once returning a
+flat grey face with `status: success` and once crashing at `622:403
+MaskBoundingBox+` — and only then the four arms back to back.
+
+Running them back to back is not a cold start, but it does mean **no foreign
+job interleaved between them**, which is what makes their cache states
+comparable to each other. Whether that yielded a usable matched pair, and
+whether a cold pair was obtained afterwards, is in `notes/R1-denoise.md`
+§Timing. If it says **unmeasured**, that is the honest word and not a
+placeholder.
+
+The one thing I would not do is submit warm and then compare mismatched caches.
+That is the exact mistake behind last run's retracted "+31 % slower".
+
+## 10. What I did not do
 
 * I did not reopen steps. The brief says it is decided; it is.
 * I did not touch `A_drop_sdxl_face_pass` / `#607`.
