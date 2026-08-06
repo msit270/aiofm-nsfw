@@ -713,18 +713,20 @@ the same render, not a re-roll.
 **The 53 % was cache.** With the cache cleared on both sides, changing `#114`
 steps from 30 to 8 makes the whole render **6.9 % faster**, not 53 %.
 
-**And I would not quote even the 28.6 s as the size of the steps lever.** Two
-cold runs of ~400 s each carry ~200 s of model loading whose duration varies
-between runs, so a 28.6 s gap sits inside that variance. **The matched-cache
-figure is the better measurement of the lever: −53.1 s of sampling.** What the
-cold pair establishes is the thing the owner actually needs — **the
-whole-render speedup from steps is single-digit percent, not half.**
+**And I would not quote even the 28.6 s as the size of the steps lever** — see
+the section above: it is backwards on physics against the cf-1.5 pair, which
+was measured twice at ~53 s. What this pair establishes is the thing the owner
+actually needs, and it does not depend on the exact delta: **with the cache
+cleared on both sides, changing steps changes the render by tens of seconds out
+of ~400, not by half.**
 
 `HANDOFF.md` §4 currently carries two claims that both need this correction:
 *"26 % faster, a lower bound"* (from `A0` 397.8 s at 31 cached against `C_08`
 294.1 s at 8 cached — also not cold-vs-cold) and *"400.7 s → 189.3 s"*. Neither
-pair had matched caches. **Steps 8 is still the right setting; it is just not a
-26 % or a 53 % speedup.**
+pair had matched caches, and the phrase *"a lower bound"* is not supportable
+when the faster arm had 23 fewer nodes cached in a regime where caching is
+worth 120–200 s. **Steps 8 is still the right setting. It is a ~53 s saving on
+a ~300–400 s render, and the pack should not promise 26 % or 53 %.**
 
 ---
 
