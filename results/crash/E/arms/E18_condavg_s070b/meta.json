@@ -1,0 +1,28 @@
+{
+ "arm": "E18_condavg_s070b",
+ "prompt_id": "96dba53a-c654-4151-8374-7f17d764fdf0",
+ "client_id": "trackA-E18_condavg_s070b-51266445",
+ "wall_seconds": 45.0,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 32501889564,
+ "note": "repeat of the perturbation.",
+ "status": "error",
+ "exec_seconds": 40.8,
+ "cached": 0,
+ "cached_ids": [],
+ "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+ "error_node": "622:403",
+ "error_type": "MaskBoundingBox+",
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00095_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  }
+ ],
+ "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens"
+}

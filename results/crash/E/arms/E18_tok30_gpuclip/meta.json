@@ -1,0 +1,28 @@
+{
+ "arm": "E18_tok30_gpuclip",
+ "prompt_id": "98923de8-2a6d-47d4-ad1f-3ff89c814bad",
+ "client_id": "trackA-E18_tok30_gpuclip-14eca08f",
+ "wall_seconds": 40.0,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 53565815324,
+ "note": "30-token band, GPU encoder. Expect ERROR (Track A: T_tok30 crashed).",
+ "status": "error",
+ "exec_seconds": 36.4,
+ "cached": 0,
+ "cached_ids": [],
+ "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+ "error_node": "622:403",
+ "error_type": "MaskBoundingBox+",
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00096_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  }
+ ],
+ "text_106": "a woman's face the the the the the the the the the the the the the the the the the the"
+}
