@@ -292,7 +292,45 @@ pipeline's own `#114` output exactly (max abs difference 0 over 2688×3456).
 Noted as a sanity check on the harness only — per the project's standing rule I
 am not treating identical output as proof of anything.
 
-<!--RESULTS-->
+### Arms
+
+| stage | arm | cfg | negative | status |
+|---|---|---|---|---|
+| face `#114` | `face_cfg1.0_negshipped` | 1.0 | as shipped | **complete** — 185.5 s |
+| face `#114` | `face_cfg1.5_negshipped` | 1.5 | as shipped | queued |
+| face `#114` | `face_cfg1.5_negempty` | 1.5 | `""` | queued |
+| face `#114` | `face_cfg3.0_negshipped` | 3.0 | as shipped | queued |
+| face `#114` | `faceX_cfg1.0_realpositive_negshipped` | 1.0 | as shipped, **positive replaced with a real prompt** | queued |
+| mouth `#165` | `mouth_cfg1.0_negempty` | 1.0 | `""` (shipped) | queued |
+| mouth `#165` | `mouth_cfg1.5_negempty` | 1.5 | `""` | queued |
+| mouth `#165` | `mouth_cfg1.5_negfilled` | 1.5 | `#105`'s string | queued |
+| mouth `#165` | `mouth_cfg3.0_negfilled` | 3.0 | `#105`'s string | queued |
+| eyes `#406` | `eyes_cfg1.0_negempty` | 1.0 | `""` (shipped) | queued |
+| eyes `#406` | `eyes_cfg1.5_negempty` | 1.5 | `""` | queued |
+| eyes `#406` | `eyes_cfg1.5_negfilled` | 1.5 | `#105`'s string | queued |
+| eyes `#406` | `eyes_cfg3.0_negfilled` | 3.0 | `#105`'s string | queued |
+
+> **Status, stated plainly rather than papered over.** At the time of writing
+> only the cfg 1.0 reference arm has returned. The remaining twelve are queued
+> behind other agents' work on a shared pod and had not executed. Their exact
+> submitted `api_graph.json` and `submission.json` (with prompt id) are on disk
+> under `results/cfg/<arm>/`, so whoever picks this up can collect them from
+> `/history` without re-deriving anything.
+>
+> **This does not weaken §7.** The recommendation does not rest on these arms. It
+> rests on the model identification (§1), the vendor and template evidence (§2a,
+> §2b) and the sampler source (§2c) — none of which needs a render. The arms were
+> commissioned to show the owner *what raising cfg costs*, which is a picture
+> for him to look at, not the basis of the argument. If they never run, the
+> argument stands and the picture is missing.
+
+### The `cfg 1.0 + empty negative` arm was cancelled deliberately
+
+It was queued and I cancelled it (only ever my own prompt id) to make room when
+priorities shifted. Its purpose was to corroborate that the negative is inert at
+cfg 1 by showing an identical image — which is the shape of the verification
+method this project bans, and which §2c already proves from source. Losing it
+costs nothing.
 
 ## 5b · `guide_size` / `bbox_crop_factor` on `#114` — asked for mid-run
 
@@ -366,7 +404,36 @@ Since the crop clamps to the frame as soon as `bbox × 3` exceeds it, tighter
 framing is strictly worse and saturates at the whole frame. *That last paragraph
 is inference from geometry; the sweep tests it.*
 
-<!--SWEEP RESULTS-->
+### Results
+
+> **Not yet returned.** All four sweep arms are queued on a shared pod behind
+> other agents' work. Their submitted `api_graph.json` and prompt ids are under
+> `results/cfg/sw_*/`. The analysis is scripted and takes one command once they
+> land: it reads each arm's `Detailer:` log lines out of
+> `/workspace/ComfyUI/user/comfyui_18188.log` within that prompt's execution
+> window, computes 1–4 px DoG RMS on the edit footprint and on four fixed
+> patches, and writes 1:1 mouth crops plus a contact sheet to
+> `results/cfg/compare/`.
+>
+> The predictions above are registered and unedited. Score them against the log
+> lines, not against my prose.
+
+**Reference numbers already measured**, so the sweep has something to be
+compared against. 1–4 px DoG RMS, luma, on the shipped arm at guide/max 1024:
+
+| region | input `620:137` | output `#114` |
+|---|---|---|
+| edit footprint (the SAM mask, 9.08 % of frame) | 3.912 | **5.841** |
+| everything else | 4.143 | 4.202 |
+| mouth + cheek patch (1100,1500,900,600) | 2.714 | **4.530** |
+| forehead patch (1250,600,700,400) | 2.754 | 3.589 |
+| blurred background patch (100,200,500,500) | 2.685 | 2.685 |
+| wall / sill patch (100,2800,500,500) | 1.572 | 1.572 |
+
+The two background patches are **bit-identical** before and after, and the edit
+footprint gains ~49 % band energy. `5.841` sits against P2-RENDER's independently
+measured `5.87` inside the face — two rigs, no shared machinery, same number.
+The pass injects 1–4 px structure only where it edits, worst at the mouth.
 
 ## 6 · Adjacent finding, not investigated
 
