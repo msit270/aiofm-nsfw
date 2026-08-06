@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-06 02:25",
+ "generated": "2026-08-06 03:06",
  "source": "/workspace/nsfw-fix/results/face/arms",
  "tool": "/workspace/nsfw-fix/tools/contact_sheet.py",
  "max_width": 4000,
@@ -35,10 +35,10 @@
  "sheets": [
   {
    "region": "face",
-   "path": "/workspace/nsfw-fix/results/face/facetight_face_sheet1of1.png",
+   "path": "/workspace/nsfw-fix/results/face/facetight_face_sheet1of2.png",
    "size": [
     3854,
-    5608
+    5782
    ],
    "cols": 4,
    "tiles": [
@@ -53,6 +53,9 @@
     "CF_crop_1.5",
     "D_skinblend_075",
     "H_skinblend_050",
+    "L0b_baseline_loras",
+    "L1b_steps08_loras",
+    "X2_steps08_denoise050",
     "X_steps08_denoise050",
     "X_steps08_denoise065"
    ],
@@ -69,7 +72,7 @@
      ],
      "sheet_at": [
       20,
-      367,
+      436,
       940,
       1180
      ],
@@ -96,7 +99,7 @@
      ],
      "sheet_at": [
       978,
-      367,
+      436,
       940,
       1180
      ],
@@ -123,7 +126,7 @@
      ],
      "sheet_at": [
       1936,
-      367,
+      436,
       940,
       1180
      ],
@@ -150,7 +153,7 @@
      ],
      "sheet_at": [
       2894,
-      367,
+      436,
       940,
       1180
      ],
@@ -177,7 +180,7 @@
      ],
      "sheet_at": [
       20,
-      1714,
+      1818,
       940,
       1180
      ],
@@ -204,7 +207,7 @@
      ],
      "sheet_at": [
       978,
-      1714,
+      1818,
       940,
       1180
      ],
@@ -231,7 +234,7 @@
      ],
      "sheet_at": [
       1936,
-      1714,
+      1818,
       940,
       1180
      ],
@@ -258,7 +261,7 @@
      ],
      "sheet_at": [
       2894,
-      1714,
+      1818,
       940,
       1180
      ],
@@ -285,7 +288,7 @@
      ],
      "sheet_at": [
       20,
-      3061,
+      3200,
       940,
       1180
      ],
@@ -312,7 +315,7 @@
      ],
      "sheet_at": [
       978,
-      3061,
+      3200,
       940,
       1180
      ],
@@ -339,7 +342,88 @@
      ],
      "sheet_at": [
       1936,
-      3061,
+      3200,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "L0b_baseline_loras",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      2894,
+      3200,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "L1b_steps08_loras",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      20,
+      4582,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "X2_steps08_denoise050",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      978,
+      4582,
       940,
       1180
      ],
@@ -365,8 +449,8 @@
       1180
      ],
      "sheet_at": [
-      2894,
-      3061,
+      1936,
+      4582,
       940,
       1180
      ],
@@ -392,8 +476,78 @@
       1180
      ],
      "sheet_at": [
+      2894,
+      4582,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  },
+  {
+   "region": "face",
+   "path": "/workspace/nsfw-fix/results/face/facetight_face_sheet2of2.png",
+   "size": [
+    3854,
+    1601
+   ],
+   "cols": 4,
+   "tiles": [
+    "A0_baseline",
+    "Z_control_steps08_repeat"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "A0_baseline",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
       20,
-      4408,
+      401,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "Z_control_steps08_repeat",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      978,
+      401,
       940,
       1180
      ],
@@ -711,6 +865,87 @@
    ]
   },
   {
+   "name": "L0b_baseline_loras",
+   "param": "LoRAs loaded (lunaskye + luna), settings shipped -- CONFIRMATION ARM, re-run after the server fault",
+   "path": "results/face/arms/L0b_baseline_loras/HasMetadata_00030_.png",
+   "is_baseline": false,
+   "extra": "400.7 s  |  38 cached nodes  |  prompt 6f2a154e",
+   "warnings": [],
+   "det_xyxy": [
+    854.9560546875,
+    791.2908325195312,
+    2197.964599609375,
+    2695.293212890625
+   ],
+   "det_conf": 0.8952162861824036,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "L1b_steps08_loras",
+   "param": "#114 steps 30 -> 8, plus LoRAs (lunaskye + luna) -- CONFIRMATION ARM, re-run after the server fault",
+   "path": "results/face/arms/L1b_steps08_loras/HasMetadata_00031_.png",
+   "is_baseline": false,
+   "extra": "189.3 s  |  57 cached nodes  |  prompt 5dc3b3e6",
+   "warnings": [],
+   "det_xyxy": [
+    850.77490234375,
+    790.4061279296875,
+    2196.23486328125,
+    2696.42431640625
+   ],
+   "det_conf": 0.8947824835777283,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "X2_steps08_denoise050",
+   "param": "#114 steps 30 -> 8 and denoise 0.80 -> 0.50 (re-run after the server fault)",
+   "path": "results/face/arms/X2_steps08_denoise050/HasMetadata_00029_.png",
+   "is_baseline": false,
+   "extra": "185.3 s  |  57 cached nodes  |  prompt 3e69f020",
+   "warnings": [],
+   "det_xyxy": [
+    796.9631958007812,
+    697.3425903320312,
+    2228.143798828125,
+    2694.36474609375
+   ],
+   "det_conf": 0.9045822024345398,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
    "name": "X_steps08_denoise050",
    "param": "#114 steps 30 -> 8 and denoise 0.80 -> 0.50",
    "path": "results/face/arms/X_steps08_denoise050/HasMetadata_00025_.png",
@@ -743,6 +978,33 @@
    "path": "results/face/arms/X_steps08_denoise065/HasMetadata_00026_.png",
    "is_baseline": false,
    "extra": "175.3 s  |  57 cached nodes  |  prompt b1d122dd",
+   "warnings": [],
+   "det_xyxy": [
+    798.8909301757812,
+    659.0882568359375,
+    2214.62109375,
+    2704.826171875
+   ],
+   "det_conf": 0.6865838766098022,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "Z_control_steps08_repeat",
+   "param": "CONTROL: byte-identical resubmission of C_zface_steps_08's graph",
+   "path": "results/face/arms/Z_control_steps08_repeat/HasMetadata_00027_.png",
+   "is_baseline": false,
+   "extra": "282.6 s  |  10 cached nodes  |  prompt 55cf0fcf",
    "warnings": [],
    "det_xyxy": [
     798.8909301757812,

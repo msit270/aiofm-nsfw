@@ -70,14 +70,43 @@ its source crop.
 | **steps 8** | **239** | **23,213** | 294.1 s |
 | denoise 0.50 | 157 | 23,050 | 291.6 s |
 
-Bumps gone, freckles visible as flat brown marks, eyelashes clean strands.
-**26 % faster, and that is a lower bound** (verified against cache state, not
-assumed). **Steps 16 is not enough** — it keeps a third of the defect, so it does
-not answer "more grain" the way you hoped. Steps 8 is **softer** than baseline;
-denoise 0.50 scores better still and is **free** (`denoise` costs no time — it
-moves where on the schedule the pass starts, it does not shorten it) but reads
-waxier and shifts the iris. **Combination arms and a LoRA-loaded confirmation
-pair were still rendering.**
+**Change one integer:** sg `5. Face & Mouth Detail (Z-Image)`, node `#114`,
+`widgets_values[5]`, 30 → 8. Nothing was applied; the workflow is still
+`f1ac7e55…`.
+
+Bumps gone, freckles back as **flat brown marks**, lips look like lips, lashes
+are strands not scribble. **26 % faster, a lower bound** (every sampler cold in
+both arms, with 23 *more* loaders to warm in the faster one). It is a little
+softer — **and the grain it loses was never pores, it was damage.** Whether you
+want more grain than that is the one thing the sheet has to decide, not me.
+**Steps 16 is not enough**: it keeps a third of the defect.
+
+### The metric winner is the wrong answer — read this before trusting the table
+
+`steps 8 + denoise 0.50` wins **every column**: 48 blobs/MP against 239, more
+pores, the smallest seam, and 185 s. **Looking at it, it is wrong** — almost
+airbrushed, freckles reduced to barely-there, palest iris in the grid. You asked
+for visible pores and freckles; it gives neither.
+
+The reason the table lies here is worth knowing: the `pores/MP` column counts
+dark fine minima, and at that smoothness those are as likely to be noise as
+pores — **the count rises while the thing being counted disappears.** This is
+exactly why you said metrics tell you something changed, not whether it looks
+better. The table would not have caught it.
+
+### Confirmed in *your* configuration, with your LoRAs
+
+`lunaskye` on `#618`, `luna` on `#116`, both at strength 1. **Both rendered
+fine** — so the earlier LoRA-crash suspicion is now positively disproved, not
+merely withdrawn.
+
+| | blobs/MP | seam | exec |
+|---|---|---|---|
+| shipped settings + your LoRAs | 404 | 4.82x | 400.7 s |
+| **steps 8 + your LoRAs** | **133** | **2.29x** | 189.3 s |
+
+**The defect is present in your own configuration and steps 8 fixes it there
+too.** `results/p2_evidence/CONFIRMATION_loras_shipped_vs_steps8.png`.
 
 **Not the cause, all cleared:** the first face pass `#607` (D3 — your stop
 condition fired, nothing applied), `#87` skin blend (8 % vs steps' 69 %), and
