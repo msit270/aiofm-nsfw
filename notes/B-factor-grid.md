@@ -364,3 +364,63 @@ third mechanism.
 
 I would not have caught this from `/history`. It is only visible in the server's
 stdout, which is why `results/crash/B/logslice.py` exists.
+
+---
+
+## D, the `#406` half — **and this one I cannot explain, so I am reporting it as an anomaly, not a result**
+
+| cell | what varied vs `A1_baseline_clean` | prompt_id | status | cached | exception node |
+|---|---|---|---|---|---|
+| `D2_eyesprompt_crashstring` | `622:398.text` (Eye Positive Prompt) -> the crashing string | `65e905d5-b1ad-4269-84e9-d4cf4d032253` | **error** 431.0 s | 0 | `622:403 MaskBoundingBox+` |
+| `D2b_..._repeat` | same, repeat | `56d4c152-dd47-4697-b538-347ed5298a6a` | **error** 321.5 s | 0 | `622:403 MaskBoundingBox+` |
+
+One input differs from `A1`. `620:106` is at the shipped placeholder in both.
+
+**`622:398` cannot reach `622:403` through the graph.** Its only consumer is
+`622:406`, and `622:403` is in `622:406`'s dependency set, not the reverse. 69
+nodes are upstream of `622:403` and neither `622:398` nor `622:406` is one of
+them. So there is no data path by which this change can affect the node that
+crashed.
+
+**And yet it is causal by the alternation test** — the same design `R4-defects.md`
+§2b used to settle `#106`, run on a server whose health is attested at both ends:
+
+```
+#10  D2   ERROR 622:403
+#11  CTL2 SUCCESS  -- byte-identical repeat of A1, max_abs_diff 0 vs A1
+#12  D2b  ERROR 622:403
+```
+
+`A1`'s graph is clean **3/3 and bit-identical every time** (runs #2, #5, #11).
+`D2`'s graph is crash **2/2**. Interleaved. One input apart, and that input is
+downstream of the crash.
+
+**What the log shows.** In both `CTL2` and `D2b` the face pass gets an *identical*
+detection — `1 face`, crop `(2010, 2859)`, centre `(1340.1992, 1906.2034)`, the
+same numbers to seven digits. So the face pass's **inputs** were the same. Its
+**output** was not: `CTL2` then finds `1 lips` and `1 face`; `D2b` finds
+`(no detections)` twice and dies.
+
+The only other thing that differs is memory management. `CTL2` fully evicts the
+Z-Image text encoder once (`7672.25 MB freed, 0.00 MB remains loaded`); `D2b`
+does two *partial* evictions (`90.37 MB freed, 7581.88 MB remains loaded` and
+`437.43 MB freed, 1123.37 MB remains loaded`). Neither used lowvram patches. So
+my `lowvram` explanation for `D2` does **not** cover `D2b`, and I withdraw it as
+the general explanation while keeping it as the explanation for run #10
+specifically.
+
+**[I] The only mechanism I can construct** — and it is inference, I have not
+demonstrated it — is that the lumina2 text encodes all run **up front** (the very
+first load in every run is `ZImageTEModel_`), so a longer string in `622:398`
+changes the resident footprint before the face pass, changes the eviction
+decisions, and changes the face pass numerics enough for the detectors to lose
+the face. That would mean **the face pass is not numerically stable against
+memory-management decisions**, which is a far more serious defect than a bad
+prompt, and would also explain the VRAM-pressure crash above.
+
+**Verdict D: the mouth prompt does NOT crash (`D1`, clean and healthy). `#406` is
+`622:406`, the eyes detailer, prompt `622:398` — putting the crashing string
+there DOES crash, 2/2, at `622:403`, which its own change cannot reach. I am
+NOT claiming the eyes prompt causes this crash; I am reporting a reproducible
+result I cannot account for, and the next arm below is the one that separates
+"this specific string" from "any perturbation".**

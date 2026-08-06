@@ -1,0 +1,28 @@
+{
+ "arm": "D2b_eyesprompt_crashstring_repeat",
+ "note": "D2 REPEAT. D2 crashed at 622:403, but its log shows 'lowvram patches: 83' and two partial unloads with only 12.3 GB usable -- co-tenant VRAM pressure, not the change. CTL2 straight after was bit-identical to A1 so the server is not poisoned. Re-running to get D2 under non-lowvram conditions.",
+ "expect": "clean",
+ "server": "127.0.0.1:28191",
+ "base": "results/r4/R4_CF15_placeholder/api_graph.json",
+ "changes": [
+  {
+   "path": "622:398.inputs.text",
+   "from": "perfect eyes, round pupils, round iris, symmetrical eyes, realistic eyes, perfect circles, round",
+   "to": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens"
+  }
+ ],
+ "graph_sha256": "e6bb0817fc7714f8b2b7e4b714fed3517159b2049392e88d0e0c83c947b0fa70",
+ "prompt_id": "56d4c152-dd47-4697-b538-347ed5298a6a",
+ "client_id": "trackB-D2b_eyesprompt_crashstring_repeat-59f76185",
+ "status": "error",
+ "exec_seconds": 321.5,
+ "wall_seconds": 336.5,
+ "cached_count": 0,
+ "cached_nodes": [],
+ "images": [],
+ "health": [],
+ "error_node_id": "622:403",
+ "error_node_type": "MaskBoundingBox+",
+ "exception_type": "RuntimeError",
+ "exception_message": "min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n"
+}
