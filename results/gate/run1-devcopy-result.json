@@ -1,0 +1,364 @@
+{
+  "tag": "run1-devcopy",
+  "workflow": "OFMTech_NSFW",
+  "url": "http://127.0.0.1:18188",
+  "started": "2026-08-06T13:34:06.572Z",
+  "workflow_sha256": "a811b5d690ccc5207bc7bd1c626cdd3db3b720b9be60d0a687436efcfd2143d8",
+  "load_path": "workflow-list (sidebar click)",
+  "node_audit": {
+    "total_nodes": 110,
+    "distinct_types": 59,
+    "subgraph_host_types": [
+      "a15fc81c-c28c-42cf-bc13-1493f12e4309",
+      "9050d895-4e70-44f5-9c2b-57e2be7df0ec",
+      "3ff96466-2d66-45ea-8761-c9123bec3435",
+      "f6d04669-26a7-4a01-b136-c39684ddee0f",
+      "d6db378b-b089-4636-91bb-6e0cf9a81503",
+      "f3ba7c90-fce5-4154-9cb0-7a1de52da0fe",
+      "ccb4441d-dc47-4039-a721-49f8f129d684"
+    ],
+    "frontend_registered_count": 1953,
+    "not_registered_in_frontend": [],
+    "not_in_object_info": [
+      "MarkdownNote"
+    ],
+    "nodes_flagged_has_errors": [],
+    "dialogs": [],
+    "toasts": []
+  },
+  "loras": {
+    "116": {
+      "widget": "lora_01",
+      "requested": "luna.safetensors",
+      "readBack": "luna.safetensors",
+      "title": "2 · Your ZIT LoRa  (face, mouth, eyes)"
+    },
+    "618": {
+      "widget": "lora_01",
+      "requested": "lunaskye.safetensors",
+      "readBack": "lunaskye.safetensors",
+      "title": "2 · Your SDXL LoRa  (body, pose, hands)"
+    }
+  },
+  "prompt": {
+    "typed": "photorealistic full body photograph of a young woman with long dark hair standing on a hotel balcony at golden hour, wearing a black silk slip dress, natural skin texture with visible pores and freckles, shot on 85mm, shallow depth of field",
+    "textarea": "photorealistic full body photograph of a young woman with long dark hair standing on a hotel balcony at golden hour, wearing a black silk slip dress, natural skin texture with visible pores and freckles, shot on 85mm, shallow depth of field",
+    "committed": "photorealistic full body photograph of a young woman with long dark hair standing on a hotel balcony at golden hour, wearing a black silk slip dress, natural skin texture with visible pores and freckles, shot on 85mm, shallow depth of field",
+    "entries": 1,
+    "panel_after_restore": {
+      "present": true,
+      "visible": false,
+      "value": "photorealistic full body photograph of a young woman with lo"
+    }
+  },
+  "prompt_id": "b0ad2862-5466-4ed8-a88e-180775377258",
+  "api_graph_nodes": 88,
+  "selector": {
+    "driven": true,
+    "appeared": true,
+    "images": 1,
+    "picked": 0,
+    "send_enabled_on_open": true,
+    "send_enabled_after_click": false,
+    "send_enabled_after_reclick": true,
+    "auto_picked_single_image": true
+  },
+  "outputs": [
+    {
+      "filename": "HasMetadata_00041_.png",
+      "subfolder": "Instaraw/SDXL/Metadata",
+      "type": "output",
+      "node": "505",
+      "path": "/workspace/ComfyUI/output/Instaraw/SDXL/Metadata/HasMetadata_00041_.png",
+      "exists": true,
+      "size": 11140426
+    }
+  ],
+  "timings": {
+    "boot_ms": 4775,
+    "load_ms": 4498,
+    "submit_ms": 1276,
+    "execute_ms": 415269
+  },
+  "page_errors": [
+    {
+      "when": "2026-08-06T13:34:07.042Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:18188/user.css"
+    },
+    {
+      "when": "2026-08-06T13:34:07.047Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:18188/api/userdata/user.css"
+    },
+    {
+      "when": "2026-08-06T13:34:07.560Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:18188/api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true"
+    },
+    {
+      "when": "2026-08-06T13:34:07.683Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:18188/api/userdata/comfy.templates.json"
+    },
+    {
+      "when": "2026-08-06T13:34:08.083Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:18188/extensions/ComfyUI_Swwan/config.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.086Z",
+      "text": "console.error: [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/seed.js",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.086Z",
+      "text": "console.error: [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/rgthree.js",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.086Z",
+      "text": "console.error: [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node.js",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.086Z",
+      "text": "console.error: [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/image_comparer.js",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.088Z",
+      "text": "console.error: [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node_mode_changer.js",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.088Z",
+      "text": "console.error: [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_any_input_connected_node.js",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.088Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/utils_dom.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.089Z",
+      "text": "console.error: [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/dialog.js",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.094Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.097Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.097Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.098Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.098Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.098Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.098Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.098Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.099Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.099Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.099Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.100Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.100Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.100Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.100Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.100Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.100Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.100Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.101Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.101Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.101Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.101Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.101Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.101Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.102Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.102Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.102Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.102Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.102Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:08.102Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T13:34:09.032Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:18188/api/pysssss/autocomplete"
+    },
+    {
+      "when": "2026-08-06T13:34:11.912Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:18188/api/userdata/workflows%2F.index.json"
+    }
+  ],
+  "failures": [],
+  "screenshots": [
+    {
+      "file": "results/gate/run1-devcopy-01-workflow-open-full-canvas.png",
+      "note": "OFMTech_NSFW opened from the workflow list; 110 nodes, 0 red, 0 dialogs",
+      "bytes": 102215
+    },
+    {
+      "file": "results/gate/run1-devcopy-02-prompt-entered.png",
+      "note": "the prompt typed into the panel on #483 \"1 · YOUR PROMPTS & SEED\"",
+      "bytes": 241819
+    },
+    {
+      "file": "results/gate/run1-devcopy-03-both-lora-stacks.png",
+      "note": "#618 lora_01=lunaskye.safetensors  #116 lora_01=luna.safetensors  (both read back from the graph; #483 collapsed=true for this frame only)",
+      "bytes": 226755
+    },
+    {
+      "file": "results/gate/run1-devcopy-04-run-submitted.png",
+      "note": "prompt b0ad2862-5466-4ed8-a88e-180775377258 accepted, 88-node API graph",
+      "bytes": 106044
+    },
+    {
+      "file": "results/gate/run1-devcopy-05-selector-popup.png",
+      "note": "#603 INSTARAW_ImageFilter paused the render with 1 image(s) — the buyer must choose",
+      "bytes": 873120
+    },
+    {
+      "file": "results/gate/run1-devcopy-06-selector-image-picked.png",
+      "note": "image #0 of 1 selected; Send enabled",
+      "bytes": 874847
+    },
+    {
+      "file": "results/gate/run1-devcopy-07-render-complete.png",
+      "note": "the moment the render finished, as the buyer sees it",
+      "bytes": 256054
+    },
+    {
+      "file": "results/gate/run1-devcopy-08-final-image-on-canvas.png",
+      "note": "the finished image on #505 \"YOUR IMAGE — saved to output/Instaraw/\"",
+      "bytes": 498424
+    },
+    {
+      "file": "results/gate/run1-devcopy-09-final-image-feed.png",
+      "note": "the finished image in the ComfyUI image feed",
+      "bytes": 499915
+    }
+  ],
+  "status": "pass",
+  "first_run_dialog": {
+    "seen": false,
+    "dialogs": []
+  },
+  "finished": "2026-08-06T13:41:39.780Z"
+}

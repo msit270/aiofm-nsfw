@@ -1,0 +1,46 @@
+workflow        /workspace/ComfyUI/user/default/workflows/OFMTech_NSFW.json
+                sha256 a811b5d690ccc5207bc7bd1c626cdd3db3b720b9be60d0a687436efcfd2143d8
+object_info     1936 node types registered on the server
+boot            4775 ms   44 console/page error(s) before any workflow was opened
+open workflow   4498 ms   from the Workflows sidebar   title="OFMTech_NSFW - ComfyUI"
+node audit      110 nodes across root + every subgraph, 59 distinct types
+                frontend registered_node_types: 1953
+                node types NOT registered in the frontend (= red nodes): 0
+                node types absent from /object_info (excl. 7 subgraph hosts): 1
+                  ABSENT   MarkdownNote
+                nodes flagged has_errors: 0
+                modal dialogs on screen: 0
+                error toasts on screen: 0
+minimap         hidden for the canvas screenshots (was false) so it cannot cover a node
+fit view        scale=0.2253  framing 17 root-level nodes  canvas=1920,1018
+screenshot      results/gate/run1-devcopy-01-workflow-open-full-canvas.png  (102215 B)  — OFMTech_NSFW opened from the workflow list; 110 nodes, 0 red, 0 dialogs
+prompt          typed into the RPG panel on #483 and committed on blur
+                textarea now : "photorealistic full body photograph of a young woman with long dark hair standing on a hot"...
+                node widget  : prompt_batch_data[0].positive_prompt = "photorealistic full body photograph of a young woman with long dark hair standing on a hot"...
+screenshot      results/gate/run1-devcopy-02-prompt-entered.png  (241819 B)  — the prompt typed into the panel on #483 "1 · YOUR PROMPTS & SEED"
+lora            #618 SDXL stack: lora_01 = "lunaskye.safetensors"  (clicked in the widget's own menu)
+lora            #116 Z-Image stack: lora_01 = "luna.safetensors"  (clicked in the widget's own menu)
+screenshot      results/gate/run1-devcopy-03-both-lora-stacks.png  (226755 B)  — #618 lora_01=lunaskye.safetensors  #116 lora_01=luna.safetensors  (both read back from the graph; #483 collapsed=true for this frame only)
+panel           #483 collapsed for the LoRA frame, restored afterwards (collapsed now: false; prompt panel visible again: false)
+press Run       the real Run button, label="Run"
+prompt accepted HTTP 200  prompt_id=b0ad2862-5466-4ed8-a88e-180775377258  api graph 88 nodes  (1276 ms after the click)
+screenshot      results/gate/run1-devcopy-04-run-submitted.png  (106044 B)  — prompt b0ad2862-5466-4ed8-a88e-180775377258 accepted, 88-node API graph
+  queue         waiting behind 1 other render(s) already on this ComfyUI
+  ...waiting    0s   ours_running=false  last node: none yet
+  ...waiting    60s   ours_running=false  last node: none yet
+  ...waiting    121s   ours_running=false  last node: none yet
+  ...waiting    181s   ours_running=true  last node: "620:113"
+  ...waiting    242s   ours_running=true  last node: "619:617"
+screenshot      results/gate/run1-devcopy-05-selector-popup.png  (873120 B)  — #603 INSTARAW_ImageFilter paused the render with 1 image(s) — the buyer must choose
+  selector      1 image(s); Send on open=true, after clicking #0=false, after clicking it again=true
+screenshot      results/gate/run1-devcopy-06-selector-image-picked.png  (874847 B)  — image #0 of 1 selected; Send enabled
+  selector      Send pressed at 283s into the render
+  ...waiting    304s   ours_running=true  last node: "587:98"
+  ...waiting    364s   ours_running=true  last node: "587:98"
+render          415s wall (queue included)
+  output        OK   /workspace/ComfyUI/output/Instaraw/SDXL/Metadata/HasMetadata_00041_.png  11140426 B  [node 505]
+screenshot      results/gate/run1-devcopy-07-render-complete.png  (256054 B)  — the moment the render finished, as the buyer sees it
+screenshot      results/gate/run1-devcopy-08-final-image-on-canvas.png  (498424 B)  — the finished image on #505 "YOUR IMAGE — saved to output/Instaraw/"
+screenshot      results/gate/run1-devcopy-09-final-image-feed.png  (499915 B)  — the finished image in the ComfyUI image feed
+page errors     44 during boot, 1 after the workflow was opened
+                  console.error: Failed to load resource: the server responded with a status of 404 (Not Found)
