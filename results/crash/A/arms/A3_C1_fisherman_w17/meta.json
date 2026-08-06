@@ -1,0 +1,34 @@
+{
+ "arm": "A3_C1_fisherman_w17",
+ "prompt_id": "185cb8f6-1890-4bfa-b216-88b9b4fea7c7",
+ "client_id": "trackA-A3_C1_fisherman_w17-23f123ce",
+ "wall_seconds": 85.1,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 63229759000,
+ "note": "A3 content control: 17 words = the first-crash word count, completely different content",
+ "status": "success",
+ "exec_seconds": 79.9,
+ "cached": 0,
+ "cached_ids": [],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00022_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00077_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "text_106": "a bearded fisherman in his sixties, deep lines around the eyes, sun-darkened forehead, grey stubble along the"
+}

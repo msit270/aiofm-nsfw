@@ -77,6 +77,29 @@ charitably. The first-crash figure (17 words / 30 tokens) is still correct and
 still the right length to run the content controls at; the word "boundary" around
 it is not.
 
+### I nearly answered "it is the words" the moment the ladder came back non-monotone, and the second content control caught me.
+The non-monotone ladder (17, 18 crash · 19–23 clean · 24, 25 crash) does refute
+**word-count** as a threshold, and I had the sentence written. Then the A3
+controls came in split — `A3_C1_fisherman_w17` **clean**, `A3_C2_gardener_w17`
+**crash** — and the token counts are the tell:
+
+```
+L_w17               17 words  30 tokens   CRASH
+A3_C2_gardener_w17  17 words  30 tokens   CRASH      <- different subject, no shared words
+A3_C1_fisherman_w17 17 words  34 tokens   clean
+```
+
+Every crashing string measured so far is 30, 32, 45 or 46 tokens; every clean one
+is 11–29, 33, 34, 35, 38, 39 or 41. **So "length" may be back — not as a
+threshold in words, but as specific values of the token count.** Two unrelated
+30-token strings both crashing could be coincidence (the crash rate is about 4 in
+25, so ~16 % for one such hit), which is exactly why it needs its own experiment
+rather than a sentence. `T_tok*` is that experiment: one fixed phrase,
+`"a woman's face"` (known clean at 12 tokens), plus k repetitions of the
+single-token word `" the"`, giving **exactly** 12+k tokens with the content held
+constant. If 30 and 32 crash and 29, 31, 33 do not, the trigger is the sequence
+length and content is irrelevant.
+
 ### I nearly reported "past 16 words it crashes" off five arms.
 `w17`, `w18`, `w24`, `w25` crash and `w16` is clean — that is a clean-looking
 pattern from four positive cells, and it is wrong. Rule 6 in the brief
@@ -107,3 +130,18 @@ on.
 * **Everything here is with both owner LoRAs loaded and on the shipping graph.**
   I did not vary LoRAs, denoise, steps, sampler or `bbox_threshold`. Track B has
   the LoRA cell.
+* **One base image.** Every arm in this file shares a single frozen base render
+  (`A0_base_tap137`, from the shipping graph's own fixed seeds, so it is the base
+  the R4 full renders had too). Whether the crashing *set of strings* is a
+  property of this face or of the model is untested, and it is the most obvious
+  next experiment: re-run the ladder against a base rendered from a different
+  seed. If the crashing set moves, the trigger is an interaction with the image,
+  not a property of the prompt at all. **[I]** I would bet it moves, but that is a
+  bet, not a measurement.
+* **Whether the crash set is a fixed point of the string or of a hash of it.**
+  Four crashing strings give bit-identical output, and the run is deterministic
+  (every seed `fixed`, base frozen, controls reproduce bit-for-bit). What I have
+  not done is repeat a *clean* arm at two different times to prove the clean side
+  is equally deterministic — `CTL_placeholder_*` does exactly that three times
+  over for the placeholder, so I am treating that as settled for the placeholder
+  and as strongly implied, not proven, for the rest.

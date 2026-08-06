@@ -1,1 +1,7 @@
 [A3_C1_fisherman_w17] submitted 185cb8f6-1890-4bfa-b216-88b9b4fea7c7 cid=trackA-A3_C1_fisherman_w17-23f123ce queue_before=(0,0) vram_free=58.9GiB
+[A3_C1_fisherman_w17] success exec=79.9s cached=0 err=None  imgs=['tap163_00022_.png', 'HasMetadata_00077_.png']
+[A3_C2_gardener_w17] submitted c71446c4-68eb-4c68-a4cf-63a9d00d7188 cid=trackA-A3_C2_gardener_w17-87c4c49c queue_before=(0,0) vram_free=51.9GiB
+[A3_C2_gardener_w17] error exec=41.5s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00023_.png']
+[CTL_placeholder_after_A3_C2_gardener_w17] submitted a301d88c-fe9a-409a-ab74-dff155705b30 cid=trackA-CTL_placeholder_after_A3_C2_gardener_w17-a4b0c3e8 queue_before=(0,0) vram_free=79.6GiB
+[CTL_placeholder_after_A3_C2_gardener_w17] success exec=81.4s cached=0 err=None  imgs=['tap163_00024_.png', 'HasMetadata_00078_.png']
+[A3_C3_locomotive_w17] submitted 719863c8-1fe1-40f0-b68c-a8a201834b2e cid=trackA-A3_C3_locomotive_w17-4df66d88 queue_before=(0,0) vram_free=59.5GiB

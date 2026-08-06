@@ -1,0 +1,28 @@
+{
+ "arm": "A3_C2_gardener_w17",
+ "prompt_id": "c71446c4-68eb-4c68-a4cf-63a9d00d7188",
+ "client_id": "trackA-A3_C2_gardener_w17-87c4c49c",
+ "wall_seconds": 45.0,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 55750887448,
+ "note": "A3 content control: 17 words = the first-crash word count, completely different content",
+ "status": "error",
+ "exec_seconds": 41.5,
+ "cached": 0,
+ "cached_ids": [],
+ "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+ "error_node": "622:403",
+ "error_type": "MaskBoundingBox+",
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00023_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  }
+ ],
+ "text_106": "an elderly gardener with a broad flat nose, heavy grey eyebrows, deep creases on both cheeks, a"
+}
