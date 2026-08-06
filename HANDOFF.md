@@ -27,11 +27,18 @@ finds no face at 0.6.
 
 **It is driven by the TOKEN COUNT of the prompt, and content is irrelevant.**
 48 cold arms, 8 unrelated content families, and **not one token count produced two
-different outcomes**. Crashes at **30, 31, 32 and 44+**; clean at **11–29 and
-33–43**. Both edges are hard — 29 clean/30 crash, 43 clean/44 crash, no transition
-at either. Words are *not* the variable: the word ladder is non-monotone (1–16
-clean, 17–18 crash, 19–23 clean, 24–25 crash), and both of those edges repeated.
-*Open: the top of the upper band. 44–47 crash; above 47 is unmeasured.*
+different outcomes**. The shape, ~54 cold arms:
+
+```
+tokens   11 … 29  │ 30 31 32 │  33 … 43  │ 44 45 46 47 48 49 50 → …
+         all clean│  CRASH   │ all clean │  CRASH, unbroken
+```
+
+**One narrow band at 30–32, then a hard threshold at 44** with seven consecutive
+crashing lengths and no top edge in reach (above 50 unmeasured). Both edges are
+cliffs — 29 clean/30 crash, 43 clean/44 crash, nothing in between. Words are *not*
+the variable: the word ladder is non-monotone (1–16 clean, 17–18 crash, 19–23
+clean, 24–25 crash), and both of those edges repeated.
 
 **It is a hard numerical failure, not a marginal one.** Clean arms score
 0.8942–0.8957 (spread 0.0015 across 30 arms). Crashing arms score

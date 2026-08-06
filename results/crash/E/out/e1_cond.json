@@ -1,0 +1,1738 @@
+{
+ "tok12": {
+  "name": "tok12",
+  "tokens": 12,
+  "cond": {
+   "shape": [
+    1,
+    12,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.474609375,
+   "mean": 0.3792685568332672,
+   "std": 83.40153503417969
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    12
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok13": {
+  "name": "tok13",
+  "tokens": 13,
+  "cond": {
+   "shape": [
+    1,
+    13,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.474609375,
+   "mean": 0.37163975834846497,
+   "std": 80.2040023803711
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    13
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok14": {
+  "name": "tok14",
+  "tokens": 14,
+  "cond": {
+   "shape": [
+    1,
+    14,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.474609375,
+   "mean": 0.3752824068069458,
+   "std": 77.37694549560547
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    14
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok15": {
+  "name": "tok15",
+  "tokens": 15,
+  "cond": {
+   "shape": [
+    1,
+    15,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.474609375,
+   "mean": 0.3713197410106659,
+   "std": 74.82708740234375
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    15
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok16": {
+  "name": "tok16",
+  "tokens": 16,
+  "cond": {
+   "shape": [
+    1,
+    16,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.474609375,
+   "mean": 0.36734992265701294,
+   "std": 72.51836395263672
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    16
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok17": {
+  "name": "tok17",
+  "tokens": 17,
+  "cond": {
+   "shape": [
+    1,
+    17,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4677734375,
+   "mean": 0.3640212416648865,
+   "std": 70.416259765625
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    17
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok18": {
+  "name": "tok18",
+  "tokens": 18,
+  "cond": {
+   "shape": [
+    1,
+    18,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4677734375,
+   "mean": 0.3601391315460205,
+   "std": 68.49263000488281
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    18
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok19": {
+  "name": "tok19",
+  "tokens": 19,
+  "cond": {
+   "shape": [
+    1,
+    19,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4677734375,
+   "mean": 0.35835564136505127,
+   "std": 66.72606658935547
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    19
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok20": {
+  "name": "tok20",
+  "tokens": 20,
+  "cond": {
+   "shape": [
+    1,
+    20,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4677734375,
+   "mean": 0.35434478521347046,
+   "std": 65.09136199951172
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    20
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok21": {
+  "name": "tok21",
+  "tokens": 21,
+  "cond": {
+   "shape": [
+    1,
+    21,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4677734375,
+   "mean": 0.35061556100845337,
+   "std": 63.5738525390625
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    21
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok22": {
+  "name": "tok22",
+  "tokens": 22,
+  "cond": {
+   "shape": [
+    1,
+    22,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4677734375,
+   "mean": 0.3451874852180481,
+   "std": 62.16219711303711
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    22
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok23": {
+  "name": "tok23",
+  "tokens": 23,
+  "cond": {
+   "shape": [
+    1,
+    23,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4677734375,
+   "mean": 0.34113478660583496,
+   "std": 60.84752655029297
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    23
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok24": {
+  "name": "tok24",
+  "tokens": 24,
+  "cond": {
+   "shape": [
+    1,
+    24,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4677734375,
+   "mean": 0.3369455933570862,
+   "std": 59.61662673950195
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    24
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok25": {
+  "name": "tok25",
+  "tokens": 25,
+  "cond": {
+   "shape": [
+    1,
+    25,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4677734375,
+   "mean": 0.33412912487983704,
+   "std": 58.46310806274414
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    25
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok26": {
+  "name": "tok26",
+  "tokens": 26,
+  "cond": {
+   "shape": [
+    1,
+    26,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4677734375,
+   "mean": 0.3308172821998596,
+   "std": 57.37604904174805
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    26
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok27": {
+  "name": "tok27",
+  "tokens": 27,
+  "cond": {
+   "shape": [
+    1,
+    27,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4677734375,
+   "mean": 0.3280962407588959,
+   "std": 56.35064697265625
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    27
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok28": {
+  "name": "tok28",
+  "tokens": 28,
+  "cond": {
+   "shape": [
+    1,
+    28,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.470703125,
+   "mean": 0.32545357942581177,
+   "std": 55.380680084228516
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    28
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok29": {
+  "name": "tok29",
+  "tokens": 29,
+  "cond": {
+   "shape": [
+    1,
+    29,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4677734375,
+   "mean": 0.3240039050579071,
+   "std": 54.46255111694336
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    29
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok30": {
+  "name": "tok30",
+  "tokens": 30,
+  "cond": {
+   "shape": [
+    1,
+    30,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4677734375,
+   "mean": 0.3219696879386902,
+   "std": 53.59138107299805
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    30
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok31": {
+  "name": "tok31",
+  "tokens": 31,
+  "cond": {
+   "shape": [
+    1,
+    31,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4677734375,
+   "mean": 0.3200396001338959,
+   "std": 52.76335525512695
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    31
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok32": {
+  "name": "tok32",
+  "tokens": 32,
+  "cond": {
+   "shape": [
+    1,
+    32,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4677734375,
+   "mean": 0.31812340021133423,
+   "std": 51.97456359863281
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    32
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok33": {
+  "name": "tok33",
+  "tokens": 33,
+  "cond": {
+   "shape": [
+    1,
+    33,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.3166995048522949,
+   "std": 51.22226333618164
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    33
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok34": {
+  "name": "tok34",
+  "tokens": 34,
+  "cond": {
+   "shape": [
+    1,
+    34,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.3151635229587555,
+   "std": 50.50348663330078
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    34
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok35": {
+  "name": "tok35",
+  "tokens": 35,
+  "cond": {
+   "shape": [
+    1,
+    35,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.31361550092697144,
+   "std": 49.816524505615234
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    35
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok36": {
+  "name": "tok36",
+  "tokens": 36,
+  "cond": {
+   "shape": [
+    1,
+    36,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.311487078666687,
+   "std": 49.1596565246582
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    36
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok37": {
+  "name": "tok37",
+  "tokens": 37,
+  "cond": {
+   "shape": [
+    1,
+    37,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.3091847896575928,
+   "std": 48.53076934814453
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    37
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok38": {
+  "name": "tok38",
+  "tokens": 38,
+  "cond": {
+   "shape": [
+    1,
+    38,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.3072279393672943,
+   "std": 47.927555084228516
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    38
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok39": {
+  "name": "tok39",
+  "tokens": 39,
+  "cond": {
+   "shape": [
+    1,
+    39,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.3055232763290405,
+   "std": 47.34719467163086
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    39
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok40": {
+  "name": "tok40",
+  "tokens": 40,
+  "cond": {
+   "shape": [
+    1,
+    40,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.3041960597038269,
+   "std": 46.78964614868164
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    40
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok41": {
+  "name": "tok41",
+  "tokens": 41,
+  "cond": {
+   "shape": [
+    1,
+    41,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.3028116822242737,
+   "std": 46.253135681152344
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    41
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok42": {
+  "name": "tok42",
+  "tokens": 42,
+  "cond": {
+   "shape": [
+    1,
+    42,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.3012365400791168,
+   "std": 45.73677444458008
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    42
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok43": {
+  "name": "tok43",
+  "tokens": 43,
+  "cond": {
+   "shape": [
+    1,
+    43,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.299521267414093,
+   "std": 45.23922348022461
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    43
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok44": {
+  "name": "tok44",
+  "tokens": 44,
+  "cond": {
+   "shape": [
+    1,
+    44,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.2979694604873657,
+   "std": 44.75688552856445
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    44
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok45": {
+  "name": "tok45",
+  "tokens": 45,
+  "cond": {
+   "shape": [
+    1,
+    45,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.29662466049194336,
+   "std": 44.29029083251953
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    45
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok46": {
+  "name": "tok46",
+  "tokens": 46,
+  "cond": {
+   "shape": [
+    1,
+    46,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.29618600010871887,
+   "std": 43.841400146484375
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    46
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok47": {
+  "name": "tok47",
+  "tokens": 47,
+  "cond": {
+   "shape": [
+    1,
+    47,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.2958199381828308,
+   "std": 43.40693664550781
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    47
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok48": {
+  "name": "tok48",
+  "tokens": 48,
+  "cond": {
+   "shape": [
+    1,
+    48,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.2952859699726105,
+   "std": 42.98682403564453
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    48
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok49": {
+  "name": "tok49",
+  "tokens": 49,
+  "cond": {
+   "shape": [
+    1,
+    49,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.2942225933074951,
+   "std": 42.58012390136719
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    49
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok50": {
+  "name": "tok50",
+  "tokens": 50,
+  "cond": {
+   "shape": [
+    1,
+    50,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.29320281744003296,
+   "std": 42.185699462890625
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    50
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok51": {
+  "name": "tok51",
+  "tokens": 51,
+  "cond": {
+   "shape": [
+    1,
+    51,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.2910445034503937,
+   "std": 41.79392623901367
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    51
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok52": {
+  "name": "tok52",
+  "tokens": 52,
+  "cond": {
+   "shape": [
+    1,
+    52,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.29020777344703674,
+   "std": 41.42216491699219
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    52
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok53": {
+  "name": "tok53",
+  "tokens": 53,
+  "cond": {
+   "shape": [
+    1,
+    53,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.28978148102760315,
+   "std": 41.06132507324219
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    53
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok54": {
+  "name": "tok54",
+  "tokens": 54,
+  "cond": {
+   "shape": [
+    1,
+    54,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4697265625,
+   "mean": 0.28968822956085205,
+   "std": 40.711517333984375
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    54
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok55": {
+  "name": "tok55",
+  "tokens": 55,
+  "cond": {
+   "shape": [
+    1,
+    55,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4697265625,
+   "mean": 0.28940707445144653,
+   "std": 40.37213897705078
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    55
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok56": {
+  "name": "tok56",
+  "tokens": 56,
+  "cond": {
+   "shape": [
+    1,
+    56,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4697265625,
+   "mean": 0.28896433115005493,
+   "std": 40.04241180419922
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    56
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok57": {
+  "name": "tok57",
+  "tokens": 57,
+  "cond": {
+   "shape": [
+    1,
+    57,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4697265625,
+   "mean": 0.28830909729003906,
+   "std": 39.720848083496094
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    57
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok58": {
+  "name": "tok58",
+  "tokens": 58,
+  "cond": {
+   "shape": [
+    1,
+    58,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4697265625,
+   "mean": 0.28782200813293457,
+   "std": 39.407630920410156
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    58
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok59": {
+  "name": "tok59",
+  "tokens": 59,
+  "cond": {
+   "shape": [
+    1,
+    59,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4697265625,
+   "mean": 0.2876443564891815,
+   "std": 39.103126525878906
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    59
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok60": {
+  "name": "tok60",
+  "tokens": 60,
+  "cond": {
+   "shape": [
+    1,
+    60,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4697265625,
+   "mean": 0.28751111030578613,
+   "std": 38.806888580322266
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    60
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok61": {
+  "name": "tok61",
+  "tokens": 61,
+  "cond": {
+   "shape": [
+    1,
+    61,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4697265625,
+   "mean": 0.287127822637558,
+   "std": 38.5185432434082
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    61
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok62": {
+  "name": "tok62",
+  "tokens": 62,
+  "cond": {
+   "shape": [
+    1,
+    62,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4697265625,
+   "mean": 0.28647997975349426,
+   "std": 38.237403869628906
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    62
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok63": {
+  "name": "tok63",
+  "tokens": 63,
+  "cond": {
+   "shape": [
+    1,
+    63,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4697265625,
+   "mean": 0.284233033657074,
+   "std": 37.95184326171875
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    63
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "tok64": {
+  "name": "tok64",
+  "tokens": 64,
+  "cond": {
+   "shape": [
+    1,
+    64,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.4697265625,
+   "mean": 0.2833710312843323,
+   "std": 37.682373046875
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    64
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "PLACEHOLDER": {
+  "name": "PLACEHOLDER",
+  "tokens": 16,
+  "cond": {
+   "shape": [
+    1,
+    16,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.474609375,
+   "mean": 0.3549375534057617,
+   "std": 72.59254455566406
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    16
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "CRASHSTRING": {
+  "name": "CRASHSTRING",
+  "tokens": 46,
+  "cond": {
+   "shape": [
+    1,
+    46,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.47265625,
+   "mean": 0.29713553190231323,
+   "std": 43.8704719543457
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    46
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ },
+ "EYE_shipped": {
+  "name": "EYE_shipped",
+  "tokens": 28,
+  "cond": {
+   "shape": [
+    1,
+    28,
+    2560
+   ],
+   "dtype": "torch.float32",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 13753.470703125,
+   "mean": 0.374970018863678,
+   "std": 55.43459701538086
+  },
+  "extra_attention_mask": {
+   "shape": [
+    1,
+    28
+   ],
+   "dtype": "torch.int64",
+   "nan": 0,
+   "inf": 0,
+   "finite": true,
+   "absmax": 1.0,
+   "mean": 1.0,
+   "std": 0.0
+  }
+ }
+}

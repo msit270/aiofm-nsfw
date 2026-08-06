@@ -1,0 +1,914 @@
+{
+ "tok12": {
+  "tokens": 12,
+  "text": "a woman's face",
+  "shape": [
+   1,
+   12,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.474609375,
+  "std": 83.40153503417969
+ },
+ "tok13": {
+  "tokens": 13,
+  "text": "a woman's face the",
+  "shape": [
+   1,
+   13,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.474609375,
+  "std": 80.2040023803711
+ },
+ "tok14": {
+  "tokens": 14,
+  "text": "a woman's face the the",
+  "shape": [
+   1,
+   14,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.474609375,
+  "std": 77.37694549560547
+ },
+ "tok15": {
+  "tokens": 15,
+  "text": "a woman's face the the the",
+  "shape": [
+   1,
+   15,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.474609375,
+  "std": 74.82708740234375
+ },
+ "tok16": {
+  "tokens": 16,
+  "text": "a woman's face the the the the",
+  "shape": [
+   1,
+   16,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.474609375,
+  "std": 72.51836395263672
+ },
+ "tok17": {
+  "tokens": 17,
+  "text": "a woman's face the the the the the",
+  "shape": [
+   1,
+   17,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 70.416259765625
+ },
+ "tok18": {
+  "tokens": 18,
+  "text": "a woman's face the the the the the the",
+  "shape": [
+   1,
+   18,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 68.49263000488281
+ },
+ "tok19": {
+  "tokens": 19,
+  "text": "a woman's face the the the the the the the",
+  "shape": [
+   1,
+   19,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 66.72606658935547
+ },
+ "tok20": {
+  "tokens": 20,
+  "text": "a woman's face the the the the the the the the",
+  "shape": [
+   1,
+   20,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 65.09136199951172
+ },
+ "tok21": {
+  "tokens": 21,
+  "text": "a woman's face the the the the the the the the the",
+  "shape": [
+   1,
+   21,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 63.5738525390625
+ },
+ "tok22": {
+  "tokens": 22,
+  "text": "a woman's face the the the the the the the the the the",
+  "shape": [
+   1,
+   22,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 62.16219711303711
+ },
+ "tok23": {
+  "tokens": 23,
+  "text": "a woman's face the the the the the the the the the the the",
+  "shape": [
+   1,
+   23,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 60.84752655029297
+ },
+ "tok24": {
+  "tokens": 24,
+  "text": "a woman's face the the the the the the the the the the the the",
+  "shape": [
+   1,
+   24,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 59.61662673950195
+ },
+ "tok25": {
+  "tokens": 25,
+  "text": "a woman's face the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   25,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 58.46310806274414
+ },
+ "tok26": {
+  "tokens": 26,
+  "text": "a woman's face the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   26,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 57.37604904174805
+ },
+ "tok27": {
+  "tokens": 27,
+  "text": "a woman's face the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   27,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 56.35064697265625
+ },
+ "tok28": {
+  "tokens": 28,
+  "text": "a woman's face the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   28,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.470703125,
+  "std": 55.380680084228516
+ },
+ "tok29": {
+  "tokens": 29,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   29,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 54.46255111694336
+ },
+ "tok30": {
+  "tokens": 30,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   30,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 53.59138107299805
+ },
+ "tok31": {
+  "tokens": 31,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   31,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 52.76335525512695
+ },
+ "tok32": {
+  "tokens": 32,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   32,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 51.97456359863281
+ },
+ "tok33": {
+  "tokens": 33,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   33,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 51.22226333618164
+ },
+ "tok34": {
+  "tokens": 34,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   34,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 50.50348663330078
+ },
+ "tok35": {
+  "tokens": 35,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   35,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 49.816524505615234
+ },
+ "tok36": {
+  "tokens": 36,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   36,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 49.1596565246582
+ },
+ "tok37": {
+  "tokens": 37,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   37,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 48.53076934814453
+ },
+ "tok38": {
+  "tokens": 38,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   38,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 47.927555084228516
+ },
+ "tok39": {
+  "tokens": 39,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   39,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 47.34719467163086
+ },
+ "tok40": {
+  "tokens": 40,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   40,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 46.78964614868164
+ },
+ "tok41": {
+  "tokens": 41,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   41,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 46.253135681152344
+ },
+ "tok42": {
+  "tokens": 42,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   42,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 45.73677444458008
+ },
+ "tok43": {
+  "tokens": 43,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   43,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 45.23922348022461
+ },
+ "tok44": {
+  "tokens": 44,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   44,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 44.75688552856445
+ },
+ "tok45": {
+  "tokens": 45,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   45,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 44.29029083251953
+ },
+ "tok46": {
+  "tokens": 46,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   46,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 43.841400146484375
+ },
+ "tok47": {
+  "tokens": 47,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   47,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 43.40693664550781
+ },
+ "tok48": {
+  "tokens": 48,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   48,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 42.98682403564453
+ },
+ "tok49": {
+  "tokens": 49,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   49,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 42.58012390136719
+ },
+ "tok50": {
+  "tokens": 50,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   50,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 42.185699462890625
+ },
+ "tok51": {
+  "tokens": 51,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   51,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 41.79392623901367
+ },
+ "tok52": {
+  "tokens": 52,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   52,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 41.42216491699219
+ },
+ "tok53": {
+  "tokens": 53,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   53,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 41.06132507324219
+ },
+ "tok54": {
+  "tokens": 54,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   54,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4697265625,
+  "std": 40.711517333984375
+ },
+ "tok55": {
+  "tokens": 55,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   55,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4697265625,
+  "std": 40.37213897705078
+ },
+ "tok56": {
+  "tokens": 56,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   56,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4697265625,
+  "std": 40.04241180419922
+ },
+ "tok57": {
+  "tokens": 57,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   57,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4697265625,
+  "std": 39.720848083496094
+ },
+ "tok58": {
+  "tokens": 58,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   58,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4697265625,
+  "std": 39.407630920410156
+ },
+ "tok59": {
+  "tokens": 59,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   59,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4697265625,
+  "std": 39.103126525878906
+ },
+ "tok60": {
+  "tokens": 60,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   60,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4697265625,
+  "std": 38.806888580322266
+ },
+ "tok61": {
+  "tokens": 61,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   61,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4697265625,
+  "std": 38.5185432434082
+ },
+ "tok62": {
+  "tokens": 62,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   62,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4697265625,
+  "std": 38.237403869628906
+ },
+ "tok63": {
+  "tokens": 63,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   63,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4697265625,
+  "std": 37.95184326171875
+ },
+ "tok64": {
+  "tokens": 64,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   64,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4697265625,
+  "std": 37.682373046875
+ },
+ "tok65": {
+  "tokens": 65,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   65,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.46484375,
+  "std": 37.42045211791992
+ },
+ "tok66": {
+  "tokens": 66,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   66,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.46484375,
+  "std": 37.165184020996094
+ },
+ "tok67": {
+  "tokens": 67,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   67,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.46484375,
+  "std": 36.91641616821289
+ },
+ "tok68": {
+  "tokens": 68,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   68,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.46484375,
+  "std": 36.67362976074219
+ },
+ "tok69": {
+  "tokens": 69,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   69,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.46484375,
+  "std": 36.43550491333008
+ },
+ "tok70": {
+  "tokens": 70,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   70,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.46484375,
+  "std": 36.20125961303711
+ },
+ "tok71": {
+  "tokens": 71,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   71,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.46484375,
+  "std": 35.97332763671875
+ },
+ "tok72": {
+  "tokens": 72,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   72,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.46484375,
+  "std": 35.750267028808594
+ },
+ "tok73": {
+  "tokens": 73,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   73,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.46484375,
+  "std": 35.532413482666016
+ },
+ "tok74": {
+  "tokens": 74,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   74,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.46484375,
+  "std": 35.31953430175781
+ },
+ "tok75": {
+  "tokens": 75,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   75,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.46484375,
+  "std": 35.11114501953125
+ },
+ "tok76": {
+  "tokens": 76,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   76,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.46484375,
+  "std": 34.90699768066406
+ },
+ "tok77": {
+  "tokens": 77,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   77,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.46484375,
+  "std": 34.70679473876953
+ },
+ "tok78": {
+  "tokens": 78,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   78,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.46484375,
+  "std": 34.510223388671875
+ },
+ "tok79": {
+  "tokens": 79,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   79,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.46484375,
+  "std": 34.317718505859375
+ },
+ "tok80": {
+  "tokens": 80,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "shape": [
+   1,
+   80,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.46484375,
+  "std": 34.129390716552734
+ },
+ "PLACEHOLDER": {
+  "tokens": 16,
+  "text": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "shape": [
+   1,
+   16,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.474609375,
+  "std": 72.59254455566406
+ },
+ "CRASHSTRING": {
+  "tokens": 46,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens",
+  "shape": [
+   1,
+   46,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 43.8704719543457
+ },
+ "CRASH_NOPREFIX": {
+  "tokens": 43,
+  "text": "a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens",
+  "shape": [
+   1,
+   43,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.47265625,
+  "std": 45.26043701171875
+ },
+ "EYE_shipped": {
+  "tokens": 28,
+  "text": "perfect eyes, round pupils, round iris, symmetrical eyes, realistic eyes, perfect circles, round",
+  "shape": [
+   1,
+   28,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.470703125,
+  "std": 55.43459701538086
+ },
+ "A3_gardener_w17": {
+  "tokens": 30,
+  "text": "an elderly gardener with a broad flat nose, heavy grey eyebrows, deep creases on both cheeks, a",
+  "shape": [
+   1,
+   30,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 53.62765884399414
+ },
+ "L_w17": {
+  "tokens": 29,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with",
+  "shape": [
+   1,
+   29,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.4677734375,
+  "std": 54.491905212402344
+ },
+ "L_w16": {
+  "tokens": 28,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture",
+  "shape": [
+   1,
+   28,
+   2560
+  ],
+  "finite": true,
+  "absmax": 13753.470703125,
+  "std": 55.38740158081055
+ }
+}
