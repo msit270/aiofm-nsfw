@@ -424,3 +424,43 @@ there DOES crash, 2/2, at `622:403`, which its own change cannot reach. I am
 NOT claiming the eyes prompt causes this crash; I am reporting a reproducible
 result I cannot account for, and the next arm below is the one that separates
 "this specific string" from "any perturbation".**
+
+---
+
+## C — raising `cfg` on `620:114` does **not** rescue the crash
+
+The control for this cell is `A0_baseline_crash`, which **is** `cfg 1` — the
+shipping value, unchanged from `OFMTech_NSFW.json`. (Terminology confirmed: the
+"3 vs 1.5" figures elsewhere are `bbox_crop_factor`; `620:114.cfg` is `1` in the
+file and in every arm here that did not deliberately change it.)
+
+| cell | `620:114.cfg` | prompt_id | status | cached | exception node | lowvram patches |
+|---|---|---|---|---|---|---|
+| `A0_baseline_crash` *(control, = shipping)* | 1 | `0e24d1c3-…` | **error** 254.8 s | 0 | `622:403` | 0 |
+| `C2_cfg2` | 2 | `79f3bebe-8ad1-4da0-b7b0-44dcd731ba7e` | **error** 449.5 s | 0 | `622:403` | **0 — clean measurement** |
+| `C3_cfg5` | 5 | `6959d90a-6f06-4c3c-8f38-e1f12ecd0c8b` | **error** 496.7 s | 0 | `622:403` | **30 — confounded** |
+| `C3b_cfg5_repeat` | 5 | `74a754f8-a40d-406d-a904-58c4a8c85316` | **error** 292.4 s | 0 | `622:403` | **779 — confounded** |
+
+`C2`'s detector trace is identical to `A0`'s step for step, and its mask is
+all-zero. **cfg 2 does not rescue it, and that is a clean measurement.**
+
+**cfg 5 could not be measured cleanly on this box, and the reason is the change
+itself, not the neighbours.** `comfy/samplers.py:370`:
+
+```python
+if math.isclose(cond_scale, 1.0) and model_options.get("disable_cfg1_optimization", False) == False:
+```
+
+At **exactly** `cfg 1` ComfyUI skips the unconditional pass entirely. Raising cfg
+above 1 makes the face pass evaluate **two** conditionings per step instead of
+one, roughly doubling sampler activation memory. Both cfg-5 attempts went
+lowvram — 30 patches at 4962 MB usable, then 779 patches at **194 MB** usable —
+where every cfg-1 and cfg-2 arm ran fully resident. So the cfg-5 arms crashed,
+but they crashed under exactly the memory condition shown above to be an
+independent cause, and I will not count them as evidence about cfg.
+
+**Verdict C: raising cfg does not rescue the crash. cfg 2 crashes identically to
+cfg 1, measured cleanly. cfg 5 crashed twice but both runs went lowvram, so it is
+"crashed, confounded" and not a clean result — and the useful finding from those
+two arms is a different one: raising cfg above 1 on `620:114` doubles that pass's
+sampler memory, because cfg exactly 1 is a fast path that skips the uncond.**
