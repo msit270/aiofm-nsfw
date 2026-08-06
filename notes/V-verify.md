@@ -1,6 +1,15 @@
 # TRACK V — adversarial verification of `620:110.device = "cpu"`
 
-**VERDICT: PENDING — arms still landing. Do not quote this line until it changes.**
+**VERDICT: THE FIX DOES NOT HOLD. `620:110.device = "cpu"` does not cure the
+black-face failure — it narrows it.** On the shipping artifact, with the fix
+applied, cold and with an empty queue, a 103-token prompt reproduced
+`622:403 MaskBoundingBox+ RuntimeError` **2 out of 2**, and the frame it produced
+carries the identical failure signature to every pre-fix crash arm to five
+decimal places: `(56,51,47)` over `0.16969` of the frame, `face_yolov8m.pt` max
+confidence `0.4656`, zero faces at threshold 0.6. The fix does hold everywhere
+`PHASE3-spec.md`'s required proof set looks — all five proof strings, both
+measured bands, 4/4 acceptance checks — which is exactly why the proof set alone
+would have passed it.
 
 ---
 
