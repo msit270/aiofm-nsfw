@@ -90,42 +90,43 @@ seam — **in the steps-8 graph you approved**. cf 1.5 is the same face without 
 and it refines **0.04 % more** pixels, so it is not doing less. **If the residual
 lip blister bothers you, 1.0 is one integer away** (`widgets_values[15]`).
 
-### Speed — **the whole-render speedup from steps is single digits, not 26 %**
+### Speed — **quote this one and nothing else: ~53 s, −16.8 %**
 
-I gave you "26 % faster" and "400.7 s → 189.3 s". **Both were wrong, and the
-second was wrong by a factor of eight.** Closed cold-against-cold, 0 cached nodes
-on both sides, each verified as the same render (mean abs diff 0.0000):
+I gave you "26 % faster" and "400.7 s → 189.3 s". **Both were wrong** — the second
+by a factor of eight; that 53 % was cache, not steps. The lever has now been
+measured twice from **opposite cache regimes** on the shipping graph, and the two
+agree to 0.2 s:
 
-| | what you were shown | **cold vs cold** |
-|---|---|---|
-| steps 30 + your LoRAs | 400.7 s *(38 cached)* | **417.5 s** |
-| steps 8 + your LoRAs | 189.3 s *(57 cached)* | **388.9 s** |
-| | −53 % | **−28.6 s, −6.9 %** |
+| steps 30 → 8 | measurement |
+|---|---|
+| **cold**, 0 cached both sides (315.5 → 262.6 s) | **−52.9 s, −16.8 %** |
+| **warm**, byte-identical 57-node cache sets | **−53.1 s** |
 
-**The 53 % was cache.** And the 6.9 % is not quotable either: two ~400 s cold
-renders each carry ~200 s of model loading that varies run to run, so 28.6 s sits
-inside that variance.
+Two regimes, one answer. That is the steps lever. **`denoise` costs 0.4 s —
+nothing.** `crop factor` is a saving of **unknown size**: the one cold pair
+suggesting −118 s was withdrawn as implausible (larger than the pass itself
+costs, and that arm was also writing six full-resolution PNGs).
 
-**What the lever is actually worth, cache held byte-identical (57 nodes, same
-ids):** steps 30 → 8 saves **53.1 s of sampling** (198.7 → 145.6 s). Denoise
-costs **0.4 s** — nothing. Crop factor 3 → 1.5 saves **118.4 s** on a matched
-cold pair, comfortably outside the load variance.
+**Why every timing claim here went wrong, including three of mine:** the same
+graph cold vs warm is 388.9 s vs 190.1 s. **120–200 s of a cold render on this
+pod is model loading** — larger than any lever being argued about. A comparison
+that does not hold cache constant measures loading, not sampling.
 
-**So: steps 8 is still right, and the quality case is not close — but do not put
-a 26 % or 53 % speedup in the pack.** The honest line is "~50 s less sampling per
-render, single-digit percent of wall clock".
+*Do not quote `−103.7 s / −26 %`, `−53 %`, `−6.9 %` or `−118 s`. All four have
+that defect and all four are withdrawn.*
 
-**The root cause of every timing error in this project:** the same graph cold vs
-warm is 388.9 s vs 190.1 s. **120–200 s of a cold render here is model loading**,
-larger than any lever anyone argued about. A comparison that does not hold cache
-constant measures loading, not sampling.
+### Luna's freckles — **X2 is not Luna**
 
-*(The older `−103.7 s / −26 %` figure has the same defect — 31 cached vs 8 — and
-has not been re-measured. Do not quote it.)*
+You asked whether Luna's freckles survive in `X2`. **That tile is a different
+woman.** `results/face/arms/X2_steps08_denoise050/api_graph.json` has
+`"lora_01": "None"` on both `116` and `618` — the whole face grid ran with both
+LoRA stacks empty. There were never any Luna freckles in `X2` to lose, and the
+face you judged is the base model's. **Nothing you concluded from that tile
+about your character carries over.** New arms were rendered with both your LoRAs
+loaded; everything below is from those.
 
-### Luna's freckles — answered, and it moves the question off this node
-
-**They die at `#98 UltimateSDUpscale`, two stages before the face pass runs.**
+**With your LoRAs loaded, the freckles die at `#98 UltimateSDUpscale`, two
+stages before the face pass runs.**
 A tap render saved the image at every stage, with your LoRAs loaded, same seed
 (`results/face/R1_where_freckles_die_1to1.png`):
 

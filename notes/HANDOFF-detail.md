@@ -149,9 +149,13 @@ after 10 minutes and sends **nothing** — you get no image.
 
 ## 4. The face work
 
-### RECOMMENDATION SO FAR: set `#114` steps 30 → 8. It fixes the face *and* saves 26 % of the render.
+### RECOMMENDATION SO FAR: set `#114` steps 30 → 8. It fixes the face *and* saves ~53 s (−16.8 %).
 
-**Nothing has been applied.** This is the pick to make; more arms are still landing.
+> **CORRECTION (final).** This section was written when the speedup was believed
+> to be 26 %. It is **−52.9 s cold / −53.1 s warm, −16.8 %** — measured twice from
+> opposite cache regimes on the shipping graph. The `−103.7 s / −26 %` and the
+> "lower bound" argument below are **withdrawn**: they compared 31 cached nodes
+> against 8 on a pod where caching is worth 120–200 s. Applied as `2e4e8e9`.
 
 `#114 FaceDetailer` runs **30 steps on a model distilled for 8** — and the graph's
 own mouth pass `#165` already runs 8 on the same model. Setting the face pass to
@@ -218,13 +222,13 @@ iris toward hazel**. Combination arms (steps 8 + denoise 0.50 / 0.65) are queued
 as is a **confirmation pair with your Luna LoRAs loaded** at the likely
 recommendation, since the whole grid otherwise ran with both stacks at `"None"`.
 
-**Why the timing claim is safe**, given this project's history of wrong timing
-verdicts: the arms had mismatched cache counts (31 vs 8), so the agent checked
-*what* was cached. In both arms every cached node is a loader, text encoder or
-primitive — **no sampler, detailer, VAE or upscale node was cached in either**,
-so all the sampling ran from scratch both times. The difference is model *load*
-time only, and it runs **against** the fast arm, which had 23 fewer loaders warm
-and still finished 103.7 s quicker. **The 26 % is a lower bound.**
+**~~Why the timing claim is safe~~ — WITHDRAWN.** The argument was: mismatched
+cache counts (31 vs 8) don't matter because every cached node was a loader, so
+the difference is load time only and runs *against* the fast arm. **That
+reasoning is wrong.** On this pod model loading *is* 120–200 s of a cold render —
+it is not a small residual you can wave through as a "lower bound", it is larger
+than the lever being measured. The correct figure came from holding cache
+byte-identical and from a true cold pair, which agree: **−52.9 s / −53.1 s.**
 
 **Still a defect after this fix:** the mask seam survives, halved but not gone —
 band-pass step across the jaw goes from **x6.76** baseline to **x3.57** at steps
