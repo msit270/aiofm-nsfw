@@ -1,0 +1,15 @@
+{
+  "arm": "R4_CF15_filled",
+  "changed": "SHIPPING graph (cf 1.5) + LoRAs, #106 = the full string that crashes 3/3 at cf 3",
+  "prompt_id": "dd94393a-9b61-4d03-9a4b-70f314311b29",
+  "client_id": "r4-cf15-91f864de",
+  "workflow_sha256": "a811b5d690ccc5207bc7bd1c626cdd3db3b720b9be60d0a687436efcfd2143d8",
+  "bbox_crop_factor": 1.5,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens",
+  "status": "error",
+  "exec_seconds": 248.8,
+  "cached_nodes": 0,
+  "cached_node_ids": [],
+  "images": [],
+  "error": "622:403 MaskBoundingBox+ RuntimeError"
+}

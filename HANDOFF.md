@@ -76,8 +76,14 @@ LoRA stacks empty** — that face is the base model's, not your character's, and
 nothing you concluded from it about her carries over. Re-rendered with both your
 LoRAs loaded; §1 and everything below is from those.
 
-**With your LoRAs, the freckles die at `#98 UltimateSDUpscale`, two stages before
-the face pass runs.** One render, six taps, same seed
+**And in your own configuration they are gone in both arms — the one you shipped
+before and the one you shipped yesterday. What reads as freckles in the 30-step
+render is the bump defect.** That is the agent's wording and it is the least
+comfortable sentence in this document, so treat it as the thing to check first
+when you look at the sheet.
+
+**They die at `#98 UltimateSDUpscale`, two stages before the face pass runs.**
+One render, six taps, same seed
 (`results/face/R1_where_freckles_die_1to1.png`) — pigment % by stage:
 
 | base `619:601` | `#92` hands | `#91` skin model | `#87` blend | **`#98` upscale** | into `#114` | delivered |
