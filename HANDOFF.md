@@ -144,7 +144,49 @@ after 10 minutes and sends **nothing** — you get no image.
 
 ---
 
-## 4. The face work — contact sheets and recommendation **[IN FLIGHT]**
+## 4. The face work
+
+### RECOMMENDATION SO FAR: set `#114` steps 30 → 8. It fixes the face *and* saves 26 % of the render.
+
+**Nothing has been applied.** This is the pick to make; more arms are still landing.
+
+`#114 FaceDetailer` runs **30 steps on a model distilled for 8** — and the graph's
+own mouth pass `#165` already runs 8 on the same model. Setting the face pass to
+match is the single biggest win in the grid.
+
+**How it looks** (the render agent's words, not a metric): the dense field of
+white raised bumps is **gone**. Cheek, nose and brow read as skin — smooth with
+fine texture, **freckles now visible as flat brown marks** instead of drowned in
+white foam. Eyelashes are clean strands instead of scribble. The geometric
+grid/hexagon mess over the lips is largely gone too. **Its one reservation, and
+it is yours to judge: it is noticeably softer than the baseline**, and you may
+want a value between 8 and 30 if you want more grain. `C_16` is queued to answer
+exactly that.
+
+| | baseline | steps 8 |
+|---|---|---|
+| bright blobs / MP — **the defect** | 764 | **239** (−69 %) |
+| dark pores / MP — **the texture you asked for** | 16,471 | **23,213** (+41 %) |
+| blob-band RMS | 4.30 | **3.07** |
+| execution | 397.8 s | **294.1 s** (−26 %) |
+
+The two texture measures move in **opposite** directions. That is the point: it
+is not smoothing the image, it is the pass no longer inventing lesions.
+
+**Why the timing claim is safe**, given this project's history of wrong timing
+verdicts: the arms had mismatched cache counts (31 vs 8), so the agent checked
+*what* was cached. In both arms every cached node is a loader, text encoder or
+primitive — **no sampler, detailer, VAE or upscale node was cached in either**,
+so all the sampling ran from scratch both times. The difference is model *load*
+time only, and it runs **against** the fast arm, which had 23 fewer loaders warm
+and still finished 103.7 s quicker. **The 26 % is a lower bound.**
+
+**Still a defect after this fix:** the mask seam survives, halved but not gone —
+band-pass step across the jaw goes from **x6.76** baseline to **x3.57** at steps
+8. The composite boundary is still visible in the delivered image and wants its
+own fix, whatever you decide here.
+
+### The rest of the grid **[IN FLIGHT]**
 
 ### D3 — STOPPED. Your stop condition triggered. Nothing was applied.
 
