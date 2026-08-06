@@ -658,3 +658,38 @@ any deeper fix exists.
 Lowering `622:424.threshold` from 0.6 to 0.4 would make the crashing image detect
 (it scores 0.466) — but that converts a crash into **a delivered image with no
 face**. That is not a fix, and I would not ship it as one.
+
+---
+
+## Index — where everything is
+
+All under `results/crash/A/`.
+
+| what | where |
+|---|---|
+| every arm's submitted API graph, metadata and images | `arms/<ARM>/{api_graph.json,meta.json,*.png}` |
+| every arm's raw `/history/<prompt_id>` (this is where the tracebacks are) | `history/<ARM>__<prompt_id>.json` |
+| the `621:163` face region of every arm, committed | `thumbs/<ARM>__tap163_facebox_half.png` |
+| **A4 sheet** — crash vs clean at 1:1, red header | `A4_contact_sheet.png` |
+| **A2 sheet** — the whole word ladder, 19 panels | `A2_ladder_sheet.png` |
+| **A3 sheet** — the seven 17-word prompts | `A3_content_sheet.png` |
+| offline YOLO at 0.6/0.5/0.4/0.3/0.2/0.1 for the A4 pair and the base | `yolo_A4.json` |
+| offline YOLO for **every** arm | `arm_yolo.json` |
+| the pooled token map | `token_map.txt`, `token_map.json` |
+| every crashing arm compared pixel-for-pixel | `crash_identity.txt` |
+| every arm re-tokenised from its **submitted** graph | `arm_audit.txt` |
+| graph diffs proving one input differs per pair | `graph_diffs.txt` |
+| the driver, builders and analysis | `tools/` |
+
+Arm families: `A0_` base tap · `A1_gate_` the probe validation · `L_w*` the word
+ladder · `A3_C*` content controls · `A3_swap_*` same-word-and-token swaps ·
+`T_tok*` the token sweep · `TAP114_*` the `620:114` taps · `CTL_*` health controls
+· `REP*`/`E398_*` repeats and the prediction test.
+
+**Two arms are VOID and are kept only for the trail:** `REP_w17` and
+`CTL_placeholder_after_REP_w17` (that control failed with `execution_cached: 16`;
+see `A-questions.md`). `T_tok28` is also void — `cached 16` — and its cold re-run
+is `T_tok28__warm2`, which is confusingly named: the `__warm2` suffix marks the
+*second attempt*, and it is the **good, cold** one. Everything downstream filters
+on `cached == 0`.
+
