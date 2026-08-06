@@ -84,17 +84,30 @@ intact.** Whatever destroys them is later than that.
 
 In the delivered images, over the identical crop:
 
-| tile | `#114` settings | LoRAs | freckles |
+| tile | `#114` settings | LoRAs | freckles at 1:1 |
 |---|---|---|---|
-| **base render** (before `#114`) | — | yes | **present** — crisp flat brown marks |
-| `L0b_baseline_loras` | steps 30, denoise 0.80 | yes | **gone** |
-| `L1b_steps08_loras` — *what ships now* | steps 8, denoise 0.80 | yes | **gone** |
+| **base render** (before `#114`) | — | yes | **present** — discrete, crisp, flat brown marks |
+| `L0b_baseline_loras` | steps 30, denoise 0.80 | yes | **gone** — buried under a mat of pale raised bumps |
+| `L1b_steps08_loras` — *what shipped* | steps 8, denoise 0.80 | yes | **gone** — smooth skin, a faint mottle, no discrete marks |
 | `X2_steps08_denoise050` | steps 8, denoise 0.50 | **no** | n/a — different person |
 
-**Verdict, in the terms he asked for: GONE. But the trade he is worried about
+**Verdict, in the terms he asked for: GONE — and the trade he is worried about
 was already made, by a lever he was not looking at.** Denoise 0.50 is not what
 removed them. They were gone at the settings he shipped before, and they are
 gone at the settings he shipped yesterday.
+
+**Where my eye and my number disagree, and which I am trusting.** Applying one
+consistent pigment rule (§below) the base render's mask is **3.394 %**
+pigment-covered and `L1b`'s is **2.43 %** — a 28 % drop, not an erasure. I am
+trusting the pictures, for a stated reason: the rule cannot tell a **discrete
+freckle** from a **low-amplitude mottle**, and at 1:1 the base render has the
+first and `L1b` has only the second. The same rule scores `L0b` at **8.525 %**
+— higher than the base render that actually contains the freckles — because the
+dark interstices between the raised bumps satisfy it. A rule that ranks the
+bumpiest arm as the most freckled is not measuring freckles.
+
+So the precise statement is: **the discrete flat brown marks are gone in both
+delivered arms; a faint pigment mottle survives and does not read as freckles.**
 
 ## `HANDOFF.md` says something about this that is not true of his configuration
 
@@ -113,7 +126,36 @@ anything underneath, because by then there was nothing underneath.
 *(Main is correcting `HANDOFF.md`; this paragraph is my independent statement
 of the same correction, from `L0b`/`L1b` and their shared base render.)*
 
-## What I could not do defensibly: count them
+## One pigment rule, applied to every arm
+
+Used for every "pigment %" figure in this report. Over a **fixed pixel mask** —
+the same three rectangles on every arm, covering nose and both upper cheeks and
+nothing else, `mask_px = 251,750` — in CIELAB (D65), against a median-filtered
+local background whose radius is scaled so the *physical* scale matches when an
+image is at a different resolution:
+
+* **pigment** = locally darker (`L* < L*_bg − 2.0`) **and** locally more yellow
+  (`b* > b*_bg + 0.6`). This is what a flat brown mark looks like.
+* **bright-blob** = locally brighter (`L* > L*_bg + 2.0`). This is what the
+  raised-bump defect looks like — convex and light, the opposite of a pore.
+
+| arm | pigment % | bright-blob % | chroma b\* RMS | luma L\* RMS |
+|---|---|---|---|---|
+| **base render** `619:601`, LoRAs *(1792x2304)* | 3.394 | **3.751** | 0.743 | 1.429 |
+| `L0b` steps 30 / den 0.80 / cf 3, LoRAs | 8.525 | **20.910** | 1.148 | 2.862 |
+| `L1b` steps 8 / den 0.80 / cf 3, LoRAs | 2.430 | **7.777** | 0.716 | 1.485 |
+| `A0` steps 30 / den 0.80 / cf 3, no LoRAs | 13.350 | **26.639** | 1.630 | 3.858 |
+| `X2` steps 8 / den 0.50 / cf 3, no LoRAs | 3.930 | **9.034** | 0.795 | 1.617 |
+| `B035` steps 30 / den 0.35 / cf 3, no LoRAs | 4.042 | **10.725** | 0.783 | 1.768 |
+
+The **bright-blob column is the one this rule measures honestly**, and it is
+unambiguous: the base render carries 3.75 % and `#114` at the old settings
+turns that into 20.9 % with the LoRAs and 26.6 % without. **The face pass
+roughly five- to seven-times the bright-blob coverage of the image it is
+handed.** The pigment column is contaminated as described above and should be
+read only within a row-pair of similar bumpiness.
+
+## What I could not do defensibly: count the freckles individually
 
 The brief allowed a count if the rule was defensible. I wrote one:
 
