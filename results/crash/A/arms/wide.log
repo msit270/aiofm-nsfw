@@ -26,3 +26,5 @@ rep finished; running WIDE token sweep
 [CTL_placeholder_after_T_tok49] submitted 6122c22f-9fea-4769-9c35-ecfb7d3429af cid=trackA-CTL_placeholder_after_T_tok49-4c431cc7 queue_before=(0,0) vram_free=50.3GiB
 [CTL_placeholder_after_T_tok49] success exec=52.9s cached=0 err=None  imgs=['tap163_00079_.png', 'HasMetadata_00113_.png']
 [T_tok50] submitted 3c1541e3-29d8-481d-a996-94d25cd1d883 cid=trackA-T_tok50-978d4d1c queue_before=(0,0) vram_free=49.6GiB
+[T_tok50] error exec=40.9s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00080_.png']
+[CTL_placeholder_after_T_tok50] submitted 13d9ded4-1710-4de7-ae91-03c227cd1d60 cid=trackA-CTL_placeholder_after_T_tok50-a276e424 queue_before=(0,0) vram_free=50.4GiB

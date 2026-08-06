@@ -4,10 +4,10 @@
 
 Every prompt whose tokenised length is **30, 31, 32, or 44 and above** crashes.
 Every other length measured — 11, 12, 13, 14, 16, 20, 25, 26, 27, 28, 29, 33, 34,
-35, 36, 37, 38, 39, 40, 41, 42, 43 — renders clean. **Its lower edge is exact; its top edge does not appear to
-exist within reach**: 43 is clean and **44, 45, 46, 47, 48 and 49 all crash** —
-six consecutive lengths, unbroken. So the upper region reads as a genuine
-threshold at 44, not a band. Above 49 is unmeasured. **Across every cold arm in this run and eight unrelated content families there
+35, 36, 37, 38, 39, 40, 41, 42, 43 — renders clean. **Its lower edge is exact and it has no top edge within
+reach**: 43 is clean and **44, 45, 46, 47, 48, 49 and 50 all crash** — seven
+consecutive lengths, unbroken. So the upper region is a genuine **threshold at
+44**, not a band. Above 50 is unmeasured. **Across every cold arm in this run and eight unrelated content families there
 is not one token count that gave two different outcomes.** That is a strong
 statement about the lengths and content I measured; it is not a proof that no
 string anywhere could break the pattern. Six completely
@@ -559,7 +559,7 @@ tok  verdict  n  arms
   12  clean    1  L_w02
   13  clean    1  L_w03
   14  clean    1  L_w04
-  16  clean   19  A1_gate_placeholder, CTL_placeholder_after_w17, CTL_placeholder_after_w18, CTL_placeholder_after_w24, L_w06, CTL_placeholder_after_A3_C2_gardener_w17, CTL_placeholder_after_A3_swap_Tuesday, CTL_placeholder_after_A3_swap_fine, CTL_placeholder_after_A3_swap_obvious, CTL_recovery_before_T, CTL_placeholder_after_T_tok30, CTL_placeholder_after_T_tok31, CTL_placeholder_after_T_tok32, CTL_placeholder_after_T_tok45, CTL_placeholder_after_T_tok46, CTL_placeholder_after_T_tok44, CTL_placeholder_after_T_tok47, CTL_placeholder_after_REP2_w17__warm2, CTL_placeholder_after_T_tok48
+  16  clean   20  A1_gate_placeholder, CTL_placeholder_after_w17, CTL_placeholder_after_w18, CTL_placeholder_after_w24, L_w06, CTL_placeholder_after_A3_C2_gardener_w17, CTL_placeholder_after_A3_swap_Tuesday, CTL_placeholder_after_A3_swap_fine, CTL_placeholder_after_A3_swap_obvious, CTL_recovery_before_T, CTL_placeholder_after_T_tok30, CTL_placeholder_after_T_tok31, CTL_placeholder_after_T_tok32, CTL_placeholder_after_T_tok45, CTL_placeholder_after_T_tok46, CTL_placeholder_after_T_tok44, CTL_placeholder_after_T_tok47, CTL_placeholder_after_REP2_w17__warm2, CTL_placeholder_after_T_tok48, CTL_placeholder_after_T_tok49
   20  clean    1  L_w08
   25  clean    1  L_w12
   26  clean    2  A3_C4_committee_w17, T_tok26
@@ -586,6 +586,7 @@ tok  verdict  n  arms
   47  CRASH    1  T_tok47
   48  CRASH    1  T_tok48
   49  CRASH    1  T_tok49
+  50  CRASH    1  T_tok50
 
 MIXED (same token count, different outcome): none
 ```
@@ -601,9 +602,9 @@ itself, across families that share no vocabulary:
 * **16 tokens — 13 arms, all clean.** (The shipped placeholder and every health
   control.)
 
-Sheet: **`results/crash/A/T_token_sweep_sheet.png`** — the same prompt at 26–49
+Sheet: **`results/crash/A/T_token_sweep_sheet.png`** — the same prompt at 26–50
 tokens. 26–29 clean · **30, 31, 32 crash** · 33–37, 40, 42, 43 clean ·
-**44, 45, 46, 47, 48, 49 crash**. Nothing changes between panels except how
+**44–50 crash**. Nothing changes between panels except how
 many times the word `the` is repeated.
 
 ### So the answer to A3, in one sentence
