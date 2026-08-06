@@ -100,6 +100,14 @@ single-token word `" the"`, giving **exactly** 12+k tokens with the content held
 constant. If 30 and 32 crash and 29, 31, 33 do not, the trigger is the sequence
 length and content is irrelevant.
 
+**Resolved: it is the token count.** `T_tok29` clean · `T_tok30` crash ·
+`T_tok31` crash · `T_tok32` crash · `T_tok33` clean · `T_tok46` crash, with the
+content fixed. Pooled over every arm in the run there is **no token count that
+produced two different outcomes**. One thing I got wrong and am flagging rather
+than quietly correcting: I predicted 31 would be *clean*, because no arm had
+crashed there yet and the word ladder made 30 and 32 look like isolated values.
+It crashes. The unsafe set is a contiguous **band** [30, 32], not two points.
+
 ### I nearly reported "past 16 words it crashes" off five arms.
 `w17`, `w18`, `w24`, `w25` crash and `w16` is clean — that is a clean-looking
 pattern from four positive cells, and it is wrong. Rule 6 in the brief

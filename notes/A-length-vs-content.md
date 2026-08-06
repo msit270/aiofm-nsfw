@@ -270,7 +270,10 @@ tokens 11 12 13 14 16 20 25 29 |30 32| 33 35 38 39 41 |45 46|
 ```
 
 **That is not monotone, and a non-monotone crash set cannot be produced by a
-length threshold of any kind.** 19 words / 33 tokens is *longer* than 17 words /
+length threshold of any kind.** (It *is* produced by two narrow bands of
+unsafe **token** counts — see the T section. Words 17 and 18 are 30 and 32
+tokens; words 19–23 are 33–41; words 24 and 25 are 45 and 46. The word ladder
+looks erratic only because words map onto tokens unevenly.) 19 words / 33 tokens is *longer* than 17 words /
 30 tokens on both counts and it renders clean. There is no cut-off T such that
 "crashes iff length ≥ T".
 
