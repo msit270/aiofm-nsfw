@@ -1,0 +1,161 @@
+{
+ "when": "2026-08-06T00:31:29.007Z",
+ "url": "http://127.0.0.1:18188",
+ "workflow": "OFMTech_NSFW",
+ "errors": [
+  {
+   "kind": "console.error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "at": "http://127.0.0.1:18188/user.css"
+  },
+  {
+   "kind": "console.error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "at": "http://127.0.0.1:18188/api/userdata/user.css"
+  },
+  {
+   "kind": "console.error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "at": "http://127.0.0.1:18188/api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true"
+  },
+  {
+   "kind": "console.error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "at": "http://127.0.0.1:18188/api/userdata/comfy.templates.json"
+  },
+  {
+   "kind": "console.error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "at": "http://127.0.0.1:18188/extensions/ComfyUI_Swwan/config.js"
+  },
+  {
+   "kind": "console.error",
+   "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/seed.js",
+   "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+  },
+  {
+   "kind": "console.error",
+   "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_any_input_connected_node.js",
+   "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+  },
+  {
+   "kind": "console.error",
+   "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node_mode_changer.js",
+   "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+  },
+  {
+   "kind": "console.error",
+   "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node.js",
+   "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+  },
+  {
+   "kind": "console.error",
+   "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/rgthree.js",
+   "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+  },
+  {
+   "kind": "console.error",
+   "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/image_comparer.js",
+   "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+  },
+  {
+   "kind": "console.error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "at": "http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/utils_dom.js"
+  },
+  {
+   "kind": "console.error",
+   "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/dialog.js",
+   "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+  },
+  {
+   "kind": "console.error",
+   "text": "[vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Obje",
+   "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js"
+  },
+  {
+   "kind": "console.error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "at": "http://127.0.0.1:18188/api/pysssss/autocomplete"
+  },
+  {
+   "kind": "console.error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "at": "http://127.0.0.1:18188/api/userdata/workflows%2F.index.json"
+  },
+  {
+   "kind": "console.error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "at": "http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_aggxo_00001_.png&type=temp&subfolder=&rand=0.38625573939016933"
+  },
+  {
+   "kind": "console.error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "at": "http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_aggxo_00002_.png&type=temp&subfolder=&rand=0.6334233147929259"
+  },
+  {
+   "kind": "console.error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "at": "http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_fepic_00001_.png&type=temp&subfolder=&rand=0.8823351481460819"
+  },
+  {
+   "kind": "console.error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "at": "http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_fepic_00002_.png&type=temp&subfolder=&rand=0.6259306129060468"
+  },
+  {
+   "kind": "console.error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "at": "http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_tpbop_00001_.png&type=temp&subfolder=&rand=0.4849143384465904"
+  },
+  {
+   "kind": "console.error",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "at": "http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_tpbop_00002_.png&type=temp&subfolder=&rand=0.548351700629904"
+  }
+ ],
+ "steps": [
+  "00:31:33 booted",
+  "00:31:38 opened OFMTech_NSFW from the Workflows sidebar",
+  "00:31:38 configured: {\"sdxl\":\"lunaskye.safetensors\",\"zit\":\"luna.safetensors\",\"seed\":20260806}",
+  "00:31:38 pressed Run",
+  "00:31:46 POST /prompt -> 200; 88 nodes; 618=lunaskye.safetensors 116=luna.safetensors",
+  "00:31:46 prompt_id bb19b511-0ed2-4e37-b35c-1ee18fc2a331",
+  "00:33:21 selector: Send STILL DISABLED after pick",
+  "00:33:26 selector: picked image 0, pressed Send",
+  "00:39:02 RESULT {\"status\":\"success\",\"completed\":true,\"outputs\":[[\"505\",\"HasMetadata_00012_.png\"]]}"
+ ],
+ "config": {
+  "sdxl_618": {
+   "title": "2 · Your SDXL LoRa  (body, pose, hands)",
+   "offered": true,
+   "value": "lunaskye.safetensors"
+  },
+  "zimage_116": {
+   "title": "2 · Your ZIT LoRa  (face, mouth, eyes)",
+   "offered": true,
+   "value": "luna.safetensors"
+  },
+  "prompt": "photorealistic portrait photograph of a freckled woman by a window in soft daylight, natural skin texture with visible pores, detailed eyes, detailed hands, 85mm lens",
+  "seed": 20260806
+ },
+ "prompt_posted": true,
+ "prompt_http_status": 200,
+ "api_nodes": 88,
+ "lora_618": "lunaskye.safetensors",
+ "lora_116": "luna.safetensors",
+ "prompt_id": "bb19b511-0ed2-4e37-b35c-1ee18fc2a331",
+ "selector": "picked image 0, pressed Send",
+ "render": {
+  "status": "success",
+  "completed": true,
+  "outputs": [
+   [
+    "505",
+    "HasMetadata_00012_.png"
+   ]
+  ]
+ },
+ "verdict": "PASS — browser Run produced an image",
+ "pageerrors": 0
+}

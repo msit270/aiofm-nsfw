@@ -399,14 +399,24 @@ New, all paid for this run:
   - **A3**, the skin filter at `#87 ImageBlend` 1.0 vs 0.5: `B…00005_.png` vs
     `D_skinblend_050/…00011_.png` — 33.88 dB, SSIM 0.924; 80.4 % of pixels move
     but only 7.9 % by more than 8 levels, the signature of a whole-frame filter.
-- **The written negative prompts cannot apply.** `#114`, `#165` and `#406` all run
-  at `cfg = 1`, so classifier-free guidance is off and `#105`'s carefully-written
-  negative has no effect. A buyer told by `#649` to fill in the positive sees a
-  populated negative beside it and will reasonably assume it protects them; if
-  they add to it because of artefacts, nothing changes and nothing tells them
-  why. Unchanged — raising cfg alters output and deleting the text destroys
-  information — but it wants a decision. Note `#167` is already empty, which
-  suggests someone worked this out for one node and not the others.
+- **The face negative prompt cannot apply, and cfg 1 is required — do not "fix"
+  it by raising cfg.** `#114`, `#165` and `#406` run at `cfg = 1`, so
+  classifier-free guidance is off. This is **not an oversight**: `zimage.safetensors`
+  is sha256 `2407613050b809ff…5574a6`, which is an exact match for Comfy-Org's
+  **`z_image_turbo`** `z_image_turbo_bf16.safetensors` and *not* the base
+  `z_image` model — the two are the same byte length, so size alone would not
+  distinguish them. It is a guidance-distilled Turbo model; the vendor card says
+  *"Guidance should be 0 for the Turbo models"*, and ComfyUI's own shipped
+  templates use steps 8 / cfg 1 for turbo against steps 25 / cfg 4 for base.
+  `comfy/samplers.py:370` shows that at cfg 1 the uncond is **never evaluated**,
+  so the negative's tokens never reach the transformer at all.
+  **Raising cfg on the Z-Image passes is actively bad advice for this graph**, and
+  nothing may be costed as if those passes pay for a negative branch. The SDXL
+  half is a normal cfg model and is unaffected.
+  Of the three negatives, **two are already empty** — `#167` (mouth) and `#394`
+  (eyes) — and only `#105` (face) still carries `"deformed, ugly, blurry, …"`.
+  So the file itself shows someone reached this conclusion twice and stopped. The
+  remaining work is documentation, not a cfg change. Unchanged pending a decision.
 - The multi-image selector needs one real browser click.
 - Ten stale `rgthree.compare._temp_*.png` filenames are baked into the shipped
   workflow — a buyer gets 404s the moment they open it. The harness counts them
