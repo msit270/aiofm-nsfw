@@ -130,11 +130,45 @@ R4_base (#105 = the old negative text)  vs  R4_cur (#105 = "", the file as it sh
 R4_cur: success, exec 183.5 s, cached 57, flat_frac 0.0000
 ```
 
-**Bit-identical.** Two things follow. First, **every A/B in this report applies
-unchanged to the file that ships today** — my baseline is the current graph's
-output, not a superseded one. Second, `a806ce3`'s inertness claim, which rested
-on `comfy/samplers.py:370` dropping the uncond at cfg 1, now has a render behind
-it as well as the argument. That was somebody else's commit and it holds up.
+**Bit-identical.** Two things follow. First, my baseline was the shipped graph's
+output at that moment, not a superseded one. Second, `a806ce3`'s inertness claim,
+which rested on `comfy/samplers.py:370` dropping the uncond at cfg 1, now has a
+render behind it as well as the argument. That was somebody else's commit and it
+holds up.
+
+### Correction — the file moved a THIRD time, after I verified all this
+
+Later in the session another agent landed `74c0f11`, **`#114` `bbox_crop_factor`
+3 → 1.5** (`widgets_values` index 15), taking the file to
+`a811b5d690ccc5207bc7bd1c626cdd3db3b720b9be60d0a687436efcfd2143d8`. Unlike
+`a806ce3` that is an **executable** change to the face pass itself — it sets the
+size of the region `#114` crops and re-diffuses.
+
+```
+OLD (my arms): [..., 0.8, 18, True, True, 0.5, 10, 3,   'center-1', ...]
+NEW (ships):   [..., 0.8, 18, True, True, 0.5, 10, 1.5, 'center-1', ...]
+                                              index 15 ^
+```
+
+**So I must withdraw the sentence I wrote above before that commit existed:
+"every A/B in this report applies unchanged to the file that ships today". It was
+true when written and it is not true now.** Everything in §1, §2 and §2b was
+measured at `bbox_crop_factor 3`.
+
+What that does and does not affect, stated carefully:
+
+* **§3 and §4 are unaffected** — they are static readings and I re-checked them
+  against the current file.
+* **§1 (D1) and §2 (D2) are comparisons of two arms that both had crop_factor 3.**
+  Each comparison is internally valid; whether the *magnitudes* carry over to
+  crop_factor 1.5 is **untested**. The D1 verdict rests on direction plus the
+  owner's standing decision, neither of which I expect to move — but that is
+  **[I]**, not a measurement.
+* **§2b is the one that genuinely needs re-testing.** `bbox_crop_factor` changes
+  what the face pass produces, and the crash is a downstream face-detection
+  failure. Whether filling `#106` still crashes at crop_factor 1.5 is **not
+  known**. It is one render on each side to find out, and it should be done
+  before anyone concludes either that the defect is gone or that it still bites.
 
 ### One thing the timing cannot do — stated before the numbers, not after
 
