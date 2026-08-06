@@ -6481,7 +6481,7 @@
               1024,
               1111111,
               "fixed",
-              30,
+              8,
               1,
               "euler_ancestral",
               "kl_optimal",
