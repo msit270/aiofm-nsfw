@@ -166,11 +166,22 @@ neck; if the neck stays at 0.87 while the face changes, `#87` is not the deposit
 
 ### Two further defects found on the way, neither previously reported
 
-**The pass touches the whole image.** `#114` changes 9.51 % of the frame by more
-than 8 levels (a clean silhouette of the SAM mask) but **99.05 % by more than
-0 levels** — the crop clamps to the full frame, so even unmasked pixels go
-through a VAE round-trip. There is also a **hard seam where the mask ends**, with
-faint reddish text-like marks along it, and **it survives into the saved image**.
+**The damage is confined to the mask — and there is a hard seam at its edge.**
+`#114` changes **9.08 %** of the frame by more than 8 levels, a clean silhouette
+of the SAM mask, and **16.27 %** by more than 0 levels. Outside the mask the
+delivered image is **bit-identical** to the input (flat patches: background
+2.685 → 2.685, wall 1.572 → 1.572).
+
+*An earlier figure of 99.05 % was reported and I repeated it here — it was wrong
+and is retracted. It came from sampling the detailer's `cropped_refined` output
+slot, which is the raw VAE-decoded crop and carries round-trip drift everywhere;
+the slot actually wired downstream composites the refined region back in pixel
+space. **There is no whole-frame VAE damage in your delivered image.***
+
+What does survive: a **hard seam where the mask ends** — bumped inside, clean
+outside — with faint reddish text-like marks along it, still present in the saved
+file. Two rigs measured the step across it independently and agreed:
+edited-region band-pass RMS **5.841** and **5.87**.
 
 **The mouth is not merely bumpy — it is destroyed.** At 1:1 the lips and chin
 carry **rectangles, hexagons, dot-matrix grids, ladder patterns and hair-like

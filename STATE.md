@@ -389,7 +389,16 @@ New, all paid for this run:
    yours, but on a shared server it means a scoped delete can be a full clear in
    disguise. Assert the pending count is greater than the number you are deleting
    before firing. This is the safe-looking version of the unscoped-clear incident.
-10. **`guide_size` and `max_size` on an Impact detailer are self-cancelling, and
+10. **Measure a detailer on the output slot that is actually wired downstream.**
+    An Impact detailer's `cropped_refined` (slot 1) is the **raw VAE-decoded
+    crop**, so every pixel it contains carries round-trip drift; `image` (slot 0)
+    composites the refined region back in **pixel** space, leaving everything
+    outside the mask bit-identical. Comparing slot 1 against the input said
+    **99.05 %** of the frame changed; slot 0 said **16.27 %** — a 6x difference in
+    the headline number, from sampling the wrong slot. Band-pass measures barely
+    notice (4.14 vs 4.20), so this bites "percentage of pixels changed" claims
+    specifically.
+11. **`guide_size` and `max_size` on an Impact detailer are self-cancelling, and
     with `force_inpaint: true` they cannot lower the sampling resolution at all.**
     `core.py:287-325`: `guide_size_for=True` gives
     `upscale = guide_size / min(bbox_w, bbox_h)`, then a safeguard claws it back
