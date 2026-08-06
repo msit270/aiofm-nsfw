@@ -100,5 +100,30 @@ on the shipping artifact.
 
 ---
 
-*(sections 3-9: proof set, awkward set, band sweep, seed attack, eye-prompt
-attack, inertness, cost — appended as the arms land)*
+## 3. The Phase 3 proof set
+
+All arms cold (`execution_cached: []` confirmed in `/history`, not merely a
+`/free` issued), fresh `client_id`, full history under
+`results/crash/V/history/`. Token counts measured by me on
+`comfy.text_encoders.z_image.ZImageTokenizer`, not taken from anyone's table.
+
+| # | string | tokens (measured) | arms under the fix | one-widget control |
+|---|---|---|---|---|
+| P1 | the owner's proof string, byte-exact | **32** | `V_P1a` `V_P1c` — success | `V_CTLm1` — **error `622:403`** |
+| P2 | the known crashing string | **46** | `V_P2a` `V_P2b` `V_P2c` (+ `V_ISO_d035_cpu_a/b`) — success | `V_ISO_d035_gpu_a/b`, `V_CTLm3` — **error `622:403`** |
+| P3 | constructed, 47–50 band | **50** | `V_P3a` — success | `V_CTLm2` — **error `622:403`** |
+| P4 | shipped placeholder | **16** | `V_P4a` `V_P4b` — success | (16 tokens is a clean band; `V_CLEAN_mid_16*` is its pair) |
+| P5 | empty string | **8** | `V_P5a` — success | — |
+
+**P5 was `UNMEASURED` in `PHASE3-spec.md`. It is measured now: the empty string
+does not refuse at all.** `success`, 90.7 s, 33 nodes executed, `622:406` among
+them, a healthy face at YOLO 0.8942. The 8 tokens are `ZImageTokenizer`'s fixed
+`<|im_start|>user\n{}<|im_end|>\n<|im_start|>assistant\n` wrapper, so an empty
+prompt is still a well-formed 8-token conditioning; nothing downstream sees an
+empty tensor.
+
+**Every one of the three interleaved one-widget controls still errors at
+`622:403`**, so none of these strings is sitting in an already-safe band, and the
+green arms are not measuring nothing.
+
+*(sections 4-9 appended as the remaining arms land)*
