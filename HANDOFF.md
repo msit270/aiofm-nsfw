@@ -112,25 +112,25 @@ is a requirement, not step 3 of a list.
 
 ## 7. Still broken
 
-1. **Something can make a render deliver a faceless image while reporting
-   `success` — cause NOT yet established, and an earlier version of this line
-   blamed the wrong thing.** Six arms delivered a **flat RGB (53, 47, 43)** region
-   over 23.5 % of the frame where the face should be. I first recorded that as
-   "`bbox_crop_factor` is catastrophic". **That is retracted.** Four of the six
-   never touched `bbox_crop_factor`, and all six share the *bit-identical*
-   constant — four different parameter changes cannot independently produce the
-   same constant. The log shows a **NaN reaching `tensor2pil`** at 02:11:21
-   (`impact/utils.py:155`, `invalid value encountered in cast`); **every arm
-   before that timestamp succeeded and every arm after it failed.** The flat
-   colour is what an all-zero latent decodes to. Leading hypothesis is therefore
-   **server-side model-state corruption after a NaN**, not any of the settings. A
-   byte-identical resubmission of an arm that already passed is queued as the
-   control. **Until it lands, treat both this and the black-image arm in §4 as
-   unexplained.** The underlying fact stands either way: **a render can deliver a
-   faceless image with `status: success` and no warning.**
-   Related, and a **latent** defect regardless: the Eyes stage has no empty-mask
-   guard, so anything that makes the face undetectable turns into a hard crash at
-   `622:403 MaskBoundingBox+` rather than a degraded image.
+1. **A NaN in one render can poison the server so every later render silently
+   delivers a faceless image.** Six arms came back with a **flat RGB (53, 47, 43)**
+   region over 23.5 % of the frame where the face should be, `status: success`,
+   no warning. **Settled by control, not by theory:** a *byte-identical*
+   resubmission of an arm that had rendered cleanly at 01:30 also came back flat
+   at 02:38 — same graph, same hash. After `POST /free {"unload_models": true}`
+   the same graph rendered **bit-identical to the 01:30 original** (mean abs diff
+   0.0000) from a cold cache. So the fault was **server model state**, following
+   a NaN reaching `tensor2pil` at 02:11:21 (`impact/utils.py:155`).
+   *Two intermediate claims were retracted along the way and neither is true:
+   `bbox_crop_factor` is **not** catastrophic (those arms are **void, untested**,
+   and that lever is **unmeasured, not closed**), and the buyer's LoRAs do **not**
+   crash the graph.*
+   **What this means for you: if a render ever comes back with a flat grey face,
+   the fix is `/free` or a ComfyUI restart, not a settings change.** And a render
+   can fail this way with no error at all.
+   Related **latent** defect, no claim about triggers: the Eyes stage has no
+   empty-mask guard, so anything that makes the face undetectable becomes a hard
+   crash at `622:403 MaskBoundingBox+` rather than a degraded image.
 2. **A hard seam at the mask edge**, with faint text-like marks, survives into
    your saved image. Steps 8 halves it (×6.76 → ×3.57); it does not remove it.
 3. **Five licence blockers** — `QUESTIONS.md` §0. DMD2 (cc-by-nc) **still ships**
