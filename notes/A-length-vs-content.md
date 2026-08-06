@@ -433,6 +433,55 @@ Results below.
 
 ---
 
+## Where the black comes from — `620:114` localised by a tap
+
+Two arms, graph truncated at `621:163` so they cannot reach `622:403`, each with
+a `SaveImage` on **`620:114`'s raw output** (before `620:111`'s colour match).
+Both cold, both `success`.
+
+| arm | `620:106.text` | exact-(0,0,0) fraction of frame | unique colours in a 600×600 centre patch |
+|---|---|---|---|
+| `TAP114_w17` | the 17-word / 30-token crashing string | **0.1694** | **1** — `[0, 0, 0]` |
+| `TAP114_placeholder` | the shipped placeholder | **0.0000** | 39,957 |
+
+**`620:114 FaceDetailer` returns a pure-black, face-shaped region.** Not dark, not
+noisy — exactly `(0, 0, 0)` over 1.57 million pixels, with the hair, shoulders and
+background around it untouched. `results/crash/A/thumbs/TAP114_w17__*.png`.
+
+### Which also explains the (56, 51, 47) that shows up two nodes later
+
+`620:111 ImageColorMatch+` is a **global** per-channel mean/std transfer
+(`ComfyUI_essentials/image.py:1220-1241`: `matched = nan_to_num((image - image_mean)
+/ image_std) * nan_to_num(reference_std) + reference_mean`, statistics taken over
+the whole frame). A black hole covering 17 % of the image drags the frame
+statistics, and the affine map sends `0` to a lifted constant. That is the
+(56, 51, 47) seen at `621:163`. Nothing is "filling" the face at that stage; it is
+black being colour-matched.
+
+### And it rules NaN out, which the earlier evidence could not
+
+`compute_mean_std` uses plain `tensor.mean()`. **A single NaN anywhere in
+`620:114`'s output would make `image_mean` NaN, `(image - mean)/std` NaN,
+`nan_to_num` would send the whole thing to 0, and every pixel of `621:163` would
+be the same constant.** It is not — the hair and background at `621:163` are
+normal, detailed pixels. So `620:114` emitted **honest zeros, not NaNs**.
+
+That matters because "a NaN poisoned the render" is the story `HANDOFF.md` §7.1
+tells about the *other* failure mode, and this is not that. The pass ran to
+completion: the server log shows the face pass doing its normal thing —
+`Detailer: force inpaint` · `Detailer: segment upscale for ((1340.1992,
+1906.2034)) | crop region (2010, 2859) x 1.0` · eight sampler steps at ~2.5 s/it ·
+`[Impact Pack] vae decoded in 1.4s` — and no warning of any kind. Then the mouth
+pass finds no lips (no second `Detailer:` line at all in a crashing block, against
+three `Detailer:` lines in every clean one) and `622:424` finds no face.
+
+**[I] What I have not identified** is why eight steps of the Z-Image sampler on a
+2010×2859 crop return black for a 30-token conditioning and a face for a 29- or
+34-token one. That is a model/sampler question, not a graph question, and it is
+the right thing to hand to whoever owns the Z-Image side.
+
+---
+
 ## T — the token-count sweep
 
 _(running)_
