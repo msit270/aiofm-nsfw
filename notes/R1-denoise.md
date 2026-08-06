@@ -279,8 +279,19 @@ read. It does **not** touch the freckle finding: my crop is nose and upper
 cheeks, and every stage of that evidence is upstream of `#165` entirely.
 
 It does affect the **contact sheet**, whose tight face box includes the mouth.
-Each arm's `meta.json` carries `mouth_pass.ran` and the raw log lines it was
-derived from; if my four decision arms split on it, the sheet says so.
+**My four decision arms did not split: `#165` ran in all of `Z0`, `Z1`, `Z2`
+and `Z3`** (`1844x803`, `1848x798`, `1860x792`, `1877x786`, no `[filter]` line
+in any of them), so they are comparable to each other across the whole face
+box. `L0b` and `L1b` also ran it. **`X2` is the only tile on the sheet that
+dropped it** — one more reason that tile is not comparable, on top of having no
+LoRAs. Each arm's `meta.json` carries `mouth_pass.ran` and the raw log lines it
+was derived from, so the verdict can be re-derived rather than trusted.
+
+One caveat on my own reading: I am inferring "no `[filter]` line means it ran"
+from six arms where the two signals agree. If `#648` also logs on a pass under
+some condition I have not seen, that inference is wrong — but the detailer
+crop-region line, which I use as the actual verdict, is direct evidence either
+way.
 
 ---
 
