@@ -396,6 +396,17 @@ New, all paid for this run:
   - **D3**, the first face pass: `B…00005_.png` vs
     `C_no_sdxl_face_pass/…00006_.png` — face crop 27.69 dB, 32.8 % of face pixels
     moving more than 8 levels.
+
+  **Caveat on every "face crop" figure above:** they were measured inside
+  `face_box_xywh = [1028, 498, 732, 732]`, carried in WS4's `metrics_*.json`.
+  That box is **wrong**. Running the graph's own detector,
+  `models/ultralytics/bbox/face_yolov8m.pt`, against `A_baseline` returns
+  **654x891 at (984, 413)**, confidence 0.885 — not a 732x732 square. The square's
+  centre sits ~83 px to the right of the real detection and it **clips the chin**.
+  So the face-crop numbers describe a misaligned region that is mostly-but-not-
+  entirely face. Full-frame figures are unaffected. Do not propagate that box;
+  detect per image. `tools/contact_sheet.py` does, and flags loudly in red on
+  every tile when it has to fall back to the square.
   - **A3**, the skin filter at `#87 ImageBlend` 1.0 vs 0.5: `B…00005_.png` vs
     `D_skinblend_050/…00011_.png` — 33.88 dB, SSIM 0.924; 80.4 % of pixels move
     but only 7.9 % by more than 8 levels, the signature of a whole-frame filter.
