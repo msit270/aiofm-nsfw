@@ -21,3 +21,12 @@
 [CTL_placeholder_after_A3_swap_obvious] submitted 064939cf-f022-44a5-b271-eda099959b9d cid=trackA-CTL_placeholder_after_A3_swap_obvious-44712035 queue_before=(0,0) vram_free=53.3GiB
 [CTL_placeholder_after_A3_swap_obvious] success exec=68.5s cached=0 err=None  imgs=['tap163_00032_.png', 'HasMetadata_00083_.png']
 [REP_w17] submitted 4aeb190f-5884-488b-b15d-cd53396ea687 cid=trackA-REP_w17-caabbc61 queue_before=(0,0) vram_free=38.6GiB
+[REP_w17] error exec=67.6s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00033_.png']
+[CTL_placeholder_after_REP_w17] submitted 5a79057f-6d48-4a97-a9b2-f5e400061699 cid=trackA-CTL_placeholder_after_REP_w17-45144389 queue_before=(0,0) vram_free=39.7GiB
+[CTL_placeholder_after_REP_w17] error exec=56.7s cached=16 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00034_.png']
+!!! HEALTH CONTROL FAILED -- stopping
+[TAP114_w17] submitted 832b6a74-4b61-456e-92ae-d235203c8422 cid=trackA-TAP114_w17-a54c7be8 queue_before=(0,0) vram_free=57.0GiB
+[TAP114_w17] success exec=101.8s cached=0 err=None  imgs=['tap114_00001_.png', 'tap163_00035_.png']
+[TAP114_placeholder] submitted 8c9c0e31-db5c-4b75-88d8-d35252d6502a cid=trackA-TAP114_placeholder-cf727bf2 queue_before=(0,0) vram_free=46.9GiB
+[TAP114_placeholder] success exec=128.8s cached=0 err=None  imgs=['tap114_00002_.png', 'tap163_00036_.png']
+follow-up done

@@ -110,6 +110,36 @@ on.
 
 ---
 
+### A health control FAILED, and the reason was my driver, not the server.
+`CTL_placeholder_after_REP_w17` — the shipped placeholder, byte-identical graph
+to five controls that had already passed — came back **ERROR at `622:403`**. Per
+rule 2 that voids everything since the last good control, which is `REP_w17`
+alone (`CTL_placeholder_after_A3_swap_obvious` passed at 68.5 s, `cached 0`).
+`REP_w17` is therefore **discarded and re-run**, and the driver stopped itself.
+
+The cause is visible in its own metadata: **`execution_cached: 16`**. That arm was
+not cold. `POST /free` does not free anything itself — `server.py`'s handler only
+sets flags on the prompt queue, and it is ComfyUI's prompt worker that later
+reads them (`main.py`, `q.get_flags()` → `comfy.model_management.unload_all_models()`
+and `e.reset()`). If the next prompt is submitted before the worker gets to the
+flags, it executes against the **old** execution cache. My driver POSTed `/free`,
+slept 2 s and submitted. On that arm 2 s was not enough — the recorded
+`vram_free_after_free` is **39.7 GiB** against 50–75 GiB on every neighbouring
+arm, i.e. the unload had visibly not happened yet.
+
+Note what was and was not cached: the 16 are all loaders and constant nodes
+(`116`, `620:107/108/109/110/113`, `620:105`, `620:648`, `621:160/161/166/167`,
+`622:394/398/426`, `BASE`). **`620:114` is not among them**, so the face pass did
+re-run — this is not "it reused the crashing face". What it is, is an arm that
+ran on a server state I had not actually reset, which is exactly the condition
+this project's history says produces confident wrong conclusions.
+
+**Fixed, not worked around.** `drive.free()` now polls `/system_stats` until VRAM
+has actually come back (or 45 s), and `drive.run_arm()` **discards and re-runs any
+arm that reports a non-empty `execution_cached`** rather than reporting it. The
+failed control and the voided `REP_w17` are kept on disk with their history JSON;
+they are labelled VOID in the results, not deleted.
+
 ### I contaminated my own timings for one arm and am saying so rather than quietly dropping it.
 While `CTL_placeholder_after_A3_swap_Tuesday` was rendering I started an offline
 CPU probe of the text encoder that took ~30 cores. That arm reports **112.2 s**

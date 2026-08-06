@@ -1,5 +1,10 @@
 [
  {
+  "name": "CTL_recovery_before_T",
+  "text": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "note": "HEALTH RECOVERY: the shipped placeholder, byte-identical to A1_gate_placeholder. CTL_placeholder_after_REP_w17 failed with execution_cached: 16, so the server must be re-attested before any T_tok arm is read."
+ },
+ {
   "name": "T_tok30",
   "text": "a woman's face the the the the the the the the the the the the the the the the the the",
   "note": "token-count probe: fixed content + 18 x \" the\" = exactly 30 tokens"

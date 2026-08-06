@@ -1,0 +1,450 @@
+{
+ "prompt": [
+  158,
+  "832b6a74-4b61-456e-92ae-d235203c8422",
+  {
+   "116": {
+    "inputs": {
+     "lora_01": "luna.safetensors",
+     "strength_01": 1.0,
+     "lora_02": "None",
+     "strength_02": 0.9,
+     "lora_03": "None",
+     "strength_03": 0.9,
+     "lora_04": "None",
+     "strength_04": 1.0,
+     "model": [
+      "620:113",
+      0
+     ],
+     "clip": [
+      "620:110",
+      0
+     ]
+    },
+    "class_type": "Lora Loader Stack (rgthree)",
+    "_meta": {
+     "title": "2 \u00b7 Your ZIT LoRa  (face, mouth, eyes)"
+    }
+   },
+   "620:107": {
+    "inputs": {
+     "model_name": "bbox/face_yolov8m.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider",
+    "_meta": {
+     "title": "UltralyticsDetectorProvider"
+    }
+   },
+   "620:108": {
+    "inputs": {
+     "model_name": "sam_vit_b_01ec64.pth",
+     "device_mode": "AUTO"
+    },
+    "class_type": "SAMLoader",
+    "_meta": {
+     "title": "SAMLoader (Impact)"
+    }
+   },
+   "620:111": {
+    "inputs": {
+     "color_space": "LAB",
+     "factor": 1.0,
+     "device": "auto",
+     "batch_size": 0,
+     "image": [
+      "620:114",
+      0
+     ],
+     "reference": [
+      "BASE",
+      0
+     ]
+    },
+    "class_type": "ImageColorMatch+",
+    "_meta": {
+     "title": "\ud83d\udd27 Image Color Match"
+    }
+   },
+   "620:165": {
+    "inputs": {
+     "guide_size": 1808.0,
+     "guide_size_for": true,
+     "max_size": 1808.0,
+     "seed": 1111111,
+     "steps": 8,
+     "cfg": 1.0,
+     "sampler_name": "euler_ancestral",
+     "scheduler": "kl_optimal",
+     "denoise": 0.35,
+     "feather": 3,
+     "noise_mask": true,
+     "force_inpaint": true,
+     "bbox_threshold": 0.7,
+     "bbox_dilation": 10,
+     "bbox_crop_factor": 3.0,
+     "sam_detection_hint": "center-1",
+     "sam_dilation": 0,
+     "sam_threshold": 0.6,
+     "sam_bbox_expansion": 0,
+     "sam_mask_hint_threshold": 0.7,
+     "sam_mask_hint_use_negative": "False",
+     "drop_size": 10,
+     "wildcard": "",
+     "cycle": 1,
+     "inpaint_model": false,
+     "noise_mask_feather": 20,
+     "tiled_encode": false,
+     "tiled_decode": false,
+     "image": [
+      "620:111",
+      0
+     ],
+     "model": [
+      "116",
+      0
+     ],
+     "clip": [
+      "116",
+      1
+     ],
+     "vae": [
+      "620:109",
+      0
+     ],
+     "positive": [
+      "621:166",
+      0
+     ],
+     "negative": [
+      "621:167",
+      0
+     ],
+     "bbox_detector": [
+      "621:161",
+      0
+     ],
+     "sam_model_opt": [
+      "621:160",
+      0
+     ],
+     "detailer_hook": [
+      "620:648",
+      0
+     ]
+    },
+    "class_type": "FaceDetailer",
+    "_meta": {
+     "title": "Mouth Detailer"
+    }
+   },
+   "620:114": {
+    "inputs": {
+     "guide_size": 1024.0,
+     "guide_size_for": true,
+     "max_size": 1024.0,
+     "seed": 1111111,
+     "steps": 8,
+     "cfg": 1.0,
+     "sampler_name": "euler_ancestral",
+     "scheduler": "kl_optimal",
+     "denoise": 0.8,
+     "feather": 18,
+     "noise_mask": true,
+     "force_inpaint": true,
+     "bbox_threshold": 0.5,
+     "bbox_dilation": 10,
+     "bbox_crop_factor": 1.5,
+     "sam_detection_hint": "center-1",
+     "sam_dilation": 0,
+     "sam_threshold": 0.93,
+     "sam_bbox_expansion": 0,
+     "sam_mask_hint_threshold": 0.7,
+     "sam_mask_hint_use_negative": "False",
+     "drop_size": 10,
+     "wildcard": "",
+     "cycle": 1,
+     "inpaint_model": false,
+     "noise_mask_feather": 20,
+     "tiled_encode": false,
+     "tiled_decode": false,
+     "image": [
+      "BASE",
+      0
+     ],
+     "model": [
+      "116",
+      0
+     ],
+     "clip": [
+      "116",
+      1
+     ],
+     "vae": [
+      "620:109",
+      0
+     ],
+     "positive": [
+      "620:106",
+      0
+     ],
+     "negative": [
+      "620:105",
+      0
+     ],
+     "bbox_detector": [
+      "620:107",
+      0
+     ],
+     "sam_model_opt": [
+      "620:108",
+      0
+     ]
+    },
+    "class_type": "FaceDetailer",
+    "_meta": {
+     "title": "FaceDetailer"
+    }
+   },
+   "620:106": {
+    "inputs": {
+     "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible",
+     "clip": [
+      "620:110",
+      0
+     ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+     "title": "Face Detailer Prompt"
+    }
+   },
+   "620:105": {
+    "inputs": {
+     "text": "",
+     "clip": [
+      "620:110",
+      0
+     ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+     "title": "Face Detailer Negative Prompt"
+    }
+   },
+   "620:110": {
+    "inputs": {
+     "clip_name": "qwen.safetensors",
+     "type": "lumina2",
+     "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+     "title": "Load CLIP"
+    }
+   },
+   "620:109": {
+    "inputs": {
+     "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+     "title": "Load VAE"
+    }
+   },
+   "620:113": {
+    "inputs": {
+     "unet_name": "zimage.safetensors",
+     "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+     "title": "Load Diffusion Model"
+    }
+   },
+   "620:648": {
+    "inputs": {
+     "target": "area(=w*h)",
+     "mode": true,
+     "min_value": 0,
+     "max_value": 1700000
+    },
+    "class_type": "SEGSRangeFilterDetailerHookProvider",
+    "_meta": {
+     "title": "Mouth SEGS size guard (see note)"
+    }
+   },
+   "621:163": {
+    "inputs": {
+     "color_space": "LAB",
+     "factor": 1.0,
+     "device": "auto",
+     "batch_size": 0,
+     "image": [
+      "620:165",
+      0
+     ],
+     "reference": [
+      "620:111",
+      0
+     ]
+    },
+    "class_type": "ImageColorMatch+",
+    "_meta": {
+     "title": "\ud83d\udd27 Image Color Match"
+    }
+   },
+   "621:166": {
+    "inputs": {
+     "text": "realistic detailed mouth",
+     "clip": [
+      "620:110",
+      0
+     ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+     "title": "Mouth Detailer Prompt"
+    }
+   },
+   "621:167": {
+    "inputs": {
+     "text": "",
+     "clip": [
+      "620:110",
+      0
+     ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+     "title": "Mouth Detailer Negative Prompt"
+    }
+   },
+   "621:160": {
+    "inputs": {
+     "model_name": "sam_vit_b_01ec64.pth",
+     "device_mode": "AUTO"
+    },
+    "class_type": "SAMLoader",
+    "_meta": {
+     "title": "SAMLoader (Impact)"
+    }
+   },
+   "621:161": {
+    "inputs": {
+     "model_name": "bbox/lips_v1.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider",
+    "_meta": {
+     "title": "UltralyticsDetectorProvider"
+    }
+   },
+   "BASE": {
+    "class_type": "LoadImage",
+    "inputs": {
+     "image": "trackA_base137.png",
+     "upload": "image"
+    },
+    "_meta": {
+     "title": "TRACK A frozen base (was 620:137)"
+    }
+   },
+   "TAP163": {
+    "class_type": "SaveImage",
+    "inputs": {
+     "images": [
+      "621:163",
+      0
+     ],
+     "filename_prefix": "crashA/tap163"
+    },
+    "_meta": {
+     "title": "TRACK A tap: 621:163"
+    }
+   },
+   "TAP114": {
+    "class_type": "SaveImage",
+    "inputs": {
+     "images": [
+      "620:114",
+      0
+     ],
+     "filename_prefix": "crashA/tap114"
+    },
+    "_meta": {
+     "title": "TRACK A tap: 620:114 raw face-pass output"
+    }
+   }
+  },
+  {
+   "client_id": "trackA-TAP114_w17-a54c7be8",
+   "create_time": 1786037756528
+  },
+  [
+   "TAP163",
+   "TAP114"
+  ]
+ ],
+ "outputs": {
+  "TAP114": {
+   "images": [
+    {
+     "filename": "tap114_00001_.png",
+     "subfolder": "crashA",
+     "type": "output"
+    }
+   ]
+  },
+  "TAP163": {
+   "images": [
+    {
+     "filename": "tap163_00035_.png",
+     "subfolder": "crashA",
+     "type": "output"
+    }
+   ]
+  }
+ },
+ "status": {
+  "status_str": "success",
+  "completed": true,
+  "messages": [
+   [
+    "execution_start",
+    {
+     "prompt_id": "832b6a74-4b61-456e-92ae-d235203c8422",
+     "timestamp": 1786037756544
+    }
+   ],
+   [
+    "execution_cached",
+    {
+     "nodes": [],
+     "prompt_id": "832b6a74-4b61-456e-92ae-d235203c8422",
+     "timestamp": 1786037756554
+    }
+   ],
+   [
+    "execution_success",
+    {
+     "prompt_id": "832b6a74-4b61-456e-92ae-d235203c8422",
+     "timestamp": 1786037858301
+    }
+   ]
+  ]
+ },
+ "meta": {
+  "TAP114": {
+   "node_id": "TAP114",
+   "display_node": "TAP114",
+   "parent_node": null,
+   "real_node_id": "TAP114"
+  },
+  "TAP163": {
+   "node_id": "TAP163",
+   "display_node": "TAP163",
+   "parent_node": null,
+   "real_node_id": "TAP163"
+  }
+ }
+}

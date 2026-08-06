@@ -1,0 +1,34 @@
+{
+ "arm": "TAP114_w17",
+ "prompt_id": "832b6a74-4b61-456e-92ae-d235203c8422",
+ "client_id": "trackA-TAP114_w17-a54c7be8",
+ "wall_seconds": 105.8,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 61196626372,
+ "note": "620:114 raw output for the FIRST CRASHING string (17 words). Graph truncated at 621:163 so it cannot reach 622:403.",
+ "status": "success",
+ "exec_seconds": 101.8,
+ "cached": 0,
+ "cached_ids": [],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "TAP114",
+   "filename": "tap114_00001_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  },
+  {
+   "node": "TAP163",
+   "filename": "tap163_00035_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  }
+ ],
+ "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible"
+}

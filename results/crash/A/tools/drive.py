@@ -33,12 +33,25 @@ def _req(path, data=None, method=None, timeout=120):
         return raw.decode(errors="replace")
 
 
-def free():
+def free(min_free_gib=45.0, wait=45.0):
+    """POST /free and then WAIT until the worker has actually acted on it.
+
+    The flags set by /free are consumed by ComfyUI's prompt worker, not by the
+    HTTP handler (main.py prompt_worker -> q.get_flags() -> e.reset()). If the
+    next prompt is submitted before the worker gets round to them, it executes
+    against the OLD cache -- observed once here as execution_cached: 16 on a
+    control that then failed. So: poll until the VRAM has actually come back.
+    """
     _req("/free", {"unload_models": True, "free_memory": True})
-    time.sleep(2.0)
-    st = _req("/system_stats")
-    dev = st["devices"][0]
-    return {"vram_free": dev["vram_free"], "torch_vram_free": dev["torch_vram_free"]}
+    t0 = time.time()
+    dev = None
+    while time.time() - t0 < wait:
+        time.sleep(2.0)
+        dev = _req("/system_stats")["devices"][0]
+        if dev["vram_free"] / 2**30 >= min_free_gib:
+            break
+    return {"vram_free": dev["vram_free"], "torch_vram_free": dev["torch_vram_free"],
+            "free_wait_s": round(time.time() - t0, 1)}
 
 
 def queue_state():
@@ -106,7 +119,19 @@ def prune(graph, outputs):
     return {k: v for k, v in graph.items() if k in keep}
 
 
-def run_arm(name, graph, note="", copy_images=True):
+def run_arm(name, graph, note="", copy_images=True, require_cold=True, _attempt=1):
+    """One arm. /free first, then submit. If the run came back with a warm cache
+    (execution_cached non-empty) the arm is NOT cold and is re-run rather than
+    reported -- see free() for why that can happen."""
+    m = _run_arm_once(name if _attempt == 1 else f"{name}__warm{_attempt}",
+                      graph, note, copy_images)
+    if require_cold and m.get("cached") not in (0, None) and _attempt < 3:
+        print(f"[{name}] NOT COLD (cached={m['cached']}) -- discarding and re-running", flush=True)
+        return run_arm(name, graph, note, copy_images, require_cold, _attempt + 1)
+    return m
+
+
+def _run_arm_once(name, graph, note="", copy_images=True):
     d = os.path.join(ROOT, "arms", name)
     os.makedirs(d, exist_ok=True)
     json.dump(graph, open(os.path.join(d, "api_graph.json"), "w"), indent=1)

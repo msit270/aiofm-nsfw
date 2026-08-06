@@ -1,0 +1,45 @@
+{
+ "arm": "CTL_placeholder_after_REP_w17",
+ "prompt_id": "5a79057f-6d48-4a97-a9b2-f5e400061699",
+ "client_id": "trackA-CTL_placeholder_after_REP_w17-45144389",
+ "wall_seconds": 60.1,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 42588796162,
+ "note": "health control after an error arm",
+ "status": "error",
+ "exec_seconds": 56.7,
+ "cached": 16,
+ "cached_ids": [
+  "116",
+  "620:107",
+  "620:108",
+  "620:105",
+  "620:110",
+  "620:109",
+  "620:113",
+  "620:648",
+  "621:166",
+  "621:167",
+  "621:160",
+  "621:161",
+  "622:426",
+  "622:394",
+  "622:398",
+  "BASE"
+ ],
+ "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+ "error_node": "622:403",
+ "error_type": "MaskBoundingBox+",
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00034_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  }
+ ],
+ "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
+}

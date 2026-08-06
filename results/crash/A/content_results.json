@@ -362,5 +362,80 @@
    }
   ],
   "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
+ },
+ {
+  "arm": "REP_w17",
+  "prompt_id": "4aeb190f-5884-488b-b15d-cd53396ea687",
+  "client_id": "trackA-REP_w17-caabbc61",
+  "wall_seconds": 71.2,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 41419650072,
+  "note": "repeat of L_w17 -- is the first crash reproducible on the same string?",
+  "status": "error",
+  "exec_seconds": 67.6,
+  "cached": 0,
+  "cached_ids": [],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00033_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible",
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible",
+  "words": 17
+ },
+ {
+  "arm": "CTL_placeholder_after_REP_w17",
+  "prompt_id": "5a79057f-6d48-4a97-a9b2-f5e400061699",
+  "client_id": "trackA-CTL_placeholder_after_REP_w17-45144389",
+  "wall_seconds": 60.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 42588796162,
+  "note": "health control after an error arm",
+  "status": "error",
+  "exec_seconds": 56.7,
+  "cached": 16,
+  "cached_ids": [
+   "116",
+   "620:107",
+   "620:108",
+   "620:105",
+   "620:110",
+   "620:109",
+   "620:113",
+   "620:648",
+   "621:166",
+   "621:167",
+   "621:160",
+   "621:161",
+   "622:426",
+   "622:394",
+   "622:398",
+   "BASE"
+  ],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00034_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
  }
 ]

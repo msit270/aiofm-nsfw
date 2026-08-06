@@ -1,0 +1,28 @@
+{
+ "arm": "REP_w17",
+ "prompt_id": "4aeb190f-5884-488b-b15d-cd53396ea687",
+ "client_id": "trackA-REP_w17-caabbc61",
+ "wall_seconds": 71.2,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 41419650072,
+ "note": "repeat of L_w17 -- is the first crash reproducible on the same string?",
+ "status": "error",
+ "exec_seconds": 67.6,
+ "cached": 0,
+ "cached_ids": [],
+ "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+ "error_node": "622:403",
+ "error_type": "MaskBoundingBox+",
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00033_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  }
+ ],
+ "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible"
+}
