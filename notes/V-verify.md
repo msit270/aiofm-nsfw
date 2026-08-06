@@ -344,5 +344,77 @@ length, as an encoder running on the CPU would. These are probe-graph timings �
 the SDXL half is replaced by a frozen base image — so they are the marginal cost
 of the Z-Image detail stages, not of a whole buyer render.
 
-*(sections 8-9 — band sweep 26-50 and the final controls — appended as those arms
-land)*
+---
+
+## 8. The 26–50 band sweep: the fix holds everywhere it was measured
+
+Track A's ladder string (`a woman's face` + `" the"` × n), every token count from
+26 to 50, under the fix, all cold, plus interleaved one-widget controls:
+
+**All 25 arms clean. Not one failure anywhere in 26–50.**
+
+| tokens | under the fix (`cpu`) | interleaved control (`default`) | Track A's map |
+|---|---|---|---|
+| 26–29 | clean | — | clean |
+| **30–32** | **clean** | `@32` **error `622:403`** | **CRASH** |
+| 33–39 | clean | — | clean |
+| 40 | clean | `@40` clean | clean |
+| 41–43 | clean | — | clean |
+| **44–50** | **clean** | `@46` **error `622:403`** | **CRASH** |
+
+So the band did **not** move into 33–43 — the failure genuinely is gone from the
+whole 26–50 range under the fix, and the two controls confirm the instance would
+still have failed at 32 and 46 without it. This is the strongest single piece of
+evidence *for* the fix in the session, and it is exactly what the acceptance test
+was designed to see.
+
+## 9. Final controls — the instance was still able to fail at the end
+
+`PHASE3-spec.md` and the brief both require the pre-fix control re-run at the end,
+because "if it stops failing mid-run, everything after the last good control is
+void". Run last, after every fix arm:
+
+| arm | `620:114.denoise` | `620:110.device` | status | error | cached |
+|---|---|---|---|---|---|
+| `V_PCEND_prefix` | 0.80 | `default` | **error** | `622:403` | `[]` |
+| `V_PCEND_mid` | 0.35 | `default` | **error** | `622:403` | `[]` |
+| `V_PCEND_head` | 0.35 | `cpu` | success | — | `[]` |
+
+Plus two mid-run positive controls that also failed — `V_CTLm3` (pre-fix graph,
+46 tokens) and `V_AW3_prefix_ctl` (pre-fix graph, 103 tokens) — and the
+interleaved sweep controls at 32 and 46. **The reproducer was live at the start,
+in the middle and at the end.** Nothing in this report sits after a control that
+stopped working.
+
+---
+
+## 10. Verdict, stated plainly
+
+**The fix does not hold, and I would not ship it as a cure.**
+
+* It is real, and it is not the denoise commit: 60, 72, 80, 90, 96 and 166 tokens
+  all fail on `default` and all render clean on `cpu`. Add the entire 26–50
+  sweep and both proof-set bands. That is a lot of genuine repair.
+* **It leaves a hole at 103–120 tokens**, where `cpu` and `default` fail
+  identically, in a region an ordinary buyer prompt reaches without trying, using
+  plain ASCII. Eight arms in that hole, zero of them clean.
+* **It is not inert where nothing was wrong.** Same-graph repeats on this
+  instance are bit-identical, so the 12.8 % of pixels that move on a clean
+  16-token render — max channel delta 135/255 — are entirely the fix's doing.
+* It costs +14 s at 16 tokens and +18 s at 40, growing with prompt length.
+
+**What I would do with it:** keep it, do not call it fixed. It is a strict
+improvement over the shipped configuration on everything measured except cost and
+byte-exactness, and it never once produced the silent ruined-face success that
+`PHASE3-spec.md` §2 warns about — where it fails, it fails loudly at `622:403`.
+But `622:403 MaskBoundingBox+` still converts "the detector found nothing" into an
+unhandled `RuntimeError`, and with the hole at 103–120 still open that is now the
+defect a buyer will actually meet. Track C's guard is worth having **in addition**,
+on the explicit understanding that a fired guard is a failure report and not a pass.
+
+**Where the acceptance test failed us:** every string in `PHASE3-spec.md`'s
+required proof set passes, on all four checks, and so does the whole 26–50 sweep
+the brief asked for. The fix would have been declared proven. It was caught only
+by the awkward-string arms, and then only because the follow-up asked whether it
+was the unicode or the length — it was the length, at a value nobody had ever
+tested.
