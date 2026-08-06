@@ -27,5 +27,5 @@
     "HasMetadata_00027_.png"
   ],
   "void": false,
-  "void_reason": "CONTROL, not a grid arm -- byte-identical resubmission of C_zface_steps_08 (same api_graph.json, sha256 906fb53bcddf57bb). It came back flat where the original came back clean, which is what proves the six VOID arms are a server fault and not a settings result."
+  "void_reason": "CONTROL, not a grid arm -- byte-identical resubmission of C_zface_steps_08 (same api_graph.json, sha256 906fb53bcddf57bb). Run DURING the server fault, so it came back flat where the original came back clean: that is what proved the six VOID arms were an instrument fault and not a settings result. Main's post-/free repeat of the same graph (prompt ff369e90) then came back mean|d| 0.0000 / max 0 levels against the original."
 }

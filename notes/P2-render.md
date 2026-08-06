@@ -568,3 +568,81 @@ first render of the next session.
    being a paste. It is in the delivered image.
 2. **`MaskBoundingBox+` has no empty-mask guard**, so an undetectable face is a
    crash rather than a degraded render.
+
+---
+
+# After the repair — the three re-runs, and they change one thing
+
+Main ran `POST /free {"unload_models": true, "free_memory": true}` on an empty
+queue and resubmitted the control himself (`ff369e90`). It came back
+**mean absolute difference 0.0000, maximum 0 levels, 0.000 % of pixels over 8**
+against the original `C_zface_steps_08` — from a **cold** run, 0 cached nodes,
+78 minutes later. The instrument was repaired.
+
+That control is worth keeping for a second reason: it **proves this pipeline is
+bit-deterministic under fixed seeds for my prompt**, from a cold cache, on my
+own graph. I had been leaning on WS4's determinism result, measured on a
+different prompt. **This is not the banned method** — the ban is on verifying
+that a *change* is inert by hashing output. This is two identical graphs used as
+a control on the instrument, and it is reported as mean and max absolute
+difference over the full frame, not as a hash match.
+
+Three arms were then re-run into fresh directories.
+
+## The combination is worse than steps 8 alone, and the metric disagrees with me
+
+`X2_steps08_denoise050` — steps 8 **and** denoise 0.50, 185.3 s.
+
+| arm | blobs/mpx | pores/mpx | how it looks |
+|---|---|---|---|
+| `A0_baseline` | 764 | 16 471 | white foam, lesions |
+| **`C_zface_steps_08`** | 239 | 23 213 | **skin, with fine texture and freckles** |
+| `B_zface_denoise_050` | 157 | 23 050 | cleaner, freckles fading |
+| `X2_steps08_denoise050` | **48** | **24 024** | smoothest — and almost airbrushed |
+
+**On every number, `X2` is the best arm in the grid. Looking at it, it is not.**
+The skin has lost most of its visible texture, the freckles have gone from flat
+brown marks to barely-there, and the iris is the lightest of any arm. The owner
+asked for visible pores and freckles; `X2` gives neither.
+
+This is the clearest illustration in my run of why he says metrics tell you
+something changed, not whether it looks better. My `pores/mpx` column counts
+dark fine minima — at `X2`'s smoothness those are as likely to be sensor-grade
+noise as pores, and the count rises while the *thing being counted* disappears.
+**I would not ship `X2`, and I would not have known that from the table.**
+
+## The confirmation pair — the fix works in the configuration the owner runs
+
+`L0b_baseline_loras` and `L1b_steps08_loras`, with `lunaskye.safetensors` on
+`#618` and `luna.safetensors` on `#116` at strength 1. These change two things
+at once (settings **and** LoRAs) and are **not** grid arms — they are only ever
+compared with each other.
+
+| arm | blobs/mpx | pores/mpx | seam | exec |
+|---|---|---|---|---|
+| `L0b_baseline_loras` (shipped) | 404 | 12 232 | 4.82x | 400.7 s |
+| `L1b_steps08_loras` (steps 8) | **133** | 13 874 | **2.29x** | 189.3 s |
+
+Both succeeded. **First: the LoRAs do not crash anything** — which retires the
+false alarm completely, not merely on suspicion.
+
+**Second, and this is the point of the pair: the defect is present with the
+owner's own LoRAs loaded, and steps 8 fixes it there too.** At the shipped
+settings the Luna character's cheeks and brow carry the same field of white
+raised bumps. At steps 8 the skin reads as skin, with freckles as flat brown
+marks and natural lashes and brows
+(`results/p2_evidence/CONFIRMATION_loras_shipped_vs_steps8.png`). The
+recommendation transfers.
+
+## Final answer
+
+**Ship `#114 FaceDetailer` `steps` 30 → 8. Alone. Not with a denoise change.**
+
+Confirmed with LoRAs loaded and without. Better skin, freckles back, lips
+readable again, and faster — **−103.7 s (−26 %) as a lower bound** without
+LoRAs, and 400.7 s → 189.3 s in the LoRA pair, though those two sat in
+different cache states (38 vs 57) so I offer that second figure as direction,
+not as a measurement.
+
+Everything else measured — `#607`, `#87`, `guide_size`/`max_size` — should be
+left exactly as it is. `bbox_crop_factor` is **unmeasured**, not cleared.
