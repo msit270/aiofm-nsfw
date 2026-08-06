@@ -260,4 +260,33 @@ Two other things fall out of this map that are worth more than the fix itself:
   already 60+ tokens, and the failure needs no unusual characters: a plain ASCII
   string of the right length is enough.
 
-*(sections 6-9 appended as the remaining arms land)*
+---
+
+## 6. What I tried that did NOT break the fix
+
+Everything below was an attempt to falsify it and failed to. It is the honest
+other half of §4 and §5 — inside the region the fix covers, it is solid.
+
+| attack | arms | result |
+|---|---|---|
+| Backing the denoise commit out (`8d166e0`) to check it was not the real cure | 7 | the denoise change is irrelevant; `device` is the whole effect (§2) |
+| P1, the owner's own 32-token proof string | 2 fix / 1 control | fix passes 4/4 checks; control errors |
+| P2, the 46-token crash string | 5 fix / 4 controls | fix passes 4/4; every control errors |
+| P3, a constructed 50-token string | 1 fix / 1 control | fix passes 4/4; control errors |
+| P4, the shipped 16-token placeholder | 2 | passes 4/4 |
+| P5, the empty string (unmeasured before this session) | 1 | passes 4/4; does not refuse at all |
+| Punctuation-heavy ASCII, 72 tokens | 1 fix / 2 controls | fix passes; controls error |
+| Japanese only (41 tokens), Russian only (34 tokens) | 2 | both pass |
+| Very long, 166 tokens, two different strings | 2 fix / 1 control | fix passes; control errors |
+| Emoji, RTL Arabic, combining accents (inside `AW3`) | — | not the cause; the ASCII string of the same length fails identically |
+| 622:403 as a "different bug" hypothesis | — | five image measures identical to the pre-fix crashes, to 5 d.p. |
+
+**A green render was never accepted on its own.** Every fix arm was checked on
+all four Phase 3 criteria — no exception, no black/flat fill, `face_yolov8m.pt`
+confidence in the 0.89 class, and `622:406` present in the websocket `executing`
+stream — and every one that passed, passed all four. Not one arm passed A while
+failing B, C or D. Where the fix fails it fails loudly, at `622:403`; it never
+produced the silent ruined-face success that `PHASE3-spec.md` §2 warned about.
+
+*(sections 7-9 — band sweep 26-50, inertness and cost, final controls — appended
+as those arms land)*
