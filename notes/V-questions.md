@@ -127,6 +127,16 @@ On the **delivered frame** (`505 ← 622:418`) when there is one. A crashing arm
 never produces one, so for those the only frame available is the `TAP163` tap of
 `621:163` — the exact image handed to the failing detector. Each row says which.
 
+### A flaw in my own awkward set, stated rather than hidden
+
+`AW1_verylong` (166 tokens) has the Chinese word `背景` embedded in it. It was
+meant to test **length alone**, with non-English isolated in `AW3`. So `AW1` is
+really a combined length + non-ASCII stress rather than a clean length arm.
+It passed, so the muddle costs nothing here — but if it had failed I would not
+have been able to say which property caused it, and `AW2` (72 tokens, ASCII,
+punctuation-heavy) plus the 26–50 ladder would have had to carry the length
+question on their own.
+
 ### Every "the fix works" arm has a one-widget control at the same string
 
 A green arm is only evidence if the identical arm with `620:110.device` back at
