@@ -173,6 +173,48 @@ exactly that.
 The two texture measures move in **opposite** directions. That is the point: it
 is not smoothing the image, it is the pass no longer inventing lesions.
 
+### The full ladder — and **16 is not enough**
+
+Bright blobs per megapixel over a fixed skin mask, identical pixels every arm.
+Lower is better. Dark pores are the texture you actually asked for.
+
+| arm | blobs/MP ↓ | pores/MP ↑ | exec |
+|---|---|---|---|
+| baseline (30 steps / 0.80) | 764 | 16,471 | 397.8 s *(cold)* |
+| steps **16** | 552 | 19,339 | 224.1 s *(warm)* |
+| **steps 8** | **239** | **23,213** | 294.1 s *(cold)* |
+| **denoise 0.50** (30 steps) | **157** | 23,050 | 291.6 s *(warm)* |
+| `#87` blend 0.75 / 0.50 | 702 / 702 | ~17,700 | ~292 s *(warm)* |
+
+**Steps 16 answers your grain question, and the answer is no** — it is visibly
+still speckled. It does not preserve grain, it preserves a third of the defect.
+**8 is the value.**
+
+### An unexpected second lever: `denoise` is free
+
+Four arms came back with **identical cache state — the same 10 heavy nodes
+cached**, so this is a genuinely matched comparison for once:
+
+```
+blend 0.75   (30 steps, 0.80)  292.0 s
+blend 0.50   (30 steps, 0.80)  291.6 s
+denoise 0.50 (30 steps)        291.6 s     <- halving denoise: 0.0 s
+steps 16     (0.80 denoise)    224.1 s     <- halving steps: -67.5 s
+```
+
+And `comfy/samplers.py`, `KSampler.set_steps`, says why:
+`new_steps = int(steps/denoise)`, then `self.sigmas = sigmas[-(steps + 1):]`.
+The schedule is always `steps + 1` long — **denoise does not reduce how many
+sampling steps execute**, it computes a *longer* schedule and runs the last
+`steps` of it. So denoise changes only *where on the noise schedule the pass
+starts*, at identical cost. **Steps is the only time lever.**
+
+**Denoise 0.50 scores better on the defect than steps 8 and costs nothing** — but
+the agent's eye says it is slightly **waxier** than steps 8 and it **shifts the
+iris toward hazel**. Combination arms (steps 8 + denoise 0.50 / 0.65) are queued,
+as is a **confirmation pair with your Luna LoRAs loaded** at the likely
+recommendation, since the whole grid otherwise ran with both stacks at `"None"`.
+
 **Why the timing claim is safe**, given this project's history of wrong timing
 verdicts: the arms had mismatched cache counts (31 vs 8), so the agent checked
 *what* was cached. In both arms every cached node is a loader, text encoder or
