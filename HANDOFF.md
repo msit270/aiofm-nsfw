@@ -229,6 +229,25 @@ a requirement, not step 3 of a list.
 
 ## 7. Still broken
 
+0. **Following your own on-canvas instruction crashes the render.** Root note
+   `#649` §3 tells the buyer to type their character into `#106`. Done with a
+   LoRA loaded, that **crashed 2 of 2 attempts** — hard `RuntimeError` at
+   `622:403 MaskBoundingBox+`, no image. The placeholder text ran clean 2 of 2.
+   The two arms differ by **one input** (`620:106.inputs.text`, graph-diffed,
+   nothing else), the runs were alternated post-`/free` with **16 unrelated
+   successes interleaved**, and both crashes stopped at the same node 0.5 s
+   apart — a deterministic path, not the NaN flakiness in item 1.
+   **Caveats, and they are real: n=2 per side, one string tested, and a filled
+   `#106` *without* LoRAs rendered clean — so "needs the LoRAs" is unproven.**
+   **[I]** The defect is probably not `#106` at all but the missing guard in
+   item 1 — `ComfyUI_essentials/mask.py:184` calls `.min()` on an empty tensor,
+   so anything that empties the Eyes-stage face mask is a crash instead of a
+   degraded image. The prompt looks like one route in; the poisoned server is
+   another. A test splitting trigger-token from description from LoRAs is
+   running now. **Until it reports, treat §3 of the canvas instructions as
+   unsafe** — the note has not been changed, because I do not yet know what it
+   should say. Evidence: `results/r4/R4_D2_loras_filled_*`,
+   `R4_CTL_loras_placeholder_*`; write-up `notes/R4-defects.md` §2b.
 1. **A NaN in one render poisons the server so later renders fail silently.** Two
    symptoms: a **flat grey face** delivered with `status: success`, or a **hard
    crash** at `622:403 MaskBoundingBox+` (`x.min()` on an all-zero mask). **It
@@ -255,6 +274,11 @@ a requirement, not step 3 of a list.
 7. `AUDIT.md`, `MAP.md`, `PROPOSALS.md`, `SETUP.md` predate this work.
 
 ## Publishing — owner runs this, nobody else. **Nothing was uploaded.**
+
+**Fine to upload for your own testing, which is what you said you wanted it for.
+I would not put it in front of a buyer until §7.0 is settled** — the canvas tells
+them to do the thing that crashed. Your call, not mine; the bytes are ready
+either way and nothing about §7.0 changes them.
 
 ```
 dist/AIOFMTech-NSFW.tar.gz   8,155,368 B   sha256 5f2a0f2b…c5ab1   170 files
