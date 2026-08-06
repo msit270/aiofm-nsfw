@@ -18,7 +18,7 @@ Track V is validating there and it is the only instance that reproduces the bug.
 | lever | measured | quotable? |
 |---|---|---|
 | `#114` denoise **0.80 → 0.35** | whole render −12.1 s (n=3 v n=3, ranges overlap) | **NO — and the effect is genuinely zero.** Both settings execute exactly 8 sampling steps. The −12.1 s exceeds the entire runtime of the only node that changed (6.5 s). Public line: **"denoise 0.35 is free."** |
-| `#110` CLIPLoader **default → cpu** | whole render +29.0 s (confounded); **per-node +37.4 s** (n=2 v n=2, ~1 s spread) | **YES, at node level: ≈ +37 s per cold render**, all of it in four `CLIPTextEncode` nodes, none in the loader. ~12 % of a cold render. Worth paying — but it is **not** free. |
+| `#110` CLIPLoader **default → cpu** | whole render +29.0 s (confounded); **per-node +37.4 s** (n=2 v n=2, ~1 s spread) | **YES, at node level: ≈ +37 s per cold render**, all of it in four `CLIPTextEncode` nodes, none in the loader. ~12 % of a cold render. It is **not** free. Whether it is worth it is Track V's call — `1bc2e67` shows the fix leaves a hole at ~103 tokens. |
 
 The whole-render cold numbers are **not** the deliverable I would stand behind;
 the per-node numbers are. On a box with three ComfyUI servers sharing one GPU,
@@ -302,8 +302,18 @@ it is the opposite of the whole-render figures in that respect. It also crosses
 arms: the cpu measurement holds on `P_D080` (denoise 0.80) and `P_D035`
 (denoise 0.35) alike, as it should, since the two levers are independent.
 
-It is still worth paying — the alternative is the black-face bug — but it is
-**not** free, and it should not be described as free.
+**Whether it is worth paying is not my call, and it just got harder.** I had
+written "worth it, the alternative is the black-face bug". While I was measuring,
+Track V landed `1bc2e67`: the `cpu` fix **does not cure a second crash band at
+~103 tokens** — `notes/V-verify.md:203-221` records `cpu` and `default` both
+failing there, on both a mixed non-English string and Track A's pure-ASCII
+ladder at exactly 103 tokens.
+
+So the accurate framing is: **`device=cpu` costs ~37 s per cold render and buys a
+fix that is real but partial.** I am costing the lever, not adjudicating it —
+Track V owns that question and their file supersedes anything I say about
+efficacy. What I can say is that the price is now measured, so the trade can be
+made on numbers instead of guesses.
 
 ---
 
