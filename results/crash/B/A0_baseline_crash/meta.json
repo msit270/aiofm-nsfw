@@ -1,0 +1,22 @@
+{
+ "arm": "A0_baseline_crash",
+ "note": "BASELINE on 28191: shipping graph a811b5d6, both LoRAs, #106 = the known-crashing string. Unmodified R4_CF15_filled api_graph. Must crash at 622:403 or the whole grid is uninterpretable.",
+ "expect": "crash",
+ "server": "127.0.0.1:28191",
+ "base": "results/r4/R4_CF15_filled/api_graph.json",
+ "changes": [],
+ "graph_sha256": "76ef3b41195385d7d241747dca8827a0e73eec6217237714b2bd93dc9cfff707",
+ "prompt_id": "0e24d1c3-cd96-4837-a420-ebbb819207a7",
+ "client_id": "trackB-A0_baseline_crash-8d15c84f",
+ "status": "error",
+ "exec_seconds": 254.8,
+ "wall_seconds": 258.8,
+ "cached_count": 0,
+ "cached_nodes": [],
+ "images": [],
+ "health": [],
+ "error_node_id": "622:403",
+ "error_node_type": "MaskBoundingBox+",
+ "exception_type": "RuntimeError",
+ "exception_message": "min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n"
+}
