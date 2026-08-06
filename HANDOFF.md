@@ -75,11 +75,23 @@ Interleaved on the only instance that reproduces, **one widget apart**:
 | `default` (cuda:0, as shipped) | 9 | **error `622:403`, 9/9** |
 | **`cpu`** | 7 | **success 7/7, healthy image 7/7** |
 
-Tested in **both** bands (30 and 46 tokens). Not weak successes: PSNR **48.9 dB**
-against the control where this project's own run-to-run noise floor is ~48.7 dB —
-i.e. indistinguishable from a good render — against PSNR 14.33 and a
-`(56,51,47)` face over 16.97 % of the frame for the crashing arms. Cost ≈ **+14 s**
-per render (never measured cold; being measured now).
+Tested in **both** known bands (30 and 46 tokens). Not weak successes: PSNR
+**48.9 dB** against the control where this project's own run-to-run noise floor is
+~48.7 dB — i.e. indistinguishable from a good render — against PSNR 14.33 and a
+`(56,51,47)` face over 16.97 % of the frame for the crashing arms.
+
+> ### ⚠ It is NOT a complete fix. There is a second band at ~103 tokens.
+>
+> The verification agent found one **while attacking it**, and the `cpu` setting
+> **does not cure that one**. So this closes the bands a buyer is likely to hit
+> and leaves a longer-prompt failure open. Full result pending — treat the fix as
+> *partial* until then, and do not describe it to anyone as "the crash is fixed".
+
+**Cost, now measured cold, and my earlier figure was wrong.** I said ≈ +14 s. It
+is **+37.4 s** — about **12 % of a cold render**, low by more than 2×. And the
+cost is *not* in the loader (`620:110`: 2.1 vs 2.3 s, unchanged) — it is in four
+`CLIPTextEncode` nodes, timed per-node off the websocket on matched cold pairs:
+39.5 s total on cpu against 2.1 s on default.
 
 **Why it works, and the honest limit of that.** CPU and GPU conditioning differ by
 `max 0.0059` on a tensor whose absmax is 13,753 — about **4e-7 relative**, both
@@ -284,12 +296,21 @@ cache, not steps. Measured twice from **opposite cache regimes**, agreeing to 0.
 | **cold**, 0 cached both sides (315.5 → 262.6 s) | **−52.9 s, −16.8 %** |
 | **warm**, byte-identical 57-node cache sets | **−53.1 s** |
 
-`denoise` costs 0.4 s. `crop factor` saves an **unknown** amount — the one pair
-suggesting −118 s was withdrawn as implausible. **Why every timing claim here
-went wrong, three of them mine:** the same graph cold vs warm is 388.9 vs 190.1 s,
-so **120–200 s of a cold render on this pod is model loading** — bigger than any
-lever being argued about. A comparison that does not hold cache constant measures
-loading. *Do not quote `−103.7 s / −26 %`, `−53 %`, `−6.9 %` or `−118 s`.*
+**`denoise 0.35` is free, and this one is settled from source rather than argued
+from a stopwatch.** `comfy/samplers.py:1145-1155` and Impact's
+`impact_sampling.py:205-207` both compute `advanced_steps = floor(steps/denoise)`
+and then sample the *last* `steps` of that schedule — so at steps 8 **both arms
+execute exactly 8 sampling steps** (0.80 runs 2→10, 0.35 runs 14→22). Denoise
+moves *where* on the sigma schedule the pass starts, not how much compute it does.
+A nine-run cold Latin square measured −12.1 s, and that figure **refutes itself**:
+`620:114`, the only node whose input changed, takes **6.5 s** cold, so a −12.1 s
+whole-render delta is bigger than the entire node it supposedly came from.
+
+`crop factor` saves an **unknown** amount — the one pair suggesting −118 s was
+withdrawn as implausible. **Why every timing claim here went wrong, three of them
+mine:** the same graph cold vs warm is 388.9 vs 190.1 s, so **120–200 s of a cold
+render on this pod is model loading** — bigger than any lever being argued about.
+*Do not quote `−103.7 s / −26 %`, `−53 %`, `−6.9 %`, `−118 s` or `−12.1 s`.*
 
 ## 5. cfg — left at 1, negatives emptied, explained on canvas
 
