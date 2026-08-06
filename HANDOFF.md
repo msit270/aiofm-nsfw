@@ -10,43 +10,71 @@ Evidence for every line: `notes/HANDOFF-detail.md` and the per-agent reports in 
 | phase | state |
 |---|---|
 | **0. Get the exception** | **DONE** — full trace in `notes/CRASH.md`, and it **corrects the mechanism** (below) |
-| **1. Bisect** | A running on `:18188`; B reproduced the crash independently on `:28191` |
-| **2. Root cause** | partial — shape hypothesis **disfavoured**; a better one below |
-| **3. Fix** | **designed, not applied** — `notes/C-fix-design.md`. Zero code changes, zero new deps |
+| **1. Bisect** | **DONE** — it is **token count**, not content. Bands: 30/31/32 and 44+ |
+| **2. Root cause** | **the face pass paints the face black.** Why, is being hunted now |
+| **3. Fix** | designed guard is **not the fix** — see below. Root cause first |
 | **4. Browser gate** | **all four shots PASS** from the shipped tarball — `results/gate2/`, 67 artifacts |
 | 5. Land denoise 0.35, re-cut, cold timing | not started — **graph deliberately frozen while arms are in flight** |
 
-### ⚠ The crash is environment-dependent. This is the biggest thing found today.
+### ⚠ THE FACE PASS PAINTS THE FACE BLACK. The crash is only the symptom.
 
-**Track D could not reproduce it.** On a third ComfyUI built from the shipped
-tarball it ran the crash arm's *own graph* — cold, 0 cached, the same 169-byte
-string — and got a clean, complete portrait. **3/3 clean.** It nearly filed that
-as a refutation, diffed its submitted graph against `R4_CF15_filled`, found `#483`
-differed, re-ran controlled, and still got clean; the final input-wise diff across
-all 88 nodes was three differences, each examined, none substantive.
+**`620:114 FaceDetailer` outputs pure `(0,0,0)`** over ~16.94 % of the frame — the
+exact outline of the face, **nothing inside it**: no eyes, nose, mouth or skin.
+Hair, shoulders and background are perfectly normal. `620:111 ImageColorMatch+`
+then smears that black to the `(56,51,47)` seen downstream. The `622:403` crash is
+just the consequence — YOLO scores the leftover hair-and-head silhouette 0.466 and
+finds no face at 0.6.
 
-So: crashes 4/4 on `:18188`, reproduces on `:28191`, **does not reproduce on a
-third instance**. The bug is real — two independent instances hit it — but *which
-box you are on decides whether you see it.*
+**It is driven by the TOKEN COUNT of the prompt, and content is irrelevant.**
+45 cold arms, 8 unrelated content families, and **not one token count produced two
+different outcomes**. Crashes at **30, 31, 32 and 44+ tokens**; clean at 11–29 and
+33–41. Words are *not* the variable — the word ladder is non-monotone (1–16 clean,
+17–18 crash, 19–23 clean, 24–25 crash), and both edges repeated.
 
-**Consequence you must not let anyone skip: a green run after the fix proves
-nothing unless that same instance was first shown able to fail.** Any fix
-validation needs a positive control before it counts. `notes/D-gate.md` §6 carries
-this and a one-line pre-fix probe.
+**It is a hard numerical failure, not a marginal one.** Clean arms score
+0.8942–0.8957 (spread 0.0015 across 30 arms). Crashing arms score
+`0.4656447172164917` — *identical to 16 digits across 14 arms*, because the
+crashing frames are **bit-identical to each other** across six content families
+and six token counts. Nothing in between at any of 22 token counts.
 
-**[I] The hypothesis that would unify all of it:** the long prompt does not
-destroy the face, it pushes YOLO's confidence to sit *near* the 0.6 threshold.
-Marginal detection looks exactly like this — deterministic inside one instance
-(same numerics, same side of the line, hence a clean 4/4) and flipping between
-instances. Track A is measuring the actual confidence numbers now; if a crashing
-arm scores well under 0.3 this is wrong and the face really is being destroyed.
+> **My hypothesis was wrong and is withdrawn.** I told you the long prompt was
+> probably pushing detector confidence *near* 0.6, and that marginal detection
+> would explain the instance-dependence. It is refuted: the distribution is
+> two-valued with a 0.43 gap and nothing in it. Track A measured the numbers
+> instead of reasoning about them, which is the only thing that has ever worked
+> here.
 
-**Phase 0's finding, in one line: the crash is a *detection* failure, not mask
-arithmetic.** `torch.where()` on an all-zero mask returns **empty** index tensors,
-and `.min()` on an empty tensor is what raises — so the real event is that the
-Eyes stage's face detector found **no face at all**, and nothing guards that case.
-This corrects "`.min()` on an all-zero mask", which is what I told you before and
-which pointed at the wrong kind of fix.
+### This kills the fix we had designed — and there is worse
+
+Track C's guard (skip the eyes stage when no face is found) is **correct
+engineering and the wrong fix**, because the image it would let through has a
+black hole where the face is. It converts a loud crash into a silently broken
+product.
+
+**And that is not hypothetical: it already happens.** Track A left `#106` safe and
+padded the *eye* prompt `622:398` from its shipped 28 tokens to 31 — the render
+**succeeded, `status: success`, image delivered, with both eyes as solid black
+holes.** So the bands hit any prompt on this encoder, and they do not always
+crash. **The shipped eye prompt sits two tokens from the band.**
+
+Root cause is being hunted now. **[I]** The leading idea is a NaN/Inf out of the
+attention path whose bad sequence lengths depend on which attention kernel is
+selected — which would also explain why Track D's instance renders the same graph
+and string clean 3/3 while `:18188` and `:28191` both crash. Until that lands, a
+green run proves nothing unless the instance was first shown able to fail.
+
+### Two more from Track A, unasked
+
+- **"Server poisoning" is a stale execution cache.** Reproduced 2/2: both failed
+  health controls were the safe placeholder with `execution_cached: 16` and the
+  *identical* 16 cached node ids, right after a crashing arm. **`POST /free` only
+  sets flags that ComfyUI's worker consumes later** — it is not immediate. A
+  proper free cured both, bit-identically. This explains the window that voided
+  six arms last run, and it means the rule is *confirm `execution_cached: []` in
+  `/history`*, not *trust the free*.
+- Phase 0's mechanism still stands underneath all this: `torch.where()` on an
+  all-zero mask returns **empty** index tensors, so `.min()` raises. Not "`.min()`
+  on an all-zero mask", which is what I first told you.
 
 **Phase 2 so far:** the shape-mismatch idea does not survive source. The
 tokenizer sets `pad_to_max_length=False`, `max_length=99999999` — conditioning
@@ -84,10 +112,10 @@ tap, so it is real, and 0.35 is the only setting that carries it through.
 Costs 0.4 s. **0.50 is *smoother* than 0.35, not rougher** — so if you want less
 smoothing than the 0.35 tile, 0.50 is the wrong direction.
 
-**2. Decide whether this ships to anyone but you.** §6.0: on the exact artifact
-you would hand over, one realistic character description in the face prompt
-**crashes the render, 4/4**. The placeholder is clean 3/3. It is one specific
-string rather than any filled prompt — but it is the kind of string a buyer types.
+**2. Do not ship this to anyone but you yet.** Not because of the crash — because
+of what the crash was hiding. A prompt of the wrong *length* makes the face pass
+paint the face solid black, and at some lengths that **ships as a success**. See
+the block above.
 
 ## 1. The browser bug is fixed — **proved from the artifact that ships**
 
