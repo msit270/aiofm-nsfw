@@ -309,21 +309,24 @@ am not treating identical output as proof of anything.
 | stage | arm | cfg | negative | status |
 |---|---|---|---|---|
 | face `#114` | `face_cfg1.0_negshipped` | 1.0 | as shipped | **complete** — 185.5 s |
-| face `#114` | `face_cfg1.5_negshipped` | 1.5 | as shipped | queued |
-| face `#114` | `face_cfg1.5_negempty` | 1.5 | `""` | queued |
-| face `#114` | `face_cfg3.0_negshipped` | 3.0 | as shipped | queued |
+| face `#114` | `face_cfg1.5_negshipped` | 1.5 | as shipped | **complete** |
+| face `#114` | `face_cfg1.5_negempty` | 1.5 | `""` | **complete** |
+| face `#114` | `face_cfg3.0_negshipped` | 3.0 | as shipped | **complete** |
 | face `#114` | `faceX_cfg1.0_realpositive_negshipped` | 1.0 | as shipped, **positive replaced with a real prompt** | queued |
-| mouth `#165` | `mouth_cfg1.0_negempty` | 1.0 | `""` (shipped) | queued |
-| mouth `#165` | `mouth_cfg1.5_negempty` | 1.5 | `""` | queued |
-| mouth `#165` | `mouth_cfg1.5_negfilled` | 1.5 | `#105`'s string | queued |
-| mouth `#165` | `mouth_cfg3.0_negfilled` | 3.0 | `#105`'s string | queued |
-| eyes `#406` | `eyes_cfg1.0_negempty` | 1.0 | `""` (shipped) | queued |
-| eyes `#406` | `eyes_cfg1.5_negempty` | 1.5 | `""` | queued |
-| eyes `#406` | `eyes_cfg1.5_negfilled` | 1.5 | `#105`'s string | queued |
-| eyes `#406` | `eyes_cfg3.0_negfilled` | 3.0 | `#105`'s string | queued |
+| mouth `#165` | `mouth_cfg1.0_negempty` | 1.0 | `""` (shipped) | **complete** |
+| mouth `#165` | `mouth_cfg1.5_negempty` | 1.5 | `""` | **complete** |
+| mouth `#165` | `mouth_cfg1.5_negfilled` | 1.5 | `#105`'s string | **complete** |
+| mouth `#165` | `mouth_cfg3.0_negfilled` | 3.0 | `#105`'s string | **complete** |
+| eyes `#406` | `eyes_cfg1.0_negempty` | 1.0 | `""` (shipped) | **complete** |
+| eyes `#406` | `eyes_cfg1.5_negempty` | 1.5 | `""` | **complete** |
+| eyes `#406` | `eyes_cfg1.5_negfilled` | 1.5 | `#105`'s string | **complete** |
+| eyes `#406` | `eyes_cfg3.0_negfilled` | 3.0 | `#105`'s string | **complete** |
 
-All twelve returned; the four `sw_*` sweep arms and
-the time of writing.
+**All twelve of the cfg arms returned and are on disk.** Still queued at the
+time of writing: `faceX_cfg1.0_realpositive_negshipped` and the four `sw_*`
+sweep arms of §5b. Every arm directory holds its submitted `api_graph.json` and
+its `submission.json`, so the outstanding ones can be collected from `/history`
+without re-deriving anything.
 
 ### Results — raising cfg does almost nothing, in either direction
 
