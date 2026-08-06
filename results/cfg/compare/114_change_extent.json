@@ -1,0 +1,10 @@
+{
+ "node": "#114 FaceDetailer",
+ "input": "620:137 output",
+ "output": "620:114 image output",
+ "pct_px_changed_gt0": 99.05,
+ "pct_px_changed_gt2": 60.39,
+ "pct_px_changed_gt8": 9.51,
+ "pct_px_changed_gt16": 3.9,
+ "note": "crop region is the whole 2688x3456 frame; >8-level change is confined to the SAM face mask, the sub-2-level change over the rest is the whole-frame VAE round-trip"
+}
