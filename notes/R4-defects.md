@@ -729,7 +729,10 @@ same way, between my two failures:
 Everything up to 13:15:53 succeeded; everything from 13:17:37 failed, across two
 different agents and three different graphs, at the same node.
 
-**So the crash is server state, not the prompt.** `HANDOFF.md` §7.1 is confirmed
+**So the crashes *in that window* are server state, not the prompt** — and in
+particular the one that looked like my change is not attributable to it. (The
+post-`/free` picture is different and is taken up two headings down; this
+paragraph settles the 13:17–13:37 block only.) `HANDOFF.md` §7.1 is confirmed
 again, with two things added to it:
 
 1. **It reproduced today**, hours after the `/free` that cleared it last time.
