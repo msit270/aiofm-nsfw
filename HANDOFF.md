@@ -11,10 +11,10 @@ Evidence for every line: `notes/HANDOFF-detail.md` and the per-agent reports in 
 |---|---|
 | **0. Get the exception** | **DONE** — full trace in `notes/CRASH.md`, and it **corrects the mechanism** (below) |
 | **1. Bisect** | **DONE** — it is **token count**, not content. Bands: 30/31/32 and 44+ |
-| **2. Root cause** | **the face pass paints the face black.** Why, is being hunted now |
-| **3. Fix** | designed guard is **not the fix** — see below. Root cause first |
+| **2. Root cause** | `620:114` is **bistable on numerical noise**. Why a token count trips it: **open** |
+| **3. Fix** | **APPLIED** `7ce1539` — `#110 CLIPLoader device → cpu`. Under independent attack now |
 | **4. Browser gate** | **all four shots PASS** from the shipped tarball — `results/gate2/`, 67 artifacts |
-| 5. Land denoise 0.35, re-cut, cold timing | not started — **graph deliberately frozen while arms are in flight** |
+| **5. Land** | denoise 0.35 **APPLIED** `8d166e0`; re-cut + cold timing running |
 
 ### ⚠ THE FACE PASS PAINTS THE FACE BLACK. The crash is only the symptom.
 
@@ -66,11 +66,43 @@ padded the *eye* prompt `622:398` from its shipped 28 tokens to 31 — the rende
 holes.** So the bands hit any prompt on this encoder, and they do not always
 crash. **The shipped eye prompt sits two tokens from the band.**
 
-Root cause is being hunted now. **[I]** The leading idea is a NaN/Inf out of the
-attention path whose bad sequence lengths depend on which attention kernel is
-selected — which would also explain why Track D's instance renders the same graph
-and string clean 3/3 while `:18188` and `:28191` both crash. Until that lands, a
-green run proves nothing unless the instance was first shown able to fail.
+### There is a one-widget fix and it is applied — `#110 CLIPLoader device → cpu`
+
+Interleaved on the only instance that reproduces, **one widget apart**:
+
+| `#110` device | arms | result |
+|---|---|---|
+| `default` (cuda:0, as shipped) | 9 | **error `622:403`, 9/9** |
+| **`cpu`** | 7 | **success 7/7, healthy image 7/7** |
+
+Tested in **both** bands (30 and 46 tokens). Not weak successes: PSNR **48.9 dB**
+against the control where this project's own run-to-run noise floor is ~48.7 dB —
+i.e. indistinguishable from a good render — against PSNR 14.33 and a
+`(56,51,47)` face over 16.97 % of the frame for the crashing arms. Cost ≈ **+14 s**
+per render (never measured cold; being measured now).
+
+**Why it works, and the honest limit of that.** CPU and GPU conditioning differ by
+`max 0.0059` on a tensor whose absmax is 13,753 — about **4e-7 relative**, both
+finite. A second CPU `CLIPLoader` feeding *only* `620:106`, with the GPU encoder
+still loaded and running, also cures it 2/2 — so it is the **values**, not
+residency. But a ~1-ulp perturbation does *not* cure it, so it is a **threshold,
+not a knife edge**. `620:114` is **bistable on numerical noise**.
+
+> **This is a workaround, not a root cause.** Why a particular token count drives
+> that sampler into a blowup is still unknown, and I am not going to pretend
+> otherwise. Ruled out with controls: VRAM pressure, lowvram, `--reserve-vram`,
+> sage attention, code-tree differences, and environment — `:28191` (reproduces)
+> and `:31910` (does not) have **identical `/proc/environ`**. The reproducer is a
+> property of the **process**, not the files: a fourth ComfyUI started from the
+> *same directory* as `:18188` was clean 10/10 while `:18188` crashed 9/9 in the
+> same window, and the two produce bit-identical output on clean arms.
+>
+> It also explains Track B's `622:398` anomaly with no dataflow path needed —
+> nothing has to travel through the wiring if the node is bistable on noise.
+
+**Applied as `7ce1539`, and being independently attacked now** against the
+acceptance standard in `notes/PHASE3-spec.md`, which was written *before* the fix
+existed so it could not be bent to fit it.
 
 ### Track B: turning things off does not fix it, it makes the failure silent
 
