@@ -119,6 +119,17 @@ existing buyer-facing notes so it reads as part of the same set. The placement
 was collision-checked in code against every node box in the subgraph and both
 IO nodes before it was written.
 
+**Verified in a real browser, not from the JSON.**
+`results/r3_crop/R3_note_in_subgraph.png` — a Chromium session loads the
+shipped workflow, enters the subgraph host `#620` the way a buyer does, and
+reports the subgraph's node list as `[137, 107, 108, 111, 165, 114, 106, 105,
+110, 109, 113, 648, 652]`. The screenshot shows the breadcrumb reading
+**5. Face & Mouth Detail (Z-Image)**, *Face Detailer Negative Prompt* with an
+**empty** box, *Face Detailer Prompt* still reading `TRIGGER, PROMPT FOR YOUR
+MODEL`, and the note rendered in full and legible immediately to their right.
+Nothing was sent to `/prompt`; five of other agents' renders were active at the
+time and were not disturbed.
+
 ### The exact wording
 
 > ## The negative prompt boxes in here are empty on purpose
