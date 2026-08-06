@@ -31,7 +31,10 @@ def main(order, out=os.path.join(A, "A2_ladder_sheet.png")):
         r = y.get(arm, {})
         conf = r.get("highest_conf")
         n06 = (r.get("per_threshold") or {}).get("0.6", {}).get("n")
-        tok = tk[str(words)]["tokens"] if words is not None and str(words) in tk else None
+        tok = None
+        if words is not None and str(words) in tk:
+            tok = tk[str(words)]["tokens"]
+            words = tk[str(words)]["words"]
         panels.append({"label": label, "arm": arm, "path": taps[0], "words": words,
                        "tokens": tok, "status": r.get("status"), "conf": conf, "n06": n06})
 

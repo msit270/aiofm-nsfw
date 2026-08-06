@@ -1,2 +1,10 @@
 follow-up finished; starting token sweep
 [CTL_recovery_before_T] submitted f781311d-d8ae-454f-984b-68c1a64ced0e cid=trackA-CTL_recovery_before_T-7f0f741e queue_before=(0,0) vram_free=51.9GiB
+[CTL_recovery_before_T] success exec=79.0s cached=0 err=None  imgs=['tap163_00037_.png', 'HasMetadata_00084_.png']
+[T_tok30] submitted edc045b5-c734-46fb-a6dc-0f629094f9c3 cid=trackA-T_tok30-022d70b2 queue_before=(0,0) vram_free=62.8GiB
+[T_tok30] error exec=48.1s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00038_.png']
+[CTL_placeholder_after_T_tok30] submitted 6ab6e337-2f2b-4453-9130-635c78b644a6 cid=trackA-CTL_placeholder_after_T_tok30-984902fb queue_before=(0,0) vram_free=53.1GiB
+[CTL_placeholder_after_T_tok30] success exec=77.3s cached=0 err=None  imgs=['tap163_00039_.png', 'HasMetadata_00085_.png']
+[T_tok32] submitted 1fbb5a32-105f-4bfb-95d8-59ea6d8e2da0 cid=trackA-T_tok32-5e3c07a6 queue_before=(0,0) vram_free=56.8GiB
+[T_tok32] error exec=56.9s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00040_.png']
+[CTL_placeholder_after_T_tok32] submitted b9340a40-f225-4fac-9368-e572115462de cid=trackA-CTL_placeholder_after_T_tok32-4d673055 queue_before=(0,0) vram_free=51.9GiB

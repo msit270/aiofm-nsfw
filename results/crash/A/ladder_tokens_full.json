@@ -128,5 +128,50 @@
   "words": 25,
   "tokens": 46,
   "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens"
+ },
+ "_A1_gate_placeholder": {
+  "words": 5,
+  "tokens": 16,
+  "text": "TRIGGER, PROMPT FOR YOUR MODEL"
+ },
+ "_L_w17": {
+  "words": 17,
+  "tokens": 30,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible"
+ },
+ "_A3_C2_gardener_w17": {
+  "words": 17,
+  "tokens": 30,
+  "text": "an elderly gardener with a broad flat nose, heavy grey eyebrows, deep creases on both cheeks, a"
+ },
+ "_A3_swap_fine": {
+  "words": 17,
+  "tokens": 30,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with fine"
+ },
+ "_A3_swap_Tuesday": {
+  "words": 17,
+  "tokens": 30,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with Tuesday"
+ },
+ "_A3_swap_obvious": {
+  "words": 17,
+  "tokens": 30,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with obvious"
+ },
+ "_A3_C1_fisherman_w17": {
+  "words": 17,
+  "tokens": 34,
+  "text": "a bearded fisherman in his sixties, deep lines around the eyes, sun-darkened forehead, grey stubble along the"
+ },
+ "_A3_C3_locomotive_w17": {
+  "words": 17,
+  "tokens": 35,
+  "text": "a rusting freight locomotive parked on overgrown sidings, bramble climbing the couplings, chipped enamel plates, oil stains"
+ },
+ "_A3_C4_committee_w17": {
+  "words": 17,
+  "tokens": 26,
+  "text": "the committee approved the revised schedule on Tuesday and asked the treasurer to circulate a summary before"
  }
 }

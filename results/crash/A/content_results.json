@@ -437,5 +437,135 @@
    }
   ],
   "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
+ },
+ {
+  "arm": "CTL_recovery_before_T",
+  "prompt_id": "f781311d-d8ae-454f-984b-68c1a64ced0e",
+  "client_id": "trackA-CTL_recovery_before_T-7f0f741e",
+  "wall_seconds": 80.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 55741938204,
+  "note": "HEALTH RECOVERY: the shipped placeholder, byte-identical to A1_gate_placeholder. CTL_placeholder_after_REP_w17 failed with execution_cached: 16, so the server must be re-attested before any T_tok arm is read.",
+  "status": "success",
+  "exec_seconds": 79.0,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00037_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00084_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "text": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "words": 5
+ },
+ {
+  "arm": "T_tok30",
+  "prompt_id": "edc045b5-c734-46fb-a6dc-0f629094f9c3",
+  "client_id": "trackA-T_tok30-022d70b2",
+  "wall_seconds": 50.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 67454827548,
+  "note": "token-count probe: fixed content + 18 x \" the\" = exactly 30 tokens",
+  "status": "error",
+  "exec_seconds": 48.1,
+  "cached": 0,
+  "cached_ids": [],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00038_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "a woman's face the the the the the the the the the the the the the the the the the the",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the",
+  "words": 21
+ },
+ {
+  "arm": "CTL_placeholder_after_T_tok30",
+  "prompt_id": "6ab6e337-2f2b-4453-9130-635c78b644a6",
+  "client_id": "trackA-CTL_placeholder_after_T_tok30-984902fb",
+  "wall_seconds": 80.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 57033581164,
+  "note": "health control after an error arm",
+  "status": "success",
+  "exec_seconds": 77.3,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00039_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00085_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
+ },
+ {
+  "arm": "T_tok32",
+  "prompt_id": "1fbb5a32-105f-4bfb-95d8-59ea6d8e2da0",
+  "client_id": "trackA-T_tok32-5e3c07a6",
+  "wall_seconds": 60.9,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 61007886876,
+  "note": "token-count probe: fixed content + 20 x \" the\" = exactly 32 tokens",
+  "status": "error",
+  "exec_seconds": 56.9,
+  "cached": 0,
+  "cached_ids": [],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00040_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the",
+  "words": 23
  }
 ]
