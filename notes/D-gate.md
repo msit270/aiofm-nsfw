@@ -19,12 +19,25 @@ Hash verified **before** unpacking, and again in the preflight of every gate run
 | 2. both LoRA stacks populated, selected through the widget's own menu, read back | **PASS** — both legs |
 | 3. a **real** character prompt typed into `#106` | **PASS** — Stage 1A |
 | 4. the finished image on screen | **PASS** — Stage 1B, **with the placeholder prompt** |
-| 3 **and** 4 in the same run | **BLOCKED on the fix.** This is Stage 2. |
+| 3 **and** 4 in the same run | **PASS, unexpectedly** — see below, and read the caveat |
 
 ```
-STAGE 1A  stage1a-realprompt-nosubmit    exit 0   status "pass-no-run"
-STAGE 1B  stage1b-placeholder-render     exit 0   status "pass"
+STAGE 1A  stage1a-realprompt-nosubmit      exit 0   status "pass-no-run"
+STAGE 1B  stage1b-placeholder-render       exit 0   status "pass"
+STAGE 2   stage2-realprompt-render         exit 0   status "pass"   x2 (warm, cold)
+STAGE 2X  stage2X-crasharm-baseprompt      exit 0   status "pass"   controlled, cold
 ```
+
+**The brief said shots 3 and 4 could not both be satisfied today, because a real
+character description in `#106` crashes the render 4/4. On this instance it did not
+crash — 3 runs out of 3, one of them a controlled match to the recorded crash arm, run
+cold.** Full evidence in §4b and §4c.
+
+**This is not the Stage 2 gate passing, and it must not be reported as the fix working.**
+No fix exists yet. What it says is that the *reproducer* is environment-dependent: the
+same bytes that crashed 4/4 on two other instances rendered clean 3/3 on mine. The real
+Stage 2 gate still needs running after the fix lands — on an instance where the crash is
+**first shown to reproduce**, or the result means nothing.
 
 **The two legs are not interchangeable and must not be quoted as one.** Stage 1B put a
 finished image on screen using the **shipped placeholder** in `#106`
@@ -439,13 +452,90 @@ Two conditions of my run differ from every documented crash arm and either could
    happened in the upscale stage, not the face stage** — I misread that at first and
    checked the log context rather than leaving it inferred.
 
-**The decisive follow-up is a cold run**, which removes difference 1. Result in §4c.
-The warm run's artifacts are preserved separately under
-`results/gate2/stage2-warmcache-run/` so the two can never be conflated.
+---
 
-**What the owner should take from this:** do not treat "the crash string" as a reliable
-reproducer. Anyone testing the fix needs *n* trials from a known cache and VRAM state,
-not one, or they will conclude the fix worked when the dice simply landed differently.
+## 4c. Three arms, all clean — including one semantically identical to the crash arm
+
+I kept removing differences until there were none that matter.
+
+| arm | `#483` base prompt | cache | `#106` | result |
+|---|---|---|---|---|
+| warm | gate.js default (full body, balcony) | 56 cached | 46-tok crash string | **clean**, 193 s |
+| cold | gate.js default | **0 cached** | 46-tok crash string | **clean**, 453.7 s |
+| **controlled** | **the crash arm's own prompt** | **0 cached** | 46-tok crash string | **clean**, 520.4 s |
+
+Preserved separately so they can never be conflated:
+`results/gate2/stage2-warmcache-run/`, `results/gate2/stage2-coldcache-run/`,
+`results/gate2/stage2X-crasharm-baseprompt-*`.
+
+**The controlled arm's submitted graph against `results/r4/R4_CF15_filled/api_graph.json`,
+diffed input-wise across all 88 nodes rather than by eye:**
+
+```
+nodes: mine 88  theirs 88     only in mine: none    only in theirs: none
+input-wise differences: 3
+  419.rgthree_comparer     mine {saved comparer state} / theirs None
+  483.prompt_batch_data    mine {"id":"default-01"... / theirs {"id": "default-01"...
+  619:603.pick_list        mine ''  / theirs '0'
+```
+
+and each one examined rather than waved through:
+
+* `483.prompt_batch_data` — **`json.loads` on both compares equal.** The difference is
+  separator whitespace, nothing else. Same positive, same negative, same seed 12345,
+  same `seed_control`, same `repeat_count`.
+* `419` is `Image Comparer (rgthree)` — a display node that **feeds nothing** (checked:
+  no node takes `419` as an input). It is the development instrumentation `AUDIT.md`
+  already flags.
+* `619:603.pick_list` — `INSTARAW_ImageFilter`. Theirs pre-answered the selector with
+  `'0'`; mine paused and a human-equivalent click chose image 0 of 1. Same image either
+  way, and this is downstream bookkeeping, not an input to the failing detector.
+
+So: **the same 88-node graph, semantically identical inputs, run cold, delivered a
+complete correct portrait** — where `R4_CF15_filled` crashed at `622:403`.
+`luma_sd 59.72`, `flat_frac 0.1878`, `flat_block_frac 0.0216`, which are Track A's
+*clean* tap numbers (`59.67 / 0.1859 / 0.0220`) to two decimals.
+
+### Token count — measured, and it confirms Track A
+
+Using the graph's own encoder offline (`comfy.sd.load_clip(..., CLIPType.LUMINA2)` on
+`qwen.safetensors`, CPU, the `qwen3_4b` tokenizer):
+
+```
+  46 tokens   the crash string      <- INSIDE Track A's crash band [45,46]
+  16 tokens   the shipped placeholder
+```
+
+That independently reproduces Track A's own measurement of the same string. **So this is
+a MIXED cell against their pooled map** — 46 tokens, three clean outcomes — and their
+map records none. Two things to weigh before anyone treats that as a contradiction:
+their 46-token arms were run on **the probe**, which they explicitly flag as "not
+bit-exact with a full render" and "not a memory-pressure model"; mine are full renders.
+And `HANDOFF.md` §6.0's 4/4 *were* full renders, cold, so that comparison stands on its
+own without the probe.
+
+### What I am and am not claiming
+
+**Claiming:** on a ComfyUI built fresh from `5f2a0f2b…`, the configuration documented as
+crashing 4/4 rendered **3/3 clean**, and one of those arms is a controlled match.
+
+**Not claiming the bug is gone.** R4 reproduced it 4/4 and Track B reproduced it on
+`28191`, which is also a tarball-built instance — so it is real and it is not specific to
+the dev tree. What differs between their instances and mine is the pod's state at the
+time, not the bytes.
+
+**The conclusion that actually matters is about the reproducer, not the bug:** it is
+**environment-dependent and unreliable**. Anyone validating the fix against "does the
+crash string still crash" can get a green from an instance that would not have crashed
+anyway. That needs *n* trials on an instance where the crash is first shown to
+reproduce — a positive control before the test, not after.
+
+**And one thing for the shipping decision:** there exists a realistic buyer
+configuration — a real body prompt, a real 46-token character description in `#106`,
+both LoRAs — that completes end to end on the shipped bytes and delivers a correct face.
+`results/gate2/stage2X-crasharm-baseprompt-12-final-image-on-canvas.png`. That is not
+permission to ship; §6.0's crashes are equally real. It means the failure is intermittent
+rather than certain, which is a different risk to describe to a buyer.
 
 ---
 
@@ -537,6 +627,30 @@ bash /workspace/nsfw-fix/tools/browser_harness/d_gate.sh stage1a   # real prompt
 bash /workspace/nsfw-fix/tools/browser_harness/d_gate.sh stage1b   # placeholder, full render
 ```
 `stage1b` is the control: if it stops passing, the instrument moved, not the fix.
+
+### ⚠ The positive control this gate cannot currently give you
+
+Per §4c, **the crash did not reproduce on this instance at all** — 3/3 clean, one arm a
+controlled match to `R4_CF15_filled`. A green Stage 2 here therefore proves nothing
+about the fix on its own, because a green was already available without one.
+
+**Before trusting a post-fix Stage 2 pass, establish that the instance can fail.** Run
+the crashing configuration on the *pre-fix* graph on whichever instance you are about to
+test, and see it crash at `622:403`. If it will not crash, that instance cannot validate
+the fix — use `28191`'s conditions, which did reproduce it (Track B), or treat the
+result as inconclusive and say so. A test that cannot fail is not a test.
+
+The controlled arm is reproducible as a one-liner if you want it as the pre-fix probe:
+
+```bash
+node /workspace/nsfw-fix/tools/browser_harness/gate.js -w OFMTech_NSFW \
+  --url http://127.0.0.1:31910 \
+  --workflows-dir /workspace/comfy-d-gate/user/default/workflows \
+  --output-dir /workspace/comfy-d-gate/output --out /workspace/nsfw-fix/results/gate2 \
+  --tag stage2X-crasharm-baseprompt \
+  --prompt "$(cat /workspace/nsfw-fix/tools/browser_harness/base_prompt_crasharm.txt)" \
+  --face-prompt-file /workspace/nsfw-fix/tools/browser_harness/face_prompt_real.txt
+```
 
 ---
 

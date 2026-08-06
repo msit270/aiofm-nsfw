@@ -1,0 +1,295 @@
+{
+  "tag": "stage2X-crasharm-baseprompt",
+  "workflow": "OFMTech_NSFW",
+  "url": "http://127.0.0.1:31910",
+  "started": "2026-08-06T18:02:18.828Z",
+  "workflow_sha256": "a811b5d690ccc5207bc7bd1c626cdd3db3b720b9be60d0a687436efcfd2143d8",
+  "load_path": "workflow-list (sidebar click)",
+  "node_audit": {
+    "total_nodes": 110,
+    "distinct_types": 59,
+    "subgraph_host_types": [
+      "a15fc81c-c28c-42cf-bc13-1493f12e4309",
+      "9050d895-4e70-44f5-9c2b-57e2be7df0ec",
+      "3ff96466-2d66-45ea-8761-c9123bec3435",
+      "f6d04669-26a7-4a01-b136-c39684ddee0f",
+      "d6db378b-b089-4636-91bb-6e0cf9a81503",
+      "f3ba7c90-fce5-4154-9cb0-7a1de52da0fe",
+      "ccb4441d-dc47-4039-a721-49f8f129d684"
+    ],
+    "frontend_registered_count": 1965,
+    "not_registered_in_frontend": [],
+    "not_in_object_info": [
+      "MarkdownNote"
+    ],
+    "nodes_flagged_has_errors": [],
+    "dialogs": [],
+    "toasts": []
+  },
+  "loras": {
+    "116": {
+      "widget": "lora_01",
+      "requested": "luna.safetensors",
+      "readBack": "luna.safetensors",
+      "title": "2 · Your ZIT LoRa  (face, mouth, eyes)"
+    },
+    "618": {
+      "widget": "lora_01",
+      "requested": "lunaskye.safetensors",
+      "readBack": "lunaskye.safetensors",
+      "title": "2 · Your SDXL LoRa  (body, pose, hands)"
+    }
+  },
+  "prompt": {
+    "typed": "photorealistic portrait photograph of a young woman standing in soft window light, natural skin texture with visible pores, light freckles across her nose and cheeks, detailed eyes, detailed hands at her sides, looking at the camera, 85mm lens, shallow depth of field",
+    "textarea": "photorealistic portrait photograph of a young woman standing in soft window light, natural skin texture with visible pores, light freckles across her nose and cheeks, detailed eyes, detailed hands at her sides, looking at the camera, 85mm lens, shallow depth of field",
+    "committed": "photorealistic portrait photograph of a young woman standing in soft window light, natural skin texture with visible pores, light freckles across her nose and cheeks, detailed eyes, detailed hands at her sides, looking at the camera, 85mm lens, shallow depth of field",
+    "entries": 1,
+    "panel_after_restore": {
+      "present": true,
+      "visible": false,
+      "value": "photorealistic portrait photograph of a young woman standing"
+    }
+  },
+  "prompt_id": "e6703f1a-0ae8-4d65-8871-5ee1a4d17a73",
+  "api_graph_nodes": 88,
+  "selector": {
+    "driven": true,
+    "appeared": true,
+    "images": 1,
+    "picked": 0,
+    "send_enabled_on_open": true,
+    "send_enabled_after_click": false,
+    "send_enabled_after_reclick": true,
+    "auto_picked_single_image": true
+  },
+  "outputs": [
+    {
+      "filename": "HasMetadata_00004_.png",
+      "subfolder": "Instaraw/SDXL/Metadata",
+      "type": "output",
+      "node": "505",
+      "path": "/workspace/comfy-d-gate/output/Instaraw/SDXL/Metadata/HasMetadata_00004_.png",
+      "exists": true,
+      "size": 11521411
+    }
+  ],
+  "timings": {
+    "boot_ms": 4500,
+    "load_ms": 5403,
+    "submit_ms": 1595,
+    "execute_ms": 520438
+  },
+  "page_errors": [
+    {
+      "when": "2026-08-06T18:02:19.179Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31910/user.css"
+    },
+    {
+      "when": "2026-08-06T18:02:19.181Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31910/api/userdata/user.css"
+    },
+    {
+      "when": "2026-08-06T18:02:19.692Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31910/api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true"
+    },
+    {
+      "when": "2026-08-06T18:02:19.796Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31910/api/userdata/comfy.templates.json"
+    },
+    {
+      "when": "2026-08-06T18:02:20.131Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31910/extensions/ComfyUI_Swwan/common/utils_dom.js"
+    },
+    {
+      "when": "2026-08-06T18:02:20.133Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31910/extensions/ComfyUI_Swwan/config.js"
+    },
+    {
+      "when": "2026-08-06T18:02:20.142Z",
+      "text": "console.error: [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:31910/extensions/ComfyUI_Swwan/common/dialog.js",
+      "url": "http://127.0.0.1:31910/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T18:02:20.143Z",
+      "text": "console.error: [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:31910/extensions/ComfyUI_Swwan/image_comparer.js",
+      "url": "http://127.0.0.1:31910/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T18:02:20.143Z",
+      "text": "console.error: [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:31910/extensions/ComfyUI_Swwan/base_any_input_connected_node.js",
+      "url": "http://127.0.0.1:31910/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T18:02:20.143Z",
+      "text": "console.error: [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:31910/extensions/ComfyUI_Swwan/rgthree.js",
+      "url": "http://127.0.0.1:31910/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T18:02:20.143Z",
+      "text": "console.error: [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:31910/extensions/ComfyUI_Swwan/seed.js",
+      "url": "http://127.0.0.1:31910/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T18:02:20.143Z",
+      "text": "console.error: [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:31910/extensions/ComfyUI_Swwan/base_node.js",
+      "url": "http://127.0.0.1:31910/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T18:02:20.144Z",
+      "text": "console.error: [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:31910/extensions/ComfyUI_Swwan/base_node_mode_changer.js",
+      "url": "http://127.0.0.1:31910/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T18:02:20.153Z",
+      "text": "console.error: [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:31910/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:31910/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:31910/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:31910/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at htt",
+      "url": "http://127.0.0.1:31910/assets/index-D_zj5_uq.js"
+    },
+    {
+      "when": "2026-08-06T18:02:20.945Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31910/api/pysssss/autocomplete"
+    },
+    {
+      "when": "2026-08-06T18:02:23.810Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31910/api/userdata/workflows%2F.index.json"
+    },
+    {
+      "when": "2026-08-06T18:02:24.711Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31910/api/view?filename=rgthree.compare._temp_aggxo_00001_.png&type=temp&subfolder=&rand=0.38625573939016933"
+    },
+    {
+      "when": "2026-08-06T18:02:24.712Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31910/api/view?filename=rgthree.compare._temp_aggxo_00002_.png&type=temp&subfolder=&rand=0.6334233147929259"
+    },
+    {
+      "when": "2026-08-06T18:02:24.712Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31910/api/view?filename=rgthree.compare._temp_fepic_00001_.png&type=temp&subfolder=&rand=0.8823351481460819"
+    },
+    {
+      "when": "2026-08-06T18:02:24.712Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31910/api/view?filename=rgthree.compare._temp_fepic_00002_.png&type=temp&subfolder=&rand=0.6259306129060468"
+    },
+    {
+      "when": "2026-08-06T18:02:24.712Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31910/api/view?filename=rgthree.compare._temp_tpbop_00001_.png&type=temp&subfolder=&rand=0.4849143384465904"
+    },
+    {
+      "when": "2026-08-06T18:02:24.712Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31910/api/view?filename=rgthree.compare._temp_tpbop_00002_.png&type=temp&subfolder=&rand=0.548351700629904"
+    }
+  ],
+  "failures": [],
+  "screenshots": [
+    {
+      "file": "results/gate2/stage2X-crasharm-baseprompt-01-workflow-open-full-canvas.png",
+      "note": "OFMTech_NSFW opened from the workflow list; 110 nodes, 0 red, 0 dialogs",
+      "bytes": 95854
+    },
+    {
+      "file": "results/gate2/stage2X-crasharm-baseprompt-02-prompt-entered.png",
+      "note": "the prompt typed into the panel on #483 \"1 · YOUR PROMPTS & SEED\"",
+      "bytes": 235636
+    },
+    {
+      "file": "results/gate2/stage2X-crasharm-baseprompt-03-both-lora-stacks.png",
+      "note": "#618 lora_01=lunaskye.safetensors  #116 lora_01=luna.safetensors  (both read back from the graph; #483 collapsed=true for this frame only)",
+      "bytes": 220559
+    },
+    {
+      "file": "results/gate2/stage2X-crasharm-baseprompt-04-face-host-collapsed.png",
+      "note": "#620 \"5 · Face & Mouth Detail\" as the workflow ships it — collapsed=true, so #106 is not reachable yet",
+      "bytes": 245719
+    },
+    {
+      "file": "results/gate2/stage2X-crasharm-baseprompt-05-face-host-expanded.png",
+      "note": "#620 expanded; its promoted widgets, including \"106: text\" — #106's own text widget",
+      "bytes": 237715
+    },
+    {
+      "file": "results/gate2/stage2X-crasharm-baseprompt-06-face-prompt-entered-on-host.png",
+      "note": "typed into \"106: text\" on #620 and read back out of #106: \"luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, d…\"",
+      "bytes": 239689
+    },
+    {
+      "file": "results/gate2/stage2X-crasharm-baseprompt-07-face-prompt-on-node-106.png",
+      "note": "#106 \"Face Detailer Prompt\" inside \"5. Face & Mouth Detail (Z-Image)\", carrying: \"luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, d…\"",
+      "bytes": 400838
+    },
+    {
+      "file": "results/gate2/stage2X-crasharm-baseprompt-08-run-submitted.png",
+      "note": "prompt e6703f1a-0ae8-4d65-8871-5ee1a4d17a73 accepted, 88-node API graph",
+      "bytes": 100394
+    },
+    {
+      "file": "results/gate2/stage2X-crasharm-baseprompt-09-selector-popup.png",
+      "note": "#603 INSTARAW_ImageFilter paused the render with 1 image(s) — the buyer must choose",
+      "bytes": 1038415
+    },
+    {
+      "file": "results/gate2/stage2X-crasharm-baseprompt-10-selector-image-picked.png",
+      "note": "image #0 of 1 selected; Send enabled",
+      "bytes": 1039368
+    },
+    {
+      "file": "results/gate2/stage2X-crasharm-baseprompt-11-render-complete.png",
+      "note": "the moment the render finished, as the buyer sees it",
+      "bytes": 342806
+    },
+    {
+      "file": "results/gate2/stage2X-crasharm-baseprompt-12-final-image-on-canvas.png",
+      "note": "the finished image on #505 \"YOUR IMAGE — saved to output/Instaraw/\"",
+      "bytes": 606993
+    },
+    {
+      "file": "results/gate2/stage2X-crasharm-baseprompt-13-final-image-feed.png",
+      "note": "the finished image in the ComfyUI image feed",
+      "bytes": 608877
+    }
+  ],
+  "status": "pass",
+  "first_run_dialog": {
+    "seen": false,
+    "dialogs": []
+  },
+  "face_prompt": {
+    "requested": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens",
+    "host": 620,
+    "node": 106,
+    "host_shipped_collapsed": true,
+    "expanded_by_clicking_collapse_box": true,
+    "shipped_value": "TRIGGER, PROMPT FOR YOUR MODEL",
+    "subgraph_name": "5. Face & Mouth Detail (Z-Image)",
+    "promoted_widget_name": "106: text",
+    "promoted_value": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens",
+    "inner_node_type": "CLIPTextEncode",
+    "inner_node_title": "Face Detailer Prompt",
+    "inner_value": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens",
+    "same_object": false,
+    "entered_via": "title-button click (the UI affordance)",
+    "inside_subgraph": {
+      "isRoot": false,
+      "name": "5. Face & Mouth Detail (Z-Image)",
+      "nodeCount": 13,
+      "breadcrumb": [
+        "OFMTech_NSFW",
+        "5. Face & Mouth Detail (Z-Image)"
+      ]
+    },
+    "back_at_root": true
+  },
+  "finished": "2026-08-06T18:11:53.122Z"
+}
