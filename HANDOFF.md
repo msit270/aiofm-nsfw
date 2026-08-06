@@ -228,6 +228,51 @@ band-pass step across the jaw goes from **x6.76** baseline to **x3.57** at steps
 8. The composite boundary is still visible in the delivered image and wants its
 own fix, whatever you decide here.
 
+### ⚠ POSSIBLE CRASH when you do the thing the workflow tells you to do — **being reproduced now**
+
+One arm ran `#114` at shipped settings with **only** `#106`'s placeholder replaced
+by a real character prompt — i.e. exactly what `#649` instructs you to do — and
+returned a **uniformly black image**. It reported `success`; nothing failed
+loudly. The log carries `impact/utils.py:155 RuntimeWarning: invalid value
+encountered in cast` on `np.clip(255.*image,0,255).astype(np.uint8)`, and
+`np.clip` passes NaN through — so **the sampled tensor contained NaN**. The
+9.3 MP pass numerically blew up.
+
+**This is n = 1 and is NOT established.** I have queued two reproductions
+(`5aecbaf5…`, `42f86601…`) from the exact graph on disk at
+`results/cfg/faceX_cfg1.0_realpositive_negshipped/api_graph.json`. Result below
+when they land. If it reproduces it is crash-class and it sits directly on the
+buyer's documented first action; if it does not, it was a transient.
+
+### Sampling resolution is the whole story — and it is monotonic
+
+The sweep tested both directions from the shipped 2688x3456. Band-pass energy on
+the edit footprint, and the mouth patch:
+
+| arm | sampled at | DoG RMS | mouth | exec |
+|---|---|---|---|---|
+| `guide_size 4096` | 3185x4096 | **6.123** | 5.648 | 292.1 s |
+| shipped | 2688x3456 | 5.311 | 4.530 | 185.5 s |
+| `guide_size 2048` | 2688x3456 | 5.311 | 4.530 | 185.5 s *(no-op)* |
+| `crop_factor 1.5` | 1945x2749 | 4.196 | 3.527 | 75.2 s |
+| `crop_factor 1.0` | 1297x1833 | **3.834** | 3.236 | **28.2 s** |
+| the input itself | — | 2.862 | 2.714 | — |
+
+**Fewer pixels per pass → less artefact, monotonically, toward the clean input.**
+Background patches bit-identical in every arm, so this is not an exposure shift.
+
+**At 4096 it stops being texture and becomes destruction** — the lips break into
+coloured geometric debris and hexagonal cells. That is the same class as the
+grids and ladders seen at shipped settings, just unmistakable. So the fix I
+originally proposed — raise `guide_size` — makes it **substantially worse and
+costs 57 % more time**. Lowering `bbox_crop_factor` improves it and is **6.6x
+cheaper** (28.2 s against 185.5 s).
+
+Crops: `results/cfg/compare/sweep_mouth1to1__sheet.png`, five 900x600 mouth
+crops at 1:1. **No crop_factor value is recommended** — it also controls how much
+context the model sees and how much of the face is refined at all, so cf 1.0 may
+simply be refining less. That is your call on the A/B.
+
 ### `#87` skin filter — cleared. Leave it at 1.0.
 
 Turning the skin amplifier down **does not fix the skin**. Blobs per megapixel:
