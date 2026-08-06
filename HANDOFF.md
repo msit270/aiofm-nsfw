@@ -22,9 +22,10 @@ tap, so it is real, and 0.35 is the only setting that carries it through.
 Costs 0.4 s. **0.50 is *smoother* than 0.35, not rougher** — so if you want less
 smoothing than the 0.35 tile, 0.50 is the wrong direction.
 
-**2. Decide whether this ships to anyone but you** once §6.0 resolves — one
-realistic face prompt crashed the render 3/3, though **not** on the graph that
-ships, which is being tested now. The bytes are ready either way.
+**2. Decide whether this ships to anyone but you.** §6.0: on the exact artifact
+you would hand over, one realistic character description in the face prompt
+**crashes the render, 4/4**. The placeholder is clean 3/3. It is one specific
+string rather than any filled prompt — but it is the kind of string a buyer types.
 
 ## 1. The browser bug is fixed — **proved from the artifact that ships**
 
@@ -142,26 +143,33 @@ not the trigger word, not "a description". *Which* property of that string matte
 > `RuntimeError: min(): Expected reduction dim … input.numel() == 0` —
 > `ComfyUI_essentials/mask.py:184`, `.min()` on an empty face mask.
 
-**Caveat that is mine, not the agent's — and it is a live one. Every crash arm ran
-at `bbox_crop_factor` 3. I changed that to 1.5 in `74c0f11` while they were in
-flight, so none of this was measured on the graph that ships.** Crop factor sets
-the region the face pass re-diffuses and the crash is a downstream face-detection
-failure, so **whether the shipped artifact still crashes is not known.** Two
-renders are running to settle exactly that. I put this section in front of you
-written against the shipping artifact before checking that; that was the same
-mistake §4 is about, and this time I introduced the confound myself.
+**Confirmed on the exact bytes that ship.** The original arms all ran at
+`bbox_crop_factor` 3 and I changed that to 1.5 in `74c0f11` while they were in
+flight — so I first put this section in front of you written against the shipping
+artifact before it had been measured there. My error, not the agent's, and the
+same one §4 is about. Re-run on `a811b5d6…` itself, both cold, differing in
+`620:106.inputs.text` and nothing else: **the full string crashed, the placeholder
+rendered clean** — same node, same exception, same all-zero mask. **Crop factor is
+not a factor.**
+
+| `#106`, both LoRAs loaded | cf 3 | cf 1.5 *(ships)* | total |
+|---|---|---|---|
+| the full character description | crash 3/3 | **crash 1/1** | **crash 4/4** |
+| shipped placeholder | clean 2/2 | **clean 1/1** | **clean 3/3** |
+
+**This collides with §5, and that is the real cost.** At cfg 1 the positive prompt
+is the *only* conditioning, so filling `#106` is a requirement — and the three
+observed-safe values are a placeholder, a trigger word, and a four-word phrase.
+**None of them is the character description your buyer came for.**
 
 **[I]** The defect is probably not `#106` at all but the missing guard in item 1 —
 `.min()` on an empty tensor, so anything emptying the Eyes-stage face mask is a
-crash instead of a degraded image. The prompt looks like one route in.
-`notes/R4-defects.md` §2b. **Open and not queued:** long description + LoRAs +
-no trigger prefix, the one cell that would prove the LoRAs are load-bearing (agent
-puts that at ~2 in 3, its own number).
-
-   **If it survives at 1.5, it collides with §5.** At cfg 1 the positive prompt is
-   the *only* conditioning, so filling `#106` is a requirement — and the
-   observed-safe options are a placeholder or a short prompt, neither of which is
-   the character description the buyer came for.
+crash instead of a degraded image; the prompt is one route in. Halving the crop
+region changed nothing, which argues the mechanism is not about how much context
+`#114` sees. `notes/R4-defects.md` §2b, 17 arms in `results/r4/`. **Open and not
+queued:** long description + LoRAs + *no* trigger prefix — the one cell that would
+show whether the LoRAs are load-bearing (the agent puts that at ~2 in 3, its own
+number, and I would rather leave it open than round it up).
 
 1. **A NaN in one render poisons the server.** Later renders then deliver a **flat
    grey face with `status: success`**, or crash at `622:403`. **It recurs.** Fix:
@@ -214,9 +222,9 @@ pack; disk figure low) · docs: `STATE.md`, `QUESTIONS.md`, `CLAUDE.md`.
 ## Publishing — you run this, nobody else. **Nothing was uploaded.**
 
 **Fine to upload for your own testing, which is what you said it was for. I would
-not put it in front of a buyer until §6.0 is settled** — one realistic character
-description crashed the render 3/3, and whether that survives on these exact bytes
-is being measured now. Your call; §6.0 changes none of these bytes either way.
+not put it in front of a buyer** — §6.0 crashes **on these exact bytes**, 4/4, on
+the step the canvas tells them to do. Your call, and nothing about §6.0 changes
+the bytes; it changes who should receive them.
 
 ```
 dist/AIOFMTech-NSFW.tar.gz   8,155,368 B   sha256 5f2a0f2b…c5ab1   170 files
