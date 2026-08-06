@@ -1,0 +1,30 @@
+{
+  "arm": "C_zface_steps_08",
+  "changed": "#114 steps 30 -> 8",
+  "prompt_id": "347dcbe6-318d-4273-833d-ac92a1426e86",
+  "exec_seconds": 294.1,
+  "cached_nodes": 8,
+  "cached_node_ids": [
+    "619:611",
+    "620:107",
+    "620:105",
+    "620:110",
+    "620:109",
+    "620:113",
+    "622:426",
+    "622:398"
+  ],
+  "status": "success",
+  "completed": true,
+  "images": [
+    "HasMetadata_00016_.png"
+  ],
+  "save_node": [
+    "505"
+  ],
+  "client_id": "p2-render-1b71e834",
+  "pick_list_injected": "619:603 inputs.pick_list = \"0\" (submitted prompt only)",
+  "rgthree_comparer_stripped": false,
+  "api_nodes": 88,
+  "wall_seconds": 1511.0
+}

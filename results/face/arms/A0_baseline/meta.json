@@ -1,0 +1,52 @@
+{
+  "arm": "A0_baseline",
+  "changed": "none (shipped graph; fixed seed 12345 + freckle prompt)",
+  "prompt_id": "4490058f-0392-45c8-838c-1b3baa0135f5",
+  "exec_seconds": 397.8,
+  "cached_nodes": 31,
+  "cached_node_ids": [
+    "647:625",
+    "647:627",
+    "647:628",
+    "647:635",
+    "587:506",
+    "587:508",
+    "587:509",
+    "587:100",
+    "587:89",
+    "587:88",
+    "587:90",
+    "619:611",
+    "619:612",
+    "619:610",
+    "619:613",
+    "619:615",
+    "620:107",
+    "620:108",
+    "620:106",
+    "620:105",
+    "620:110",
+    "620:109",
+    "620:113",
+    "620:648",
+    "621:166",
+    "621:167",
+    "621:160",
+    "621:161",
+    "622:426",
+    "622:394",
+    "622:398"
+  ],
+  "status": "success",
+  "completed": true,
+  "images": [
+    "HasMetadata_00014_.png"
+  ],
+  "save_node": [
+    "505"
+  ],
+  "client_id": "p2-render-a38d614f",
+  "pick_list_injected": "619:603 inputs.pick_list = \"0\" (submitted prompt only)",
+  "api_nodes": 88,
+  "wall_seconds": 700.2
+}

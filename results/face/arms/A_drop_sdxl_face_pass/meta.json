@@ -1,0 +1,33 @@
+{
+  "arm": "A_drop_sdxl_face_pass",
+  "changed": "#607 FaceDetailerPipe removed from sg 2. Base Generator (SDXL)",
+  "prompt_id": "39a519f5-c051-4f64-8d3a-f248aa840be5",
+  "exec_seconds": 386.2,
+  "cached_nodes": 11,
+  "cached_node_ids": [
+    "587:88",
+    "619:611",
+    "620:107",
+    "620:108",
+    "620:106",
+    "620:105",
+    "620:110",
+    "620:109",
+    "620:113",
+    "621:160",
+    "622:426"
+  ],
+  "status": "success",
+  "completed": true,
+  "images": [
+    "HasMetadata_00015_.png"
+  ],
+  "save_node": [
+    "505"
+  ],
+  "client_id": "p2-render-1afde770",
+  "pick_list_injected": "619:603 inputs.pick_list = \"0\" (submitted prompt only)",
+  "rgthree_comparer_stripped": false,
+  "api_nodes": 87,
+  "wall_seconds": 570.1
+}
