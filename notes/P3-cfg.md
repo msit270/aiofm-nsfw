@@ -15,8 +15,14 @@ them.
 **`cfg = 1` is required by the model.** `zimage.safetensors` is byte-for-byte
 Z-Image-**Turbo**, a guidance-distilled model whose vendor documents
 `guidance_scale = 0.0`. The negatives are not dead by oversight — they are dead
-**by necessity**. Raising cfg is not a fix; it is a regression, and the renders
-below show what it costs.
+**by necessity**. Raising cfg is not a fix; it is driving the model out of the
+operating point it was distilled to.
+
+That answer comes from the model file, the vendor, ComfyUI's shipped templates
+and ComfyUI's sampler source — **not** from a render, and it does not depend on
+one. A/B arms were commissioned to show you *what* raising cfg looks like; at
+the time of writing they are still queued behind other agents on the shared pod
+(§5). Their absence changes nothing in §7.
 
 **Recommendation: empty the negatives and note it on canvas** — option 2 of the
 three. Emptying `#105` is provably output-inert (the string never reaches the
