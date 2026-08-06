@@ -6,3 +6,6 @@ token sweep finished; running REP redo
 [REP2_w17] submitted ab34aa8c-1a77-4ea4-b201-7ec981e1bbcd cid=trackA-REP2_w17-6635149d queue_before=(0,0) vram_free=49.5GiB
 [REP2_w17] error exec=58.2s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00063_.png']
 [CTL_placeholder_after_REP2_w17] submitted 5b462320-2ff9-49cd-b9ee-2506dec165bb cid=trackA-CTL_placeholder_after_REP2_w17-139f2a99 queue_before=(0,0) vram_free=31.4GiB
+[CTL_placeholder_after_REP2_w17] error exec=47.2s cached=16 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00064_.png']
+[CTL_placeholder_after_REP2_w17] NOT COLD (cached=16) -- discarding and re-running
+[CTL_placeholder_after_REP2_w17__warm2] submitted 47848636-e986-4c9b-adf8-1adae51edb3a cid=trackA-CTL_placeholder_after_REP2_w17__warm2-e762dc6b queue_before=(0,0) vram_free=52.2GiB

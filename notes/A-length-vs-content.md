@@ -782,6 +782,51 @@ Three consequences:
 3. **The shipped eye prompt is 28 tokens — two from the band**, and it is not a
    field anyone is warned about.
 
+
+---
+
+## A side finding that is probably the "poisoned server", and it reproduced 2/2
+
+Twice in this run a health control failed. Both times the arm was the **shipped
+16-token placeholder**, on a graph byte-identical to controls that had already
+passed eight times, and both times it died at `622:403` with the same
+`RuntimeError`. Both times the arm's own metadata says why:
+
+```
+CTL_placeholder_after_REP_w17    error  cached 16   vram_free_after_free 39.7 GiB
+CTL_placeholder_after_REP2_w17   error  cached 16   vram_free_after_free 31.4 GiB
+
+cached node ids, IDENTICAL in both:
+  116, 620:105, 620:107, 620:108, 620:109, 620:110, 620:113, 620:648,
+  621:160, 621:161, 621:166, 621:167, 622:394, 622:398, 622:426, BASE
+```
+
+Both immediately followed a **crashing** arm. Both had a `vram_free` well below
+the 50–75 GiB every healthy arm reports, i.e. `POST /free` had **not been applied
+yet** when the prompt was submitted.
+
+**Why that can happen at all.** `/free` frees nothing itself. `server.py`'s
+handler only sets flags on the prompt queue; ComfyUI's prompt worker consumes
+them later (`main.py` → `q.get_flags()` → `unload_all_models()` and `e.reset()`).
+Submit before the worker gets there and the prompt runs against the **previous
+arm's execution cache**. `620:114` is *not* in the cached set — the face pass
+re-ran — so this is not "it reused the crashing face"; it is a safe prompt
+producing the failure on a server whose cache was never cleared.
+
+**[I] I think this is the thing `HANDOFF.md` §7.1 has been calling a poisoned
+server.** It fits R4's 13:17–13:37 window, where three prompts from two different
+agents across three different graphs all died at `622:403` and `POST /free`
+restored bit-identical output. On this reading the "poison" is not a NaN sitting
+in a weight — it is a stale execution cache after a crash, and `/free` cures it
+because `free_memory` calls `e.reset()`. **2/2 is a reproduction, not a proof**,
+and I have not isolated *which* of the 16 cached nodes matters.
+
+**What it means operationally, and it is not subtle:** `POST /free` followed by a
+2-second sleep is **not** enough. `drive.py` now polls `/system_stats` until the
+VRAM has actually come back, and discards and re-runs any arm whose
+`execution_cached` is non-empty. Both failures above were caught by that guard on
+the second occurrence; the first is what taught me to write it.
+
 ---
 
 ## Index — where everything is
