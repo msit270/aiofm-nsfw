@@ -1,0 +1,35 @@
+{
+  "limits": {
+    "luma_sd_min": 10.0,
+    "flat_frac_max": 0.5,
+    "grey53_frac_max": 0.02,
+    "flat_block_frac_max": 0.08
+  },
+  "images": [
+    {
+      "path": "/workspace/comfy-d-gate/output/Instaraw/SDXL/Metadata/HasMetadata_00001_.png",
+      "size": [
+        2688,
+        3456
+      ],
+      "mean_rgb": [
+        121.72,
+        108.75,
+        95.95
+      ],
+      "std_rgb": [
+        61.35,
+        57.53,
+        53.14
+      ],
+      "luma_sd": 58.26,
+      "flat_frac": 0.2346,
+      "grey53_frac": 0.001182,
+      "flat_block_frac": 0.006614,
+      "flattest_block_sd": 0.812,
+      "largest_4bit_bucket_frac": 0.0478,
+      "verdict": "looks like a real render",
+      "reasons": []
+    }
+  ]
+}
