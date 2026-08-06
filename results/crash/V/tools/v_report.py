@@ -17,13 +17,17 @@ def main(ref=None, only=None):
     json.dump(rows, open("/workspace/nsfw-fix/results/crash/V/out/v_checks.json", "w"), indent=1)
     keys = sorted(rows, key=lambda k: (next((i for i, p in enumerate(ORDER_HINT)
                                              if k.startswith(p)), 99), k))
-    print("| arm | 620:110.device | 620:114.denoise | tokens | prompt_id | cached | exec s | A | B | C | D | verdict |")
-    print("|---|---|---|---|---|---|---|---|---|---|---|---|")
+    print("| arm | string (`620:106`) | tokens | `110.device` | `114.denoise` | prompt_id | cached | exec s | A | B | C | D | verdict |")
+    print("|---|---|---|---|---|---|---|---|---|---|---|---|---|")
     for k in keys:
         r = rows[k]
         if only and not k.startswith(only):
             continue
-        print(f"| `{k}` | {r['device_110']} | {r['denoise_114']} | {r['tokens']} | "
+        t = json.load(open(f"/workspace/nsfw-fix/results/crash/V/arms/{k}/meta.json")).get("text_106", "")
+        s = repr(t)
+        s = (s[:46] + "…" + s[-1]) if len(s) > 48 else s
+        s = s.replace("|", "\\|")
+        print(f"| `{k}` | `{s}` | {r['tokens']} | {r['device_110']} | {r['denoise_114']} | "
               f"`{r['prompt_id'][:8]}` | {r['cached']} | {r['exec_seconds']} | "
               f"{y(r['A'])} | {y(r['B'])} | {y(r['C'])} | {y(r['D'])} | "
               f"{'**PASS**' if r['pass'] else '**FAIL**'} |")

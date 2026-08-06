@@ -35,16 +35,37 @@ def _req(path, data=None, method=None, timeout=180):
         return raw.decode(errors="replace")
 
 
-def free(min_free_gib=45.0, wait=90.0):
+def free(wait=90.0):
+    """POST /free, then wait until the worker has ACTED on it.
+
+    /free only sets flags that ComfyUI's prompt worker consumes between prompts,
+    so returning as soon as the HTTP call succeeds is what produced this
+    project's long-standing "server poisoning" (an arm executing against the old
+    cache). Waiting for an absolute VRAM figure is wrong on a shared box -- this
+    GPU also carries :28191 and :31910 -- so instead: wait for VRAM to come back
+    and then settle, i.e. two consecutive identical readings after it has stopped
+    rising. Coldness is still *verified* afterwards from `execution_cached`, which
+    is the acceptance criterion; this only decides how long to wait first.
+    """
+    before = _req("/system_stats")["devices"][0]["vram_free"]
     _req("/free", {"unload_models": True, "free_memory": True})
     t0 = time.time()
     dev = None
+    prev = None
+    stable = 0
     while time.time() - t0 < wait:
         time.sleep(2.0)
         dev = _req("/system_stats")["devices"][0]
-        if dev["vram_free"] / 2 ** 30 >= min_free_gib:
+        v = dev["vram_free"]
+        if prev is not None and v == prev:
+            stable += 1
+        else:
+            stable = 0
+        prev = v
+        if stable >= 2 and (time.time() - t0) >= 8.0:
             break
-    return {"vram_free": dev["vram_free"], "free_wait_s": round(time.time() - t0, 1)}
+    return {"vram_free": dev["vram_free"], "vram_free_before": before,
+            "free_wait_s": round(time.time() - t0, 1)}
 
 
 class WSRecorder(threading.Thread):
@@ -172,6 +193,7 @@ def _run_once(name, graph, note, tokens):
     s = summarize(hist)
     meta = {"arm": name, "prompt_id": pid, "client_id": cid, "wall_seconds": wall,
             "queue_before": qbefore, "vram_free_after_free": vram["vram_free"],
+            "free_wait_s": vram.get("free_wait_s"),
             "note": note, "tokens": tokens,
             "executed_nodes": rec.executed, "ws_error": rec.error, **s}
     if "620:106" in graph:
