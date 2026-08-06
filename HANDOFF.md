@@ -40,10 +40,7 @@ prompt typed -> Run -> POST /prompt 200 -> HasMetadata_00041_.png, 11,140,426 B
 Screenshots: `results/gate/`, 37 artifacts, three legs. "Zero red" was *checked*
 with the frontend's own predicate across root and every subgraph, cross-checked
 against `/object_info`, walk count matching the file — that is what makes it a
-check rather than a quiet pass. **Cause:** three links inside `1. Canvas &
-Routing` ran straight from SubgraphInputNode `-10` to SubgraphOutputNode `-20`
-with no node between; `LLink.resolve` returns early on the input side with no
-`outputNode` key, so the resolver throws. Gone.
+check rather than a quiet pass. Cause and mechanism: `notes/HANDOFF-detail.md` §1.
 
 **Your buyer's literal first screen:** stock ComfyUI puts the Templates modal
 over the whole UI on a first-ever load. Not ours, harmless, must be closed before
@@ -89,13 +86,10 @@ the face pass runs.** One render, six taps, same seed
 **No value of `#114`'s steps, denoise or crop factor can bring them back** — your
 denoise pick is purely about how the skin looks. The lever is **`#98`** (1.5x, 2
 steps, denoise 0.08) in `3. Hands, Skin & Second Upscale`: **logged, not touched,
-no value recommended.** Three things nobody knew fall out: `#92` does not touch
-the face at all; `#87` at `blend_factor 1` is a measured pass-through; and the
-skin-detail model **nearly doubles** the freckles rather than removing them —
-which retracts an earlier guess that blamed `#87`/`#91`. `#114` does exactly what
-it was accused of and no more: it adds bumps, it does not remove pigment that had
-already gone. *(Scale controlled: stages 1–4 are 1792-wide, 5–7 are 2688; a pure
-LANCZOS resize either way moves the measure 2–5 % against the 67 % step.)*
+no value recommended.** Note the skin-detail model **nearly doubles** the freckles
+rather than removing them, which retracts an earlier guess that blamed
+`#87`/`#91`. *(Scale controlled with a LANCZOS resize across the 1792→2688
+boundary: 2–5 % against the 67 % step. Full stage notes in `notes/R1-denoise.md`.)*
 
 ## 4. Speed — **quote ~53 s / −16.8 % and nothing else**
 
@@ -189,13 +183,12 @@ bash <(curl -sSL "https://gist.githubusercontent.com/msit270/70256ac1ebf2760e10f
 
 ## 8. Changed without being asked
 
-- **`popup.js` ×2** — threw for any browser receiving a selector broadcast for a
-  node it lacked; and the Send button never tracked the selection, so with >1
-  image the buyer **could not send at all**. Verified by a 4-image run.
-- **`reality_prompt_generator.js`** — `console.error` on every buyer's first load.
-- **`aiofm_setup.sh`** — `SETUP_URL` returned **404** in both places a stuck buyer
-  is told to retry; two banners named the *video* pack; disk figure low.
-- Docs: `STATE.md`, `QUESTIONS.md`, `CLAUDE.md` environment section.
+**`popup.js` ×2** (threw on a selector broadcast for a node the browser lacked;
+and the Send button never tracked the selection, so with >1 image the buyer
+**could not send at all** — verified by a 4-image run) · **`reality_prompt_generator.js`**
+(`console.error` on every first load) · **`aiofm_setup.sh`** (`SETUP_URL` **404**
+in both places a stuck buyer is told to retry; two banners named the *video*
+pack; disk figure low) · docs: `STATE.md`, `QUESTIONS.md`, `CLAUDE.md`.
 
 ## Publishing — you run this, nobody else. **Nothing was uploaded.**
 
