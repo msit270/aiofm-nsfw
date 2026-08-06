@@ -105,7 +105,42 @@ after 10 minutes and sends **nothing** — you get no image.
 
 ## 4. The face work — contact sheets and recommendation **[IN FLIGHT]**
 
-Renders are running. **This section will be filled in as arms land.**
+### D3 — STOPPED. Your stop condition triggered. Nothing was applied.
+
+You said: *take it, pending re-measurement against `A_baseline` without D1 — if
+the improvement does not survive, tell me and stop.* **It does not survive.**
+
+Re-measured on the D1-free baseline: `results/face/arms/A0_baseline/` versus
+`results/face/arms/A_drop_sdxl_face_pass/`. Graph diff between the two submitted
+prompts is exactly two differences — `619:607` removed and `619:597.inputs.pixels`
+re-pointed to `619:596`. Nothing else moved.
+
+**Dropping the first face pass does not fix the overbaked skin.** The bumps are
+still there, same density, same places. Bright-blob density over a fixed skin
+mask goes **764 → 800 per megapixel** and blob-band RMS **4.30 → 4.42** — no
+improvement, marginally worse. The change is real (19.8 % of face pixels move
+more than 8 levels) but real is not better. WS4's original D3 measured that the
+change is real; it never measured that it is an improvement, and now that it has
+been, it is not.
+
+So `#607` stays. It survives only as a possible *cost* saving, and even that is
+unmeasured — the two runs had mismatched cache states (31 vs 11 cached nodes),
+which is precisely the condition that produced a wrong timing verdict last run.
+
+### What the skin actually looks like, at 1:1
+
+Not metrics — this is the description that matters: a dense field of small
+**bright, whitish, raised bumps with specular tops**, reading as milia or a foam.
+**A pore is a small dark depression; these are convex and light.** Plus a few
+larger red-brown lesions reading as pimples. That is the opposite of the
+"visible pores" the prompt asks for, and it points away from the samplers and
+towards something that *amplifies* fine bright detail.
+
+The prime suspect is now `#87 ImageBlend` at `blend_factor 1`, which discards the
+clean image and passes through `x1_ITF_SkinDiffDetail_Lite_v1.pth` at full
+strength, upstream of everything. Arm D tests exactly that.
+
+### Why the face is overbaked — established so far
 
 What is already established about *why* the face is overbaked — three findings,
 each verified independently, and none of them was in the original hypothesis:
