@@ -409,3 +409,162 @@ weakened: the iris gets **lighter**, it does not change colour. Read the other
 way round: the shipped 30-step / 0.80 pass is **darkening the eyes** relative
 to what the base generator produced. Removing `#607` leaves them alone (0.96).
 
+
+---
+
+# Six arms are void, and a control is why I know
+
+**A byte-identical resubmission of an arm that had already succeeded came back
+broken.** That is the whole finding, and it invalidated two conclusions I had
+already drawn and one I was about to send.
+
+At **02:11:21** the server logged, inside a Z-Image face pass that was **not
+mine** (bbox 1297x1833, 30 steps, one of P3-CFG's isolated runs):
+
+```
+[Impact Pack] vae decoded in 22.5s
+ComfyUI-Impact-Pack/modules/impact/utils.py:155: RuntimeWarning:
+  invalid value encountered in cast
+  return Image.fromarray(np.clip(255. * image.cpu().numpy()...).astype(np.uint8))
+```
+
+That is **NaN reaching `tensor2pil`**. Every arm of mine that ran *before* that
+timestamp succeeded. Every arm that ran *after* it came back with the face
+replaced by a flat region of **RGB (53, 47, 43)** covering **23.5 %** of the
+frame — the same constant and the same coverage in all of them, which is
+consistent with an all-zero latent being VAE-decoded.
+
+| arm | finished | result |
+|---|---|---|
+| `B_zface_denoise_035` | 01:59:04 | clean |
+| **— NaN in another workstream's run —** | **02:11:21** | |
+| `CF_crop_1.5` | 02:16:19 | flat face |
+| `CF_crop_1.0` | 02:18:38 | flat face |
+| `X_steps08_denoise050` | 02:21:34 | flat face |
+| `X_steps08_denoise065` | 02:24:30 | flat face |
+| `L0_baseline_loras` | 02:30:38 | crash at `622:403 MaskBoundingBox+` |
+| `L1_steps08_loras` | 02:33:31 | crash at `622:403 MaskBoundingBox+` |
+
+**The control.** `Z_control_steps08_repeat` resubmits `C_zface_steps_08`'s own
+`api_graph.json`. The two files compare equal and hash to the same
+`906fb53bcddf57bb`. The original ran at 01:30 and produced the best face in the
+grid. The control ran at 02:38 and produced the flat face — differing from the
+original by mean **35.7 levels** with **95.2 %** of pixels over 8. Same graph,
+same seed, 68 minutes apart.
+
+**So the six arms above are `void`, not failed.** Each is marked
+`"void": true` with a reason in its `meta.json` so no contact sheet shows a
+faceless tile as a result.
+
+## Two conclusions I retracted
+
+1. **"`bbox_crop_factor` 1.5 and 1.0 are catastrophic."** Wrong. That lever is
+   **unmeasured**, not closed.
+2. **"Loading the buyer's LoRAs crashes the shipped graph."** Not established.
+   The `RuntimeError: min(): Expected reduction dim to be specified for
+   input.numel() == 0` at `622:403 MaskBoundingBox+` came after the graph's own
+   YOLO logged `no detections` twice — which is what a featureless region gives
+   you. I held this one back and I am glad I did; it would have been the
+   biggest product claim of the run and it would have been false.
+
+**What tipped me off was not a better theory.** It was that **four different
+parameter changes produced a bit-identical constant**, which no story about
+parameters can explain. I had a plausible mechanism, a log line that fit it and
+two arms agreeing — all of it wrong. One resubmission of a file already on disk
+settled it in five minutes.
+
+## One real defect this did surface
+
+`622:403 MaskBoundingBox+` in the Eyes stage has **no empty-mask guard**. When
+`#424 BboxDetectorSEGS` finds no face, `#407 SegsToCombinedMask` yields an empty
+mask and `MaskBoundingBox+` calls `min()` on a zero-element tensor and throws.
+So *anything* that makes the face undetectable — a bad model state, an unusual
+crop, an unlucky prompt — turns into a **hard crash with no image**, rather than
+a degraded one. That fragility is in the shipped graph independently of what
+triggered it here, and it is worth a guard. I am **not** claiming to know how
+often a buyer would hit it.
+
+---
+
+# The recommendation
+
+## Ship `#114 FaceDetailer` `steps` **30 → 8**. Nothing else.
+
+`OFMTech-NSFW/OFMTech_NSFW.json`, subgraph `5. Face & Mouth Detail (Z-Image)`,
+node `#114`, `widgets_values[5]`. One integer.
+
+**Why, in plain language about the skin.** In the shipped render the cheeks,
+nose, brow and temple are covered in small **bright, raised, whitish bumps with
+shiny tops**, packed edge to edge, with a few larger red-brown lesions among
+them. They are the wrong shape to be pores: a pore is a tiny *dark dent*, and
+these are *convex and light*. The freckles the prompt asks for are in there
+somewhere but they are drowned. At 30 steps the mouth is worse still — the lips
+and chin carry grids, hexagons and dot-matrix patterns that look like a
+photograph of a circuit board laid over the face.
+
+At 8 steps that field is gone. The skin reads as skin: soft, with fine texture,
+and the freckles come back as **flat brown marks on the nose and cheek** — the
+thing that was asked for. The lips look like lips again. The eyelashes are
+strands instead of scribble. It is a little softer than the shipped render, and
+someone hunting for grain will notice; but the grain it loses was never pores,
+it was damage.
+
+**16 is not a compromise, it is a third of the problem left in.** I rendered it
+specifically to find a middle ground and it does not provide one — 552
+blobs/mpx against the baseline's 764, and at 1:1 the white speckle is still
+plainly there with a blemish on the nose.
+
+**And it is faster.** 294.1 s against the baseline's 397.8 s — **−103.7 s,
+−26 %** — with every sampler, detailer and VAE node running from scratch in
+both, and 23 *more* loaders to warm in the faster arm. So that figure is a
+**lower bound**. The matched-cache pair agrees: 30 → 16 steps alone saved
+67.5 s. **This change makes the face better and the render faster, and those
+two things almost never point the same way.**
+
+## The alternative, if the owner wants cleaner still
+
+`#114 denoise` **0.80 → 0.50** scores better on the defect than steps 8 (157
+blobs/mpx against 239) and **costs nothing in time** — `comfy/samplers.py`
+`KSampler.set_steps` always builds `steps + 1` sigmas, so denoise moves where on
+the schedule the pass starts without changing how many steps run. To my eye it
+is slightly waxier than steps 8 and it lightens the iris more (dE76 5.73 against
+3.40, all of it in `L*`). **0.35 is too far** — very clean, but the freckles
+start to disappear.
+
+The combination — steps 8 **and** denoise 0.50 — is the obvious next thing to
+look at and **I could not test it**: both attempts are void. It should be the
+first render of the next session.
+
+## Where I could not tell, and where I would not guess
+
+* **Whether 8 is softer than the owner wants is his call, not mine.** I can say
+  the defect is gone and the freckles are back. I cannot say whether he wants
+  more grain than that, and the honest answer is that the contact sheet should
+  decide it, not me.
+* **The LoRA configuration is unconfirmed.** Both confirmation arms are void.
+  Everything I measured is with both stacks at the shipped `"None"`.
+* **Every arm shares the `"TRIGGER, PROMPT FOR YOUR MODEL"` placeholder** on
+  `#106`. At cfg 1 that is the entire steering signal. It is constant across the
+  grid so the comparisons hold, but my absolute baseline may be worse than a
+  buyer's who typed a real prompt. P3 owns that variable.
+* **One prompt, one seed, one composition** — a tight head-and-shoulders
+  portrait. The defect is worse the larger the face sits in frame.
+
+## What not to do
+
+* **Do not remove `#607`.** Measured, twice now. It does not fix the skin.
+* **Do not touch `#87 ImageBlend`.** Measured. 8 % against steps' 69 %, and the
+  neck test shows it is not the cause.
+* **Do not touch `#114 guide_size` / `max_size`.** Inert, and self-cancelling if
+  raised — read from `impact/core.py`, not from a render.
+* **Do not raise `#114 cfg`.** Not my lane, and the model is guidance-distilled.
+
+## Two things that still want fixing and are not mine to fix
+
+1. **The composite seam.** Every arm leaves a visible straight edge across the
+   jaw where the detailer's paste region ends — band-pass energy 6.76x higher
+   inside than outside at baseline, still 3.57x at steps 8, 2.40x at denoise
+   0.35. Lowering the settings makes the paste blend in better; it never stops
+   being a paste. It is in the delivered image.
+2. **`MaskBoundingBox+` has no empty-mask guard**, so an undetectable face is a
+   crash rather than a degraded render.

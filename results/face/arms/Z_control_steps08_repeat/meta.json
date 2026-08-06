@@ -1,0 +1,31 @@
+{
+  "arm": "Z_control_steps08_repeat",
+  "changed": "CONTROL: byte-identical resubmission of C_zface_steps_08's graph",
+  "prompt_id": "55cf0fcf-c8fb-479a-9d5a-058494e67773",
+  "queue_number": 81,
+  "client_id": "p2-render-1038da28",
+  "api_nodes": 88,
+  "rgthree_comparer_stripped": false,
+  "pick_list_injected": "619:603 inputs.pick_list = \"0\" (submitted prompt only)",
+  "exec_seconds": 282.6,
+  "cached_nodes": 10,
+  "cached_node_ids": [
+    "587:88",
+    "619:611",
+    "620:107",
+    "620:108",
+    "620:105",
+    "620:110",
+    "620:109",
+    "620:113",
+    "621:160",
+    "622:426"
+  ],
+  "status": "success",
+  "completed": true,
+  "images": [
+    "HasMetadata_00027_.png"
+  ],
+  "void": false,
+  "void_reason": "CONTROL, not a grid arm -- byte-identical resubmission of C_zface_steps_08 (same api_graph.json, sha256 906fb53bcddf57bb). It came back flat where the original came back clean, which is what proves the six VOID arms are a server fault and not a settings result."
+}

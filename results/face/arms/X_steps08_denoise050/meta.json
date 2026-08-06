@@ -72,5 +72,7 @@
   "completed": true,
   "images": [
     "HasMetadata_00025_.png"
-  ]
+  ],
+  "void": true,
+  "void_reason": "VOID -- rendered after the server-side NaN at 02:11:21; face is a flat RGB(53,47,43) region."
 }
