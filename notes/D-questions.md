@@ -86,13 +86,41 @@ ComfyUI but competes for the card, so wall-clock timings from this session are *
 comparable with anything in `HANDOFF.md` §4 and I have not quoted any. The gate is
 about whether the journey completes, not how fast.
 
-## 8. The first-run Templates modal did not appear on my install
+## 8. The first-run Templates modal — I nearly reported a false discrepancy
 
-R2 §5.1 reports it on both of its clean installs and calls it "the buyer's literal first
-screen". **It did not appear on mine** — not on the gate run and not on the first-ever
-browser load of this install (my first probe logged `boot dialogs: []`).
+R2 §5.1 reports the stock Templates modal on both of its clean installs and calls it
+"the buyer's literal first screen". **Neither of my gate runs saw it**
+(`first_run_dialog: {"seen": false}`), and I was one step away from writing that up as a
+correction to R2.
 
-**Call: reported as a discrepancy, then tested rather than argued.** See
-`notes/D-gate.md` §5.1 for the mechanism I read out of the frontend and the deliberate
-reproduction I ran. I have not concluded that R2 is wrong; two clean installs saw it and
-mine did not, and the gate handles it either way.
+**It is not a correction. R2 is right, and I confirmed it on a third install.** What
+actually happened is that I ran three exploratory probe scripts against this instance
+before the gate, and the first of those *was* the first-ever browser load — it consumed
+the modal and wrote `Comfy.TutorialCompleted: true`, so by the time the gate ran there
+was no first load left to have. **My own instrumentation ate the thing I was there to
+photograph.**
+
+Two process notes, because both are the kind of mistake that produces confident wrong
+answers:
+
+* I first "checked" the settings file with a dump truncated at 1500 characters, and
+  `Comfy.TutorialCompleted` was past the cut. I read its absence as meaningful. It was
+  never absent.
+* What settled it was **running the experiment R2 documented** (remove
+  `comfy.settings.json`, reload with a fresh browser context) rather than reasoning
+  about the frontend source I had already read. The source told me the gate condition;
+  it could not tell me which side of it I was on.
+
+Result, three visits in one script:
+
+| | state | dialogs |
+|---|---|---|
+| A | settings present, `TutorialCompleted: true` | 0 |
+| B | `comfy.settings.json` removed | **1 — "Templates / All Templates / Popular"** |
+| C | immediately after B | 0, and `TutorialCompleted` written back |
+
+`results/gate2/firstrun-templates-modal.png`. **Call: R2 §5.1 stands, reproduced
+independently.** A buyer's first screen is a modal covering the Workflows tab.
+
+**Consequence for whoever runs Stage 2:** if you want that screenshot from a gate run,
+the gate must be the *first* browser to touch the install. Probes are not free.
