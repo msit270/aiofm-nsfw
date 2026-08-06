@@ -74,6 +74,14 @@ doubles as a determinism control for this composition.
 nose, cheeks, under-eyes and forehead.** The owner is right that they are a
 trained character feature. They are there.
 
+Worth noting what that tap already rules out: `619:601` sits **downstream of
+`#607 FaceDetailerPipe`**, the SDXL face pass, inside the base generator
+(`619:596 → 619:607 → 619:597 → … → 619:602 → 619:603 → 619:601`, read from the
+API graph). Confirmed in the log, where `#607`'s own crop appears as
+`crop region (1432, 1840) x 1.0` in the runs where it was not served from
+cache. **So a face pass at 20 steps / denoise 0.45 preserves the freckles
+intact.** Whatever destroys them is later than that.
+
 In the delivered images, over the identical crop:
 
 | tile | `#114` settings | LoRAs | freckles |
