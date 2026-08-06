@@ -26,10 +26,12 @@ just the consequence — YOLO scores the leftover hair-and-head silhouette 0.466
 finds no face at 0.6.
 
 **It is driven by the TOKEN COUNT of the prompt, and content is irrelevant.**
-45 cold arms, 8 unrelated content families, and **not one token count produced two
-different outcomes**. Crashes at **30, 31, 32 and 44+ tokens**; clean at 11–29 and
-33–41. Words are *not* the variable — the word ladder is non-monotone (1–16 clean,
-17–18 crash, 19–23 clean, 24–25 crash), and both edges repeated.
+48 cold arms, 8 unrelated content families, and **not one token count produced two
+different outcomes**. Crashes at **30, 31, 32 and 44+**; clean at **11–29 and
+33–43**. Both edges are hard — 29 clean/30 crash, 43 clean/44 crash, no transition
+at either. Words are *not* the variable: the word ladder is non-monotone (1–16
+clean, 17–18 crash, 19–23 clean, 24–25 crash), and both of those edges repeated.
+*Open: the top of the upper band. 44–47 crash; above 47 is unmeasured.*
 
 **It is a hard numerical failure, not a marginal one.** Clean arms score
 0.8942–0.8957 (spread 0.0015 across 30 arms). Crashing arms score
