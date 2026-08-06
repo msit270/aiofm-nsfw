@@ -427,6 +427,34 @@ only B tells them apart. The four-check standard earned its keep here.
 
 ---
 
+## 9c. The full 88-node graph, end to end — the probe results transfer
+
+Everything above runs Track A's probe graph (frozen base image, SDXL half
+skipped). To check that is not an artefact, three arms on the **whole shipping
+graph**, 88 nodes, both LoRAs, the SDXL side actually rendering, with
+`619:603 INSTARAW_ImageFilter.pick_list = "0"` so the deliberate human selector
+pause auto-picks instead of blocking:
+
+| arm | `620:110.device` | tokens | status | exec s | A | B | C | D |
+|---|---|---|---|---|---|---|---|---|
+| `V_FULL_mid_46` | `default` | 46 | **error `622:403`** | 211.9 | fail | fail | fail | fail |
+| `V_FULL_head_46` | `cpu` | 46 | success | 244.7 | pass | pass | pass | pass |
+| `V_FULL_head_32` | `cpu` | 32 | success | 242.3 | pass | pass | pass | pass |
+
+The full-graph positive control fails, so these are readable. Both fix arms pass
+all four checks on the delivered frame, at YOLO confidence 0.9013 and 0.9015.
+
+One detail worth recording because it corrects a habit: the full-graph crash arm's
+black region measures **`(20,19,18)` over 3.9 %** of the frame, not `(56,51,47)`
+over 17 %. The colour and the fraction are properties of *that render's* base
+image and colormatch — the shipped `483.prompt_batch_data` differs from the one
+Track A's frozen base was made with — so `(56,51,47)` is the signature of the
+probe harness's particular base, not of the bug. What is invariant is the
+mechanism: a large contiguous single-RGB region where the face should be, and
+`face_yolov8m.pt` finding **no face at all**, at any threshold down to 0.1.
+
+---
+
 ## 10. Verdict, stated plainly
 
 **The fix does not hold, and I would not ship it as a cure.**
@@ -440,7 +468,8 @@ only B tells them apart. The four-check standard earned its keep here.
 * **It is not inert where nothing was wrong.** Same-graph repeats on this
   instance are bit-identical, so the 12.8 % of pixels that move on a clean
   16-token render — max channel delta 135/255 — are entirely the fix's doing.
-* It costs +14 s at 16 tokens and +18 s at 40, growing with prompt length.
+* It costs +14 s at 16 tokens and +18 s at 40 on the probe graph; a full 88-node
+  render with the fix takes ~243 s.
 * It is **not** seed-specific (4 seeds, 4 passes), and it **does** cure the silent
   black-eyes failure on the eyes pass — the one failure mode that passes a naive
   "no crash" test — 2/2 against a `default` arm that produces `status: success`
