@@ -272,3 +272,27 @@ The brief flags "77 is a number worth checking against" for the length ladder.
 (`comfy/text_encoders/lumina2.py`), so nothing pads or chunks at 77 or anywhere
 else. Checking it anyway because a boundary appearing exactly at 77 would be
 genuinely informative — but the prediction is that it will not.
+
+## The setup script builds sageattention and nothing ever enables it
+
+`aiofm_setup.sh` imports-or-builds sageattention (`:424-454`) and hunts for a
+prebuilt `sageattention*.whl` (`:1314-1316`, `:2009`). It is importable in
+`/venv/main`.
+
+**Nothing switches it on.** ComfyUI routes through it only with
+`--use-sage-attention` (`comfy/ldm/modules/attention.py:724` →
+`model_management.sage_attention_enabled()`), the pack never launches ComfyUI,
+and neither test instance passes the flag.
+
+So one of two things is true and I do not know which:
+- it is **dead weight** — the buyer pays build time for a kernel never used; or
+- the buyer's template **does** pass the flag, in which case **every render they
+  make is on a numeric path nobody here has ever tested.**
+
+That second case matters because the crash is sequence-length-dependent numerics.
+The token bands were measured without sage. On sage they could sit elsewhere, be
+wider, or catch the 16-token placeholder that is currently the buyer's safe
+default. One arm would tell us; requested from Track E as a low-priority
+discriminator, not yet run.
+
+**Not acted on.** Logged per the standing rule to log rather than start.
