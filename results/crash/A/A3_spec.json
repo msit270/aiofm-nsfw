@@ -1,0 +1,37 @@
+[
+ {
+  "name": "A3_C1_fisherman_w17",
+  "text": "a bearded fisherman in his sixties, deep lines around the eyes, sun-darkened forehead, grey stubble along the",
+  "note": "A3 content control: 17 words (the boundary word count), different content"
+ },
+ {
+  "name": "A3_C2_gardener_w17",
+  "text": "an elderly gardener with a broad flat nose, heavy grey eyebrows, deep creases on both cheeks, a",
+  "note": "A3 content control: 17 words (the boundary word count), different content"
+ },
+ {
+  "name": "A3_C3_locomotive_w17",
+  "text": "a rusting freight locomotive parked on overgrown sidings, bramble climbing the couplings, chipped enamel plates, oil stains",
+  "note": "A3 content control: 17 words (the boundary word count), different content"
+ },
+ {
+  "name": "A3_C4_committee_w17",
+  "text": "the committee approved the revised schedule on Tuesday and asked the treasurer to circulate a summary before",
+  "note": "A3 content control: 17 words (the boundary word count), different content"
+ },
+ {
+  "name": "A3_swap_fine",
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with fine",
+  "note": "boundary word swap: the CLEAN 16-word prefix + one different 17th word; 17 words and 30 tokens, identical to the crashing w17 on both counts"
+ },
+ {
+  "name": "A3_swap_Tuesday",
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with Tuesday",
+  "note": "boundary word swap: the CLEAN 16-word prefix + one different 17th word; 17 words and 30 tokens, identical to the crashing w17 on both counts"
+ },
+ {
+  "name": "A3_swap_obvious",
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with obvious",
+  "note": "boundary word swap: the CLEAN 16-word prefix + one different 17th word; 17 words and 30 tokens, identical to the crashing w17 on both counts"
+ }
+]

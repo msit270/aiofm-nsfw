@@ -278,5 +278,197 @@
   ],
   "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with",
   "words": 16
+ },
+ {
+  "arm": "L_w24",
+  "prompt_id": "ee211b4e-c623-4060-8e94-9d9ee52bf17f",
+  "client_id": "trackA-L_w24-2bf0f006",
+  "wall_seconds": 65.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 62624174104,
+  "note": "ladder: first 24 words of the crashing string",
+  "status": "error",
+  "exec_seconds": 56.7,
+  "cached": 0,
+  "cached_ids": [],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00011_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm",
+  "words": 24
+ },
+ {
+  "arm": "CTL_placeholder_after_w24",
+  "prompt_id": "88c2e96f-a527-442b-aeb5-891eaecb6908",
+  "client_id": "trackA-CTL_placeholder_after_w24-10e405b3",
+  "wall_seconds": 75.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 59762771528,
+  "note": "health control: byte-identical to A1_gate_placeholder, run immediately after an error arm",
+  "status": "success",
+  "exec_seconds": 69.3,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00012_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00069_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "words": null
+ },
+ {
+  "arm": "L_w17",
+  "prompt_id": "43870c71-3563-4132-bfbe-b3cd8440e8ab",
+  "client_id": "trackA-L_w17-69bc2923",
+  "wall_seconds": 60.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 58991019544,
+  "note": "ladder: first 17 words of the crashing string",
+  "status": "error",
+  "exec_seconds": 56.9,
+  "cached": 0,
+  "cached_ids": [],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00013_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible",
+  "words": 17
+ },
+ {
+  "arm": "CTL_placeholder_after_w17",
+  "prompt_id": "26550005-e817-48e8-8db5-c9996ff0f451",
+  "client_id": "trackA-CTL_placeholder_after_w17-804bfcbd",
+  "wall_seconds": 85.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 65698695752,
+  "note": "health control: byte-identical to A1_gate_placeholder, run immediately after an error arm",
+  "status": "success",
+  "exec_seconds": 79.7,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00014_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00070_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "words": null
+ },
+ {
+  "arm": "L_w18",
+  "prompt_id": "91fb3cbb-f66b-424c-b3c8-ca3d64a56a66",
+  "client_id": "trackA-L_w18-f8dd32af",
+  "wall_seconds": 70.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 64790585880,
+  "note": "ladder: first 18 words of the crashing string",
+  "status": "error",
+  "exec_seconds": 62.1,
+  "cached": 0,
+  "cached_ids": [],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00015_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores,",
+  "words": 18
+ },
+ {
+  "arm": "CTL_placeholder_after_w18",
+  "prompt_id": "0b7a90f7-a14c-4761-a7c9-36d0ab4d3b3d",
+  "client_id": "trackA-CTL_placeholder_after_w18-68330a55",
+  "wall_seconds": 85.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 71772657736,
+  "note": "health control: byte-identical to A1_gate_placeholder, run immediately after an error arm",
+  "status": "success",
+  "exec_seconds": 80.6,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00016_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00071_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "words": null
  }
 ]

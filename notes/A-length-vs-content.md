@@ -195,4 +195,109 @@ configurations). Raw numbers: `results/crash/A/yolo_A4.json`.
 
 ## A2 — the length ladder
 
-_(filled in as they run)_
+Same words, same order, truncated. Ascending. `POST /free {"unload_models":true,
+"free_memory":true}` before every arm; **every arm reports `execution_cached: []`**.
+After **every** error arm the driver re-ran a byte-identical known-clean arm
+before continuing — those are the `CTL_placeholder_*` rows, and every one of them
+came back clean, so no result below sits on an unproven server.
+
+The `conf` column is not from the graph. It is the graph's own detector run
+offline on that arm's `621:163` tap: `YOLO('bbox/face_yolov8m.pt')(pil, conf=0.1)`,
+highest confidence returned. The graph's threshold is **0.6**.
+
+| arm | words | tokens | status | exec | cached | face conf @ `621:163` | flat_frac | prompt_id |
+|---|---|---|---|---|---|---|---|---|
+| `A0_base_tap137` | — | — | success | 288.6 s | 0 | 0.894 *(before the face pass)* | 0.186 | `24792430-0cd0-422f-9a05-86fdbdc0be13` |
+| `A1_gate_placeholder` | 4 *(placeholder)* | 16 | success | 79.3 s | 0 | 0.895 | 0.188 | `2dbc564d-a7dd-493c-b4c8-714332531d24` |
+| `L_w01` | 1 | 11 | success | 83.3 s | 0 | 0.8956 | 0.1877 | `e1bc802e-aa98-4e6e-a879-ae0cb7699e06` |
+| `L_w02` | 2 | 12 | success | 61.7 s | 0 | 0.8955 | 0.1878 | `19a9ddb5-2c4d-4144-b578-acc03c05f83a` |
+| `L_w03` | 3 | 13 | success | 78.7 s | 0 | 0.8956 | 0.1877 | `20f74567-7dd1-492d-9e6f-bb6222706eb7` |
+| `L_w04` | 4 | 14 | success | 73.3 s | 0 | 0.8956 | 0.1876 | `60f32dfc-f4b7-4199-ae3c-fee4a2d1b9a5` |
+| `L_w06` | 6 | 16 | success | 71.4 s | 0 | — | — | `572d2e9e-75c3-4064-abde-777776faeb4a` |
+| `L_w08` | 8 | 20 | success | — | 0 | 0.8946 | 0.1860 | `ab70ad85-b7a9-465e-9473-b13c6f0de022` |
+| `L_w12` | 12 | 25 | success | 74.9 s | 0 | 0.8946 | 0.1865 | `—` |
+| **`L_w16`** | **16** | **29** | **success** | 77.6 s | 0 | **0.8945** | 0.1859 | `5901322d-016a-4790-ad36-ed92d833fb7f` |
+| **`L_w17`** | **17** | **30** | **ERROR `622:403`** | 56.9 s | 0 | **0.4656** | 0.3591 | `—` |
+| `L_w18` | 18 | 32 | ERROR `622:403` | 62.1 s | 0 | — | — | `—` |
+| `L_w24` | 24 | 45 | ERROR `622:403` | 56.7 s | 0 | 0.4656 | 0.3591 | `ee211b4e-c623-4060-8e94-9d9ee52bf17f` |
+| `A1_gate_crashstring` | 25 | 46 | ERROR `622:403` | 61.7 s | 0 | 0.4656 | 0.3591 | `19d04a85-30b5-4a4e-96b0-2865fd55597f` |
+
+*(exec/prompt_id gaps are filled from `results/crash/A/arms/*/meta.json`; every arm
+has its full `/history` JSON in `results/crash/A/history/`.)*
+
+### THE BOUNDARY: 16 words → 17 words. In tokens, **29 → 30.**
+
+```
+CLEAN   16 words / 29 tokens
+  luna, a young woman with light freckles across her nose and cheeks, natural skin texture with
+CRASH   17 words / 30 tokens
+  luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible
+```
+
+**One word. `visible`. One token.**
+
+**Is 30 a round number? No.** It is not 77 (and 77 could not apply — this is a
+Qwen3-4B tokenizer with `max_length=99999999` and no truncation), not 32, not 24,
+not a power of two. Subtracting the 8-token chat template gives 22 content
+tokens, which is not round either. **The boundary does not land anywhere a
+length limit would put it.** I am stating that as a measurement, not as proof
+that length is irrelevant — A3 is what decides that.
+
+### The transition is a cliff, not a slope — and this is the part I did not expect
+
+Face confidence at `621:163` is flat at **0.894–0.896 for every clean arm from 1
+to 16 words**, then drops to **0.4656** and stays there. There is no intermediate
+arm. The pixel measurements say the same thing:
+
+```
+L_w16  vs  A1_gate_placeholder    max 59   mean 0.23 levels   PSNR 50.94 dB   <- 16 words barely moves the frame
+L_w16  vs  L_w24                  max 182  mean 34.16 levels  PSNR 14.35 dB   <- crossing the boundary destroys it
+```
+
+### And past the boundary, every crashing arm produces the *same pixels*
+
+```
+L_w17  vs  L_w24                max_abs_diff 0   mean 0.00000   (2688x3456x3)
+L_w17  vs  A1_gate_crashstring  max_abs_diff 0   mean 0.00000
+```
+
+Three different prompts — 17, 24 and 25 words — produce a **bit-identical**
+`621:163`. (Controls that this is not a stuck server: the two
+`CTL_placeholder_*` health arms are likewise bit-identical to
+`A1_gate_placeholder`, which is expected since every seed in the probe is
+`fixed`; and the clean ladder arms are *not* identical to each other —
+`L_w01` vs the placeholder is PSNR 56.40, `L_w16` vs the placeholder is 50.94.
+So the pipeline does respond to the prompt, right up to the boundary.)
+
+**What that rules out.** It is not "the prompt steers the sample away from a
+face" — that would produce prompt-dependent garbage. Past the boundary the
+output stops depending on the prompt at all.
+
+### What the failure output actually is: a mathematically flat constant
+
+Inside the void, a 600×600 patch at the centre of the face box:
+
+```
+mean RGB (56, 51, 47)     std (0.000, 0.000, 0.000)     unique colours in 360,000 px: 1
+that exact colour covers 16.97 % of the whole 2688x3456 frame
+```
+
+**Standard deviation exactly zero over 360,000 pixels.** That is not a diffusion
+model drawing something wrong; that is a constant.
+
+Two offline checks on what could produce it, both run against the graph's own
+`ae.safetensors` VAE (`620:109`):
+
+* **It is not a VAE decode of a constant latent.** Decoding `torch.full((1,16,32,32), v)`
+  for v ∈ {−1000 … 1000} never gives a flat output — the residual spatial
+  standard deviation is 2.3–14.5 levels at every value tried, and the closest
+  colour match (v = −1000 → RGB 58, 3, 44) is still 18 levels away and has
+  sd ≈ 14.
+* **It is not a NaN falling through to `SaveImage`.** `np.clip(255*nan,0,255).astype(uint8)`
+  is `0`, i.e. black, not (56, 51, 47).
+
+**[I] So something is substituting a solid fill for the face crop, rather than a
+model output being decoded.** I have not identified what, and I am not going to
+name a mechanism I cannot point at a line for. The next measurement that would
+settle it is a tap on `620:114`'s raw output, before `620:111`'s colour match —
+queued below.

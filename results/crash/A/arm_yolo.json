@@ -244,5 +244,251 @@
   "text": null,
   "error_node": null,
   "tap": null
+ },
+ "CTL_placeholder_after_w24": {
+  "status": null,
+  "prompt_id": null,
+  "exec_seconds": null,
+  "cached": null,
+  "text": null,
+  "error_node": null,
+  "tap": null
+ },
+ "L_w08": {
+  "status": "success",
+  "prompt_id": "ab70ad85-b7a9-465e-9473-b13c6f0de022",
+  "exec_seconds": 53.9,
+  "cached": 0,
+  "text": "luna, a young woman with light freckles across",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00008_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8945807218551636
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8945807218551636
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8945807218551636
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8945807218551636
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8945807218551636
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8945807218551636
+   }
+  },
+  "highest_conf": 0.8945807218551636,
+  "luma_sd": 59.68,
+  "flat_frac": 0.186
+ },
+ "L_w12": {
+  "status": "success",
+  "prompt_id": "a3203c74-0bc5-4f50-b006-a4cec3f56460",
+  "exec_seconds": 74.9,
+  "cached": 0,
+  "text": "luna, a young woman with light freckles across her nose and cheeks,",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00009_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8946186304092407
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8946186304092407
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8946186304092407
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8946186304092407
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8946186304092407
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8946186304092407
+   }
+  },
+  "highest_conf": 0.8946186304092407,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1865
+ },
+ "L_w16": {
+  "status": "success",
+  "prompt_id": "5901322d-016a-4790-ad36-ed92d833fb7f",
+  "exec_seconds": 77.6,
+  "cached": 0,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00010_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8944713473320007
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8944713473320007
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8944713473320007
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8944713473320007
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8944713473320007
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8944713473320007
+   }
+  },
+  "highest_conf": 0.8944713473320007,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1859
+ },
+ "L_w24": {
+  "status": "error",
+  "prompt_id": "ee211b4e-c623-4060-8e94-9d9ee52bf17f",
+  "exec_seconds": 56.7,
+  "cached": 0,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm",
+  "error_node": "622:403",
+  "tap": "nTAP163__tap163_00011_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 0,
+    "max_conf": null
+   },
+   "0.5": {
+    "n": 0,
+    "max_conf": null
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   }
+  },
+  "highest_conf": 0.4656447172164917,
+  "luma_sd": 60.57,
+  "flat_frac": 0.3591
+ },
+ "CTL_placeholder_after_w17": {
+  "status": "success",
+  "prompt_id": "26550005-e817-48e8-8db5-c9996ff0f451",
+  "exec_seconds": 79.7,
+  "cached": 0,
+  "text": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00014_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   }
+  },
+  "highest_conf": 0.8952752351760864,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1876
+ },
+ "L_w17": {
+  "status": "error",
+  "prompt_id": "43870c71-3563-4132-bfbe-b3cd8440e8ab",
+  "exec_seconds": 56.9,
+  "cached": 0,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible",
+  "error_node": "622:403",
+  "tap": "nTAP163__tap163_00013_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 0,
+    "max_conf": null
+   },
+   "0.5": {
+    "n": 0,
+    "max_conf": null
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   }
+  },
+  "highest_conf": 0.4656447172164917,
+  "luma_sd": 60.57,
+  "flat_frac": 0.3591
+ },
+ "L_w18": {
+  "status": null,
+  "prompt_id": null,
+  "exec_seconds": null,
+  "cached": null,
+  "text": null,
+  "error_node": null,
+  "tap": null
  }
 }

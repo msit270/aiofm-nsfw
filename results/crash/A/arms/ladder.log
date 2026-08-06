@@ -15,3 +15,16 @@
 [L_w16] submitted 5901322d-016a-4790-ad36-ed92d833fb7f cid=trackA-L_w16-1274bfe0 queue_before=(0,0) vram_free=61.3GiB
 [L_w16] success exec=77.6s cached=0 err=None  imgs=['tap163_00010_.png', 'HasMetadata_00068_.png']
 [L_w24] submitted ee211b4e-c623-4060-8e94-9d9ee52bf17f cid=trackA-L_w24-2bf0f006 queue_before=(0,0) vram_free=58.3GiB
+[L_w24] error exec=56.7s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00011_.png']
+[CTL_placeholder_after_w24] submitted 88c2e96f-a527-442b-aeb5-891eaecb6908 cid=trackA-CTL_placeholder_after_w24-10e405b3 queue_before=(0,0) vram_free=55.7GiB
+[CTL_placeholder_after_w24] success exec=69.3s cached=0 err=None  imgs=['tap163_00012_.png', 'HasMetadata_00069_.png']
+ladder done
+[L_w17] submitted 43870c71-3563-4132-bfbe-b3cd8440e8ab cid=trackA-L_w17-69bc2923 queue_before=(0,0) vram_free=54.9GiB
+[L_w17] error exec=56.9s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00013_.png']
+[CTL_placeholder_after_w17] submitted 26550005-e817-48e8-8db5-c9996ff0f451 cid=trackA-CTL_placeholder_after_w17-804bfcbd queue_before=(0,0) vram_free=61.2GiB
+[CTL_placeholder_after_w17] success exec=79.7s cached=0 err=None  imgs=['tap163_00014_.png', 'HasMetadata_00070_.png']
+[L_w18] submitted 91fb3cbb-f66b-424c-b3c8-ca3d64a56a66 cid=trackA-L_w18-f8dd32af queue_before=(0,0) vram_free=60.3GiB
+[L_w18] error exec=62.1s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00015_.png']
+[CTL_placeholder_after_w18] submitted 0b7a90f7-a14c-4761-a7c9-36d0ab4d3b3d cid=trackA-CTL_placeholder_after_w18-68330a55 queue_before=(0,0) vram_free=66.8GiB
+[CTL_placeholder_after_w18] success exec=80.6s cached=0 err=None  imgs=['tap163_00016_.png', 'HasMetadata_00071_.png']
+[L_w19] submitted 88cb5e94-56cf-4ccb-ad6d-d126953b63bc cid=trackA-L_w19-35a8a7f8 queue_before=(0,0) vram_free=54.5GiB
