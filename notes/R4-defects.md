@@ -761,6 +761,18 @@ the remedy in either direction — and my `/free` may well have landed mid-rende
 on it. **Every prompt that *started* after the free succeeded**, including
 another agent's. `HANDOFF.md` §7.1's advice — free, do not restart — holds.
 
+And the recovery is exact, not merely "it ran". `110d0594`'s image against the
+**02:59 render of the same graph**, from before the server ever went bad:
+
+```
+R4_CTL_loras_placeholder_postfree  vs  L1b_steps08_loras (02:59)
+  max_abs_diff 0   psnr inf   ssim 1.0        flat_frac 0.0034, luma_sd 37.93
+```
+
+Bit-identical across 2688×3456. So the freed server is not approximately
+recovered, it is back to producing the same bytes it produced before the fault.
+That is the strongest form this test can take.
+
 ### And then the open item, which I am NOT resolving here
 
 With the server freshly proved healthy by two consecutive successes, the filled
