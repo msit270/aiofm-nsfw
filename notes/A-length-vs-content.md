@@ -873,6 +873,20 @@ All under `results/crash/A/`.
 | graph diffs proving one input differs per pair | `graph_diffs.txt` |
 | the driver, builders and analysis | `tools/` |
 
+**The `T_tok` wide sweep (36, 37, 40, 42, 43, 44, 47, 48, 49, 50, 24, 18) was
+still in flight when this was written**, because the GPU is shared with another
+agent's server and arms slowed from ~70 s to ~120 s. Whatever landed after this
+commit is on disk but not in the tables. To fold it in, with no re-rendering:
+
+```bash
+python3 results/crash/A/tools/analyse.py              # offline YOLO on any new taps
+python3 results/crash/A/tools/tokmap.py > results/crash/A/token_map.txt
+python3 results/crash/A/tools/refresh_map_in_notes.py # rewrites the map in this file
+python3 results/crash/A/tools/sheet_tok.py            # rebuilds the token sheet
+```
+
+Those only read what is already saved; none of them touches a server.
+
 Arm families: `A0_` base tap · `A1_gate_` the probe validation · `L_w*` the word
 ladder · `A3_C*` content controls · `A3_swap_*` same-word-and-token swaps ·
 `T_tok*` the token sweep · `TAP114_*` the `620:114` taps · `CTL_*` health controls
