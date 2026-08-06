@@ -327,7 +327,9 @@ Both halves are visible in the same log file. `#114` (clamped):
 
     Detailer: segment upscale for ((536.4, 278.2)) | crop region (1609, 834) x 1.1236852407455444 -> (1808, 937)
 
-and `1808 / 1609 = 1.12368524…` exactly. Formula confirmed on live output.
+and `1808 / 1609 = 1.12368524…` exactly. `#406` gives a third confirmation:
+logged `x 1.4190894945648536` on `crop region (1353, 471)` with `max_size 1920`,
+and `1920 / 1353 = 1.41908949…`. Formula confirmed three times on live output.
 
 So on `#114`, with a crop region 3456 px tall, `max_size` has **no effect at all
 below 3456**. 1408, 1808 and 2048 would each burn a render to reproduce the
