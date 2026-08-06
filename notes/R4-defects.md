@@ -674,63 +674,6 @@ browser blocker, for zero benefit in the shipped `"None"` configuration.
 
 ---
 
-## Summary — what shipped, and what did not
-
-| defect | verdict | workflow changed? |
-|---|---|---|
-| **1** `#597`→`#616` VAE round-trip | **real, and still load-bearing at steps 8**. Removing it moves the face in the direction the owner rejected (blobs +6.2 %, fine-band +7.6 %), at ~⅕ the size of the steps change | **no** — left in place, on his standing decision `73f3d5c` and his instruction for this run |
-| **2** `#106` placeholder at denoise 0.8 | **not an oversight** (documented template text, no typo), and at steps 8 **measurably different from a real prompt but not measurably worse** — 1.28 % of face-crop pixels beyond 8 levels | **no** — no content change, and none warranted |
-| **3** `#600` reseeding itself | **FALSE.** `#600` reads `"fixed"`; the residual WS4 found (`#592`) was fixed in `a01ae3a` and is still fixed; **zero occurrences of `randomize` in the file**; the exposed seed is `"fixed"`. The graph *is* reproducible from the seed it exposes | **no** — nothing left to fix |
-| **4** `SetUnionControlNetType` in parallel | **MOOT.** The entire path is gone — 0 matches for ControlNet / IPAdapter / Depth / SetUnion across all 109 nodes; the only two `controlnet` strings are pack metadata on a FaceMesh preprocessor | **no** — nothing to repair |
-
-**`OFMTech-NSFW/OFMTech_NSFW.json` is untouched by this run.** Two of the four
-did not exist, and the two that do are both owner-judgement calls where the
-lower-risk option is the graph as it stands. Nothing here needed a code change to
-be worth doing — the deliverables are the verdicts and the pairs.
-
-**One thing is left open, deliberately, and it is the most consequential thing I
-touched: §2b.** With the owner's LoRAs loaded, the graph rendered clean with
-`#106` at the placeholder and crashed at `622:403 MaskBoundingBox+` with `#106`
-filled in — one input apart, on a server two prior renders had just proved
-healthy. If that reproduces it is **crash-class and sits on the buyer's first
-documented action** (`#649` §3 tells them to fill that box in). It is n=1 per
-side, the same node crashes for server-state reasons independently, and a
-near-identical claim has already been made and withdrawn on this project once, so
-I am **not** calling it. **One byte-identical control render settles it** — asked
-for, not queued, because R1 needed the GPU.
-
-### Documents still carrying claims this run contradicts
-
-Not my files; listed so whoever owns them can act.
-
-* `AUDIT.md` **A21** — records `#600 control_after_generate` as `"randomize"`,
-  tagged **[F]**. The file reads `"fixed"`. The rest of that row (`578361683541099`,
-  "no `seed` input slot") is correct.
-* `AUDIT.md` **A4** / `QUESTIONS.md` **Q2** — quote `"TRIGGER, PROMT FOR YOUR
-  MODEL"` and call `PROMT` "the typo". The file says `PROMPT`; `grep -c PROMT`
-  returns 0.
-* `AUDIT.md` **A5** / `QUESTIONS.md` **Q3** — describe a ControlNet path that
-  does not exist.
-* `CLAUDE.md` / `MAP.md` §0 — 132 nodes, 24 bypassed, seven stages all named
-  "Dont touch!!!". The file is **109 nodes**, one bypassed (root `#623`), stages
-  already named.
-
-`STATE.md` already records all four of these corrections; the source documents do
-not.
-
-### What I would hand a pod session next, on this list only
-
-Nothing on defects 3 and 4 — they are closed and need no GPU.
-
-For defect 1, the one thing I could not do here: **a controlled timing number.**
-Take `R4_base` and `R4_D1_novae` on an idle server, `POST /free {"unload_models":
-true, "free_memory": true}` before each, confirm `execution_cached: 0` in
-`/history` for both, and discard any pair whose cached-node sets differ. Two VAE
-operations at ~1432×1840 is the whole of the saving and it may well be inside the
-noise; the point is to have the number rather than the argument. **This does not
-change the verdict** — the verdict is a look, and the look says leave it.
-
----
 
 ## 2b — the LoRA case, and the wrong conclusion I nearly published
 
@@ -857,3 +800,70 @@ nothing.
 the placeholder is unaffected: those seven arms are all no-LoRA, all rendered
 inside the clean window before 13:15:53, and all cross-checked by two bit-identical
 controls.
+
+
+---
+
+## Summary — what shipped, and what did not
+
+| defect | verdict | workflow changed? |
+|---|---|---|
+| **1** `#597`→`#616` VAE round-trip | **real, and still load-bearing at steps 8**. Removing it moves the face in the direction the owner rejected (blobs +6.2 %, fine-band +7.6 %), at ~⅕ the size of the steps change | **no** — left in place, on his standing decision `73f3d5c` and his instruction for this run |
+| **2** `#106` placeholder at denoise 0.8 | **not an oversight** (documented template text, no typo), and at steps 8 **measurably different from a real prompt but not measurably worse** — 1.28 % of face-crop pixels beyond 8 levels | **no** — no content change, and none warranted |
+| **3** `#600` reseeding itself | **FALSE.** `#600` reads `"fixed"`; the residual WS4 found (`#592`) was fixed in `a01ae3a` and is still fixed; **zero occurrences of `randomize` in the file**; the exposed seed is `"fixed"`. The graph *is* reproducible from the seed it exposes | **no** — nothing left to fix |
+| **4** `SetUnionControlNetType` in parallel | **MOOT.** The entire path is gone — 0 matches for ControlNet / IPAdapter / Depth / SetUnion across all 109 nodes; the only two `controlnet` strings are pack metadata on a FaceMesh preprocessor | **no** — nothing to repair |
+
+**`OFMTech-NSFW/OFMTech_NSFW.json` is untouched by this run.** Two of the four
+did not exist, and the two that do are both owner-judgement calls where the
+lower-risk option is the graph as it stands. Nothing here needed a code change to
+be worth doing — the deliverables are the verdicts and the pairs.
+
+**One thing is left open, deliberately, and it is the most consequential thing I
+touched: §2b.** With the owner's LoRAs loaded, the graph rendered clean with
+`#106` at the placeholder and crashed at `622:403 MaskBoundingBox+` with `#106`
+filled in — one input apart, on a server two prior renders had just proved
+healthy. If that reproduces it is **crash-class and sits on the buyer's first
+documented action** (`#649` §3 tells them to fill that box in). It is n=1 per
+side, the same node crashes for server-state reasons independently, and a
+near-identical claim has already been made and withdrawn on this project once, so
+I am **not** calling it. **One byte-identical control render settles it** — asked
+for, not queued, because R1 needed the GPU.
+
+### Documents still carrying claims this run contradicts
+
+Not my files; listed so whoever owns them can act.
+
+* `AUDIT.md` **A21** — records `#600 control_after_generate` as `"randomize"`,
+  tagged **[F]**. The file reads `"fixed"`. The rest of that row (`578361683541099`,
+  "no `seed` input slot") is correct.
+* `AUDIT.md` **A4** / `QUESTIONS.md` **Q2** — quote `"TRIGGER, PROMT FOR YOUR
+  MODEL"` and call `PROMT` "the typo". The file says `PROMPT`; `grep -c PROMT`
+  returns 0.
+* `AUDIT.md` **A5** / `QUESTIONS.md` **Q3** — describe a ControlNet path that
+  does not exist.
+* `CLAUDE.md` / `MAP.md` §0 — 132 nodes, 24 bypassed, seven stages all named
+  "Dont touch!!!". The file is **109 nodes**, one bypassed (root `#623`), stages
+  already named.
+
+`STATE.md` already records all four of these corrections; the source documents do
+not.
+
+### What I would hand a pod session next, on this list only
+
+Nothing on defects 3 and 4 — they are closed and need no GPU.
+
+For defect 1, the one thing I could not do here: **a controlled timing number.**
+Take `R4_base` and `R4_D1_novae` on an idle server, `POST /free {"unload_models":
+true, "free_memory": true}` before each, confirm `execution_cached: 0` in
+`/history` for both, and discard any pair whose cached-node sets differ. Two VAE
+operations is the whole of the saving and it may well be inside the noise; the
+point is to have the number rather than the argument. **This does not change the
+verdict** — the verdict is a look, and the look says leave it.
+
+**[I]** WS4 derived the round-trip's working resolution as **1432×1840** (896×1152
+base → `#593` 4× → `#595 ImageScaleBy` lanczos 0.4 → `round()` to 1434×1843 →
+`#594 VAEEncode` cropping each dim to a multiple of 8 at `comfy/sd.py:847-857`).
+I re-read `nodes.py:1903-1904` and `sd.py:847-857` and the arithmetic follows,
+but **I did not measure it** — nothing in my arms taps that tensor. Treat the
+figure as inference, not as a reading. It does not bear on the verdict either
+way.
