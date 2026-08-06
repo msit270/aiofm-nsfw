@@ -311,7 +311,56 @@ python3 tools/contact_sheet.py --arms-dir results/face/arms --out-dir results/fa
 
 ---
 
-## 5. cfg recommendation **[IN FLIGHT — evidence gathered, renders running]**
+## 5. cfg recommendation: **empty the negatives and note it on canvas**
+
+Of your three options — raise cfg / empty and note / leave and document — the
+recommendation is the middle one. **Nothing was changed.**
+
+**Why not raise cfg.** Not a judgement call. `zimage.safetensors` is Z-Image-Turbo
+by sha256; the vendor's quick-start carries `guidance_scale=0.0, # Guidance
+should be 0 for the Turbo models`; ComfyUI's own turbo template runs cfg 1 where
+its base template runs cfg 4; and the file contains **zero guidance tensors**.
+Raising cfg does not switch a feature on — it drives the model out of the
+operating point it was distilled to. Anything anywhere proposing "raise cfg and
+A/B it" should be struck.
+
+**Why not just leave it.** `#649` sends the buyer to that exact subgraph, where
+`#105` sits beside `#106` reading *"deformed, ugly, blurry, … watermark, text"* —
+specific, confident, professional-looking, and inert. And the pipeline produces
+exactly the defects it names: `#114` leaves a blistered texture, a mask seam and
+faint text-like marks that survive into the delivered image. A buyer who sees
+that, then finds `watermark, text` already in the negative, will conclude it
+needs **strengthening**. Notes are read once; the field is read every time.
+
+**Why emptying is safe.** `comfy/samplers.py:370` sets `uncond_ = None` at cfg 1
+*before* the model is called, and nothing in this chain sets
+`disable_cfg1_optimization`. The string cannot affect a pixel. Provable by graph
+diff plus that source line — no render needed. It also makes the graph
+self-consistent, since `#167` and `#394` are **already** empty. The text is
+preserved verbatim in `notes/P3-cfg.md`, in `QUESTIONS.md` and in git.
+
+**Scope: `#105`, `#167`, `#394` only.** `619:600` on the SDXL half has the same
+shape but a different model, a different distillation, and carries your own typed
+negative — untested, needs its own decision.
+
+**Do not** rewire through `ConditioningZeroOut` as ComfyUI's template does. Same
+result, but it means adding a node and editing subgraph IO, and that is precisely
+the class of edit that produced this run's browser blocker.
+
+**The note is the load-bearing half** — draft wording is in `notes/P3-cfg.md` §7
+for you to put in your own voice. It has to say: Turbo has no negative prompt so
+the boxes are empty deliberately; do not raise cfg to make them work; put what
+you want *and* what you want avoided into the positive.
+
+### The consequence that matters more than the negative
+
+At cfg 1 the positive is the **only** conditioning. So `#106` shipping as
+`"TRIGGER, PROMPT FOR YOUR MODEL"` is far more damaging here than the same
+placeholder would be on a cfg>1 model, where a negative branch would dilute it.
+`#649` already tells the buyer to replace it. On this evidence that is not step 3
+of a list — it is a requirement.
+
+### Supporting evidence **[cfg A/B arms still queued]**
 
 **Do not raise cfg.** cfg 1 is a *requirement* of the model, not an oversight.
 `zimage.safetensors` is the guidance-distilled Turbo; the vendor says guidance
