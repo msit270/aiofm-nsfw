@@ -637,5 +637,135 @@
   "text_106": "a woman's face the the the the the the the the the the the the the the the the the",
   "text": "a woman's face the the the the the the the the the the the the the the the the the",
   "words": 20
+ },
+ {
+  "arm": "T_tok31",
+  "prompt_id": "04c98e4e-ed2c-44f3-8c28-7394d0e7e36c",
+  "client_id": "trackA-T_tok31-46e11e05",
+  "wall_seconds": 75.3,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 51262421532,
+  "note": "token-count probe: fixed content + 19 x \" the\" = exactly 31 tokens",
+  "status": "error",
+  "exec_seconds": 71.6,
+  "cached": 0,
+  "cached_ids": [],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00043_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the",
+  "words": 22
+ },
+ {
+  "arm": "CTL_placeholder_after_T_tok31",
+  "prompt_id": "3c86689f-5cea-421f-86a8-495c119297d8",
+  "client_id": "trackA-CTL_placeholder_after_T_tok31-04655f47",
+  "wall_seconds": 85.3,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 57340263500,
+  "note": "health control after an error arm",
+  "status": "success",
+  "exec_seconds": 78.2,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00044_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00088_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
+ },
+ {
+  "arm": "T_tok33",
+  "prompt_id": "56e6cdae-3a38-4b73-9c90-6039dc419516",
+  "client_id": "trackA-T_tok33-7ca88468",
+  "wall_seconds": 80.5,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 56905857564,
+  "note": "token-count probe: fixed content + 21 x \" the\" = exactly 33 tokens",
+  "status": "success",
+  "exec_seconds": 76.4,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00045_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00089_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the",
+  "words": 24
+ },
+ {
+  "arm": "T_tok46",
+  "prompt_id": "df204d96-be02-4a1a-b7c3-6f8fb0ddf656",
+  "client_id": "trackA-T_tok46-3d9bcb3b",
+  "wall_seconds": 65.0,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 57174293020,
+  "note": "token-count probe: fixed content + 34 x \" the\" = exactly 46 tokens",
+  "status": "error",
+  "exec_seconds": 61.4,
+  "cached": 0,
+  "cached_ids": [],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00046_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "words": 37
  }
 ]

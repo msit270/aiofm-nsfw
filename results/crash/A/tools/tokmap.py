@@ -8,11 +8,22 @@ import comfy.text_encoders.z_image as z
 A = "/workspace/nsfw-fix/results/crash/A"
 
 
+# Arms that must not enter the map:
+#  TAP114_*  -- graph truncated at 621:163, so they CANNOT reach 622:403 and
+#               cannot report a crash. Their taps are still used elsewhere.
+#  REP_w17 / CTL_placeholder_after_REP_w17 -- VOID: that control failed with
+#               execution_cached: 16, so neither arm was cold. Both re-run as REP2_*.
+EXCLUDE = {"REP_w17", "CTL_placeholder_after_REP_w17"}
+EXCLUDE_PREFIX = ("TAP114_", "A0_")
+
+
 def main():
     tok = z.ZImageTokenizer()
     y = json.load(open(os.path.join(A, "arm_yolo.json")))
     rows = []
     for arm, r in y.items():
+        if arm in EXCLUDE or arm.startswith(EXCLUDE_PREFIX):
+            continue
         mp = os.path.join(A, "arms", arm, "meta.json")
         if not os.path.exists(mp):
             continue

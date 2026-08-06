@@ -1,0 +1,34 @@
+{
+ "arm": "T_tok33",
+ "prompt_id": "56e6cdae-3a38-4b73-9c90-6039dc419516",
+ "client_id": "trackA-T_tok33-7ca88468",
+ "wall_seconds": 80.5,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 56905857564,
+ "note": "token-count probe: fixed content + 21 x \" the\" = exactly 33 tokens",
+ "status": "success",
+ "exec_seconds": 76.4,
+ "cached": 0,
+ "cached_ids": [],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00045_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00089_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the"
+}

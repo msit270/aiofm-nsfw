@@ -12,3 +12,12 @@ follow-up finished; starting token sweep
 [T_tok29] submitted 5fb63faf-2647-4af0-8cc7-c0312e4240c9 cid=trackA-T_tok29-170e0736 queue_before=(0,0) vram_free=54.7GiB
 [T_tok29] success exec=74.4s cached=0 err=None  imgs=['tap163_00042_.png', 'HasMetadata_00087_.png']
 [T_tok31] submitted 04c98e4e-ed2c-44f3-8c28-7394d0e7e36c cid=trackA-T_tok31-46e11e05 queue_before=(0,0) vram_free=47.7GiB
+[T_tok31] error exec=71.6s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00043_.png']
+[CTL_placeholder_after_T_tok31] submitted 3c86689f-5cea-421f-86a8-495c119297d8 cid=trackA-CTL_placeholder_after_T_tok31-04655f47 queue_before=(0,0) vram_free=53.4GiB
+[CTL_placeholder_after_T_tok31] success exec=78.2s cached=0 err=None  imgs=['tap163_00044_.png', 'HasMetadata_00088_.png']
+[T_tok33] submitted 56e6cdae-3a38-4b73-9c90-6039dc419516 cid=trackA-T_tok33-7ca88468 queue_before=(0,0) vram_free=53.0GiB
+[T_tok33] success exec=76.4s cached=0 err=None  imgs=['tap163_00045_.png', 'HasMetadata_00089_.png']
+done
+[T_tok46] submitted df204d96-be02-4a1a-b7c3-6f8fb0ddf656 cid=trackA-T_tok46-3d9bcb3b queue_before=(0,0) vram_free=53.2GiB
+[T_tok46] error exec=61.4s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00046_.png']
+[CTL_placeholder_after_T_tok46] submitted e7ed18ed-49dd-4318-a32f-633a5dfc42b5 cid=trackA-CTL_placeholder_after_T_tok46-f14d3ebc queue_before=(0,0) vram_free=49.0GiB

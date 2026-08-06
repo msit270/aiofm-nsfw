@@ -1,6 +1,27 @@
 # TRACK A — is the face-prompt crash LENGTH or WORDS?
 
-**ANSWER: _(not yet established — run in progress)_**
+## **ANSWER: it is the LENGTH — specifically the exact TOKEN COUNT of the conditioning, and not as a threshold but as two narrow bands. Content is irrelevant.**
+
+Every prompt whose tokenised length is **30, 31, 32, 45 or 46 tokens** crashes.
+Every other length measured — 11, 12, 13, 14, 16, 20, 25, 26, 29, 33, 34, 35, 38,
+39, 41 — renders clean. **Across 29 arms and eight unrelated content families
+there is not one token count that gave two different outcomes.** Six completely
+different 30-token strings all crash, including `"a woman's face"` (which renders
+clean at 12 tokens) padded to 30 with repetitions of the word `the`, and they all
+produce **bit-identical** output.
+
+**In words the answer is "neither":** the word-count ladder is non-monotone (17
+and 18 words crash, 19–23 are clean, 24 and 25 crash), and at a fixed 17 words
+one stranger's description crashes while another is clean. Word count does not
+predict anything. Token count predicts everything measured so far.
+
+**What the crashing image is:** `620:114 FaceDetailer` returns a **pure black,
+face-shaped hole** — exactly `(0,0,0)` over 1.57 M pixels, hair and background
+untouched. `620:111 ImageColorMatch+` then colour-matches that black to the flat
+`(56,51,47)` seen downstream. `face_yolov8m.pt` still scores the remaining head
+silhouette at **0.466**, under the graph's **0.6**, so `622:424` returns zero
+SEGS, `622:407` hands `622:403` an all-zero mask, and `MaskBoundingBox+` calls
+`.min()` on an empty index tensor. Sheet: `results/crash/A/A4_contact_sheet.png`.
 
 Server: `127.0.0.1:18188` only. Nothing in this file touched 28191.
 Graph: FROZEN. Every arm is an in-memory mutation of an already-submitted API
@@ -482,6 +503,85 @@ the right thing to hand to whoever owns the Z-Image side.
 
 ---
 
-## T — the token-count sweep
+## T — the token-count sweep, with content held constant
 
-_(running)_
+The design. Fixed phrase **`"a woman's face"`** — 12 tokens, and already on record
+as clean at that length (R4's narrowing arm B, and again here) — plus *k*
+repetitions of the single-token word `" the"`. That gives **exactly 12+k tokens**
+with the semantic content held as close to constant as a prompt can be. So token
+count is the only variable that moves.
+
+Preceded by `CTL_recovery_before_T` (the shipped placeholder, byte-identical
+graph, **success, 79.0 s, `cached 0`**) because the previous health control had
+failed — see `A-questions.md`. Every arm below is cold, every error arm was
+followed by a clean byte-identical control.
+
+| arm | text | tokens | status | exec | cached | conf @621:163 |
+|---|---|---|---|---|---|---|
+| `T_tok29` | `a woman's face` + 17×`the` | 29 | success | 74.4 s | 0 | 0.8954 |
+| `T_tok30` | + 18×`the` | **30** | **ERROR `622:403`** | 48.1 s | 0 | 0.4656 |
+| `T_tok31` | + 19×`the` | **31** | **ERROR `622:403`** | 71.6 s | 0 | 0.4656 |
+| `T_tok32` | + 20×`the` | **32** | **ERROR `622:403`** | 56.9 s | 0 | 0.4656 |
+| `T_tok33` | + 21×`the` | 33 | success | 76.4 s | 0 | 0.8952 |
+| `T_tok46` | + 34×`the` | **46** | **ERROR `622:403`** | 61.4 s | 0 | 0.4656 |
+
+`T_tok30`, `T_tok31`, `T_tok32` and `T_tok46` are all **bit-identical** to
+`L_w17` (`max_abs_diff 0` over 2688×3456×3) — a string of the word `the` and a
+seven-clause character description produce the same pixels.
+
+### The pooled map — every arm, every content family, one row per token count
+
+```
+tok  verdict  n  arms
+  11  clean    1  L_w01
+  12  clean    1  L_w02
+  13  clean    1  L_w03
+  14  clean    1  L_w04
+  16  clean   13  A1_gate_placeholder, CTL_placeholder_after_w17, CTL_placeholder_after_w18, CTL_placeholder_after_w24, L_w06, CTL_placeholder_after_A3_C2_gardener_w17, CTL_placeholder_after_A3_swap_Tuesday, CTL_placeholder_after_A3_swap_fine, CTL_placeholder_after_A3_swap_obvious, CTL_recovery_before_T, CTL_placeholder_after_T_tok30, CTL_placeholder_after_T_tok31, CTL_placeholder_after_T_tok32
+  20  clean    1  L_w08
+  25  clean    1  L_w12
+  26  clean    1  A3_C4_committee_w17
+  29  clean    2  L_w16, T_tok29
+  30  CRASH    6  L_w17, A3_C2_gardener_w17, A3_swap_fine, A3_swap_Tuesday, A3_swap_obvious, T_tok30
+  31  CRASH    1  T_tok31
+  32  CRASH    2  L_w18, T_tok32
+  33  clean    2  L_w19, T_tok33
+  34  clean    1  A3_C1_fisherman_w17
+  35  clean    2  L_w20, A3_C3_locomotive_w17
+  38  clean    1  L_w21
+  39  clean    1  L_w22
+  41  clean    1  L_w23
+  45  CRASH    1  L_w24
+  46  CRASH    1  A1_gate_crashstring
+
+MIXED (same token count, different outcome): none
+```
+
+**Not one MIXED cell.** Every token count measured more than once agrees with
+itself, across families that share no vocabulary:
+
+* **30 tokens — 6 arms, 6 crashes.** A character description, a stranger's face,
+  three grammatically-broken swaps (`…texture with Tuesday`), and pure filler.
+* **33 tokens — 2 arms, both clean.** A character description and pure filler.
+* **35 tokens — 2 arms, both clean.** A character description and a locomotive.
+* **29 tokens — 2 arms, both clean.** **32 tokens — 2 arms, both crash.**
+* **16 tokens — 13 arms, all clean.** (The shipped placeholder and every health
+  control.)
+
+### So the answer to A3, in one sentence
+
+**It is the length, measured in tokens, and it is not a threshold — the unsafe
+lengths are the bands [30, 32] and [45, 46]; content has no effect whatsoever, and
+five different 17-word prompts split clean/crash purely on their token count.**
+
+### Two things this does NOT say
+
+* **It is not "long prompts are unsafe".** 33, 34, 35, 38, 39 and 41 tokens are
+  all clean and all longer than 32. A buyer's prompt can be *lengthened* out of
+  the crash — adding one word to a 30-token prompt is a workaround.
+* **The bands are not yet fully mapped.** The wide sweep (13–28, 34–44, 47–50 in
+  the `T` family) is queued; until it lands I only claim the values in the table
+  above. **[I]** Two bands of width 3 and 2 at 30–32 and 45–46 look like they
+  ought to mean something — the gap is 15, the widths differ — but I have no
+  mechanism for it and will not invent one.
+
