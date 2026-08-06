@@ -30,6 +30,21 @@ Two prompt_ids were executed by the server but never recorded by a driver:
 counted anywhere in `V-verify.md` — a run I did not record is not a result. I
 note them so the server's history and my grid can be reconciled.
 
+### 1b. And then I did it a second time, with `pkill`
+
+Chaining stages with `pkill -f "run_v.py awkward clean sweep"` killed **the shell
+that was running the pkill**, because that shell's own command line contains the
+pattern. The compound command died before its second `pkill` ran, which released a
+waiting loop early and started a second runner on top of the first — again.
+
+Caught within ~90 s from `pgrep -fc`, killed by PID, and `V_P1b` — the only arm
+whose render overlapped the second runner — was voided and re-run.
+**Rule adopted for the rest of the session: manage processes by PID only, never
+by pattern, and verify with `pgrep -af` immediately after every launch.**
+`V_SEED_1111112_cpu` was submitted by the doomed runner and never recorded; the
+directory was left without a `meta.json` so the resumable runner would re-run it
+from scratch, which it did.
+
 ### 2. The bug I nearly walked into: the fix arrives with a second commit attached
 
 `8d166e0` (`#114` denoise 0.80 → 0.35) landed one commit before the fix. The

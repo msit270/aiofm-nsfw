@@ -111,8 +111,27 @@ SEEDS = [
     for s in (1111112, 42)
 ]
 
+# The SECOND place this failure has been seen is the EYES pass, not the face pass:
+# Track A's E398_tok31 shipped `status: success` with both eyes solid black, by
+# lengthening 622:398 (the eye prompt) from the shipped 28 tokens to 31 while
+# leaving 620:106 on the safe placeholder. 622:398 encodes on the same 620:110, so
+# if the fix is really about conditioning values it should cure that too. If it
+# does not, the artifact still ships a black-region failure mode.
+EYE398 = "perfect eyes, round pupils, round iris, symmetrical eyes, realistic eyes, perfect circles, round"
+E398 = [
+    arm("V_E398_tok31_gpu", MID, v_strings.P4_16, 16,
+        "Eye-prompt attack CONTROL: 622:398 at 31 tokens, 620:106 on the safe placeholder, device default. Reproduces Track A's E398_tok31.",
+        {"622:398": {"text": EYE398 + " the the the"}}),
+    arm("V_E398_tok31_cpu", HEAD, v_strings.P4_16, 16,
+        "Eye-prompt attack: same, device cpu. Does the fix reach the eyes pass?",
+        {"622:398": {"text": EYE398 + " the the the"}}),
+    arm("V_E398_tok31_cpu_b", HEAD, v_strings.P4_16, 16,
+        "Eye-prompt attack repeat.",
+        {"622:398": {"text": EYE398 + " the the the"}}),
+]
+
 STAGES = {"iso": ISO, "proof": PROOF, "awkward": AWKWARD, "sweep": SWEEP,
-          "endctl": ENDCTL, "clean": CLEAN, "seeds": SEEDS}
+          "endctl": ENDCTL, "clean": CLEAN, "seeds": SEEDS, "e398": E398}
 
 # --- full 88-node renders -------------------------------------------------
 # The probe stages freeze the base image at trackA_base137.png. The SHIPPED file's
