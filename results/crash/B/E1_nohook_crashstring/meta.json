@@ -1,0 +1,31 @@
+{
+ "arm": "E1_nohook_crashstring",
+ "note": "CELL E. Crashing string in #106, 620:648 SEGSRangeFilterDetailerHookProvider detached from 620:165.detailer_hook. Prediction stated before running: no change, still crashes at 622:403, because in A0 the mouth detector printed '(no detections)' so the hook never had SEGS to filter.",
+ "expect": "crash",
+ "server": "127.0.0.1:28191",
+ "base": "results/r4/R4_CF15_filled/api_graph.json",
+ "changes": [
+  {
+   "path": "620:165.inputs.detailer_hook",
+   "from": [
+    "620:648",
+    0
+   ],
+   "to": null
+  }
+ ],
+ "graph_sha256": "e9dec284be47c1ce60e13e8146bda11fb989560d814e38cf06cf6f2a0a6486e0",
+ "prompt_id": "f087c4ca-272b-460f-86f4-327791690376",
+ "client_id": "trackB-E1_nohook_crashstring-c215e2ae",
+ "status": "error",
+ "exec_seconds": 351.6,
+ "wall_seconds": 360.5,
+ "cached_count": 0,
+ "cached_nodes": [],
+ "images": [],
+ "health": [],
+ "error_node_id": "622:403",
+ "error_node_type": "MaskBoundingBox+",
+ "exception_type": "RuntimeError",
+ "exception_message": "min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n"
+}

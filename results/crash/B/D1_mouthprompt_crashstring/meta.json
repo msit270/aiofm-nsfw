@@ -1,0 +1,50 @@
+{
+ "arm": "D1_mouthprompt_crashstring",
+ "note": "CELL D. #106 left at the shipped placeholder; the crashing string goes into 621:166, the MOUTH prompt on 620:165. Same lumina2 encoder (620:110), same cfg 1. Single variable vs A1_baseline_clean.",
+ "expect": "unknown",
+ "server": "127.0.0.1:28191",
+ "base": "results/r4/R4_CF15_placeholder/api_graph.json",
+ "changes": [
+  {
+   "path": "621:166.inputs.text",
+   "from": "realistic detailed mouth",
+   "to": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens"
+  }
+ ],
+ "graph_sha256": "5de83081fd8b628808ead3bb01c57a4dc7a8872518710aadc96b4d814f74a478",
+ "prompt_id": "a5822c60-a273-4073-a8a2-568ac4ab82cb",
+ "client_id": "trackB-D1_mouthprompt_crashstring-dd9c0410",
+ "status": "success",
+ "exec_seconds": 293.3,
+ "wall_seconds": 300.2,
+ "cached_count": 0,
+ "cached_nodes": [],
+ "images": [
+  "HasMetadata_00008_.png"
+ ],
+ "health": [
+  {
+   "file": "HasMetadata_00008_.png",
+   "size": [
+    2688,
+    3456
+   ],
+   "flat_frac": 0.041789,
+   "luma_sd": 59.496,
+   "luma_mean": 138.687,
+   "luma_min": 6.587,
+   "modal_rgb": [
+    253,
+    253,
+    252
+   ],
+   "modal_frac": 0.02476,
+   "has_nan": false,
+   "suspect_poisoned": false
+  }
+ ],
+ "error_node_id": null,
+ "error_node_type": null,
+ "exception_type": null,
+ "exception_message": null
+}

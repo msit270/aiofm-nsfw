@@ -223,3 +223,76 @@ face; `B2` has the LoRAs, no prefix, and a good one. The LoRAs then decide wheth
 the destruction is total enough that `face_yolov8m.pt` loses it and `622:403`
 raises. I have not tested `"luna, "` alone with the LoRAs *off*, so I cannot say
 the prefix does this by itself, without the long description.
+
+---
+
+## D — the crashing string in the **mouth** prompt does not crash
+
+| cell | what varied vs `A1_baseline_clean` | prompt_id | status | cached | exception node |
+|---|---|---|---|---|---|
+| `D1_mouthprompt_crashstring` | `621:166.text` `"realistic detailed mouth"` -> the crashing string. `620:106` left at the placeholder | `a5822c60-a273-4073-a8a2-568ac4ab82cb` | **success** 293.3 s | 0 | — |
+
+Healthy: `flat_frac 0.0418`, `luma_sd 59.50`, modal colour `(253,253,252)` at
+**2.48 %** of frame — no fill. Every detector fired, including `1 lips`
+(crop 1844x803, byte-identical centre to `A1`'s, because with `#106` at the
+placeholder the face pass output is the same). It is a real, different render:
+`psnr 24.91` / `max_abs_diff 215` against `A1`, which is where the mouth changed.
+
+`621:166` and `620:106` are both `CLIPTextEncode` on the **same** lumina2 encoder
+`620:110`, and both detailers run at **cfg 1**. The same 169-character string
+through the same encoder is harmless on the mouth pass and fatal on the face
+pass. **So this is not a conditioning-shape or encoder problem** — which was
+hypothesis 2 in `notes/CRASH.md`. The two passes still differ in denoise
+(0.80 face vs 0.35 mouth) and in guide_size, so this weakens hypothesis 2 rather
+than killing it outright, but the encoder itself produces a usable conditioning
+from this string.
+
+**Verdict D (mouth): it does NOT crash. This stays a `#106` / `620:114` problem
+and the shape of the fix is unchanged.**
+
+### What "#406" is
+
+`#406` is **`622:406 DetailerForEachDebug`** — the **eyes** detailer in the Eyes
+stage, guide_size 1920, seed 1111112, steps 8, cfg 1, denoise 0.42, sampler
+`euler` / `beta`. Prior sessions already use that name for that node
+(`notes/P3-cfg.md` §"eyes `#406`", `AUDIT.md` line 298). Its positive
+conditioning is **`622:398 CLIPTextEncode` "Eye Positive Prompt"**
+(`"perfect eyes, round pupils, round iris, symmetrical eyes, realistic eyes,
+perfect circles, round"`) on the same lumina2 clip `620:110`, cfg 1 — so yes, it
+is a text encode on the same encoder and it was tested.
+
+**But `622:406` is *downstream* of `622:403`** — reachability walked from the
+submitted graph: `622:403` is in `622:406`'s dependency set, not the other way
+round. It therefore **cannot** produce the `622:403` crash; the crash would
+already have happened. The cell tests whether the string does something else
+there. Result below.
+
+---
+
+## E — the mouth SEGS size guard is **ruled out**
+
+| cell | what varied vs `A0_baseline_crash` | prompt_id | status | cached | exception node |
+|---|---|---|---|---|---|
+| `E1_nohook_crashstring` | `620:165.detailer_hook` — the link from `620:648` removed | `f087c4ca-272b-460f-86f4-327791690376` | **error** 351.6 s | 0 | **`622:403 MaskBoundingBox+`** `RuntimeError` |
+
+Graph diff against `A0`: **one difference**, the removed `detailer_hook` input.
+Same node, same exception message, same all-zero mask. The detector trace is
+identical to `A0`'s step for step:
+
+```
+A0:  1 face | (none) | 1 face | (none) mouth | (NONE) eyes-stage  -> crash
+E1:  1 face | (none) | 1 face | (none) mouth | (NONE) eyes-stage  -> crash
+```
+
+**Verdict E: ruled out.** And the log says why it could never have been the cause
+in this configuration: in the crashing arm the mouth detector prints
+`(no detections)`, so `620:648` is handed **no SEGS to filter** and never
+influences anything. It can make the mouth pass a no-op when a mouth *is* found
+and is too big — `HANDOFF.md` §6.2's defect, which is real and separate — but it
+is not on the path to this crash.
+
+*(Timing note: 351.6 s here vs 254.8 s for the same crash in `A0`. The GPU is
+shared — `nvidia-smi` shows the 18188 server holding 24 GB and a third process
+20 GB, with the card at 60 % while my queue was empty. **No timing in this
+document should be treated as a measurement.** Crash/no-crash and the image
+metrics are unaffected.)*
