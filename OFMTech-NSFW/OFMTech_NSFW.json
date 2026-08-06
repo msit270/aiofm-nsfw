@@ -1,7 +1,7 @@
 {
   "id": "0f57b357-3d3a-43e7-b5c0-d90d68ea606f",
   "revision": 0,
-  "last_node_id": 651,
+  "last_node_id": 652,
   "last_link_id": 1511,
   "nodes": [
     {
@@ -1169,7 +1169,7 @@
       "title": "",
       "properties": {},
       "widgets_values": [
-        "# How to use this workflow\n\n**Everything you need to touch is in this green box.**\n\n## 1 · Your prompts and seed\nUse the panel to the right. Add prompts, set a seed, hit **Queue**.\nEach prompt in the batch renders the whole pipeline once — six prompts\nmeans six full renders, so start with one.\n\n## 2 · Your character LoRAs\nThe two slots below. They are **not interchangeable**:\n\n* **Your SDXL LoRa** → drives the body, pose, hands and both upscales.\n* **Your ZIT LoRa** → drives the face, mouth and eyes at full resolution.\n  This is the slot your character's *likeness* lives in.\n\nPutting an SDXL LoRA in the Z-Image slot will not error. It will just\nquietly fail to apply your character.\n\n## 3 · One thing you must fill in\nOpen **5. Face & Mouth Detail**, find *Face Detailer Prompt*, and replace\n`TRIGGER, PROMPT FOR YOUR MODEL` with your LoRA's trigger word and a short\ndescription of your character. That node drives the single most expensive\npass in the workflow.\n\n## While it renders\nAn **image selector** window opens partway through and the render **waits\nfor you**. Pick the image you want and it continues. That is deliberate —\nit lets you reject a bad base image before paying for the detail passes.\n\nRoughly 4 minutes and ~40 GB of VRAM per image at the shipped settings."
+        "# How to use this workflow\n\n**Everything you need to touch is in this green box.**\n\n## 1 · Your prompts and seed\nUse the panel to the right. Add prompts, set a seed, hit **Queue**.\nEach prompt in the batch renders the whole pipeline once — six prompts\nmeans six full renders, so start with one.\n\n## 2 · Your character LoRAs\nThe two slots below. They are **not interchangeable**:\n\n* **Your SDXL LoRa** → drives the body, pose, hands and both upscales.\n* **Your ZIT LoRa** → drives the face, mouth and eyes at full resolution.\n  This is the slot your character's *likeness* lives in.\n\nPutting an SDXL LoRA in the Z-Image slot will not error. It will just\nquietly fail to apply your character.\n\n## 3 · One thing you must fill in\nOpen **5. Face & Mouth Detail**, find *Face Detailer Prompt*, and replace\n`TRIGGER, PROMPT FOR YOUR MODEL` with your LoRA's trigger word and a short\ndescription of your character. That node drives the single most expensive\npass in the workflow.\n\nPut what you want **avoided** in that same box. The *negative* prompt boxes\non the face, mouth and eye passes do nothing at all — there is a note next to\nthem inside that box explaining why.\n\n## While it renders\nAn **image selector** window opens partway through and the render **waits\nfor you**. Pick the image you want and it continues. That is deliberate —\nit lets you reject a bad base image before paying for the detail passes.\n\nRoughly 4 minutes and ~40 GB of VRAM per image at the shipped settings."
       ],
       "color": "#432",
       "bgcolor": "#653"
@@ -5673,7 +5673,7 @@
         "version": 1,
         "state": {
           "lastGroupId": 38,
-          "lastNodeId": 647,
+          "lastNodeId": 652,
           "lastLinkId": 1508,
           "lastRerouteId": 10
         },
@@ -6604,7 +6604,7 @@
               }
             },
             "widgets_values": [
-              "deformed, ugly, blurry, bad anatomy, disfigured, extra eyes, cropped face, out of frame, deformed piercing, bad piercing, watermark, text"
+              ""
             ],
             "color": "#223",
             "bgcolor": "#335"
@@ -6789,6 +6789,30 @@
               true,
               0,
               1700000
+            ],
+            "color": "#432",
+            "bgcolor": "#653"
+          },
+          {
+            "id": 652,
+            "type": "MarkdownNote",
+            "pos": [
+              2810,
+              5570
+            ],
+            "size": [
+              680,
+              560
+            ],
+            "flags": {},
+            "order": 12,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [],
+            "title": "",
+            "properties": {},
+            "widgets_values": [
+              "## The negative prompt boxes in here are empty on purpose\n\nThe face, mouth and eye passes run on **Z-Image Turbo** (`zimage.safetensors`,\nloaded on the left). Turbo models are built for speed, and the trade they make\nis that **they have no negative prompt at all.**\n\nAnything you type into a negative box on these three passes is thrown away\nbefore the model ever sees it. Nothing is broken and nothing is ignoring you —\nthe words genuinely never arrive. **Leave the boxes empty.**\n\n### Say what you *don't* want in the positive box instead\n\n**Face Detailer Prompt** is the only thing steering this pass, so it has to\ncarry both halves. Turn each \"not that\" into a \"this\":\n\n* instead of a negative `blurry` → put `sharp focus` in the positive\n* instead of a negative `bad teeth` → put `clean even teeth` in the positive\n* instead of a negative `extra eyes` → describe the eyes you *do* want\n\n### Do not turn `cfg` up to make the negatives work\n\nIt looks like the fix and it is not one. `cfg` is **1** on both detailers in\nhere, and on the eye pass in **6. Eyes**, because 1 is the setting this model\nwas built for. Turning it up does not usefully switch the negative prompt back\non — that was measured, not assumed — and it runs the model outside what it was\ntrained to do.\n\nIf a pass gives you something you don't want, change the **positive** prompt or\nyour LoRA. Not `cfg`, and not the negative box."
             ],
             "color": "#432",
             "bgcolor": "#653"
