@@ -136,9 +136,17 @@ of its clauses — is **not isolated.**
 > **Reproduction.** `lunaskye.safetensors` on `#618`, `luna.safetensors` on `#116`,
 > `#106` = `luna, a young woman with light freckles across her nose and cheeks,`
 > `natural skin texture with visible pores, detailed eyes, photorealistic portrait`
-> `photograph, 85mm lens`, everything else shipped. Dies at `622:403` with
-> `RuntimeError: min(): Expected reduction dim … input.numel() == 0` —
-> `ComfyUI_essentials/mask.py:184`, `.min()` on an empty face mask.
+> `photograph, 85mm lens`, everything else shipped. Dies at `622:403`,
+> `RuntimeError: min(): Expected reduction dim … input.numel() == 0`,
+> `ComfyUI_essentials/mask.py:184`. **Full trace: `notes/CRASH.md`.**
+
+**The mechanism, now that the trace exists — and it corrects what I told you.**
+It is **not** `.min()` on an all-zero mask; `torch.zeros().min()` is fine. Line 183
+is `_, y, x = torch.where(mask)`, which on an all-zero mask returns **zero-length**
+index tensors, so line 184 calls `.min()` on an empty one. That changes what kind
+of bug this is: **the Eyes stage's face detector (`face_yolov8m.pt` @ 0.6) found
+no face at all**, and the graph has no guard for "found nothing". A fix has to
+restore the detection or handle the empty case — not sanitise mask values.
 
 **Confirmed on the exact bytes that ship.** The original arms all ran at
 `bbox_crop_factor` 3 and I changed that to 1.5 in `74c0f11` while they were in
