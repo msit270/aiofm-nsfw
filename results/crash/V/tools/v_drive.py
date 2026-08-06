@@ -189,3 +189,22 @@ def _run_once(name, graph, note, tokens):
           f"err={s['error_node']} nodes_exec={len([x for x in rec.executed if x])} "
           f"eyes406={'622:406' in rec.executed} imgs={[i['filename'] for i in s['images']]}", flush=True)
     return meta
+
+
+def done(name):
+    """True if this arm already has a recorded, cold, completed result."""
+    p = os.path.join(ROOT, "arms", name, "meta.json")
+    if not os.path.exists(p):
+        return False
+    m = json.load(open(p))
+    return m.get("status") in ("success", "error") and m.get("cached") == 0
+
+
+def run_set(arms, mkfn):
+    """arms: list of (name, tokens, note, kwargs-for-mkfn). Resumable."""
+    for name, tokens, note, kw in arms:
+        if done(name):
+            print(f"[{name}] already recorded -- skipping", flush=True)
+            continue
+        run_arm(name, mkfn(**kw), tokens=tokens, note=note)
+    print("RUNSET-DONE", flush=True)
