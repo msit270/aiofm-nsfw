@@ -210,6 +210,14 @@ Consequences:
   `bbox x 3` exceeds the frame. **A buyer shooting close-up portraits gets a
   materially worse result than one shooting wider, from the same graph.**
 
+**Confirmed a third way, from the pixels alone.** Radially-averaged power spectra
+on 512x512 patches: if the face had been generated at 1024 and upscaled to 2688
+there would be a hard knee at f/Nyquist = 1024/2688 = **0.381**. There is none —
+the cheek's roll-off has the same shape as the background that was never
+re-diffused, and the bumps carry energy right up to Nyquist. That is not
+upsampled content. The render agent ran this to test its *own* resample
+hypothesis and it falsified it, before either of us knew about the log line.
+
 ### And at cfg 1, your positive prompt is the *only* steering signal
 
 There is no negative branch to dilute a bad positive (§5). `#106` ships as the

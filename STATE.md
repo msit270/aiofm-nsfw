@@ -383,6 +383,23 @@ New, all paid for this run:
 8. **Substituting a less noisy instrument is not the same as validating it.**
    Wall-clock → server-side timestamps felt like rigour and was still n=2 treated
    as noise-free. Ask what the denominator is before believing any measurement.
+9. **"Delete only your own prompt ids" is NOT safe on a nearly-empty queue.**
+   `execution.py:1218-1229` — `delete_queue_item` calls **`wipe_queue()`** when
+   `len(self.queue) == 1`. It happens to be equivalent when that one item is
+   yours, but on a shared server it means a scoped delete can be a full clear in
+   disguise. Assert the pending count is greater than the number you are deleting
+   before firing. This is the safe-looking version of the unscoped-clear incident.
+10. **`guide_size` and `max_size` on an Impact detailer are self-cancelling, and
+    with `force_inpaint: true` they cannot lower the sampling resolution at all.**
+    `core.py:287-325`: `guide_size_for=True` gives
+    `upscale = guide_size / min(bbox_w, bbox_h)`, then a safeguard claws it back
+    by `max_size / max(new_w, new_h)` — dividing by the **crop's** dimensions, not
+    the bbox's. Raising both together always returns to ≤ 1.0 and is then clamped
+    up to exactly 1.0. Raising `guide_size` alone with a large `max_size` engages
+    and samples *more* pixels. **`bbox_crop_factor` is the only lever that reduces
+    the work.** Read the `Detailer: segment upscale …` line in
+    `user/comfyui_18188.log` to see what actually happened, rather than inferring
+    it from widgets.
 
 ---
 
