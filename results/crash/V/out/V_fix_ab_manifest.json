@@ -1,0 +1,233 @@
+{
+ "generated": "2026-08-06 21:00",
+ "source": "explicit --arm list",
+ "tool": "/workspace/nsfw-fix/tools/contact_sheet.py",
+ "max_width": 4000,
+ "detector": "/workspace/ComfyUI/models/ultralytics/bbox/face_yolov8m.pt",
+ "detector_error": null,
+ "face_box_xywh": [
+  740,
+  631,
+  1558,
+  2250
+ ],
+ "skin_box_xywh": [
+  740,
+  655,
+  400,
+  400
+ ],
+ "skin_stats": {
+  "skin_frac": 1.0,
+  "blur_grad": 0.654,
+  "anchor": "face",
+  "search_region": [
+   740,
+   631,
+   1558,
+   2250
+  ]
+ },
+ "image_size": [
+  2688,
+  3456
+ ],
+ "sheets": [
+  {
+   "region": "face",
+   "path": "/workspace/nsfw-fix/results/crash/V/out/V_fix_ab_face_sheet1of1.png",
+   "size": [
+    3174,
+    2642
+   ],
+   "cols": 2,
+   "tiles": [
+    "V_ISO_d035_cpu_a",
+    "V_ISO_d035_gpu_a"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "V_ISO_d035_cpu_a",
+     "ok": true,
+     "src_box": [
+      740,
+      631,
+      1558,
+      2250
+     ],
+     "sheet_at": [
+      20,
+      372,
+      1558,
+      2250
+     ],
+     "src_shape": [
+      2250,
+      1558,
+      3
+     ],
+     "sheet_shape": [
+      2250,
+      1558,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "V_ISO_d035_gpu_a",
+     "ok": true,
+     "src_box": [
+      740,
+      631,
+      1558,
+      2250
+     ],
+     "sheet_at": [
+      1596,
+      372,
+      1558,
+      2250
+     ],
+     "src_shape": [
+      2250,
+      1558,
+      3
+     ],
+     "sheet_shape": [
+      2250,
+      1558,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  },
+  {
+   "region": "skin",
+   "path": "/workspace/nsfw-fix/results/crash/V/out/V_fix_ab_skin_sheet1of1.png",
+   "size": [
+    858,
+    752
+   ],
+   "cols": 2,
+   "tiles": [
+    "V_ISO_d035_cpu_a",
+    "V_ISO_d035_gpu_a"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "V_ISO_d035_cpu_a",
+     "ok": true,
+     "src_box": [
+      740,
+      655,
+      400,
+      400
+     ],
+     "sheet_at": [
+      20,
+      332,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "V_ISO_d035_gpu_a",
+     "ok": true,
+     "src_box": [
+      740,
+      655,
+      400,
+      400
+     ],
+     "sheet_at": [
+      438,
+      332,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  }
+ ],
+ "arms": [
+  {
+   "name": "V_ISO_d035_cpu_a",
+   "param": "device=cpu (the fix) success",
+   "path": "results/crash/V/arms/V_ISO_d035_cpu_a/nTAP163__tap163_00009_.png",
+   "is_baseline": false,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    851.3984985351562,
+    786.223388671875,
+    2190.94189453125,
+    2697.208984375
+   ],
+   "det_conf": 0.8944834470748901,
+   "det_status": "detected",
+   "face_box": [
+    740,
+    631,
+    1558,
+    2250
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "V_ISO_d035_gpu_a",
+   "param": "device=default (pre-fix) ERROR 622:403",
+   "path": "results/crash/V/arms/V_ISO_d035_gpu_a/nTAP163__tap163_00002_.png",
+   "is_baseline": false,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    847.9210815429688,
+    809.5313110351562,
+    2185.879150390625,
+    2724.9072265625
+   ],
+   "det_conf": 0.46747109293937683,
+   "det_status": "detected",
+   "face_box": [
+    740,
+    631,
+    1558,
+    2250
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ ]
+}

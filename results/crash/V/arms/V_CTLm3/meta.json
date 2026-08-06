@@ -1,0 +1,60 @@
+{
+ "arm": "V_CTLm3",
+ "prompt_id": "4488368c-92c0-41fd-b457-7670eb2e1359",
+ "client_id": "trackV-V_CTLm3-81fc2680",
+ "wall_seconds": 55.3,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 68262656540,
+ "note": "Mid-run pre-fix positive control. If this stops failing, everything after it is void.",
+ "tokens": 46,
+ "executed_nodes": [
+  "BASE",
+  "620:108",
+  "620:107",
+  "620:110",
+  "620:105",
+  "620:106",
+  "620:109",
+  "620:113",
+  "116",
+  "620:114",
+  "620:111",
+  "620:648",
+  "621:161",
+  "621:166",
+  "620:165",
+  "621:163",
+  "TAP163",
+  "622:431",
+  "622:398",
+  "622:424",
+  "622:407",
+  "622:403"
+ ],
+ "ws_error": null,
+ "status": "error",
+ "exec_seconds": 54.6,
+ "cached": 0,
+ "cached_ids": [],
+ "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+ "error_node": "622:403",
+ "error_type": "MaskBoundingBox+",
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00026_.png",
+   "subfolder": "crashV",
+   "type": "output"
+  }
+ ],
+ "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens",
+ "620:110": {
+  "device": "default"
+ },
+ "620:114": {
+  "denoise": 0.8
+ }
+}

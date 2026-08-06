@@ -1,0 +1,78 @@
+{
+ "arm": "V_P4b",
+ "prompt_id": "1ca615f4-3f1b-4001-803c-66d07abbc873",
+ "client_id": "trackV-V_P4b-b3005b29",
+ "wall_seconds": 100.2,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 68247923396,
+ "note": "P4 repeat.",
+ "tokens": 16,
+ "executed_nodes": [
+  "BASE",
+  "620:108",
+  "620:107",
+  "620:110",
+  "620:105",
+  "620:106",
+  "620:109",
+  "620:113",
+  "116",
+  "620:114",
+  "620:111",
+  "620:648",
+  "621:161",
+  "621:166",
+  "620:165",
+  "621:163",
+  "TAP163",
+  "622:431",
+  "622:398",
+  "622:424",
+  "622:407",
+  "622:403",
+  "622:404",
+  "622:414",
+  "622:399",
+  "622:415",
+  "622:410",
+  "622:402",
+  "622:408",
+  "622:406",
+  "622:400",
+  "622:401",
+  "622:418",
+  "505"
+ ],
+ "ws_error": null,
+ "status": "success",
+ "exec_seconds": 96.7,
+ "cached": 0,
+ "cached_ids": [],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00027_.png",
+   "subfolder": "crashV",
+   "type": "output"
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00143_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "text_106": "TRIGGER, PROMPT FOR YOUR MODEL",
+ "620:110": {
+  "device": "cpu"
+ },
+ "620:114": {
+  "denoise": 0.35
+ }
+}

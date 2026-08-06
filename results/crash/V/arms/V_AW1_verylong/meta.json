@@ -1,0 +1,79 @@
+{
+ "arm": "V_AW1_verylong",
+ "prompt_id": "7a0eb767-c6c0-4dd7-9adb-83d89f344dde",
+ "client_id": "trackV-V_AW1_verylong-88fa3d62",
+ "wall_seconds": 100.2,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 62994545180,
+ "free_wait_s": 8.0,
+ "note": "Awkward set: AW1_verylong. Token count measured, not assumed.",
+ "tokens": 166,
+ "executed_nodes": [
+  "BASE",
+  "620:108",
+  "620:107",
+  "620:110",
+  "620:105",
+  "620:106",
+  "620:109",
+  "620:113",
+  "116",
+  "620:114",
+  "620:111",
+  "620:648",
+  "621:161",
+  "621:166",
+  "620:165",
+  "621:163",
+  "TAP163",
+  "622:431",
+  "622:398",
+  "622:424",
+  "622:407",
+  "622:403",
+  "622:404",
+  "622:414",
+  "622:399",
+  "622:415",
+  "622:410",
+  "622:402",
+  "622:408",
+  "622:406",
+  "622:400",
+  "622:401",
+  "622:418",
+  "505"
+ ],
+ "ws_error": null,
+ "status": "success",
+ "exec_seconds": 98.6,
+ "cached": 0,
+ "cached_ids": [],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00028_.png",
+   "subfolder": "crashV",
+   "type": "output"
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00144_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "text_106": "luna, a young woman photographed in a quiet north-facing studio on a grey afternoon, light freckles scattered across the bridge of her nose and over both cheekbones, natural skin texture with visible pores and fine vellus hair catching the light, faint shadows under the eyes, a small mole below the left jaw, dark hair pushed back behind one ear, detailed eyes with a clear catchlight from a large softbox placed slightly camera left and above, relaxed mouth, unretouched complexion with a little redness around the nostrils, photorealistic portrait photograph shot on an 85mm lens at f2 with shallow depth of field, colour graded gently towards neutral, no makeup, no jewellery, plain \u80cc\u666f, calm expression, looking directly into the camera lens",
+ "620:110": {
+  "device": "cpu"
+ },
+ "620:114": {
+  "denoise": 0.35
+ }
+}
