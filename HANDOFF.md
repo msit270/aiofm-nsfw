@@ -244,6 +244,39 @@ encountered in cast` on `np.clip(255.*image,0,255).astype(np.uint8)`, and
 when they land. If it reproduces it is crash-class and it sits directly on the
 buyer's documented first action; if it does not, it was a transient.
 
+### ⚠ AND `#114` CAN SILENTLY DESTROY THE FACE WHILE REPORTING SUCCESS
+
+This is a defect in its own right, separate from the quality question, and it now
+has **three** instances.
+
+Setting `bbox_crop_factor` to **1.5** or to **1.0** — one input, inside its
+documented range — produces a delivered image with **no face at all**: a flat,
+perfectly constant region of **RGB (53, 47, 43)**, the *same* value in both arms,
+covering 23.5 % / 23.65 % of the frame. Hair, neck, shoulders and background are
+intact. `status: success`. No error, no warning, and `#505` writes the file. **A
+buyer would receive that image.**
+
+The log shows the pass itself running normally (`vae encoded`, `loaded
+completely`, `vae decoded`), and only the *downstream* stages noticing the
+wreckage — `0: 640x512 (no detections)`, `No faces detected in controlnet image`,
+`[mask_to_segs] Empty mask`, `# of Detected SEGS: 0`. The face was gone before
+the eye pass; the eye pass merely could not find one.
+
+Put beside the black-image arm above, the pattern is: **`#114` can return
+degenerate output — NaN in one case, a constant in another — and the graph
+reports success either way.** Whether or not you ever touch these settings, that
+failure mode is on the shipped graph.
+
+**It also settles where the bumps come from.** The flat region is `#114`'s
+composite footprint drawn as a solid shape, and it is the *same silhouette* as
+the band-pass energy map of the shipped baseline. The region that goes flat when
+the pass fails is exactly the region covered in bumps when it succeeds.
+
+**And it closes the lever.** `guide_size`/`max_size` are inert and
+self-cancelling; `bbox_crop_factor` is catastrophic. There is **no safe way to
+make that pass sample fewer pixels on this graph** — so `steps` and `denoise` are
+not merely the best levers, they are the only ones left.
+
 ### Sampling resolution is the whole story — and it is monotonic
 
 The sweep tested both directions from the shipped 2688x3456. Band-pass energy on
