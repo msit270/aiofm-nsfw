@@ -5,3 +5,13 @@
 [L_w03] submitted 20f74567-7dd1-492d-9e6f-bb6222706eb7 cid=trackA-L_w03-37cdd58c queue_before=(0,0) vram_free=66.3GiB
 [L_w03] success exec=78.7s cached=0 err=None  imgs=['tap163_00005_.png', 'HasMetadata_00063_.png']
 [L_w04] submitted 60f32dfc-f4b7-4199-ae3c-fee4a2d1b9a5 cid=trackA-L_w04-9097e9fe queue_before=(0,0) vram_free=65.3GiB
+[L_w04] success exec=73.3s cached=0 err=None  imgs=['tap163_00006_.png', 'HasMetadata_00064_.png']
+[L_w06] submitted 572d2e9e-75c3-4064-abde-777776faeb4a cid=trackA-L_w06-9da426cc queue_before=(0,0) vram_free=55.8GiB
+[L_w06] success exec=71.4s cached=0 err=None  imgs=['tap163_00007_.png', 'HasMetadata_00065_.png']
+[L_w08] submitted ab70ad85-b7a9-465e-9473-b13c6f0de022 cid=trackA-L_w08-2ffbbd12 queue_before=(0,0) vram_free=55.4GiB
+[L_w08] success exec=53.9s cached=0 err=None  imgs=['tap163_00008_.png', 'HasMetadata_00066_.png']
+[L_w12] submitted a3203c74-0bc5-4f50-b006-a4cec3f56460 cid=trackA-L_w12-7cf7e063 queue_before=(0,0) vram_free=54.7GiB
+[L_w12] success exec=74.9s cached=0 err=None  imgs=['tap163_00009_.png', 'HasMetadata_00067_.png']
+[L_w16] submitted 5901322d-016a-4790-ad36-ed92d833fb7f cid=trackA-L_w16-1274bfe0 queue_before=(0,0) vram_free=61.3GiB
+[L_w16] success exec=77.6s cached=0 err=None  imgs=['tap163_00010_.png', 'HasMetadata_00068_.png']
+[L_w24] submitted ee211b4e-c623-4060-8e94-9d9ee52bf17f cid=trackA-L_w24-2bf0f006 queue_before=(0,0) vram_free=58.3GiB

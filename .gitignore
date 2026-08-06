@@ -32,3 +32,15 @@ results/r3_crop/R3_control_cf3/*.png
 # max 0) to results/face/arms/L1b_steps08_loras/HasMetadata_00031_.png, so
 # committing 22 MB of duplicates adds nothing. The numbers are in meta.json.
 results/face/control/R1_control_L1b_repeat/*.png
+
+# TRACK A (results/crash/A): ~20 arms x 2 PNGs x 11 MB = 200 MB+ of 2688x3456
+# frames. The full-resolution originals stay on the pod under
+# results/crash/A/arms/. What IS committed instead:
+#   * results/crash/A/A4_contact_sheet.png  -- the two A4 panels at 1:1, full res
+#   * results/crash/A/thumbs/*.png          -- the 621:163 face region of EVERY
+#     arm, cropped to the detector's own box and halved, so the whole ladder is
+#     inspectable from the repo
+#   * every api_graph.json, meta.json and /history JSON, uncompressed
+# The detector numbers that the argument actually rests on are in
+# results/crash/A/arm_yolo.json and yolo_A4.json, not in the pixels.
+results/crash/A/arms/*/*.png

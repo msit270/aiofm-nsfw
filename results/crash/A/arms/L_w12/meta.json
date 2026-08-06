@@ -1,0 +1,34 @@
+{
+ "arm": "L_w12",
+ "prompt_id": "a3203c74-0bc5-4f50-b006-a4cec3f56460",
+ "client_id": "trackA-L_w12-7cf7e063",
+ "wall_seconds": 80.1,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 58739350552,
+ "note": "ladder: first 12 words of the crashing string",
+ "status": "success",
+ "exec_seconds": 74.9,
+ "cached": 0,
+ "cached_ids": [],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00009_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00067_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "text_106": "luna, a young woman with light freckles across her nose and cheeks,"
+}

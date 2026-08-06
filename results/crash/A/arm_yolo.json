@@ -1,0 +1,248 @@
+{
+ "A0_base_tap137": {
+  "status": "success",
+  "prompt_id": "24792430-0cd0-422f-9a05-86fdbdc0be13",
+  "exec_seconds": 288.6,
+  "cached": 0,
+  "text": null,
+  "error_node": null,
+  "tap": null
+ },
+ "A1_gate_crashstring": {
+  "status": "error",
+  "prompt_id": "19d04a85-30b5-4a4e-96b0-2865fd55597f",
+  "exec_seconds": 61.7,
+  "cached": 0,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens",
+  "error_node": "622:403",
+  "tap": "nTAP163__tap163_00001_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 0,
+    "max_conf": null
+   },
+   "0.5": {
+    "n": 0,
+    "max_conf": null
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   }
+  },
+  "highest_conf": 0.4656447172164917,
+  "luma_sd": 60.57,
+  "flat_frac": 0.3591
+ },
+ "A1_gate_placeholder": {
+  "status": "success",
+  "prompt_id": "2dbc564d-a7dd-493c-b4c8-714332531d24",
+  "exec_seconds": 79.3,
+  "cached": 0,
+  "text": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00002_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   }
+  },
+  "highest_conf": 0.8952752351760864,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1876
+ },
+ "L_w01": {
+  "status": "success",
+  "prompt_id": "e1bc802e-aa98-4e6e-a879-ae0cb7699e06",
+  "exec_seconds": 83.3,
+  "cached": 0,
+  "text": "luna,",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00003_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8955509662628174
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8955509662628174
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8955509662628174
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8955509662628174
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8955509662628174
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8955509662628174
+   }
+  },
+  "highest_conf": 0.8955509662628174,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1877
+ },
+ "L_w02": {
+  "status": "success",
+  "prompt_id": "19a9ddb5-2c4d-4144-b578-acc03c05f83a",
+  "exec_seconds": 61.7,
+  "cached": 0,
+  "text": "luna, a",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00004_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8954974412918091
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8954974412918091
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8954974412918091
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8954974412918091
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8954974412918091
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8954974412918091
+   }
+  },
+  "highest_conf": 0.8954974412918091,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1878
+ },
+ "L_w03": {
+  "status": "success",
+  "prompt_id": "20f74567-7dd1-492d-9e6f-bb6222706eb7",
+  "exec_seconds": 78.7,
+  "cached": 0,
+  "text": "luna, a young",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00005_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8955930471420288
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8955930471420288
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8955930471420288
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8955930471420288
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8955930471420288
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8955930471420288
+   }
+  },
+  "highest_conf": 0.8955930471420288,
+  "luma_sd": 59.68,
+  "flat_frac": 0.1877
+ },
+ "L_w04": {
+  "status": "success",
+  "prompt_id": "60f32dfc-f4b7-4199-ae3c-fee4a2d1b9a5",
+  "exec_seconds": 73.3,
+  "cached": 0,
+  "text": "luna, a young woman",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00006_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8955921530723572
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8955921530723572
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8955921530723572
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8955921530723572
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8955921530723572
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8955921530723572
+   }
+  },
+  "highest_conf": 0.8955921530723572,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1876
+ },
+ "L_w06": {
+  "status": null,
+  "prompt_id": null,
+  "exec_seconds": null,
+  "cached": null,
+  "text": null,
+  "error_node": null,
+  "tap": null
+ }
+}

@@ -1,0 +1,222 @@
+{
+ "8": {
+  "ladder": {
+   "words": 8,
+   "tokens": 20
+  },
+  "C1_fisherman": {
+   "words": 8,
+   "tokens": 20
+  },
+  "C2_gardener": {
+   "words": 8,
+   "tokens": 18
+  },
+  "C3_locomotive": {
+   "words": 8,
+   "tokens": 21
+  },
+  "C4_committee": {
+   "words": 8,
+   "tokens": 16
+  }
+ },
+ "10": {
+  "ladder": {
+   "words": 10,
+   "tokens": 22
+  },
+  "C1_fisherman": {
+   "words": 10,
+   "tokens": 22
+  },
+  "C2_gardener": {
+   "words": 10,
+   "tokens": 20
+  },
+  "C3_locomotive": {
+   "words": 10,
+   "tokens": 24
+  },
+  "C4_committee": {
+   "words": 10,
+   "tokens": 18
+  }
+ },
+ "12": {
+  "ladder": {
+   "words": 12,
+   "tokens": 25
+  },
+  "C1_fisherman": {
+   "words": 12,
+   "tokens": 27
+  },
+  "C2_gardener": {
+   "words": 12,
+   "tokens": 23
+  },
+  "C3_locomotive": {
+   "words": 12,
+   "tokens": 28
+  },
+  "C4_committee": {
+   "words": 12,
+   "tokens": 20
+  }
+ },
+ "14": {
+  "ladder": {
+   "words": 14,
+   "tokens": 27
+  },
+  "C1_fisherman": {
+   "words": 14,
+   "tokens": 30
+  },
+  "C2_gardener": {
+   "words": 14,
+   "tokens": 26
+  },
+  "C3_locomotive": {
+   "words": 14,
+   "tokens": 31
+  },
+  "C4_committee": {
+   "words": 14,
+   "tokens": 23
+  }
+ },
+ "16": {
+  "ladder": {
+   "words": 16,
+   "tokens": 29
+  },
+  "C1_fisherman": {
+   "words": 16,
+   "tokens": 33
+  },
+  "C2_gardener": {
+   "words": 16,
+   "tokens": 29
+  },
+  "C3_locomotive": {
+   "words": 16,
+   "tokens": 34
+  },
+  "C4_committee": {
+   "words": 16,
+   "tokens": 25
+  }
+ },
+ "18": {
+  "ladder": {
+   "words": 18,
+   "tokens": 32
+  },
+  "C1_fisherman": {
+   "words": 18,
+   "tokens": 36
+  },
+  "C2_gardener": {
+   "words": 18,
+   "tokens": 31
+  },
+  "C3_locomotive": {
+   "words": 18,
+   "tokens": 36
+  },
+  "C4_committee": {
+   "words": 18,
+   "tokens": 27
+  }
+ },
+ "20": {
+  "ladder": {
+   "words": 20,
+   "tokens": 35
+  },
+  "C1_fisherman": {
+   "words": 20,
+   "tokens": 38
+  },
+  "C2_gardener": {
+   "words": 20,
+   "tokens": 33
+  },
+  "C3_locomotive": {
+   "words": 20,
+   "tokens": 38
+  },
+  "C4_committee": {
+   "words": 20,
+   "tokens": 29
+  }
+ },
+ "22": {
+  "ladder": {
+   "words": 22,
+   "tokens": 39
+  },
+  "C1_fisherman": {
+   "words": 22,
+   "tokens": 41
+  },
+  "C2_gardener": {
+   "words": 22,
+   "tokens": 35
+  },
+  "C3_locomotive": {
+   "words": 22,
+   "tokens": 43
+  },
+  "C4_committee": {
+   "words": 22,
+   "tokens": 31
+  }
+ },
+ "24": {
+  "ladder": {
+   "words": 24,
+   "tokens": 45
+  },
+  "C1_fisherman": {
+   "words": 24,
+   "tokens": 44
+  },
+  "C2_gardener": {
+   "words": 24,
+   "tokens": 37
+  },
+  "C3_locomotive": {
+   "words": 24,
+   "tokens": 45
+  },
+  "C4_committee": {
+   "words": 24,
+   "tokens": 33
+  }
+ },
+ "25": {
+  "ladder": {
+   "words": 25,
+   "tokens": 46
+  },
+  "C1_fisherman": {
+   "words": 25,
+   "tokens": 45
+  },
+  "C2_gardener": {
+   "words": 25,
+   "tokens": 38
+  },
+  "C3_locomotive": {
+   "words": 25,
+   "tokens": 46
+  },
+  "C4_committee": {
+   "words": 25,
+   "tokens": 34
+  }
+ }
+}

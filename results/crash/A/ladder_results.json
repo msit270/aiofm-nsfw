@@ -103,5 +103,180 @@
   ],
   "text_106": "luna, a young",
   "words": 3
+ },
+ {
+  "arm": "L_w04",
+  "prompt_id": "60f32dfc-f4b7-4199-ae3c-fee4a2d1b9a5",
+  "client_id": "trackA-L_w04-9097e9fe",
+  "wall_seconds": 80.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 70096466456,
+  "note": "ladder: first 4 words of the crashing string",
+  "status": "success",
+  "exec_seconds": 73.3,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00006_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00064_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young woman",
+  "words": 4
+ },
+ {
+  "arm": "L_w06",
+  "prompt_id": "572d2e9e-75c3-4064-abde-777776faeb4a",
+  "client_id": "trackA-L_w06-9da426cc",
+  "wall_seconds": 75.0,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 59948380184,
+  "note": "ladder: first 6 words of the crashing string",
+  "status": "success",
+  "exec_seconds": 71.4,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00007_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00065_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young woman with light",
+  "words": 6
+ },
+ {
+  "arm": "L_w08",
+  "prompt_id": "ab70ad85-b7a9-465e-9473-b13c6f0de022",
+  "client_id": "trackA-L_w08-2ffbbd12",
+  "wall_seconds": 60.0,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 59525825048,
+  "note": "ladder: first 8 words of the crashing string",
+  "status": "success",
+  "exec_seconds": 53.9,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00008_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00066_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young woman with light freckles across",
+  "words": 8
+ },
+ {
+  "arm": "L_w12",
+  "prompt_id": "a3203c74-0bc5-4f50-b006-a4cec3f56460",
+  "client_id": "trackA-L_w12-7cf7e063",
+  "wall_seconds": 80.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 58739350552,
+  "note": "ladder: first 12 words of the crashing string",
+  "status": "success",
+  "exec_seconds": 74.9,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00009_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00067_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young woman with light freckles across her nose and cheeks,",
+  "words": 12
+ },
+ {
+  "arm": "L_w16",
+  "prompt_id": "5901322d-016a-4790-ad36-ed92d833fb7f",
+  "client_id": "trackA-L_w16-1274bfe0",
+  "wall_seconds": 85.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 65850749976,
+  "note": "ladder: first 16 words of the crashing string",
+  "status": "success",
+  "exec_seconds": 77.6,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00010_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00068_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with",
+  "words": 16
  }
 ]

@@ -110,6 +110,23 @@ burying it: with the SDXL half pruned, `618`/the SDXL checkpoint are not residen
 so VRAM pressure is lower than in a full render. It did not stop the crash
 reproducing, but it means the probe is not a memory-pressure model.
 
+**A third check nobody asked for, because the gate is a two-cell test and I
+wanted a continuous one.** The probe's clean arm produces the *whole* pipeline
+output at `505`, so it can be compared pixel-for-pixel with the full render of
+the same prompt (`R4_CF15_placeholder`, `HasMetadata_00059_.png`, 2688×3456):
+
+```
+A1_gate_placeholder (probe)  vs  R4_CF15_placeholder (full render)
+  max_abs_diff 127   mean_abs_diff 0.735 levels   PSNR 44.93 dB
+  fraction of pixels differing by more than 8 levels: 0.445 %
+```
+
+44.93 dB is a little below this project's measured run-to-run floor of ~48.7 dB,
+which is what you would expect from forcing the base through an 8-bit PNG on the
+way in. So the probe is not bit-exact with a full render and I am not claiming it
+is — it is faithful to under one 8-bit level on average over 99.5 % of the frame,
+on top of passing the crash/clean gate.
+
 ---
 
 ## A4 — what the failing detector is actually looking at
