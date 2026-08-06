@@ -1,0 +1,163 @@
+{
+ "generated": "2026-08-06 13:06",
+ "source": "explicit --arm list",
+ "tool": "/workspace/nsfw-fix/tools/contact_sheet.py",
+ "max_width": 4000,
+ "detector": "/workspace/ComfyUI/models/ultralytics/bbox/face_yolov8m.pt",
+ "detector_error": null,
+ "face_box_xywh": [
+  1060,
+  1180,
+  940,
+  1180
+ ],
+ "skin_box_xywh": [
+  1060,
+  1612,
+  400,
+  400
+ ],
+ "skin_stats": {
+  "skin_frac": 1.0,
+  "blur_grad": 0.2767,
+  "anchor": "face",
+  "search_region": [
+   1060,
+   1180,
+   940,
+   1180
+  ]
+ },
+ "image_size": [
+  2688,
+  3456
+ ],
+ "sheets": [
+  {
+   "region": "face",
+   "path": "/workspace/nsfw-fix/results/r4/D1_face_sheet1of1.png",
+   "size": [
+    1938,
+    1572
+   ],
+   "cols": 2,
+   "tiles": [
+    "R4_base",
+    "R4_D1_novae"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "R4_base",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      20,
+      372,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "R4_D1_novae",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      978,
+      372,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  }
+ ],
+ "arms": [
+  {
+   "name": "R4_base",
+   "param": "SHIPPED: VAE round-trip present (steps 8)",
+   "path": "results/r4/R4_base/HasMetadata_00035_.png",
+   "is_baseline": true,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    797.2540893554688,
+    694.4563598632812,
+    2231.1025390625,
+    2693.817626953125
+   ],
+   "det_conf": 0.9038963913917542,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "R4_D1_novae",
+   "param": "D1: #597/#616 removed, #607 -> #617.image",
+   "path": "results/r4/R4_D1_novae/HasMetadata_00036_.png",
+   "is_baseline": false,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    798.7327270507812,
+    695.4454345703125,
+    2230.9501953125,
+    2693.588623046875
+   ],
+   "det_conf": 0.9041944742202759,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ ]
+}

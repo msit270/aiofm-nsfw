@@ -1,0 +1,218 @@
+{
+ "generated": "2026-08-06 13:11",
+ "source": "explicit --arm list",
+ "tool": "/workspace/nsfw-fix/tools/contact_sheet.py",
+ "max_width": 4000,
+ "detector": "/workspace/ComfyUI/models/ultralytics/bbox/face_yolov8m.pt",
+ "detector_error": null,
+ "face_box_xywh": [
+  1060,
+  1180,
+  940,
+  1180
+ ],
+ "skin_box_xywh": [
+  1060,
+  1612,
+  400,
+  400
+ ],
+ "skin_stats": {
+  "skin_frac": 1.0,
+  "blur_grad": 0.2767,
+  "anchor": "face",
+  "search_region": [
+   1060,
+   1180,
+   940,
+   1180
+  ]
+ },
+ "image_size": [
+  2688,
+  3456
+ ],
+ "sheets": [
+  {
+   "region": "face",
+   "path": "/workspace/nsfw-fix/results/r4/D2_face_sheet1of1.png",
+   "size": [
+    2896,
+    1572
+   ],
+   "cols": 3,
+   "tiles": [
+    "R4_base",
+    "R4_D2_empty",
+    "R4_D2_real"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "R4_base",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      20,
+      372,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "R4_D2_empty",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      978,
+      372,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "R4_D2_real",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      1936,
+      372,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  }
+ ],
+ "arms": [
+  {
+   "name": "R4_base",
+   "param": "SHIPPED: #106 = 'TRIGGER, PROMPT FOR YOUR MODEL'",
+   "path": "results/r4/R4_base/HasMetadata_00035_.png",
+   "is_baseline": true,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    797.2540893554688,
+    694.4563598632812,
+    2231.1025390625,
+    2693.817626953125
+   ],
+   "det_conf": 0.9038963913917542,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "R4_D2_empty",
+   "param": "#106 = empty string",
+   "path": "results/r4/R4_D2_empty/HasMetadata_00038_.png",
+   "is_baseline": false,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    797.2659912109375,
+    694.7442016601562,
+    2230.991455078125,
+    2694.035400390625
+   ],
+   "det_conf": 0.9039152264595032,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "R4_D2_real",
+   "param": "#106 = a real character description",
+   "path": "results/r4/R4_D2_real/HasMetadata_00037_.png",
+   "is_baseline": false,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    796.6489868164062,
+    694.8680419921875,
+    2231.41357421875,
+    2693.601806640625
+   ],
+   "det_conf": 0.9038342833518982,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ ]
+}

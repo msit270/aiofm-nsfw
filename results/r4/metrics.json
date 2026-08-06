@@ -1,0 +1,190 @@
+{
+  "face_box_xywh": [
+    1060,
+    1180,
+    940,
+    1180
+  ],
+  "arms": {
+    "R4_base": {
+      "png": "HasMetadata_00035_.png",
+      "health": {
+        "face_flat_frac": 0.0,
+        "face_median_rgb": [
+          141,
+          99,
+          81
+        ],
+        "face_luma_std": 46.25,
+        "full_size": [
+          2688,
+          3456
+        ],
+        "full_mean_rgb": [
+          136.0,
+          119.9,
+          107.4
+        ],
+        "suspect_poisoned": false
+      },
+      "texture": {
+        "skin_mpx": 0.7312,
+        "bright_blobs_per_mpx": 821.9,
+        "dark_pores_per_mpx": 15383.1,
+        "fine_rms": 3.033,
+        "blob_rms": 4.533
+      }
+    },
+    "R4_D1_novae": {
+      "png": "HasMetadata_00036_.png",
+      "health": {
+        "face_flat_frac": 0.0,
+        "face_median_rgb": [
+          141,
+          99,
+          81
+        ],
+        "face_luma_std": 46.82,
+        "full_size": [
+          2688,
+          3456
+        ],
+        "full_mean_rgb": [
+          135.7,
+          119.5,
+          107.2
+        ],
+        "suspect_poisoned": false
+      },
+      "texture": {
+        "skin_mpx": 0.7312,
+        "bright_blobs_per_mpx": 872.6,
+        "dark_pores_per_mpx": 15571.9,
+        "fine_rms": 3.263,
+        "blob_rms": 4.573
+      }
+    },
+    "R4_D2_real": {
+      "png": "HasMetadata_00037_.png",
+      "health": {
+        "face_flat_frac": 0.0,
+        "face_median_rgb": [
+          142,
+          100,
+          82
+        ],
+        "face_luma_std": 46.27,
+        "full_size": [
+          2688,
+          3456
+        ],
+        "full_mean_rgb": [
+          136.0,
+          119.9,
+          107.4
+        ],
+        "suspect_poisoned": false
+      },
+      "texture": {
+        "skin_mpx": 0.7312,
+        "bright_blobs_per_mpx": 868.4,
+        "dark_pores_per_mpx": 15589.7,
+        "fine_rms": 3.061,
+        "blob_rms": 4.635
+      }
+    },
+    "R4_D2_empty": {
+      "png": "HasMetadata_00038_.png",
+      "health": {
+        "face_flat_frac": 0.0,
+        "face_median_rgb": [
+          141,
+          99,
+          82
+        ],
+        "face_luma_std": 46.24,
+        "full_size": [
+          2688,
+          3456
+        ],
+        "full_mean_rgb": [
+          136.0,
+          119.9,
+          107.4
+        ],
+        "suspect_poisoned": false
+      },
+      "texture": {
+        "skin_mpx": 0.7312,
+        "bright_blobs_per_mpx": 808.3,
+        "dark_pores_per_mpx": 15462.5,
+        "fine_rms": 3.002,
+        "blob_rms": 4.528
+      }
+    }
+  },
+  "vs_baseline": {
+    "R4_D1_novae": {
+      "full_frame": {
+        "psnr_db": 34.41,
+        "ssim": 0.9026,
+        "mean_abs_diff": 2.769,
+        "max_abs_diff": 179,
+        "pct_gt_1": 78.12,
+        "pct_gt_8": 6.03
+      },
+      "face_crop": {
+        "psnr_db": 34.01,
+        "ssim": 0.904,
+        "mean_abs_diff": 2.998,
+        "max_abs_diff": 179,
+        "pct_gt_1": 79.56,
+        "pct_gt_8": 7.61
+      }
+    },
+    "R4_D2_real": {
+      "full_frame": {
+        "psnr_db": 46.92,
+        "ssim": 0.9961,
+        "mean_abs_diff": 0.365,
+        "max_abs_diff": 169,
+        "pct_gt_1": 13.78,
+        "pct_gt_8": 0.19
+      },
+      "face_crop": {
+        "psnr_db": 39.36,
+        "ssim": 0.9799,
+        "mean_abs_diff": 1.493,
+        "max_abs_diff": 169,
+        "pct_gt_1": 57.99,
+        "pct_gt_8": 1.28
+      }
+    },
+    "R4_D2_empty": {
+      "full_frame": {
+        "psnr_db": 46.6,
+        "ssim": 0.9966,
+        "mean_abs_diff": 0.223,
+        "max_abs_diff": 183,
+        "pct_gt_1": 5.63,
+        "pct_gt_8": 0.26
+      },
+      "face_crop": {
+        "psnr_db": 37.86,
+        "ssim": 0.9786,
+        "mean_abs_diff": 1.054,
+        "max_abs_diff": 183,
+        "pct_gt_1": 26.77,
+        "pct_gt_8": 2.07
+      }
+    }
+  },
+  "anchor_vs_prev_steps08": {
+    "psnr_db": Infinity,
+    "ssim": 1.0,
+    "mean_abs_diff": 0.0,
+    "max_abs_diff": 0,
+    "pct_gt_1": 0.0,
+    "pct_gt_8": 0.0
+  }
+}
