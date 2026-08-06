@@ -50,3 +50,30 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def vram_table():
+    """Per-prompt VRAM pressure.  A run that goes lowvram is not a measurement:
+    ComfyUI partially unloads the model and patches it, which changes the
+    numerics of every sampler downstream."""
+    import re as _re
+    lines = open(LOG, errors="replace").read().replace("\r", "\n").split("\n")
+    blocks, cur = [], None
+    for ln in lines:
+        s = ln.strip()
+        if s == "got prompt":
+            cur = []; blocks.append(cur); continue
+        if cur is None:
+            continue
+        cur.append(s)
+    rows = []
+    for i, b in enumerate(blocks):
+        us = [float(m.group(1)) for s in b for m in [_re.search(r"([\d.]+) MB usable", s)] if m]
+        lv = [int(m.group(1)) for s in b for m in [_re.search(r"lowvram patches: (\d+)", s)] if m]
+        pu = sum(1 for s in b if s.startswith("Unloaded partially"))
+        crashed = any(s.startswith("!!! Exception") for s in b)
+        done = any(s.startswith("Prompt executed") for s in b)
+        rows.append(dict(run=i, min_usable_mb=int(min(us)) if us else None,
+                         lowvram_patches=max(lv) if lv else 0, partial_unloads=pu,
+                         outcome="CRASH" if crashed else ("ok" if done else "running")))
+    return rows

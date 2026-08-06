@@ -144,26 +144,41 @@ It does not hold up, on two independent grounds.
 
 ### 1. The encoder cannot produce a shape surprise — it is unpadded by design
 
-`comfy/text_encoders/lumina2.py`, `Gemma2BTokenizer.__init__` — this is the
-tokenizer `620:110 CLIPLoader (type lumina2)` instantiates for `qwen.safetensors`:
+> **CORRECTION — I named the wrong tokenizer class here, and Track A caught it.**
+> I read `comfy/text_encoders/lumina2.py` because `620:110 CLIPLoader` has its
+> `type` widget set to `lumina2`, and reported `Gemma2BTokenizer`. **That is not
+> the class this graph uses.** `comfy/sd.py:1300` dispatches on
+> `detect_te_model(state_dict)` **first** and only uses `clip_type` as a
+> sub-discriminator. `qwen.safetensors` carries
+> `model.layers.0.self_attn.q_norm.weight` and a `[2560]`
+> `post_attention_layernorm.weight`, so `sd.py:1240` resolves it to
+> `TEModel.QWEN3_4B` and `sd.py:1382` instantiates
+> **`comfy.text_encoders.z_image.ZImageTokenizer`** — a `Qwen2Tokenizer` over
+> `qwen25_tokenizer`, not a SentencePiece/Gemma path at all.
+>
+> **I trusted a widget value instead of tracing the dispatch** — the same class of
+> mistake as this project's own documented trap that a wired input silently
+> overrides the widget you are reading. The lesson is the file, not the label.
+>
+> The conclusion below is unchanged, because the real class has the same three
+> settings — but it is now sourced from the class actually in use.
+
+`comfy/text_encoders/z_image.py:6-11`, `Qwen3Tokenizer`, which is what
+`620:110` actually instantiates for `qwen.safetensors`:
 
 ```python
-super().__init__(tokenizer, pad_with_end=False, embedding_size=2304,
-                 embedding_key='gemma2_2b', tokenizer_class=SPieceTokenizer,
-                 has_end_token=False,
-                 pad_to_max_length=False,      # <- no padding
-                 max_length=99999999,          # <- no chunking, in practice
-                 min_length=1,
-                 tokenizer_args={"add_bos": True, "add_eos": False, ...})
+max_length=99999999,        # <- no chunking, in practice
+pad_to_max_length=False,    # <- no padding
+has_start_token=False,
+has_end_token=False,
 ```
 
-Against `comfy/sd1_clip.py`, where those two flags are consumed:
+Against `comfy/sd1_clip.py`, where the first two are consumed:
 
 ```python
 632   if len(t_group) + len(batch) > self.max_length - has_end_token:   # chunk split
 660   if self.pad_to_max_length and len(batch) < self.max_length:       # pad
 661       self.pad_tokens(batch, self.max_length - len(batch))
-662   if min_length is not None and len(batch) < min_length:
 ```
 
 With `pad_to_max_length=False` line 660 never fires, and with
@@ -171,6 +186,12 @@ With `pad_to_max_length=False` line 660 never fires, and with
 is exactly the prompt's token count — variable, unpadded, unchunked, effectively
 unbounded.** Variable length is the architecture's normal operating mode here,
 not an edge case, so there is nothing for a downstream consumer to be surprised by.
+
+`ZImageTokenizer` also wraps every prompt in
+`<|im_start|>user\n{}<|im_end|>\n<|im_start|>assistant\n`, a fixed **8 tokens**,
+so `tokens = 8 + content`. Measured on that exact class: empty `= 8`, `luna, ` and
+`a woman's face` `= 12`, the shipped placeholder `= 16`, **the crashing string
+`= 46`.**
 
 **Consequence worth stating separately: there is no 77-token boundary in this
 encoder.** 77 is CLIP's padded context. This is a SentencePiece/Gemma2-2B path

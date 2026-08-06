@@ -1,0 +1,44 @@
+{
+ "arm": "CTL2_clean_after_E1_D2",
+ "note": "MANDATORY CONTROL. D2 crashed at 622:403 with #106 at the placeholder and only 622:398 changed -- and 622:398 is DOWNSTREAM of 622:403, so that is logically impossible as a consequence of the change. Byte-identical repeat of A1_baseline_clean. If this is not bit-identical to A1, D2 (and possibly E1) are void.",
+ "expect": "clean",
+ "server": "127.0.0.1:28191",
+ "base": "results/r4/R4_CF15_placeholder/api_graph.json",
+ "changes": [],
+ "graph_sha256": "64a926815edead0f87e0176e9d6f8669243756bd740f525c4228904e8ea78c85",
+ "prompt_id": "22c33f4b-f1ef-45a1-b3c7-62222f6f30b0",
+ "client_id": "trackB-CTL2_clean_after_E1_D2-a57eaecd",
+ "status": "success",
+ "exec_seconds": 290.9,
+ "wall_seconds": 294.9,
+ "cached_count": 0,
+ "cached_nodes": [],
+ "images": [
+  "HasMetadata_00009_.png"
+ ],
+ "health": [
+  {
+   "file": "HasMetadata_00009_.png",
+   "size": [
+    2688,
+    3456
+   ],
+   "flat_frac": 0.03088,
+   "luma_sd": 59.505,
+   "luma_mean": 138.668,
+   "luma_min": 4.673,
+   "modal_rgb": [
+    255,
+    255,
+    255
+   ],
+   "modal_frac": 0.02448,
+   "has_nan": false,
+   "suspect_poisoned": false
+  }
+ ],
+ "error_node_id": null,
+ "error_node_type": null,
+ "exception_type": null,
+ "exception_message": null
+}

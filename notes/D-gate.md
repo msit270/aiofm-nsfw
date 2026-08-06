@@ -30,9 +30,22 @@ STAGE 1B  stage1b-placeholder-render     exit 0   status "pass"
 finished image on screen using the **shipped placeholder** in `#106`
 (`"TRIGGER, PROMPT FOR YOUR MODEL"`), which is a value observed safe 3/3. The real
 character description is exactly what crashes `622:403 MaskBoundingBox+` 4/4 on these
-bytes, so Stage 1A stops one click before Run, by design. Every screenshot caption in
-`results/gate2/` carries the actual text that was typed, so the two cannot be confused
-later by someone reading the pictures without the prose.
+bytes, so Stage 1A stops one click before Run, by design.
+
+> **Erratum, flagged rather than quietly patched.** Two screenshot captions inside
+> `stage1b-placeholder-render-result.json` read *"the character prompt typed into…"* and
+> *"carrying the typed character prompt"*. **Stage 1B did not type a character prompt —
+> it typed the placeholder.** I changed those captions in `gate.js` to embed the actual
+> text, but the edit landed *while Stage 1B's node process was already running*, so that
+> leg kept the old generic wording. I have not rewritten the result file: patching a
+> recorded artifact after the fact is how evidence stops being evidence. The record is
+> self-correcting if read in place — the filename says `placeholder`, and the console
+> line immediately above the screenshot reads
+> `read back from the host widget : "TRIGGER, PROMPT FOR YOUR MODEL"...`. Stage 2's
+> captions carry the literal text.
+
+Otherwise every caption in `results/gate2/` carries the text that was typed, so the legs
+cannot be confused by someone reading the pictures without the prose.
 
 ---
 

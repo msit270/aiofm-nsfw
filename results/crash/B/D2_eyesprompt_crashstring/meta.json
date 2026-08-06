@@ -1,0 +1,28 @@
+{
+ "arm": "D2_eyesprompt_crashstring",
+ "note": "CELL D, the '#406' half. #406 is 622:406 DetailerForEachDebug, the EYES detailer; its positive prompt is 622:398 CLIPTextEncode 'Eye Positive Prompt' on the same lumina2 clip 620:110 at cfg 1. Crashing string into 622:398, #106 left at the placeholder. NOTE 622:406 is DOWNSTREAM of 622:403 so it cannot cause that crash; this tests for a different failure. Also doubles as the health control after E1 if it comes back clean and healthy.",
+ "expect": "clean",
+ "server": "127.0.0.1:28191",
+ "base": "results/r4/R4_CF15_placeholder/api_graph.json",
+ "changes": [
+  {
+   "path": "622:398.inputs.text",
+   "from": "perfect eyes, round pupils, round iris, symmetrical eyes, realistic eyes, perfect circles, round",
+   "to": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens"
+  }
+ ],
+ "graph_sha256": "e6bb0817fc7714f8b2b7e4b714fed3517159b2049392e88d0e0c83c947b0fa70",
+ "prompt_id": "65e905d5-b1ad-4269-84e9-d4cf4d032253",
+ "client_id": "trackB-D2_eyesprompt_crashstring-ddf3b24a",
+ "status": "error",
+ "exec_seconds": 431.0,
+ "wall_seconds": 444.8,
+ "cached_count": 0,
+ "cached_nodes": [],
+ "images": [],
+ "health": [],
+ "error_node_id": "622:403",
+ "error_node_type": "MaskBoundingBox+",
+ "exception_type": "RuntimeError",
+ "exception_message": "min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n"
+}

@@ -8,3 +8,7 @@ follow-up finished; starting token sweep
 [T_tok32] submitted 1fbb5a32-105f-4bfb-95d8-59ea6d8e2da0 cid=trackA-T_tok32-5e3c07a6 queue_before=(0,0) vram_free=56.8GiB
 [T_tok32] error exec=56.9s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00040_.png']
 [CTL_placeholder_after_T_tok32] submitted b9340a40-f225-4fac-9368-e572115462de cid=trackA-CTL_placeholder_after_T_tok32-4d673055 queue_before=(0,0) vram_free=51.9GiB
+[CTL_placeholder_after_T_tok32] success exec=72.7s cached=0 err=None  imgs=['tap163_00041_.png', 'HasMetadata_00086_.png']
+[T_tok29] submitted 5fb63faf-2647-4af0-8cc7-c0312e4240c9 cid=trackA-T_tok29-170e0736 queue_before=(0,0) vram_free=54.7GiB
+[T_tok29] success exec=74.4s cached=0 err=None  imgs=['tap163_00042_.png', 'HasMetadata_00087_.png']
+[T_tok31] submitted 04c98e4e-ed2c-44f3-8c28-7394d0e7e36c cid=trackA-T_tok31-46e11e05 queue_before=(0,0) vram_free=47.7GiB

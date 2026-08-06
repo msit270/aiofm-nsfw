@@ -23,13 +23,23 @@ Eyes stage's face detector found **no face at all**, and nothing guards that cas
 This corrects "`.min()` on an all-zero mask", which is what I told you before and
 which pointed at the wrong kind of fix.
 
-**Phase 2 so far:** the brief's lumina2 shape-mismatch idea does not survive
-source. That tokenizer sets `pad_to_max_length=False`, `max_length=99999999` — the
-conditioning length is just the token count, variable and unpadded by design, so
-there is no shape for a downstream node to trip on. **And there is no 77-token
-boundary in this encoder**; 77 is CLIP's, this is Gemma2/SentencePiece. The
+**Phase 2 so far:** the shape-mismatch idea does not survive source. The
+tokenizer sets `pad_to_max_length=False`, `max_length=99999999` — conditioning
+length is just the token count, variable and unpadded by design, so there is no
+shape for a downstream node to trip on. **There is no 77-token boundary here**;
+77 is CLIP's padded context and nothing on this path pads or truncates. The
 traceback agrees independently: 64 nodes executed, both samplers finished, and it
-died at a detector five nodes past the last conditioning consumer.
+died at a *detector* five nodes past the last conditioning consumer — a shape
+mismatch throws in the sampler.
+
+> **One of mine to correct:** I first reported the tokenizer as lumina2's
+> `Gemma2BTokenizer`, because `620:110`'s `type` widget reads `lumina2`. Wrong
+> class — `sd.py:1300` dispatches on the *state dict* first, and `qwen.safetensors`
+> resolves to `ZImageTokenizer` (Qwen2). **I trusted a widget instead of tracing
+> the dispatch**, which is this project's own documented trap wearing a new hat.
+> The conclusion survives because the real class has the same settings, but it
+> was luck that it did. Measured on the correct tokenizer: the crashing string is
+> **46 tokens**, the placeholder 16, `a woman's face` 12.
 
 ---
 

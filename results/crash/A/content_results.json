@@ -567,5 +567,75 @@
   "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the",
   "text": "a woman's face the the the the the the the the the the the the the the the the the the the the",
   "words": 23
+ },
+ {
+  "arm": "CTL_placeholder_after_T_tok32",
+  "prompt_id": "b9340a40-f225-4fac-9368-e572115462de",
+  "client_id": "trackA-CTL_placeholder_after_T_tok32-4d673055",
+  "wall_seconds": 75.6,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 55773395484,
+  "note": "health control after an error arm",
+  "status": "success",
+  "exec_seconds": 72.7,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00041_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00086_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
+ },
+ {
+  "arm": "T_tok29",
+  "prompt_id": "5fb63faf-2647-4af0-8cc7-c0312e4240c9",
+  "client_id": "trackA-T_tok29-170e0736",
+  "wall_seconds": 75.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 58778614300,
+  "note": "token-count probe: fixed content + 17 x \" the\" = exactly 29 tokens",
+  "status": "success",
+  "exec_seconds": 74.4,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00042_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00087_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "a woman's face the the the the the the the the the the the the the the the the the",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the",
+  "words": 20
  }
 ]
