@@ -388,6 +388,45 @@ stopped working.
 
 ---
 
+## 9b. Two more attacks, neither of which broke it — and one real win
+
+**The seed attack** (mine, not in the brief). Track E's account is that `620:114`
+is bistable on numerical noise of order 4e-7 relative. If so, the sampler seed is
+a far larger perturbation than the one the fix applies, and a fix that only holds
+at the shipped seed `1111111` would be luck. 46-token crash string,
+`620:114.seed` changed:
+
+| seed | `cpu` | `default` |
+|---|---|---|
+| 1111112 | success, 4/4 | **error `622:403`** |
+| 42 | success, 4/4 | **error `622:403`** |
+| 987654321 | success, 4/4 | — |
+| 7 | success, 4/4 | — |
+
+**The fix is not seed-specific.** Four seeds, four clean passes, and the two
+controls still fail.
+
+**The eye-prompt attack, and the fix's best result in the whole session.**
+The second place this failure has been seen is the *eyes* pass, not the face
+pass: Track A's `E398_tok31` shipped `status: success` with both eyes solid
+black, by lengthening `622:398` (the eye prompt) from its shipped 28 tokens to 31
+while leaving `620:106` on the safe placeholder. `622:398` encodes on the same
+`620:110`, so the fix should reach it. It does:
+
+| arm | `620:110.device` | A (no exception) | B (no black) | exact-black fraction | verdict |
+|---|---|---|---|---|---|
+| `V_E398_tok31_gpu` | `default` | **pass** | **FAIL** | **0.00452** (largest black blob 0.00251) | **FAIL** |
+| `V_E398_tok31_cpu` | `cpu` | pass | pass | **0.00000** | **PASS** |
+| `V_E398_tok31_cpu_b` | `cpu` | pass | pass | **0.00000** | **PASS** |
+
+This is the one arm in the whole session that reproduces the failure mode
+`PHASE3-spec.md` §2 was most worried about — **a green render with a ruined
+face**, exit code 0, `status: success`, no exception anywhere — and the fix
+removes it, 2/2. Note also that check A alone passes all three of these arms;
+only B tells them apart. The four-check standard earned its keep here.
+
+---
+
 ## 10. Verdict, stated plainly
 
 **The fix does not hold, and I would not ship it as a cure.**
@@ -402,6 +441,10 @@ stopped working.
   instance are bit-identical, so the 12.8 % of pixels that move on a clean
   16-token render — max channel delta 135/255 — are entirely the fix's doing.
 * It costs +14 s at 16 tokens and +18 s at 40, growing with prompt length.
+* It is **not** seed-specific (4 seeds, 4 passes), and it **does** cure the silent
+  black-eyes failure on the eyes pass — the one failure mode that passes a naive
+  "no crash" test — 2/2 against a `default` arm that produces `status: success`
+  with 0.45 % of the frame exactly black.
 
 **What I would do with it:** keep it, do not call it fixed. It is a strict
 improvement over the shipped configuration on everything measured except cost and
