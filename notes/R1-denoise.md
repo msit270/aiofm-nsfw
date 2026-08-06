@@ -6,11 +6,32 @@ the face pass *fabricates*. Denoise controls how much of the incoming face
 and the owner's freckle question turns out to be about the second one — not the
 first, and not about `X2` at all.
 
-**Nothing was applied.** `OFMTech-NSFW/OFMTech_NSFW.json` is untouched by this
-workstream; it is still `sha256 8d50f636b7…458966` (steps 8, commit `2e4e8e9`).
-Every arm is a scratch copy or a scratch API graph.
+**Nothing was applied by this workstream.** `OFMTech-NSFW/OFMTech_NSFW.json` is
+untouched by me. Every arm is a scratch copy or a scratch API graph.
 
 Steps is not reopened here. `2e4e8e9` stands.
+
+## Which graph each arm was rendered on — read this before comparing any two tiles
+
+The shipped graph changed twice while this work was in flight. Every arm is
+labelled with the graph it ran on, on the sheet and in its `meta.json`.
+
+| | `#114` `bbox_crop_factor` | `#105` negative | arms |
+|---|---|---|---|
+| **`2e4e8e9`** (workflow `8d50f636…`) | 3 | text | `L0b`, `L1b`, `X2` and the whole earlier grid |
+| **`74c0f11`** (workflow `a811b5d6…`) | **1.5** | empty | `TAP`, `Z1`, `Z2`, `Z3` — the decision arms |
+
+I rebased onto `74c0f11` **before rendering anything**, at a cost of zero
+wasted renders, because cf is not an independent axis from denoise: cf sets how
+many pixels the pass fabricates and denoise sets how much of the input it is
+allowed to destroy. A denoise value chosen against a pass that fabricates twice
+as much is not the value you would choose otherwise. P2's own sweep shows the
+size of that: band-pass energy on `#114`'s footprint runs 5.311 at cf 3
+(2688x3456) and 4.196 at cf 1.5 (1945x2749), against 2.862 for the untouched
+input. **The decision sheet is built on the graph that ships.**
+
+`#105` going empty is inert at cfg 1 — `comfy/samplers.py` never evaluates the
+uncond — so it does not affect any comparison here.
 
 ---
 
@@ -32,9 +53,9 @@ that tile is a visibly different person from `L0b`/`L1b` — brunette against
 blonde, different features. **His judgement of that tile was sound about that
 image and cannot transfer to Luna.**
 
-So I rendered `X2L_loras_steps08_denoise050`: the same two settings with
+So I rendered `Z1_cf15_denoise050`: the same denoise with
 `lunaskye.safetensors` on `#618` and `luna.safetensors` on `#116`, both at
-strength 1.
+strength 1, on the graph that now ships.
 
 ## The freckles are real, and they are destroyed before the delivered image
 
@@ -131,13 +152,50 @@ paste is asserted byte-equal to its source crop.
 
 ---
 
-# 2. Where the freckles die — the tap render
+# 2. `#165 Mouth Detailer` ran in the LoRA arms and did not run in the grid — and the `[filter]` line means the opposite of what it looks like
 
-*(Section filled in when the tap lands; see §6 for status.)*
+Main warned that `#648`'s size guard silently drops the lips segment when its
+crop area exceeds 1,700,000, logging `[filter] value=… / True, 0, 1700000`. I
+checked it against my own arms rather than take the count, and found the log
+line is **the failure signal, not the measurement**: runs where the mouth pass
+*does* run carry **no `[filter]` line at all**, and instead show a second
+`Detailer: … crop region (w, h) x 1.0` with a wide, short crop. So counting
+`[filter]` lines counts drops only; absence is a pass, not missing data.
+
+Verdict taken from the detailer lines themselves — `x 1.0` crop regions inside
+each arm's own `/history` execution window:
+
+| arm | `x 1.0` crop regions logged | `#165` |
+|---|---|---|
+| `L0b_baseline_loras` | 1432x1840, 2688x3456, **1956x790** | **ran** |
+| `L1b_steps08_loras` | 2688x3456, **1827x768** | **ran** |
+| `A0_baseline` | 1432x1840, 2688x3456 | dropped (`value=1933356`) |
+| `C_zface_steps_08` | 1432x1840, 2688x3456 | dropped (`value=1861888`) |
+| `B_zface_denoise_035` | 2688x3456 | dropped (`value=1797291`) |
+| `X2_steps08_denoise050` | 2688x3456 | dropped (`value=1773063`) |
+
+`1432x1840` is `#607`, the SDXL face pass, absent when it was served from
+cache. `2688x3456` is `#114` at cf 3. The wide one is `#165`.
+
+**So the LoRA arms and the no-LoRA grid differ in whether the mouth pass ran,
+on top of differing in LoRA.** That is a second reason not to compare a lip or
+chin region across those two sets — and it was not known when the grid was
+read. It does **not** touch the freckle finding: my crop is nose and upper
+cheeks, and every stage of that evidence is upstream of `#165` entirely.
+
+It does affect the **contact sheet**, whose tight face box includes the mouth.
+Each arm's `meta.json` carries `mouth_pass.ran` and the raw log lines it was
+derived from; if my four decision arms split on it, the sheet says so.
 
 ---
 
-# 3. Why denoise and steps are different levers, from the source
+# 3. Where the freckles die — the tap render
+
+*(Section filled in when the tap lands; see §7 for method.)*
+
+---
+
+# 4. Why denoise and steps are different levers, from the source
 
 `#114` is a `FaceDetailer` and its sampling goes through the Impact Pack, not
 ComfyUI's `KSampler` node. Both agree, and I read both rather than take the
@@ -186,19 +244,19 @@ noise level. So `Y1` and `Y2` should differ in *fabricated texture*, not in
 
 ---
 
-# 4. The arms
+# 5. The arms
 
 *(Filled in when they land.)*
 
 ---
 
-# 5. Timing
+# 6. Timing
 
 *(Filled in when the matched cold pair lands.)*
 
 ---
 
-# 6. Method and provenance
+# 7. Method and provenance
 
 * Every arm is a scratch copy of `OFMTech-NSFW/OFMTech_NSFW.json`, built by an
   asserting script that checks **both** the `widgets_values` array length and
