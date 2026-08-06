@@ -1,15 +1,22 @@
 # TRACK V — adversarial verification of `620:110.device = "cpu"`
 
 **VERDICT: THE FIX DOES NOT HOLD. `620:110.device = "cpu"` does not cure the
-black-face failure — it narrows it.** On the shipping artifact, with the fix
-applied, cold and with an empty queue, a 103-token prompt reproduced
-`622:403 MaskBoundingBox+ RuntimeError` **2 out of 2**, and the frame it produced
-carries the identical failure signature to every pre-fix crash arm to five
-decimal places: `(56,51,47)` over `0.16969` of the frame, `face_yolov8m.pt` max
-confidence `0.4656`, zero faces at threshold 0.6. The fix does hold everywhere
-`PHASE3-spec.md`'s required proof set looks — all five proof strings, both
-measured bands, 4/4 acceptance checks — which is exactly why the proof set alone
-would have passed it.
+black-face failure — it narrows it, and leaves a hole a buyer will fall into.**
+
+On the shipping artifact, with the fix applied, cold, queue empty, fresh
+`client_id`: **six arms reproduced `622:403 MaskBoundingBox+ RuntimeError`** — at
+**103 tokens** (4 arms: three repeats of a non-English string and one of Track A's
+own plain-ASCII ladder strings), at **110** and at **120**. Zero clean arms in
+that range. The frame the first one produced carries the identical failure
+signature to every pre-fix crash arm to five decimal places: `(56,51,47)` over
+`0.16969` of the frame, `face_yolov8m.pt` max confidence `0.4656`, no face at all
+at threshold 0.6.
+
+**The fix is real everywhere else**, which is what makes it dangerous: all five
+`PHASE3-spec.md` proof strings pass on all four checks, the whole 26–50 sweep is
+clean 25/25, 60–96 and 166 tokens are cured, four sampler seeds are cured, and
+the silent black-eyes failure on the eyes pass is cured 2/2. **The acceptance test
+would have passed it.**
 
 **The run**: 102 arms on `127.0.0.1:18188`, every one cold
 (`execution_cached: []` confirmed in `/history`, not merely a `/free` issued),
