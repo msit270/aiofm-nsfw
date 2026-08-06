@@ -1,0 +1,28 @@
+{
+ "arm": "A1_gate_crashstring",
+ "prompt_id": "19d04a85-30b5-4a4e-96b0-2865fd55597f",
+ "client_id": "trackA-A1_gate_crashstring-30e21f30",
+ "wall_seconds": 65.0,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 90059941396,
+ "note": "VALIDATION GATE 1: probe must reproduce the crash at 622:403 with the known-crashing string.",
+ "status": "error",
+ "exec_seconds": 61.7,
+ "cached": 0,
+ "cached_ids": [],
+ "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+ "error_node": "622:403",
+ "error_type": "MaskBoundingBox+",
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00001_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  }
+ ],
+ "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens"
+}

@@ -1,0 +1,107 @@
+[
+ {
+  "arm": "L_w01",
+  "prompt_id": "e1bc802e-aa98-4e6e-a879-ae0cb7699e06",
+  "client_id": "trackA-L_w01-a81134c0",
+  "wall_seconds": 90.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 62034842136,
+  "note": "ladder: first 1 words of the crashing string",
+  "status": "success",
+  "exec_seconds": 83.3,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00003_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00061_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna,",
+  "words": 1
+ },
+ {
+  "arm": "L_w02",
+  "prompt_id": "19a9ddb5-2c4d-4144-b578-acc03c05f83a",
+  "client_id": "trackA-L_w02-4407dbdd",
+  "wall_seconds": 65.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 55865181720,
+  "note": "ladder: first 2 words of the crashing string",
+  "status": "success",
+  "exec_seconds": 61.7,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00004_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00062_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a",
+  "words": 2
+ },
+ {
+  "arm": "L_w03",
+  "prompt_id": "20f74567-7dd1-492d-9e6f-bb6222706eb7",
+  "client_id": "trackA-L_w03-37cdd58c",
+  "wall_seconds": 85.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 71237317144,
+  "note": "ladder: first 3 words of the crashing string",
+  "status": "success",
+  "exec_seconds": 78.7,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00005_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00063_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young",
+  "words": 3
+ }
+]

@@ -1,0 +1,34 @@
+{
+ "arm": "A1_gate_placeholder",
+ "prompt_id": "2dbc564d-a7dd-493c-b4c8-714332531d24",
+ "client_id": "trackA-A1_gate_placeholder-abc2c43a",
+ "wall_seconds": 85.1,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 62860146760,
+ "note": "VALIDATION GATE 2: probe must complete clean with the shipped placeholder.",
+ "status": "success",
+ "exec_seconds": 79.3,
+ "cached": 0,
+ "cached_ids": [],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00002_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00060_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
+}

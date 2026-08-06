@@ -1,0 +1,27 @@
+{
+ "arm": "A0_base_tap137",
+ "prompt_id": "24792430-0cd0-422f-9a05-86fdbdc0be13",
+ "client_id": "trackA-A0_base_tap137-2c6c2a4a",
+ "wall_seconds": 295.3,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 83465967736,
+ "note": "Full pipeline truncated at 620:137 + SaveImage tap. 620:106 is NOT an ancestor, so prompt-independent.",
+ "status": "success",
+ "exec_seconds": 288.6,
+ "cached": 0,
+ "cached_ids": [],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "TAP137",
+   "filename": "base137_00001_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  }
+ ]
+}
