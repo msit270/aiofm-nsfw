@@ -1,0 +1,61 @@
+{
+ "arm": "V_B2_tok96_gpu",
+ "prompt_id": "22acf703-414c-4da1-b95b-664df316796a",
+ "client_id": "trackV-V_B2_tok96_gpu-c5ced8c4",
+ "wall_seconds": 55.1,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 47995714076,
+ "free_wait_s": 16.0,
+ "note": "Second-band map, 96 tokens, ASCII ladder, device default.",
+ "tokens": 96,
+ "executed_nodes": [
+  "BASE",
+  "620:108",
+  "620:107",
+  "620:110",
+  "620:105",
+  "620:106",
+  "620:109",
+  "620:113",
+  "116",
+  "620:114",
+  "620:111",
+  "620:648",
+  "621:161",
+  "621:166",
+  "620:165",
+  "621:163",
+  "TAP163",
+  "622:431",
+  "622:398",
+  "622:424",
+  "622:407",
+  "622:403"
+ ],
+ "ws_error": null,
+ "status": "error",
+ "exec_seconds": 54.0,
+ "cached": 0,
+ "cached_ids": [],
+ "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+ "error_node": "622:403",
+ "error_type": "MaskBoundingBox+",
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00054_.png",
+   "subfolder": "crashV",
+   "type": "output"
+  }
+ ],
+ "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+ "620:110": {
+  "device": "default"
+ },
+ "620:114": {
+  "denoise": 0.35
+ }
+}

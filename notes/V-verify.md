@@ -221,4 +221,43 @@ proof set and inside Track A's 11–50 map the fix works — every arm in §3 pa
 all four checks. In the ~103-token band it does nothing at all: `cpu` and
 `default` fail identically, at the same node, with the same image.
 
-*(sections 5-9 appended as the remaining arms land)*
+---
+
+## 5. The shape of the hole: the fix works at 60–96 and 140–166, and fails at 103–120
+
+18 arms, ASCII ladder strings at fixed token counts, **each length run on both
+devices**, all cold, all one widget apart:
+
+| tokens | `device: cpu` (the fix) | `device: default` | what it means |
+|---|---|---|---|
+| 60 | clean | **error `622:403`** | fix works |
+| 72 | clean | **error `622:403`** | fix works |
+| 80 | clean | **error `622:403`** | fix works |
+| 90 | clean | **error `622:403`** | fix works |
+| 96 | clean | **error `622:403`** | fix works |
+| **103** | **error `622:403`** | **error `622:403`** | **FIX FAILS** |
+| **110** | **error `622:403`** | **error `622:403`** | **FIX FAILS** |
+| **120** | **error `622:403`** | **error `622:403`** | **FIX FAILS** |
+| 140 | clean | clean | nothing was wrong here |
+| 166 | clean | **error `622:403`** | fix works |
+
+Plus, from §4, 103 tokens on the *non-English* string: `cpu` error ×3,
+`default` error, and error on the fully pre-fix graph too.
+
+So the fix is not a cure and it is not a moved band. **It is a repair with a hole
+in it, spanning at least 103–120 tokens**, sitting inside a region it otherwise
+repairs on both sides. The lower edge is between 96 and 103; the upper edge is
+between 120 and 140. I did not narrow either further.
+
+Two other things fall out of this map that are worth more than the fix itself:
+
+* **`notes/A-length-vs-content.md`'s "44+ is a threshold with no top" is false.**
+  140 tokens renders clean on the *shipped, unfixed* graph. The claim was an
+  extrapolation from seven consecutive values and the region above 50 is banded,
+  not open-ended.
+* **A buyer's prompt lands in this hole easily.** 103–120 tokens is an ordinary
+  descriptive prompt — the shipped SDXL prompt in `483.prompt_batch_data` is
+  already 60+ tokens, and the failure needs no unusual characters: a plain ASCII
+  string of the right length is enough.
+
+*(sections 6-9 appended as the remaining arms land)*
