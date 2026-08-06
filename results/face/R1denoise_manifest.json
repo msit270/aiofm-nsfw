@@ -1,0 +1,438 @@
+{
+ "generated": "2026-08-06 14:25",
+ "source": "/workspace/nsfw-fix/results/face/arms_r1",
+ "tool": "/workspace/nsfw-fix/tools/contact_sheet.py",
+ "max_width": 2950,
+ "detector": "/workspace/ComfyUI/models/ultralytics/bbox/face_yolov8m.pt",
+ "detector_error": null,
+ "face_box_xywh": [
+  1060,
+  1180,
+  940,
+  1180
+ ],
+ "skin_box_xywh": [
+  1596,
+  1836,
+  400,
+  400
+ ],
+ "skin_stats": {
+  "skin_frac": 0.9993,
+  "blur_grad": 0.4181,
+  "anchor": "face",
+  "search_region": [
+   1060,
+   1180,
+   940,
+   1180
+  ]
+ },
+ "image_size": [
+  2688,
+  3456
+ ],
+ "sheets": [
+  {
+   "region": "face",
+   "path": "/workspace/nsfw-fix/results/face/R1denoise_face_sheet1of1.png",
+   "size": [
+    2896,
+    4400
+   ],
+   "cols": 3,
+   "tiles": [
+    "L0b_baseline_loras",
+    "L1b_steps08_loras",
+    "X2_steps08_denoise050",
+    "Z0_cf15_denoise080",
+    "Z1_cf15_denoise050",
+    "Z2_cf15_denoise035",
+    "Z3_cf15_steps30_denoise035"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "L0b_baseline_loras",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      20,
+      436,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "L1b_steps08_loras",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      978,
+      436,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "X2_steps08_denoise050",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      1936,
+      436,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "Z0_cf15_denoise080",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      20,
+      1818,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "Z1_cf15_denoise050",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      978,
+      1818,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "Z2_cf15_denoise035",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      1936,
+      1818,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "Z3_cf15_steps30_denoise035",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      20,
+      3200,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  }
+ ],
+ "arms": [
+  {
+   "name": "L0b_baseline_loras",
+   "param": "LoRAs loaded (lunaskye + luna), settings shipped -- CONFIRMATION ARM, re-run after the server fault",
+   "path": "results/face/arms_r1/L0b_baseline_loras/HasMetadata_00030_.png",
+   "is_baseline": false,
+   "extra": "400.7 s  |  38 cached nodes  |  prompt 6f2a154e",
+   "warnings": [],
+   "det_xyxy": [
+    854.9560546875,
+    791.2908325195312,
+    2197.964599609375,
+    2695.293212890625
+   ],
+   "det_conf": 0.8952162861824036,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "L1b_steps08_loras",
+   "param": "#114 steps 30 -> 8, plus LoRAs (lunaskye + luna) -- CONFIRMATION ARM, re-run after the server fault",
+   "path": "results/face/arms_r1/L1b_steps08_loras/HasMetadata_00031_.png",
+   "is_baseline": false,
+   "extra": "189.3 s  |  57 cached nodes  |  prompt 5dc3b3e6",
+   "warnings": [],
+   "det_xyxy": [
+    850.77490234375,
+    790.4061279296875,
+    2196.23486328125,
+    2696.42431640625
+   ],
+   "det_conf": 0.8947824835777283,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "X2_steps08_denoise050",
+   "param": "#114 steps 30 -> 8 and denoise 0.80 -> 0.50 (re-run after the server fault)",
+   "path": "results/face/arms_r1/X2_steps08_denoise050/HasMetadata_00029_.png",
+   "is_baseline": false,
+   "extra": "185.3 s  |  57 cached nodes  |  prompt 3e69f020",
+   "warnings": [],
+   "det_xyxy": [
+    796.9631958007812,
+    697.3425903320312,
+    2228.143798828125,
+    2694.36474609375
+   ],
+   "det_conf": 0.9045822024345398,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "Z0_cf15_denoise080",
+   "param": "SHIPPED settings + LoRAs on the cf-1.5 graph (74c0f11 / workflow sha256 a811b5d6..2143d8): #114 steps 8, denoise 0.80, bbox_crop_factor 1.5, #105 empty. Plus SIX SaveImage taps injected into the SUBMITTED PROMPT ONLY -- 619:601 base gen, 587:92 HandDetailer, 587:91 skin-detail model, 587:87 ImageBlend, 587:98 UltimateSDUpscale, 620:137 into-#114. Graph diff against the same arm without taps: 6 nodes ADDED, 0 removed, 0 existing nodes changed, so #505 is unaffected. Doubles as the sheet's denoise-0.80 tile.",
+   "path": "results/face/arms_r1/Z0_cf15_denoise080/HasMetadata_00044_.png",
+   "is_baseline": false,
+   "extra": "270.5 s  |  0 cached nodes  |  prompt ec02909f",
+   "warnings": [],
+   "det_xyxy": [
+    854.6620483398438,
+    791.2730712890625,
+    2193.556640625,
+    2697.88037109375
+   ],
+   "det_conf": 0.8949795961380005,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "Z1_cf15_denoise050",
+   "param": "#114 denoise 0.80 -> 0.50, steps at the shipped 8, bbox_crop_factor 1.5, + LoRAs (74c0f11). X2's denoise IN THE OWNER'S CONFIGURATION -- the existing X2 arm has both LoRA stacks at None AND ran at cf 3. Graph diff vs TAP: 1 difference, 620:114.denoise.",
+   "path": "results/face/arms_r1/Z1_cf15_denoise050/HasMetadata_00051_.png",
+   "is_baseline": false,
+   "extra": "145.2 s  |  57 cached nodes  |  prompt 8997197b",
+   "warnings": [],
+   "det_xyxy": [
+    854.4472045898438,
+    786.2352905273438,
+    2191.064208984375,
+    2697.296142578125
+   ],
+   "det_conf": 0.8952407240867615,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "Z2_cf15_denoise035",
+   "param": "#114 denoise 0.80 -> 0.35, steps at the CURRENTLY-SHIPPED value 8, bbox_crop_factor 1.5, + LoRAs (74c0f11). ON 'STEPS UNCHANGED': the brief asked for 'LoRAs + denoise 0.35, steps unchanged' AND 'LoRAs + steps 8 + denoise 0.35' as two arms; 2e4e8e9 made steps 8 the shipped value, so those are the SAME arm and this is it. Graph diff vs TAP: 1 difference, 620:114.denoise.",
+   "path": "results/face/arms_r1/Z2_cf15_denoise035/HasMetadata_00049_.png",
+   "is_baseline": false,
+   "extra": "145.6 s  |  57 cached nodes  |  prompt f92e9abb",
+   "warnings": [],
+   "det_xyxy": [
+    851.6959228515625,
+    786.770263671875,
+    2191.524169921875,
+    2697.16259765625
+   ],
+   "det_conf": 0.89397794008255,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "Z3_cf15_steps30_denoise035",
+   "param": "#114 steps 8 -> 30 AND denoise 0.80 -> 0.35, bbox_crop_factor 1.5, + LoRAs (74c0f11). The brief's second arm rendered at the OLD steps 30, as the brief directed, because 'steps unchanged' and 'steps 8' now collapse. Separates the two levers on the sheet, and pairs with Z2 for the steps timing claim. Graph diff vs TAP: 2 differences, 620:114.denoise and 620:114.steps.",
+   "path": "results/face/arms_r1/Z3_cf15_steps30_denoise035/HasMetadata_00052_.png",
+   "is_baseline": false,
+   "extra": "198.7 s  |  57 cached nodes  |  prompt 5335408e",
+   "warnings": [],
+   "det_xyxy": [
+    856.469970703125,
+    789.03515625,
+    2194.559814453125,
+    2700.454833984375
+   ],
+   "det_conf": 0.8929486870765686,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ ]
+}

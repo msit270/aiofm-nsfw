@@ -454,6 +454,25 @@ cf 1.5 is about the **philtrum, lips, chin and the jaw seam** — different
 regions, and I am not contradicting it. But on the nose and upper cheeks, at
 denoise 0.80, cf 1.5 is not the improvement; **denoise is.**
 
+### cf 1.5 did engage, confirmed from the server's own log
+
+`Detailer: segment upscale … crop region (w, h) x 1.0` lines inside each arm's
+own `/history` execution window:
+
+| arm | `#607` SDXL face | **`#114` Z-Image face** | `#165` mouth |
+|---|---|---|---|
+| `L0b`, `L1b`, `X2` *(cf 3)* | 1432x1840 | **2688x3456** = 9.29 MP | 1956x790 / 1827x768 / — |
+| `Z0`, `Z1`, `Z2` *(cf 1.5)* | 1432x1840 | **2010x2859** = 5.75 MP | 1844x803 / 1848x798 / 1860x792 |
+
+**cf 3 → 1.5 cuts what `#114` diffuses in one pass by 38 %**, 9.29 MP → 5.75 MP.
+That is the server saying so, not my arithmetic.
+
+**And `#165` ran in all four of my arms** (no `[filter]` line, and a wide
+`x 1.0` crop present in each), so the four decision tiles do **not** split on
+the mouth pass and are comparable across the whole face box. `X2` on the sheet
+**did** drop it (`value=1773063` against the 1,700,000 gate) — one more reason
+that tile is not comparable, on top of having no LoRAs.
+
 ### The full ladder
 
 | arm | `#114` | pigment % | **bright-blob %** | luma L\* RMS *(fine texture)* | exec |
@@ -475,6 +494,52 @@ re-diffusion means more of the input's real pore structure survives — and it i
 the only arm in which the pigment mark below the right eye, plainly present in
 the `620:137` tap, **comes through into the delivered frame.** At 0.50 that
 mark is gone. At 0.80 it is gone.
+
+---
+
+# 5b. The recommendation: **`#114 denoise` 0.80 → 0.35. Leave steps at 8.**
+
+`OFMTech-NSFW/OFMTech_NSFW.json`, subgraph `5. Face & Mouth Detail (Z-Image)`,
+node `#114`, `widgets_values[9]`, `0.8` → `0.35`. One float. **Nothing was
+applied by me.**
+
+**The sheet: `results/face/R1denoise_face_sheet1of1.png`** — 7 tiles, tight
+face crop, 940x1180 each, 1:1 native, identical pinned box, all seven verified
+byte-identical to their source crops. Row 1 is the three cf-3 tiles he has
+already seen; rows 2–3 are the four cf-1.5 arms on the graph that ships. The
+banner says which is which, and that `X2` has no LoRAs.
+
+**In plain language about the skin, which is what he asked for.**
+
+At the shipped **denoise 0.80** (`Z0`) the cheeks, nose and brow carry a fine
+granular crust — much fainter than the 30-step render, but the surface still
+reads like *orange peel* rather than skin. It is the same defect as before at
+lower amplitude: small pale raised specks packed edge to edge, catching the
+light. It is the pass adding texture that is not there.
+
+At **denoise 0.35** (`Z2`) that is gone. The cheek is skin: even, with the fine
+pore-scale texture that was already in the image before the face pass, lit
+smoothly. The eyelashes are separate strands. The iris has structure in it
+instead of being a flat disc. **And there is a small brown mark below the right
+eye that is not in any of the 0.80 arms** — it is plainly there in the tap of
+`620:137`, so it is real, and 0.35 is the only setting that carries it through.
+
+**Denoise 0.50 (`Z1`) is the near miss.** It is almost as clean, but it is
+*softer*: fine texture measures 0.883 against 0.35's 0.972, and the brown mark
+is gone. It is the arm I would call airbrushed of the three. If the owner looks
+at `Z2` and finds it too smooth, `Z1` is not the answer — `Z1` is smoother.
+
+**Steps 30 at the same denoise (`Z3`) puts some of the crust back** — 3.364 %
+bright-blob against `Z2`'s 1.681 % — and costs 53 s. It is the control that
+shows the two levers are independent, and it is not the pick.
+
+**What this does not do, and he should know before choosing:** it does **not**
+bring back Luna's freckles. Those die at `#98`, two stages earlier (§3). The
+one mark that `Z2` recovers is a survivor, not a restoration. If the freckles
+matter more than the skin, the next investigation is `#98`, not `#114`.
+
+**Cost: nothing.** In a matched 57-node cache, denoise 0.50 → 0.35 is 145.2 s
+against 145.6 s. Denoise is free, from the source (§4) and from the clock.
 
 ---
 
@@ -511,8 +576,46 @@ mean and maximum absolute difference, as a control on the instrument — this is
 not the banned method, which is verifying that a *change* is inert by matching
 output.
 
-*(The other half — `L0b` cold — and the steps pair on the shipping graph are
-below when they land.)*
+## The steps lever, measured properly: a matched-cache trio on the shipping graph
+
+`Z1`, `Z2` and `Z3` ran back to back with **byte-identical `execution_cached`
+sets** — 57 nodes, the same 57 node ids in all three, asserted not assumed. So
+these three are comparable on time to each other:
+
+| arm | `#114` | exec | cached |
+|---|---|---|---|
+| `Z1` | steps 8, denoise **0.50** | **145.2 s** | 57 (identical set) |
+| `Z2` | steps 8, denoise **0.35** | **145.6 s** | 57 (identical set) |
+| `Z3` | **steps 30**, denoise 0.35 | **198.7 s** | 57 (identical set) |
+
+* **Denoise costs nothing: 145.2 s against 145.6 s, 0.4 s apart.** That is the
+  source reading in §4 confirmed on the clock, in the owner's configuration,
+  on the graph that ships.
+* **Steps 30 → 8 saves 53.1 s of sampling, −26.7 %,** on a matched cache. That
+  is the honest size of the steps lever once model loading is held constant —
+  and it is a *sampling* figure, not a whole-render figure.
+
+## What the cold/warm gap actually is, and why the old numbers were so large
+
+The same graph, cold against warm:
+
+| graph | cold | warm | difference |
+|---|---|---|---|
+| `L1b` (cf 3, steps 8, den 0.80) | **388.9 s** (0 cached) | 190.1 s (56 cached) | **198.8 s** |
+| `Z0`/tap (cf 1.5, steps 8, den 0.80) | **270.5 s** (0 cached) | 150.2 s (57 cached) | **120.3 s** |
+
+**Roughly 120–200 s of a cold render on this pod is model loading, not
+sampling.** That is larger than either lever under discussion, which is exactly
+why every cross-cache comparison in this project has come out wrong. A number
+quoted from a warm run and a number quoted from a cold run are not comparable
+even when they are the same graph.
+
+**A bonus matched cold pair fell out of it, and it is R3's lever not mine:**
+cf 3 → cf 1.5 at identical steps, denoise and LoRAs, both from `/free` with
+0 cached nodes — **388.9 s → 270.5 s, −118.4 s, −30 %.** Independent
+confirmation that cf 1.5 is a real saving, cold, in the owner's configuration.
+
+*(Cold `L0b` — the other half of the owner's original pair — is below.)*
 
 ---
 
