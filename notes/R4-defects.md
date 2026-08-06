@@ -21,7 +21,7 @@ output. Inference is labelled **[I]**.
 | | Defect as stated in STATE.md | Verdict | Shipped |
 |---|---|---|---|
 | 1 | `#597 VAEEncode` → `#616 VAEDecode` round-trip | **real; re-rendered at steps 8; still moves the face the way the owner rejected** — §1 | no change |
-| 2 | `#106` placeholder driving the face pass at denoise 0.8 | **not an oversight; at steps 8 measurably *different* from a real prompt but not *worse*** — §2. One **open** sub-item with LoRAs loaded — §2b | no change |
+| 2 | `#106` placeholder driving the face pass at denoise 0.8 | **not an oversight; at steps 8 measurably *different* from a real prompt but not *worse*** — §2. **But with the owner's LoRAs loaded, filling `#106` in as `#649` instructs crashes the graph 2/2 at `622:403` — §2b. New, reproducible, and not one of the four.** | no change; needs a decision |
 | 3 | `#600 KSamplerAdvanced` reseeding itself | **FALSE, and nothing residual remains** | no change needed |
 | 4 | `SetUnionControlNetType` wired in parallel | **MOOT — the path does not exist** | no change needed |
 
@@ -776,46 +776,88 @@ Bit-identical across 2688×3456. So the freed server is not approximately
 recovered, it is back to producing the same bytes it produced before the fault.
 That is the strongest form this test can take.
 
-### And then the open item, which I am NOT resolving here
+### RESOLVED — and it is not what the pre-`/free` evidence suggested
 
-With the server freshly proved healthy by two consecutive successes, the filled
-arm was submitted once more. It failed again, same node:
+With the server freed, the two arms were run **alternately**, and the alternation
+is the whole result. Every row below is on a server whose health is attested by
+**sixteen** unrelated successes, most of them other agents' prompts:
 
 ```
-13:41:31 -> 13:46:18  110d0594  SUCCESS   #106 = placeholder   (+ LoRAs)
-13:46:19 -> 13:49:12  94552d00  ERROR     #106 = filled        (+ LoRAs)   622:403
+13:37:31  b0ad2862  success  239.5      (not mine)
+13:41:31  110d0594  SUCCESS  286.9   <== #106 PLACEHOLDER + LoRAs
+13:46:19  94552d00  ERROR    173.4   <== #106 FILLED + LoRAs      622:403
+13:49:18  11a4670d  success  388.9      (not mine -- R1)
+13:55:54  ec02909f  success  270.5      (not mine -- R1)
+14:00:25  b6769fc9  success  150.0      (not mine -- R1)
+14:02:56  8eae3e66  success  190.1      (not mine -- R1)
+   ... 7 further successes, 14:06:07 - 14:29:07, none of them mine ...
+14:34:23  3ffb8610  SUCCESS  189.3   <== #106 PLACEHOLDER + LoRAs
+14:37:38  4a422a94  success  262.6      (not mine)
+14:42:02  81c9e758  ERROR    172.9   <== #106 FILLED + LoRAs      622:403
+
+since the /free: 16 success, 2 error.  BOTH errors are the filled-prompt arm.
 ```
 
-One input apart. Placeholder works, filled does not, on a server two renders had
-just shown to be fine. **That is suggestive and it is not a finding.** Reasons I
-am not calling it:
+**Placeholder 2/2 clean. Filled 2/2 crash. One input apart.** Both crashes are
+the same node, the same exception, the same all-zero mask:
 
-* **n = 1 post-free on each side.** The pre-free failures tell me nothing because
-  everything failed then.
-* **This node crashes for server-state reasons too, demonstrably.**
-  `notes/P2-render.md:445-446` records `L0_baseline_loras` and `L1_steps08_loras`
-  — both **placeholder** arms — crashing at the same `622:403` at 02:30 and
-  02:33, then rendering clean as `L0b`/`L1b` after a `/free`. So "crashes at
-  622:403" does not identify the prompt as the cause.
-* **The identical claim has been made and withdrawn on this project before.**
-  `ebb2f8e` reports "a possible crash on the buyer's documented action" — an arm
-  with `#106`'s placeholder replaced by a real character prompt returning a black
-  image — and `HANDOFF.md` §7.1 later attributed that class of failure to server
-  NaN state. I am not re-publishing a withdrawn claim on weaker evidence.
+```
+94552d00  622:403 MaskBoundingBox+ RuntimeError  mask all-zero: True   173.4 s
+81c9e758  622:403 MaskBoundingBox+ RuntimeError  mask all-zero: True   172.9 s
+```
 
-**The decisive experiment is one render** and I asked for it rather than queueing
-it, because R1 needed the queue: resubmit `L1b_steps08_loras`'s API graph
-byte-identical once more. Placeholder succeeding again makes the sequence
-success / fail / success and the filled prompt a genuine trigger — which would be
-**crash-class and sitting on the buyer's first documented action**. Placeholder
-failing means the server re-poisoned inside a few minutes and `94552d00` says
-nothing.
+The two failures are **0.5 s apart in execution time**. That is a deterministic
+path terminating at the same point, not a stochastic event.
 
-**Until that runs, §2b's LoRA question is unanswered.** What §2 concludes about
-the placeholder is unaffected: those seven arms are all no-LoRA, all rendered
-inside the clean window before 13:15:53, and all cross-checked by two bit-identical
-controls.
+So my earlier reading — "server state, not the prompt" — was correct **for the
+13:17–13:37 window** and **wrong as a general conclusion**. Both were true at
+once: the server really was poisoned then (another agent's prompt failed too, and
+`/free` restored bit-identical output), *and* this arm has a genuine, repeatable
+trigger underneath it. Settling the first did not settle the second, and it took
+alternation on a proven-healthy server to separate them.
 
+### What is established, and what is not
+
+**Established.** In the owner's own configuration — `lunaskye` on `#618`, `luna`
+on `#116`, `#114` at steps 8 — replacing `#106`'s placeholder with a filled
+character prompt crashes the pipeline at `622:403 MaskBoundingBox+`, reproducibly,
+on a healthy server. **Filling that box in is the buyer's first documented
+action**: root `#649` §3 says *"replace `TRIGGER, PROMPT FOR YOUR MODEL` with your
+LoRA's trigger word and a short description of your character."*
+
+**Not established, and I am not implying it.**
+
+* **That any filled prompt does this.** I tested one string,
+  `"luna, a young woman with light freckles across her nose and cheeks, natural
+  skin texture with visible pores, detailed eyes, photorealistic portrait
+  photograph, 85mm lens"`.
+* **That it needs the LoRAs.** But note `R4_D2_real` in §2 — a filled `#106`
+  **without** LoRAs and without the `luna, ` trigger prefix — rendered **clean**.
+  So the no-LoRA case does not crash. Two variables differ between that arm and
+  this one (LoRA stacks loaded, and the `luna, ` prefix) and I have **not**
+  isolated which matters.
+* **That the prompt is the defect.** **[I]** The defect is more likely the
+  missing guard: `622:403 MaskBoundingBox+` calls `.min()` on an empty tensor
+  (`ComfyUI_essentials/mask.py:184`) whenever the Eyes stage's face mask comes
+  back empty, so *anything* that makes the face undetectable is a hard crash
+  rather than a degraded image. The poisoned server reaches that state one way;
+  this prompt reaches it another. On that reading the prompt is a trigger, not
+  the fault, and there are likely other triggers.
+
+### Why this is worth a decision before the pack ships
+
+A buyer who follows `#649` §3 with a LoRA loaded hit a hard crash in 2 of 2
+attempts here. Even if the trigger turns out to be narrower than that sentence
+makes it sound, **the Eyes stage converting an undetectable face into a
+`RuntimeError` instead of a degraded image is a defect in its own right**, and it
+is the thing that turns any such trigger into a dead render rather than a bad
+one. `HANDOFF.md` §7.1 already lists the missing guard; what is new is that it is
+now reachable from the documented happy path, not only from a poisoned server.
+
+Evidence: `results/r4/R4_D2_loras_filled_postfree/`,
+`results/r4/R4_D2_loras_filled_confirm/`,
+`results/r4/R4_CTL_loras_placeholder_postfree/` (with its image),
+`results/r4/R4_CTL_loras_placeholder_final/` (with its image).
 
 ---
 
@@ -833,16 +875,21 @@ did not exist, and the two that do are both owner-judgement calls where the
 lower-risk option is the graph as it stands. Nothing here needed a code change to
 be worth doing — the deliverables are the verdicts and the pairs.
 
-**One thing is left open, deliberately, and it is the most consequential thing I
-touched: §2b.** With the owner's LoRAs loaded, the graph rendered clean with
-`#106` at the placeholder and crashed at `622:403 MaskBoundingBox+` with `#106`
-filled in — one input apart, on a server two prior renders had just proved
-healthy. If that reproduces it is **crash-class and sits on the buyer's first
-documented action** (`#649` §3 tells them to fill that box in). It is n=1 per
-side, the same node crashes for server-state reasons independently, and a
-near-identical claim has already been made and withdrawn on this project once, so
-I am **not** calling it. **One byte-identical control render settles it** — asked
-for, not queued, because R1 needed the GPU.
+**One thing came out of this that was not on the list of four, and it is the most
+consequential thing I found: §2b.** With the owner's LoRAs loaded, filling `#106`
+in the way root `#649` §3 instructs the buyer to crashes the pipeline at
+`622:403 MaskBoundingBox+`. **Reproduced 2/2, against the placeholder's 2/2
+clean, alternated on a server attested by 16 unrelated successes**, both failures
+on the same node with the same all-zero mask and execution times 0.5 s apart.
+
+It is **not** a defect in `#106` and I am not proposing a content change. **[I]**
+The fault is most likely the missing empty-mask guard — `ComfyUI_essentials/mask.py:184`
+calls `.min()` on an empty tensor, so *anything* that leaves the Eyes stage's face
+mask empty is a `RuntimeError` instead of a degraded image. The prompt is one
+route in; the poisoned server is another; there are probably more. What is new is
+that it is now **reachable from the documented happy path**, not only from a
+broken server. That needs a decision before the pack ships, and it is not mine to
+make.
 
 ### Documents still carrying claims this run contradicts
 
