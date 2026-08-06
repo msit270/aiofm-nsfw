@@ -18,8 +18,12 @@ Z-Image-**Turbo**, a guidance-distilled model whose vendor documents
 **by necessity**. Raising cfg is not a fix; it is a regression, and the renders
 below show what it costs.
 
-<!--HEADLINE-->
-
+**Recommendation: empty the negatives and note it on canvas** — option 2 of the
+three. Emptying `#105` is provably output-inert (the string never reaches the
+model at cfg 1), it makes the graph consistent with `#167` and `#394` which are
+already empty, and it matches ComfyUI's own reference implementation for this
+model. The on-canvas note is the half that actually protects the buyer. Full
+reasoning, including why *"leave it and document it"* is weaker, in §7.
 
 ---
 
@@ -401,7 +405,102 @@ Two things already on record that this run confirms rather than discovers:
 
 ## 7 · Recommendation
 
-<!--RECOMMENDATION-->
+**Empty the negatives and note it on canvas.** That is option 2 of the three you
+offered. Not "raise cfg", and not "leave it and document it".
+
+### Why not raise cfg
+
+This one is not a judgement call. `zimage.safetensors` is byte-identical to
+Z-Image-**Turbo** (§1), the vendor's own quick-start says
+`guidance_scale=0.0, # Guidance should be 0 for the Turbo models`, ComfyUI's
+shipped turbo template runs cfg 1 against cfg 4 for the base model, and the
+checkpoint contains **no guidance tensors at all** — there is no distilled
+guidance input to fall back on. Raising cfg does not switch a feature on. It
+drives a model outside the operating point it was distilled to. Anything in
+`PROPOSALS.md` or `notes/WS4-questions.md` that offers "raise cfg and A/B it" as
+an option should be struck.
+
+### Why not just leave it and document it
+
+Because a note beside a fully-written negative is the weakest of the three. The
+buyer is sent to that exact subgraph by root `#649` — *"Open 5. Face & Mouth
+Detail, find Face Detailer Prompt…"* — and `#105` sits next to `#106` reading
+`"deformed, ugly, blurry, bad anatomy, disfigured, extra eyes, cropped face, out
+of frame, deformed piercing, bad piercing, watermark, text"`. That is not a
+neutral empty field they might wonder about. It is a specific, confident,
+professional-looking list, and it does nothing.
+
+And they **will** reach for it, because the pipeline produces exactly the
+defects it names. `#114` at shipped settings puts a blistered pore texture, a
+hard mask seam and faint text-like marks on the face, and they survive into the
+delivered image (§4). A buyer seeing that, finding `watermark, text` already in
+the negative, will conclude the negative needs strengthening. It will not help.
+That is the trap, and a note pinned nearby does not spring it — notes are read
+once, the field is read every time.
+
+### Why emptying is safe
+
+Emptying `#105` is the only change anywhere in this area that is **provably
+output-inert**, and provable without a GPU. `comfy/samplers.py:370` sets
+`uncond_ = None` at cfg 1 before the model is called, and nothing in this
+graph's model chain sets `disable_cfg1_optimization` (§2c). The string never
+reaches the transformer, so its contents cannot affect a pixel. Verification is
+a graph diff showing exactly one changed string plus that source line. No
+render, no risk, and per the project's standing rule I am **not** proposing to
+confirm it by comparing rendered output.
+
+It also makes the graph self-consistent — `#167` and `#394` are already empty,
+so somebody reached this conclusion twice and stopped — and it matches ComfyUI's
+own reference implementation for this exact model, which does not expose a
+negative box at all (§2a).
+
+Nothing is lost by emptying it. The string is now recorded verbatim in this
+report, in `notes/WS4-questions.md` Q-E and in git history.
+
+### But the note is the load-bearing half
+
+An empty box with no explanation invites a buyer to fill it in, which is the
+same trap one step later. The note is why this is option 2 and not "delete the
+text". Suggested wording, to be rewritten in your voice:
+
+> **The face, mouth and eye passes run on Z-Image Turbo, which has no negative
+> prompt.**
+> Turbo is a *distilled* model. It is built to run at **cfg 1**, where
+> classifier-free guidance is off and the negative prompt is never evaluated —
+> anything typed into a negative box on these three passes is discarded before
+> the model sees it. The boxes are left empty deliberately.
+>
+> **Do not raise cfg to make them work.** Turbo degrades above cfg 1; that is
+> what distillation traded away for speed.
+>
+> **Put everything — what you want *and* what you want avoided — in the positive
+> prompt.** At cfg 1 the positive prompt is the only steering the model gets.
+
+### One thing that follows and matters more than the negative
+
+Because the positive is the *only* conditioning at cfg 1, `#106` shipping as the
+placeholder `"TRIGGER, PROMPT FOR YOUR MODEL"` is far more damaging here than
+the same placeholder would be on a normal cfg model, where a negative branch
+would dilute it. `#649` already tells the buyer to replace it; on the evidence
+of §1–§2 that instruction is not a nicety, it is the single most load-bearing
+sentence in the buyer-facing documentation, and it deserves to be stated as a
+requirement rather than a step 3.
+
+### What not to do
+
+Do **not** rewire `#105` through a `ConditioningZeroOut`, the way ComfyUI's
+turbo template does. It is the more "correct" construction and it is equally
+inert, but it means adding a node and editing subgraph IO — and `STATE.md`
+records that exactly that class of edit inside a subgraph produced this run's
+browser blocker. An empty string reaches the same buyer-visible outcome with no
+structural change at all.
+
+### Scope
+
+This recommendation covers `#105`, `#167` and `#394` only. `619:600` on the SDXL
+half (§6) has the same shape but a different model and a different distillation,
+and carries the **buyer's own** typed negative rather than a hard-coded one. I
+did not test it and it needs its own decision.
 
 ## 8 · Files
 
