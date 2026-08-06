@@ -1,0 +1,23 @@
+{
+ "arm": "R3_cf1.0",
+ "changed": "#114 bbox_crop_factor 3 -> 1.0",
+ "prompt_id": "a7b6d7d8-f3e6-4739-8e3c-870a1d57b201",
+ "queue_number": 88,
+ "client_id": "r3-crop-8a415464",
+ "base": "/workspace/nsfw-fix/results/face/arms/C_zface_steps_08/api_graph.json",
+ "submitted": "2026-08-06 12:45:37",
+ "bbox_crop_factor": 1.0,
+ "steps": 8,
+ "cfg": 1,
+ "seed": 1111111,
+ "batch_seed": 12345,
+ "exec_seconds": 124.4,
+ "cached_nodes": 57,
+ "status": "success",
+ "completed": true,
+ "images": [
+  "HasMetadata_00034_.png"
+ ],
+ "exec_start_ms": 1786020773179,
+ "exec_end_ms": 1786020897628
+}

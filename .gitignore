@@ -21,3 +21,9 @@ results/ws4/A2_control_repeat/*.png
 results/ws4/A3_control_repeat/*.png
 results/ws4/A4_control_repeat/*.png
 results/ws4/B2_no_vae_roundtrip_repeat/*.png
+
+# R3: the crop-factor control arm's PNG is byte-identical (max abs diff 0 over
+# 2688x3456x3) to results/face/arms/C_zface_steps_08/HasMetadata_00016_.png,
+# which is already committed. It was a server-health control, not a new result.
+# Its api_graph.json and meta.json ARE committed.
+results/r3_crop/R3_control_cf3/*.png
