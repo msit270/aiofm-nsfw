@@ -1,31 +1,31 @@
 {
- "generated": "2026-08-06 02:03",
+ "generated": "2026-08-06 02:24",
  "source": "/workspace/nsfw-fix/results/face/arms",
  "tool": "/workspace/nsfw-fix/tools/contact_sheet.py",
  "max_width": 4000,
  "detector": "/workspace/ComfyUI/models/ultralytics/bbox/face_yolov8m.pt",
  "detector_error": null,
  "face_box_xywh": [
-  678,
-  525,
-  1668,
-  2330
+  665,
+  491,
+  1692,
+  2378
  ],
  "skin_box_xywh": [
-  942,
-  2453,
+  921,
+  2467,
   400,
   400
  ],
  "skin_stats": {
-  "skin_frac": 0.9617,
-  "blur_grad": 0.248,
+  "skin_frac": 0.9504,
+  "blur_grad": 0.2408,
   "anchor": "face",
   "search_region": [
-   678,
-   525,
-   1668,
-   2330
+   665,
+   491,
+   1692,
+   2378
   ]
  },
  "image_size": [
@@ -37,8 +37,8 @@
    "region": "face",
    "path": "/workspace/nsfw-fix/results/face/face_face_sheet1of2.png",
    "size": [
-    3394,
-    10208
+    3442,
+    10400
    ],
    "cols": 2,
    "tiles": [
@@ -49,7 +49,7 @@
     "B_zface_denoise_065",
     "C_zface_steps_08",
     "C_zface_steps_16",
-    "D_skinblend_075"
+    "CF_crop_1.0"
    ],
    "width_ok": true,
    "verify": [
@@ -57,25 +57,25 @@
      "arm": "A0_baseline",
      "ok": true,
      "src_box": [
-      678,
-      525,
-      1668,
-      2330
+      665,
+      491,
+      1692,
+      2378
      ],
      "sheet_at": [
       20,
       367,
-      1668,
-      2330
+      1692,
+      2378
      ],
      "src_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "sheet_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "max_abs_diff": 0
@@ -84,25 +84,25 @@
      "arm": "A_drop_sdxl_face_pass",
      "ok": true,
      "src_box": [
-      678,
-      525,
-      1668,
-      2330
+      665,
+      491,
+      1692,
+      2378
      ],
      "sheet_at": [
-      1706,
+      1730,
       367,
-      1668,
-      2330
+      1692,
+      2378
      ],
      "src_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "sheet_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "max_abs_diff": 0
@@ -111,25 +111,25 @@
      "arm": "B_zface_denoise_035",
      "ok": true,
      "src_box": [
-      678,
-      525,
-      1668,
-      2330
+      665,
+      491,
+      1692,
+      2378
      ],
      "sheet_at": [
       20,
-      2864,
-      1668,
-      2330
+      2912,
+      1692,
+      2378
      ],
      "src_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "sheet_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "max_abs_diff": 0
@@ -138,25 +138,25 @@
      "arm": "B_zface_denoise_050",
      "ok": true,
      "src_box": [
-      678,
-      525,
-      1668,
-      2330
+      665,
+      491,
+      1692,
+      2378
      ],
      "sheet_at": [
-      1706,
-      2864,
-      1668,
-      2330
+      1730,
+      2912,
+      1692,
+      2378
      ],
      "src_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "sheet_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "max_abs_diff": 0
@@ -165,25 +165,25 @@
      "arm": "B_zface_denoise_065",
      "ok": true,
      "src_box": [
-      678,
-      525,
-      1668,
-      2330
+      665,
+      491,
+      1692,
+      2378
      ],
      "sheet_at": [
       20,
-      5361,
-      1668,
-      2330
+      5457,
+      1692,
+      2378
      ],
      "src_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "sheet_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "max_abs_diff": 0
@@ -192,25 +192,25 @@
      "arm": "C_zface_steps_08",
      "ok": true,
      "src_box": [
-      678,
-      525,
-      1668,
-      2330
+      665,
+      491,
+      1692,
+      2378
      ],
      "sheet_at": [
-      1706,
-      5361,
-      1668,
-      2330
+      1730,
+      5457,
+      1692,
+      2378
      ],
      "src_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "sheet_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "max_abs_diff": 0
@@ -219,52 +219,52 @@
      "arm": "C_zface_steps_16",
      "ok": true,
      "src_box": [
-      678,
-      525,
-      1668,
-      2330
+      665,
+      491,
+      1692,
+      2378
      ],
      "sheet_at": [
       20,
-      7858,
-      1668,
-      2330
+      8002,
+      1692,
+      2378
      ],
      "src_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "sheet_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "max_abs_diff": 0
     },
     {
-     "arm": "D_skinblend_075",
+     "arm": "CF_crop_1.0",
      "ok": true,
      "src_box": [
-      678,
-      525,
-      1668,
-      2330
+      665,
+      491,
+      1692,
+      2378
      ],
      "sheet_at": [
-      1706,
-      7858,
-      1668,
-      2330
+      1730,
+      8002,
+      1692,
+      2378
      ],
      "src_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "sheet_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "max_abs_diff": 0
@@ -275,13 +275,17 @@
    "region": "face",
    "path": "/workspace/nsfw-fix/results/face/face_face_sheet2of2.png",
    "size": [
-    3394,
-    2717
+    3442,
+    7855
    ],
    "cols": 2,
    "tiles": [
     "A0_baseline",
-    "H_skinblend_050"
+    "CF_crop_1.5",
+    "D_skinblend_075",
+    "H_skinblend_050",
+    "X_steps08_denoise050",
+    "X_steps08_denoise065"
    ],
    "width_ok": true,
    "verify": [
@@ -289,25 +293,79 @@
      "arm": "A0_baseline",
      "ok": true,
      "src_box": [
-      678,
-      525,
-      1668,
-      2330
+      665,
+      491,
+      1692,
+      2378
      ],
      "sheet_at": [
       20,
       367,
-      1668,
-      2330
+      1692,
+      2378
      ],
      "src_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "sheet_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "CF_crop_1.5",
+     "ok": true,
+     "src_box": [
+      665,
+      491,
+      1692,
+      2378
+     ],
+     "sheet_at": [
+      1730,
+      367,
+      1692,
+      2378
+     ],
+     "src_shape": [
+      2378,
+      1692,
+      3
+     ],
+     "sheet_shape": [
+      2378,
+      1692,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "D_skinblend_075",
+     "ok": true,
+     "src_box": [
+      665,
+      491,
+      1692,
+      2378
+     ],
+     "sheet_at": [
+      20,
+      2912,
+      1692,
+      2378
+     ],
+     "src_shape": [
+      2378,
+      1692,
+      3
+     ],
+     "sheet_shape": [
+      2378,
+      1692,
       3
      ],
      "max_abs_diff": 0
@@ -316,25 +374,79 @@
      "arm": "H_skinblend_050",
      "ok": true,
      "src_box": [
-      678,
-      525,
-      1668,
-      2330
+      665,
+      491,
+      1692,
+      2378
      ],
      "sheet_at": [
-      1706,
-      367,
-      1668,
-      2330
+      1730,
+      2912,
+      1692,
+      2378
      ],
      "src_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
       3
      ],
      "sheet_shape": [
-      2330,
-      1668,
+      2378,
+      1692,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "X_steps08_denoise050",
+     "ok": true,
+     "src_box": [
+      665,
+      491,
+      1692,
+      2378
+     ],
+     "sheet_at": [
+      20,
+      5457,
+      1692,
+      2378
+     ],
+     "src_shape": [
+      2378,
+      1692,
+      3
+     ],
+     "sheet_shape": [
+      2378,
+      1692,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "X_steps08_denoise065",
+     "ok": true,
+     "src_box": [
+      665,
+      491,
+      1692,
+      2378
+     ],
+     "sheet_at": [
+      1730,
+      5457,
+      1692,
+      2378
+     ],
+     "src_shape": [
+      2378,
+      1692,
+      3
+     ],
+     "sheet_shape": [
+      2378,
+      1692,
       3
      ],
      "max_abs_diff": 0
@@ -346,7 +458,7 @@
    "path": "/workspace/nsfw-fix/results/face/face_skin_sheet1of1.png",
    "size": [
     3784,
-    759
+    1298
    ],
    "cols": 9,
    "tiles": [
@@ -357,8 +469,12 @@
     "B_zface_denoise_065",
     "C_zface_steps_08",
     "C_zface_steps_16",
+    "CF_crop_1.0",
+    "CF_crop_1.5",
     "D_skinblend_075",
-    "H_skinblend_050"
+    "H_skinblend_050",
+    "X_steps08_denoise050",
+    "X_steps08_denoise065"
    ],
    "width_ok": true,
    "verify": [
@@ -366,8 +482,8 @@
      "arm": "A0_baseline",
      "ok": true,
      "src_box": [
-      942,
-      2453,
+      921,
+      2467,
       400,
       400
      ],
@@ -393,8 +509,8 @@
      "arm": "A_drop_sdxl_face_pass",
      "ok": true,
      "src_box": [
-      942,
-      2453,
+      921,
+      2467,
       400,
       400
      ],
@@ -420,8 +536,8 @@
      "arm": "B_zface_denoise_035",
      "ok": true,
      "src_box": [
-      942,
-      2453,
+      921,
+      2467,
       400,
       400
      ],
@@ -447,8 +563,8 @@
      "arm": "B_zface_denoise_050",
      "ok": true,
      "src_box": [
-      942,
-      2453,
+      921,
+      2467,
       400,
       400
      ],
@@ -474,8 +590,8 @@
      "arm": "B_zface_denoise_065",
      "ok": true,
      "src_box": [
-      942,
-      2453,
+      921,
+      2467,
       400,
       400
      ],
@@ -501,8 +617,8 @@
      "arm": "C_zface_steps_08",
      "ok": true,
      "src_box": [
-      942,
-      2453,
+      921,
+      2467,
       400,
       400
      ],
@@ -528,8 +644,8 @@
      "arm": "C_zface_steps_16",
      "ok": true,
      "src_box": [
-      942,
-      2453,
+      921,
+      2467,
       400,
       400
      ],
@@ -552,11 +668,11 @@
      "max_abs_diff": 0
     },
     {
-     "arm": "D_skinblend_075",
+     "arm": "CF_crop_1.0",
      "ok": true,
      "src_box": [
-      942,
-      2453,
+      921,
+      2467,
       400,
       400
      ],
@@ -579,17 +695,125 @@
      "max_abs_diff": 0
     },
     {
-     "arm": "H_skinblend_050",
+     "arm": "CF_crop_1.5",
      "ok": true,
      "src_box": [
-      942,
-      2453,
+      921,
+      2467,
       400,
       400
      ],
      "sheet_at": [
       3364,
       339,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "D_skinblend_075",
+     "ok": true,
+     "src_box": [
+      921,
+      2467,
+      400,
+      400
+     ],
+     "sheet_at": [
+      20,
+      878,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "H_skinblend_050",
+     "ok": true,
+     "src_box": [
+      921,
+      2467,
+      400,
+      400
+     ],
+     "sheet_at": [
+      438,
+      878,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "X_steps08_denoise050",
+     "ok": true,
+     "src_box": [
+      921,
+      2467,
+      400,
+      400
+     ],
+     "sheet_at": [
+      856,
+      878,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "X_steps08_denoise065",
+     "ok": true,
+     "src_box": [
+      921,
+      2467,
+      400,
+      400
+     ],
+     "sheet_at": [
+      1274,
+      878,
       400,
       400
      ],
@@ -625,10 +849,10 @@
    "det_conf": 0.9025262594223022,
    "det_status": "detected",
    "face_box": [
-    678,
-    525,
-    1668,
-    2330
+    665,
+    491,
+    1692,
+    2378
    ],
    "crop_mode": "common",
    "size": [
@@ -652,10 +876,10 @@
    "det_conf": 0.9029903411865234,
    "det_status": "detected",
    "face_box": [
-    678,
-    525,
-    1668,
-    2330
+    665,
+    491,
+    1692,
+    2378
    ],
    "crop_mode": "common",
    "size": [
@@ -679,10 +903,10 @@
    "det_conf": 0.9047403931617737,
    "det_status": "detected",
    "face_box": [
-    678,
-    525,
-    1668,
-    2330
+    665,
+    491,
+    1692,
+    2378
    ],
    "crop_mode": "common",
    "size": [
@@ -706,10 +930,10 @@
    "det_conf": 0.9044134020805359,
    "det_status": "detected",
    "face_box": [
-    678,
-    525,
-    1668,
-    2330
+    665,
+    491,
+    1692,
+    2378
    ],
    "crop_mode": "common",
    "size": [
@@ -733,10 +957,10 @@
    "det_conf": 0.9039496779441833,
    "det_status": "detected",
    "face_box": [
-    678,
-    525,
-    1668,
-    2330
+    665,
+    491,
+    1692,
+    2378
    ],
    "crop_mode": "common",
    "size": [
@@ -760,10 +984,10 @@
    "det_conf": 0.9038963913917542,
    "det_status": "detected",
    "face_box": [
-    678,
-    525,
-    1668,
-    2330
+    665,
+    491,
+    1692,
+    2378
    ],
    "crop_mode": "common",
    "size": [
@@ -787,10 +1011,64 @@
    "det_conf": 0.9031369686126709,
    "det_status": "detected",
    "face_box": [
-    678,
-    525,
-    1668,
-    2330
+    665,
+    491,
+    1692,
+    2378
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "CF_crop_1.0",
+   "param": "#114 bbox_crop_factor 3 -> 1.0",
+   "path": "results/face/arms/CF_crop_1.0/HasMetadata_00024_.png",
+   "is_baseline": false,
+   "extra": "138.6 s  |  57 cached nodes  |  prompt d0cdfc91",
+   "warnings": [],
+   "det_xyxy": [
+    781.6823120117188,
+    654.6798095703125,
+    2240.165283203125,
+    2681.175537109375
+   ],
+   "det_conf": 0.6466931700706482,
+   "det_status": "detected",
+   "face_box": [
+    665,
+    491,
+    1692,
+    2378
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "CF_crop_1.5",
+   "param": "#114 bbox_crop_factor 3 -> 1.5",
+   "path": "results/face/arms/CF_crop_1.5/HasMetadata_00023_.png",
+   "is_baseline": false,
+   "extra": "296.6 s  |  10 cached nodes  |  prompt 65981fee",
+   "warnings": [],
+   "det_xyxy": [
+    798.8909301757812,
+    659.0882568359375,
+    2214.62109375,
+    2704.826171875
+   ],
+   "det_conf": 0.6865838766098022,
+   "det_status": "detected",
+   "face_box": [
+    665,
+    491,
+    1692,
+    2378
    ],
    "crop_mode": "common",
    "size": [
@@ -814,10 +1092,10 @@
    "det_conf": 0.9017576575279236,
    "det_status": "detected",
    "face_box": [
-    678,
-    525,
-    1668,
-    2330
+    665,
+    491,
+    1692,
+    2378
    ],
    "crop_mode": "common",
    "size": [
@@ -841,10 +1119,64 @@
    "det_conf": 0.9012513756752014,
    "det_status": "detected",
    "face_box": [
-    678,
-    525,
-    1668,
-    2330
+    665,
+    491,
+    1692,
+    2378
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "X_steps08_denoise050",
+   "param": "#114 steps 30 -> 8 and denoise 0.80 -> 0.50",
+   "path": "results/face/arms/X_steps08_denoise050/HasMetadata_00025_.png",
+   "is_baseline": false,
+   "extra": "175.5 s  |  57 cached nodes  |  prompt 20871f13",
+   "warnings": [],
+   "det_xyxy": [
+    798.8909301757812,
+    659.0882568359375,
+    2214.62109375,
+    2704.826171875
+   ],
+   "det_conf": 0.6865838766098022,
+   "det_status": "detected",
+   "face_box": [
+    665,
+    491,
+    1692,
+    2378
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "X_steps08_denoise065",
+   "param": "#114 steps 30 -> 8 and denoise 0.80 -> 0.65",
+   "path": "results/face/arms/X_steps08_denoise065/HasMetadata_00026_.png",
+   "is_baseline": false,
+   "extra": "175.3 s  |  57 cached nodes  |  prompt b1d122dd",
+   "warnings": [],
+   "det_xyxy": [
+    798.8909301757812,
+    659.0882568359375,
+    2214.62109375,
+    2704.826171875
+   ],
+   "det_conf": 0.6865838766098022,
+   "det_status": "detected",
+   "face_box": [
+    665,
+    491,
+    1692,
+    2378
    ],
    "crop_mode": "common",
    "size": [

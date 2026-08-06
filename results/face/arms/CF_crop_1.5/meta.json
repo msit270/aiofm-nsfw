@@ -1,0 +1,29 @@
+{
+  "arm": "CF_crop_1.5",
+  "changed": "#114 bbox_crop_factor 3 -> 1.5",
+  "prompt_id": "65981fee-2e3f-44e3-901f-dbdfa48d0664",
+  "queue_number": 73,
+  "client_id": "p2-render-03dc6fe5",
+  "api_nodes": 88,
+  "rgthree_comparer_stripped": true,
+  "pick_list_injected": "619:603 inputs.pick_list = \"0\" (submitted prompt only)",
+  "exec_seconds": 296.6,
+  "cached_nodes": 10,
+  "cached_node_ids": [
+    "587:88",
+    "619:611",
+    "620:107",
+    "620:108",
+    "620:105",
+    "620:110",
+    "620:109",
+    "620:113",
+    "621:160",
+    "622:426"
+  ],
+  "status": "success",
+  "completed": true,
+  "images": [
+    "HasMetadata_00023_.png"
+  ]
+}

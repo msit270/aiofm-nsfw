@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-06 02:05",
+ "generated": "2026-08-06 02:25",
  "source": "/workspace/nsfw-fix/results/face/arms",
  "tool": "/workspace/nsfw-fix/tools/contact_sheet.py",
  "max_width": 4000,
@@ -38,7 +38,7 @@
    "path": "/workspace/nsfw-fix/results/face/facetight_face_sheet1of1.png",
    "size": [
     3854,
-    4295
+    5608
    ],
    "cols": 4,
    "tiles": [
@@ -49,8 +49,12 @@
     "B_zface_denoise_065",
     "C_zface_steps_08",
     "C_zface_steps_16",
+    "CF_crop_1.0",
+    "CF_crop_1.5",
     "D_skinblend_075",
-    "H_skinblend_050"
+    "H_skinblend_050",
+    "X_steps08_denoise050",
+    "X_steps08_denoise065"
    ],
    "width_ok": true,
    "verify": [
@@ -65,7 +69,7 @@
      ],
      "sheet_at": [
       20,
-      401,
+      367,
       940,
       1180
      ],
@@ -92,7 +96,7 @@
      ],
      "sheet_at": [
       978,
-      401,
+      367,
       940,
       1180
      ],
@@ -119,7 +123,7 @@
      ],
      "sheet_at": [
       1936,
-      401,
+      367,
       940,
       1180
      ],
@@ -146,7 +150,7 @@
      ],
      "sheet_at": [
       2894,
-      401,
+      367,
       940,
       1180
      ],
@@ -173,7 +177,7 @@
      ],
      "sheet_at": [
       20,
-      1748,
+      1714,
       940,
       1180
      ],
@@ -200,7 +204,7 @@
      ],
      "sheet_at": [
       978,
-      1748,
+      1714,
       940,
       1180
      ],
@@ -227,7 +231,61 @@
      ],
      "sheet_at": [
       1936,
-      1748,
+      1714,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "CF_crop_1.0",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      2894,
+      1714,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "CF_crop_1.5",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      20,
+      3061,
       940,
       1180
      ],
@@ -253,8 +311,8 @@
       1180
      ],
      "sheet_at": [
-      2894,
-      1748,
+      978,
+      3061,
       940,
       1180
      ],
@@ -280,8 +338,62 @@
       1180
      ],
      "sheet_at": [
+      1936,
+      3061,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "X_steps08_denoise050",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
+      2894,
+      3061,
+      940,
+      1180
+     ],
+     "src_shape": [
+      1180,
+      940,
+      3
+     ],
+     "sheet_shape": [
+      1180,
+      940,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "X_steps08_denoise065",
+     "ok": true,
+     "src_box": [
+      1060,
+      1180,
+      940,
+      1180
+     ],
+     "sheet_at": [
       20,
-      3095,
+      4408,
       940,
       1180
      ],
@@ -491,6 +603,60 @@
    ]
   },
   {
+   "name": "CF_crop_1.0",
+   "param": "#114 bbox_crop_factor 3 -> 1.0",
+   "path": "results/face/arms/CF_crop_1.0/HasMetadata_00024_.png",
+   "is_baseline": false,
+   "extra": "138.6 s  |  57 cached nodes  |  prompt d0cdfc91",
+   "warnings": [],
+   "det_xyxy": [
+    781.6823120117188,
+    654.6798095703125,
+    2240.165283203125,
+    2681.175537109375
+   ],
+   "det_conf": 0.6466931700706482,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "CF_crop_1.5",
+   "param": "#114 bbox_crop_factor 3 -> 1.5",
+   "path": "results/face/arms/CF_crop_1.5/HasMetadata_00023_.png",
+   "is_baseline": false,
+   "extra": "296.6 s  |  10 cached nodes  |  prompt 65981fee",
+   "warnings": [],
+   "det_xyxy": [
+    798.8909301757812,
+    659.0882568359375,
+    2214.62109375,
+    2704.826171875
+   ],
+   "det_conf": 0.6865838766098022,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
    "name": "D_skinblend_075",
    "param": "#87 ImageBlend blend_factor 1 -> 0.75",
    "path": "results/face/arms/D_skinblend_075/HasMetadata_00017_.png",
@@ -531,6 +697,60 @@
     2682.39794921875
    ],
    "det_conf": 0.9012513756752014,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "X_steps08_denoise050",
+   "param": "#114 steps 30 -> 8 and denoise 0.80 -> 0.50",
+   "path": "results/face/arms/X_steps08_denoise050/HasMetadata_00025_.png",
+   "is_baseline": false,
+   "extra": "175.5 s  |  57 cached nodes  |  prompt 20871f13",
+   "warnings": [],
+   "det_xyxy": [
+    798.8909301757812,
+    659.0882568359375,
+    2214.62109375,
+    2704.826171875
+   ],
+   "det_conf": 0.6865838766098022,
+   "det_status": "detected",
+   "face_box": [
+    1060,
+    1180,
+    940,
+    1180
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "X_steps08_denoise065",
+   "param": "#114 steps 30 -> 8 and denoise 0.80 -> 0.65",
+   "path": "results/face/arms/X_steps08_denoise065/HasMetadata_00026_.png",
+   "is_baseline": false,
+   "extra": "175.3 s  |  57 cached nodes  |  prompt b1d122dd",
+   "warnings": [],
+   "det_xyxy": [
+    798.8909301757812,
+    659.0882568359375,
+    2214.62109375,
+    2704.826171875
+   ],
+   "det_conf": 0.6865838766098022,
    "det_status": "detected",
    "face_box": [
     1060,
