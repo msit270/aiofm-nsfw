@@ -190,26 +190,34 @@ So:
   watermark from a corner even at cfg 5, because those pixels are masked out of
   the update.
 
-  **Measured, from the baseline run's own tapped input and output** (input
-  `620:137`, output `620:114`, both 2688×3456), saved as
+  **Measured, from the tapped input `620:137` against output slot 0 (`image`) —
+  the slot actually wired downstream to `620:111`.** Saved as
   `results/cfg/compare/114_change_extent.json` and
   `114_changed_gt8_levels_1to1.png`:
 
   | change threshold | share of the 2688×3456 frame |
   |---|---|
-  | > 0 levels | **99.05 %** |
-  | > 2 levels | 60.39 % |
-  | > 8 levels | **9.51 %** |
-  | > 16 levels | 3.90 % |
+  | > 0 levels | 16.27 % |
+  | > 2 levels | 14.51 % |
+  | > 8 levels | **9.08 %** |
+  | > 16 levels | 4.14 % |
 
   The `> 8 levels` map is a clean silhouette of the face and nothing else — that
-  is the SAM mask, and it is the only region the pass meaningfully edits. The
-  99 % figure is the *other* half of the story and is a separate finding: because
-  the composite happens in latent space and the whole frame is then VAE-decoded,
-  **`#114` puts the entire 2688×3456 image through a VAE round-trip** and shifts
-  essentially every pixel by a level or two. That is a cost paid on the whole
-  frame for an edit confined to 9.5 % of it. Not my brief, but somebody should
-  look at whether `bbox_crop_factor 3` is the right number here.
+  is the SAM mask, and it is the only region the pass edits. Outside the mask the
+  output is **bit-identical** to the input (flat-patch 1–4 px DoG RMS: background
+  2.685 → 2.685, wall 1.572 → 1.572).
+
+  > **Correction I made to myself, recorded because it nearly went into other
+  > people's numbers.** I first measured this on output **slot 1,
+  > `cropped_refined`**, and got 99.05 % of pixels changed, which I reported to
+  > main as whole-frame VAE round-trip damage. That was wrong. Slot 1 is the raw
+  > VAE-decoded crop, so it carries round-trip drift over everything it contains
+  > — and for this image it contains the whole frame. Slot 0 composites the
+  > refined region back in *pixel* space. The `> 8 levels` figure barely moves
+  > (9.51 % → 9.08 %) so the artefact conclusion is unaffected, but "percentage of
+  > pixels changed" is 6× different depending on which output slot you sample.
+  > Anyone measuring a detailer this way should sample the slot that is wired
+  > onward.
 
 ### The correction I owe this section
 

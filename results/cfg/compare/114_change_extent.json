@@ -1,10 +1,15 @@
 {
  "node": "#114 FaceDetailer",
- "input": "620:137 output",
- "output": "620:114 image output",
- "pct_px_changed_gt0": 99.05,
- "pct_px_changed_gt2": 60.39,
- "pct_px_changed_gt8": 9.51,
- "pct_px_changed_gt16": 3.9,
- "note": "crop region is the whole 2688x3456 frame; >8-level change is confined to the SAM face mask, the sub-2-level change over the rest is the whole-frame VAE round-trip"
+ "input": "620:137 output (tapped in the baseline full run)",
+ "measured_on": "output slot 0 'image' -- the one wired downstream to 620:111",
+ "pct_px_changed_gt0": 16.27,
+ "pct_px_changed_gt2": 14.51,
+ "pct_px_changed_gt8": 9.08,
+ "pct_px_changed_gt16": 4.14,
+ "max_abs_diff_levels": 132,
+ "CORRECTION": {
+  "note": "an earlier figure of 99.05% was measured on output slot 1 'cropped_refined', which is NOT the output wired downstream. Slot 1 is the raw VAE-decoded crop and carries round-trip drift over the whole frame; slot 0 pastes the refined region back in pixel space, so outside the mask it is bit-identical to the input.",
+  "slot1_pct_px_changed_gt0": 99.05,
+  "slot1_pct_px_changed_gt8": 9.51
+ }
 }
