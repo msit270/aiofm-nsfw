@@ -1,0 +1,391 @@
+{
+ "generated": "2026-08-06 23:29",
+ "source": "explicit --arm list",
+ "tool": "/workspace/nsfw-fix/tools/contact_sheet.py",
+ "max_width": 4000,
+ "detector": "/workspace/ComfyUI/models/ultralytics/bbox/face_yolov8m.pt",
+ "detector_error": null,
+ "face_box_xywh": [
+  743,
+  634,
+  1556,
+  2216
+ ],
+ "skin_box_xywh": [
+  1295,
+  1010,
+  400,
+  400
+ ],
+ "skin_stats": {
+  "pinned": true
+ },
+ "image_size": [
+  2688,
+  3456
+ ],
+ "sheets": [
+  {
+   "region": "face",
+   "path": "/workspace/nsfw-fix/results/crash/V/out/V_SHEET_face_sheet1of1.png",
+   "size": [
+    3170,
+    4962
+   ],
+   "cols": 2,
+   "tiles": [
+    "1 COST before -- device=default",
+    "2 COST after -- device=cpu",
+    "3 BENEFIT before -- device=default",
+    "4 BENEFIT after -- device=cpu"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "1 COST before -- device=default",
+     "ok": true,
+     "src_box": [
+      743,
+      634,
+      1556,
+      2216
+     ],
+     "sheet_at": [
+      20,
+      372,
+      1556,
+      2216
+     ],
+     "src_shape": [
+      2216,
+      1556,
+      3
+     ],
+     "sheet_shape": [
+      2216,
+      1556,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "2 COST after -- device=cpu",
+     "ok": true,
+     "src_box": [
+      743,
+      634,
+      1556,
+      2216
+     ],
+     "sheet_at": [
+      1594,
+      372,
+      1556,
+      2216
+     ],
+     "src_shape": [
+      2216,
+      1556,
+      3
+     ],
+     "sheet_shape": [
+      2216,
+      1556,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "3 BENEFIT before -- device=default",
+     "ok": true,
+     "src_box": [
+      743,
+      634,
+      1556,
+      2216
+     ],
+     "sheet_at": [
+      20,
+      2726,
+      1556,
+      2216
+     ],
+     "src_shape": [
+      2216,
+      1556,
+      3
+     ],
+     "sheet_shape": [
+      2216,
+      1556,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "4 BENEFIT after -- device=cpu",
+     "ok": true,
+     "src_box": [
+      743,
+      634,
+      1556,
+      2216
+     ],
+     "sheet_at": [
+      1594,
+      2726,
+      1556,
+      2216
+     ],
+     "src_shape": [
+      2216,
+      1556,
+      3
+     ],
+     "sheet_shape": [
+      2216,
+      1556,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  },
+  {
+   "region": "skin",
+   "path": "/workspace/nsfw-fix/results/crash/V/out/V_SHEET_skin_sheet1of1.png",
+   "size": [
+    1694,
+    801
+   ],
+   "cols": 4,
+   "tiles": [
+    "1 COST before -- device=default",
+    "2 COST after -- device=cpu",
+    "3 BENEFIT before -- device=default",
+    "4 BENEFIT after -- device=cpu"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "1 COST before -- device=default",
+     "ok": true,
+     "src_box": [
+      1295,
+      1010,
+      400,
+      400
+     ],
+     "sheet_at": [
+      20,
+      381,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "2 COST after -- device=cpu",
+     "ok": true,
+     "src_box": [
+      1295,
+      1010,
+      400,
+      400
+     ],
+     "sheet_at": [
+      438,
+      381,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "3 BENEFIT before -- device=default",
+     "ok": true,
+     "src_box": [
+      1295,
+      1010,
+      400,
+      400
+     ],
+     "sheet_at": [
+      856,
+      381,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "4 BENEFIT after -- device=cpu",
+     "ok": true,
+     "src_box": [
+      1295,
+      1010,
+      400,
+      400
+     ],
+     "sheet_at": [
+      1274,
+      381,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  }
+ ],
+ "arms": [
+  {
+   "name": "1 COST before -- device=default",
+   "param": "16 tok safe prompt \u00b7 PRE-FIX \u00b7 delivered frame 505 \u00b7 COMPARE ONLY WITH TILE 2",
+   "path": "results/crash/V/arms/V_CLEAN_mid_16a/n505__HasMetadata_00159_.png",
+   "is_baseline": false,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    851.013671875,
+    786.784912109375,
+    2190.98291015625,
+    2697.175537109375
+   ],
+   "det_conf": 0.894182026386261,
+   "det_status": "detected",
+   "face_box": [
+    743,
+    634,
+    1556,
+    2216
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "2 COST after -- device=cpu",
+   "param": "16 tok safe prompt \u00b7 THE FIX \u00b7 delivered frame 505 \u00b7 COMPARE ONLY WITH TILE 1",
+   "path": "results/crash/V/arms/V_CLEAN_head_16a/n505__HasMetadata_00160_.png",
+   "is_baseline": false,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    852.3450317382812,
+    787.186767578125,
+    2191.1396484375,
+    2697.17919921875
+   ],
+   "det_conf": 0.894271969795227,
+   "det_status": "detected",
+   "face_box": [
+    743,
+    634,
+    1556,
+    2216
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "3 BENEFIT before -- device=default",
+   "param": "46 tok \u00b7 PRE-FIX \u00b7 CRASHED at 622:403 \u00b7 621:163 tap \u00b7 COMPARE ONLY WITH TILE 4",
+   "path": "results/crash/V/arms/V_ISO_d035_gpu_a/nTAP163__tap163_00002_.png",
+   "is_baseline": false,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    847.9210815429688,
+    809.5313110351562,
+    2185.879150390625,
+    2724.9072265625
+   ],
+   "det_conf": 0.46747109293937683,
+   "det_status": "detected",
+   "face_box": [
+    743,
+    634,
+    1556,
+    2216
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "4 BENEFIT after -- device=cpu",
+   "param": "46 tok \u00b7 THE FIX \u00b7 succeeded \u00b7 621:163 tap \u00b7 COMPARE ONLY WITH TILE 3",
+   "path": "results/crash/V/arms/V_ISO_d035_cpu_a/nTAP163__tap163_00009_.png",
+   "is_baseline": false,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    851.3984985351562,
+    786.223388671875,
+    2190.94189453125,
+    2697.208984375
+   ],
+   "det_conf": 0.8944834470748901,
+   "det_status": "detected",
+   "face_box": [
+    743,
+    634,
+    1556,
+    2216
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ ]
+}

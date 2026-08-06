@@ -1,0 +1,398 @@
+[
+ {
+  "pair": "V_CLEAN_mid_16a (A, default)  vs  V_CLEAN_head_16a (B, cpu)",
+  "stage": "n505",
+  "label": "THE COST PAIR: clean 16-token prompt, delivered frame",
+  "face_box": [
+   851,
+   786,
+   2190,
+   2697
+  ],
+  "shape": [
+   3456,
+   2688
+  ],
+  "inside_face_box": {
+   "area_frac_of_frame": 0.2754,
+   "pixels_differing": 0.41998,
+   "pixels_differing_gt1": 0.07423,
+   "pixels_differing_gt4": 0.01404,
+   "mean_abs_diff": 0.3777,
+   "p99_abs_diff": 7.0,
+   "max_abs_diff": 135
+  },
+  "outside_face_box": {
+   "area_frac_of_frame": 0.7246,
+   "pixels_differing": 0.01734,
+   "pixels_differing_gt1": 1e-05,
+   "pixels_differing_gt4": 0.0,
+   "mean_abs_diff": 0.0058,
+   "p99_abs_diff": 1.0,
+   "max_abs_diff": 2
+  },
+  "tone_vs_colour": {
+   "mean_signed_luma_shift": -0.0021,
+   "mean_abs_luma_shift": 0.1007,
+   "mean_abs_chroma_shift": 0.1354,
+   "per_channel_mean_signed": [
+    0.0,
+    -0.002,
+    -0.0095
+   ]
+  },
+  "fine_detail_in_face_box": {
+   "hf_energy_default": 4.38996,
+   "hf_energy_cpu": 4.39049,
+   "hf_ratio_cpu_over_default": 1.00012,
+   "local_sd_default": 6.3496,
+   "local_sd_cpu": 6.3588
+  },
+  "mean_abs_diff_grid_8x8": [
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.01,
+    0.005,
+    0.003,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.005,
+    0.015,
+    0.016,
+    0.008,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.002,
+    0.012,
+    0.081,
+    0.209,
+    0.073,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.007,
+    0.038,
+    1.789,
+    0.329,
+    1.553,
+    0.046,
+    0.004
+   ],
+   [
+    0.0,
+    0.006,
+    0.071,
+    0.329,
+    0.348,
+    0.32,
+    0.105,
+    0.005
+   ],
+   [
+    0.0,
+    0.012,
+    0.025,
+    0.265,
+    0.663,
+    0.301,
+    0.048,
+    0.002
+   ],
+   [
+    0.009,
+    0.017,
+    0.005,
+    0.038,
+    0.052,
+    0.014,
+    0.03,
+    0.004
+   ],
+   [
+    0.005,
+    0.008,
+    0.01,
+    0.0,
+    0.0,
+    0.002,
+    0.023,
+    0.003
+   ]
+  ]
+ },
+ {
+  "pair": "V_CLEAN_mid_16a (A, default)  vs  V_CLEAN_head_16a (B, cpu)",
+  "stage": "nTAP163",
+  "label": "same pair at 621:163, the stage the sheet shows",
+  "face_box": [
+   851,
+   786,
+   2190,
+   2697
+  ],
+  "shape": [
+   3456,
+   2688
+  ],
+  "inside_face_box": {
+   "area_frac_of_frame": 0.2754,
+   "pixels_differing": 0.30105,
+   "pixels_differing_gt1": 0.02464,
+   "pixels_differing_gt4": 0.00057,
+   "mean_abs_diff": 0.1569,
+   "p99_abs_diff": 2.0,
+   "max_abs_diff": 19
+  },
+  "outside_face_box": {
+   "area_frac_of_frame": 0.7246,
+   "pixels_differing": 0.01728,
+   "pixels_differing_gt1": 0.0,
+   "pixels_differing_gt4": 0.0,
+   "mean_abs_diff": 0.0058,
+   "p99_abs_diff": 1.0,
+   "max_abs_diff": 1
+  },
+  "tone_vs_colour": {
+   "mean_signed_luma_shift": -0.0013,
+   "mean_abs_luma_shift": 0.0433,
+   "mean_abs_chroma_shift": 0.0824,
+   "per_channel_mean_signed": [
+    -0.0,
+    -0.0007,
+    -0.0112
+   ]
+  },
+  "fine_detail_in_face_box": {
+   "hf_energy_default": 4.62332,
+   "hf_energy_cpu": 4.61375,
+   "hf_ratio_cpu_over_default": 0.99793,
+   "local_sd_default": 6.3466,
+   "local_sd_cpu": 6.3456
+  },
+  "mean_abs_diff_grid_8x8": [
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.01,
+    0.005,
+    0.003,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.005,
+    0.015,
+    0.014,
+    0.008,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.002,
+    0.011,
+    0.05,
+    0.122,
+    0.045,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.007,
+    0.028,
+    0.246,
+    0.148,
+    0.213,
+    0.035,
+    0.004
+   ],
+   [
+    0.0,
+    0.006,
+    0.056,
+    0.197,
+    0.162,
+    0.187,
+    0.086,
+    0.005
+   ],
+   [
+    0.0,
+    0.012,
+    0.02,
+    0.219,
+    0.609,
+    0.261,
+    0.043,
+    0.002
+   ],
+   [
+    0.009,
+    0.017,
+    0.005,
+    0.034,
+    0.036,
+    0.011,
+    0.03,
+    0.004
+   ],
+   [
+    0.005,
+    0.008,
+    0.01,
+    0.0,
+    0.0,
+    0.002,
+    0.023,
+    0.003
+   ]
+  ]
+ },
+ {
+  "pair": "V_CLEAN_mid_16b (A, default)  vs  V_CLEAN_head_16b (B, cpu)",
+  "stage": "n505",
+  "label": "the repeat of the cost pair",
+  "face_box": [
+   851,
+   786,
+   2190,
+   2697
+  ],
+  "shape": [
+   3456,
+   2688
+  ],
+  "inside_face_box": {
+   "area_frac_of_frame": 0.2754,
+   "pixels_differing": 0.41998,
+   "pixels_differing_gt1": 0.07423,
+   "pixels_differing_gt4": 0.01404,
+   "mean_abs_diff": 0.3777,
+   "p99_abs_diff": 7.0,
+   "max_abs_diff": 135
+  },
+  "outside_face_box": {
+   "area_frac_of_frame": 0.7246,
+   "pixels_differing": 0.01734,
+   "pixels_differing_gt1": 1e-05,
+   "pixels_differing_gt4": 0.0,
+   "mean_abs_diff": 0.0058,
+   "p99_abs_diff": 1.0,
+   "max_abs_diff": 2
+  },
+  "tone_vs_colour": {
+   "mean_signed_luma_shift": -0.0021,
+   "mean_abs_luma_shift": 0.1007,
+   "mean_abs_chroma_shift": 0.1354,
+   "per_channel_mean_signed": [
+    0.0,
+    -0.002,
+    -0.0095
+   ]
+  },
+  "fine_detail_in_face_box": {
+   "hf_energy_default": 4.38996,
+   "hf_energy_cpu": 4.39049,
+   "hf_ratio_cpu_over_default": 1.00012,
+   "local_sd_default": 6.3496,
+   "local_sd_cpu": 6.3588
+  },
+  "mean_abs_diff_grid_8x8": [
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.01,
+    0.005,
+    0.003,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.005,
+    0.015,
+    0.016,
+    0.008,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.002,
+    0.012,
+    0.081,
+    0.209,
+    0.073,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.007,
+    0.038,
+    1.789,
+    0.329,
+    1.553,
+    0.046,
+    0.004
+   ],
+   [
+    0.0,
+    0.006,
+    0.071,
+    0.329,
+    0.348,
+    0.32,
+    0.105,
+    0.005
+   ],
+   [
+    0.0,
+    0.012,
+    0.025,
+    0.265,
+    0.663,
+    0.301,
+    0.048,
+    0.002
+   ],
+   [
+    0.009,
+    0.017,
+    0.005,
+    0.038,
+    0.052,
+    0.014,
+    0.03,
+    0.004
+   ],
+   [
+    0.005,
+    0.008,
+    0.01,
+    0.0,
+    0.0,
+    0.002,
+    0.023,
+    0.003
+   ]
+  ]
+ }
+]

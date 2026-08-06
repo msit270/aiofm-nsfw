@@ -1,0 +1,163 @@
+{
+ "generated": "2026-08-06 23:32",
+ "source": "explicit --arm list",
+ "tool": "/workspace/nsfw-fix/tools/contact_sheet.py",
+ "max_width": 1200,
+ "detector": "/workspace/ComfyUI/models/ultralytics/bbox/face_yolov8m.pt",
+ "detector_error": null,
+ "face_box_xywh": [
+  1000,
+  1495,
+  1020,
+  230
+ ],
+ "skin_box_xywh": [
+  248,
+  272,
+  400,
+  400
+ ],
+ "skin_stats": {
+  "skin_frac": 0.9527,
+  "blur_grad": 0.0863,
+  "anchor": "face",
+  "search_region": [
+   0,
+   0,
+   2688,
+   3456
+  ]
+ },
+ "image_size": [
+  2688,
+  3456
+ ],
+ "sheets": [
+  {
+   "region": "face",
+   "path": "/workspace/nsfw-fix/results/crash/V/out/V_SHEET_EYES_face_sheet1of1.png",
+   "size": [
+    1060,
+    1078
+   ],
+   "cols": 1,
+   "tiles": [
+    "1-baseline-COST-before -- device=default",
+    "2 COST after -- device=cpu"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "1-baseline-COST-before -- device=default",
+     "ok": true,
+     "src_box": [
+      1000,
+      1495,
+      1020,
+      230
+     ],
+     "sheet_at": [
+      20,
+      416,
+      1020,
+      230
+     ],
+     "src_shape": [
+      230,
+      1020,
+      3
+     ],
+     "sheet_shape": [
+      230,
+      1020,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "2 COST after -- device=cpu",
+     "ok": true,
+     "src_box": [
+      1000,
+      1495,
+      1020,
+      230
+     ],
+     "sheet_at": [
+      20,
+      828,
+      1020,
+      230
+     ],
+     "src_shape": [
+      230,
+      1020,
+      3
+     ],
+     "sheet_shape": [
+      230,
+      1020,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  }
+ ],
+ "arms": [
+  {
+   "name": "1-baseline-COST-before -- device=default",
+   "param": "16 tok safe prompt \u00b7 PRE-FIX \u00b7 delivered frame 505",
+   "path": "results/crash/V/arms/V_CLEAN_mid_16a/n505__HasMetadata_00159_.png",
+   "is_baseline": true,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    851.013671875,
+    786.784912109375,
+    2190.98291015625,
+    2697.175537109375
+   ],
+   "det_conf": 0.894182026386261,
+   "det_status": "detected",
+   "face_box": [
+    1000,
+    1495,
+    1020,
+    230
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "2 COST after -- device=cpu",
+   "param": "16 tok safe prompt \u00b7 THE FIX \u00b7 delivered frame 505",
+   "path": "results/crash/V/arms/V_CLEAN_head_16a/n505__HasMetadata_00160_.png",
+   "is_baseline": false,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    852.3450317382812,
+    787.186767578125,
+    2191.1396484375,
+    2697.17919921875
+   ],
+   "det_conf": 0.894271969795227,
+   "det_status": "detected",
+   "face_box": [
+    1000,
+    1495,
+    1020,
+    230
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ ]
+}
