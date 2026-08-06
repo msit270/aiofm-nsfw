@@ -1,0 +1,17 @@
+{
+  "arm": "R4_CF15_placeholder",
+  "changed": "SHIPPING graph (cf 1.5) + LoRAs, #106 = shipped placeholder",
+  "prompt_id": "199a18c2-cc71-4149-97a9-01189560bd07",
+  "client_id": "r4-cf15-91f864de",
+  "workflow_sha256": "a811b5d690ccc5207bc7bd1c626cdd3db3b720b9be60d0a687436efcfd2143d8",
+  "bbox_crop_factor": 1.5,
+  "text": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "status": "success",
+  "exec_seconds": 260.5,
+  "cached_nodes": 0,
+  "cached_node_ids": [],
+  "images": [
+    "HasMetadata_00059_.png"
+  ],
+  "error": ""
+}

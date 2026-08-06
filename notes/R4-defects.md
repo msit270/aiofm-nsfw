@@ -164,11 +164,11 @@ What that does and does not affect, stated carefully:
   crop_factor 1.5 is **untested**. The D1 verdict rests on direction plus the
   owner's standing decision, neither of which I expect to move — but that is
   **[I]**, not a measurement.
-* **§2b is the one that genuinely needs re-testing.** `bbox_crop_factor` changes
-  what the face pass produces, and the crash is a downstream face-detection
-  failure. Whether filling `#106` still crashes at crop_factor 1.5 is **not
-  known**. It is one render on each side to find out, and it should be done
-  before anyone concludes either that the defect is gone or that it still bites.
+* **§2b needed re-testing, and has now been re-tested directly on the shipping
+  file.** It still crashes at `bbox_crop_factor` 1.5, and the placeholder is
+  still clean. See "The shipping graph was tested directly" in §2b —
+  `bbox_crop_factor` is **not** a factor and the crash stands against
+  `a811b5d6…`.
 
 ### One thing the timing cannot do — stated before the numbers, not after
 
@@ -923,6 +923,66 @@ cell is how this project has gone wrong before. One render closes it.
 > input.numel() == 0` (`ComfyUI_essentials/mask.py:184`, `.min()` on an empty face
 > mask). 3/3. The shipped placeholder, `luna, ` alone, and `a woman's face` all
 > render clean in the same configuration, so this is **not** "any filled prompt".
+
+---
+
+### The shipping graph was tested directly — `bbox_crop_factor` is NOT a factor
+
+The confound above is now closed by measurement rather than by reasoning. Both
+arms below are conversions of **`OFMTech_NSFW.json` @ `a811b5d6…` — the file that
+ships**, `#114` steps 8 and **`bbox_crop_factor` 1.5** — with the owner's LoRAs
+loaded and the same prompt and seed as the cf 3 arms. `POST /free` before each,
+so both report `execution_cached: 0`.
+
+| arm | `#106.text` | result | exec | cached |
+|---|---|---|---|---|
+| `R4_CF15_filled` | the full string | **ERROR** `622:403` | 248.8 s | 0 |
+| `R4_CF15_placeholder` | shipped placeholder | **success** | 260.5 s | 0 |
+
+Same node, same exception, same all-zero mask as every cf 3 crash:
+
+```
+622:403 MaskBoundingBox+  RuntimeError
+  min(): Expected reduction dim to be specified for input.numel() == 0.
+  ComfyUI_essentials/mask.py:184   x1 = max(0, x.min().item() - padding)
+  mask all-zero: True
+```
+
+The placeholder arm's image is healthy on the same detector used throughout —
+`flat_frac 0.0030`, `luma_sd 37.38`, `suspect_poisoned False` — so the clean arm
+is a real render, not a silent grey frame.
+
+**Provenance, so the two crop factors are properly comparable.** Graph diff of
+the cf 1.5 placeholder arm against the cf 3 arm it corresponds to
+(`L1b_steps08_loras`) gives exactly three differences, and only one of them is
+substantive:
+
+```
+619:603.inputs.pick_list        "0" -> ""     (injected at submit; not a file difference)
+620:105.inputs.text     <negative> -> ""      (a806ce3 -- proven output-inert by render, §0 Control 3)
+620:114.inputs.bbox_crop_factor    3 -> 1.5   <-- the variable under test
+```
+
+And the two cf 1.5 arms differ from each other in `620:106.inputs.text` and
+nothing else.
+
+### Running tally
+
+| `#106` with the owner's LoRAs loaded | cf 3 | cf 1.5 | total |
+|---|---|---|---|
+| the full string | **crash 3/3** | **crash 1/1** | **crash 4/4** |
+| shipped placeholder | clean 2/2 | clean 1/1 | clean 3/3 |
+| `"luna, "` alone | clean 1/1 | — | clean |
+| `"a woman's face"` | clean 1/1 | — | clean |
+
+**So the crash is on the artifact that ships, and `bbox_crop_factor` does not
+rescue it.** Halving the crop region changed nothing about the outcome — which
+also makes it less likely **[I]** that the mechanism is anything specific to how
+much context `#114` sees.
+
+Unchanged by this: it is still **one specific long string**, not "filled prompts"
+— `"luna, "` alone and `"a woman's face"` are clean — and the deciding cell for
+the LoRA question (long description, LoRAs, **no** prefix) is still **untested**.
 
 ---
 
