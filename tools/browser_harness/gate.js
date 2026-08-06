@@ -583,9 +583,13 @@ async function main() {
 
   // ============= wait for the render, clicking through the selector =======
   const tExec = Date.now();
-  const sel = { driven: false, appeared: false, images: 0, picked: null, send_enabled_before_pick: null, send_enabled_after_pick: null };
+  const sel = {
+    driven: false, appeared: false, images: 0, picked: null,
+    send_enabled_on_open: null, send_enabled_after_click: null, send_enabled_after_reclick: null,
+    auto_picked_single_image: null,
+  };
   result.selector = sel;
-  let history = null, lastLog = 0, queueNoted = false;
+  let history = null, lastLog = 0, queueNoted = false, selectorFailed = false;
   const deadline = Date.now() + opt.executeTimeoutMs;
 
   while (Date.now() < deadline) {
@@ -609,15 +613,31 @@ async function main() {
         const idx = Math.min(Math.max(0, opt.selectorPick), n - 1);
         await shot(page, 'selector-popup', `#603 INSTARAW_ImageFilter paused the render with ${n} image(s) — the buyer must choose`);
         const send = page.locator('button.control:visible').filter({ hasText: /^Send$/ });
-        if (!(await send.count())) { fail('selector', 'selector popup appeared with no visible Send button'); break; }
-        sel.send_enabled_before_pick = await send.first().isEnabled();
+        if (!(await send.count())) { fail('selector', 'selector popup appeared with no visible Send button'); selectorFailed = true; break; }
+        // popup.js:517-518 pre-picks image 0 when there is exactly ONE image, and
+        // select_unselect() (popup.js:687-704) TOGGLES. So on the single-image path
+        // the popup opens with Send already enabled and clicking the thumbnail
+        // DESELECTS it. Both paths are exercised, and which one ran is recorded.
+        sel.send_enabled_on_open = await send.first().isEnabled();
+        sel.auto_picked_single_image = (n === 1 && sel.send_enabled_on_open === true);
         await imgs.nth(idx).click();
         sel.picked = idx;
-        await sleep(400);
-        sel.send_enabled_after_pick = await send.first().isEnabled();
-        log(`  selector      ${n} image(s); clicked #${idx}; Send enabled before=${sel.send_enabled_before_pick} after=${sel.send_enabled_after_pick}`);
-        await shot(page, 'selector-image-picked', `image #${idx} clicked; Send ${sel.send_enabled_after_pick ? 'enabled' : 'STILL DISABLED'}`);
-        if (!sel.send_enabled_after_pick) { fail('selector', `clicked image #${idx} of ${n} and Send is still disabled — the buyer cannot proceed`); break; }
+        await sleep(500);
+        sel.send_enabled_after_click = await send.first().isEnabled();
+        if (sel.send_enabled_on_open) {
+          // it was auto-picked: the click just turned it off, so turn it back on
+          await imgs.nth(idx).click();
+          await sleep(500);
+          sel.send_enabled_after_reclick = await send.first().isEnabled();
+        }
+        const enabledNow = sel.send_enabled_on_open ? sel.send_enabled_after_reclick : sel.send_enabled_after_click;
+        log(`  selector      ${n} image(s); Send on open=${sel.send_enabled_on_open}, after clicking #${idx}=${sel.send_enabled_after_click}` +
+            (sel.send_enabled_on_open ? `, after clicking it again=${sel.send_enabled_after_reclick}` : ''));
+        await shot(page, 'selector-image-picked', `image #${idx} of ${n} selected; Send ${enabledNow ? 'enabled' : 'STILL DISABLED'}`);
+        if (!enabledNow) {
+          fail('selector', `image #${idx} of ${n} is selected and the Send button is still disabled — the buyer cannot proceed`);
+          selectorFailed = true; break;
+        }
         await send.first().click();
         sel.driven = true;
         log(`  selector      Send pressed at ${Math.round((Date.now() - tExec) / 1000)}s into the render`);
@@ -648,6 +668,13 @@ async function main() {
     result.page_errors = pageErrors; writeResult('fail'); await browser.close(); process.exit(1);
   }
   if (execInterrupted) { fail('execution', 'the render was interrupted'); result.page_errors = pageErrors; writeResult('fail'); await browser.close(); process.exit(1); }
+  if (!history && selectorFailed) {
+    // The selector failure above is the whole story; the render is still sitting on
+    // #603 waiting for an answer this run will not give it. Reporting a timeout on
+    // top of it would invent a second, false failure.
+    log('  the render is still paused on #603 waiting for a selection this run did not make');
+    result.page_errors = pageErrors; writeResult('fail'); await browser.close(); process.exit(1);
+  }
   if (!history) { fail('execution-timeout', `the render did not finish within ${opt.executeTimeoutMs} ms`); result.page_errors = pageErrors; writeResult('fail'); await browser.close(); process.exit(1); }
   if (history.status && history.status.status_str === 'error') {
     fail('execution', JSON.stringify(history.status.messages).slice(0, 1500));
