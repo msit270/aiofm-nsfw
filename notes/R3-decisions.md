@@ -500,9 +500,9 @@ at the images first.
   typed negative wired in. It looks like `#105` and it is not: the same encode
   also feeds `619:592` at cfg 4 and `619:617` at cfg 4.5, where it does apply.
   Emptying it would be wrong. Left alone, flagged in `notes/R3-questions.md`.
-* `#648`'s title reads "Mouth SEGS size guard **(see note)**" and there is no
-  such note anywhere in the workflow — I searched every `Note` and
-  `MarkdownNote`. Not mine to fix this run; recorded.
+* `#648`'s size guard is silently skipping `#165 Mouth Detailer` on about half
+  of all renders (§3). Found here, not one of my three decisions, **not
+  touched**. Written up in `notes/R3-questions.md` Q4.
 
 ## 5 · Files
 
@@ -513,7 +513,11 @@ results/browser/20260806-125017-…/api_graph.json     after graph
 results/browser/20260806-125050-…/api_graph.json     after graph, 2nd run = the control
 results/cfg/compare/R3_cfg_cost_worstregion_1to1.png       cfg 1.0 / 1.5 / 3.0, worst region, 1:1
 results/cfg/compare/R3_negative_when_live_worstregion_1to1.png  negative ON vs OFF at cfg 1.5, 1:1
-results/r3_crop/R3_control_cf3/    R3_cf1.5/    R3_cf1.0/     api_graph.json, meta.json, PNG
+results/r3_crop/R3_cf1.5/  R3_cf1.0/            api_graph.json, meta.json, PNG
+results/r3_crop/R3_control_cf3/                      api_graph.json, meta.json only --
+                                                     its PNG is byte-identical to
+                                                     results/face/arms/C_zface_steps_08/
+                                                     HasMetadata_00016_.png and is gitignored
 results/r3_crop/R3_crop_face_1to1.png   R3_crop_eyesnose_1to1.png   R3_crop_jawseam_1to1.png
 results/r3_crop/R3_crop_mouth_1to1.png  R3_crop_diffmap_vs_cf3.png
 results/r3_crop/R3_tap114in/            the image entering #114, tapped
