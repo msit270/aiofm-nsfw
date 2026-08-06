@@ -1,0 +1,361 @@
+{
+ "116": {
+  "inputs": {
+   "lora_01": "luna.safetensors",
+   "strength_01": 1,
+   "lora_02": "None",
+   "strength_02": 0.9,
+   "lora_03": "None",
+   "strength_03": 0.9,
+   "lora_04": "None",
+   "strength_04": 1,
+   "model": [
+    "620:113",
+    0
+   ],
+   "clip": [
+    "620:110",
+    0
+   ]
+  },
+  "class_type": "Lora Loader Stack (rgthree)",
+  "_meta": {
+   "title": "2 \u00b7 Your ZIT LoRa  (face, mouth, eyes)"
+  }
+ },
+ "620:109": {
+  "inputs": {
+   "vae_name": "ae.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Load VAE"
+  }
+ },
+ "622:415": {
+  "inputs": {
+   "max_faces": 10,
+   "min_confidence": 0.2,
+   "resolution": [
+    "622:399",
+    0
+   ],
+   "image": [
+    "622:414",
+    0
+   ]
+  },
+  "class_type": "MediaPipe-FaceMeshPreprocessor",
+  "_meta": {
+   "title": "MediaPipe Face Mesh"
+  }
+ },
+ "622:399": {
+  "inputs": {
+   "image": [
+    "622:414",
+    0
+   ]
+  },
+  "class_type": "GetImageSize",
+  "_meta": {
+   "title": "Get Image Size"
+  }
+ },
+ "622:410": {
+  "inputs": {
+   "crop_factor": 3,
+   "bbox_fill": false,
+   "crop_min_size": 10,
+   "drop_size": 1,
+   "dilation": 0,
+   "face": false,
+   "mouth": false,
+   "left_eyebrow": false,
+   "left_eye": true,
+   "left_pupil": true,
+   "right_eyebrow": false,
+   "right_eye": true,
+   "right_pupil": true,
+   "image": [
+    "622:415",
+    0
+   ]
+  },
+  "class_type": "MediaPipeFaceMeshToSEGS",
+  "_meta": {
+   "title": "MediaPipe FaceMesh to SEGS"
+  }
+ },
+ "622:431": {
+  "inputs": {
+   "images": [
+    "P3_LOAD",
+    0
+   ]
+  },
+  "class_type": "INSTARAW_ImageListFromBatch",
+  "_meta": {
+   "title": "\ud83d\udcd1 INSTARAW Image List From Batch"
+  }
+ },
+ "622:414": {
+  "inputs": {
+   "width": 1920,
+   "height": 1920,
+   "interpolation": "lanczos",
+   "method": "keep proportion",
+   "condition": "always",
+   "multiple_of": 0,
+   "image": [
+    "622:404",
+    0
+   ]
+  },
+  "class_type": "ImageResize+",
+  "_meta": {
+   "title": "Upscale Face Crop for Detailing"
+  }
+ },
+ "622:394": {
+  "inputs": {
+   "text": "deformed, ugly, blurry, bad anatomy, disfigured, extra eyes, cropped face, out of frame, deformed piercing, bad piercing, watermark, text",
+   "clip": [
+    "620:110",
+    0
+   ]
+  },
+  "class_type": "CLIPTextEncode",
+  "_meta": {
+   "title": "Eye Negative Prompt"
+  }
+ },
+ "622:404": {
+  "inputs": {
+   "width": [
+    "622:403",
+    4
+   ],
+   "height": [
+    "622:403",
+    5
+   ],
+   "x": [
+    "622:403",
+    2
+   ],
+   "y": [
+    "622:403",
+    3
+   ],
+   "image": [
+    "622:431",
+    0
+   ]
+  },
+  "class_type": "ImageCrop",
+  "_meta": {
+   "title": "Image Crop"
+  }
+ },
+ "622:403": {
+  "inputs": {
+   "padding": 0,
+   "blur": 0,
+   "mask": [
+    "622:407",
+    0
+   ]
+  },
+  "class_type": "MaskBoundingBox+",
+  "_meta": {
+   "title": "\ud83d\udd27 Mask Bounding Box"
+  }
+ },
+ "622:407": {
+  "inputs": {
+   "segs": [
+    "622:424",
+    0
+   ]
+  },
+  "class_type": "SegsToCombinedMask",
+  "_meta": {
+   "title": "SEGS to MASK (combined)"
+  }
+ },
+ "620:113": {
+  "inputs": {
+   "unet_name": "zimage.safetensors",
+   "weight_dtype": "default"
+  },
+  "class_type": "UNETLoader",
+  "_meta": {
+   "title": "Load Diffusion Model"
+  }
+ },
+ "622:406": {
+  "inputs": {
+   "guide_size": 1920,
+   "guide_size_for": true,
+   "max_size": 1920,
+   "seed": 1111112,
+   "steps": 8,
+   "cfg": 3.0,
+   "sampler_name": "euler",
+   "scheduler": "beta",
+   "denoise": 0.42,
+   "feather": 2,
+   "noise_mask": true,
+   "force_inpaint": true,
+   "wildcard": "",
+   "cycle": 1,
+   "inpaint_model": false,
+   "noise_mask_feather": 20,
+   "tiled_encode": false,
+   "tiled_decode": false,
+   "image": [
+    "622:414",
+    0
+   ],
+   "segs": [
+    "622:408",
+    0
+   ],
+   "model": [
+    "116",
+    0
+   ],
+   "clip": [
+    "620:110",
+    0
+   ],
+   "vae": [
+    "620:109",
+    0
+   ],
+   "positive": [
+    "622:398",
+    0
+   ],
+   "negative": [
+    "622:394",
+    0
+   ]
+  },
+  "class_type": "DetailerForEachDebug",
+  "_meta": {
+   "title": "DetailerDebug (SEGS)"
+  }
+ },
+ "622:408": {
+  "inputs": {
+   "combined": true,
+   "crop_factor": 3,
+   "bbox_fill": false,
+   "drop_size": 10,
+   "contour_fill": false,
+   "mask": [
+    "622:402",
+    0
+   ]
+  },
+  "class_type": "MaskToSEGS",
+  "_meta": {
+   "title": "MASK to SEGS"
+  }
+ },
+ "622:402": {
+  "inputs": {
+   "segs": [
+    "622:410",
+    0
+   ]
+  },
+  "class_type": "SegsToCombinedMask",
+  "_meta": {
+   "title": "SEGS to MASK (combined)"
+  }
+ },
+ "622:426": {
+  "inputs": {
+   "model_name": "bbox/face_yolov8m.pt"
+  },
+  "class_type": "UltralyticsDetectorProvider",
+  "_meta": {
+   "title": "UltralyticsDetectorProvider"
+  }
+ },
+ "622:398": {
+  "inputs": {
+   "text": "perfect eyes, round pupils, round iris, symmetrical eyes, realistic eyes, perfect circles, round",
+   "clip": [
+    "620:110",
+    0
+   ]
+  },
+  "class_type": "CLIPTextEncode",
+  "_meta": {
+   "title": "Eye Positive Prompt"
+  }
+ },
+ "620:110": {
+  "inputs": {
+   "clip_name": "qwen.safetensors",
+   "type": "lumina2",
+   "device": "default"
+  },
+  "class_type": "CLIPLoader",
+  "_meta": {
+   "title": "Load CLIP"
+  }
+ },
+ "622:424": {
+  "inputs": {
+   "threshold": 0.6,
+   "dilation": 10,
+   "crop_factor": 3,
+   "drop_size": 10,
+   "labels": "all",
+   "bbox_detector": [
+    "622:426",
+    0
+   ],
+   "image": [
+    "622:431",
+    0
+   ]
+  },
+  "class_type": "BboxDetectorSEGS",
+  "_meta": {
+   "title": "BBOX Detector (SEGS)"
+  }
+ },
+ "P3_LOAD": {
+  "class_type": "LoadImage",
+  "inputs": {
+   "image": "p3cfg/p3_in_eyes.png",
+   "upload": "image"
+  }
+ },
+ "P3_SAVE_before": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "filename_prefix": "P3cfg/eyes_cfg3.0_negfilled/before",
+   "images": [
+    "622:406",
+    1
+   ]
+  }
+ },
+ "P3_SAVE_crop": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "filename_prefix": "P3cfg/eyes_cfg3.0_negfilled/crop",
+   "images": [
+    "622:406",
+    2
+   ]
+  }
+ }
+}

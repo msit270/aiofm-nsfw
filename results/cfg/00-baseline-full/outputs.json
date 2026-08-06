@@ -1,0 +1,26 @@
+{
+ "P3_in_face": [
+  "/workspace/nsfw-fix/results/cfg/00-baseline-full/P3_in_face__P3_in_face_00001_.png"
+ ],
+ "P3_crop_face": [
+  "/workspace/nsfw-fix/results/cfg/00-baseline-full/P3_crop_face__P3_crop_face_00001_.png"
+ ],
+ "P3_in_mouth": [
+  "/workspace/nsfw-fix/results/cfg/00-baseline-full/P3_in_mouth__P3_in_mouth_00001_.png"
+ ],
+ "P3_crop_mouth": [
+  "/workspace/nsfw-fix/results/cfg/00-baseline-full/P3_crop_mouth__P3_crop_mouth_00001_.png"
+ ],
+ "P3_in_eyes": [
+  "/workspace/nsfw-fix/results/cfg/00-baseline-full/P3_in_eyes__P3_in_eyes_00001_.png"
+ ],
+ "P3_crop_eye_after": [
+  "/workspace/nsfw-fix/results/cfg/00-baseline-full/P3_crop_eye_after__P3_crop_eye_after_00001_.png"
+ ],
+ "P3_crop_eye_before": [
+  "/workspace/nsfw-fix/results/cfg/00-baseline-full/P3_crop_eye_before__P3_crop_eye_before_00001_.png"
+ ],
+ "505": [
+  "/workspace/nsfw-fix/results/cfg/00-baseline-full/505__HasMetadata_00013_.png"
+ ]
+}

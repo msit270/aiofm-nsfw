@@ -1,0 +1,212 @@
+{
+ "116": {
+  "inputs": {
+   "lora_01": "luna.safetensors",
+   "strength_01": 1,
+   "lora_02": "None",
+   "strength_02": 0.9,
+   "lora_03": "None",
+   "strength_03": 0.9,
+   "lora_04": "None",
+   "strength_04": 1,
+   "model": [
+    "620:113",
+    0
+   ],
+   "clip": [
+    "620:110",
+    0
+   ]
+  },
+  "class_type": "Lora Loader Stack (rgthree)",
+  "_meta": {
+   "title": "2 \u00b7 Your ZIT LoRa  (face, mouth, eyes)"
+  }
+ },
+ "620:109": {
+  "inputs": {
+   "vae_name": "ae.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Load VAE"
+  }
+ },
+ "621:161": {
+  "inputs": {
+   "model_name": "bbox/lips_v1.pt"
+  },
+  "class_type": "UltralyticsDetectorProvider",
+  "_meta": {
+   "title": "UltralyticsDetectorProvider"
+  }
+ },
+ "620:648": {
+  "inputs": {
+   "target": "area(=w*h)",
+   "mode": true,
+   "min_value": 0,
+   "max_value": 1700000
+  },
+  "class_type": "SEGSRangeFilterDetailerHookProvider",
+  "_meta": {
+   "title": "Mouth SEGS size guard (see note)"
+  }
+ },
+ "621:160": {
+  "inputs": {
+   "model_name": "sam_vit_b_01ec64.pth",
+   "device_mode": "AUTO"
+  },
+  "class_type": "SAMLoader",
+  "_meta": {
+   "title": "SAMLoader (Impact)"
+  }
+ },
+ "621:167": {
+  "inputs": {
+   "text": "",
+   "clip": [
+    "620:110",
+    0
+   ]
+  },
+  "class_type": "CLIPTextEncode",
+  "_meta": {
+   "title": "Mouth Detailer Negative Prompt"
+  }
+ },
+ "621:166": {
+  "inputs": {
+   "text": "realistic detailed mouth",
+   "clip": [
+    "620:110",
+    0
+   ]
+  },
+  "class_type": "CLIPTextEncode",
+  "_meta": {
+   "title": "Mouth Detailer Prompt"
+  }
+ },
+ "620:165": {
+  "inputs": {
+   "guide_size": 1808,
+   "guide_size_for": true,
+   "max_size": 1808,
+   "seed": 1111111,
+   "steps": 8,
+   "cfg": 1.5,
+   "sampler_name": "euler_ancestral",
+   "scheduler": "kl_optimal",
+   "denoise": 0.35,
+   "feather": 3,
+   "noise_mask": true,
+   "force_inpaint": true,
+   "bbox_threshold": 0.7,
+   "bbox_dilation": 10,
+   "bbox_crop_factor": 3,
+   "sam_detection_hint": "center-1",
+   "sam_dilation": 0,
+   "sam_threshold": 0.6,
+   "sam_bbox_expansion": 0,
+   "sam_mask_hint_threshold": 0.7,
+   "sam_mask_hint_use_negative": "False",
+   "drop_size": 10,
+   "wildcard": "",
+   "cycle": 1,
+   "inpaint_model": false,
+   "noise_mask_feather": 20,
+   "tiled_encode": false,
+   "tiled_decode": false,
+   "image": [
+    "P3_LOAD",
+    0
+   ],
+   "model": [
+    "116",
+    0
+   ],
+   "clip": [
+    "116",
+    1
+   ],
+   "vae": [
+    "620:109",
+    0
+   ],
+   "positive": [
+    "621:166",
+    0
+   ],
+   "negative": [
+    "621:167",
+    0
+   ],
+   "bbox_detector": [
+    "621:161",
+    0
+   ],
+   "sam_model_opt": [
+    "621:160",
+    0
+   ],
+   "detailer_hook": [
+    "620:648",
+    0
+   ]
+  },
+  "class_type": "FaceDetailer",
+  "_meta": {
+   "title": "Mouth Detailer"
+  }
+ },
+ "620:110": {
+  "inputs": {
+   "clip_name": "qwen.safetensors",
+   "type": "lumina2",
+   "device": "default"
+  },
+  "class_type": "CLIPLoader",
+  "_meta": {
+   "title": "Load CLIP"
+  }
+ },
+ "620:113": {
+  "inputs": {
+   "unet_name": "zimage.safetensors",
+   "weight_dtype": "default"
+  },
+  "class_type": "UNETLoader",
+  "_meta": {
+   "title": "Load Diffusion Model"
+  }
+ },
+ "P3_LOAD": {
+  "class_type": "LoadImage",
+  "inputs": {
+   "image": "p3cfg/p3_in_mouth.png",
+   "upload": "image"
+  }
+ },
+ "P3_SAVE_full": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "filename_prefix": "P3cfg/mouth_cfg1.5_negempty/full",
+   "images": [
+    "620:165",
+    0
+   ]
+  }
+ },
+ "P3_SAVE_crop": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "filename_prefix": "P3cfg/mouth_cfg1.5_negempty/crop",
+   "images": [
+    "620:165",
+    1
+   ]
+  }
+ }
+}
