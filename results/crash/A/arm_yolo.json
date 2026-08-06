@@ -2821,13 +2821,42 @@
   "flat_frac": 0.3591
  },
  "CTL_placeholder_after_T_tok50": {
-  "status": null,
-  "prompt_id": null,
-  "exec_seconds": null,
-  "cached": null,
-  "text": null,
+  "status": "success",
+  "prompt_id": "13d9ded4-1710-4de7-ae91-03c227cd1d60",
+  "exec_seconds": 51.7,
+  "cached": 0,
+  "text": "TRIGGER, PROMPT FOR YOUR MODEL",
   "error_node": null,
-  "tap": null
+  "tap": "nTAP163__tap163_00081_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   }
+  },
+  "highest_conf": 0.8952752351760864,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1876
  },
  "T_tok50": {
   "status": "error",
@@ -2866,5 +2895,14 @@
   "highest_conf": 0.4656447172164917,
   "luma_sd": 60.57,
   "flat_frac": 0.3591
+ },
+ "T_tok24": {
+  "status": null,
+  "prompt_id": null,
+  "exec_seconds": null,
+  "cached": null,
+  "text": null,
+  "error_node": null,
+  "tap": null
  }
 }

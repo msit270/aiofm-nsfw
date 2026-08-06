@@ -41,9 +41,9 @@
  },
  {
   "tokens": 16,
-  "n_arms": 20,
+  "n_arms": 21,
   "n_crash": 0,
-  "n_clean": 20,
+  "n_clean": 21,
   "verdict": "clean",
   "arms": [
    "A1_gate_placeholder",
@@ -65,7 +65,8 @@
    "CTL_placeholder_after_T_tok47",
    "CTL_placeholder_after_REP2_w17__warm2",
    "CTL_placeholder_after_T_tok48",
-   "CTL_placeholder_after_T_tok49"
+   "CTL_placeholder_after_T_tok49",
+   "CTL_placeholder_after_T_tok50"
   ]
  },
  {
