@@ -379,6 +379,76 @@ one, and `select_unselect()` toggles, so a click *deselects*. The button tracks
 
 ---
 
+## 4b. The Stage 2 command was run on the **unfixed** bytes — and it did not crash
+
+I ran `d_gate.sh stage2` before any fix existed, to prove the one-command path works
+rather than hand over an untested one-liner. It works. It also produced a result I did
+not expect and which needs stating carefully.
+
+**With the byte-exact crashing string in `#106`, on the shipped artifact, in a browser,
+the render completed and delivered a correct face.**
+
+```
+prompt_id 7cb9e814-775b-4cf6-b58a-af8d19b950e7
+status success   193 s   HasMetadata_00002_.png  11,142,044 B   exit 0
+```
+
+Everything that could make this a false green was checked:
+
+| what could be wrong | check | result |
+|---|---|---|
+| the browser sent a different string | sha256 of `620:106.inputs.text` in the POSTed api_graph | `bd134ac0…c42b` — **matches** the recorded crash arm exactly, 169 bytes |
+| the LoRAs were not loaded | api_graph | `luna.safetensors` + `lunaskye.safetensors` |
+| the face pass was served from cache | `/history` `execution_cached` | `620:106`, `620:114`, `620:165`, `621:163`, `622:424`, **`622:403`** all `cached=False` |
+| it was a different graph config | api_graph | `620:114` steps 8, cfg 1, denoise 0.80, `bbox_crop_factor` 1.5 — the shipping values |
+| the image is the silent void | `check_image.py` | `flat_block_frac 0.0071` vs clean control `0.0066`, void `0.1834` |
+
+32 of 88 nodes executed. The 56 cached ones are all **upstream of the selector `#603`**;
+because `#603` cannot be cached, the whole chain below it re-ran — `587:92`, `587:98`
+(UltimateSDUpscale), the face pass, the mouth pass, the colormatch and all 15 Eyes-stage
+nodes including `622:403` itself.
+
+**And it is a real face, localised.** Against the placeholder render the difference is
+confined to a **290×386 px box at x 837-1127, y 326-712 — 1.20 % of the frame**, which
+is the head. That crop has `luma_sd 37.23` and **38 760 unique colours**; a void has one.
+`results/gate2/stage2-realprompt-FACE-CROP.png` and
+`stage1b-placeholder-FACE-CROP.png` are both written out at 1:1.
+
+> **A correction to my own commit message.** `282ac07` says the crop "shows the freckles
+> the prompt asked for". **That implies causation I have not shown** — the *placeholder*
+> crop has freckles too, so they are the LoRA's, not the prompt's. What the crop shows is
+> a detailed, correct face. Nothing more should be read into it.
+
+### What this is NOT
+
+**It is not a refutation of `HANDOFF.md` §6.0's 4/4.** It is one trial. Taken with the
+existing record it says the crash is **state-dependent, not deterministic on the
+prompt** — which is what Track A's non-monotone ladder (`w19`/`w20` clean past a
+"crashing" length) and Track B's independent VRAM route already say. My run adds a
+browser-level data point to that picture; it does not overturn a documented 4/4.
+
+Two conditions of my run differ from every documented crash arm and either could matter:
+
+1. **The SDXL base was cached.** Every crash arm ran cold (`execution_cached: []`).
+2. **VRAM.** My instance logged
+   `Unloaded partially: 7558.29 MB freed … lowvram patches: 128` during this very run —
+   *higher* patching than the `83` in Track B's crashing D2 example — and it still
+   rendered clean. Read against Track B's finding that is an observation, not a
+   refutation: they have a controlled arm, I have one log line. But it does suggest
+   lowvram patching alone is not sufficient to cause the crash. **Note the patching
+   happened in the upscale stage, not the face stage** — I misread that at first and
+   checked the log context rather than leaving it inferred.
+
+**The decisive follow-up is a cold run**, which removes difference 1. Result in §4c.
+The warm run's artifacts are preserved separately under
+`results/gate2/stage2-warmcache-run/` so the two can never be conflated.
+
+**What the owner should take from this:** do not treat "the crash string" as a reliable
+reproducer. Anyone testing the fix needs *n* trials from a known cache and VRAM state,
+not one, or they will conclude the fix worked when the dice simply landed differently.
+
+---
+
 ## 5. What this does NOT prove
 
 * **That a real prompt renders.** That is Stage 2 and it is blocked. Stage 1B's finished
