@@ -274,7 +274,89 @@ its own could shift a per-pixel statistic. So the tap is designed to give
 1792x2304, stages 5–7 all 2688x3456. Comparing 1 → 4 and 5 → 6 is scale-free;
 only 4 → 5 crosses it, and that step *is* the upscale.
 
-*(Tap result filled in below when the render lands.)*
+## The answer: **`#98 UltimateSDUpscale`**. Not `#87`, and not `#114`.
+
+One render, shipped settings, both Luna LoRAs, six `SaveImage` taps injected
+into the submitted prompt only (6 nodes added, 0 removed, **0 existing nodes
+changed** — so `#505`'s output is what it would have been without them).
+Cold: `/free` on an empty queue, `execution_cached` 0 nodes, 270.5 s.
+`results/face/taps/TAP_cf15_denoise080/`.
+
+| # | stage | resolution | pigment % | bright-blob % | freckles at 1:1 |
+|---|---|---|---|---|---|
+| 1 | base generator `619:601` | 1792x2304 | 3.394 | 3.751 | **present**, discrete brown marks |
+| 2 | `587:92 HandDetailer` | 1792x2304 | 3.394 | 3.751 | **present** — *bit-identical to 1* |
+| 3 | `587:91` skin-detail model | 1792x2304 | **6.581** | 10.512 | **present and stronger** |
+| 4 | `587:87 ImageBlend` | 1792x2304 | 6.581 | 10.512 | **present** — *bit-identical to 3* |
+| 5 | `587:98 UltimateSDUpscale` | 2688x3456 | **2.087** | 3.142 | **GONE** |
+| 6 | `620:137` into `#114` | 2688x3456 | 2.096 | 3.172 | gone |
+| 7 | delivered `#505` | 2688x3456 | 3.252 | **8.191** | gone; bumps added |
+
+Three things fall straight out of that table, and none of them was known:
+
+1. **`#92 HandDetailer` changes nothing in the face region** — stages 1 and 2
+   are identical to four significant figures, and the two PNGs are the same
+   size on disk. It is a hand pass and it behaves like one.
+2. **`#87 ImageBlend` at `blend_factor 1` is a pass-through of `#91`** —
+   stages 3 and 4 are identical. That is what `results/face/ARMS.md` inferred
+   from the widget value; this measures it.
+3. **The skin-detail model does not destroy the freckles, it nearly doubles
+   them** — 3.394 → 6.581. `#87` is innocent of this charge as well as of the
+   bumps. My earlier inference that the loss was in the `#87`/`#91` region was
+   **wrong, and this retracts it.**
+
+**The loss is entirely at stage 4 → 5: `#98 UltimateSDUpscale`, 1.5x, 2 steps,
+denoise 0.08.** Pigment 6.581 → 2.087, bright-blob 10.512 → 3.142. Stage 5 → 6
+is flat, so `ImageColorMatch+` is not involved. Stage 6 → 7 is `#114`, and what
+it does is **raise bright-blob 3.172 → 8.191** — it adds the bumps; it does not
+remove pigment that has already gone.
+
+### The resolution confound, closed with a control in both directions
+
+Stages 1–4 are 1792x2304 and stages 5–7 are 2688x3456, so a per-pixel statistic
+could shift across that boundary for reasons that have nothing to do with
+`#98`. Main flagged this and was right to. Closed by resampling the *same
+image* across the boundary — a pure geometric LANCZOS resize, no diffusion, no
+new detail — and re-measuring:
+
+| image | measured at | pigment % | bright-blob % |
+|---|---|---|---|
+| stage 1, native | 1792x2304 | 3.394 | 3.751 |
+| stage 1, **LANCZOS → 2688** | 2688x3456 | 3.323 | 3.596 |
+| stage 4, native | 1792x2304 | 6.581 | 10.512 |
+| stage 4, **LANCZOS → 2688** | 2688x3456 | **6.261** | 9.698 |
+| stage 5, native | 2688x3456 | 2.087 | 3.142 |
+| stage 5, **LANCZOS → 1792** | 1792x2304 | **2.122** | 2.847 |
+
+The measure moves by **2–5 % relative** under a pure resize, in either
+direction. So at matched scale the step across `#98` is **6.261 → 2.087, a
+67 % loss**, and it is not the resampling. The pictures agree: at matched
+display scale the discrete brown dots on the cheek in stage 4 are simply absent
+in stage 5, with two or three faint remnants.
+
+**Picture: `results/face/R1_where_freckles_die_1to1.png`** — seven tiles, same
+anatomical box, and the header states in orange which tiles are display-scaled
+and which are native, plus the matched-scale numbers, because a reader will
+otherwise attribute all of the crispness step to `#98`.
+
+### What this means for the owner's decision — it simplifies it
+
+**Luna's freckles are gone two stages before `#114` runs. No value of `#114`
+`denoise`, `steps` or `bbox_crop_factor` can bring them back.** The denoise
+choice is therefore *only* about how the skin looks, and the freckle question
+moves to a different node entirely.
+
+If he wants the freckles, the lever is **`#98 UltimateSDUpscale`** — and that is
+his decision and another run's job. I have not touched it, not tested it, and I
+am not recommending a value. Logged, not chased.
+
+### Determinism, again, from the same pair
+
+A duplicate driver submitted the identical 94-node graph a second time; it ran
+**warm** (57 cached, 150.5 s) against the cold run's 270.5 s. **All seven
+outputs — every tap and the delivered frame — compare at mean absolute
+difference 0.0000 and maximum 0 levels.** The duplicate's PNGs were deleted and
+the cold run kept; the comparison is recorded in the arm's `meta.json`.
 
 ---
 

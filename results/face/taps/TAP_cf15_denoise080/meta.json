@@ -1,0 +1,34 @@
+{
+  "arm": "TAP_cf15_denoise080",
+  "changed": "SHIPPED settings + LoRAs on the cf-1.5 graph (74c0f11 / workflow sha256 a811b5d6..2143d8): #114 steps 8, denoise 0.80, bbox_crop_factor 1.5, #105 empty. Plus SIX SaveImage taps injected into the SUBMITTED PROMPT ONLY -- 619:601 base gen, 587:92 HandDetailer, 587:91 skin-detail model, 587:87 ImageBlend, 587:98 UltimateSDUpscale, 620:137 into-#114. Graph diff against the same arm without taps: 6 nodes ADDED, 0 removed, 0 existing nodes changed, so #505 is unaffected. Doubles as the sheet's denoise-0.80 tile.",
+  "prompt_id": "ec02909f-10d5-4da6-8883-863d222684b7",
+  "client_id": "r1-denoise-4f2a9c1e",
+  "api_nodes": 94,
+  "cold_start": true,
+  "cache_note": "COLD: POST /free {unload_models, free_memory} on an empty queue immediately before submit; execution_cached is 0 nodes.",
+  "rgthree_comparer_stripped": true,
+  "pick_list_injected": "619:603 inputs.pick_list = \"0\" (submitted prompt only)",
+  "exec_seconds": 270.5,
+  "cached_nodes": 0,
+  "cached_node_ids": [],
+  "status": "success",
+  "error": null,
+  "completed": true,
+  "images": [
+    "HasMetadata_00044_.png",
+    "R1_tap_1_base_619_601_00001_.png",
+    "R1_tap_2_hands_587_92_00001_.png",
+    "R1_tap_3_skinmodel_587_91_00001_.png",
+    "R1_tap_4_blend_587_87_00001_.png",
+    "R1_tap_5_upscale_587_98_00001_.png",
+    "R1_tap_6_into114_620_137_00001_.png"
+  ],
+  "image": "HasMetadata_00044_.png",
+  "duplicate_run": {
+    "note": "the identical 94-node graph was submitted a second time by a duplicate driver and rendered WARM. Kept as a determinism control, not as a separate arm.",
+    "prompt_id": "7d276758-e683-4da6-93b2-c9d3bac2f408",
+    "exec_seconds": 150.5,
+    "cached_nodes": 57,
+    "all_seven_outputs_vs_cold_run": "mean abs diff 0.0000, max 0 levels, every tap and the delivered frame"
+  }
+}
