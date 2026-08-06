@@ -4,6 +4,7 @@
   13  clean    1  L_w03
   14  clean    1  L_w04
   16  clean   21  A1_gate_placeholder, CTL_placeholder_after_w17, CTL_placeholder_after_w18, CTL_placeholder_after_w24, L_w06, CTL_placeholder_after_A3_C2_gardener_w17, CTL_placeholder_after_A3_swap_Tuesday, CTL_placeholder_after_A3_swap_fine, CTL_placeholder_after_A3_swap_obvious, CTL_recovery_before_T, CTL_placeholder_after_T_tok30, CTL_placeholder_after_T_tok31, CTL_placeholder_after_T_tok32, CTL_placeholder_after_T_tok45, CTL_placeholder_after_T_tok46, CTL_placeholder_after_T_tok44, CTL_placeholder_after_T_tok47, CTL_placeholder_after_REP2_w17__warm2, CTL_placeholder_after_T_tok48, CTL_placeholder_after_T_tok49, CTL_placeholder_after_T_tok50
+  18  clean    1  T_tok18
   20  clean    1  L_w08
   24  clean    1  T_tok24
   25  clean    1  L_w12

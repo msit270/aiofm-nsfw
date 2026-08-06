@@ -70,6 +70,16 @@
   ]
  },
  {
+  "tokens": 18,
+  "n_arms": 1,
+  "n_crash": 0,
+  "n_clean": 1,
+  "verdict": "clean",
+  "arms": [
+   "T_tok18"
+  ]
+ },
+ {
   "tokens": 20,
   "n_arms": 1,
   "n_crash": 0,

@@ -3,8 +3,8 @@
 ## **ANSWER: it is the LENGTH — specifically the TOKEN COUNT of the conditioning. No content I tested changed the outcome at any length.**
 
 Every prompt whose tokenised length is **30, 31, 32, or 44 and above** crashes.
-Every other length measured — 11, 12, 13, 14, 16, 20, 24, 25, 26, 27, 28, 29, 33,
-34, 35, 36, 37, 38, 39, 40, 41, 42, 43 — renders clean. **Its lower edge is exact and it has no top edge within
+Every other length measured — 11, 12, 13, 14, 16, 18, 20, 24, 25, 26, 27, 28, 29,
+33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43 — renders clean. **Its lower edge is exact and it has no top edge within
 reach**: 43 is clean and **44, 45, 46, 47, 48, 49 and 50 all crash** — seven
 consecutive lengths, unbroken. So the upper region is a genuine **threshold at
 44**, not a band. Above 50 is unmeasured. **Across every cold arm in this run and eight unrelated content families there
@@ -560,6 +560,7 @@ tok  verdict  n  arms
   13  clean    1  L_w03
   14  clean    1  L_w04
   16  clean   21  A1_gate_placeholder, CTL_placeholder_after_w17, CTL_placeholder_after_w18, CTL_placeholder_after_w24, L_w06, CTL_placeholder_after_A3_C2_gardener_w17, CTL_placeholder_after_A3_swap_Tuesday, CTL_placeholder_after_A3_swap_fine, CTL_placeholder_after_A3_swap_obvious, CTL_recovery_before_T, CTL_placeholder_after_T_tok30, CTL_placeholder_after_T_tok31, CTL_placeholder_after_T_tok32, CTL_placeholder_after_T_tok45, CTL_placeholder_after_T_tok46, CTL_placeholder_after_T_tok44, CTL_placeholder_after_T_tok47, CTL_placeholder_after_REP2_w17__warm2, CTL_placeholder_after_T_tok48, CTL_placeholder_after_T_tok49, CTL_placeholder_after_T_tok50
+  18  clean    1  T_tok18
   20  clean    1  L_w08
   24  clean    1  T_tok24
   25  clean    1  L_w12
@@ -882,10 +883,9 @@ All under `results/crash/A/`.
 | graph diffs proving one input differs per pair | `graph_diffs.txt` |
 | the driver, builders and analysis | `tools/` |
 
-**The `T_tok` wide sweep (36, 37, 40, 42, 43, 44, 47, 48, 49, 50, 24, 18) was
-still in flight when this was written**, because the GPU is shared with another
-agent's server and arms slowed from ~70 s to ~120 s. Whatever landed after this
-commit is on disk but not in the tables. To fold it in, with no re-rendering:
+**The `T_tok` sweep is COMPLETE** — every arm from 26 to 50 plus 18 and 24 has
+landed and is folded into the tables below. The tooling that regenerates every
+derived artifact from what is already saved, touching no server, is:
 
 ```bash
 python3 results/crash/A/tools/analyse.py              # offline YOLO on any new taps
