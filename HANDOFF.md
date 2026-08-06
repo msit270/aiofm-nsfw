@@ -136,9 +136,58 @@ larger red-brown lesions reading as pimples. That is the opposite of the
 "visible pores" the prompt asks for, and it points away from the samplers and
 towards something that *amplifies* fine bright detail.
 
-The prime suspect is now `#87 ImageBlend` at `blend_factor 1`, which discards the
-clean image and passes through `x1_ITF_SkinDiffDetail_Lite_v1.pth` at full
-strength, upstream of everything. Arm D tests exactly that.
+### It is `#114`. Two agents proved it independently, by different methods.
+
+**Measurement 1 — before/after across the pass.** The image *entering* `#114`
+(tapped at `620:137`, i.e. **after** `#87`'s skin amplifier) is **clean, smooth
+skin**. The same region *leaving* `#114` is covered in blistered bubble-wrap
+texture. If `#87` were the source it would already be visible in the input. It is
+not. `#114` **creates** the texture; it does not amplify something handed to it.
+Crops: `results/cfg/compare/baseline_114_input_mouthregion_1to1.png` and
+`…_output_mouthregion_1to1.png`.
+
+**Measurement 2 — where the damage stops.** High-frequency energy (1–4 px DoG
+RMS) across a strip through the jaw:
+
+| arm | detected face box | inside, above jaw | outside, below jaw |
+|---|---|---|---|
+| `A0_baseline` | x800–2228 y696–**2685** | **5.87** | **0.87** |
+| `A_drop_sdxl_face_pass` | x794–2227 y686–**2677** | **6.15** | **0.87** |
+
+A **~7x step** across a line that lands on the face detector's own bbox edge, in
+both arms, outside identical to two decimal places. Neck, shoulder and background
+are completely clean. **A whole-frame filter cannot produce a boundary that
+follows the face detector's bbox** — so the depositor is a face-detailer
+composite, and since removing `#607` changed nothing, it is `#114`.
+
+`#87` is demoted from prime suspect to contributor-at-most. Arm H (`#87` at 0.5)
+settles it: if the **neck's** hf RMS moves when the blend moves, `#87` reaches the
+neck; if the neck stays at 0.87 while the face changes, `#87` is not the depositor.
+
+### Two further defects found on the way, neither previously reported
+
+**The pass touches the whole image.** `#114` changes 9.51 % of the frame by more
+than 8 levels (a clean silhouette of the SAM mask) but **99.05 % by more than
+0 levels** — the crop clamps to the full frame, so even unmasked pixels go
+through a VAE round-trip. There is also a **hard seam where the mask ends**, with
+faint reddish text-like marks along it, and **it survives into the saved image**.
+
+**The mouth is not merely bumpy — it is destroyed.** At 1:1 the lips and chin
+carry **rectangles, hexagons, dot-matrix grids, ladder patterns and hair-like
+filaments**, as if a texture from a different image were composited on. An older
+baseline shows the bumps but **not** these. The difference between them is
+framing: that face was **654x891**, this one **1428x1989**. **[I]** Tighter
+portrait → worse crop-to-`guide_size` ratio → worse invented texture. If that
+holds, **a buyer shooting close-up portraits gets a materially worse result than
+one shooting wider, from the same graph.**
+
+### And at cfg 1, your positive prompt is the *only* steering signal
+
+There is no negative branch to dilute a bad positive (§5). `#106` ships as the
+literal placeholder `"TRIGGER, PROMPT FOR YOUR MODEL"`, and that placeholder is
+driving 30 steps at denoise 0.8 over the whole frame. **Filling it in is far more
+load-bearing than the on-canvas note makes it sound.** An arm testing a real
+character prompt with everything else unchanged is queued.
 
 ### Why the face is overbaked — established so far
 
