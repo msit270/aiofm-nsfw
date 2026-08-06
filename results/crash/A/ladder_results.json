@@ -470,5 +470,75 @@
   ],
   "text_106": "TRIGGER, PROMPT FOR YOUR MODEL",
   "words": null
+ },
+ {
+  "arm": "L_w19",
+  "prompt_id": "88cb5e94-56cf-4ccb-ad6d-d126953b63bc",
+  "client_id": "trackA-L_w19-35a8a7f8",
+  "wall_seconds": 65.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 58553741848,
+  "note": "ladder: first 19 words of the crashing string",
+  "status": "success",
+  "exec_seconds": 61.5,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00017_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00072_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed",
+  "words": 19
+ },
+ {
+  "arm": "L_w20",
+  "prompt_id": "6e284102-bfbb-470d-b038-95fca0abc442",
+  "client_id": "trackA-L_w20-fd1560a2",
+  "wall_seconds": 80.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 68346820632,
+  "note": "ladder: first 20 words of the crashing string",
+  "status": "success",
+  "exec_seconds": 75.2,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00018_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00073_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes,",
+  "words": 20
  }
 ]

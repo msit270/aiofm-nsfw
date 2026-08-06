@@ -65,6 +65,45 @@ contrasts and are labelled that way in the results.
 
 ---
 
+## Corrections I made to myself mid-run
+
+### "The boundary" is the wrong shape and I had already written it down before I found out.
+After `L_w16` clean / `L_w17` crash I wrote the A2 section calling 16→17 words
+(29→30 tokens) **the** boundary, and framed the ladder as a monotone
+clean→crash transition. Then `L_w19` came back **clean**. So there is no single
+boundary: the crashing region is not an upper tail, it is interleaved. I have
+rewritten the section rather than leaving the earlier phrasing to be read
+charitably. The first-crash figure (17 words / 30 tokens) is still correct and
+still the right length to run the content controls at; the word "boundary" around
+it is not.
+
+### I nearly reported "past 16 words it crashes" off five arms.
+`w17`, `w18`, `w24`, `w25` crash and `w16` is clean — that is a clean-looking
+pattern from four positive cells, and it is wrong. Rule 6 in the brief
+("never round a single observation up to a pattern") is what stopped it: I ran
+the intermediate rungs instead of interpolating them, and `w19` fell in the gap.
+Both `L_w17` and `L_w19` are therefore being **repeated** before either is leaned
+on.
+
+---
+
 ## Open / unsure
 
-_(filled in as the run proceeds)_
+* **What produces the constant fill.** The failing image's face is a single RGB
+  value (56, 51, 47) with standard deviation exactly 0 over 360,000 pixels. It is
+  not a VAE decode of a constant latent (I swept latent values −1000…1000 through
+  the graph's own `ae.safetensors`; the flattest result still has sd ≈ 2.3) and it
+  is not a NaN reaching `SaveImage` (that would be black). **I do not know what
+  writes it.** The `TAP114_*` arms tap `620:114`'s raw output to find out whether
+  the face pass emits it or something between `620:114` and `621:163` does.
+* **Whether "visible" is special or whether that position is.** The swap arms
+  (`A3_swap_*`) hold word count *and* token count at 17/30 and change only the
+  17th word. If they crash too, the position matters more than the word.
+* **Whether the probe's lower VRAM pressure changes the crashing set.** The probe
+  reproduces the gate exactly and reproduces `w24`/`w25` — both known crashers
+  from full renders — so the crashing cases carry over. Whether some string that
+  is clean under the probe would crash under a full render is untested, and it is
+  the one direction the gate does not cover.
+* **Everything here is with both owner LoRAs loaded and on the shipping graph.**
+  I did not vary LoRAs, denoise, steps, sampler or `bbox_threshold`. Track B has
+  the LoRA cell.
