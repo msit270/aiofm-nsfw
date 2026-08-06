@@ -3613,6 +3613,60 @@
             "shape": 1
           },
           {
+            "id": 597,
+            "type": "VAEEncode",
+            "pos": [
+              -2853.9255551660267,
+              7736.031304117814
+            ],
+            "size": [
+              160.787109375,
+              46
+            ],
+            "flags": {
+              "collapsed": true
+            },
+            "order": 13,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "пиксели",
+                "name": "pixels",
+                "type": "IMAGE",
+                "link": 1232
+              },
+              {
+                "localized_name": "vae",
+                "name": "vae",
+                "type": "VAE",
+                "link": 1233
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "ЛАТЕНТНЫЙ",
+                "name": "LATENT",
+                "type": "LATENT",
+                "links": [
+                  1260
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.3.65",
+              "Node name for S&R": "VAEEncode",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.4.1"
+              }
+            },
+            "widgets_values": [],
+            "color": "#223",
+            "bgcolor": "#335"
+          },
+          {
             "id": 598,
             "type": "ToDetailerPipeSDXL",
             "pos": [
@@ -4352,7 +4406,7 @@
                 "type": "IMAGE",
                 "slot_index": 0,
                 "links": [
-                  1262
+                  1232
                 ]
               },
               {
@@ -4678,6 +4732,60 @@
             "bgcolor": "#335"
           },
           {
+            "id": 616,
+            "type": "VAEDecode",
+            "pos": [
+              -2476.647973848422,
+              7839.686426150728
+            ],
+            "size": [
+              220,
+              46
+            ],
+            "flags": {
+              "collapsed": true
+            },
+            "order": 26,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "образцы",
+                "name": "samples",
+                "type": "LATENT",
+                "link": 1260
+              },
+              {
+                "localized_name": "vae",
+                "name": "vae",
+                "type": "VAE",
+                "link": 1261
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "ИЗОБРАЖЕНИЕ",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  1262
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.3.27",
+              "Node name for S&R": "VAEDecode",
+              "ue_properties": {
+                "version": "7.3",
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {}
+              }
+            },
+            "widgets_values": [],
+            "color": "#223",
+            "bgcolor": "#335"
+          },
+          {
             "id": 617,
             "type": "UltimateSDUpscale",
             "pos": [
@@ -4895,7 +5003,9 @@
                   1223,
                   1228,
                   1231,
+                  1233,
                   1235,
+                  1261,
                   1263,
                   1357,
                   1358,
@@ -5046,6 +5156,22 @@
             "origin_id": 613,
             "origin_slot": 2,
             "target_id": 596,
+            "target_slot": 1,
+            "type": "VAE"
+          },
+          {
+            "id": 1232,
+            "origin_id": 607,
+            "origin_slot": 0,
+            "target_id": 597,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 1233,
+            "origin_id": 613,
+            "origin_slot": 2,
+            "target_id": 597,
             "target_slot": 1,
             "type": "VAE"
           },
@@ -5258,8 +5384,24 @@
             "type": "CLIP"
           },
           {
+            "id": 1260,
+            "origin_id": 597,
+            "origin_slot": 0,
+            "target_id": 616,
+            "target_slot": 0,
+            "type": "LATENT"
+          },
+          {
+            "id": 1261,
+            "origin_id": 613,
+            "origin_slot": 2,
+            "target_id": 616,
+            "target_slot": 1,
+            "type": "VAE"
+          },
+          {
             "id": 1262,
-            "origin_id": 607,
+            "origin_id": 616,
             "origin_slot": 0,
             "target_id": 617,
             "target_slot": 0,
