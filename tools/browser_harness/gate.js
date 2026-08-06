@@ -34,6 +34,11 @@ gate.js — screenshot the buyer's journey through a saved ComfyUI workflow
   --sdxl-lora <file>      value to set on node 618 (default lunaskye.safetensors)
   --zit-lora <file>       value to set on node 116 (default luna.safetensors)
   --prompt <text>         prompt to type into the RPG panel on node 483
+  --face-prompt <text>    prompt to type into #106 "Face Detailer Prompt", which lives
+                          inside the subgraph on host #620. Omit to leave it shipped.
+  --face-prompt-file <p>  same, read from a file (avoids shell quoting)
+  --face-host <id>        subgraph host carrying #106's promoted widget (default 620)
+  --face-node <id>        the CLIPTextEncode inside it (default 106)
   --no-run                stop after the prompt is entered; do not press Run
   --selector-pick N       which image to click in the INSTARAW selector (default 0)
   --execute-timeout-ms N  default 5400000 (this pod queues renders behind each other)
@@ -56,6 +61,9 @@ const opt = {
   sdxlLora: 'lunaskye.safetensors',
   zitLora: 'luna.safetensors',
   prompt: DEFAULT_PROMPT,
+  facePrompt: null,
+  faceHost: 620,
+  faceNode: 106,
   noRun: false,
   selectorPick: 0,
   executeTimeoutMs: 5400000,
@@ -78,6 +86,10 @@ function die(m) { process.stderr.write(`gate: ${m}\n`); process.exit(2); }
       case '--sdxl-lora': opt.sdxlLora = nx(); break;
       case '--zit-lora': opt.zitLora = nx(); break;
       case '--prompt': opt.prompt = nx(); break;
+      case '--face-prompt': opt.facePrompt = nx(); break;
+      case '--face-prompt-file': opt.facePrompt = fs.readFileSync(nx(), 'utf8').replace(/\n+$/, ''); break;
+      case '--face-host': opt.faceHost = Number(nx()); break;
+      case '--face-node': opt.faceNode = Number(nx()); break;
       case '--no-run': opt.noRun = true; break;
       case '--selector-pick': opt.selectorPick = Number(nx()); break;
       case '--execute-timeout-ms': opt.executeTimeoutMs = Number(nx()); break;
@@ -119,9 +131,12 @@ async function shot(page, name, note) {
 // overlays floating ON TOP of the canvas, so the canvas element is larger than the
 // part of it a screenshot can actually show. Framing to the raw canvas puts node
 // titles underneath the menu bar.
-const FRAME_FN = `(ids, pad, maxScale, inset) => {
+// useCurrentGraph: frame inside whatever graph the canvas is showing (i.e. after
+// entering a subgraph). Omitted / false keeps the original root-graph behaviour, so
+// every pre-existing call site is byte-for-byte unchanged in effect.
+const FRAME_FN = `(ids, pad, maxScale, inset, useCurrentGraph) => {
   const app = window.app, LG = window.LiteGraph;
-  const g = app.rootGraph || app.graph;
+  const g = useCurrentGraph ? app.canvas.graph : (app.rootGraph || app.graph);
   const all = g.nodes || g._nodes || [];
   const nodes = ids && ids.length ? all.filter(n => ids.includes(n.id)) : all;
   if (!nodes.length) return { err: 'no nodes' };
@@ -208,6 +223,85 @@ const NODE_AUDIT_FN = `() => {
   }));
   const toasts = [...document.querySelectorAll('.p-toast-message')].map(t => (t.innerText || '').slice(0, 300));
   return { rows, dialogs, toasts, registeredCount: Object.keys(reg).length, title: document.title };
+}`;
+
+// --- reaching #106, which is NOT on the root canvas -------------------------
+// #106 "Face Detailer Prompt" lives inside the subgraph whose host is #620, and the
+// host ships COLLAPSED (flags.collapsed true in the file, all seven hosts do). Its
+// text widget is promoted onto the host as "106: text", so once the host is expanded
+// the buyer can type it without entering the subgraph at all. Both surfaces are
+// exercised here: type on the host, then go inside and photograph the node itself.
+
+// The collapse box is the square at the top-left of the title bar. The frontend's own
+// hit test is  isPointInCollapse(x,y) -> isInRectangle(x, y, pos[0], pos[1]-TH, TH, TH)
+// (api-gz4kgzki.js), so this returns the centre of exactly that rectangle in page px.
+const COLLAPSE_BOX_POINT_FN = `(nodeId) => {
+  const app = window.app, LG = window.LiteGraph;
+  const g = app.canvas.graph;
+  const n = (g.nodes || g._nodes).find(x => x.id === nodeId);
+  if (!n) return { err: 'node ' + nodeId + ' not found' };
+  const TH = (LG && LG.NODE_TITLE_HEIGHT) || 30;
+  const ds = app.canvas.ds, r = app.canvas.canvas.getBoundingClientRect();
+  const gx = n.pos[0] + TH / 2, gy = n.pos[1] - TH / 2;
+  return {
+    x: r.left + (gx + ds.offset[0]) * ds.scale,
+    y: r.top + (gy + ds.offset[1]) * ds.scale,
+    collapsed: !!(n.flags && n.flags.collapsed),
+    hitTest: typeof n.isPointInCollapse === 'function' ? n.isPointInCollapse(gx, gy) : null,
+  };
+}`;
+
+// The DOM textarea behind a promoted multiline widget. It is tagged with a data
+// attribute so Playwright can address the very element the buyer types into; the tag
+// is harness bookkeeping and changes nothing about the graph.
+const TAG_TEXT_WIDGET_FN = `(nodeId, widgetName, tag) => {
+  const g = window.app.canvas.graph;
+  const n = (g.nodes || g._nodes).find(x => x.id === nodeId);
+  if (!n) return { err: 'node ' + nodeId + ' not found' };
+  const w = (n.widgets || []).find(x => x.name === widgetName);
+  if (!w) return { err: 'widget ' + JSON.stringify(widgetName) + ' not on #' + nodeId +
+                        '; has: ' + JSON.stringify((n.widgets || []).map(x => x.name)) };
+  if (!w.element) return { err: 'widget ' + widgetName + ' has no DOM element' };
+  w.element.setAttribute('data-gate-tag', tag);
+  const r = w.element.getBoundingClientRect();
+  return { ok: true, widgetType: w.type, value: String(w.value),
+           visible: !!w.element.offsetParent,
+           rect: [Math.round(r.x), Math.round(r.y), Math.round(r.width), Math.round(r.height)] };
+}`;
+
+// Read the value back from BOTH surfaces: the promoted widget on the host and the
+// actual CLIPTextEncode inside the subgraph definition. Agreement is what proves the
+// text landed on #106 and not merely on a host-level copy of it.
+const READ_FACE_PROMPT_FN = `(hostId, innerId, widgetName) => {
+  const app = window.app;
+  const g = app.rootGraph || app.graph;
+  const host = (g.nodes || g._nodes).find(x => x.id === hostId);
+  if (!host) return { err: 'host #' + hostId + ' not found at root' };
+  const promoted = (host.widgets || []).find(x => x.name === innerId + ': ' + widgetName);
+  const sub = host.subgraph;
+  if (!sub) return { err: '#' + hostId + ' is not a subgraph host' };
+  const inner = (sub.nodes || sub._nodes || []).find(x => x.id === innerId);
+  if (!inner) return { err: 'node #' + innerId + ' not inside ' + (sub.name || sub.id) };
+  const iw = (inner.widgets || []).find(x => x.name === widgetName);
+  return {
+    subgraph_name: sub.name || null,
+    promoted_widget_name: promoted ? promoted.name : null,
+    promoted_value: promoted ? String(promoted.value) : null,
+    inner_node_type: inner.type, inner_node_title: inner.title || null,
+    inner_value: iw ? String(iw.value) : null,
+    same_object: !!(promoted && iw && promoted === iw),
+  };
+}`;
+
+const GRAPH_STATE_FN = `() => {
+  const app = window.app, c = app.canvas, g = c.graph;
+  return {
+    isRoot: g === (app.rootGraph || app.graph),
+    name: g.name || null,
+    nodeCount: (g.nodes || g._nodes || []).length,
+    breadcrumb: [...document.querySelectorAll('.subgraph-breadcrumb .p-breadcrumb-item, .p-breadcrumb-item')]
+      .map(e => (e.innerText || '').trim()).filter(Boolean),
+  };
 }`;
 
 // ---------------------------------------------------------------------------
@@ -515,8 +609,161 @@ async function main() {
   result.prompt.panel_after_restore = panelBack;
   if (!okA || !okB) { writeResult('fail'); await browser.close(); process.exit(1); }
 
+  // ============= the face prompt on #106 ==================================
+  if (opt.facePrompt !== null) {
+    const fp = { requested: opt.facePrompt, host: opt.faceHost, node: opt.faceNode };
+    result.face_prompt = fp;
+    const promotedName = `${opt.faceNode}: text`;
+
+    await page.evaluate(`(${FRAME_FN})([${opt.faceHost}], 60, 1.4, null)`);
+    await sleep(1800);
+
+    // 1. the state the buyer is handed: the host ships COLLAPSED, so the widget the
+    //    docs tell them to edit is not on screen at all until they expand it.
+    const box = await page.evaluate(`(${COLLAPSE_BOX_POINT_FN})(${opt.faceHost})`);
+    if (box.err) { fail('face-prompt', `#${opt.faceHost}: ${box.err}`); writeResult('fail'); await browser.close(); process.exit(1); }
+    fp.host_shipped_collapsed = box.collapsed;
+    log(`face prompt     #${opt.faceHost} as shipped: collapsed=${box.collapsed}  (the buyer must expand it to reach #${opt.faceNode})`);
+    await shot(page, 'face-host-collapsed',
+      `#${opt.faceHost} "5 · Face & Mouth Detail" as the workflow ships it — collapsed=${box.collapsed}, so #${opt.faceNode} is not reachable yet`);
+
+    // 2. expand it the way a buyer does — click the collapse box in the title bar
+    if (box.collapsed) {
+      await page.mouse.click(box.x, box.y);
+      await sleep(1500);
+      const after = await page.evaluate(`(${COLLAPSE_BOX_POINT_FN})(${opt.faceHost})`);
+      fp.expanded_by_clicking_collapse_box = after.collapsed === false;
+      log(`face prompt     clicked the collapse box in #${opt.faceHost}'s title bar; collapsed is now ${after.collapsed}`);
+      if (after.collapsed) {
+        await shot(page, 'face-host-still-collapsed', 'clicking the collapse box did not expand the host');
+        fail('face-prompt', `#${opt.faceHost} would not expand — #${opt.faceNode} cannot be reached through the UI`);
+        writeResult('fail'); await browser.close(); process.exit(1);
+      }
+      await page.evaluate(`(${FRAME_FN})([${opt.faceHost}], 60, 1.4, null)`);
+      await sleep(1800);
+    }
+    await shot(page, 'face-host-expanded',
+      `#${opt.faceHost} expanded; its promoted widgets, including "${promotedName}" — #${opt.faceNode}'s own text widget`);
+
+    // 3. type into the textarea the buyer types into
+    const tag = await page.evaluate(`(${TAG_TEXT_WIDGET_FN})(${opt.faceHost}, ${JSON.stringify(promotedName)}, 'face-prompt')`);
+    if (tag.err) {
+      await shot(page, 'face-widget-missing', 'the promoted face-prompt widget was not found');
+      fail('face-prompt', `#${opt.faceHost}: ${tag.err}`);
+      writeResult('fail'); await browser.close(); process.exit(1);
+    }
+    fp.shipped_value = tag.value;
+    log(`face prompt     "${promotedName}" is a ${tag.widgetType} DOM widget, visible=${tag.visible}, rect=${JSON.stringify(tag.rect)}`);
+    log(`                value as shipped: ${JSON.stringify(tag.value)}`);
+    if (!tag.visible) {
+      await shot(page, 'face-widget-not-visible', 'the promoted textarea is in the DOM but not on screen');
+      fail('face-prompt', `the "${promotedName}" textarea is not visible after expanding #${opt.faceHost}; a buyer could not click it`);
+      writeResult('fail'); await browser.close(); process.exit(1);
+    }
+    const fta = page.locator('[data-gate-tag="face-prompt"]');
+    await fta.click();
+    await page.keyboard.press('Control+a');
+    await page.keyboard.press('Delete');
+    await page.keyboard.insertText(opt.facePrompt);
+    await page.keyboard.press('Tab');   // commit on blur, same as the RPG panel
+    await sleep(1200);
+
+    // 4. read it back from BOTH the host widget and the CLIPTextEncode inside
+    const rb = await page.evaluate(`(${READ_FACE_PROMPT_FN})(${opt.faceHost}, ${opt.faceNode}, 'text')`);
+    if (rb.err) { fail('face-prompt', rb.err); writeResult('fail'); await browser.close(); process.exit(1); }
+    Object.assign(fp, rb);
+    log(`face prompt     read back from the host widget  : ${JSON.stringify((rb.promoted_value || '').slice(0, 80))}...`);
+    log(`face prompt     read back from #${opt.faceNode} ${rb.inner_node_type} "${rb.inner_node_title}" inside "${rb.subgraph_name}":`);
+    log(`                                                  ${JSON.stringify((rb.inner_value || '').slice(0, 80))}...`);
+    log(`                promoted widget and #${opt.faceNode}'s widget are the same object: ${rb.same_object}`);
+    if (rb.inner_value !== opt.facePrompt) {
+      await shot(page, 'face-prompt-not-committed', 'typed text did not reach #' + opt.faceNode);
+      fail('face-prompt', `#${opt.faceNode}.text reads ${JSON.stringify((rb.inner_value || '').slice(0, 120))} after typing, wanted the requested prompt`);
+      writeResult('fail'); await browser.close(); process.exit(1);
+    }
+    // The caption carries the actual text, so a placeholder leg can never be mistaken
+    // for a real-prompt leg by whoever reads the screenshots later.
+    await shot(page, 'face-prompt-entered-on-host',
+      `typed into "${promotedName}" on #${opt.faceHost} and read back out of #${opt.faceNode}: ` +
+      JSON.stringify(opt.facePrompt.length > 110 ? opt.facePrompt.slice(0, 110) + '…' : opt.facePrompt));
+
+    // 5. go inside and photograph #106 carrying it, so the claim is not just a log line.
+    //    Real UI path first: the "enter subgraph" button in the host's title bar, which
+    //    is only hit-tested when the node is NOT collapsed (api-gz4kgzki.js:
+    //    `n.title_buttons?.length && !n.flags.collapsed`). Its rectangle is recorded at
+    //    draw time, so it only has one once the expanded node has actually been drawn.
+    const tbtn = await page.evaluate(`(() => {
+      const app = window.app, g = app.canvas.graph;
+      const n = (g.nodes || g._nodes).find(x => x.id === ${opt.faceHost});
+      const b = (n.title_buttons || []).find(x => x.name === 'enter_subgraph');
+      if (!b) return { err: 'no enter_subgraph title button' };
+      const a = b._last_area || b._boundingRect;
+      const arr = a && (a.length !== undefined ? Array.from(a) : [a.x, a.y, a.width, a.height]);
+      if (!arr || !arr[2] || !arr[3]) return { err: 'title button has no drawn area yet: ' + JSON.stringify(arr) };
+      const ds = app.canvas.ds, r = app.canvas.canvas.getBoundingClientRect();
+      return { area: arr, visible: b.visible,
+               x: r.left + (n.pos[0] + arr[0] + arr[2] / 2 + ds.offset[0]) * ds.scale,
+               y: r.top  + (n.pos[1] + arr[1] + arr[3] / 2 + ds.offset[1]) * ds.scale };
+    })()`);
+    let enteredVia = null, entered = {};
+    if (!tbtn.err) {
+      await page.mouse.click(tbtn.x, tbtn.y);
+      await sleep(2000);
+      const s = await page.evaluate(`(${GRAPH_STATE_FN})()`);
+      if (!s.isRoot) enteredVia = 'title-button click (the UI affordance)';
+    }
+    if (!enteredVia) {
+      entered = await page.evaluate(`(() => {
+        const app = window.app, g = app.rootGraph || app.graph;
+        const n = (g.nodes || g._nodes).find(x => x.id === ${opt.faceHost});
+        if (!n || !n.subgraph) return { err: 'no subgraph on #${opt.faceHost}' };
+        app.canvas.openSubgraph(n.subgraph, n);   // the same call the title button makes
+        return { ok: true };
+      })()`);
+      await sleep(2000);
+      enteredVia = `openSubgraph() API — the title-button click did not take (${tbtn.err || 'still at root'})`;
+    }
+    fp.entered_via = enteredVia;
+    log(`face prompt     entered via: ${enteredVia}`);
+    const gs = await page.evaluate(`(${GRAPH_STATE_FN})()`);
+    fp.inside_subgraph = gs;
+    log(`face prompt     entered the subgraph: isRoot=${gs.isRoot}, "${gs.name}", ${gs.nodeCount} nodes, breadcrumb=${JSON.stringify(gs.breadcrumb)}`);
+    if (!entered.err && !gs.isRoot) {
+      const f106 = await page.evaluate(`(${FRAME_FN})([${opt.faceNode}], 40, 1.0, null, true)`);
+      await sleep(2500);
+      log(`face prompt     framed #${opt.faceNode} inside the subgraph (scale ${(f106.scale || 0).toFixed(3)})`);
+      await shot(page, 'face-prompt-on-node-106',
+        `#${opt.faceNode} "${rb.inner_node_title}" inside "${gs.name}", carrying: ` +
+        JSON.stringify(opt.facePrompt.length > 110 ? opt.facePrompt.slice(0, 110) + '…' : opt.facePrompt));
+      // back out the way a buyer does — the breadcrumb
+      const crumb = page.locator('.subgraph-breadcrumb .p-breadcrumb-item, .p-breadcrumb-item').first();
+      if (await crumb.count()) { await crumb.click().catch(() => {}); await sleep(1800); }
+      const back = await page.evaluate(`(${GRAPH_STATE_FN})()`);
+      fp.back_at_root = back.isRoot;
+      log(`face prompt     back out via the breadcrumb: isRoot=${back.isRoot}`);
+      if (!back.isRoot) {
+        fail('face-prompt', 'could not get back to the root graph after entering the subgraph');
+        writeResult('fail'); await browser.close(); process.exit(1);
+      }
+    } else {
+      fail('face-prompt', `could not enter the subgraph on #${opt.faceHost}: ${entered.err || 'still at root'}`);
+      writeResult('fail'); await browser.close(); process.exit(1);
+    }
+    // leave the canvas as it was handed over
+    await page.evaluate(`(${COLLAPSE_FN})(${opt.faceHost}, true)`);
+    await sleep(800);
+  } else {
+    log(`face prompt     not touched — #${opt.faceNode} keeps the value the workflow ships`);
+    result.face_prompt = { requested: null, note: 'left at the shipped placeholder' };
+  }
+
   if (failures.length) { writeResult('fail'); await browser.close(); process.exit(1); }
   if (opt.noRun) {
+    await page.evaluate(`(${FRAME_FN})(null, 60, 1.0, null)`);
+    await sleep(1800);
+    await shot(page, 'ready-to-run-not-submitted',
+      'everything set — LoRAs, prompt' + (opt.facePrompt !== null ? ' and the face prompt on #' + opt.faceNode : '') +
+      ' — the moment before Run. Nothing was submitted.');
     log('\n--no-run: stopping before the Run button. Nothing was submitted.');
     writeResult('pass-no-run'); await browser.close(); process.exit(0);
   }

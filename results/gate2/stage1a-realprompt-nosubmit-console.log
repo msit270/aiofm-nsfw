@@ -1,0 +1,43 @@
+workflow        /workspace/comfy-d-gate/user/default/workflows/OFMTech_NSFW.json
+                sha256 a811b5d690ccc5207bc7bd1c626cdd3db3b720b9be60d0a687436efcfd2143d8
+object_info     1935 node types registered on the server
+boot            19193 ms   44 console/page error(s) before any workflow was opened
+open workflow   6909 ms   from the Workflows sidebar   title="OFMTech_NSFW - ComfyUI"
+node audit      110 nodes across root + every subgraph, 59 distinct types
+                frontend registered_node_types: 1952
+                node types NOT registered in the frontend (= red nodes): 0
+                node types absent from /object_info (excl. 7 subgraph hosts): 1
+                  ABSENT   MarkdownNote
+                nodes flagged has_errors: 0
+                modal dialogs on screen: 0
+                error toasts on screen: 0
+minimap         hidden for the canvas screenshots (was true) so it cannot cover a node
+fit view        scale=0.2253  framing 17 root-level nodes  canvas=1920,1018
+screenshot      /workspace/nsfw-fix/results/gate2/stage1a-realprompt-nosubmit-01-workflow-open-full-canvas.png  (95701 B)  — OFMTech_NSFW opened from the workflow list; 110 nodes, 0 red, 0 dialogs
+prompt          typed into the RPG panel on #483 and committed on blur
+                textarea now : "photorealistic full body photograph of a young woman with long dark hair standing on a hot"...
+                node widget  : prompt_batch_data[0].positive_prompt = "photorealistic full body photograph of a young woman with long dark hair standing on a hot"...
+screenshot      /workspace/nsfw-fix/results/gate2/stage1a-realprompt-nosubmit-02-prompt-entered.png  (235462 B)  — the prompt typed into the panel on #483 "1 · YOUR PROMPTS & SEED"
+lora            #618 SDXL stack: lora_01 = "lunaskye.safetensors"  (clicked in the widget's own menu)
+lora            #116 Z-Image stack: lora_01 = "luna.safetensors"  (clicked in the widget's own menu)
+screenshot      /workspace/nsfw-fix/results/gate2/stage1a-realprompt-nosubmit-03-both-lora-stacks.png  (220530 B)  — #618 lora_01=lunaskye.safetensors  #116 lora_01=luna.safetensors  (both read back from the graph; #483 collapsed=true for this frame only)
+panel           #483 collapsed for the LoRA frame, restored afterwards (collapsed now: false; prompt panel visible again: false)
+face prompt     #620 as shipped: collapsed=true  (the buyer must expand it to reach #106)
+screenshot      /workspace/nsfw-fix/results/gate2/stage1a-realprompt-nosubmit-04-face-host-collapsed.png  (245738 B)  — #620 "5 · Face & Mouth Detail" as the workflow ships it — collapsed=true, so #106 is not reachable yet
+face prompt     clicked the collapse box in #620's title bar; collapsed is now false
+screenshot      /workspace/nsfw-fix/results/gate2/stage1a-realprompt-nosubmit-05-face-host-expanded.png  (237715 B)  — #620 expanded; its promoted widgets, including "106: text" — #106's own text widget
+face prompt     "106: text" is a customtext DOM widget, visible=true, rect=[675,667,616,42]
+                value as shipped: "TRIGGER, PROMPT FOR YOUR MODEL"
+face prompt     read back from the host widget  : "luna, a young woman with light freckles across her nose and cheeks, natural skin"...
+face prompt     read back from #106 CLIPTextEncode "Face Detailer Prompt" inside "5. Face & Mouth Detail (Z-Image)":
+                                                  "luna, a young woman with light freckles across her nose and cheeks, natural skin"...
+                promoted widget and #106's widget are the same object: false
+screenshot      /workspace/nsfw-fix/results/gate2/stage1a-realprompt-nosubmit-06-face-prompt-entered-on-host.png  (239624 B)  — the character prompt typed into "106: text" on #620 — read back out of #106 itself
+face prompt     entered via: title-button click (the UI affordance)
+face prompt     entered the subgraph: isRoot=false, "5. Face & Mouth Detail (Z-Image)", 13 nodes, breadcrumb=["OFMTech_NSFW","5. Face & Mouth Detail (Z-Image)"]
+face prompt     framed #106 inside the subgraph (scale 1.000)
+screenshot      /workspace/nsfw-fix/results/gate2/stage1a-realprompt-nosubmit-07-face-prompt-on-node-106.png  (400895 B)  — #106 "Face Detailer Prompt" inside "5. Face & Mouth Detail (Z-Image)", carrying the typed character prompt
+face prompt     back out via the breadcrumb: isRoot=true
+screenshot      /workspace/nsfw-fix/results/gate2/stage1a-realprompt-nosubmit-08-ready-to-run-not-submitted.png  (92425 B)  — everything set — LoRAs, prompt and the face prompt on #106 — the moment before Run. Nothing was submitted.
+
+--no-run: stopping before the Run button. Nothing was submitted.

@@ -1,0 +1,138 @@
+{
+  "tag": "stage1a-realprompt-nosubmit",
+  "workflow": "OFMTech_NSFW",
+  "url": "http://127.0.0.1:31910",
+  "started": "2026-08-06T17:30:32.090Z",
+  "workflow_sha256": "a811b5d690ccc5207bc7bd1c626cdd3db3b720b9be60d0a687436efcfd2143d8",
+  "load_path": "workflow-list (sidebar click)",
+  "node_audit": {
+    "total_nodes": 110,
+    "distinct_types": 59,
+    "subgraph_host_types": [
+      "a15fc81c-c28c-42cf-bc13-1493f12e4309",
+      "9050d895-4e70-44f5-9c2b-57e2be7df0ec",
+      "3ff96466-2d66-45ea-8761-c9123bec3435",
+      "f6d04669-26a7-4a01-b136-c39684ddee0f",
+      "d6db378b-b089-4636-91bb-6e0cf9a81503",
+      "f3ba7c90-fce5-4154-9cb0-7a1de52da0fe",
+      "ccb4441d-dc47-4039-a721-49f8f129d684"
+    ],
+    "frontend_registered_count": 1952,
+    "not_registered_in_frontend": [],
+    "not_in_object_info": [
+      "MarkdownNote"
+    ],
+    "nodes_flagged_has_errors": [],
+    "dialogs": [],
+    "toasts": []
+  },
+  "loras": {
+    "116": {
+      "widget": "lora_01",
+      "requested": "luna.safetensors",
+      "readBack": "luna.safetensors",
+      "title": "2 · Your ZIT LoRa  (face, mouth, eyes)"
+    },
+    "618": {
+      "widget": "lora_01",
+      "requested": "lunaskye.safetensors",
+      "readBack": "lunaskye.safetensors",
+      "title": "2 · Your SDXL LoRa  (body, pose, hands)"
+    }
+  },
+  "prompt": {
+    "typed": "photorealistic full body photograph of a young woman with long dark hair standing on a hotel balcony at golden hour, wearing a black silk slip dress, natural skin texture with visible pores and freckles, shot on 85mm, shallow depth of field",
+    "textarea": "photorealistic full body photograph of a young woman with long dark hair standing on a hotel balcony at golden hour, wearing a black silk slip dress, natural skin texture with visible pores and freckles, shot on 85mm, shallow depth of field",
+    "committed": "photorealistic full body photograph of a young woman with long dark hair standing on a hotel balcony at golden hour, wearing a black silk slip dress, natural skin texture with visible pores and freckles, shot on 85mm, shallow depth of field",
+    "entries": 1,
+    "panel_after_restore": {
+      "present": true,
+      "visible": false,
+      "value": "photorealistic full body photograph of a young woman with lo"
+    }
+  },
+  "prompt_id": null,
+  "api_graph_nodes": null,
+  "selector": {},
+  "outputs": [],
+  "timings": {
+    "boot_ms": 19193,
+    "load_ms": 6909
+  },
+  "page_errors": [],
+  "failures": [],
+  "screenshots": [
+    {
+      "file": "/workspace/nsfw-fix/results/gate2/stage1a-realprompt-nosubmit-01-workflow-open-full-canvas.png",
+      "note": "OFMTech_NSFW opened from the workflow list; 110 nodes, 0 red, 0 dialogs",
+      "bytes": 95701
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/gate2/stage1a-realprompt-nosubmit-02-prompt-entered.png",
+      "note": "the prompt typed into the panel on #483 \"1 · YOUR PROMPTS & SEED\"",
+      "bytes": 235462
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/gate2/stage1a-realprompt-nosubmit-03-both-lora-stacks.png",
+      "note": "#618 lora_01=lunaskye.safetensors  #116 lora_01=luna.safetensors  (both read back from the graph; #483 collapsed=true for this frame only)",
+      "bytes": 220530
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/gate2/stage1a-realprompt-nosubmit-04-face-host-collapsed.png",
+      "note": "#620 \"5 · Face & Mouth Detail\" as the workflow ships it — collapsed=true, so #106 is not reachable yet",
+      "bytes": 245738
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/gate2/stage1a-realprompt-nosubmit-05-face-host-expanded.png",
+      "note": "#620 expanded; its promoted widgets, including \"106: text\" — #106's own text widget",
+      "bytes": 237715
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/gate2/stage1a-realprompt-nosubmit-06-face-prompt-entered-on-host.png",
+      "note": "the character prompt typed into \"106: text\" on #620 — read back out of #106 itself",
+      "bytes": 239624
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/gate2/stage1a-realprompt-nosubmit-07-face-prompt-on-node-106.png",
+      "note": "#106 \"Face Detailer Prompt\" inside \"5. Face & Mouth Detail (Z-Image)\", carrying the typed character prompt",
+      "bytes": 400895
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/gate2/stage1a-realprompt-nosubmit-08-ready-to-run-not-submitted.png",
+      "note": "everything set — LoRAs, prompt and the face prompt on #106 — the moment before Run. Nothing was submitted.",
+      "bytes": 92425
+    }
+  ],
+  "status": "pass-no-run",
+  "first_run_dialog": {
+    "seen": false,
+    "dialogs": []
+  },
+  "face_prompt": {
+    "requested": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens",
+    "host": 620,
+    "node": 106,
+    "host_shipped_collapsed": true,
+    "expanded_by_clicking_collapse_box": true,
+    "shipped_value": "TRIGGER, PROMPT FOR YOUR MODEL",
+    "subgraph_name": "5. Face & Mouth Detail (Z-Image)",
+    "promoted_widget_name": "106: text",
+    "promoted_value": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens",
+    "inner_node_type": "CLIPTextEncode",
+    "inner_node_title": "Face Detailer Prompt",
+    "inner_value": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens",
+    "same_object": false,
+    "entered_via": "title-button click (the UI affordance)",
+    "inside_subgraph": {
+      "isRoot": false,
+      "name": "5. Face & Mouth Detail (Z-Image)",
+      "nodeCount": 13,
+      "breadcrumb": [
+        "OFMTech_NSFW",
+        "5. Face & Mouth Detail (Z-Image)"
+      ]
+    },
+    "back_at_root": true
+  },
+  "finished": "2026-08-06T17:31:38.758Z"
+}
