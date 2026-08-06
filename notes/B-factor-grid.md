@@ -296,3 +296,71 @@ shared — `nvidia-smi` shows the 18188 server holding 24 GB and a third process
 20 GB, with the card at 60 % while my queue was empty. **No timing in this
 document should be treated as a measurement.** Crash/no-crash and the image
 metrics are unaffected.)*
+
+---
+
+## ⚠ A SECOND, INDEPENDENT ROUTE TO THE SAME CRASH: **VRAM pressure**
+
+This came out of a control, not a hypothesis, and it is the most important thing
+in this document after cell B.
+
+`D2_eyesprompt_crashstring` changed **one** input, `622:398.text` — and `622:398`
+feeds only `622:406`, which is **downstream** of `622:403` (reachability walked on
+the submitted graph: 69 nodes are upstream of `622:403` and neither `622:398` nor
+`622:406` is among them). `620:106` was at the shipped placeholder, the
+configuration that renders clean. The change is therefore **provably incapable**
+of affecting `622:403`.
+
+**It crashed at `622:403` anyway.** Same node, same exception, same all-zero mask.
+
+The server log says why, and it is not poisoning:
+
+```
+run #10 (D2)   Requested to load Lumina2   loaded completely; 26408 MB usable
+               Unloaded partially: 4183.29 MB freed, 7556.27 MB remains loaded,
+                                   393.75 MB buffer reserved,  lowvram patches: 83
+               Unloaded partially: 159.87 MB freed, ...
+```
+
+Per-run VRAM pressure across everything I ran (`logslice.vram_table()`):
+
+| run | arm | min "usable" MB | lowvram patches | partial unloads | outcome |
+|---|---|---|---|---|---|
+| #1 | `A0` crash | 33296 | 0 | 0 | CRASH (prompt) |
+| #2 | `A1` clean | 22094 | 0 | 0 | ok |
+| #3–#4 | `B1`,`B1b` | 34810 / 33961 | 0 | 0 | ok |
+| #5 | `CTL1` | 34478 | 0 | 0 | ok |
+| #6–#7 | `B2`,`B2b` | 34478 / 26766 | 0 | 0 | ok |
+| #8 | `D1` mouth | 21027 | 0 | 0 | ok |
+| #9 | `E1` nohook | 25199 | 0 | 0 | CRASH (prompt) |
+| **#10** | **`D2` eyes** | **12296** | **83** | **2** | **CRASH (VRAM)** |
+| #11 | `CTL2` | 13498 | 0 | 0 | ok, **bit-identical to `A1`** |
+
+Every arm above `D2` ran with the model fully resident and no patching. `D2` is
+the only run in the session that went lowvram, and it is the only crash that
+cannot be explained by its own change.
+
+**The server was not poisoned.** `CTL2_clean_after_E1_D2`, a byte-identical
+repeat of `A1`, ran immediately after `D2` and came back **`max_abs_diff 0`**
+against `A1`. So this is not `HANDOFF.md` §7.1's NaN mode — it is a distinct
+third mechanism.
+
+**What this means, and it goes beyond my grid:**
+
+1. **`622:403` can be reached with a perfectly good prompt**, purely because the
+   box was short of VRAM and ComfyUI partially unloaded and patched the Lumina2
+   model mid-graph. The lowvram path changes the numerics of the face pass, the
+   face comes out different, the detectors lose it, the mask is empty, `.min()`
+   on an empty tensor raises. **A buyer on a smaller card can hit this crash with
+   no prompt problem at all.** That is a shipping risk that nothing in
+   `HANDOFF.md` currently covers.
+2. **Any arm on this box measured while a co-tenant is loaded is suspect.**
+   `nvidia-smi` showed the 18188 server at 20–24 GB and a third process at
+   20–24 GB throughout. **Check `lowvram patches` in the log for every arm before
+   believing it** — status, timing and even `execution_cached` all look normal on
+   a lowvram run.
+3. `D2` as submitted is **void as a measurement of the eyes prompt** and is
+   re-run below.
+
+I would not have caught this from `/history`. It is only visible in the server's
+stdout, which is why `results/crash/B/logslice.py` exists.
