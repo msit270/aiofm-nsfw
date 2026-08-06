@@ -1,0 +1,34 @@
+{
+ "arm": "E_gate_crashstring",
+ "prompt_id": "6b8f9ec8-d2bf-4e24-8f5a-ffb898b20cdf",
+ "client_id": "trackA-E_gate_crashstring-90511ee5",
+ "wall_seconds": 65.1,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 32797556736,
+ "note": "GATE: the known-crashing 25-word / 46-token string on Track E's own server 32000.",
+ "status": "success",
+ "exec_seconds": 64.2,
+ "cached": 0,
+ "cached_ids": [],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00001_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00001_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens"
+}
