@@ -3,8 +3,26 @@
 **Short answer: yes, and it moves a different thing.** Steps controls how much
 the face pass *fabricates*. Denoise controls how much of the incoming face
 *survives*. They are independent levers on `#114`, only one of them costs time,
-and the owner's freckle question turns out to be about the second one — not the
-first, and not about `X2` at all.
+and the owner's freckle question turns out to be about neither — not about
+`X2` at all, and not about `#114`.
+
+**The five things worth knowing, each with the section that proves it:**
+
+1. **`X2` is not Luna.** Both LoRA stacks are `"None"` in its own submitted
+   graph. The tile he formed his opinion from is a different woman. **§1**
+2. **Luna's freckles die at `#98 UltimateSDUpscale`**, two stages before
+   `#114` runs — measured with six taps in one render and a resolution control
+   in both directions. **No `#114` setting can bring them back**, so the
+   denoise choice is purely about how the skin looks. **§3**
+3. **The pick is `#114 denoise` 0.80 → 0.35.** At 0.80 the cheek still reads as
+   orange peel; at 0.35 it reads as skin, keeps the pore texture that was in
+   the image before the pass, and is the only setting that carries a surviving
+   pigment mark through. It costs nothing. **§5b**
+4. **"400.7 s → 189.3 s" was cache, not steps.** Cold against cold on the same
+   two graphs it is 417.5 s → 388.9 s, **−6.9 %**. **§6**
+5. **`#87 ImageBlend` is innocent of this too** — it is a pass-through of
+   `#91`, and `#91` nearly *doubles* the freckles rather than removing them.
+   This retracts an inference I sent earlier in the run. **§3**
 
 **Nothing was applied by this workstream.** `OFMTech-NSFW/OFMTech_NSFW.json` is
 untouched by me. Every arm is a scratch copy or a scratch API graph.
@@ -695,3 +713,39 @@ pair had matched caches. **Steps 8 is still the right setting; it is just not a
   — the two base renders — is reported as mean and maximum absolute difference
   over the full frame, and it is a control on the instrument, not a proof that
   a change is inert.
+
+---
+
+# 8. What I could not establish, and where I would not guess
+
+* **The whole run is one prompt, one seed, one composition** — a tight
+  head-and-shoulders portrait with the face nearly filling the frame. Every
+  claim about how the skin looks is about that face. `#98`'s effect on
+  freckles, in particular, may well depend on how large the face sits in frame,
+  because the 1.5x upscale is a fixed ratio and the freckles are a fixed
+  physical size on the face.
+* **I did not test `#98`.** I located it and stopped, as instructed. I do not
+  know which part of it removes the pigment — the upscale model, the 1.5x
+  resize, or the 2-step tiled re-diffusion at denoise 0.08 — and I am not
+  guessing. Nor do I know whether any setting of it can preserve the freckles
+  without costing something else.
+* **cf 1.5 versus cf 3 on the cheek.** My mask says cf 1.5 is very slightly
+  *worse* (8.191 % against 7.777 % bright-blob at identical steps and denoise).
+  I report it because it is what I measured, but it is one region on one face
+  and it is not the region R3's case rests on. **I am not claiming cf 1.5 is
+  wrong**; I am claiming denoise is the lever for the cheek.
+* **Denoise below 0.35 is untested.** The ladder stops there because that is
+  what the brief asked for. 0.35 already sits below its own input on the
+  bright-blob measure, so there may be nothing left to win, but I have not
+  looked.
+* **The freckle count is not a freckle count** (§1). I published the numbers
+  and the reason they are not trustworthy rather than either hiding them or
+  leaning on them.
+* **Two arms in this run were rendered by a duplicate driver I had not noticed
+  was still alive**, which is how the tap render came to exist twice. Both
+  copies were compared (mean 0.0000, max 0) and one was deleted. Nothing was
+  concluded from a render whose provenance I could not name, and every arm's
+  `prompt_id` in `meta.json` resolves in `/history`.
+* **The mouth and lips are not my finding to make.** `#165` ran in all four
+  decision arms so they are internally comparable, but R3 owns the lip damage
+  and I have deliberately not re-litigated it from my crops.
