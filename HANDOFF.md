@@ -12,9 +12,9 @@ Evidence for every line: `notes/HANDOFF-detail.md` and the per-agent reports in 
 | **0. Get the exception** | **DONE** — full trace in `notes/CRASH.md`, and it **corrects the mechanism** (below) |
 | **1. Bisect** | **DONE** — it is **token count**, not content. Bands: 30/31/32 and 44+ |
 | **2. Root cause** | `620:114` is **bistable on numerical noise**. Why a token count trips it: **open** |
-| **3. Fix** | **APPLIED** `7ce1539` — `#110 CLIPLoader device → cpu`. Under independent attack now |
+| **3. Fix** | **APPLIED** `7ce1539` — but **partial**. Fails 103–120 tokens. Keep, do not call it fixed |
 | **4. Browser gate** | **all four shots PASS** from the shipped tarball — `results/gate2/`, 67 artifacts |
-| **5. Land** | denoise 0.35 **APPLIED** `8d166e0`; re-cut + cold timing running |
+| **5. Land** | **DONE** — denoise 0.35 `8d166e0`, pack re-cut `8695a11e…`, timing settled |
 
 ### ⚠ THE FACE PASS PAINTS THE FACE BLACK. The crash is only the symptom.
 
@@ -30,15 +30,16 @@ finds no face at 0.6.
 two different outcomes**. The shape:
 
 ```
-tokens   11 … 29  │ 30 31 32 │  33 … 43  │ 44 45 46 47 48 49 50 → …
-         all clean│  CRASH   │ all clean │  CRASH, unbroken
+tokens  11…29 │30 31 32│ 33…43 │44 … 50│ 60 72 80 90 96 │103…120│ 140  166
+        clean │ CRASH  │ clean │ CRASH │     clean      │ CRASH │ clean
 ```
 
-**One narrow band at 30–32, then a hard threshold at 44** with seven consecutive
-crashing lengths and no top edge in reach (above 50 unmeasured). Both edges are
-cliffs — 29 clean/30 crash, 43 clean/44 crash, nothing in between. Words are *not*
-the variable: the word ladder is non-monotone (1–16 clean, 17–18 crash, 19–23
-clean, 24–25 crash), and both of those edges repeated.
+**Bands, not a threshold** — and that is a correction to the first report, which
+called 44+ "a hard threshold with no top". **140 tokens renders clean on the
+unfixed graph**, so the upper region closes. There are at least three crash bands.
+Every edge measured is a cliff with nothing in between. Words are *not* the
+variable: the word ladder is non-monotone (1–16 clean, 17–18 crash, 19–23 clean,
+24–25 crash), and both of those edges repeated.
 
 **It is a hard numerical failure, not a marginal one.** Clean arms score
 0.8942–0.8957 (spread 0.0015 across 30 arms). Crashing arms score
@@ -75,23 +76,46 @@ Interleaved on the only instance that reproduces, **one widget apart**:
 | `default` (cuda:0, as shipped) | 9 | **error `622:403`, 9/9** |
 | **`cpu`** | 7 | **success 7/7, healthy image 7/7** |
 
-Tested in **both** known bands (30 and 46 tokens). Not weak successes: PSNR
-**48.9 dB** against the control where this project's own run-to-run noise floor is
-~48.7 dB — i.e. indistinguishable from a good render — against PSNR 14.33 and a
-`(56,51,47)` face over 16.97 % of the frame for the crashing arms.
+### ⚠ VERDICT: keep it, but **it is not a cure**. Independent attack, 102 cold arms.
 
-> ### ⚠ It is NOT a complete fix. There is a second band at ~103 tokens.
->
-> The verification agent found one **while attacking it**, and the `cpu` setting
-> **does not cure that one**. So this closes the bands a buyer is likely to hit
-> and leaves a longer-prompt failure open. Full result pending — treat the fix as
-> *partial* until then, and do not describe it to anyone as "the crash is fixed".
+**It fails at 103–120 tokens, with `cpu` applied.** Six arms errored at `622:403`,
+cold — four at 103, one at 110, one at 120, **zero clean arms in that range**. The
+frames match every pre-fix crash to five decimals. Not a unicode artefact: a
+plain-ASCII string at exactly 103 tokens fails identically. **A buyer reaches this
+with an ordinary prompt.** Lower edge between 96 and 103, upper between 120 and 140.
 
-**Cost, now measured cold, and my earlier figure was wrong.** I said ≈ +14 s. It
-is **+37.4 s** — about **12 % of a cold render**, low by more than 2×. And the
-cost is *not* in the loader (`620:110`: 2.1 vs 2.3 s, unchanged) — it is in four
-`CLIPTextEncode` nodes, timed per-node off the websocket on matched cold pairs:
-39.5 s total on cpu against 2.1 s on default.
+**What survived the attack**, all cold: the five Phase 3 proof strings 4/4 · the
+full 26–50 sweep 25/25 clean *with its controls still erroring* · 60/72/80/90/96
+and 166 tokens all cured · four sampler seeds · the empty string (renders clean —
+it does not refuse) · punctuation-heavy, Japanese-only, Russian-only · the full
+88-node graph end-to-end 2/2. **And it cures the silent black-eyes failure 2/2** —
+the single arm all session that returned `status: success` with a ruined face was
+`device: default`. **No fix arm ever failed silently; where it fails, it fails
+loudly.** That is why it stays applied.
+
+> **A correction of mine, and it matters.** I wrote that the cured arms were
+> "indistinguishable from a good render" at PSNR 48.9 dB against this project's
+> ~48.7 dB noise floor. **That noise floor does not exist on this instance** —
+> same-graph repeats come back **bit-identical** (`max_abs_diff 0`, twice). So
+> 48.9 dB is **100 % signal, not noise**: on a clean 16-token render the fix moves
+> **12.8 % of pixels, max channel delta 135/255**. The fix is **not inert**. I
+> repeated that framing from the root-cause report without checking the floor
+> applied here, and `notes/E-rootcause.md` leans on the same bad premise.
+
+> **A confound I should have flagged and did not.** The fix commit sits one commit
+> ahead of the denoise change, and the 7/7-vs-9/9 evidence was gathered at denoise
+> 0.80 on an older snapshot. The verifier caught it and ran a 2×2: **denoise is
+> irrelevant, `device` is the whole effect.** The fix was genuinely testable — but
+> that was luck, not design, and I set the brief.
+
+**Cost, measured cold: +37.4 s**, ~12 % of a cold render. My earlier ≈ +14 s was
+low by more than 2×. Not in the loader (`620:110` 2.1 → 2.3 s) but in four
+`CLIPTextEncode` nodes: 39.5 s on cpu against 2.1 s on default.
+
+**Packaging risk, and it is nasty.** `device` is an **optional** `CLIPLoader`
+input. On a ComfyUI predating it, the `"cpu"` is **silently dropped** — no error,
+no warning, and the buyer runs the broken configuration believing they have the
+fix.
 
 **Why it works, and the honest limit of that.** CPU and GPU conditioning differ by
 `max 0.0059` on a tensor whose absmax is 13,753 — about **4e-7 relative**, both
