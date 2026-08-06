@@ -15,8 +15,8 @@ different 30-token strings all crash, including `"a woman's face"` (which render
 clean at 12 tokens) padded to 30 with repetitions of the word `the`, and they all
 produce **bit-identical** output.
 
-**Every crashing arm in the entire run — 13 of them, at 30, 31, 32, 44, 45, 46 and 47 tokens, across every content family — has a `621:163` that is bit-identical to
-every other** (`max_abs_diff 0` over 2688×3456×3;
+**Every crashing arm in the entire run — 18 of them, at 30, 31, 32, 44, 45, 46 and 47 tokens, across every content family and every crashing length — has a `621:163` that is
+bit-identical to every other** (`max_abs_diff 0` over 2688×3456×3;
 `results/crash/A/crash_identity.txt`). Once a prompt lands in a band the
 conditioning stops affecting the image at all.
 
@@ -601,9 +601,9 @@ itself, across families that share no vocabulary:
 * **16 tokens — 13 arms, all clean.** (The shipped placeholder and every health
   control.)
 
-Sheet: **`results/crash/A/T_token_sweep_sheet.png`** — the same prompt at 26–47
+Sheet: **`results/crash/A/T_token_sweep_sheet.png`** — the same prompt at 26–49
 tokens. 26–29 clean · **30, 31, 32 crash** · 33–37, 40, 42, 43 clean ·
-**44, 45, 46, 47 crash**. Nothing changes between panels except how
+**44, 45, 46, 47, 48, 49 crash**. Nothing changes between panels except how
 many times the word `the` is repeated.
 
 ### So the answer to A3, in one sentence
