@@ -93,3 +93,53 @@ but every destroyed arm I have also contains the long description, so
 one thing about *one* 169-character prompt. Track A is running length-vs-content
 on the same defect; nothing in my grid should be read as a claim about prompts in
 general.
+
+---
+
+## Added at the end of the session
+
+**5. I published a wrong finding and a control killed it — this is the important
+entry.** After `D2` crashed at a node its change cannot reach, I found that run
+was the only one of eleven with `lowvram patches: 83`, and wrote up "VRAM
+pressure is a second independent route to the `622:403` crash", including a
+claim that a buyer on a smaller card could hit it with a good prompt. It is
+committed (`b854371`) and then withdrawn (`adbaace`). What killed it:
+`CTL3_clean_final` ran with **85** lowvram patches — more than `D3`, which
+crashed — and came back **`max_abs_diff 0`** against the baseline. So lowvram does
+not change this graph's output at all.
+
+The error was the familiar one: I had one lowvram run that crashed and **no
+control in which lowvram happened without a crash**. I wrote the conclusion from
+a correlation of n=1 because the mechanism sounded right. The fix was not
+thinking harder, it was running the byte-identical control — same as every other
+correction in this project's history.
+
+**6. `C3`/`C3b` are honestly unmeasurable on this box and I did not pretend
+otherwise.** Both cfg-5 attempts went lowvram (30 patches, then 779 at 194 MB
+usable). After entry 5 I no longer believe lowvram changes the output, so the
+crashes are *probably* real — but "probably" is not a measurement, the change
+itself is what causes the memory pressure (`cfg > 1` doubles the sampler's work,
+`comfy/samplers.py:370`), and I would rather leave the cell marked confounded
+than round it up. `C2` at cfg 2 is clean and carries the verdict.
+
+**7. `D2`/`D3` is the thing I would most want a second pair of eyes on.** Clean
+4/4 bit-identical with a 96-character eyes prompt, crash 3/3 with a 169-character
+one, `#106` safe throughout, and `622:398` is referenced exactly once in the whole
+graph by a node that runs *after* the one that crashes. I checked the obvious
+ways to be wrong — hidden link forms (none), reachability (recomputed on the
+submitted graph), value-dependent execution order (impossible,
+`comfy_execution/graph.py:270` branches only on structure) — and the face pass
+demonstrably receives an identical detection box in both. I have no mechanism.
+If someone can show my reachability walk is wrong I would rather be told than be
+right about something this strange.
+
+**8. Whether `D3`'s neutral string is really "the same length".** It is 169
+characters, exactly matching the crashing string, but I matched **characters, not
+tokens**. The two will tokenise to different lengths. If the effect turns out to
+be token-count-dependent, `D3` still shows the crash does not need the crashing
+string's *words* — but it does not pin the number.
+
+**9. The commit-and-push instruction was half-executable.** I committed after
+every cell as asked. `git push` and even reading the remote URL were **blocked by
+the permission system**, so all 9 commits are local on branch
+`trackB-crash-grid`. Nothing is lost, but somebody has to push it.

@@ -22,7 +22,90 @@ queue. Arms, `api_graph.json`, `history.json`, `meta.json` and images are under
 
 ## Verdicts, one line per letter
 
-*(filled in as cells complete; a cell not listed in the grid below was NOT RUN)*
+**Baseline — the crash reproduces on 28191** at `622:403 MaskBoundingBox+` with
+the known string, and the shipped placeholder renders clean *and bit-identical to
+the 18188 reference render*, so the grid is interpretable.
+
+**B — the LoRAs ARE load-bearing for the crash, and so is the `luna, ` prefix; the
+crash needs all three of trigger + long description + LoRAs.** The arm that shows
+the LoRAs: `B1_noloras_crashstring`, two widget values apart from
+`A0_baseline_crash`, does not crash (2/2, bit-identical). **But it is not a fix —
+`status: success` with 23.5 % of the frame a single constant RGB where the face
+should be.** The arm that shows the prefix: `B2_loras_noprefix`, one string apart,
+renders clean *and healthy* (2/2, bit-identical). Removing the prefix gives a good
+image back; removing the LoRAs only converts the crash into a silent ruined face.
+
+**C — raising `cfg` does not rescue it.** `cfg 2` crashes identically to the
+shipping `cfg 1`, measured cleanly. `cfg 5` also crashed but both attempts went
+lowvram, so I record those as confounded rather than as evidence. Side finding:
+`cfg` above 1 roughly doubles `620:114`'s sampler memory, because `cfg == 1` is a
+fast path that skips the uncond pass (`comfy/samplers.py:370`).
+
+**D — the mouth prompt does NOT crash; `#406`'s prompt DOES, and that is an
+anomaly I cannot explain.** Crashing string into `621:166` (mouth) →
+clean, healthy render, so this is not an encoder problem and the fix stays shaped
+around `#106`/`620:114`. `#406` is `622:406 DetailerForEachDebug` (eyes), prompt
+`622:398` — and **lengthening `622:398` crashes the graph 3/3 at `622:403`, a node
+its change provably cannot reach, with `#106` at the safe placeholder.** `D3`
+rules content out: a neutral 169-character string in the shipped idiom crashes
+too. **Open, and the most important thing I am leaving.**
+
+**E — ruled out.** `620:648` detached from `620:165.detailer_hook`: still crashes,
+same node, same exception, detector trace identical to `A0` step for step. The log
+also shows it never had the chance to matter — in the crashing arm the mouth
+detector reports `(no detections)`, so the filter is handed no SEGS.
+
+**One thing I published and then retracted:** "VRAM pressure is a second
+independent route to the crash". `CTL3` refutes it. See the withdrawal below.
+
+---
+
+## Master grid — every arm, in run order
+
+`modal_frac` is the fraction of the frame taken by its single most common exact
+RGB; healthy is ~0.0245 (blown-out window white). `lowvram` is the patch count
+from the server log. Blank `modal_frac` on `A1`/`B1`/`B1b` is because the metric
+was added mid-session; their values, computed afterwards from the same PNGs, are
+**`A1` 0.0245**, **`B1`/`B1b` 0.2350**.
+
+| arm | prompt_id | status | exec | cached | exception node | modal_frac | lowvram |
+|---|---|---|---|---|---|---|---|
+| `A0_baseline_crash` | `0e24d1c3-cd96-4837-a420-ebbb819207a7` | **error** | 254.8 s | 0 | `622:403` | — | 0 |
+| `A1_baseline_clean` | `c75e0d28-1a10-4d84-98e3-f4bf87816d8c` | success | 306.6 s | 0 | — | 0.0245 | 0 |
+| `B1_noloras_crashstring` | `35f26d11-e81b-4040-85bc-6a830d4a7ef4` | success | 255.1 s | 0 | — | **0.2350** | 0 |
+| `B1b_noloras_crashstring_repeat` | `138e71bb-7394-4914-aca5-a0ffac5010a0` | success | 276.6 s | 0 | — | **0.2350** | 0 |
+| `CTL1_clean_after_B1` | `dd4384ec-43f5-4f48-bedc-e2b07999165b` | success | 292.8 s | 0 | — | 0.02448 | 0 |
+| `B2_loras_noprefix` | `08878df8-c496-4975-8324-c35bf4888a9e` | success | 289.5 s | 0 | — | 0.02448 | 0 |
+| `B2b_loras_noprefix_repeat` | `45294951-c4dc-4d80-b0de-9c6ef7a414c0` | success | 272.6 s | 0 | — | 0.02448 | 0 |
+| `D1_mouthprompt_crashstring` | `a5822c60-a273-4073-a8a2-568ac4ab82cb` | success | 293.3 s | 0 | — | 0.02476 | 0 |
+| `E1_nohook_crashstring` | `f087c4ca-272b-460f-86f4-327791690376` | **error** | 351.6 s | 0 | `622:403` | — | 0 |
+| `D2_eyesprompt_crashstring` | `65e905d5-b1ad-4269-84e9-d4cf4d032253` | **error** | 431.0 s | 0 | `622:403` | — | 83 |
+| `CTL2_clean_after_E1_D2` | `22c33f4b-f1ef-45a1-b3c7-62222f6f30b0` | success | 290.9 s | 0 | — | 0.02448 | 0 |
+| `D2b_eyesprompt_crashstring_repeat` | `56d4c152-dd47-4697-b538-347ed5298a6a` | **error** | 321.5 s | 0 | `622:403` | — | 0 |
+| `C2_cfg2` | `79f3bebe-8ad1-4da0-b7b0-44dcd731ba7e` | **error** | 449.5 s | 0 | `622:403` | — | 0 |
+| `C3_cfg5` *(confounded)* | `6959d90a-6f06-4c3c-8f38-e1f12ecd0c8b` | **error** | 496.7 s | 0 | `622:403` | — | **30** |
+| `C3b_cfg5_repeat` *(confounded)* | `74a754f8-a40d-406d-a904-58c4a8c85316` | **error** | 292.4 s | 0 | `622:403` | — | **779** |
+| `D3_eyesprompt_neutral169` | `c241acf8-4488-4017-af0d-9eda0cf35d32` | **error** | 288.1 s | 0 | `622:403` | — | 85 |
+| `CTL3_clean_final` | `45cbb945-04e1-4096-9f4a-8a07c0b9f444` | success | 308.7 s | 0 | — | 0.02448 | 85 |
+
+**Every crash in this table is the same crash**: `622:403 MaskBoundingBox+`,
+`RuntimeError: min(): Expected reduction dim to be specified for input.numel() ==
+0`, `ComfyUI_essentials/mask.py:184`, mask all-zero. No arm crashed at a different
+node, so there is no second bug to report separately. Every arm reported
+`execution_cached: []`.
+
+### Cells NOT run
+
+* **`620:114.cfg` at 5 on an unloaded box** — attempted twice, both went lowvram
+  because the change itself doubles sampler memory. **Not cleanly measured.**
+* **`"luna, "` alone with the LoRAs OFF** — the cell that would show whether the
+  trigger prefix destroys the face by itself, without the long description.
+  **NOT RUN.**
+* **Anything varying the *length* of `620:106` at fixed content**, or the reverse.
+  Track A owns that axis; I did not touch it.
+* **A tap on `620:114`'s output image** to see the constant fill at source rather
+  than after the upscale. **NOT RUN** — it is a graph mutation and the graph is
+  frozen for this session.
 
 ---
 
