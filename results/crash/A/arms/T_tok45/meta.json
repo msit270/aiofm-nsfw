@@ -1,0 +1,28 @@
+{
+ "arm": "T_tok45",
+ "prompt_id": "6741f3af-7326-4c31-a010-2127be5e25cc",
+ "client_id": "trackA-T_tok45-98cbf08a",
+ "wall_seconds": 75.1,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 53470652844,
+ "note": "token-count probe: fixed content + 33 x \" the\" = exactly 45 tokens",
+ "status": "error",
+ "exec_seconds": 70.2,
+ "cached": 0,
+ "cached_ids": [],
+ "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+ "error_node": "622:403",
+ "error_type": "MaskBoundingBox+",
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00048_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  }
+ ],
+ "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the"
+}

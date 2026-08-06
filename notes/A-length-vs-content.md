@@ -588,3 +588,63 @@ five different 17-word prompts split clean/crash purely on their token count.**
   ought to mean something — the gap is 15, the widths differ — but I have no
   mechanism for it and will not invent one.
 
+---
+
+## What this means for the graph that ships
+
+Every live `CLIPTextEncode` on this encoder, token-counted with the encoder's own
+tokeniser against the **frozen** `OFMTech-NSFW/OFMTech_NSFW.json` (`a811b5d6…`).
+All five resolve to `620:110` in the API graph, so all five are exposed to the
+same bands:
+
+| node | title | text | tokens | |
+|---|---|---|---|---|
+| `#106` | Face Detailer Prompt | `TRIGGER, PROMPT FOR YOUR MODEL` | **16** | safe |
+| `#105` | Face Detailer Negative | `""` | 8 | safe (and unused — see below) |
+| `#166` | Mouth Detailer Prompt | `realistic detailed mouth` | 12 | safe |
+| `#167` | Mouth Detailer Negative | `""` | 8 | safe |
+| `#394` | Eye Negative Prompt | `""` | 8 | safe |
+| `#398` | Eye Positive Prompt | `perfect eyes, round pupils, round iris, symmetrical eyes, realistic eyes, perfect circles, round` | **28** | **safe by two tokens** |
+
+**As shipped, nothing is in a band.** But `#398` sits **two tokens below [30, 32]**
+and it is not a field anyone is told to leave alone. Adding "and clear" to the eye
+prompt would put it at 31 and silently black out the eye pass.
+**[I]** I have not rendered that; it is a prediction from the map, and it is the
+single cheapest arm anyone could run to test whether the bands are a property of
+the encoder rather than of `620:114` specifically.
+
+One dead one worth writing down: `sg7 · Anatomy Detailers`, `#240 Pussy Detailer
+Prompt`, is **31 tokens** — inside the band. That whole subgraph is bypassed, so
+it does nothing today, but anyone reviving it is one render from the same crash.
+
+The negatives being empty is not a safety margin, it is a no-op: `#114` and
+`#165` run at **cfg 1**, and `comfy/samplers.py:370` skips the uncond pass
+entirely when `cond_scale` is 1. The positive is the only conditioning that is
+evaluated at all.
+
+### The practical shape of the risk
+
+A buyer following root `#649` §3 — *"replace `TRIGGER, PROMPT FOR YOUR MODEL`
+with your LoRA's trigger word and a short description"* — is writing a string of
+unknown token length into `#106`. Five of the 38 lengths between 11 and 48 are
+known-fatal. **[I]** If the bands are exactly [30, 32] ∪ [45, 46] then that is
+5 in 38, and a "short description" lands in exactly that range. This is not a
+rare corner.
+
+**The workaround is one word.** Adding or deleting a single word moves the count
+out of the band — 33 tokens is clean, 29 is clean. That is worth knowing before
+any deeper fix exists.
+
+**Two independent defects, and both need fixing:**
+
+1. **`622:403 MaskBoundingBox+` turns "detector found nothing" into a
+   `RuntimeError`.** `ComfyUI_essentials/mask.py:184` calls `.min()` on an empty
+   index tensor. Any cause of an undetectable face is a dead render instead of a
+   bad one. This is the one that makes the other one fatal.
+2. **`620:114` returns a black crop at certain conditioning lengths.** That is the
+   actual fault and it is upstream of everything else. It is a Z-Image /
+   sampler-level question, not a graph-wiring one.
+
+Lowering `622:424.threshold` from 0.6 to 0.4 would make the crashing image detect
+(it scores 0.466) — but that converts a crash into **a delivered image with no
+face**. That is not a fix, and I would not ship it as one.
