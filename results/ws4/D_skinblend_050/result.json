@@ -1,0 +1,21 @@
+{
+ "arm": "D_skinblend_050",
+ "prompt_id": "9760ac4e-a238-4516-a382-67df4ebdcc18",
+ "ok": true,
+ "status": "success",
+ "elapsed_s": 437.3,
+ "peak_gpu_mib": 46924,
+ "images": [
+  {
+   "node": "505",
+   "file": "/workspace/nsfw-fix/results/ws4/D_skinblend_050/HasMetadata_00011_.png",
+   "src": "/workspace/ComfyUI/output/Instaraw/SDXL/Metadata/HasMetadata_00011_.png"
+  }
+ ],
+ "patch_applied": [
+  "587:87.blend_factor: 1 -> 0.5"
+ ],
+ "graph_source": "/tmp/claude-0/-workspace-nsfw-fix/47375d2b-87bd-4073-a1e2-67796f8c1345/scratchpad/ws4/api_d1_c.json",
+ "node_count": 86,
+ "at": "2026-08-05T23:44:21"
+}

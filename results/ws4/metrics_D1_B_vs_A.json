@@ -1,0 +1,37 @@
+{
+ "label": "D1: baseline vs VAE round-trip removed",
+ "a": "/workspace/nsfw-fix/results/ws4/A_baseline/HasMetadata_00001_.png",
+ "b": "/workspace/nsfw-fix/results/ws4/B_no_vae_roundtrip/HasMetadata_00005_.png",
+ "size_a": [
+  2688,
+  3456
+ ],
+ "size_b": [
+  2688,
+  3456
+ ],
+ "full_frame": {
+  "psnr_db": 30.626,
+  "identical": false,
+  "ssim": 0.856825,
+  "mean_abs_diff_levels": 4.2642,
+  "max_abs_diff_levels": 168.0,
+  "pct_pixels_gt_1_level": 83.913,
+  "pct_pixels_gt_8_levels": 15.7483
+ },
+ "face_box_xywh": [
+  1028,
+  498,
+  732,
+  732
+ ],
+ "face_crop": {
+  "psnr_db": 28.638,
+  "identical": false,
+  "ssim": 0.742631,
+  "mean_abs_diff_levels": 5.7847,
+  "max_abs_diff_levels": 168.0,
+  "pct_pixels_gt_1_level": 87.3653,
+  "pct_pixels_gt_8_levels": 26.3903
+ }
+}

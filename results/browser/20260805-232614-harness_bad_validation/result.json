@@ -1,0 +1,288 @@
+{
+  "run_id": "20260805-232614-harness_bad_validation",
+  "status": "fail",
+  "failure_classes": [
+    "server-validation"
+  ],
+  "failure_class": "server-validation",
+  "failures": [
+    {
+      "class": "server-validation",
+      "message": "HTTP 400\n{\n  \"error\": {\n    \"type\": \"prompt_outputs_failed_validation\",\n    \"message\": \"Prompt outputs failed validation\",\n    \"details\": \"\",\n    \"extra_info\": {}\n  },\n  \"node_errors\": {\n    \"3\": {\n      \"errors\": [\n        {\n          \"type\": \"value_smaller_than_min\",\n          \"message\": \"Value -5 smaller than min of 1\",\n          \"details\": \"steps\",\n          \"extra_info\": {\n            \"input_name\": \"steps\",\n            \"input_config\": [\n              \"INT\",\n              {\n                \"default\": 20,\n                \"min\": 1,\n                \"max\": 10000,\n                \"tooltip\": \"The number of steps used in the denoising process.\"\n              }\n            ],\n            \"received_value\": -5\n          }\n        }\n      ],\n      \"dependent_outputs\": [\n        \"9\"\n      ],\n      \"class_type\": \"KSampler\"\n    }\n  }\n}"
+    }
+  ],
+  "message": "HTTP 400\n{\n  \"error\": {\n    \"type\": \"prompt_outputs_failed_validation\",\n    \"message\": \"Prompt outputs failed validation\",\n    \"details\": \"\",\n    \"extra_info\": {}\n  },\n  \"node_errors\": {\n    \"3\": {\n      \"errors\": [\n        {\n          \"type\": \"value_smaller_than_min\",\n          \"message\": \"Value -5 smaller than min of 1\",\n          \"details\": \"steps\",\n          \"extra_info\": {\n            \"input_name\": \"steps\",\n            \"input_config\": [\n              \"INT\",\n              {\n                \"default\": 20,\n                \"min\": 1,\n                \"max\": 10000,\n                \"tooltip\": \"The number of steps used in the denoising process.\"\n              }\n            ],\n            \"received_value\": -5\n          }\n        }\n      ],\n      \"dependent_outputs\": [\n        \"9\"\n      ],\n      \"class_type\": \"KSampler\"\n    }\n  }\n}",
+  "url": "http://127.0.0.1:18188",
+  "workflow": "harness_bad_validation",
+  "mode": "no-execute",
+  "load_path_used": "ui",
+  "comfyui_version": "0.15.1",
+  "frontend_version": "1.39.19",
+  "prompt_posted": true,
+  "prompt_http_status": 400,
+  "api_graph": "/workspace/nsfw-fix/results/browser/20260805-232614-harness_bad_validation/api_graph.json",
+  "outputs": [],
+  "timings_ms": {
+    "boot_ms": 4412,
+    "load_ms": 3320,
+    "submit_ms": 1016
+  },
+  "counts": {
+    "boot_errors": 0,
+    "load_errors": 0,
+    "run_errors": 3,
+    "ignored": 16
+  },
+  "errors": [
+    {
+      "t_ms": 8024,
+      "phase": "run",
+      "kind": "console.error",
+      "severity": "error",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+      "at": "http://127.0.0.1:18188/api/prompt:0"
+    },
+    {
+      "t_ms": 8026,
+      "phase": "run",
+      "kind": "console.error",
+      "severity": "error",
+      "origin": "frontend-core",
+      "product_signal": true,
+      "text": "PromptExecutionError: Prompt execution failed\n    at ComfyApi.queuePrompt (http://127.0.0.1:18188/assets/api-gz4kgzki.js:4:6422)\n    at async ge.queuePrompt (http://127.0.0.1:18188/extensions/ComfyUI-Easy-Use/assets/extensions-nX1P6R6o.js:1:158178)\n    at async PromptService.api.queuePrompt (http://127.0.0.1:18188/rgthree/common/prompt_service.js:88:28)\n    at async ComfyApp.queuePrompt (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:17049)\n    at async app.queuePrompt (http://127.0.0.1:18188/extensions/rgthree-comfy/rgthree.js:482:24)\n    at async Proxy.function (http://127.0.0.1:18188/assets/GraphView-D_Bat16J.js:8:78471)\n    at async http://127.0.0.1:18188/assets/useErrorHandling-DqQD8hdR.js:1:487\n    at async Proxy.execute (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:2:89629)\n    at async queuePrompt (http://127.0.0.1:18188/assets/ComfyQueueButton-DVc5XqxQ.js:1:2840)",
+      "at": "http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:176"
+    },
+    {
+      "t_ms": 8098,
+      "phase": "run",
+      "kind": "dialog",
+      "severity": "error",
+      "origin": "unknown",
+      "product_signal": true,
+      "text": "Prompt execution failed\n\nPrompt outputs failed validation:\nKSampler:\n- Value -5 smaller than min of 1: steps\n\nShow Report\nHelp Fix This\nFind Issues",
+      "cls": "p-dialog p-component global-dialog p-dialog-enter-from p-dialog-enter-active"
+    }
+  ],
+  "ignored": [
+    {
+      "t_ms": 266,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "optional-user-css",
+      "ignored_reason": "user.css is ComfyUI's optional user stylesheet override, requested unconditionally on every page load by both the static path and the userdata API. It does not ship with comfyui_frontend_package (verified: no user.css under .../comfyui_frontend_package/static/) and is absent here (verified: no /workspace/ComfyUI/user/default/user.css). Verified live: GET /user.css -> 404 and GET /api/userdata/user.css -> 404. A buyer on a clean install sees both.",
+      "ignored_scope": "benign",
+      "at": "http://127.0.0.1:18188/api/userdata/user.css:0"
+    },
+    {
+      "t_ms": 267,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "optional-user-css",
+      "ignored_reason": "user.css is ComfyUI's optional user stylesheet override, requested unconditionally on every page load by both the static path and the userdata API. It does not ship with comfyui_frontend_package (verified: no user.css under .../comfyui_frontend_package/static/) and is absent here (verified: no /workspace/ComfyUI/user/default/user.css). Verified live: GET /user.css -> 404 and GET /api/userdata/user.css -> 404. A buyer on a clean install sees both.",
+      "ignored_scope": "benign",
+      "at": "http://127.0.0.1:18188/user.css:0"
+    },
+    {
+      "t_ms": 800,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "optional-subgraphs-dir",
+      "ignored_reason": "The frontend lists the user's saved subgraph-blueprint directory on boot. ComfyUI only creates it once the user saves a blueprint. Verified live: GET /api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true -> 404. A buyer on a clean install sees this.",
+      "ignored_scope": "benign",
+      "at": "http://127.0.0.1:18188/api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true:0"
+    },
+    {
+      "t_ms": 986,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "optional-node-templates",
+      "ignored_reason": "comfy.templates.json holds the user's saved node templates. ComfyUI only writes it once the user saves one. Verified live: GET /api/userdata/comfy.templates.json -> 404. A buyer on a clean install sees this.",
+      "ignored_scope": "benign",
+      "at": "http://127.0.0.1:18188/api/userdata/comfy.templates.json:0"
+    },
+    {
+      "t_ms": 1354,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/extensions/ComfyUI_Swwan/config.js:0"
+    },
+    {
+      "t_ms": 1355,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/utils_dom.js:0"
+    },
+    {
+      "t_ms": 1361,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_any_input_connected_node.js",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1361,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node.js",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1362,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/rgthree.js",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1362,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/image_comparer.js",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1362,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/seed.js",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1362,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node_mode_changer.js",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1363,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "third-party-pack:ComfyUI_Swwan",
+      "product_signal": false,
+      "text": "[vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/dialog.js",
+      "ignored_by": "swwan-missing-web-files",
+      "ignored_reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 1375,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "frontend-core",
+      "product_signal": true,
+      "text": "[vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.\n    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)\n    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)\n    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)\n    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)\n    at http://127.0.0.1:18188/extensions/rgthree-comfy/feature_import_individual_nodes.js:5:5",
+      "ignored_by": "rgthree-extension-name-collision",
+      "ignored_reason": "ComfyUI_Swwan and rgthree-comfy are both installed on this pod and both register the same extension names. Verified: 'name: \"rgthree.ImportIndividualNodes\"' appears in rgthree-comfy/web/comfyui/feature_import_individual_nodes.js AND ComfyUI_Swwan/web/js/feature_import_individual_nodes.js; rgthree.ImageComparer and rgthree.Seed collide the same way. A buyer installing only the NSFW pack has one of the two, so no collision.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/assets/index-D_zj5_uq.js:1"
+    },
+    {
+      "t_ms": 2329,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "pysssss-autocomplete-wordlist",
+      "ignored_reason": "Served by ComfyUI-Custom-Scripts (verified: @PromptServer.instance.routes.get(\"/pysssss/autocomplete\") in custom_nodes/ComfyUI-Custom-Scripts/py/autocomplete.py); it 404s until the user creates the optional autocomplete word list. ComfyUI-Custom-Scripts is not among the packs the NSFW bootstrap installs, so a buyer does not have this route at all.",
+      "ignored_scope": "environment",
+      "at": "http://127.0.0.1:18188/api/pysssss/autocomplete:0"
+    },
+    {
+      "t_ms": 4774,
+      "phase": "load",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "optional-workflows-index",
+      "ignored_reason": "The frontend probes for an optional per-directory workflow index file. Absent here (verified: /workspace/ComfyUI/user/default/workflows/ holds only the .json workflows themselves) and verified live -> 404. Fires on any install that has never written one, including a buyer's.",
+      "ignored_scope": "benign",
+      "at": "http://127.0.0.1:18188/api/userdata/workflows%2F.index.json:0"
+    }
+  ],
+  "ignore_rules_file": "/workspace/nsfw-fix/tools/browser_harness/ignore.json",
+  "selector": {
+    "driven": false,
+    "appeared": false,
+    "images": 0,
+    "picked": null,
+    "sent_at_ms": null,
+    "foreignSeen": false
+  },
+  "artifacts_dir": "/workspace/nsfw-fix/results/browser/20260805-232614-harness_bad_validation"
+}

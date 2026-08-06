@@ -1,0 +1,26 @@
+[
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 1
+        }
+      },
+      "sid": "f2c58ada6677452baa655bd80236c675"
+    }
+  },
+  {
+    "type": "feature_flags",
+    "data": {
+      "supports_preview_metadata": true,
+      "max_upload_size": 104857600,
+      "extension": {
+        "manager": {
+          "supports_v4": true
+        }
+      },
+      "node_replacements": true
+    }
+  }
+]

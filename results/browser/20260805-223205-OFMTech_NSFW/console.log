@@ -1,0 +1,94 @@
+[   247ms][boot][http/warn] HTTP 404 http://127.0.0.1:18188/user.css
+[   247ms][boot][console.error/error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[   247ms][boot][requestfailed/warn] http://127.0.0.1:18188/user.css net::ERR_ABORTED
+[   257ms][boot][http/warn] HTTP 404 http://127.0.0.1:18188/api/userdata/user.css
+[   257ms][boot][requestfailed/warn] http://127.0.0.1:18188/api/userdata/user.css net::ERR_ABORTED
+[   785ms][boot][http/warn] HTTP 404 http://127.0.0.1:18188/api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true
+[   976ms][boot][http/warn] HTTP 404 http://127.0.0.1:18188/api/userdata/comfy.templates.json
+[   976ms][boot][requestfailed/warn] http://127.0.0.1:18188/api/userdata/comfy.templates.json net::ERR_ABORTED
+[  1308ms][boot][console.warning/warn] [ComfyUI Deprecated] Importing from "scripts/ui.js" is deprecated and will be removed in v1.34.
+[  1315ms][boot][console.warning/warn] Extension pysssss.SnapToGrid is disabled.
+[  1326ms][boot][console.warning/warn] Extension pysssss.FaviconStatus is disabled.
+[  1331ms][boot][console.log/info] [BIG] ========== BATCH IMAGE GENERATOR JS LOADED ==========
+[  1337ms][boot][console.warning/warn] [ComfyUI Deprecated] Importing from "extensions/core/groupNode.js" is deprecated and will be removed in v1.34.
+[  1339ms][boot][console.warning/warn] [ComfyUI Notice] "extensions/core/widgetInputs.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1339ms][boot][console.warning/warn] [ComfyUI Notice] "scripts/utils.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1344ms][boot][console.warning/warn] [ComfyUI Notice] "scripts/widgets.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1350ms][boot][console.warning/warn] [ComfyUI Notice] "scripts/pnginfo.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1355ms][boot][http/warn] HTTP 404 http://127.0.0.1:18188/extensions/ComfyUI_Swwan/config.js
+[  1356ms][boot][requestfailed/warn] http://127.0.0.1:18188/extensions/ComfyUI_Swwan/config.js net::ERR_ABORTED
+[  1356ms][boot][console.error/error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/rgthree.js
+[  1357ms][boot][console.error/error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_any_input_connected_node.js
+[  1357ms][boot][console.error/error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/image_comparer.js
+[  1357ms][boot][console.error/error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node_mode_changer.js
+[  1357ms][boot][console.error/error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/seed.js
+[  1357ms][boot][console.error/error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node.js
+[  1357ms][boot][http/warn] HTTP 404 http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/utils_dom.js
+[  1358ms][boot][requestfailed/warn] http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/utils_dom.js net::ERR_ABORTED
+[  1358ms][boot][console.error/error] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/dialog.js
+[  1358ms][boot][console.warning/warn] [ComfyUI Notice] "extensions/core/clipspace.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1367ms][boot][console.log/info] [BIG] PhotoSwipe CSS loaded from CDN
+[  1372ms][boot][console.error/error] [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.
+    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)
+    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)
+    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)
+    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)
+    at http://127.0.0.1:18188/extensions/ComfyUI_Swwan/feature_import_individual_nodes.js:5:5
+[  1378ms][boot][console.warning/warn] [MaskEditor] ComfyApp.open_maskeditor is deprecated. Plugins should migrate to using the command system or direct node context menu integration.
+[  1388ms][boot][websocket/info] open ws://127.0.0.1:18188/ws
+[  1454ms][boot][requestfailed/warn] http://127.0.0.1:18188/api/settings/Comfy.CustomColorPalettes net::ERR_ABORTED
+[  1494ms][boot][console.log/info] [BIG] PhotoSwipe scripts loaded
+[  1494ms][boot][console.log/info] [BIG] PhotoSwipe ready
+[  2081ms][boot][console.log/info] [BIG] Registering custom UI for BatchImageGenerator
+[  2159ms][boot][console.warning/warn] Use of defaultInput on required input custom_nodes.ComfyUI-Impact-Pack:ImpactSchedulerAdapter:scheduler is deprecated. Please drop the defaultInput option.
+[  2241ms][boot][console.warning/warn] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "pysssss.GraphArrange")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit
+[  2255ms][boot][console.warning/warn] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "pysssss.NodeFinder")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit
+[  2256ms][boot][console.log/info] [BIG] Extension setup() called - loading CSS
+[  2263ms][boot][console.warning/warn] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "rgthree.QueueNode")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit
+[  2280ms][boot][http/warn] HTTP 404 http://127.0.0.1:18188/api/pysssss/autocomplete
+[  2284ms][boot][console.warning/warn] [ComfyUI Deprecated] Importing from "scripts/ui/components/button.js" is deprecated and will be removed in v1.34.
+[  2301ms][boot][requestfailed/warn] http://127.0.0.1:18188/api/pysssss/autocomplete net::ERR_ABORTED
+[  2336ms][boot][console.warning/warn] [ComfyUI Deprecated] Importing from "scripts/ui/components/buttonGroup.js" is deprecated and will be removed in v1.34.
+[  4669ms][load][http/warn] HTTP 404 http://127.0.0.1:18188/api/userdata/workflows%2F.index.json
+[  4669ms][load][console.error/error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[  4669ms][load][requestfailed/warn] http://127.0.0.1:18188/api/userdata/workflows%2F.index.json net::ERR_ABORTED
+[  4780ms][load][console.log/info] Empty components: policy ignored
+[  4892ms][load][console.warning/warn] [SubgraphNode.configure] No link found for link ID 1488 ComfyNode
+[  4892ms][load][console.warning/warn] [SubgraphNode.configure] No link found for link ID 1489 ComfyNode
+[  4892ms][load][console.warning/warn] [SubgraphNode.configure] No link found for link ID 1490 ComfyNode
+[  4892ms][load][console.warning/warn] [SubgraphNode.configure] No link found for link ID 1491 ComfyNode
+[  4893ms][load][console.warning/warn] [SubgraphNode.configure] No link found for link ID 1492 ComfyNode
+[  4893ms][load][console.warning/warn] [SubgraphNode.configure] No link found for link ID 1164 ComfyNode
+[  4893ms][load][console.warning/warn] [SubgraphNode.configure] No link found for link ID 1414 ComfyNode
+[  4903ms][load][console.log/info] [RPG] Global execution_success listener installed
+[  4921ms][load][console.log/info] [RPG] ============ setupEventHandlers CALLED ============
+[  4921ms][load][console.log/info] [RPG] Current active tab: library
+[  4922ms][load][console.log/info] [RPG] === DEBUG: Looking for MAIN details element ===
+[  4922ms][load][console.log/info] [RPG] Active tab: library
+[  4923ms][load][console.log/info] [RPG] Total <details> elements: 0
+[  4923ms][load][console.log/info] [RPG] Preview button found: false
+[  4923ms][load][console.log/info] [RPG] Details element (with preview) found: false open: undefined preview mode: true
+[  4923ms][load][console.error/error] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[  5055ms][load][http/warn] HTTP 404 http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_aggxo_00001_.png&type=temp&subfolder=&rand=0.38625573939016933
+[  5055ms][load][http/warn] HTTP 404 http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_aggxo_00002_.png&type=temp&subfolder=&rand=0.6334233147929259
+[  5056ms][load][http/warn] HTTP 404 http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_fepic_00001_.png&type=temp&subfolder=&rand=0.8823351481460819
+[  5056ms][load][http/warn] HTTP 404 http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_fepic_00002_.png&type=temp&subfolder=&rand=0.6259306129060468
+[  5056ms][load][http/warn] HTTP 404 http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_tpbop_00001_.png&type=temp&subfolder=&rand=0.4849143384465904
+[  5057ms][load][http/warn] HTTP 404 http://127.0.0.1:18188/api/view?filename=rgthree.compare._temp_tpbop_00002_.png&type=temp&subfolder=&rand=0.548351700629904
+[  5168ms][load][console.log/info] [RPG] Re-rendering after connection change. AIL mode: null, initialized: true
+[  6996ms][load][console.log/info] [RPG] IndexedDB saved key "prompts_db_cache" successfully
+[  7001ms][load][console.log/info] [RPG] Raw IndexedDB user_prompts: undefined
+[  7001ms][load][console.log/info] [RPG] Loaded 0 user prompts from IndexedDB
+[  7018ms][load][console.log/info] [RPG] Loaded 0 generated prompts
+[  7018ms][load][console.log/info] [RPG] Loaded 0 bookmarks from IndexedDB
+[  7019ms][load][console.log/info] [RPG] Merged database: 0 user + 0 generated + 7891 library = 7891 total
+[  7059ms][load][console.log/info] [RPG] Target dimensions from label: {width: 1, height: 1, aspect_label: 1:1} Aspect ratio: 1

@@ -1,0 +1,139 @@
+[   200ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:18188/user.css
+[   200ms][boot][console.error/error][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[   200ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:18188/user.css net::ERR_ABORTED
+[   202ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:18188/api/userdata/user.css
+[   202ms][boot][console.error/error][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[   202ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:18188/api/userdata/user.css net::ERR_ABORTED
+[   647ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:18188/api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true
+[   647ms][boot][console.error/error][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[   788ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:18188/api/userdata/comfy.templates.json
+[   788ms][boot][console.error/error][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[   788ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:18188/api/userdata/comfy.templates.json net::ERR_ABORTED
+[  1073ms][boot][console.warning/warn][comfyui-asset] [ComfyUI Deprecated] Importing from "scripts/ui.js" is deprecated and will be removed in v1.34.
+[  1079ms][boot][console.warning/warn][frontend-core] Extension pysssss.SnapToGrid is disabled.
+[  1080ms][boot][console.warning/warn][frontend-core] Extension pysssss.FaviconStatus is disabled.
+[  1083ms][boot][console.log/info][instaraw] [BIG] ========== BATCH IMAGE GENERATOR JS LOADED ==========
+[  1094ms][boot][console.warning/warn][third-party-pack:core] [ComfyUI Deprecated] Importing from "extensions/core/groupNode.js" is deprecated and will be removed in v1.34.
+[  1094ms][boot][console.warning/warn][comfyui-asset] [ComfyUI Notice] "scripts/widgets.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1096ms][boot][console.warning/warn][third-party-pack:core] [ComfyUI Notice] "extensions/core/widgetInputs.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1096ms][boot][console.warning/warn][comfyui-asset] [ComfyUI Notice] "scripts/utils.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1116ms][boot][http/warn][third-party-pack:ComfyUI_Swwan] HTTP 404 http://127.0.0.1:18188/extensions/ComfyUI_Swwan/config.js
+[  1116ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] Failed to load resource: the server responded with a status of 404 (Not Found)
+[  1116ms][boot][requestfailed/warn][third-party-pack:ComfyUI_Swwan] http://127.0.0.1:18188/extensions/ComfyUI_Swwan/config.js net::ERR_ABORTED
+[  1116ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node.js
+[  1117ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/seed.js
+[  1117ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node_mode_changer.js
+[  1117ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_any_input_connected_node.js
+[  1117ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/rgthree.js
+[  1117ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/image_comparer.js
+[  1118ms][boot][http/warn][third-party-pack:ComfyUI_Swwan] HTTP 404 http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/utils_dom.js
+[  1118ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] Failed to load resource: the server responded with a status of 404 (Not Found)
+[  1118ms][boot][requestfailed/warn][third-party-pack:ComfyUI_Swwan] http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/utils_dom.js net::ERR_ABORTED
+[  1118ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/dialog.js
+[  1120ms][boot][console.warning/warn][comfyui-asset] [ComfyUI Notice] "scripts/pnginfo.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1121ms][boot][console.warning/warn][third-party-pack:core] [ComfyUI Notice] "extensions/core/clipspace.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1130ms][boot][console.error/ignored][third-party-pack:rgthree-comfy] [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.
+    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)
+    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)
+    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)
+    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)
+    at http://127.0.0.1:18188/extensions/rgthree-comfy/feature_import_individual_nodes.js:5:5
+[  1143ms][boot][console.warning/warn][frontend-core] [MaskEditor] ComfyApp.open_maskeditor is deprecated. Plugins should migrate to using the command system or direct node context menu integration.
+[  1186ms][boot][websocket/info][unknown] open ws://127.0.0.1:18188/ws
+[  1191ms][boot][console.log/info][instaraw] [BIG] PhotoSwipe CSS loaded from CDN
+[  1224ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:18188/api/settings/Comfy.CustomColorPalettes net::ERR_ABORTED
+[  1264ms][boot][console.log/info][instaraw] [BIG] PhotoSwipe scripts loaded
+[  1264ms][boot][console.log/info][instaraw] [BIG] PhotoSwipe ready
+[  1415ms][boot][console.warning/warn][frontend-core] Unhandled message: {"type": "instaraw-interactive-images", "data": {"tick": 569, "uid": "619:603", "unique": 958955}} Error: Unknown message type instaraw-interactive-images
+    at WebSocket.<anonymous> (http://127.0.0.1:18188/assets/api-gz4kgzki.js:4:4947)
+[  1815ms][boot][console.log/info][instaraw] [BIG] Registering custom UI for BatchImageGenerator
+[  1920ms][boot][console.warning/warn][frontend-core] Use of defaultInput on required input custom_nodes.ComfyUI-Impact-Pack:ImpactSchedulerAdapter:scheduler is deprecated. Please drop the defaultInput option.
+[  2034ms][boot][console.warning/warn][frontend-core] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "pysssss.NodeFinder")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit
+[  2034ms][boot][console.warning/warn][frontend-core] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "pysssss.GraphArrange")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit
+[  2034ms][boot][console.log/info][instaraw] [BIG] Extension setup() called - loading CSS
+[  2045ms][boot][console.warning/warn][frontend-core] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "rgthree.QueueNode")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit
+[  2077ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:18188/api/pysssss/autocomplete
+[  2077ms][boot][console.error/error][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[  2082ms][boot][console.warning/warn][comfyui-asset] [ComfyUI Deprecated] Importing from "scripts/ui/components/button.js" is deprecated and will be removed in v1.34.
+[  2092ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:18188/api/pysssss/autocomplete net::ERR_ABORTED
+[  2093ms][boot][console.warning/warn][comfyui-asset] [ComfyUI Deprecated] Importing from "scripts/ui/components/buttonGroup.js" is deprecated and will be removed in v1.34.
+[  2410ms][boot][pageerror/error][instaraw] TypeError: Cannot read properties of undefined (reading 'subgraph')
+    at http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:346:18
+    at Array.forEach (<anonymous>)
+    at Popup.find_node (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:344:9)
+    at Popup._handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:355:25)
+    at Popup.handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:314:16)
+    at WebSocket.<anonymous> (http://127.0.0.1:18188/assets/api-gz4kgzki.js:4:4787)
+[  4363ms][boot][window.onerror/error][instaraw] Uncaught TypeError: Cannot read properties of undefined (reading 'subgraph')
+TypeError: Cannot read properties of undefined (reading 'subgraph')
+    at http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:346:18
+    at Array.forEach (<anonymous>)
+    at Popup.find_node (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:344:9)
+    at Popup._handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:355:25)
+    at Popup.handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:314:16)
+    at WebSocket.<anonymous> (http://127.0.0.1:18188/assets/api-gz4kgzki.js:4:4787)
+[  4398ms][load][pageerror/error][instaraw] TypeError: Cannot read properties of undefined (reading 'subgraph')
+    at http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:346:18
+    at Array.forEach (<anonymous>)
+    at Popup.find_node (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:344:9)
+    at Popup._handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:355:25)
+    at Popup.handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:314:16)
+    at WebSocket.<anonymous> (http://127.0.0.1:18188/assets/api-gz4kgzki.js:4:4787)
+[  4475ms][load][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:18188/api/userdata/workflows%2F.index.json
+[  4475ms][load][console.error/error][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[  4475ms][load][requestfailed/warn][comfyui-asset] http://127.0.0.1:18188/api/userdata/workflows%2F.index.json net::ERR_ABORTED
+[  4543ms][load][console.log/info][third-party-pack:ComfyUI-Manager] Empty components: policy ignored
+[  4682ms][load][console.log/info][instaraw] [RPG] Global execution_success listener installed
+[  4708ms][load][console.log/info][instaraw] [RPG] ============ setupEventHandlers CALLED ============
+[  4708ms][load][console.log/info][instaraw] [RPG] Current active tab: library
+[  4708ms][load][console.log/info][instaraw] [RPG] === DEBUG: Looking for MAIN details element ===
+[  4709ms][load][console.log/info][instaraw] [RPG] Active tab: library
+[  4709ms][load][console.log/info][instaraw] [RPG] Total <details> elements: 0
+[  4709ms][load][console.log/info][instaraw] [RPG] Preview button found: false
+[  4709ms][load][console.log/info][instaraw] [RPG] Details element (with preview) found: false open: undefined preview mode: true
+[  4709ms][load][console.error/error][instaraw] [RPG] ERROR: detailsElement not found - probably not on Generate tab
+[  4956ms][load][console.log/info][instaraw] [RPG] Re-rendering after connection change. AIL mode: null, initialized: true
+[  5399ms][load][console.log/info][instaraw] {filename: ComfyUI_temp_htinp_00003_.png, subfolder: , type: temp}
+[  6761ms][load][console.log/info][instaraw] [RPG] IndexedDB saved key "prompts_db_cache" successfully
+[  6761ms][load][console.log/info][instaraw] [RPG] Raw IndexedDB user_prompts: undefined
+[  6761ms][load][console.log/info][instaraw] [RPG] Loaded 0 user prompts from IndexedDB
+[  6761ms][load][console.log/info][instaraw] [RPG] Loaded 0 generated prompts
+[  6762ms][load][console.log/info][instaraw] [RPG] Loaded 0 bookmarks from IndexedDB
+[  6764ms][load][console.log/info][instaraw] [RPG] Merged database: 0 user + 0 generated + 7891 library = 7891 total
+[  6826ms][load][console.log/info][instaraw] [RPG] Target dimensions from label: {width: 1, height: 1, aspect_label: 1:1} Aspect ratio: 1
+[  7873ms][load][window.onerror/error][instaraw] Uncaught TypeError: Cannot read properties of undefined (reading 'subgraph')
+TypeError: Cannot read properties of undefined (reading 'subgraph')
+    at http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:346:18
+    at Array.forEach (<anonymous>)
+    at Popup.find_node (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:344:9)
+    at Popup._handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:355:25)
+    at Popup.handle_message (http://127.0.0.1:18188/extensions/ComfyUI_INSTARAW/popup.js:314:16)
+    at WebSocket.<anonymous> (http://127.0.0.1:18188/assets/api-gz4kgzki.js:4:4787)
+[  8826ms][run][console.log/info][instaraw] [RPG] Target dimensions from label: {width: 1, height: 1, aspect_label: 1:1} Aspect ratio: 1
+[  9826ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #10: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 14826ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #20: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 19826ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #30: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 24827ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #40: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 29826ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #50: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 34826ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #60: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 39826ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #70: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 44826ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #80: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 49826ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #90: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 54826ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #100: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 59826ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #110: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 64827ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #120: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 69826ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #130: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 74826ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #140: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 79826ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #150: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 84826ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #160: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 89826ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #170: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 94826ms][run][console.log/info][instaraw] [RPG AIL Sync Debug] Check #180: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}

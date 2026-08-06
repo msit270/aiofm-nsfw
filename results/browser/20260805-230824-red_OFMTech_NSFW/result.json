@@ -1,0 +1,44 @@
+{
+  "run_id": "20260805-230824-red_OFMTech_NSFW",
+  "status": "fail",
+  "failure_classes": [
+    "preflight-integrity"
+  ],
+  "failure_class": "preflight-integrity",
+  "failures": [
+    {
+      "class": "preflight-integrity",
+      "message": "--- /workspace/nsfw-fix/tools/fixtures/red_OFMTech_NSFW.json: 14 problem(s) ---\n  SG '3. Hands, Skin & Second Upscale (SDXL)': inputs[0] 'image_b' linkIds names non-existent link(s) [1164]\n  SG '6. Eyes (FaceMesh crop/composite)': inputs[0] 'clip' linkIds names non-existent link(s) [1414]\n  SG '1. Canvas & Routing': link 1495 is a BARE IO PASSTHROUGH -10[1] -> -20[2] (CONDITIONING) -- unsupported by ExecutableNodeDTO\n  SG '1. Canvas & Routing': link 1496 is a BARE IO PASSTHROUGH -10[2] -> -20[3] (CONDITIONING) -- unsupported by ExecutableNodeDTO\n  SG '1. Canvas & Routing': link 1497 is a BARE IO PASSTHROUGH -10[3] -> -20[4] (MODEL) -- unsupported by ExecutableNodeDTO\n  SG '1. Canvas & Routing': inputs[0] 'vae' linkIds names non-existent link(s) [1488, 1489]\n  SG '1. Canvas & Routing': inputs[0] 'vae' has NO internal link (dead inside)\n  SG '1. Canvas & Routing': inputs[1] 'positive' linkIds names non-existent link(s) [1490]\n  SG '1. Canvas & Routing': inputs[1] 'positive' linkIds OMITS real link(s) [1495] (declared=[1490])\n  SG '1. Canvas & Routing': inputs[2] 'negative' linkIds names non-existent link(s) [1491]\n  SG '1. Canvas & Routing': inputs[2] 'negative' linkIds OMITS real link(s) [1496] (declared=[1491])\n  SG '1. Canvas & Routing': inputs[3] 'model' linkIds names non-existent link(s) [1492]\n  SG '1. Canvas & Routing': inputs[3] 'model' linkIds OMITS real link(s) [1497] (declared=[1492])\n  SG '1. Canvas & Routing': outputs[4] 'MODEL' linkIds names non-existent link(s) [1498]"
+    }
+  ],
+  "message": "--- /workspace/nsfw-fix/tools/fixtures/red_OFMTech_NSFW.json: 14 problem(s) ---\n  SG '3. Hands, Skin & Second Upscale (SDXL)': inputs[0] 'image_b' linkIds names non-existent link(s) [1164]\n  SG '6. Eyes (FaceMesh crop/composite)': inputs[0] 'clip' linkIds names non-existent link(s) [1414]\n  SG '1. Canvas & Routing': link 1495 is a BARE IO PASSTHROUGH -10[1] -> -20[2] (CONDITIONING) -- unsupported by ExecutableNodeDTO\n  SG '1. Canvas & Routing': link 1496 is a BARE IO PASSTHROUGH -10[2] -> -20[3] (CONDITIONING) -- unsupported by ExecutableNodeDTO\n  SG '1. Canvas & Routing': link 1497 is a BARE IO PASSTHROUGH -10[3] -> -20[4] (MODEL) -- unsupported by ExecutableNodeDTO\n  SG '1. Canvas & Routing': inputs[0] 'vae' linkIds names non-existent link(s) [1488, 1489]\n  SG '1. Canvas & Routing': inputs[0] 'vae' has NO internal link (dead inside)\n  SG '1. Canvas & Routing': inputs[1] 'positive' linkIds names non-existent link(s) [1490]\n  SG '1. Canvas & Routing': inputs[1] 'positive' linkIds OMITS real link(s) [1495] (declared=[1490])\n  SG '1. Canvas & Routing': inputs[2] 'negative' linkIds names non-existent link(s) [1491]\n  SG '1. Canvas & Routing': inputs[2] 'negative' linkIds OMITS real link(s) [1496] (declared=[1491])\n  SG '1. Canvas & Routing': inputs[3] 'model' linkIds names non-existent link(s) [1492]\n  SG '1. Canvas & Routing': inputs[3] 'model' linkIds OMITS real link(s) [1497] (declared=[1492])\n  SG '1. Canvas & Routing': outputs[4] 'MODEL' linkIds names non-existent link(s) [1498]",
+  "url": "http://127.0.0.1:18188",
+  "workflow": "red_OFMTech_NSFW",
+  "mode": "execute",
+  "load_path_used": null,
+  "comfyui_version": null,
+  "frontend_version": null,
+  "prompt_posted": false,
+  "prompt_http_status": null,
+  "prompt_id": null,
+  "api_graph": null,
+  "outputs": [],
+  "timings_ms": {},
+  "counts": {
+    "boot_errors": 0,
+    "load_errors": 0,
+    "run_errors": 0,
+    "ignored": 0
+  },
+  "errors": [],
+  "ignored": [],
+  "ignore_rules_file": "/workspace/nsfw-fix/tools/browser_harness/ignore.json",
+  "selector": {
+    "driven": false,
+    "appeared": false,
+    "images": 0,
+    "picked": null,
+    "sent_at_ms": null
+  },
+  "artifacts_dir": "/workspace/nsfw-fix/results/browser/20260805-230824-red_OFMTech_NSFW"
+}

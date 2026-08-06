@@ -1,0 +1,91 @@
+[   266ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:18188/api/userdata/user.css
+[   266ms][boot][console.error/ignored][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[   267ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:18188/api/userdata/user.css net::ERR_ABORTED
+[   267ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:18188/user.css
+[   267ms][boot][console.error/ignored][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[   267ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:18188/user.css net::ERR_ABORTED
+[   800ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:18188/api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true
+[   800ms][boot][console.error/ignored][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[   986ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:18188/api/userdata/comfy.templates.json
+[   986ms][boot][console.error/ignored][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[   986ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:18188/api/userdata/comfy.templates.json net::ERR_ABORTED
+[  1319ms][boot][console.warning/warn][frontend-core] Extension pysssss.SnapToGrid is disabled.
+[  1319ms][boot][console.warning/warn][frontend-core] Extension pysssss.FaviconStatus is disabled.
+[  1326ms][boot][console.log/info][instaraw] [BIG] ========== BATCH IMAGE GENERATOR JS LOADED ==========
+[  1336ms][boot][console.warning/warn][comfyui-asset] [ComfyUI Deprecated] Importing from "scripts/ui.js" is deprecated and will be removed in v1.34.
+[  1346ms][boot][console.warning/warn][third-party-pack:core] [ComfyUI Deprecated] Importing from "extensions/core/groupNode.js" is deprecated and will be removed in v1.34.
+[  1348ms][boot][console.warning/warn][third-party-pack:core] [ComfyUI Notice] "extensions/core/widgetInputs.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1348ms][boot][console.warning/warn][comfyui-asset] [ComfyUI Notice] "scripts/utils.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1349ms][boot][console.warning/warn][comfyui-asset] [ComfyUI Notice] "scripts/widgets.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1354ms][boot][http/warn][third-party-pack:ComfyUI_Swwan] HTTP 404 http://127.0.0.1:18188/extensions/ComfyUI_Swwan/config.js
+[  1354ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] Failed to load resource: the server responded with a status of 404 (Not Found)
+[  1355ms][boot][requestfailed/warn][third-party-pack:ComfyUI_Swwan] http://127.0.0.1:18188/extensions/ComfyUI_Swwan/config.js net::ERR_ABORTED
+[  1355ms][boot][http/warn][third-party-pack:ComfyUI_Swwan] HTTP 404 http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/utils_dom.js
+[  1355ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] Failed to load resource: the server responded with a status of 404 (Not Found)
+[  1355ms][boot][requestfailed/warn][third-party-pack:ComfyUI_Swwan] http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/utils_dom.js net::ERR_ABORTED
+[  1361ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_any_input_connected_node.js
+[  1361ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node.js
+[  1362ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/rgthree.js
+[  1362ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/image_comparer.js
+[  1362ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/seed.js
+[  1362ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/base_node_mode_changer.js
+[  1363ms][boot][console.error/ignored][third-party-pack:ComfyUI_Swwan] [vite:preloadError] TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:18188/extensions/ComfyUI_Swwan/common/dialog.js
+[  1364ms][boot][console.warning/warn][comfyui-asset] [ComfyUI Notice] "scripts/pnginfo.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1364ms][boot][console.warning/warn][third-party-pack:core] [ComfyUI Notice] "extensions/core/clipspace.js" is an internal module, not part of the public API. Future updates may break this import.
+[  1374ms][boot][console.log/info][instaraw] [BIG] PhotoSwipe CSS loaded from CDN
+[  1375ms][boot][console.error/ignored][frontend-core] [vite:preloadError] Error: Extension named 'rgthree.ImportIndividualNodes' already registered.
+    at Proxy.registerExtension (http://127.0.0.1:18188/assets/systemStatsStore-C4yDTn0K.js:1:5552)
+    at Proxy.wrappedAction (http://127.0.0.1:18188/assets/vendor-vue-core-X6q-rGJs.js:2:90540)
+    at Object.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:3:162873)
+    at ComfyApp.registerExtension (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:20566)
+    at http://127.0.0.1:18188/extensions/rgthree-comfy/feature_import_individual_nodes.js:5:5
+[  1389ms][boot][console.warning/warn][frontend-core] [MaskEditor] ComfyApp.open_maskeditor is deprecated. Plugins should migrate to using the command system or direct node context menu integration.
+[  1397ms][boot][websocket/info][unknown] open ws://127.0.0.1:18188/ws
+[  1463ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:18188/api/settings/Comfy.CustomColorPalettes net::ERR_ABORTED
+[  1484ms][boot][console.log/info][instaraw] [BIG] PhotoSwipe scripts loaded
+[  1484ms][boot][console.log/info][instaraw] [BIG] PhotoSwipe ready
+[  2136ms][boot][console.log/info][instaraw] [BIG] Registering custom UI for BatchImageGenerator
+[  2202ms][boot][console.warning/warn][frontend-core] Use of defaultInput on required input custom_nodes.ComfyUI-Impact-Pack:ImpactSchedulerAdapter:scheduler is deprecated. Please drop the defaultInput option.
+[  2293ms][boot][console.warning/warn][frontend-core] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "pysssss.GraphArrange")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit
+[  2294ms][boot][console.warning/warn][frontend-core] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "pysssss.NodeFinder")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit
+[  2294ms][boot][console.log/info][instaraw] [BIG] Extension setup() called - loading CSS
+[  2304ms][boot][console.warning/warn][frontend-core] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "rgthree.QueueNode")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit
+[  2329ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:18188/api/pysssss/autocomplete
+[  2329ms][boot][console.error/ignored][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[  2330ms][boot][console.warning/warn][comfyui-asset] [ComfyUI Deprecated] Importing from "scripts/ui/components/button.js" is deprecated and will be removed in v1.34.
+[  2347ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:18188/api/pysssss/autocomplete net::ERR_ABORTED
+[  2373ms][boot][console.warning/warn][comfyui-asset] [ComfyUI Deprecated] Importing from "scripts/ui/components/buttonGroup.js" is deprecated and will be removed in v1.34.
+[  4774ms][load][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:18188/api/userdata/workflows%2F.index.json
+[  4774ms][load][console.error/ignored][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[  4774ms][load][requestfailed/warn][comfyui-asset] http://127.0.0.1:18188/api/userdata/workflows%2F.index.json net::ERR_ABORTED
+[  4870ms][load][console.log/info][third-party-pack:ComfyUI-Manager] Empty components: policy ignored
+[  8023ms][run][http/warn][comfyui-asset] HTTP 400 http://127.0.0.1:18188/api/prompt
+[  8024ms][run][console.error/error][comfyui-asset] Failed to load resource: the server responded with a status of 400 (Bad Request)
+[  8026ms][run][console.error/error][frontend-core] PromptExecutionError: Prompt execution failed
+    at ComfyApi.queuePrompt (http://127.0.0.1:18188/assets/api-gz4kgzki.js:4:6422)
+    at async ge.queuePrompt (http://127.0.0.1:18188/extensions/ComfyUI-Easy-Use/assets/extensions-nX1P6R6o.js:1:158178)
+    at async PromptService.api.queuePrompt (http://127.0.0.1:18188/rgthree/common/prompt_service.js:88:28)
+    at async ComfyApp.queuePrompt (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:177:17049)
+    at async app.queuePrompt (http://127.0.0.1:18188/extensions/rgthree-comfy/rgthree.js:482:24)
+    at async Proxy.function (http://127.0.0.1:18188/assets/GraphView-D_Bat16J.js:8:78471)
+    at async http://127.0.0.1:18188/assets/useErrorHandling-DqQD8hdR.js:1:487
+    at async Proxy.execute (http://127.0.0.1:18188/assets/dialogService-Cj1Hfeot.js:2:89629)
+    at async queuePrompt (http://127.0.0.1:18188/assets/ComfyQueueButton-DVc5XqxQ.js:1:2840)
+[  8098ms][run][dialog/error][unknown] Prompt execution failed
+
+Prompt outputs failed validation:
+KSampler:
+- Value -5 smaller than min of 1: steps
+
+Show Report
+Help Fix This
+Find Issues
