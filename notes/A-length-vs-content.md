@@ -32,7 +32,16 @@ silhouette at **0.466**, under the graph's **0.6**, so `622:424` returns zero
 SEGS, `622:407` hands `622:403` an all-zero mask, and `MaskBoundingBox+` calls
 `.min()` on an empty index tensor. Sheet: `results/crash/A/A4_contact_sheet.png`.
 
-Server: `127.0.0.1:18188` only. Nothing in this file touched 28191.
+**SCOPE — read this before quoting any number here.** Everything below was
+measured on **one instance, `127.0.0.1:18188`**, held constant across every arm.
+Track D, on a third ComfyUI built from the shipped tarball, ran the same crash arm
+and got a **clean render 3/3**. So the reproducer is environment-dependent, and
+the specific token bands here may be a property of this box rather than of the
+graph. What is instance-independent is the *method* and the *shape* of the result:
+within one instance, outcome is a function of conditioning token count alone.
+**Do not quote "30–32 and 44+" as a universal.**
+
+Server: `127.0.0.1:18188` only. Nothing in this file touched 28191 or Track D's ports.
 Graph: FROZEN. Every arm is an in-memory mutation of an already-submitted API
 graph; `OFMTech-NSFW/OFMTech_NSFW.json` (`a811b5d6…`) was not edited.
 
@@ -667,6 +676,111 @@ any deeper fix exists.
 Lowering `622:424.threshold` from 0.6 to 0.4 would make the crashing image detect
 (it scores 0.466) — but that converts a crash into **a delivered image with no
 face**. That is not a fix, and I would not ship it as one.
+
+
+---
+
+## A4, re-read as the decisive experiment — and it refutes marginal detection
+
+The coordinator's hypothesis after Track D failed to reproduce on a third
+instance: *the long prompt does not destroy the face, it pushes YOLO's confidence
+to sit near 0.6, so the outcome flips between boxes.* **The numbers say no.**
+
+### 1. Max confidence, crashing vs clean
+
+`YOLO('bbox/face_yolov8m.pt')(pil, conf=t)` — the graph's own call
+(`ComfyUI-Impact-Subpack/modules/subcore.py:319-325`) — on the `621:163` tap, the
+exact image handed to `622:424`:
+
+| image | 0.6 *(graph)* | 0.5 | 0.4 | 0.3 | 0.2 | 0.1 | **max conf** |
+|---|---|---|---|---|---|---|---|
+| base `620:137`, before the face pass | 1 | 1 | 1 | 1 | 1 | 1 | **0.8936** |
+| CLEAN arm (placeholder, 16 tok) | 1 | 1 | 1 | 1 | 1 | 1 | **0.8953** |
+| CRASHING arm (25 words, 46 tok) | **0** | **0** | 1 | 1 | 1 | 1 | **0.4656** |
+
+### 2. Does confidence vary smoothly with token count? **No. It is a two-valued step, and there is nothing in between.**
+
+Across **every** ladder, content-control and token-sweep arm — 22 distinct token
+counts from 11 to 47 — the offline confidence takes exactly two values:
+
+```
+every CLEAN arm    conf 0.8942 - 0.8957   (spread 0.0015 over 30 arms)
+every CRASHING arm conf 0.4656447172164917 (identical to 16 digits, 14 arms)
+```
+
+It is identical to sixteen digits on the crashing side because **the crashing
+frames are bit-identical to each other** (`max_abs_diff 0` over 2688×3456×3,
+`results/crash/A/crash_identity.txt`) — 14 arms, six different content families,
+six different token counts. There is no arm at 0.7, none at 0.55, none at 0.62.
+`T_token_sweep_sheet.png` shows the whole thing at one glance: 26–29 clean,
+**30–32 crash**, 33–36 clean, **44–47 crash**, with nothing varying but the number
+of repetitions of the word `the`.
+
+**A marginal-detection story predicts a gradient and predicts intermediate
+confidences. Neither exists here.** What exists is a bimodal switch upstream of
+the detector.
+
+### 3. What the crashing tap looks like, in one sentence
+
+**There is no face a person would see: the face is a solid, flat, dark-brown
+shape with a soft edge, in the exact outline of the face, with nothing inside it
+— no eyes, no nose, no mouth, no skin — and the blonde hair, shoulders and
+background around it completely normal and photographic.**
+
+And the mechanism is not "the detector is too strict", because I tapped one node
+earlier: **`620:114 FaceDetailer` hands out pure `(0,0,0)`** over 16.94 % of the
+frame (`TAP114_w17`: one unique colour in a 600×600 centre patch, against 39,957
+on the placeholder control). The `(56,51,47)` at `621:163` is `620:111
+ImageColorMatch+`'s global affine map applied to that black. **The face is
+destroyed before the detector ever sees it.** YOLO's 0.466 is the score of the
+hair-and-head silhouette with a hole where the face was, not of a marginally
+detected face.
+
+### What this does and does not say about Track D's non-reproduction
+
+* **It does not rescue marginal detection.** On this instance the split is
+  0.895 / 0.466 with an empty middle, and the cause is a black fill from
+  `620:114`, not a detector decision.
+* **[I] Where the instance-dependence must live, then, is in `620:114`** — whether
+  that pass returns a face or returns black for a given conditioning length. On a
+  box where it returns a face you get 0.895 and a clean render, which is exactly
+  what Track D reports. That is a *different* claim from "confidence drifts across
+  0.6", and it is testable cheaply: run Track D's instance with a `SaveImage` on
+  `620:114` and measure the exact-black fraction. If it is 0.0000 there, the bands
+  simply do not exist on that box.
+* **One thing genuinely is close to the line and I want it on the record:** 0.466
+  against a 0.6 threshold is not a wide margin. If the black fill happened but
+  covered slightly less of the face, the same damaged frame could score above 0.6,
+  `622:424` would fire, and the render would **complete with a ruined face**
+  instead of crashing. So `622:424`'s threshold does control *crash vs bad image*
+  — it just does not control *clean vs damaged*.
+
+### The strongest single piece of evidence that this is length, not detection
+
+`E398_tok31`. `620:106` left at the **safe 16-token placeholder**; the *eye*
+prompt `622:398` padded from its shipped 28 tokens to **31** — three repetitions
+of `the`, nothing else changed (`graph_diffs`-clean, one input).
+
+```
+E398_tok31       success  83.7 s  cached 0   exact-black pixels: 0.44 %  PSNR 31.21 dB vs control
+E398_tok28_ctl   success  59.0 s  cached 0   exact-black pixels: 0.00000 %
+```
+
+**The eyes came back as two solid black holes** — 40,874 pixels, bbox
+(1024,1569)–(1979,1672), perfectly inside the eye masks, the rest of the face
+untouched. Sheet: `results/crash/A/E398_eyes_sheet.png`.
+
+Three consequences:
+
+1. **The bands are not a property of `620:114`.** They hit a *different* detailer,
+   with a *different* prompt, at a *different* denoise, on the same encoder. This
+   is an encoder/model-level effect on this pipeline.
+2. **It does not always crash. Sometimes it ships.** This arm returned
+   `status: success` and a complete 2688×3456 image with black eyes. The face
+   pass crashes only because `622:403` happens to sit downstream of it; the eye
+   pass has nothing downstream to trip, so the defect is delivered silently.
+3. **The shipped eye prompt is 28 tokens — two from the band**, and it is not a
+   field anyone is warned about.
 
 ---
 

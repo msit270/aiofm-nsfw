@@ -1245,5 +1245,71 @@
   "text_106": "TRIGGER, PROMPT FOR YOUR MODEL",
   "text": "TRIGGER, PROMPT FOR YOUR MODEL",
   "words": 5
+ },
+ {
+  "arm": "E398_tok28_ctl",
+  "prompt_id": "4d5de9c9-2154-4a24-a7c2-cb5cc050589f",
+  "client_id": "trackA-E398_tok28_ctl-75ad298b",
+  "wall_seconds": 60.5,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 53581735964,
+  "note": "control for E398_tok31: the shipped 28-token eye prompt, everything else identical",
+  "status": "success",
+  "exec_seconds": 59.0,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00062_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00102_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "text": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "words": 5
+ },
+ {
+  "arm": "REP2_w17",
+  "prompt_id": "ab34aa8c-1a77-4ea4-b201-7ec981e1bbcd",
+  "client_id": "trackA-REP2_w17-6635149d",
+  "wall_seconds": 60.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 53167979548,
+  "note": "REDO of the voided REP_w17 -- repeat of L_w17 on an attested server",
+  "status": "error",
+  "exec_seconds": 58.2,
+  "cached": 0,
+  "cached_ids": [],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00063_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible",
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible",
+  "words": 17
  }
 ]
