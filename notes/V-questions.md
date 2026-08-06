@@ -225,6 +225,25 @@ starting one while three ComfyUIs already share this GPU risked the run. **So th
 criterion is open, and it should not be recorded as met.** The pod session should
 close it on a second box that is first shown able to fail.
 
+### Q1c. The "~48.7 dB run-to-run noise floor" does not hold on `:18188`
+
+Several documents in this repo treat ~48.7 dB as the floor below which two
+renders are indistinguishable, and `notes/E-rootcause.md` uses it to argue the
+cured arms are healthy ("PSNR 48.9 dB … i.e. a real face, at this project's own
+measured run-to-run floor of ~48.7 dB").
+
+**Measured here: repeating the identical graph on `:18188` gives a bit-identical
+frame.** `V_CLEAN_mid_16a` vs `V_CLEAN_mid_16b`: `max_abs_diff 0`, zero pixels
+different. Same for the `cpu` pair. So on this instance the floor is **zero**,
+and a 48.8 dB difference is 100 % signal.
+
+*My guess:* the 48.7 dB figure came from comparisons that varied something else
+as well (a different server, a different seed path, or a non-cold cache), and it
+has since been quoted as a general property of the pipeline. *Lower-risk option
+taken here:* I did not touch any other document; I measured my own floor with
+same-graph repeats and used that. Someone should find where 48.7 came from before
+it is used to wave through another change.
+
 ### Q2. The fix is a workaround and the underlying instability is untouched
 
 Nothing in this session made `620:114` stop being bistable; it moved the
