@@ -291,9 +291,41 @@ noise level. So `Y1` and `Y2` should differ in *fabricated texture*, not in
 
 ---
 
-# 6. Timing
+# 6. Timing — **the 189.3 s figure does not survive a cold cache**
 
-*(Filled in when the matched cold pair lands.)*
+The owner's question: `L0b` 400.7 s against `L1b` 189.3 s, but at 38 against 57
+cached nodes. He asked for the real speedup with the cache cleared, or the word
+unmeasured.
+
+**The health control answers half of it directly, and it is not what the warm
+numbers suggested.** It resubmitted `L1b`'s own `api_graph.json`
+byte-identically after `POST /free {"unload_models": true, "free_memory": true}`
+on an empty queue:
+
+```
+results/face/control/R1_control_L1b_repeat/meta.json
+  status            success
+  exec_seconds      388.9
+  cached_nodes      0            <- genuinely cold, not "fewer cached"
+  vs L1b's PNG      mean abs diff 0.0000, max 0 levels, 0.000 % of pixels over 8
+```
+
+**`L1b` cold is 388.9 s, not 189.3 s.** The 189.3 s was a warm figure with 57
+nodes — including the entire base generator, both upscales and four VAE nodes —
+served from cache. Against `L0b`'s 400.7 s at 38 cached, the honest reading of
+the original pair is that **it compared a heavily cache-assisted run against a
+partly cache-assisted one and the 53 % was mostly cache, not steps.**
+
+That same control is worth keeping for a second reason: **two identical graphs,
+one warm at 03:02 and one cold at 13:56, produced a delivered frame differing
+by mean 0.0000 and maximum 0 levels.** This pipeline is bit-deterministic under
+a fixed seed across a cold/warm boundary and an eleven-hour gap. Reported as
+mean and maximum absolute difference, as a control on the instrument — this is
+not the banned method, which is verifying that a *change* is inert by matching
+output.
+
+*(The other half — `L0b` cold — and the steps pair on the shipping graph are
+below when they land.)*
 
 ---
 
