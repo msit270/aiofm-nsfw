@@ -1,0 +1,35 @@
+{
+  "arm": "R1_control_L1b_repeat",
+  "changed": "NOTHING -- byte-identical resubmission of results/face/arms/L1b_steps08_loras/api_graph.json. Ran as a health control on the server before spending the render window, and again by a duplicate driver. Compared to L1b's delivered PNG by mean and maximum absolute difference (NOT by hash); this is a control on the instrument, not a proof that a change is inert.",
+  "runs": [
+    {
+      "label": "cold, the gating health control",
+      "prompt_id": "11a4670d-bc79-44bd-a939-c690ed00b442",
+      "cold_start": true,
+      "exec_seconds": 388.9,
+      "cached_nodes": 0,
+      "image": "HasMetadata_00043_.png",
+      "mean_abs_diff_vs_L1b": 0.0,
+      "max_abs_diff_vs_L1b": 0,
+      "pct_pixels_over_8_levels": 0.0
+    },
+    {
+      "label": "warm, duplicate driver",
+      "prompt_id": "8eae3e66-7ab4-434b-b509-d1c7594f5913",
+      "cold_start": false,
+      "exec_seconds": 190.1,
+      "cached_nodes": 56,
+      "image": "HasMetadata_00046_.png",
+      "mean_abs_diff_vs_L1b": 0.0,
+      "max_abs_diff_vs_L1b": 0,
+      "pct_pixels_over_8_levels": 0.0
+    }
+  ],
+  "cold_vs_warm_same_graph": {
+    "mean_abs_diff": 0.0,
+    "max_abs_diff": 0,
+    "note": "the same graph rendered cold at 13:55 and warm at 14:06, and warm at 03:02 the previous night, all identical. This pipeline is bit-deterministic under a fixed seed across a cold/warm boundary."
+  },
+  "status": "success",
+  "png_note": "both PNGs are gitignored: they are proved identical to results/face/arms/L1b_steps08_loras/HasMetadata_00031_.png, so committing 22 MB of duplicates adds nothing. The numbers are here."
+}

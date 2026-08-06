@@ -27,3 +27,8 @@ results/ws4/B2_no_vae_roundtrip_repeat/*.png
 # which is already committed. It was a server-health control, not a new result.
 # Its api_graph.json and meta.json ARE committed.
 results/r3_crop/R3_control_cf3/*.png
+
+# R1: the two control-repeat PNGs are proved identical (mean abs diff 0.0000,
+# max 0) to results/face/arms/L1b_steps08_loras/HasMetadata_00031_.png, so
+# committing 22 MB of duplicates adds nothing. The numbers are in meta.json.
+results/face/control/R1_control_L1b_repeat/*.png

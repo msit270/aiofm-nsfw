@@ -615,7 +615,34 @@ cf 3 → cf 1.5 at identical steps, denoise and LoRAs, both from `/free` with
 0 cached nodes — **388.9 s → 270.5 s, −118.4 s, −30 %.** Independent
 confirmation that cf 1.5 is a real saving, cold, in the owner's configuration.
 
-*(Cold `L0b` — the other half of the owner's original pair — is below.)*
+## The owner's own pair, cold against cold: **−6.9 %, not −53 %**
+
+`L0b`'s own `api_graph.json` resubmitted byte-identically after `/free` on an
+empty queue. It came back `success`, **0 cached nodes**, and **mean absolute
+difference 0.0000 / maximum 0 levels** against `L0b`'s delivered PNG — so it is
+the same render, not a re-roll.
+
+| | what he was shown | **cold, 0 cached** |
+|---|---|---|
+| `L0b` steps 30, denoise 0.80, cf 3 | 400.7 s *(38 cached)* | **417.5 s** |
+| `L1b` steps 8, denoise 0.80, cf 3 | 189.3 s *(57 cached)* | **388.9 s** |
+| difference | −211.4 s, **−53 %** | **−28.6 s, −6.9 %** |
+
+**The 53 % was cache.** With the cache cleared on both sides, changing `#114`
+steps from 30 to 8 makes the whole render **6.9 % faster**, not 53 %.
+
+**And I would not quote even the 28.6 s as the size of the steps lever.** Two
+cold runs of ~400 s each carry ~200 s of model loading whose duration varies
+between runs, so a 28.6 s gap sits inside that variance. **The matched-cache
+figure is the better measurement of the lever: −53.1 s of sampling.** What the
+cold pair establishes is the thing the owner actually needs — **the
+whole-render speedup from steps is single-digit percent, not half.**
+
+`HANDOFF.md` §4 currently carries two claims that both need this correction:
+*"26 % faster, a lower bound"* (from `A0` 397.8 s at 31 cached against `C_08`
+294.1 s at 8 cached — also not cold-vs-cold) and *"400.7 s → 189.3 s"*. Neither
+pair had matched caches. **Steps 8 is still the right setting; it is just not a
+26 % or a 53 % speedup.**
 
 ---
 
