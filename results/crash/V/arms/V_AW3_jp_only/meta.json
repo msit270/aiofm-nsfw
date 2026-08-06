@@ -1,0 +1,79 @@
+{
+ "arm": "V_AW3_jp_only",
+ "prompt_id": "4582ed8c-fd7a-41a4-ae51-fa65dcc6af38",
+ "client_id": "trackV-V_AW3_jp_only-994cfd4d",
+ "wall_seconds": 90.2,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 56417942044,
+ "free_wait_s": 8.0,
+ "note": "Isolating the script: Japanese only, device cpu.",
+ "tokens": 41,
+ "executed_nodes": [
+  "BASE",
+  "620:108",
+  "620:107",
+  "620:110",
+  "620:105",
+  "620:106",
+  "620:109",
+  "620:113",
+  "116",
+  "620:114",
+  "620:111",
+  "620:648",
+  "621:161",
+  "621:166",
+  "620:165",
+  "621:163",
+  "TAP163",
+  "622:431",
+  "622:398",
+  "622:424",
+  "622:407",
+  "622:403",
+  "622:404",
+  "622:414",
+  "622:399",
+  "622:415",
+  "622:410",
+  "622:402",
+  "622:408",
+  "622:406",
+  "622:400",
+  "622:401",
+  "622:418",
+  "505"
+ ],
+ "ws_error": null,
+ "status": "success",
+ "exec_seconds": 89.3,
+ "cached": 0,
+ "cached_ids": [],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00038_.png",
+   "subfolder": "crashV",
+   "type": "output"
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00148_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "text_106": "luna\u300121\u6b73\u306e\u5973\u6027\u3001\u305d\u3070\u304b\u3059\u3001\u7dd1\u306e\u77b3\u3001\u8a73\u7d30\u306a\u808c\u306e\u8cea\u611f\u3001\u67d4\u3089\u304b\u3044\u7a93\u660e\u304b\u308a",
+ "620:110": {
+  "device": "cpu"
+ },
+ "620:114": {
+  "denoise": 0.35
+ }
+}

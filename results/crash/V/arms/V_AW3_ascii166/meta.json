@@ -1,0 +1,79 @@
+{
+ "arm": "V_AW3_ascii166",
+ "prompt_id": "28824c28-4b3e-41af-a550-2e4c339fe08f",
+ "client_id": "trackV-V_AW3_ascii166-9ab0ca89",
+ "wall_seconds": 105.1,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 63028165148,
+ "free_wait_s": 8.1,
+ "note": "AW1 was 166 tokens and passed, but it is nearly all ASCII. ASCII ladder at 166, device cpu.",
+ "tokens": 166,
+ "executed_nodes": [
+  "BASE",
+  "620:108",
+  "620:107",
+  "620:110",
+  "620:105",
+  "620:106",
+  "620:109",
+  "620:113",
+  "116",
+  "620:114",
+  "620:111",
+  "620:648",
+  "621:161",
+  "621:166",
+  "620:165",
+  "621:163",
+  "TAP163",
+  "622:431",
+  "622:398",
+  "622:424",
+  "622:407",
+  "622:403",
+  "622:404",
+  "622:414",
+  "622:399",
+  "622:415",
+  "622:410",
+  "622:402",
+  "622:408",
+  "622:406",
+  "622:400",
+  "622:401",
+  "622:418",
+  "505"
+ ],
+ "ws_error": null,
+ "status": "success",
+ "exec_seconds": 103.3,
+ "cached": 0,
+ "cached_ids": [],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00037_.png",
+   "subfolder": "crashV",
+   "type": "output"
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00147_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+ "620:110": {
+  "device": "cpu"
+ },
+ "620:114": {
+  "denoise": 0.35
+ }
+}

@@ -189,13 +189,36 @@ Five measures, five exact matches. This is `620:114`'s black state, lifted to
 `(56,51,47)` by `620:111 ImageColorMatch+`, exactly as Track E described it —
 reached with the fix in place.
 
+### It is NOT the non-English content. It is the token count, and 103 is in a band nobody had mapped.
+
+The obvious reading of `AW3` is "unicode breaks it". That is wrong, and the arm
+that shows it is `V_AW3_ascii103`: **Track A's own pure-ASCII ladder string**
+(`a woman's face` + `" the"` × 91) at **exactly 103 tokens**.
+
+| tokens | string | `device: cpu` (the fix) | `device: default` |
+|---|---|---|---|
+| 34 | Russian only | success | — |
+| 41 | Japanese only | success | — |
+| 72 | `AW2`, ASCII, punctuation-heavy | success | — |
+| **103** | `AW3`, mixed non-English | **error `622:403`** ×3 | **error `622:403`** |
+| **103** | **ASCII ladder** | **error `622:403`** | **error `622:403`** |
+| 166 | `AW1`, near-ASCII | success | — |
+| 166 | ASCII ladder | success | — |
+
+Both 103-token strings fail and both 166-token strings pass, on either device.
+Russian at 34 tokens and Japanese at 41 are clean. **So the discriminator is
+length, exactly as it always was — there is simply another crash band at ~103
+tokens, and neither Track A's map nor the Phase 3 proof set ever went there.**
+`notes/A-length-vs-content.md` describes the region above 44 as "a threshold with
+no top"; that was an extrapolation from seven consecutive values and it is now
+falsified in both directions — 103 fails, 166 does not.
+
 ### What the fix actually did
 
-It did not remove the failure. It moved the boundary of the region where the
-failure happens, so that the region no longer contains any of the strings the
-acceptance test looks at. Inside `PHASE3-spec.md`'s proof set and inside Track
-A's 11–50 token map, the fix works — every arm in §3 and §5 passes all four
-checks. Outside it, the failure is untouched: at 103 tokens `device: cpu` and
-`device: default` both fail, in the same way, at the same node.
+It did not remove the failure. It cured the bands that had been measured, and
+those are the only bands the acceptance test looks at. Inside `PHASE3-spec.md`'s
+proof set and inside Track A's 11–50 map the fix works — every arm in §3 passes
+all four checks. In the ~103-token band it does nothing at all: `cpu` and
+`default` fail identically, at the same node, with the same image.
 
 *(sections 5-9 appended as the remaining arms land)*
