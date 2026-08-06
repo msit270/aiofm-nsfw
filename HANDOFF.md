@@ -1,8 +1,7 @@
 # HANDOFF.md
 
-**Workflow `a811b5d6…` · artifact `5f2a0f2b…` · nothing uploaded.**
-Evidence for every line: `notes/HANDOFF-detail.md` and the per-agent reports in
-`notes/`. One test was still running when this was written; §6.0 says so.
+**Workflow `a811b5d6…` · artifact `5f2a0f2b…` · nothing uploaded. All work closed.**
+Evidence for every line: `notes/HANDOFF-detail.md` and the per-agent reports in `notes/`.
 
 ---
 
@@ -42,11 +41,11 @@ prompt typed -> Run -> POST /prompt 200 -> HasMetadata_00041_.png, 11,140,426 B
 Screenshots: `results/gate/`, 37 artifacts, three legs. "Zero red" was *checked*
 with the frontend's own predicate across root and every subgraph, cross-checked
 against `/object_info`, walk count matching the file — that is what makes it a
-check rather than a quiet pass. Cause and mechanism: `notes/HANDOFF-detail.md` §1.
+check rather than a quiet pass. Cause: `notes/HANDOFF-detail.md` §1.
 
-**Your buyer's literal first screen:** stock ComfyUI puts the Templates modal
-over the whole UI on a first-ever load. Not ours, harmless, must be closed before
-the Workflows sidebar is reachable — and no API-level check could ever see it.
+**Your buyer's literal first screen:** stock ComfyUI puts the Templates modal over
+the whole UI on a first-ever load. Not ours, harmless, must be closed before the
+Workflows sidebar is reachable — and no API-level check could ever see it.
 
 ## 2. What I applied
 
@@ -73,19 +72,17 @@ one integer away (`widgets_values[15]`).
 You judged that tile and asked whether her freckles survive it.
 `results/face/arms/X2_steps08_denoise050/api_graph.json` carries
 `"lora_01": "None"` on both `116` and `618`. **The whole face grid ran with both
-LoRA stacks empty** — that face is the base model's, not your character's, and
-nothing you concluded from it about her carries over. Re-rendered with both your
-LoRAs loaded; §1 and everything below is from those.
+LoRA stacks empty** — that face is the base model's, not your character's, so
+nothing you concluded from it about her carries over. Re-rendered with your LoRAs.
 
-**And in your own configuration they are gone in both arms — the one you shipped
+**In your own configuration they are gone in both arms — the one you shipped
 before and the one you shipped yesterday. What reads as freckles in the 30-step
-render is the bump defect.** That is the agent's wording and it is the least
-comfortable sentence in this document, so treat it as the thing to check first
-when you look at the sheet.
+render is the bump defect.** The agent's wording, and the least comfortable
+sentence here — check it first when you look at the sheet.
 
-**They die at `#98 UltimateSDUpscale`, two stages before the face pass runs.**
-One render, six taps, same seed
-(`results/face/R1_where_freckles_die_1to1.png`) — pigment % by stage:
+**They die at `#98 UltimateSDUpscale`, two stages before the face pass runs.** Six
+taps, one render, same seed (`results/face/R1_where_freckles_die_1to1.png`),
+pigment % by stage:
 
 | base `619:601` | `#92` hands | `#91` skin model | `#87` blend | **`#98` upscale** | into `#114` | delivered |
 |---|---|---|---|---|---|---|
@@ -129,12 +126,12 @@ of pixels. Pointless rather than catastrophic. `#167`/`#394` were already empty;
 
 **0. One realistic face prompt kills the render — but it is a specific string, not
 "filling in the prompt".** With both your LoRAs loaded, one seven-clause character
-description in `#106` **crashed 3 of 3**: `RuntimeError` at `622:403
-MaskBoundingBox+`, no image. Everything else tried in the same configuration ran
-clean: the shipped placeholder (2/2), `luna, ` alone, and `a woman's face`. So the
-wide readings are **refuted by arms, not argument** — it is not any filled prompt,
-not the trigger word, not "a description". *Which* property of that string matters
-— its length, or one of its clauses — is **not isolated.**
+description in `#106` **crashed 4 of 4**: `RuntimeError` at `622:403
+MaskBoundingBox+`, no image. Everything else tried ran clean — the shipped
+placeholder (3/3), `luna, ` alone, and `a woman's face`. The wide readings are
+**refuted by arms, not argument**: not any filled prompt, not the trigger word,
+not "a description". *Which* property of that string matters — its length, or one
+of its clauses — is **not isolated.**
 
 > **Reproduction.** `lunaskye.safetensors` on `#618`, `luna.safetensors` on `#116`,
 > `#106` = `luna, a young woman with light freckles across her nose and cheeks,`
