@@ -1,0 +1,44 @@
+{
+ "FACE  cfg1.5: negative ON vs OFF": {
+  "shape": [
+   2383,
+   1686,
+   3
+  ],
+  "identical": false,
+  "max_abs_diff_levels": 67,
+  "mean_abs_diff_levels": 0.1947,
+  "pct_px_any_change": 24.303,
+  "pct_px_gt8_levels": 0.048,
+  "psnr_db": 52.21,
+  "ssim": 0.9983
+ },
+ "MOUTH cfg1.5: negative ON vs OFF": {
+  "shape": [
+   834,
+   1609,
+   3
+  ],
+  "identical": false,
+  "max_abs_diff_levels": 12,
+  "mean_abs_diff_levels": 0.1187,
+  "pct_px_any_change": 30.026,
+  "pct_px_gt8_levels": 0.0,
+  "psnr_db": 57.23,
+  "ssim": 0.9987
+ },
+ "EYES  cfg1.5: negative ON vs OFF": {
+  "shape": [
+   471,
+   1353,
+   3
+  ],
+  "identical": false,
+  "max_abs_diff_levels": 13,
+  "mean_abs_diff_levels": 0.1222,
+  "pct_px_any_change": 29.192,
+  "pct_px_gt8_levels": 0.0,
+  "psnr_db": 56.91,
+  "ssim": 0.999
+ }
+}

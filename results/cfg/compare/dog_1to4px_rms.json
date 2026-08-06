@@ -1,0 +1,69 @@
+{
+ "mask_definition": "pixels where the shipped arm's slot-0 output differs from the input by >8 levels (9.08% of frame)",
+ "rows": {
+  "input 620:137": {
+   "edit_footprint": 2.862,
+   "outside_footprint": 4.227,
+   "mouth+cheek": 2.714,
+   "forehead": 2.754,
+   "bg blurred": 2.685,
+   "bg wall": 1.572
+  },
+  "#114 cfg1.0 negshipped (shipped)": {
+   "edit_footprint": 5.311,
+   "outside_footprint": 4.281,
+   "mouth+cheek": 4.53,
+   "forehead": 3.589,
+   "bg blurred": 2.685,
+   "bg wall": 1.572
+  },
+  "#114 cfg1.5 negshipped": {
+   "edit_footprint": 5.268,
+   "outside_footprint": 4.28,
+   "mouth+cheek": 4.492,
+   "forehead": 3.599,
+   "bg blurred": 2.685,
+   "bg wall": 1.572
+  },
+  "#114 cfg1.5 negEMPTY": {
+   "edit_footprint": 5.34,
+   "outside_footprint": 4.282,
+   "mouth+cheek": 4.539,
+   "forehead": 3.618,
+   "bg blurred": 2.685,
+   "bg wall": 1.572
+  },
+  "#114 cfg3.0 negshipped": {
+   "edit_footprint": 5.218,
+   "outside_footprint": 4.279,
+   "mouth+cheek": 4.436,
+   "forehead": 3.642,
+   "bg blurred": 2.685,
+   "bg wall": 1.572
+  },
+  "mouth_cfg1.0_negempty": {
+   "whole_returned_crop": 3.776
+  },
+  "mouth_cfg1.5_negempty": {
+   "whole_returned_crop": 3.776
+  },
+  "mouth_cfg1.5_negfilled": {
+   "whole_returned_crop": 3.777
+  },
+  "mouth_cfg3.0_negfilled": {
+   "whole_returned_crop": 3.774
+  },
+  "eyes_cfg1.0_negempty": {
+   "whole_returned_crop": 4.914
+  },
+  "eyes_cfg1.5_negempty": {
+   "whole_returned_crop": 4.914
+  },
+  "eyes_cfg1.5_negfilled": {
+   "whole_returned_crop": 4.912
+  },
+  "eyes_cfg3.0_negfilled": {
+   "whole_returned_crop": 4.918
+  }
+ }
+}

@@ -20,9 +20,15 @@ operating point it was distilled to.
 
 That answer comes from the model file, the vendor, ComfyUI's shipped templates
 and ComfyUI's sampler source — **not** from a render, and it does not depend on
-one. A/B arms were commissioned to show you *what* raising cfg looks like; at
-the time of writing they are still queued behind other agents on the shared pod
-(§5). Their absence changes nothing in §7.
+one.
+
+**The renders came back and they did not show what I expected.** Raising cfg to
+1.5 or 3.0 on these three passes changes the image barely at all — and, against
+my expectation, does not visibly break it either (§5). More usefully, they show
+that even where the negative *is* live, at cfg 1.5, this string moves nothing
+that matters: 0.0 % of mouth and eye pixels by more than 8 levels. **There is no
+prize behind that door.** The blistering and mask-seam artefacts on `#114` are
+cfg-invariant, so guidance is not what is causing them.
 
 **Recommendation: empty the negatives and note it on canvas** — option 2 of the
 three. Emptying `#105` is provably output-inert (the string never reaches the
@@ -316,19 +322,79 @@ am not treating identical output as proof of anything.
 | eyes `#406` | `eyes_cfg1.5_negfilled` | 1.5 | `#105`'s string | queued |
 | eyes `#406` | `eyes_cfg3.0_negfilled` | 3.0 | `#105`'s string | queued |
 
-> **Status, stated plainly rather than papered over.** At the time of writing
-> only the cfg 1.0 reference arm has returned. The remaining twelve are queued
-> behind other agents' work on a shared pod and had not executed. Their exact
-> submitted `api_graph.json` and `submission.json` (with prompt id) are on disk
-> under `results/cfg/<arm>/`, so whoever picks this up can collect them from
-> `/history` without re-deriving anything.
->
-> **This does not weaken §7.** The recommendation does not rest on these arms. It
-> rests on the model identification (§1), the vendor and template evidence (§2a,
-> §2b) and the sampler source (§2c) — none of which needs a render. The arms were
-> commissioned to show the owner *what raising cfg costs*, which is a picture
-> for him to look at, not the basis of the argument. If they never run, the
-> argument stands and the picture is missing.
+All twelve returned; the four `sw_*` sweep arms and
+the time of writing.
+
+### Results — raising cfg does almost nothing, in either direction
+
+Every comparison is against that stage's cfg 1.0 arm, on identical input and
+identical seed. Face figures are over the detector's face box (825, 78, 1686,
+2383); mouth and eyes over the whole returned crop.
+
+| stage | comparison | max Δ (levels) | px >8 levels | PSNR | SSIM |
+|---|---|---|---|---|---|
+| face `#114` | cfg 1.0 → **1.5** | 40 | 0.038 % | 52.24 dB | 0.9979 |
+| face `#114` | cfg 1.0 → **3.0** | 89 | 0.575 % | 44.56 dB | 0.9938 |
+| mouth `#165` | cfg 1.0 → **1.5** | 10 | 0.000 % | 57.21 dB | 0.9987 |
+| mouth `#165` | cfg 1.0 → **3.0** | 13 | 0.001 % | 55.53 dB | 0.9983 |
+| eyes `#406` | cfg 1.0 → **1.5** | 9 | 0.000 % | 56.98 dB | 0.9990 |
+| eyes `#406` | cfg 1.0 → **3.0** | 33 | 0.140 % | 50.34 dB | 0.9982 |
+
+**And the negative, made live at cfg 1.5, does essentially nothing.** This is
+the arm that matters, because it separates "cfg moved the image" from "the
+negative text moved the image" — same cfg, negative on versus off:
+
+| stage | negative ON vs OFF at cfg 1.5 | max Δ | px >8 levels | PSNR | SSIM |
+|---|---|---|---|---|---|
+| face `#114` | shipped string vs `""` | 67 | 0.048 % | 52.21 dB | 0.9983 |
+| mouth `#165` | `#105`'s string vs `""` | 12 | 0.000 % | 57.23 dB | 0.9987 |
+| eyes `#406` | `#105`'s string vs `""` | 13 | 0.000 % | 56.91 dB | 0.9990 |
+
+`results/cfg/compare/negative_isolation_at_cfg1.5.json`.
+
+**The band-pass measure says the same thing.** 1–4 px DoG RMS, luma, on the edit
+footprint (the 9.08 % of frame the shipped arm actually changes) and on four
+fixed patches — `results/cfg/compare/dog_1to4px_rms.json`:
+
+| arm | edit footprint | outside | mouth+cheek | forehead | bg blurred | bg wall |
+|---|---|---|---|---|---|---|
+| input `620:137` | 2.862 | 4.227 | 2.714 | 2.754 | 2.685 | 1.572 |
+| `#114` cfg **1.0** (shipped) | **5.311** | 4.281 | 4.530 | 3.589 | 2.685 | 1.572 |
+| `#114` cfg **1.5** | 5.268 | 4.280 | 4.492 | 3.599 | 2.685 | 1.572 |
+| `#114` cfg 1.5, negative **empty** | 5.340 | 4.282 | 4.539 | 3.618 | 2.685 | 1.572 |
+| `#114` cfg **3.0** | 5.218 | 4.279 | 4.436 | 3.642 | 2.685 | 1.572 |
+
+Mouth and eyes, whole returned crop, cfg 1.0 / 1.5 / 1.5+negative / 3.0:
+
+    #165 mouth   3.776   3.776   3.777   3.774
+    #406 eyes    4.914   4.914   4.912   4.918
+
+The pass injects the band energy (2.862 → 5.311 on the footprint, 2.714 → 4.530
+at the mouth) and **cfg does not move it**: the whole 1.0 → 3.0 range spans 1.8 %
+on the face and is flat to three decimals on the mouth and eyes. The two
+background patches are bit-identical in every arm.
+
+### What that means, and what I am not claiming
+
+**Raising cfg neither fixes the artefacts nor visibly breaks the image.** I
+expected the cfg 3.0 arm to show obvious degradation and it does not — the three
+face arms are near-indistinguishable at 1:1 (`compare/face__sheet_1to1.png`,
+`facecore__sheet_1to1.png`). I am recording that because it went against my
+expectation, not despite it.
+
+So the case in §7 rests on §1–§2 — the hash, the vendor, the templates, the
+sampler source — **not** on visible damage from these renders, and I have edited
+§0 to stop implying otherwise. What the renders add is the other half:
+
+- Even where the negative *is* live (cfg 1.5), this string moves nothing that
+  matters — 0.0 % of mouth and eye pixels by more than 8 levels. So "make the
+  negative work" is not a fix that is being withheld from the buyer. There is no
+  prize behind that door.
+- The blistering, the seam and the text-like marks are **cfg-invariant**. Whatever
+  causes them, it is not the missing guidance. P2-RENDER's independent line of
+  attack landed on `#114`'s step count; my numbers are consistent with that and
+  exclude cfg as a contributor.
+- I cannot judge the images. The 1:1 pairs are in `results/cfg/compare/` for you.
 
 **Every queued graph was verified after submission**, read back out of its own
 `api_graph.json`, so a later session can collect them without re-checking:
@@ -441,22 +507,13 @@ is inference from geometry; the sweep tests it.*
 > The predictions above are registered and unedited. Score them against the log
 > lines, not against my prose.
 
-**Reference numbers already measured**, so the sweep has something to be
-compared against. 1–4 px DoG RMS, luma, on the shipped arm at guide/max 1024:
-
-| region | input `620:137` | output `#114` |
-|---|---|---|
-| edit footprint (the SAM mask, 9.08 % of frame) | 3.912 | **5.841** |
-| everything else | 4.143 | 4.202 |
-| mouth + cheek patch (1100,1500,900,600) | 2.714 | **4.530** |
-| forehead patch (1250,600,700,400) | 2.754 | 3.589 |
-| blurred background patch (100,200,500,500) | 2.685 | 2.685 |
-| wall / sill patch (100,2800,500,500) | 1.572 | 1.572 |
-
-The two background patches are **bit-identical** before and after, and the edit
-footprint gains ~49 % band energy. `5.841` sits against P2-RENDER's independently
-measured `5.87` inside the face — two rigs, no shared machinery, same number.
-The pass injects 1–4 px structure only where it edits, worst at the mouth.
+**Reference numbers, measured on the shipped arm** so the sweep has something to
+be scored against. Full table and the cfg arms in §5; the headline is that
+`#114` raises 1–4 px DoG RMS on its own edit footprint from **2.862 to 5.311**
+while leaving the two background patches bit-identical, and that **cfg does not
+move that number** (5.311 / 5.268 / 5.218 across cfg 1.0 / 1.5 / 3.0). Whatever
+the sweep shows, it is being compared against an artefact that guidance cannot
+touch.
 
 ## 6 · Adjacent finding, not investigated
 

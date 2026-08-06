@@ -1,6 +1,7 @@
 {
- "prompt_id": "18ef4450-c06c-463b-a896-14ef736822b6",
+ "prompt_id": "6b9cb390-4a1b-4ac7-a1d9-213d5887dc02",
  "tag": "mouth_cfg1.0_negempty",
  "client_id": "p3-cfg-d8df55fa",
- "requeued_from": "6b9cb390-4a1b-4ac7-a1d9-213d5887dc02"
+ "duplicate_cancelled": "18ef4450-c06c-463b-a896-14ef736822b6",
+ "note": "output on disk came from this original prompt id; the requeued duplicate was cancelled unrun"
 }

@@ -1,6 +1,7 @@
 {
- "prompt_id": "c4602e6a-ff5c-4b8a-9f16-1eacfd162186",
+ "prompt_id": "0bea7c71-392f-4ed0-b5e7-6bbaf40b8fa4",
  "tag": "face_cfg1.5_negshipped",
  "client_id": "p3-cfg-d8df55fa",
- "requeued_from": "0bea7c71-392f-4ed0-b5e7-6bbaf40b8fa4"
+ "duplicate_cancelled": "c4602e6a-ff5c-4b8a-9f16-1eacfd162186",
+ "note": "output on disk came from this original prompt id; the requeued duplicate was cancelled unrun"
 }

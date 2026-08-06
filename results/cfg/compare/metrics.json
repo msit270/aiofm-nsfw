@@ -1,0 +1,281 @@
+{
+ "face": {
+  "node": "#114 FaceDetailer (sg 5)",
+  "crop_box_xywh": [
+   825,
+   78,
+   1686,
+   2383
+  ],
+  "arms": {
+   "face_cfg1.0_negshipped": {
+    "source": "face_cfg1.0_negshipped/P3_SAVE_crop__crop_00001_.png",
+    "crop_1to1": "compare/face__face_cfg1.0_negshipped.png",
+    "size": [
+     1686,
+     2383
+    ]
+   },
+   "face_cfg1.0_negempty": "MISSING",
+   "face_cfg1.5_negshipped": {
+    "source": "face_cfg1.5_negshipped/P3_SAVE_crop__crop_00001_.png",
+    "crop_1to1": "compare/face__face_cfg1.5_negshipped.png",
+    "size": [
+     1686,
+     2383
+    ]
+   },
+   "face_cfg1.5_negempty": {
+    "source": "face_cfg1.5_negempty/P3_SAVE_crop__crop_00001_.png",
+    "crop_1to1": "compare/face__face_cfg1.5_negempty.png",
+    "size": [
+     1686,
+     2383
+    ]
+   },
+   "face_cfg3.0_negshipped": {
+    "source": "face_cfg3.0_negshipped/P3_SAVE_crop__crop_00001_.png",
+    "crop_1to1": "compare/face__face_cfg3.0_negshipped.png",
+    "size": [
+     1686,
+     2383
+    ]
+   }
+  },
+  "vs_ref": {
+   "face_cfg1.0_negshipped -> face_cfg1.5_negshipped": {
+    "shape": [
+     2383,
+     1686,
+     3
+    ],
+    "identical": false,
+    "max_abs_diff_levels": 40,
+    "mean_abs_diff_levels": 0.2396,
+    "pct_px_any_change": 39.506,
+    "pct_px_gt8_levels": 0.038,
+    "psnr_db": 52.24,
+    "ssim": 0.9979
+   },
+   "face_cfg1.0_negshipped -> face_cfg1.5_negempty": {
+    "shape": [
+     2383,
+     1686,
+     3
+    ],
+    "identical": false,
+    "max_abs_diff_levels": 55,
+    "mean_abs_diff_levels": 0.1551,
+    "pct_px_any_change": 33.186,
+    "pct_px_gt8_levels": 0.009,
+    "psnr_db": 55.22,
+    "ssim": 0.9986
+   },
+   "face_cfg1.0_negshipped -> face_cfg3.0_negshipped": {
+    "shape": [
+     2383,
+     1686,
+     3
+    ],
+    "identical": false,
+    "max_abs_diff_levels": 89,
+    "mean_abs_diff_levels": 0.6027,
+    "pct_px_any_change": 51.036,
+    "pct_px_gt8_levels": 0.575,
+    "psnr_db": 44.56,
+    "ssim": 0.9938
+   }
+  },
+  "face_core_box_xywh": [
+   950,
+   800,
+   1200,
+   1200
+  ],
+  "sheet_1to1": "compare/face__sheet_1to1.png",
+  "sheet_order": [
+   "face_cfg1.0_negshipped",
+   "face_cfg1.5_negshipped",
+   "face_cfg1.5_negempty",
+   "face_cfg3.0_negshipped"
+  ]
+ },
+ "mouth": {
+  "node": "#165 FaceDetailer 'Mouth Detailer' (sg 5)",
+  "crop_box_xywh": null,
+  "arms": {
+   "mouth_cfg1.0_negempty": {
+    "source": "mouth_cfg1.0_negempty/P3_SAVE_crop__crop_00001_.png",
+    "crop_1to1": "compare/mouth__mouth_cfg1.0_negempty.png",
+    "size": [
+     1609,
+     834
+    ]
+   },
+   "mouth_cfg1.5_negempty": {
+    "source": "mouth_cfg1.5_negempty/P3_SAVE_crop__crop_00001_.png",
+    "crop_1to1": "compare/mouth__mouth_cfg1.5_negempty.png",
+    "size": [
+     1609,
+     834
+    ]
+   },
+   "mouth_cfg1.5_negfilled": {
+    "source": "mouth_cfg1.5_negfilled/P3_SAVE_crop__crop_00001_.png",
+    "crop_1to1": "compare/mouth__mouth_cfg1.5_negfilled.png",
+    "size": [
+     1609,
+     834
+    ]
+   },
+   "mouth_cfg3.0_negfilled": {
+    "source": "mouth_cfg3.0_negfilled/P3_SAVE_crop__crop_00001_.png",
+    "crop_1to1": "compare/mouth__mouth_cfg3.0_negfilled.png",
+    "size": [
+     1609,
+     834
+    ]
+   }
+  },
+  "vs_ref": {
+   "mouth_cfg1.0_negempty -> mouth_cfg1.5_negempty": {
+    "shape": [
+     834,
+     1609,
+     3
+    ],
+    "identical": false,
+    "max_abs_diff_levels": 10,
+    "mean_abs_diff_levels": 0.1196,
+    "pct_px_any_change": 30.217,
+    "pct_px_gt8_levels": 0.0,
+    "psnr_db": 57.21,
+    "ssim": 0.9987
+   },
+   "mouth_cfg1.0_negempty -> mouth_cfg1.5_negfilled": {
+    "shape": [
+     834,
+     1609,
+     3
+    ],
+    "identical": false,
+    "max_abs_diff_levels": 7,
+    "mean_abs_diff_levels": 0.1187,
+    "pct_px_any_change": 29.943,
+    "pct_px_gt8_levels": 0.0,
+    "psnr_db": 57.24,
+    "ssim": 0.9987
+   },
+   "mouth_cfg1.0_negempty -> mouth_cfg3.0_negfilled": {
+    "shape": [
+     834,
+     1609,
+     3
+    ],
+    "identical": false,
+    "max_abs_diff_levels": 13,
+    "mean_abs_diff_levels": 0.1581,
+    "pct_px_any_change": 35.23,
+    "pct_px_gt8_levels": 0.001,
+    "psnr_db": 55.53,
+    "ssim": 0.9983
+   }
+  },
+  "sheet_1to1": "compare/mouth__sheet_1to1.png",
+  "sheet_order": [
+   "mouth_cfg1.0_negempty",
+   "mouth_cfg1.5_negempty",
+   "mouth_cfg1.5_negfilled",
+   "mouth_cfg3.0_negfilled"
+  ]
+ },
+ "eyes": {
+  "node": "#406 DetailerForEachDebug (sg 6)",
+  "crop_box_xywh": null,
+  "arms": {
+   "eyes_cfg1.0_negempty": {
+    "source": "eyes_cfg1.0_negempty/P3_SAVE_crop__crop_00001_.png",
+    "crop_1to1": "compare/eyes__eyes_cfg1.0_negempty.png",
+    "size": [
+     1353,
+     471
+    ]
+   },
+   "eyes_cfg1.5_negempty": {
+    "source": "eyes_cfg1.5_negempty/P3_SAVE_crop__crop_00001_.png",
+    "crop_1to1": "compare/eyes__eyes_cfg1.5_negempty.png",
+    "size": [
+     1353,
+     471
+    ]
+   },
+   "eyes_cfg1.5_negfilled": {
+    "source": "eyes_cfg1.5_negfilled/P3_SAVE_crop__crop_00001_.png",
+    "crop_1to1": "compare/eyes__eyes_cfg1.5_negfilled.png",
+    "size": [
+     1353,
+     471
+    ]
+   },
+   "eyes_cfg3.0_negfilled": {
+    "source": "eyes_cfg3.0_negfilled/P3_SAVE_crop__crop_00001_.png",
+    "crop_1to1": "compare/eyes__eyes_cfg3.0_negfilled.png",
+    "size": [
+     1353,
+     471
+    ]
+   }
+  },
+  "vs_ref": {
+   "eyes_cfg1.0_negempty -> eyes_cfg1.5_negempty": {
+    "shape": [
+     471,
+     1353,
+     3
+    ],
+    "identical": false,
+    "max_abs_diff_levels": 9,
+    "mean_abs_diff_levels": 0.1196,
+    "pct_px_any_change": 28.485,
+    "pct_px_gt8_levels": 0.0,
+    "psnr_db": 56.98,
+    "ssim": 0.999
+   },
+   "eyes_cfg1.0_negempty -> eyes_cfg1.5_negfilled": {
+    "shape": [
+     471,
+     1353,
+     3
+    ],
+    "identical": false,
+    "max_abs_diff_levels": 10,
+    "mean_abs_diff_levels": 0.1363,
+    "pct_px_any_change": 31.313,
+    "pct_px_gt8_levels": 0.0,
+    "psnr_db": 56.26,
+    "ssim": 0.9989
+   },
+   "eyes_cfg1.0_negempty -> eyes_cfg3.0_negfilled": {
+    "shape": [
+     471,
+     1353,
+     3
+    ],
+    "identical": false,
+    "max_abs_diff_levels": 33,
+    "mean_abs_diff_levels": 0.2249,
+    "pct_px_any_change": 33.372,
+    "pct_px_gt8_levels": 0.14,
+    "psnr_db": 50.34,
+    "ssim": 0.9982
+   }
+  },
+  "sheet_1to1": "compare/eyes__sheet_1to1.png",
+  "sheet_order": [
+   "eyes_cfg1.0_negempty",
+   "eyes_cfg1.5_negempty",
+   "eyes_cfg1.5_negfilled",
+   "eyes_cfg3.0_negfilled"
+  ]
+ }
+}

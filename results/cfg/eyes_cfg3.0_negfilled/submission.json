@@ -1,6 +1,7 @@
 {
- "prompt_id": "49153b3d-09e7-40e4-b6fa-5f1d1b8c2cd4",
+ "prompt_id": "070ee774-d607-4f66-96ad-1edd7de1ac49",
  "tag": "eyes_cfg3.0_negfilled",
  "client_id": "p3-cfg-d8df55fa",
- "requeued_from": "070ee774-d607-4f66-96ad-1edd7de1ac49"
+ "duplicate_cancelled": "49153b3d-09e7-40e4-b6fa-5f1d1b8c2cd4",
+ "note": "output on disk came from this original prompt id; the requeued duplicate was cancelled unrun"
 }
