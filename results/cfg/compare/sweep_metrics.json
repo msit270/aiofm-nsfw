@@ -1,37 +1,58 @@
 {
- "INPUT(620:137)": {
-  "image": "00-baseline-full/P3_in_face__P3_in_face_00001_.png",
-  "size": [
-   2688,
-   3456
-  ],
-  "dog14_rms_edited_region": 3.912,
-  "dog14_rms_untouched_region": 4.143,
-  "dog14_rms_mouth_patch": 2.714,
-  "dog14_rms_forehead_patch": 2.754,
-  "dog14_rms_bg_patch_1": 2.685,
-  "dog14_rms_bg_patch_2": 1.572
+ "input 620:137": {
+  "edit_footprint": 2.862,
+  "mouth": 2.714,
+  "forehead": 2.754,
+  "bg_wall": 1.572,
+  "pct_px_changed_gt8": 0.0,
+  "duration_s": null
  },
- "face_cfg1.0_negshipped": {
-  "image": "face_cfg1.0_negshipped/P3_SAVE_full__full_00001_.png",
-  "size": [
-   2688,
-   3456
-  ],
-  "dog14_rms_edited_region": 5.841,
-  "dog14_rms_untouched_region": 4.202,
-  "dog14_rms_mouth_patch": 4.53,
-  "dog14_rms_forehead_patch": 3.589,
-  "dog14_rms_bg_patch_1": 2.685,
-  "dog14_rms_bg_patch_2": 1.572,
-  "detailer_log": [
-   "Detailer: force inpaint",
-   "Detailer: segment upscale for ((np.float32(1297.1787), np.float32(1833.2556))) | crop region (2688, 3456) x 1.0 -> (2688, 3456)"
-  ],
-  "duration_s": 185.529
+ "shipped gs1024 cf3": {
+  "edit_footprint": 5.311,
+  "mouth": 4.53,
+  "forehead": 3.589,
+  "bg_wall": 1.572,
+  "pct_px_changed_gt8": 9.075,
+  "duration_s": 185.5
  },
- "_sheet_order": [
-  "INPUT(620:137)",
-  "face_cfg1.0_negshipped"
- ]
+ "sw_gs2048": {
+  "edit_footprint": 5.311,
+  "mouth": 4.53,
+  "forehead": 3.589,
+  "bg_wall": 1.572,
+  "pct_px_changed_gt8": 9.075,
+  "duration_s": 185.5
+ },
+ "sw_gs4096": {
+  "edit_footprint": 6.123,
+  "mouth": 5.648,
+  "forehead": 3.909,
+  "bg_wall": 1.572,
+  "pct_px_changed_gt8": 9.539,
+  "duration_s": 292.1
+ },
+ "sw_cf1.5": {
+  "edit_footprint": 4.196,
+  "mouth": 3.527,
+  "forehead": 3.53,
+  "bg_wall": 1.572,
+  "pct_px_changed_gt8": 8.767,
+  "duration_s": 75.2
+ },
+ "sw_cf1.0": {
+  "edit_footprint": 3.834,
+  "mouth": 3.236,
+  "forehead": 3.384,
+  "bg_wall": 1.572,
+  "pct_px_changed_gt8": 8.774,
+  "duration_s": 28.2
+ },
+ "faceX real positive": {
+  "edit_footprint": 0.0,
+  "mouth": 0.0,
+  "forehead": 0.0,
+  "bg_wall": 0.0,
+  "pct_px_changed_gt8": 100.0,
+  "duration_s": 153.7
+ }
 }

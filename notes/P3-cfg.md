@@ -312,7 +312,7 @@ am not treating identical output as proof of anything.
 | face `#114` | `face_cfg1.5_negshipped` | 1.5 | as shipped | **complete** |
 | face `#114` | `face_cfg1.5_negempty` | 1.5 | `""` | **complete** |
 | face `#114` | `face_cfg3.0_negshipped` | 3.0 | as shipped | **complete** |
-| face `#114` | `faceX_cfg1.0_realpositive_negshipped` | 1.0 | as shipped, **positive replaced with a real prompt** | queued |
+| face `#114` | `faceX_cfg1.0_realpositive_negshipped` | 1.0 | as shipped, **positive replaced with a real prompt** | **complete — returned black, see §5b** |
 | mouth `#165` | `mouth_cfg1.0_negempty` | 1.0 | `""` (shipped) | **complete** |
 | mouth `#165` | `mouth_cfg1.5_negempty` | 1.5 | `""` | **complete** |
 | mouth `#165` | `mouth_cfg1.5_negfilled` | 1.5 | `#105`'s string | **complete** |
@@ -322,11 +322,8 @@ am not treating identical output as proof of anything.
 | eyes `#406` | `eyes_cfg1.5_negfilled` | 1.5 | `#105`'s string | **complete** |
 | eyes `#406` | `eyes_cfg3.0_negfilled` | 3.0 | `#105`'s string | **complete** |
 
-**All twelve of the cfg arms returned and are on disk.** Still queued at the
-time of writing: `faceX_cfg1.0_realpositive_negshipped` and the four `sw_*`
-sweep arms of §5b. Every arm directory holds its submitted `api_graph.json` and
-its `submission.json`, so the outstanding ones can be collected from `/history`
-without re-deriving anything.
+**Every arm returned.** All twelve cfg arms, the four `sw_*` sweep arms of §5b,
+and `faceX_cfg1.0_realpositive_negshipped` (which came back black — §5b).
 
 ### Results — raising cfg does almost nothing, in either direction
 
@@ -496,27 +493,97 @@ Since the crop clamps to the frame as soon as `bbox × 3` exceeds it, tighter
 framing is strictly worse and saturates at the whole frame. *That last paragraph
 is inference from geometry; the sweep tests it.*
 
-### Results
+### Results — every prediction held, and the direction is confirmed backwards
 
-> **Not yet returned.** All four sweep arms are queued on a shared pod behind
-> other agents' work. Their submitted `api_graph.json` and prompt ids are under
-> `results/cfg/sw_*/`. The analysis is scripted and takes one command once they
-> land: it reads each arm's `Detailer:` log lines out of
-> `/workspace/ComfyUI/user/comfyui_18188.log` within that prompt's execution
-> window, computes 1–4 px DoG RMS on the edit footprint and on four fixed
-> patches, and writes 1:1 mouth crops plus a contact sheet to
-> `results/cfg/compare/`.
->
-> The predictions above are registered and unedited. Score them against the log
-> lines, not against my prose.
+Logged scale factors, read out of `/workspace/ComfyUI/user/comfyui_18188.log`
+inside each prompt's own execution window:
 
-**Reference numbers, measured on the shipped arm** so the sweep has something to
-be scored against. Full table and the cfg arms in §5; the headline is that
-`#114` raises 1–4 px DoG RMS on its own edit footprint from **2.862 to 5.311**
-while leaving the two background patches bit-identical, and that **cfg does not
-move that number** (5.311 / 5.268 / 5.218 across cfg 1.0 / 1.5 / 3.0). Whatever
-the sweep shows, it is being compared against an artefact that guidance cannot
-touch.
+| arm | predicted | **logged** | sampled at | time |
+|---|---|---|---|---|
+| shipped 1024/1024 cf 3 | `force inpaint`, `x 1.0` | `force inpaint`, `x 1.0` | 2688×3456 | 185.5 s |
+| `sw_gs2048` | `force inpaint`, `x 1.0`, **identical** | `force inpaint`, `x 1.0` | 2688×3456 | 185.5 s |
+| `sw_gs4096` | `x 1.185…` → ≈3186×4096 | `x 1.1852656602859497` | **3185×4096** | 292.1 s |
+| `sw_cf1.5` | `force inpaint`, ≈1945×2750 | `force inpaint`, `x 1.0` | **1945×2749** | 75.2 s |
+| `sw_cf1.0` | `force inpaint`, ≈1297×1833 | `force inpaint`, `x 1.0` | **1297×1833** | 28.2 s |
+
+Four for four, to the pixel bar one rounding step (I said 3186 and 2750; `int()`
+truncation gives 3185 and 2749). `sw_gs2048`'s output is identical to the
+shipped arm — max abs difference 0 across 2688×3456×3. The *proof* there is the
+logged scale factor; the pixel identity is a consequence and I am not resting
+anything on it.
+
+**So doubling `guide_size`/`max_size` is a confirmed no-op, and 1408 and 1808
+would have been too** — they sit between 1024 and 2048, where the clamp fires
+identically. Three full-pipeline arms saved.
+
+### The artefact scales with sampling resolution, monotonically
+
+1–4 px DoG RMS, luma. "edit" is the shipped arm's edit footprint (9.08 % of
+frame); "mouth" is the fixed patch (1100, 1500, 900, 600). `results/cfg/compare/sweep_metrics.json`.
+
+| arm | sampled at | edit | mouth | forehead | bg wall | time |
+|---|---|---|---|---|---|---|
+| input `620:137` | — | 2.862 | 2.714 | 2.754 | 1.572 | — |
+| `sw_gs4096` | 3185×4096 | **6.123** | **5.648** | 3.909 | 1.572 | 292.1 s |
+| **shipped** | 2688×3456 | 5.311 | 4.530 | 3.589 | 1.572 | 185.5 s |
+| `sw_gs2048` | 2688×3456 | 5.311 | 4.530 | 3.589 | 1.572 | 185.5 s |
+| `sw_cf1.5` | 1945×2749 | 4.196 | 3.527 | 3.530 | 1.572 | **75.2 s** |
+| `sw_cf1.0` | 1297×1833 | **3.834** | **3.236** | 3.384 | 1.572 | **28.2 s** |
+
+Monotonic in sampling resolution, in both directions from the shipped setting.
+Background patch bit-identical throughout, so this is not a global exposure or
+contrast shift.
+
+**And it is not subtle at 1:1.** `results/cfg/compare/sweep_mouth1to1__sheet.png`,
+900×600 crops of the same mouth, no downscaling:
+
+- **`sw_gs4096` is catastrophic** — the lips break up into coloured geometric
+  debris, hexagonal cells and fragments. This is the same class of artefact
+  P2-RENDER described as "rectangles, hexagons, dot-matrix grids, ladder
+  patterns"; at 4096 it is not a subtle texture, it is visible destruction.
+- **shipped** is the familiar blistered bubble-wrap texture.
+- **`sw_cf1.5`** is much cleaner, a mild bumpiness.
+- **`sw_cf1.0`** is close to the input.
+
+**`bbox_crop_factor 1.0` is 28.2 s against the shipped 185.5 s — 6.6× faster —
+and produces the least artefact of any arm.** I am not recommending a value; I
+cannot judge these images and crop factor also controls how much context the
+model sees and how much of the face gets refined at all. But the shipped
+combination is the wrong end of this curve on both axes at once.
+
+> **Directly contradicts the premise I was asked to test, and confirms the
+> replacement.** Raising `guide_size` was proposed as the fix; at the only value
+> where it does anything it makes the artefact substantially worse and costs 57 %
+> more time. Lowering `bbox_crop_factor` — which was my counter-proposal, from
+> geometry rather than from pixels — improves it and is dramatically cheaper.
+
+### One arm returned a fully black image
+
+`faceX_cfg1.0_realpositive_negshipped` — `#114` at shipped settings with **only
+`#106`'s placeholder replaced by a real character prompt** — completed
+`success` in 153.7 s and returned an image that is **uniformly zero**. The log
+for that prompt's window carries:
+
+    Detailer: force inpaint
+    Detailer: segment upscale for ((1297.18, 1833.26)) | crop region (2688, 3456) x 1.0 -> (2688, 3456)
+    [Impact Pack] vae decoded in 22.5s
+    .../ComfyUI-Impact-Pack/modules/impact/utils.py:155: RuntimeWarning: invalid value encountered in cast
+
+`utils.py:155` is `tensor2pil`: `np.clip(255.*image, 0, 255).astype(np.uint8)`.
+`np.clip` passes NaN through and the cast to `uint8` then warns and yields 0. So
+**the sampled tensor contained NaN** — the 9.3 MP pass numerically blew up.
+
+**This is n = 1 and I have not reproduced it.** I was told not to add renders, so
+I have not. It matters because the buyer's *documented action* — root `#649`
+tells them to replace exactly that placeholder — is the only thing that changed.
+Reproduction is one POST of the graph already on disk:
+
+    curl -s -X POST http://127.0.0.1:18188/prompt -H 'Content-Type: application/json' \
+      -d "{\"prompt\": $(cat results/cfg/faceX_cfg1.0_realpositive_negshipped/api_graph.json)}"
+
+If it reproduces it is a crash-class product defect. If it does not, it is a
+transient and should be recorded as one. **Do not report it as established
+either way until somebody runs it twice.**
 
 ## 6 · Adjacent finding, not investigated
 
