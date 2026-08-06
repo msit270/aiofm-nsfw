@@ -112,12 +112,25 @@ is a requirement, not step 3 of a list.
 
 ## 7. Still broken
 
-1. **`#114` can silently destroy the face and report `success`.** Three
-   instances: `bbox_crop_factor` 1.5 **and** 1.0 each deliver a **faceless**
-   image (flat RGB 53,47,43 over 23.5 % of frame); and one arm returned a
-   **uniformly black** image (NaN in the tensor) when only `#106`'s placeholder
-   was replaced — **the action your own canvas note tells buyers to take**. That
-   last is **n=1, unconfirmed**; two reproductions were queued.
+1. **Something can make a render deliver a faceless image while reporting
+   `success` — cause NOT yet established, and an earlier version of this line
+   blamed the wrong thing.** Six arms delivered a **flat RGB (53, 47, 43)** region
+   over 23.5 % of the frame where the face should be. I first recorded that as
+   "`bbox_crop_factor` is catastrophic". **That is retracted.** Four of the six
+   never touched `bbox_crop_factor`, and all six share the *bit-identical*
+   constant — four different parameter changes cannot independently produce the
+   same constant. The log shows a **NaN reaching `tensor2pil`** at 02:11:21
+   (`impact/utils.py:155`, `invalid value encountered in cast`); **every arm
+   before that timestamp succeeded and every arm after it failed.** The flat
+   colour is what an all-zero latent decodes to. Leading hypothesis is therefore
+   **server-side model-state corruption after a NaN**, not any of the settings. A
+   byte-identical resubmission of an arm that already passed is queued as the
+   control. **Until it lands, treat both this and the black-image arm in §4 as
+   unexplained.** The underlying fact stands either way: **a render can deliver a
+   faceless image with `status: success` and no warning.**
+   Related, and a **latent** defect regardless: the Eyes stage has no empty-mask
+   guard, so anything that makes the face undetectable turns into a hard crash at
+   `622:403 MaskBoundingBox+` rather than a degraded image.
 2. **A hard seam at the mask edge**, with faint text-like marks, survives into
    your saved image. Steps 8 halves it (×6.76 → ×3.57); it does not remove it.
 3. **Five licence blockers** — `QUESTIONS.md` §0. DMD2 (cc-by-nc) **still ships**
