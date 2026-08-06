@@ -1,0 +1,43 @@
+{
+  "arm": "P_D080",
+  "name": "P_D080__r2p3",
+  "round": 2,
+  "pos": 3,
+  "seq": 6,
+  "changed": "#114 denoise 0.80 (old shipping value), #110 device cpu",
+  "prompt_id": "7f43679b-24ab-437a-8011-7733459abc2d",
+  "client_id": "trackP-pack-timing",
+  "api_nodes": 88,
+  "free_status": 200,
+  "queue_wait_s": 0.0,
+  "exec_seconds": 319.2,
+  "wall_seconds": 336.4,
+  "cached_nodes": 0,
+  "cached_node_ids": [],
+  "status": "success",
+  "images": [
+    "HasMetadata_00016_.png"
+  ],
+  "gpu_pre": {
+    "others_mib": {
+      "8584": 16482,
+      "173610": 22306,
+      "213305": 550
+    },
+    "mine_mib": 27298,
+    "vram_free": 44742361136,
+    "err": null
+  },
+  "gpu_post": {
+    "others_mib": {
+      "8584": 13154,
+      "173610": 22306,
+      "216183": 550
+    },
+    "mine_mib": 19618,
+    "vram_free": 43619432152,
+    "err": null
+  },
+  "valid": true,
+  "invalid_reason": null
+}

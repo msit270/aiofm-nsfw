@@ -1,0 +1,13 @@
+  after /free: torch_vram_free=0.7/0.8 GiB (90s)
+  n2/P_D035 pid=7b0cf914-dd93-4a62-8830-9c3865af4521
+  exec=313.7s cold=True status=success  114=11.88s 110=2.11s
+    slowest: 587:98=96.0s, 619:617=70.7s, 587:92=23.3s, 619:592=12.7s, 620:114=11.9s, 620:165=11.3s
+  after /free: torch_vram_free=0.3/15.2 GiB (90s)
+  n2/P_CLIPDEF pid=ff73a78e-f61f-426a-a483-4a38fd3c10fd
+  exec=153.2s cold=False status=success  114=7.19s 110=2.08s
+    slowest: 587:98=87.9s, 587:92=21.0s, 620:165=10.9s, 622:406=7.2s, 620:114=7.2s, 620:111=2.9s
+  !! P_CLIPDEF came back cold=False status=success — discarding and re-running (attempt 1)
+  after /free: torch_vram_free=0.7/0.8 GiB (90s)
+  n2retry2/P_CLIPDEF pid=da5d5fea-6257-4e66-b7cc-d5d9e6e0d9b9
+  exec=283.8s cold=True status=success  114=11.32s 110=1.90s
+    slowest: 587:98=94.5s, 619:617=82.3s, 587:92=20.3s, 619:607=12.5s, 619:592=11.4s, 620:114=11.3s

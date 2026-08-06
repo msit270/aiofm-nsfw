@@ -1,0 +1,29 @@
+[1] P_D080__r1p1 submitted pid=70ae0a42-695d-418e-89ca-07d436385853 free=200 queue_wait=0.0s vram_free=39550676576 others={'8584': 21026, '173610': 22306}
+[1] P_D080__r1p1 status=success exec=317.1s wall=328.3s cached=0 valid=True  imgs=['HasMetadata_00011_.png']
+[2] P_D035__r1p2 submitted pid=bc80f48d-d989-45d6-9d2c-a281872fc186 free=200 queue_wait=0.0s vram_free=45406746684 others={'8584': 24098, '173610': 22306, '213305': 550}
+[2] P_D035__r1p2 status=success exec=306.2s wall=312.7s cached=0 valid=True  imgs=['HasMetadata_00012_.png']
+[3] P_CLIPDEF__r1p3 submitted pid=99c26ada-b917-4653-bda6-da7e63dc2f7a free=200 queue_wait=0.0s vram_free=68741171260 others={'8584': 1762, '173610': 22306, '213305': 550}
+[3] P_CLIPDEF__r1p3 status=success exec=292.7s wall=304.1s cached=0 valid=True  imgs=['HasMetadata_00013_.png']
+[4] P_D035__r2p1 submitted pid=2b60e888-e14b-4d39-a517-a7896e153a03 free=200 queue_wait=0.0s vram_free=37853251636 others={'8584': 24066, '173610': 22306, '213305': 550}
+[4] P_D035__r2p1 status=success exec=300.3s wall=312.5s cached=0 valid=True  imgs=['HasMetadata_00014_.png']
+[5] P_CLIPDEF__r2p2 submitted pid=78f4dc14-6e90-47c7-a389-a53708cd14cf free=200 queue_wait=0.0s vram_free=64870691388 others={'8584': 4418, '173610': 22306, '213305': 550}
+[5] P_CLIPDEF__r2p2 status=success exec=289.4s wall=304.2s cached=0 valid=True  imgs=['HasMetadata_00015_.png']
+[6] P_D080__r2p3 submitted pid=7f43679b-24ab-437a-8011-7733459abc2d free=200 queue_wait=0.0s vram_free=44742361136 others={'8584': 16482, '173610': 22306, '213305': 550}
+[6] P_D080__r2p3 status=success exec=319.2s wall=336.4s cached=0 valid=True  imgs=['HasMetadata_00016_.png']
+[7] P_CLIPDEF__r3p1 submitted pid=79ed8f35-9b8d-4112-9b53-052c306ccd97 free=200 queue_wait=0.0s vram_free=56795793468 others={'8584': 13154, '173610': 22306, '216183': 550}
+[7] P_CLIPDEF__r3p1 status=success exec=257.3s wall=264.5s cached=0 valid=True  imgs=['HasMetadata_00017_.png']
+[8] P_D080__r3p2 submitted pid=aefd2ec3-5dba-4ad2-a9f0-42bba299e9e9 free=200 queue_wait=0.0s vram_free=62563136056 others={'8584': 1762, '173610': 22306, '216183': 550}
+[8] P_D080__r3p2 status=success exec=326.6s wall=336.8s cached=0 valid=True  imgs=['HasMetadata_00018_.png']
+[9] P_D035__r3p3 submitted pid=61c12196-459f-499f-bdc2-6cad0756d2ba free=200 queue_wait=0.0s vram_free=53392701500 others={'8584': 16482, '173610': 22306, '222279': 550}
+[9] P_D035__r3p3 status=success exec=320.0s wall=328.2s cached=0 valid=True  imgs=['HasMetadata_00019_.png']
+
+==== DONE ====
+  P_D080__r1p1               exec=317.1 cached=0 valid=True 
+  P_D035__r1p2               exec=306.2 cached=0 valid=True 
+  P_CLIPDEF__r1p3            exec=292.7 cached=0 valid=True 
+  P_D035__r2p1               exec=300.3 cached=0 valid=True 
+  P_CLIPDEF__r2p2            exec=289.4 cached=0 valid=True 
+  P_D080__r2p3               exec=319.2 cached=0 valid=True 
+  P_CLIPDEF__r3p1            exec=257.3 cached=0 valid=True 
+  P_D080__r3p2               exec=326.6 cached=0 valid=True 
+  P_D035__r3p3               exec=320.0 cached=0 valid=True 

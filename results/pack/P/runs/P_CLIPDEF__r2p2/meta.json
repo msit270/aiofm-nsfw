@@ -1,0 +1,43 @@
+{
+  "arm": "P_CLIPDEF",
+  "name": "P_CLIPDEF__r2p2",
+  "round": 2,
+  "pos": 2,
+  "seq": 5,
+  "changed": "#114 denoise 0.35, #110 device default (pre-7ce1539)",
+  "prompt_id": "78f4dc14-6e90-47c7-a389-a53708cd14cf",
+  "client_id": "trackP-pack-timing",
+  "api_nodes": 88,
+  "free_status": 200,
+  "queue_wait_s": 0.0,
+  "exec_seconds": 289.4,
+  "wall_seconds": 304.2,
+  "cached_nodes": 0,
+  "cached_node_ids": [],
+  "status": "success",
+  "images": [
+    "HasMetadata_00015_.png"
+  ],
+  "gpu_pre": {
+    "others_mib": {
+      "8584": 4418,
+      "173610": 22306,
+      "213305": 550
+    },
+    "mine_mib": 16450,
+    "vram_free": 64870691388,
+    "err": null
+  },
+  "gpu_post": {
+    "others_mib": {
+      "8584": 16482,
+      "173610": 22306,
+      "213305": 550
+    },
+    "mine_mib": 27298,
+    "vram_free": 32084769492,
+    "err": null
+  },
+  "valid": true,
+  "invalid_reason": null
+}

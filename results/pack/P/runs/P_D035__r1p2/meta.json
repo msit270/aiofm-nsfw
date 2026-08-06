@@ -1,0 +1,43 @@
+{
+  "arm": "P_D035",
+  "name": "P_D035__r1p2",
+  "round": 1,
+  "pos": 2,
+  "seq": 2,
+  "changed": "#114 denoise 0.35 (as committed 8d166e0), #110 device cpu",
+  "prompt_id": "bc80f48d-d989-45d6-9d2c-a281872fc186",
+  "client_id": "trackP-pack-timing",
+  "api_nodes": 88,
+  "free_status": 200,
+  "queue_wait_s": 0.0,
+  "exec_seconds": 306.2,
+  "wall_seconds": 312.7,
+  "cached_nodes": 0,
+  "cached_node_ids": [],
+  "status": "success",
+  "images": [
+    "HasMetadata_00012_.png"
+  ],
+  "gpu_pre": {
+    "others_mib": {
+      "8584": 24098,
+      "173610": 22306,
+      "213305": 550
+    },
+    "mine_mib": 19618,
+    "vram_free": 45406746684,
+    "err": null
+  },
+  "gpu_post": {
+    "others_mib": {
+      "8584": 13154,
+      "173610": 22306,
+      "213305": 550
+    },
+    "mine_mib": 19618,
+    "vram_free": 43619432152,
+    "err": null
+  },
+  "valid": true,
+  "invalid_reason": null
+}

@@ -11,6 +11,36 @@ Track V is validating there and it is the only instance that reproduces the bug.
 
 ---
 
+## READ FIRST
+
+**The two timing numbers, with the verdict on each:**
+
+| lever | measured | quotable? |
+|---|---|---|
+| `#114` denoise **0.80 → 0.35** | whole render −12.1 s (n=3 v n=3, ranges overlap) | **NO — and the effect is genuinely zero.** Both settings execute exactly 8 sampling steps. The −12.1 s exceeds the entire runtime of the only node that changed (6.5 s). Public line: **"denoise 0.35 is free."** |
+| `#110` CLIPLoader **default → cpu** | whole render +29.0 s (confounded); **per-node +37.4 s** (n=2 v n=2, ~1 s spread) | **YES, at node level: ≈ +37 s per cold render**, all of it in four `CLIPTextEncode` nodes, none in the loader. ~12 % of a cold render. Worth paying — but it is **not** free. |
+
+The whole-render cold numbers are **not** the deliverable I would stand behind;
+the per-node numbers are. On a box with three ComfyUI servers sharing one GPU,
+a ~300 s cold render carries ±20–35 s of variance, which swallows both levers.
+Timing the individual nodes off the websocket removes that entirely.
+
+**The artifact:**
+
+```
+dist/AIOFMTech-NSFW.tar.gz   8,155,371 B   sha256 8695a11e…3b8af   170 files (196 entries = 170 files + 26 dirs)
+workflow inside it: f5bed596…7fd8   verified out of the archive, and again after a real install
+```
+
+170 → 170 files, zero additions, zero removals, exactly one member changed, and
+within it exactly the two commits. All six buyer-path cases green. **Nothing was
+uploaded and no credentials were requested.**
+
+**One thing the owner should know that is not about my brief:** live HF still
+serves `3f6d0f2f…` — four cuts behind. Neither graph fix has ever been published.
+
+---
+
 ## JOB 1 — the cold timing number
 
 ### What was run
@@ -392,7 +422,93 @@ with no serialiser drift mixed in.
 
 ### Buyer-path verification against the live gist
 
-*(filled in below)*
+Run with `tools/verify_buyer_path.sh` against **these bytes**
+(`dist/AIOFMTech-NSFW.tar.gz`, `8695a11e…`), piping the **live** gist into an
+empty ComfyUI. The three cases the owner named are marked ★.
+
+| case | what it proves | exit | verdict |
+|---|---|---|---|
+| `gist` | the bootstrap under test is the one actually live | **0** | pass |
+| ★ `no-token` | refuses to start with no token, with a usable message | **1** | pass (1 is the expected outcome) |
+| ★ `bad-archive` | a 200 response that is not a gzip archive is caught | **1** | pass (1 is the expected outcome) |
+| `prepare` | builds a genuinely empty ComfyUI target | **0** | pass |
+| ★ `happy` | full install from the live gist into that empty target | **0** | **pass, 85 s** |
+| `nodes` | every node type the workflow needs actually registers | **0** | pass, 51/51 |
+
+**On the exit codes.** `no-token` and `bad-archive` exit **1 by design** — they
+are negative cases and exit 1 is the pass condition. I am stating that explicitly
+because "exit 1" in a results table otherwise reads as a failure. `bad-token` was
+not run this time; it is not one of the three named and it exercises the same
+guard as `bad-archive`.
+
+Detail worth keeping:
+
+- **`gist`** — `api.github.com` and the raw CDN agree right now, sha256
+  `bf80cb65…589a`, 5,114 bytes, 116 lines, gist updated `2026-08-05T20:40:36Z`.
+  So the CDN is not serving a stale bootstrap.
+- **`no-token`** — exits 1 with the "No HuggingFace token found" banner naming
+  `/workspace/.hf_token`. The buyer is told what to do.
+- **`bad-archive`** — a local mirror serves an HTML 401 page with HTTP **200**;
+  the bootstrap's `tar -tzf` guard (line 85) catches it and prints "the
+  downloaded file is not a valid archive… usually this means the token was
+  rejected". Exit 1.
+- **`happy`** — exit **0 after 85 s**. `integrity: OK`, `comfyui core 0.15.1
+  validated`, node versions pinned, frontend pinned `1.39.19`, 178.8 GB across 87
+  model files verified. **`pip freeze` identical before and after**, so the
+  shared `/venv/main` was not mutated.
+- **`nodes`** — a fresh ComfyUI started from the installed target on port
+  **34011** (inside my assigned `34000-34099` range; I confirmed it free before
+  binding and it was released afterwards). 51 node types referenced by the
+  workflow, **51/51 registered** against 1,935 available.
+- **The hardlink safety check passed**: "live models tree untouched (inode/size/
+  mtime identical for every file)". Nothing wrote through to the ComfyUI tree
+  Track V is running from.
+
+**`PACK_TOP` proved end-to-end, by the installer rather than by my assertion.**
+The real bootstrap unpacked the archive to:
+
+```
+/workspace/ws5-verify/dest-happy/AIOFMTech-NSFW/
+```
+
+which matches the archive basename. And the workflow the installer put in place
+is bit-identical to the archive member:
+
+```
+installed : f5bed59676c6dc5f827100890cc98acd88b7b3c3e9295f50e5283118e9d77fd8
+archive   : f5bed59676c6dc5f827100890cc98acd88b7b3c3e9295f50e5283118e9d77fd8
+as installed: #114 denoise = 0.35     #110 device = cpu
+```
+
+So a buyer running the live command today would receive both fixes.
+
+**Not exercised** (same limitations as WS5/P4/R5, not re-verified by me): a cold
+178 GB model pull — the models were already on this pod and were hardlinked in,
+so the bulk `hf download` ran as a verification pass; pip dependency resolution —
+already satisfied, every install a no-op; and **HF delivery of this artifact**,
+for which I have no mandate. **No render was performed from the installed tree,
+so nothing here is a statement about output quality.**
+
+### The artifact build is reproducible
+
+Rebuilding from the same tree produced a byte-identical archive:
+`8695a11e…3b8af` both times, 8,155,371 bytes. That is observed, not inferred from
+the script's docstring — so the published sha256 is a statement about content.
+
+### What is actually published right now
+
+I checked HF rather than inheriting a hash from notes (read-only `HEAD`, nothing
+uploaded):
+
+```
+x-linked-etag: "3f6d0f2ffd092cf9a1691684029030e37283dd484cd550573290677400aada76"
+x-linked-size: 8202871
+```
+
+**Live HF is still `3f6d0f2f…`, 8,202,871 bytes** — unchanged since R5 recorded
+it, and now four cuts behind. Neither `8d166e0` (denoise) nor `7ce1539` (the
+black-face CLIP fix) has ever reached the Hub, and neither has the browser-bug
+fix. Whatever a buyer downloads today contains none of them.
 
 ---
 

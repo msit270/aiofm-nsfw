@@ -121,7 +121,42 @@ during it.
 
 ---
 
-## 9. Question I could not answer from here
+## 9. `/free` is racy, and the project's rule about it is right for the wrong reason
+
+`HANDOFF.md` says to confirm `execution_cached: []` rather than trust the `/free`.
+That rule is correct. The mechanism turns out to be worse than "the worker
+consumes it later":
+
+- `server.py:976-981` — `/free` only calls `set_flag(...)`. It never frees anything.
+- `main.py:284-296` — the flags are read **after** a prompt executes, and that is
+  the only place `unload_all_models()` and `e.reset()` are called.
+- `execution.py:1154-1159` — `q.get(timeout)` only returns `None` (and so only
+  lets the worker reach `get_flags()`) **when it was given a timeout**.
+- `main.py:242,246` — a timeout is set only while `need_gc` is true, i.e. for
+  `gc_collect_interval = 10.0` seconds after a render.
+
+So on an idle server the worker is parked in `q.get(timeout=None)` and **a
+`/free` can sit unconsumed indefinitely**. Post it more than ~10 s after the last
+render and the next submission may run warm; the flag is then consumed *after*
+that render.
+
+I hit this: my first node-timing pass had one arm come back `cold=False` despite
+a 200 from `/free`. My main 9-run sweep got 9/9 cold — partly because its
+`/history` polling happened to land each `/free` inside the 10 s window. **That
+was luck, not design.**
+
+**Taken:** post `/free`, then wait past `gc_collect_interval` and confirm the
+unload actually happened via `torch_vram_free` before submitting, and
+**discard and re-run any arm that still comes back non-cold**. Every number in
+`P-package.md` is from a run confirmed cold this way.
+
+**Recommendation for the next session:** whatever driver you use, do not treat a
+200 from `/free` as meaning anything at all. Either post it within ten seconds of
+the previous render finishing, or verify and retry.
+
+---
+
+## 10. Question I could not answer from here
 
 **Is `317 s` the right ballpark for a cold render on this pod at all?** R1
 recorded 270.5 s cold for the same graph, but on a different server
