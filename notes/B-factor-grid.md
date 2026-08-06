@@ -164,3 +164,62 @@ not a workaround; it converts a loud failure into a silent one.**
 **bit-identical to `A1_baseline_clean`** (`max_abs_diff 0`). So the constant fill
 in `B1` is not the server going bad — the server produced the reference render
 again immediately afterwards. `B1` is a real result.
+
+### B, third cell — and it flips the standing bet: the `luna, ` prefix **is** load-bearing
+
+| cell | what varied vs `A0_baseline_crash` | prompt_id | status | cached | exception node |
+|---|---|---|---|---|---|
+| `B2_loras_noprefix` | `620:106.text` — the `luna, ` prefix removed, LoRAs left **loaded** | `08878df8-c496-4975-8324-c35bf4888a9e` | **success** 289.5 s | 0 | — |
+| `B2b_..._repeat` | same, repeat | `45294951-c4dc-4d80-b0de-9c6ef7a414c0` | **success** 272.6 s | 0 | — |
+
+Graph diff against `A0_baseline_crash`: **exactly one difference**, `620:106.text`,
+and it is the six characters `luna, ` at the front — `A0 == "luna, " + B2`,
+169 chars vs 163. Nothing else in 88 nodes differs.
+
+**And unlike `B1`, this one is a genuinely healthy render.**
+
+```
+                      flat_frac   luma_sd   modal RGB      modal_frac
+A1 clean baseline      0.0309      59.51    (255,255,255)   0.0245
+B2 / B2b no prefix     0.0305      59.51    (255,255,255)   0.0245     <- healthy
+B1 / B1b no LoRAs      0.2557      66.59    ( 53, 47, 43)   0.2350     <- constant fill
+```
+
+Every detector fired in `B2`: face pass, **`1 lips`** (crop 1855x803 = 1.49 M, under
+`#648`'s 1.7 M ceiling, so the mouth pass ran), eyes-stage face, 5x `SEGS: 1`,
+eyes detailer. It is not the baseline image — `psnr 44.54`, `max_abs_diff 140`
+against `A1` — it is a different, complete render. `B2` and `B2b` are
+bit-identical to each other.
+
+**This contradicts `notes/R4-defects.md` §2b's bet** ("the LoRAs are load-bearing
+and the `luna, ` prefix is not — 2 in 3"). Ran twice per rule 6 because it flipped
+against expectation. **Both halves of that bet are wrong in the same run:** the
+LoRAs are load-bearing (B1), *and so is the prefix* (B2).
+
+### The complete picture for B
+
+Everything with `#106` = the long description unless stated. Rows marked `[18188]`
+are prior sessions' and are quoted for context only — nothing in my verdicts rests
+on them.
+
+| `#106` | LoRAs | crash? | image |
+|---|---|---|---|
+| shipped placeholder | on | no | healthy — `A1`, `CTL1`, bit-identical ×2 |
+| `"luna, "` alone `[18188]` | on | no | not re-measured here |
+| `"a woman's face"` `[18188]` | on | no | not re-measured here |
+| **`luna, ` + long description** | **on** | **CRASH `622:403`** | no image — `A0` |
+| **long description, no prefix** | **on** | **no** | **healthy** — `B2`/`B2b` |
+| **`luna, ` + long description** | **off** | **no** | **face is a 23.5 % constant fill** — `B1`/`B1b` |
+| long description, no prefix `[18188]` | off | no | not re-measured here |
+
+Read down the last three rows: **the crash needs the trigger word AND the long
+description AND the LoRAs together.** Drop any one of the three and it does not
+crash. But only dropping the *prefix* gives you a good image back; dropping the
+*LoRAs* leaves the face destroyed and merely stops the exception being raised.
+
+**[I] Inference, not measurement:** the thing that destroys the face tracks the
+`luna, ` prefix, not the LoRAs — `B1` has the prefix, no LoRAs, and a destroyed
+face; `B2` has the LoRAs, no prefix, and a good one. The LoRAs then decide whether
+the destruction is total enough that `face_yolov8m.pt` loses it and `622:403`
+raises. I have not tested `"luna, "` alone with the LoRAs *off*, so I cannot say
+the prefix does this by itself, without the long description.

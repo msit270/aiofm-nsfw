@@ -1,0 +1,50 @@
+{
+ "arm": "B2b_loras_noprefix_repeat",
+ "note": "CELL B repeat of B2. B2 came out clean AND healthy, which flips the standing 2-in-3 bet that the luna, prefix is not load-bearing. Rule 6: run it twice.",
+ "expect": "clean",
+ "server": "127.0.0.1:28191",
+ "base": "results/r4/R4_CF15_filled/api_graph.json",
+ "changes": [
+  {
+   "path": "620:106.inputs.text",
+   "from": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens",
+   "to": "a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens"
+  }
+ ],
+ "graph_sha256": "311576b66fff2c34cc6193bac91734e09fd6c001e7e74143a1c8610b0c84931d",
+ "prompt_id": "45294951-c4dc-4d80-b0de-9c6ef7a414c0",
+ "client_id": "trackB-B2b_loras_noprefix_repeat-75110ae8",
+ "status": "success",
+ "exec_seconds": 272.6,
+ "wall_seconds": 282.4,
+ "cached_count": 0,
+ "cached_nodes": [],
+ "images": [
+  "HasMetadata_00007_.png"
+ ],
+ "health": [
+  {
+   "file": "HasMetadata_00007_.png",
+   "size": [
+    2688,
+    3456
+   ],
+   "flat_frac": 0.03051,
+   "luma_sd": 59.509,
+   "luma_mean": 138.686,
+   "luma_min": 4.673,
+   "modal_rgb": [
+    255,
+    255,
+    255
+   ],
+   "modal_frac": 0.02448,
+   "has_nan": false,
+   "suspect_poisoned": false
+  }
+ ],
+ "error_node_id": null,
+ "error_node_type": null,
+ "exception_type": null,
+ "exception_message": null
+}
