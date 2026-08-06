@@ -1,6 +1,6 @@
 # HANDOFF.md
 
-**Workflow `f5bed596…` (was `a811b5d6…`) · artifact being re-cut · nothing uploaded.**
+**Workflow `f5bed596…` (was `a811b5d6…`) · artifact `8695a11e…` (was `5f2a0f2b…`) · nothing uploaded.**
 Evidence for every line: `notes/HANDOFF-detail.md` and the per-agent reports in `notes/`.
 
 ---
@@ -203,6 +203,12 @@ the block above.
 `No output node found for id [647] slot [4] MODEL` is gone. `5f2a0f2b…` unpacked
 into a ComfyUI that was empty before the run, on a separately built instance,
 live one never restarted.
+
+> This was proved on `5f2a0f2b…`, the **previous** artifact. The shipping artifact
+> is now `8695a11e…`. The two differ only in `#114 denoise` and `#110 device` —
+> two widget values, no link or node-id change — so the finding carries over, but
+> it has not been re-proved on the new bytes and is left recorded against the old
+> ones rather than silently restated.
 
 ```
 110 nodes audited: 0 unregistered (red), 0 has_errors, 0 dialogs, 0 toasts
@@ -416,21 +422,24 @@ the step the canvas tells them to do. Your call, and nothing about §6.0 changes
 the bytes; it changes who should receive them.
 
 ```
-dist/AIOFMTech-NSFW.tar.gz   8,155,368 B   sha256 5f2a0f2b…c5ab1   170 files
-workflow inside it: a811b5d6…   verified out of the archive, not off the tree
+dist/AIOFMTech-NSFW.tar.gz   8,155,371 B   sha256 8695a11e…3b8af   170 files
+workflow inside it: f5bed596…   verified out of the archive, not off the tree
 ```
-Verified against **these** bytes: all four buyer-path cases green (no token,
-rejected token, bad archive, happy path — exit 0 in 127 s, `integrity: OK`, all
-51 node types registered), the `PACK_TOP` assertion observed firing against a
-discriminating negative control, and a 170 → 170 delta with zero additions and
-zero removals.
+**Re-cut by Track P** against the two graph fixes. `170 → 170` files, zero
+additions, zero removals; exactly one member changed bytes (`OFMTech_NSFW.json`,
+by `diff -rq` over both extracted trees) and within it exactly the two commits:
+`0.8→0.35` on `#114` denoise (`8d166e0`) and `"default"→"cpu"` on `#110`
+CLIPLoader device (`7ce1539`). The extracted member lints clean and carries both
+fixed values. `170 files` is the **file** count — `tar -tzf | wc -l` says 196,
+which is 170 files + 26 directories. Buyer-path cases re-run against these bytes:
+see `notes/P-package.md`.
 
 ```bash
 HF_TOKEN="$(tr -d '[:space:]' < /workspace/.hf_token)" \
 /venv/main/bin/hf upload msit270/AIOFM-Pack \
     /workspace/nsfw-fix/dist/AIOFMTech-NSFW.tar.gz \
     dist/AIOFMTech-NSFW.tar.gz \
-    --commit-message "NSFW pack re-cut against the #114/#105 graph changes (workflow a811b5d6)"
+    --commit-message "NSFW pack re-cut: #114 denoise 0.80->0.35 (8d166e0) and #110 CLIPLoader device default->cpu, the black-face fix (7ce1539). Workflow f5bed596, archive 8695a11e"
 ```
 `dist/` is deliberate — it keeps the artifact out of the bulk
 `hf download --include "models/*"`.
@@ -440,5 +449,5 @@ HF_TOKEN="$(tr -d '[:space:]' < /workspace/.hf_token)" \
 curl -sS -I -H "Authorization: Bearer $(tr -d '[:space:]' < /workspace/.hf_token)" \
   "https://huggingface.co/msit270/AIOFM-Pack/resolve/main/dist/AIOFMTech-NSFW.tar.gz" \
   | grep -i 'x-linked-etag\|x-linked-size'
-# expect: x-linked-etag: "5f2a0f2b…c5ab1"   x-linked-size: 8155368
+# expect: x-linked-etag: "8695a11e…3b8af"   x-linked-size: 8155371
 ```
