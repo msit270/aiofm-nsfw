@@ -384,13 +384,33 @@ python3 tools/contact_sheet.py --arms-dir results/face/arms --out-dir results/fa
 Of your three options — raise cfg / empty and note / leave and document — the
 recommendation is the middle one. **Nothing was changed.**
 
-**Why not raise cfg.** Not a judgement call. `zimage.safetensors` is Z-Image-Turbo
-by sha256; the vendor's quick-start carries `guidance_scale=0.0, # Guidance
-should be 0 for the Turbo models`; ComfyUI's own turbo template runs cfg 1 where
-its base template runs cfg 4; and the file contains **zero guidance tensors**.
-Raising cfg does not switch a feature on — it drives the model out of the
-operating point it was distilled to. Anything anywhere proposing "raise cfg and
-A/B it" should be struck.
+**Why not raise cfg — and the renders changed this argument, so read it as it now
+stands.** The agent expected cfg 3.0 to visibly break the image. **It does not**
+(face 44.56 dB / SSIM 0.9938 against its own cfg-1 arm). So "raising cfg wrecks
+it" is *not* the reason, and the report was corrected to say so.
+
+The reason is that **there is no prize behind that door.** Isolating the negative
+at a cfg where it *is* live — same cfg, text on versus off — moves:
+
+```
+face  #114   0.048 % of pixels by >8 levels
+mouth #165   0.000 %
+eyes  #406   0.000 %
+```
+
+**Even when the negative can act, this string does nothing that matters.** So
+raising cfg buys nothing measurable, while moving a guidance-distilled model off
+its design point: `zimage.safetensors` is Z-Image-Turbo by sha256, the vendor's
+quick-start carries `guidance_scale=0.0, # Guidance should be 0 for the Turbo
+models`, ComfyUI's own turbo template runs cfg 1 where its base template runs
+cfg 4, and the file contains **zero guidance tensors**. Anything proposing "raise
+cfg and A/B it" should still be struck — but because it is pointless, not because
+it is catastrophic.
+
+**cfg is also excluded as a cause of the blistering.** Band-pass energy on
+`#114`'s edit footprint moves **1.8 %** across the entire cfg 1.0→3.0 range, and
+is flat to three decimals on the mouth and eye passes. That is an independent
+instrument arriving at the same place as the face grid: the lever is **steps**.
 
 **Why not just leave it.** `#649` sends the buyer to that exact subgraph, where
 `#105` sits beside `#106` reading *"deformed, ugly, blurry, … watermark, text"* —
