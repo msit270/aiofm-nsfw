@@ -14,7 +14,9 @@ A = "/workspace/nsfw-fix/results/crash/A"
 #  REP_w17 / CTL_placeholder_after_REP_w17 -- VOID: that control failed with
 #               execution_cached: 16, so neither arm was cold. Both re-run as REP2_*.
 EXCLUDE = {"REP_w17", "CTL_placeholder_after_REP_w17"}
-EXCLUDE_PREFIX = ("TAP114_", "A0_")
+#  E398_*   -- the variable in those arms is 622:398 (the EYE prompt), not
+#              620:106, so their 620:106 length says nothing about the outcome.
+EXCLUDE_PREFIX = ("TAP114_", "A0_", "E398_")
 
 
 def main():

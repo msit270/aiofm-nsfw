@@ -5,3 +5,4 @@ token sweep finished; running REP redo
 [E398_tok28_ctl] success exec=59.0s cached=0 err=None  imgs=['tap163_00062_.png', 'HasMetadata_00102_.png']
 [REP2_w17] submitted ab34aa8c-1a77-4ea4-b201-7ec981e1bbcd cid=trackA-REP2_w17-6635149d queue_before=(0,0) vram_free=49.5GiB
 [REP2_w17] error exec=58.2s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00063_.png']
+[CTL_placeholder_after_REP2_w17] submitted 5b462320-2ff9-49cd-b9ee-2506dec165bb cid=trackA-CTL_placeholder_after_REP2_w17-139f2a99 queue_before=(0,0) vram_free=31.4GiB

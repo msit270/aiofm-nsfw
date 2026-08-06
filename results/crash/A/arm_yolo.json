@@ -2251,13 +2251,42 @@
   "flat_frac": 0.1876
  },
  "E398_tok31": {
-  "status": null,
-  "prompt_id": null,
-  "exec_seconds": null,
-  "cached": null,
-  "text": null,
+  "status": "success",
+  "prompt_id": "22d1dc43-fbcb-4680-a504-fdf28e39494f",
+  "exec_seconds": 83.7,
+  "cached": 0,
+  "text": "TRIGGER, PROMPT FOR YOUR MODEL",
   "error_node": null,
-  "tap": null
+  "tap": "nTAP163__tap163_00061_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   }
+  },
+  "highest_conf": 0.8952752351760864,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1876
  },
  "T_tok47": {
   "status": "error",
@@ -2267,6 +2296,91 @@
   "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
   "error_node": "622:403",
   "tap": "nTAP163__tap163_00059_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 0,
+    "max_conf": null
+   },
+   "0.5": {
+    "n": 0,
+    "max_conf": null
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   }
+  },
+  "highest_conf": 0.4656447172164917,
+  "luma_sd": 60.57,
+  "flat_frac": 0.3591
+ },
+ "CTL_placeholder_after_REP2_w17": {
+  "status": null,
+  "prompt_id": null,
+  "exec_seconds": null,
+  "cached": null,
+  "text": null,
+  "error_node": null,
+  "tap": null
+ },
+ "E398_tok28_ctl": {
+  "status": "success",
+  "prompt_id": "4d5de9c9-2154-4a24-a7c2-cb5cc050589f",
+  "exec_seconds": 59.0,
+  "cached": 0,
+  "text": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00062_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   }
+  },
+  "highest_conf": 0.8952752351760864,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1876
+ },
+ "REP2_w17": {
+  "status": "error",
+  "prompt_id": "ab34aa8c-1a77-4ea4-b201-7ec981e1bbcd",
+  "exec_seconds": 58.2,
+  "cached": 0,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible",
+  "error_node": "622:403",
+  "tap": "nTAP163__tap163_00063_.png",
   "per_threshold": {
    "0.6": {
     "n": 0,

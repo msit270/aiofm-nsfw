@@ -129,8 +129,8 @@
  },
  {
   "tokens": 30,
-  "n_arms": 6,
-  "n_crash": 6,
+  "n_arms": 7,
+  "n_crash": 7,
   "n_clean": 0,
   "verdict": "CRASH",
   "arms": [
@@ -139,7 +139,8 @@
    "A3_swap_fine",
    "A3_swap_Tuesday",
    "A3_swap_obvious",
-   "T_tok30"
+   "T_tok30",
+   "REP2_w17"
   ]
  },
  {
