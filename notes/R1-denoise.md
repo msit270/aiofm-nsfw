@@ -191,7 +191,34 @@ derived from; if my four decision arms split on it, the sheet says so.
 
 # 3. Where the freckles die — the tap render
 
-*(Section filled in when the tap lands; see §7 for method.)*
+## The prediction, and why the tap is designed the way it is
+
+Before the tap ran there was already one piece of evidence pointing upstream of
+`#114`. P3's baseline arm (`results/cfg/00-baseline-full/`) ran **with both
+Luna LoRAs** at shipped settings and saved `P3_in_face` — a tap on `620:137`,
+the image `#114` receives. Its base render is still in `temp/`. Over a fixed
+nose/cheek mask on that composition, with the filter radius scaled so the
+physical scale matches:
+
+| P3 stage | pigment % of mask | bright-blob % of mask |
+|---|---|---|
+| base render `619:601` (1792x2304) | **3.085** | 9.006 |
+| into `#114`, `620:137` (2688x3456) | **1.117** | 6.869 |
+| delivered `#505` (2688x3456) | 8.814 | 25.178 |
+
+"pigment" = locally darker **and** locally more yellow; "bright-blob" = locally
+brighter, which is the raised-bump defect. **Two thirds of the pigment is gone
+before `#114` is reached.** The rise at `#505` is the bump field, not restored
+freckles — the same over-count established in §1, where the dark interstices
+between bumps satisfy the pigment rule.
+
+That measurement crosses a resolution change (1792x2304 → 2688x3456), which on
+its own could shift a per-pixel statistic. So the tap is designed to give
+**same-resolution comparisons on both sides of the change**: stages 1–4 are all
+1792x2304, stages 5–7 all 2688x3456. Comparing 1 → 4 and 5 → 6 is scale-free;
+only 4 → 5 crosses it, and that step *is* the upscale.
+
+*(Tap result filled in below when the render lands.)*
 
 ---
 
@@ -282,10 +309,21 @@ noise level. So `Y1` and `Y2` should differ in *fabricated texture*, not in
   contains either.
 * Same seed (12345, `seed_control: fixed`) and the same freckle-bearing prompt
   as the rest of the grid, taken verbatim from `L1b`'s submitted graph.
-* `POST /free {"unload_models": true, "free_memory": true}` before each timed
-  run, **only** when `queue_running == 0 and queue_pending == 0`. The server is
-  shared with three other agents; freeing under someone else's render would
-  give them a cold start and corrupt their measurements.
+* `POST /free {"unload_models": true, "free_memory": true}` **only** when
+  `queue_running == 0 and queue_pending == 0`. The server is shared with three
+  other agents; freeing under someone else's render would give them a cold
+  start and corrupt their measurements. That constraint is why the queue, not
+  the GPU, was the limiting resource for this workstream.
+* **A health control ran before the four arms and gated them.** The server has
+  failed twice today from the same cause with two different symptoms — once
+  returning a flat grey face with `status: success`, once crashing loudly at
+  `622:403 MaskBoundingBox+` (`ComfyUI_essentials/mask.py:184`, `x.min()` on an
+  all-zero mask). So after `/free` I resubmitted `L1b`'s own `api_graph.json`
+  **byte-identically** and compared the result to `L1b`'s delivered PNG. The
+  script exits without spending the window if that control does not come back
+  matching. This is a control on the instrument reported as mean and maximum
+  absolute difference — **not** a hash check, and not a proof that any change
+  is inert.
 * **No `POST /api/interrupt`. No `POST /api/queue {"clear": true}`.** No queue
   item was deleted, so `execution.py:1218-1229`'s `wipe_queue()` path was never
   reachable.
