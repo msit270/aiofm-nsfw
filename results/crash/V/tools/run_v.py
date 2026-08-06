@@ -64,6 +64,15 @@ AWKWARD = [arm(f"V_{k}", HEAD, v, v_tok.count(v),
                f"Awkward set: {k}. Token count measured, not assumed.")
            for k, v in v_strings.AWKWARD.items()]
 
+# Every awkward string except AW4/AW5 lands ABOVE 50 tokens, and Track A's map
+# stops at 50. So a green awkward arm proves nothing on its own -- there is no
+# evidence this instance fails at 72/103/166 tokens at all. These are the
+# one-widget controls that make those arms readable.
+AWKCTL = [arm(f"V_{k}_ctl", MID, v_strings.AWKWARD[k], v_tok.count(v_strings.AWKWARD[k]),
+              f"Control for the awkward arm {k}: same string, device default. "
+              f"Establishes whether this instance fails at that length at all.")
+          for k in ("AW1_verylong", "AW2_punct", "AW3_nonenglish")]
+
 SWEEP = []
 for n in range(26, 51):
     SWEEP.append(arm(f"V_SW_tok{n}", HEAD, ladder(n), n,
@@ -131,7 +140,8 @@ E398 = [
 ]
 
 STAGES = {"iso": ISO, "proof": PROOF, "awkward": AWKWARD, "sweep": SWEEP,
-          "endctl": ENDCTL, "clean": CLEAN, "seeds": SEEDS, "e398": E398}
+          "endctl": ENDCTL, "clean": CLEAN, "seeds": SEEDS, "e398": E398,
+          "awkctl": AWKCTL}
 
 # --- full 88-node renders -------------------------------------------------
 # The probe stages freeze the base image at trackA_base137.png. The SHIPPED file's

@@ -44,3 +44,10 @@ results/face/control/R1_control_L1b_repeat/*.png
 # The detector numbers that the argument actually rests on are in
 # results/crash/A/arm_yolo.json and yolo_A4.json, not in the pixels.
 results/crash/A/arms/*/*.png
+
+# TRACK V band sweep (results/crash/V/arms/V_SW_*): 25+ ladder arms at ~14 MB of
+# PNG each. Their evidence is the status/error node in meta.json and the measured
+# black/blob/YOLO figures in results/crash/V/out/v_checks.json, all of which ARE
+# committed. The pixels add ~400 MB and nothing a reader needs. Same reasoning as
+# the ws4 control repeats above.
+results/crash/V/arms/V_SW_*/*.png

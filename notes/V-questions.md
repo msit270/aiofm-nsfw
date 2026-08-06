@@ -127,6 +127,16 @@ On the **delivered frame** (`505 ← 622:418`) when there is one. A crashing arm
 never produces one, so for those the only frame available is the `TAP163` tap of
 `621:163` — the exact image handed to the failing detector. Each row says which.
 
+### Every "the fix works" arm has a one-widget control at the same string
+
+A green arm is only evidence if the identical arm with `620:110.device` back at
+`default` goes red. Otherwise a fix that does nothing scores 100 %. So the grid
+is built in pairs, and the awkward set in particular needed controls I nearly
+forgot: `AW1` is 166 tokens, `AW3` 103, `AW2` 72, and **Track A's map stops at
+50**. Nothing on the record says this instance fails at those lengths at all, so
+`V_AW*_ctl` arms (same string, `device: default`) were added to make the awkward
+results readable rather than decorative.
+
 ### The pass thresholds
 
 * **B**: exact-`(0,0,0)` fraction ≤ 0.001, **and** the largest 4-connected
