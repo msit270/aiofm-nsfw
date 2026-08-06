@@ -2,26 +2,71 @@
  {
   "a": "V_CLEAN_mid_16a",
   "b": "V_CLEAN_head_16a",
-  "error": "missing frame"
+  "shape": [
+   3456,
+   2688,
+   3
+  ],
+  "psnr_db": 48.77,
+  "max_abs_diff": 135,
+  "mean_abs_diff": 0.10825,
+  "frac_pixels_differing": 0.12824,
+  "frac_pixels_diff_gt_1": 0.02045
  },
  {
   "a": "V_CLEAN_mid_16a",
   "b": "V_CLEAN_mid_16b",
-  "error": "missing frame"
+  "shape": [
+   3456,
+   2688,
+   3
+  ],
+  "psnr_db": 99.0,
+  "max_abs_diff": 0,
+  "mean_abs_diff": 0.0,
+  "frac_pixels_differing": 0.0,
+  "frac_pixels_diff_gt_1": 0.0
  },
  {
   "a": "V_CLEAN_head_16a",
   "b": "V_CLEAN_head_16b",
-  "error": "missing frame"
+  "shape": [
+   3456,
+   2688,
+   3
+  ],
+  "psnr_db": 99.0,
+  "max_abs_diff": 0,
+  "mean_abs_diff": 0.0,
+  "frac_pixels_differing": 0.0,
+  "frac_pixels_diff_gt_1": 0.0
  },
  {
   "a": "V_CLEAN_mid_16b",
   "b": "V_CLEAN_head_16b",
-  "error": "missing frame"
+  "shape": [
+   3456,
+   2688,
+   3
+  ],
+  "psnr_db": 48.77,
+  "max_abs_diff": 135,
+  "mean_abs_diff": 0.10825,
+  "frac_pixels_differing": 0.12824,
+  "frac_pixels_diff_gt_1": 0.02045
  },
  {
   "a": "V_CLEAN_mid_40a",
   "b": "V_CLEAN_head_40a",
-  "error": "missing frame"
+  "shape": [
+   3456,
+   2688,
+   3
+  ],
+  "psnr_db": 47.67,
+  "max_abs_diff": 135,
+  "mean_abs_diff": 0.12969,
+  "frac_pixels_differing": 0.11916,
+  "frac_pixels_diff_gt_1": 0.02553
  }
 ]

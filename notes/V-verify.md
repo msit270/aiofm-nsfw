@@ -288,5 +288,61 @@ stream — and every one that passed, passed all four. Not one arm passed A whil
 failing B, C or D. Where the fix fails it fails loudly, at `622:403`; it never
 produced the silent ruined-face success that `PHASE3-spec.md` §2 warned about.
 
-*(sections 7-9 — band sweep 26-50, inertness and cost, final controls — appended
-as those arms land)*
+---
+
+## 7. The fix is NOT inert on clean renders — and the noise floor this project quotes does not apply here
+
+The brief asked: "compare a 16-token render before and after the device change …
+use the API-graph diff plus objective image deltas". Hashing output is banned, so
+none was done.
+
+**API-graph diff**: `V_CLEAN_mid_16a` vs `V_CLEAN_head_16a`, constant-folded —
+`RESULT: DIFFERENT — 1 difference(s): 620:110.inputs.device "default" → "cpu"`.
+One input, on one node. Nothing else in the submitted work differs.
+
+**Objective image deltas**, delivered frames (`505 ← 622:418`), all cold:
+
+| pair | what it isolates | PSNR | max abs diff | mean abs diff | pixels differing | pixels differing by >1 |
+|---|---|---|---|---|---|---|
+| `mid_16a` vs `mid_16b` | run-to-run, `default` | **99.00** | **0** | 0.00000 | **0.00000** | 0.00000 |
+| `head_16a` vs `head_16b` | run-to-run, `cpu` | **99.00** | **0** | 0.00000 | **0.00000** | 0.00000 |
+| `mid_16a` vs `head_16a` | **the fix**, 16 tokens | 48.77 | **135** | 0.10825 | **0.12824** | 0.02045 |
+| `mid_16b` vs `head_16b` | the fix, 16 tokens, repeat | 48.77 | **135** | 0.10825 | **0.12824** | 0.02045 |
+| `mid_40a` vs `head_40a` | the fix, 40 tokens | 47.67 | **135** | 0.12969 | 0.11916 | 0.02553 |
+
+**Read the first two rows before the others.** Repeating the *same* graph on this
+instance gives a **bit-identical** frame — `max_abs_diff 0`, not one pixel
+different, twice. So on `:18188` the run-to-run noise floor is not 48.7 dB; it is
+**zero**.
+
+That matters because `notes/E-rootcause.md` argues the cured arms are healthy
+partly on the grounds that they measure "PSNR 48.9 dB against the known-good
+placeholder render — i.e. a real face, at this project's own measured run-to-run
+floor of ~48.7 dB". **On this instance that comparison has no headroom in it.**
+A same-graph repeat here is identical, so 48.77 dB between the two devices is not
+noise — **all of it is the fix**. On a clean 16-token render where nothing was
+wrong, changing the widget moves **12.8 % of the frame's pixels**, 2.0 % of them
+by more than one 8-bit level, with a worst-case channel delta of **135 out of
+255**.
+
+Whether that is visible or an improvement is not mine to judge — the pair is at
+`results/crash/V/arms/V_CLEAN_{mid,head}_16a/` and the 1:1 sheets are in
+`results/crash/V/out/`. But "the fix must be inert where nothing was wrong" is
+**not satisfied**, and it is measurable rather than arguable.
+
+### Cost
+
+Cold, on the probe graph, same box, interleaved:
+
+| tokens | `device: default` | `device: cpu` | delta |
+|---|---|---|---|
+| 16 | 50.1 s, 50.9 s | 64.7 s, 64.7 s | **+14.1 s** |
+| 40 | 50.6 s | 68.2 s | **+17.6 s** |
+
+Track E's "+14 s per render" is **confirmed** at 16 tokens and grows with prompt
+length, as an encoder running on the CPU would. These are probe-graph timings —
+the SDXL half is replaced by a frozen base image — so they are the marginal cost
+of the Z-Image detail stages, not of a whole buyer render.
+
+*(sections 8-9 — band sweep 26-50 and the final controls — appended as those arms
+land)*
