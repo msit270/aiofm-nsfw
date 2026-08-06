@@ -175,11 +175,40 @@ faint reddish text-like marks along it, and **it survives into the saved image**
 **The mouth is not merely bumpy — it is destroyed.** At 1:1 the lips and chin
 carry **rectangles, hexagons, dot-matrix grids, ladder patterns and hair-like
 filaments**, as if a texture from a different image were composited on. An older
-baseline shows the bumps but **not** these. The difference between them is
-framing: that face was **654x891**, this one **1428x1989**. **[I]** Tighter
-portrait → worse crop-to-`guide_size` ratio → worse invented texture. If that
-holds, **a buyer shooting close-up portraits gets a materially worse result than
-one shooting wider, from the same graph.**
+baseline shows the bumps but **not** these.
+
+### The mechanism, corrected — `#114` diffuses 9.3 megapixels in one pass
+
+I twice told the render agent the face pass was *downsampling* to 1024 and
+scaling back up. **That was wrong**, caught by the agent reading the server's own
+log rather than reasoning about it:
+
+```
+Detailer: segment upscale for ((1297.18, 1833.26)) | crop region (2688, 3456) x 1.0 -> (2688, 3456)
+```
+
+`x 1.0` — no downsample. `#114` has `force_inpaint: true`, and Impact clamps a
+would-be downscale up to 1.0 and samples at native size
+(`modules/impact/core.py:291-320`), so **`max_size 1024` is inert on this node**.
+Corroborated by the eye pass in the same log, where the lever *does* engage:
+`crop region (1381, 342) x 1.39 -> (1920, 475)`, and 1920/1381 = 1.3903 exactly.
+
+**So `#114` diffuses the full 2688x3456 — 9.3 MP — in one pass at denoise 0.8 for
+30 steps.** Z-Image is a ~1024-class model; that is roughly 36x its training
+area. Tiled, repeated micro-structure — hexagons, dot-matrix grids, ladders — is
+the classic signature of sampling far **above** a model's native resolution.
+
+Consequences:
+- **`guide_size`/`max_size` is not the lever.** Below 3456 it changes nothing;
+  above it, it makes things worse.
+- **`bbox_crop_factor` (currently 3) is the lever** — the only setting that makes
+  this pass sample *fewer* pixels. 1.5 → ~1946x2750; 1.0 → ~1297x1833, which is
+  in the range Z-Image is actually trained for.
+- **Close-up framing is still worse, and the finding survives** — but the variable
+  is the absolute pixel count diffused in one pass, not a downsample ratio. The
+  older baseline's crop was ~5.2 MP against this one's 9.3 MP. It saturates once
+  `bbox x 3` exceeds the frame. **A buyer shooting close-up portraits gets a
+  materially worse result than one shooting wider, from the same graph.**
 
 ### And at cfg 1, your positive prompt is the *only* steering signal
 
