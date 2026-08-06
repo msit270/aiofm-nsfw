@@ -236,24 +236,6 @@
   "luma_sd": 59.67,
   "flat_frac": 0.1876
  },
- "L_w06": {
-  "status": null,
-  "prompt_id": null,
-  "exec_seconds": null,
-  "cached": null,
-  "text": null,
-  "error_node": null,
-  "tap": null
- },
- "CTL_placeholder_after_w24": {
-  "status": null,
-  "prompt_id": null,
-  "exec_seconds": null,
-  "cached": null,
-  "text": null,
-  "error_node": null,
-  "tap": null
- },
  "L_w08": {
   "status": "success",
   "prompt_id": "ab70ad85-b7a9-465e-9473-b13c6f0de022",
@@ -482,13 +464,346 @@
   "luma_sd": 60.57,
   "flat_frac": 0.3591
  },
- "L_w18": {
-  "status": null,
-  "prompt_id": null,
-  "exec_seconds": null,
-  "cached": null,
-  "text": null,
+ "CTL_placeholder_after_w18": {
+  "status": "success",
+  "prompt_id": "0b7a90f7-a14c-4761-a7c9-36d0ab4d3b3d",
+  "exec_seconds": 80.6,
+  "cached": 0,
+  "text": "TRIGGER, PROMPT FOR YOUR MODEL",
   "error_node": null,
-  "tap": null
+  "tap": "nTAP163__tap163_00016_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   }
+  },
+  "highest_conf": 0.8952752351760864,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1876
+ },
+ "L_w19": {
+  "status": "success",
+  "prompt_id": "88cb5e94-56cf-4ccb-ad6d-d126953b63bc",
+  "exec_seconds": 61.5,
+  "cached": 0,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00017_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8948644399642944
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8948644399642944
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8948644399642944
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8948644399642944
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8948644399642944
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8948644399642944
+   }
+  },
+  "highest_conf": 0.8948644399642944,
+  "luma_sd": 59.67,
+  "flat_frac": 0.186
+ },
+ "L_w20": {
+  "status": "success",
+  "prompt_id": "6e284102-bfbb-470d-b038-95fca0abc442",
+  "exec_seconds": 75.2,
+  "cached": 0,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes,",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00018_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8948442339897156
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8948442339897156
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8948442339897156
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8948442339897156
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8948442339897156
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8948442339897156
+   }
+  },
+  "highest_conf": 0.8948442339897156,
+  "luma_sd": 59.67,
+  "flat_frac": 0.186
+ },
+ "CTL_placeholder_after_w24": {
+  "status": "success",
+  "prompt_id": "88c2e96f-a527-442b-aeb5-891eaecb6908",
+  "exec_seconds": 69.3,
+  "cached": 0,
+  "text": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00012_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8952752351760864
+   }
+  },
+  "highest_conf": 0.8952752351760864,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1876
+ },
+ "L_w06": {
+  "status": "success",
+  "prompt_id": "572d2e9e-75c3-4064-abde-777776faeb4a",
+  "exec_seconds": 71.4,
+  "cached": 0,
+  "text": "luna, a young woman with light",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00007_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8956968784332275
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8956968784332275
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8956968784332275
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8956968784332275
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8956968784332275
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8956968784332275
+   }
+  },
+  "highest_conf": 0.8956968784332275,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1878
+ },
+ "L_w18": {
+  "status": "error",
+  "prompt_id": "91fb3cbb-f66b-424c-b3c8-ca3d64a56a66",
+  "exec_seconds": 62.1,
+  "cached": 0,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores,",
+  "error_node": "622:403",
+  "tap": "nTAP163__tap163_00015_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 0,
+    "max_conf": null
+   },
+   "0.5": {
+    "n": 0,
+    "max_conf": null
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.4656447172164917
+   }
+  },
+  "highest_conf": 0.4656447172164917,
+  "luma_sd": 60.57,
+  "flat_frac": 0.3591
+ },
+ "L_w21": {
+  "status": "success",
+  "prompt_id": "fe20c212-383e-421c-88de-fc17256576f1",
+  "exec_seconds": 76.1,
+  "cached": 0,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00019_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8948418498039246
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8948418498039246
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8948418498039246
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8948418498039246
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8948418498039246
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8948418498039246
+   }
+  },
+  "highest_conf": 0.8948418498039246,
+  "luma_sd": 59.66,
+  "flat_frac": 0.1861
+ },
+ "L_w22": {
+  "status": "success",
+  "prompt_id": "c2e847c0-22f9-4053-a238-7259b4df7645",
+  "exec_seconds": 81.8,
+  "cached": 0,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00020_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8949219584465027
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8949219584465027
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8949219584465027
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8949219584465027
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8949219584465027
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8949219584465027
+   }
+  },
+  "highest_conf": 0.8949219584465027,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1862
+ },
+ "L_w23": {
+  "status": "success",
+  "prompt_id": "568d2865-fbf1-4412-807c-51aac4736199",
+  "exec_seconds": 60.1,
+  "cached": 0,
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph,",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00021_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8948104381561279
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8948104381561279
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8948104381561279
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8948104381561279
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8948104381561279
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8948104381561279
+   }
+  },
+  "highest_conf": 0.8948104381561279,
+  "luma_sd": 59.68,
+  "flat_frac": 0.1859
  }
 }

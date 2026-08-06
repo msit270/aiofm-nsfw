@@ -27,8 +27,8 @@ def main(only=None):
             continue
         if only and d not in only:
             continue
-        if d in res:
-            continue
+        if res.get(d, {}).get("status") is not None:
+            continue                      # only cache rows that actually landed
         taps = glob.glob(os.path.join(p, "nTAP163__*.png"))
         meta = json.load(open(os.path.join(p, "meta.json"))) if os.path.exists(os.path.join(p, "meta.json")) else {}
         row = {"status": meta.get("status"), "prompt_id": meta.get("prompt_id"),

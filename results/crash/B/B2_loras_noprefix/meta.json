@@ -1,0 +1,50 @@
+{
+ "arm": "B2_loras_noprefix",
+ "note": "CELL B, third cell. Crashing string WITHOUT the 'luna, ' prefix, both LoRAs LOADED. Single variable vs A0_baseline_crash: the 6-char prefix. String is byte-identical to R4_D2_real's, so this also differs from R4_D2_real (no LoRAs, clean) in the LoRAs alone.",
+ "expect": "unknown",
+ "server": "127.0.0.1:28191",
+ "base": "results/r4/R4_CF15_filled/api_graph.json",
+ "changes": [
+  {
+   "path": "620:106.inputs.text",
+   "from": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens",
+   "to": "a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens"
+  }
+ ],
+ "graph_sha256": "311576b66fff2c34cc6193bac91734e09fd6c001e7e74143a1c8610b0c84931d",
+ "prompt_id": "08878df8-c496-4975-8324-c35bf4888a9e",
+ "client_id": "trackB-B2_loras_noprefix-ccffb207",
+ "status": "success",
+ "exec_seconds": 289.5,
+ "wall_seconds": 300.3,
+ "cached_count": 0,
+ "cached_nodes": [],
+ "images": [
+  "HasMetadata_00006_.png"
+ ],
+ "health": [
+  {
+   "file": "HasMetadata_00006_.png",
+   "size": [
+    2688,
+    3456
+   ],
+   "flat_frac": 0.03051,
+   "luma_sd": 59.509,
+   "luma_mean": 138.686,
+   "luma_min": 4.673,
+   "modal_rgb": [
+    255,
+    255,
+    255
+   ],
+   "modal_frac": 0.02448,
+   "has_nan": false,
+   "suspect_poisoned": false
+  }
+ ],
+ "error_node_id": null,
+ "error_node_type": null,
+ "exception_type": null,
+ "exception_message": null
+}

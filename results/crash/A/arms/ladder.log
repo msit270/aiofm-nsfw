@@ -32,3 +32,9 @@ ladder done
 [L_w20] submitted 6e284102-bfbb-470d-b038-95fca0abc442 cid=trackA-L_w20-fd1560a2 queue_before=(0,0) vram_free=63.7GiB
 [L_w20] success exec=75.2s cached=0 err=None  imgs=['tap163_00018_.png', 'HasMetadata_00073_.png']
 [L_w21] submitted fe20c212-383e-421c-88de-fc17256576f1 cid=trackA-L_w21-403c1aea queue_before=(0,0) vram_free=64.8GiB
+[L_w21] success exec=76.1s cached=0 err=None  imgs=['tap163_00019_.png', 'HasMetadata_00074_.png']
+[L_w22] submitted c2e847c0-22f9-4053-a238-7259b4df7645 cid=trackA-L_w22-5bd2970b queue_before=(0,0) vram_free=66.7GiB
+[L_w22] success exec=81.8s cached=0 err=None  imgs=['tap163_00020_.png', 'HasMetadata_00075_.png']
+[L_w23] submitted 568d2865-fbf1-4412-807c-51aac4736199 cid=trackA-L_w23-5e1e4c09 queue_before=(0,0) vram_free=55.0GiB
+[L_w23] success exec=60.1s cached=0 err=None  imgs=['tap163_00021_.png', 'HasMetadata_00076_.png']
+ladder done
