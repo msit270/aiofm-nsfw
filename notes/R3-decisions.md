@@ -324,30 +324,37 @@ if it landed, the result is appended at the end of this section.*
 
 ### What I see, at 1:1
 
-Three sheets, every tile verified byte-identical to its source crop:
+Four sheets, every tile verified byte-identical to its source crop:
 
 * **`results/r3_crop/R3_crop_face_1to1.png`** — 940×1180 face, all three arms
-* **`results/r3_crop/R3_crop_eyesnose_1to1.png`** — 600×600 nose, philtrum, mouth
+* **`results/r3_crop/R3_crop_eyesnose_1to1.png`** — 600×600 nose and philtrum
+* **`results/r3_crop/R3_crop_mouth_1to1.png`** — 900×600 lips and chin
 * **`results/r3_crop/R3_crop_jawseam_1to1.png`** — 600×600 jaw, across the mask edge
 
 **cf 3, the shipped setting, is producing visible damage on the face.** In the
-nose/mouth crop the philtrum and upper lip are covered in a fibrous, hairy,
-granular growth and the lips are broken up with white filaments and red debris.
-It reads as a skin condition. The cheeks carry white blobs and a sandpaper
-texture; the freckles are lost in the noise. In the jaw crop the mask seam is a
-**hard diagonal line** with blistered skin on one side and smooth skin on the
-other. This is the shipped graph at steps 8 — steps 8 reduced this defect
-(`HANDOFF.md` §4: 764 → 239 blobs/MP) but plainly did not remove it.
+nose/philtrum crop the upper lip is covered in a fibrous, hairy, granular growth
+and the lips are broken up with white filaments and red debris. It reads as a
+skin condition. The chin is pale, scaly and blotchy, like dried salt. The cheeks
+carry white blobs and a sandpaper texture and the freckles are lost in the noise.
+In the jaw crop the mask seam is a **hard diagonal line** with blistered skin on
+one side and smooth skin on the other. This is the shipped graph at steps 8 —
+steps 8 reduced this defect (`HANDOFF.md` §4: 764 → 239 blobs/MP) but plainly did
+not remove it, and this region is where the remainder lives.
 
-**cf 1.5 is the same face, without the damage.** Skin looks like skin, pores are
-visible and individual rather than blistered, lips have fine vertical texture,
-lashes are strands, eyebrows resolve into hairs. The seam drops to a soft
-transition. One real defect survives: a raised yellowish blister on the lower
-lip.
+**cf 1.5 is the same face without the damage — but not spotless.** Skin looks
+like skin, pores are visible and individual rather than blistered, lips have fine
+vertical texture, lashes are strands, eyebrows resolve into hairs, and the seam
+drops to a soft transition. Two defects survive that cf 1.0 does not have: a
+raised yellow-tan blister on the upper lip, and a pale diagonal smear on the
+chin.
 
-**cf 1.0 is cleaner still and noticeably softer.** Pore structure around the
-nose and upper lip is largely gone and the skin edges toward waxy; eyebrow edges
-soften. The lip blister is smaller. The seam is almost invisible.
+**cf 1.0 is the cleanest arm and the softest.** No lip blister, no chin smear,
+seam almost invisible. It has also given up most of the pore structure around the
+nose and upper lip and the skin edges toward waxy; eyebrow edges soften.
+
+**I cannot tell from one image whether cf 1.5's blister and smear are systematic
+or luck.** That is a real gap in this evidence and it is the thing that could
+flip the recommendation.
 
 ### Cost
 
@@ -367,21 +374,67 @@ fewer nodes from cache — which is why the per-pass figure is given. Even after
 subtracting its model load, `#114` costs ~63 s at cf 3 against ~25 s at cf 1.5.
 The 22.6 s VAE decode of a 9.3 MP crop is pure overhead bought by the clamp.
 
+### The finding that came out of this and is bigger than the lever
+
+**`#165 Mouth Detailer` did not run in any of my three arms — and it did not run
+in the steps-8 arm you were shown either.** The lips detector fires
+(`0: 640x512 1 lips`) and then `#648`'s size guard throws the segment away:
+
+```
+R3_control_cf3   [filter] value=1861888 / True, 0, 1700000
+R3_cf1.5         [filter] value=1877779 / True, 0, 1700000
+R3_cf1.0         [filter] value=1827668 / True, 0, 1700000
+```
+
+`modules/impact/hooks.py:507-508` routes `post_detection` into
+`SEGSRangeFilter.doit`, which at `segs_nodes.py:614-620` keeps the segment only
+when `min_value <= area <= max_value` and logs `[filter]` when it drops it.
+`#648` is set to `area(=w*h)` / `inside` / `0` / **`1700000`**.
+
+Across the whole server log — every render by every workstream since 21:37
+yesterday — that guard has made **39 decisions: 19 passed, 20 dropped.** The
+dropped values cluster at **1.77 M – 2.06 M** against a 1.70 M ceiling, i.e. 4 %
+to 21 % over. The threshold does not sit outside the natural distribution of
+this pipeline's lips crop area; it sits **in the middle of it**. Which side a
+given render lands on depends on how large the generated mouth happens to be.
+
+So a documented pass, cited in `HANDOFF.md` §4 as the internal control for the
+step count, is silently skipped about half the time, with no warning and
+`status: success`. **`#648`'s own title says "(see note)" and there is no such
+note anywhere in the workflow.**
+
+Two consequences:
+
+* **It makes the crop-factor evidence cleaner, not dirtier.** The lip and chin
+  damage in these crops is `#114`'s work with nothing downstream retouching it.
+* **It is a product defect of its own** and it is not one of my three decisions,
+  so I have not touched it. It needs a decision: raise the ceiling, remove the
+  guard, or make it announce itself.
+
 ### Recommendation: `#114 bbox_crop_factor` **3 → 1.5**
 
-Not 1.0, and the reason is your own stated preference rather than a metric. You
-rejected `steps 8 + denoise 0.50` — which won every column — because it was
-"almost airbrushed, freckles reduced to barely-there", and you asked for visible
-pores and freckles. **cf 1.0 has the same character.** It is the cleanest arm
-and it is also the one that has given up the texture you asked for. cf 1.5
-removes the blistering, the fibrous upper lip and most of the seam while keeping
-pore structure, and it still cuts `#114` from ~63 s to ~25 s.
+The decision that matters is 3 → *anything lower*; both candidates fix the
+damage and either is a large improvement. Between them I would ship 1.5, on
+three grounds, the first of which is yours:
 
-cf 1.5 also keeps a 25 % context margin on each side of the face box. At cf 1.0
-the crop **is** the detector's box, so the model inpaints a face with no
-surrounding context at all. Nothing in these three renders shows that hurting —
-*this is inference from geometry, not something I measured* — but it is a reason
-to prefer 1.5 when 1.5 already gets most of the benefit.
+* **You rejected over-smoothing once already.** `steps 8 + denoise 0.50` won
+  every metric column and you turned it down as "almost airbrushed, freckles
+  reduced to barely-there", because you asked for visible pores and freckles.
+  **cf 1.0 has that same character.** cf 1.5 removes the blistering, the fibrous
+  upper lip and most of the seam while keeping pore structure.
+* **cf 1.5 keeps a 25 % context margin** on each side of the face box. At cf 1.0
+  the crop *is* the detector's box, so the model inpaints a face with no
+  surrounding context at all. Nothing in these renders shows that hurting —
+  *inference from geometry, not measured* — but on unknown buyer images the
+  margin is the more robust setting.
+* It still cuts `#114` from ~63 s to ~25 s.
+
+**What would make me change my mind: the lip blister and the chin smear.** cf 1.0
+does not have them and cf 1.5 does, and on one image I cannot say whether that is
+systematic. If you look at `R3_crop_mouth_1to1.png` and those two blemishes read
+as unacceptable rather than incidental, **1.0 is the right answer instead** and
+the softness is a cheaper problem to solve than a blemish. That is a call for
+your eyes, not my metrics.
 
 **Not applied.** One integer, sg `5. Face & Mouth Detail (Z-Image)`, `#114`,
 `widgets_values[15]`, `3 → 1.5`. (Index 15 verified: `FaceDetailer` has 28

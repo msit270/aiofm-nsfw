@@ -47,20 +47,37 @@ raising it is ~0 either way.
 **Taken:** decision recorded, and the caveat written into
 `notes/R3-decisions.md` §2 rather than left implicit.
 
-## Q4 · `#648`'s title promises a note that does not exist
+## Q4 · `#648`'s size guard is silently skipping the mouth pass about half the time
 
-`#648 SEGSRangeFilterDetailerHookProvider` in sg 5 is titled **"Mouth SEGS size
-guard (see note)"**. I searched every `Note` and `MarkdownNote` in the workflow:
-root `#649`, `#650`, `#651`, and now my `#652`. **None of them mentions SEGS,
-`#648`, or a size guard.** The reference is dangling in the shipped file.
+Found while measuring Decision 3, and bigger than the thing I was measuring.
 
-**My guess:** either the note was lost in an earlier recovery, or it lives
-outside the workflow. Whoever set `area(=w*h) / true / 0 / 1700000` on it should
-say what that guard is for, on canvas, in the same place `#652` now sits.
+`#648 SEGSRangeFilterDetailerHookProvider`, titled **"Mouth SEGS size guard (see
+note)"**, is set to `area(=w*h)` / `inside` / `0` / **`1700000`**. It hooks
+`#165 Mouth Detailer`'s `post_detection` (`modules/impact/hooks.py:507-508` →
+`modules/impact/segs_nodes.py:614-620`) and throws away any lips segment whose
+crop area exceeds the ceiling. When it does, `#165` runs and does nothing, with
+no warning and `status: success`.
 
-**Taken:** recorded, not fixed — writing a note about a mechanism I have not
-traced would be inventing documentation, which is the failure mode this project
-already has too much of.
+Across every render on this server since 21:37 yesterday: **19 passed, 20
+dropped.** Dropped values cluster at 1.77 M – 2.06 M against a 1.70 M ceiling —
+4 % to 21 % over. The threshold sits inside the natural spread of this
+pipeline's lips crop area, not outside it. **All three of my arms dropped it, and
+so did the steps-8 arm in `HANDOFF.md` §4** — which that section cites as the
+internal control proving the same model runs happily at 8 steps.
+
+And the title's "(see note)" points at nothing: I searched every `Note` and
+`MarkdownNote` in the workflow — root `#649`, `#650`, `#651` and now my `#652`.
+None mentions SEGS, `#648`, or a size guard.
+
+**My guess:** the guard exists to stop `#165` re-diffusing a huge region when the
+lips detector latches onto more than the lips, and the ceiling was tuned on an
+image whose mouth was smaller. Raising it, removing it, or making it log loudly
+are all plausible; I do not know which without seeing what it was protecting
+against.
+
+**Taken:** recorded, nothing changed. It is not one of the three decisions I was
+handed, and guessing a new threshold from one image would be exactly the kind of
+confident wrong answer this project keeps having to retract.
 
 ## Q5 · `#165 Mouth Detailer` also carries `bbox_crop_factor 3`
 
