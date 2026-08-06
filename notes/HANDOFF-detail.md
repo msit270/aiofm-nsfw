@@ -657,3 +657,39 @@ arm — and it is inert. Final recommendation pending the A/B.
   bootstrap**, which is the delivery method.
 - `AUDIT.md`, `MAP.md`, `PROPOSALS.md`, `SETUP.md` predate the pod session and are
   **not** rewritten; `STATE.md` §3 lists the corrections I can prove.
+
+---
+
+## Detail trimmed from HANDOFF.md in the final compression pass
+
+Kept here because it is mine, not an agent's, and does not appear in the
+per-agent reports in the same words.
+
+### Denoise — the arms that were cleared, and the metric that lied
+
+**Cleared, not the cause of the overbaked face:** `#607` first face pass (the
+owner's stop condition fired — it looks identical to baseline), `#87` skin blend
+(8 % against steps' 69 %, and it demonstrably reaches the neck without making
+bumps there), and cfg.
+
+**`steps 30` at the same denoise puts the crust back** — bright-blob 3.36 % vs
+1.68 % at steps 8. That is the control showing steps and denoise are independent
+levers rather than two names for one effect.
+
+**The metric winner was the wrong answer.** `steps 8 + denoise 0.50` wins every
+column in the table and looks airbrushed in the tile. Its `pores/MP` column
+counts dark local minima, and at that smoothness those are as likely to be noise
+as pores — **the count rises while the thing being counted disappears.** This is
+the second measure in this project to be disqualified by looking at what it had
+actually detected (the first was the freckle *count*, which turned out to be
+counting hairs, eyelash shadows and the gaps between bumps). Any metric here is
+a hypothesis about the image until someone looks at what it fired on.
+
+### crop factor — the server-log confirmation
+
+`cf 3 -> 1.5` engaged as intended: the pass went from **9.29 MP to 5.75 MP** per
+run, a 38 % cut in sampled pixels. This matters because `force_inpaint: true`
+clamps a would-be downscale to 1.0, which makes `guide_size`/`max_size`
+self-cancelling — `bbox_crop_factor` is the only lever on this node that
+actually reduces the pixel count, and the log is how that was confirmed rather
+than assumed.
