@@ -148,6 +148,39 @@ arm that reports a non-empty `execution_cached`** rather than reporting it. The
 failed control and the voided `REP_w17` are kept on disk with their history JSON;
 they are labelled VOID in the results, not deleted.
 
+### Track D's non-reproduction arrived mid-run, and it changes the scope of my claim but not the claim.
+The coordinator's message: a third ComfyUI, built from the shipped tarball, ran
+the crash arm's own graph cold and rendered **clean 3/3**. So the reproducer is
+environment-dependent.
+
+**What survives.** Every arm in this file is on one instance, `18188`, with the
+server held constant and a byte-identical clean control after every error. That
+discipline is exactly what makes the result survive: *within this instance*,
+outcome is a function of conditioning token count and of nothing else I could
+find. That statement does not depend on other boxes agreeing.
+
+**What I have changed.** The header now carries an explicit scope note and says
+"do not quote 30–32 and 44+ as a universal". The bands are this box's numbers.
+
+**Where I think the instance-dependence lives, and it is not where the hypothesis
+put it.** The coordinator proposed marginal detection — confidence sitting near
+0.6 and flipping between boxes. My numbers refute that *on this box*: clean arms
+are 0.8942–0.8957 and crashing arms are 0.4656447172164917 **identical to sixteen
+digits across 14 arms**, with nothing in between at any of 22 token counts, and
+the crashing frames are bit-identical to each other. There is no gradient to
+straddle a threshold with. **[I]** The switch is upstream — `620:114` either
+returns a face or returns pure `(0,0,0)` — so if Track D's box does not black out,
+it gets 0.895 and a clean render, which is what it reports. The cheap test on
+their instance is a `SaveImage` on `620:114` and the exact-black fraction, not a
+detector threshold sweep.
+
+**One thing I will not overstate.** 0.466 against a 0.6 threshold is not a wide
+margin, and a black fill covering slightly less of the face could score above 0.6
+on some box. That would change *crash* into *a delivered image with a ruined
+face* — which is what `E398_tok31` actually did at the eye stage. So the detector
+threshold does govern how the failure *surfaces*; it does not govern whether the
+failure happens.
+
 ### I contaminated my own timings for one arm and am saying so rather than quietly dropping it.
 While `CTL_placeholder_after_A3_swap_Tuesday` was rendering I started an offline
 CPU probe of the text encoder that took ~30 cores. That arm reports **112.2 s**
