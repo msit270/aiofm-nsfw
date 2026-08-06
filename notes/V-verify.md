@@ -461,3 +461,232 @@ the brief asked for. The fix would have been declared proven. It was caught only
 by the awkward-string arms, and then only because the follow-up asked whether it
 was the unicode or the length — it was the length, at a value nobody had ever
 tested.
+
+
+---
+
+## Appendix A — the full grid
+
+Every arm Track V ran, generated straight from the recorded `meta.json` and the
+measured frames by `results/crash/V/tools/v_report.py`. Two tables: the four
+acceptance checks, then the measurements they were judged on.
+
+`A` no exception · `B` no black / no large single-RGB fill · `C` `face_yolov8m.pt`
+max confidence >= 0.75 (the 0.89 class) · `D` `622:406` in the websocket
+`executing` stream. `cached` is `len(execution_cached)` from `/history` — every
+arm is 0. PSNR column is against `V_P4a`, the 16-token placeholder under the fix.
+
+| arm | string (`620:106`) | tokens | `110.device` | `114.denoise` | prompt_id | cached | exec s | A | B | C | D | verdict |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| `V_PC1_prefix_crash46_probe` | `'luna, a young woman with light freckles acros…'` | 46 | default | 0.8 | `8f645231` | 0 | 38.0 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_ISO_d035_cpu_a` | `'luna, a young woman with light freckles acros…'` | 46 | cpu | 0.35 | `de408b96` | 0 | 102.4 | pass | pass | pass | pass | **PASS** |
+| `V_ISO_d035_cpu_b` | `'luna, a young woman with light freckles acros…'` | 46 | cpu | 0.35 | `e901aa5b` | 0 | 91.6 | pass | pass | pass | pass | **PASS** |
+| `V_ISO_d035_gpu_a` | `'luna, a young woman with light freckles acros…'` | 46 | default | 0.35 | `fcef2c9a` | 0 | 37.5 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_ISO_d035_gpu_b` | `'luna, a young woman with light freckles acros…'` | 46 | default | 0.35 | `04c3d046` | 0 | 55.0 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_ISO_d080_cpu_a` | `'luna, a young woman with light freckles acros…'` | 46 | cpu | 0.8 | `5ea56ccc` | 0 | 101.5 | pass | pass | pass | pass | **PASS** |
+| `V_ISO_d080_gpu_b` | `'luna, a young woman with light freckles acros…'` | 46 | default | 0.8 | `7f199684` | 0 | 53.6 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_P1a` | `'luna, 21 year old woman, freckles, green eyes…'` | 32 | cpu | 0.35 | `6383ce2f` | 0 | 105.3 | pass | pass | pass | pass | **PASS** |
+| `V_P1b` | `'luna, 21 year old woman, freckles, green eyes…'` | 32 | cpu | 0.35 | `3c9e8a3b` | 0 | 67.3 | pass | pass | pass | pass | **PASS** |
+| `V_P1c` | `'luna, 21 year old woman, freckles, green eyes…'` | 32 | cpu | 0.35 | `e42eac2f` | 0 | 89.5 | pass | pass | pass | pass | **PASS** |
+| `V_P2a` | `'luna, a young woman with light freckles acros…'` | 46 | cpu | 0.35 | `49f85d96` | 0 | 92.3 | pass | pass | pass | pass | **PASS** |
+| `V_P2b` | `'luna, a young woman with light freckles acros…'` | 46 | cpu | 0.35 | `4225fd8e` | 0 | 90.2 | pass | pass | pass | pass | **PASS** |
+| `V_P2c` | `'luna, a young woman with light freckles acros…'` | 46 | cpu | 0.35 | `ae108075` | 0 | 91.1 | pass | pass | pass | pass | **PASS** |
+| `V_P3a` | `'luna, a young woman with light freckles acros…'` | 50 | cpu | 0.35 | `f46a0593` | 0 | 93.1 | pass | pass | pass | pass | **PASS** |
+| `V_P4a` | `'TRIGGER, PROMPT FOR YOUR MODEL'` | 16 | cpu | 0.35 | `dc28500c` | 0 | 75.9 | pass | pass | pass | pass | **PASS** |
+| `V_P4b` | `'TRIGGER, PROMPT FOR YOUR MODEL'` | 16 | cpu | 0.35 | `1ca615f4` | 0 | 96.7 | pass | pass | pass | pass | **PASS** |
+| `V_P5a` | `''` | 8 | cpu | 0.35 | `25d773fd` | 0 | 90.7 | pass | pass | pass | pass | **PASS** |
+| `V_PCEND_head` | `'luna, a young woman with light freckles acros…'` | 46 | cpu | 0.35 | `9ba855a5` | 0 | 67.2 | pass | pass | pass | pass | **PASS** |
+| `V_PCEND_mid` | `'luna, a young woman with light freckles acros…'` | 46 | default | 0.35 | `bc629b0a` | 0 | 38.5 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_PCEND_prefix` | `'luna, a young woman with light freckles acros…'` | 46 | default | 0.8 | `fc0e5301` | 0 | 38.9 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_CTLm1` | `'luna, 21 year old woman, freckles, green eyes…'` | 32 | default | 0.35 | `50586036` | 0 | 51.4 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_CTLm2` | `'luna, a young woman with light freckles acros…'` | 50 | default | 0.35 | `2612bcfd` | 0 | 54.2 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_CTLm3` | `'luna, a young woman with light freckles acros…'` | 46 | default | 0.8 | `4488368c` | 0 | 54.6 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_AW1_verylong` | `'luna, a young woman photographed in a quiet n…'` | 166 | cpu | 0.35 | `7a0eb767` | 0 | 98.6 | pass | pass | pass | pass | **PASS** |
+| `V_AW1_verylong_ctl` | `'luna, a young woman photographed in a quiet n…'` | 166 | default | 0.35 | `e23f77ce` | 0 | 60.1 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_AW2_punct` | `'luna,,, ((21-year-old woman)) [freckles!!] {g…'` | 72 | cpu | 0.35 | `0c9ae8de` | 0 | 97.7 | pass | pass | pass | pass | **PASS** |
+| `V_AW2_punct_ctl` | `'luna,,, ((21-year-old woman)) [freckles!!] {g…'` | 72 | default | 0.35 | `95a025cc` | 0 | 53.4 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_AW3_ascii103` | `"a woman's face the the the the the the the th…"` | 103 | cpu | 0.35 | `b036d336` | 0 | 93.1 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_AW3_ascii103_ctl` | `"a woman's face the the the the the the the th…"` | 103 | default | 0.35 | `04993591` | 0 | 57.3 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_AW3_ascii166` | `"a woman's face the the the the the the the th…"` | 166 | cpu | 0.35 | `28824c28` | 0 | 103.3 | pass | pass | pass | pass | **PASS** |
+| `V_AW3_ctl` | `'luna、21歳の女性、そばかす、緑の瞳、詳細な肌の質感、柔らかい窓明かり молодая…'` | 103 | default | 0.35 | `3f264f3d` | 0 | 49.4 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_AW3_jp_only` | `'luna、21歳の女性、そばかす、緑の瞳、詳細な肌の質感、柔らかい窓明かり'` | 41 | cpu | 0.35 | `4582ed8c` | 0 | 89.3 | pass | pass | pass | pass | **PASS** |
+| `V_AW3_nonenglish` | `'luna、21歳の女性、そばかす、緑の瞳、詳細な肌の質感、柔らかい窓明かり молодая…'` | 103 | cpu | 0.35 | `5b92eedd` | 0 | 81.5 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_AW3_nonenglish_ctl` | `'luna、21歳の女性、そばかす、緑の瞳、詳細な肌の質感、柔らかい窓明かり молодая…'` | 103 | default | 0.35 | `a60839c9` | 0 | 49.5 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_AW3_prefix_ctl` | `'luna、21歳の女性、そばかす、緑の瞳、詳細な肌の質感、柔らかい窓明かり молодая…'` | 103 | default | 0.8 | `54ab81f2` | 0 | 55.0 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_AW3_rep1` | `'luna、21歳の女性、そばかす、緑の瞳、詳細な肌の質感、柔らかい窓明かり молодая…'` | 103 | cpu | 0.35 | `08b43150` | 0 | 86.8 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_AW3_rep2` | `'luna、21歳の女性、そばかす、緑の瞳、詳細な肌の質感、柔らかい窓明かり молодая…'` | 103 | cpu | 0.35 | `c9f674e0` | 0 | 86.3 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_AW3_ru_only` | `'luna, молодая женщина, веснушки, зелёные глаз…'` | 34 | cpu | 0.35 | `0a6a5fe0` | 0 | 97.8 | pass | pass | pass | pass | **PASS** |
+| `V_SW_ctl_tok32` | `"a woman's face the the the the the the the th…"` | 32 | default | 0.35 | `b294632f` | 0 | 38.8 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_SW_ctl_tok40` | `"a woman's face the the the the the the the th…"` | 40 | default | 0.35 | `e499a466` | 0 | 50.8 | pass | pass | pass | pass | **PASS** |
+| `V_SW_ctl_tok46` | `"a woman's face the the the the the the the th…"` | 46 | default | 0.35 | `272ff3cc` | 0 | 37.7 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_SW_tok26` | `"a woman's face the the the the the the the th…"` | 26 | cpu | 0.35 | `990d15a1` | 0 | 66.9 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok27` | `"a woman's face the the the the the the the th…"` | 27 | cpu | 0.35 | `065d987e` | 0 | 66.1 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok28` | `"a woman's face the the the the the the the th…"` | 28 | cpu | 0.35 | `f6023d31` | 0 | 66.0 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok29` | `"a woman's face the the the the the the the th…"` | 29 | cpu | 0.35 | `d8e62b1b` | 0 | 66.4 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok30` | `"a woman's face the the the the the the the th…"` | 30 | cpu | 0.35 | `4f3a4b3c` | 0 | 66.0 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok31` | `"a woman's face the the the the the the the th…"` | 31 | cpu | 0.35 | `9c2611ce` | 0 | 66.2 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok32` | `"a woman's face the the the the the the the th…"` | 32 | cpu | 0.35 | `92978b04` | 0 | 66.0 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok33` | `"a woman's face the the the the the the the th…"` | 33 | cpu | 0.35 | `3fb68865` | 0 | 65.8 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok34` | `"a woman's face the the the the the the the th…"` | 34 | cpu | 0.35 | `c6f67ebc` | 0 | 66.3 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok35` | `"a woman's face the the the the the the the th…"` | 35 | cpu | 0.35 | `4cb20320` | 0 | 67.6 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok36` | `"a woman's face the the the the the the the th…"` | 36 | cpu | 0.35 | `c047afee` | 0 | 67.5 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok37` | `"a woman's face the the the the the the the th…"` | 37 | cpu | 0.35 | `c080b603` | 0 | 67.2 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok38` | `"a woman's face the the the the the the the th…"` | 38 | cpu | 0.35 | `1f2d599e` | 0 | 67.6 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok39` | `"a woman's face the the the the the the the th…"` | 39 | cpu | 0.35 | `238e3029` | 0 | 67.7 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok40` | `"a woman's face the the the the the the the th…"` | 40 | cpu | 0.35 | `1f096e5a` | 0 | 67.3 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok41` | `"a woman's face the the the the the the the th…"` | 41 | cpu | 0.35 | `224a92ff` | 0 | 66.8 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok42` | `"a woman's face the the the the the the the th…"` | 42 | cpu | 0.35 | `37cd8c68` | 0 | 65.1 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok43` | `"a woman's face the the the the the the the th…"` | 43 | cpu | 0.35 | `d69ea071` | 0 | 67.5 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok44` | `"a woman's face the the the the the the the th…"` | 44 | cpu | 0.35 | `3cbe0bd4` | 0 | 66.6 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok45` | `"a woman's face the the the the the the the th…"` | 45 | cpu | 0.35 | `aa243845` | 0 | 68.0 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok46` | `"a woman's face the the the the the the the th…"` | 46 | cpu | 0.35 | `43c32d6d` | 0 | 68.5 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok47` | `"a woman's face the the the the the the the th…"` | 47 | cpu | 0.35 | `8927159d` | 0 | 67.9 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok48` | `"a woman's face the the the the the the the th…"` | 48 | cpu | 0.35 | `6e84816b` | 0 | 67.9 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok49` | `"a woman's face the the the the the the the th…"` | 49 | cpu | 0.35 | `ecc0e2e5` | 0 | 68.7 | pass | pass | pass | pass | **PASS** |
+| `V_SW_tok50` | `"a woman's face the the the the the the the th…"` | 50 | cpu | 0.35 | `e9659734` | 0 | 68.7 | pass | pass | pass | pass | **PASS** |
+| `V_SEED_1111112_cpu` | `'luna, a young woman with light freckles acros…'` | 46 | cpu | 0.35 | `cdb9e540` | 0 | 67.8 | pass | pass | pass | pass | **PASS** |
+| `V_CLEAN_head_16a` | `'TRIGGER, PROMPT FOR YOUR MODEL'` | 16 | cpu | 0.35 | `0c9f75d7` | 0 | 64.7 | pass | pass | pass | pass | **PASS** |
+| `V_CLEAN_head_16b` | `'TRIGGER, PROMPT FOR YOUR MODEL'` | 16 | cpu | 0.35 | `c8eb3918` | 0 | 64.7 | pass | pass | pass | pass | **PASS** |
+| `V_CLEAN_head_40a` | `"a woman's face the the the the the the the th…"` | 40 | cpu | 0.35 | `0d2ca9c2` | 0 | 68.2 | pass | pass | pass | pass | **PASS** |
+| `V_CLEAN_mid_16a` | `'TRIGGER, PROMPT FOR YOUR MODEL'` | 16 | default | 0.35 | `18b35a3b` | 0 | 50.1 | pass | pass | pass | pass | **PASS** |
+| `V_CLEAN_mid_16b` | `'TRIGGER, PROMPT FOR YOUR MODEL'` | 16 | default | 0.35 | `44e5a450` | 0 | 50.9 | pass | pass | pass | pass | **PASS** |
+| `V_CLEAN_mid_40a` | `"a woman's face the the the the the the the th…"` | 40 | default | 0.35 | `beaf1738` | 0 | 50.6 | pass | pass | pass | pass | **PASS** |
+| `V_B2_tok110_cpu` | `"a woman's face the the the the the the the th…"` | 110 | cpu | 0.35 | `a691f946` | 0 | 79.0 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_B2_tok110_gpu` | `"a woman's face the the the the the the the th…"` | 110 | default | 0.35 | `2161edb9` | 0 | 38.1 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_B2_tok120_cpu` | `"a woman's face the the the the the the the th…"` | 120 | cpu | 0.35 | `e7021bc7` | 0 | 80.9 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_B2_tok120_gpu` | `"a woman's face the the the the the the the th…"` | 120 | default | 0.35 | `21ac5ccd` | 0 | 59.1 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_B2_tok140_cpu` | `"a woman's face the the the the the the the th…"` | 140 | cpu | 0.35 | `ecaea613` | 0 | 102.3 | pass | pass | pass | pass | **PASS** |
+| `V_B2_tok140_gpu` | `"a woman's face the the the the the the the th…"` | 140 | default | 0.35 | `cfff03ca` | 0 | 50.3 | pass | pass | pass | pass | **PASS** |
+| `V_B2_tok166_cpu` | `"a woman's face the the the the the the the th…"` | 166 | cpu | 0.35 | `0f32dea9` | 0 | 77.2 | pass | pass | pass | pass | **PASS** |
+| `V_B2_tok166_gpu` | `"a woman's face the the the the the the the th…"` | 166 | default | 0.35 | `6cb9cdf8` | 0 | 38.0 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_B2_tok60_cpu` | `"a woman's face the the the the the the the th…"` | 60 | cpu | 0.35 | `7c7a57a1` | 0 | 101.6 | pass | pass | pass | pass | **PASS** |
+| `V_B2_tok60_gpu` | `"a woman's face the the the the the the the th…"` | 60 | default | 0.35 | `425fbe23` | 0 | 49.7 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_B2_tok72_cpu` | `"a woman's face the the the the the the the th…"` | 72 | cpu | 0.35 | `058ea935` | 0 | 69.6 | pass | pass | pass | pass | **PASS** |
+| `V_B2_tok72_gpu` | `"a woman's face the the the the the the the th…"` | 72 | default | 0.35 | `fcdb1a01` | 0 | 38.4 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_B2_tok80_cpu` | `"a woman's face the the the the the the the th…"` | 80 | cpu | 0.35 | `d88bcd5b` | 0 | 84.6 | pass | pass | pass | pass | **PASS** |
+| `V_B2_tok80_gpu` | `"a woman's face the the the the the the the th…"` | 80 | default | 0.35 | `d48c724e` | 0 | 52.8 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_B2_tok90_cpu` | `"a woman's face the the the the the the the th…"` | 90 | cpu | 0.35 | `5663d078` | 0 | 101.7 | pass | pass | pass | pass | **PASS** |
+| `V_B2_tok90_gpu` | `"a woman's face the the the the the the the th…"` | 90 | default | 0.35 | `c860a1dc` | 0 | 51.5 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+| `V_B2_tok96_cpu` | `"a woman's face the the the the the the the th…"` | 96 | cpu | 0.35 | `72661acd` | 0 | 71.5 | pass | pass | pass | pass | **PASS** |
+| `V_B2_tok96_gpu` | `"a woman's face the the the the the the the th…"` | 96 | default | 0.35 | `22acf703` | 0 | 54.0 | **FAIL** | **FAIL** | **FAIL** | **FAIL** | **FAIL** |
+
+| arm | judged on | exact-black | biggest 1-RGB blob | biggest non-white blob | YOLO max conf | error node |
+|---|---|---|---|---|---|---|
+| `V_PC1_prefix_crash46_probe` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_ISO_d035_cpu_a` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8941 | - |
+| `V_ISO_d035_cpu_b` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8941 | - |
+| `V_ISO_d035_gpu_a` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_ISO_d035_gpu_b` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_ISO_d080_cpu_a` | 505 | 0.0 | 0.02073 [255, 255, 255] | 8e-05 [254, 255, 255] | 0.8946 | - |
+| `V_ISO_d080_gpu_b` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_P1a` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8941 | - |
+| `V_P1b` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8941 | - |
+| `V_P1c` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8941 | - |
+| `V_P2a` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8941 | - |
+| `V_P2b` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8941 | - |
+| `V_P2c` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8941 | - |
+| `V_P3a` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_P4a` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8943 | - |
+| `V_P4b` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8943 | - |
+| `V_P5a` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_PCEND_head` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8941 | - |
+| `V_PCEND_mid` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_PCEND_prefix` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_CTLm1` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_CTLm2` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_CTLm3` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_AW1_verylong` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8944 | - |
+| `V_AW1_verylong_ctl` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_AW2_punct` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8943 | - |
+| `V_AW2_punct_ctl` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_AW3_ascii103` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_AW3_ascii103_ctl` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_AW3_ascii166` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_AW3_ctl` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_AW3_jp_only` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8943 | - |
+| `V_AW3_nonenglish` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_AW3_nonenglish_ctl` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_AW3_prefix_ctl` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_AW3_rep1` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_AW3_rep2` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_AW3_ru_only` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_SW_ctl_tok32` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_SW_ctl_tok40` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8944 | - |
+| `V_SW_ctl_tok46` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_SW_tok26` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_SW_tok27` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_SW_tok28` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8941 | - |
+| `V_SW_tok29` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_SW_tok30` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8943 | - |
+| `V_SW_tok31` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8944 | - |
+| `V_SW_tok32` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8941 | - |
+| `V_SW_tok33` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_SW_tok34` | 505 | 0.0 | 0.02073 [255, 255, 255] | 0.0 [16, 13, 13] | 0.8945 | - |
+| `V_SW_tok35` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_SW_tok36` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8943 | - |
+| `V_SW_tok37` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_SW_tok38` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8943 | - |
+| `V_SW_tok39` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.894 | - |
+| `V_SW_tok40` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.894 | - |
+| `V_SW_tok41` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8941 | - |
+| `V_SW_tok42` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8941 | - |
+| `V_SW_tok43` | 505 | 0.0 | 0.02073 [255, 255, 255] | 0.0 [16, 13, 13] | 0.8944 | - |
+| `V_SW_tok44` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8943 | - |
+| `V_SW_tok45` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_SW_tok46` | 505 | 0.0 | 0.02073 [255, 255, 255] | 0.0 [16, 13, 13] | 0.8945 | - |
+| `V_SW_tok47` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_SW_tok48` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8943 | - |
+| `V_SW_tok49` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_SW_tok50` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_SEED_1111112_cpu` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8954 | - |
+| `V_CLEAN_head_16a` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8943 | - |
+| `V_CLEAN_head_16b` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8943 | - |
+| `V_CLEAN_head_40a` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.894 | - |
+| `V_CLEAN_mid_16a` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_CLEAN_mid_16b` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_CLEAN_mid_40a` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8944 | - |
+| `V_B2_tok110_cpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_B2_tok110_gpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_B2_tok120_cpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_B2_tok120_gpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_B2_tok140_cpu` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_B2_tok140_gpu` | 505 | 0.0 | 0.02073 [255, 255, 255] | 0.0 [16, 13, 13] | 0.8941 | - |
+| `V_B2_tok166_cpu` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_B2_tok166_gpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_B2_tok60_cpu` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8942 | - |
+| `V_B2_tok60_gpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_B2_tok72_cpu` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8944 | - |
+| `V_B2_tok72_gpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_B2_tok80_cpu` | 505 | 0.0 | 0.02073 [255, 255, 255] | 2e-05 [254, 255, 255] | 0.8943 | - |
+| `V_B2_tok80_gpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_B2_tok90_cpu` | 505 | 0.0 | 0.02073 [255, 255, 255] | 0.0 [16, 13, 13] | 0.8943 | - |
+| `V_B2_tok90_gpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+| `V_B2_tok96_cpu` | 505 | 0.0 | 0.02073 [255, 255, 255] | 0.0 [16, 13, 13] | 0.8941 | - |
+| `V_B2_tok96_gpu` | TAP163 | 0.0 | 0.16969 [56, 51, 47] | 0.16969 [56, 51, 47] | 0.4656 | 622:403 |
+
+
+### Voided arms — run but NOT counted
+
+`results/crash/V/arms_void/` holds four arms discarded because they overlapped a
+second driver process of my own (see `notes/V-questions.md` §1): `V_ISO_d035_cpu_a`,
+`V_ISO_d080_cpu_a`, `V_ISO_d035_gpu_b`, `V_ISO_d035_cpu_b` and `V_P1b__overlap`.
+All were re-run under the same names and only the re-runs appear above. Two
+further prompt_ids executed on the server without being recorded by any driver
+(`6309ef32-…`, `439609a1-…`, both `success`, both the 46-token string on `cpu`);
+they are counted nowhere.
+
+## Appendix B — where everything is
+
+| what | where |
+|---|---|
+| every arm: submitted API graph, meta, websocket stream, images | `results/crash/V/arms/<ARM>/` |
+| every arm's verbatim `/history/<prompt_id>` | `results/crash/V/history/` |
+| the three converted workflow revisions and their API graphs | `results/crash/V/graphs/` |
+| acceptance measurements for every arm | `results/crash/V/out/v_checks.json` |
+| inertness pair deltas | `results/crash/V/out/v_pairs.json` |
+| 1:1 face/skin sheets, crash vs cure | `results/crash/V/out/V_fix_ab_*.png` |
+| 1:1 face/skin sheets, the inertness pair | `results/crash/V/out/V_inert_ab_*.png` |
+| tools (driver, builders, checks, report, band map) | `results/crash/V/tools/` |
+
+Band-sweep PNGs are deliberately not committed (`.gitignore`); their evidence is
+in `meta.json` and `v_checks.json`, same convention as `results/crash/A/arms`.
