@@ -330,6 +330,23 @@ am not treating identical output as proof of anything.
 > for him to look at, not the basis of the argument. If they never run, the
 > argument stands and the picture is missing.
 
+**Every queued graph was verified after submission**, read back out of its own
+`api_graph.json`, so a later session can collect them without re-checking:
+
+| arm | node | cfg | guide/max | crop_factor | seed | nodes | positive |
+|---|---|---|---|---|---|---|---|
+| `face_cfg1.5_negshipped` | `620:114` | 1.5 | 1024/1024 | 3 | 1111111 | 12 | placeholder |
+| `face_cfg3.0_negshipped` | `620:114` | 3.0 | 1024/1024 | 3 | 1111111 | 12 | placeholder |
+| `faceX_cfg1.0_realpositive…` | `620:114` | 1.0 | 1024/1024 | 3 | 1111111 | 11 | **real prompt** |
+| `mouth_cfg1.5_negfilled` | `620:165` | 1.5 | 1808/1808 | 3 | 1111111 | 13 | `realistic detailed mouth` |
+| `eyes_cfg3.0_negfilled` | `622:406` | 3.0 | 1920/1920 | n/a | 1111112 | 22 | `perfect eyes, …` |
+| `sw_gs2048` | `620:114` | 1 | **2048/2048** | 3 | 1111111 | 12 | placeholder |
+| `sw_gs4096` | `620:114` | 1 | **4096/4096** | 3 | 1111111 | 12 | placeholder |
+| `sw_cf1.5` | `620:114` | 1 | 1024/1024 | **1.5** | 1111111 | 12 | placeholder |
+| `sw_cf1.0` | `620:114` | 1 | 1024/1024 | **1.0** | 1111111 | 12 | placeholder |
+
+Seeds identical within each stage, so nothing but the named variable moves.
+
 ### The `cfg 1.0 + empty negative` arm was cancelled deliberately
 
 It was queued and I cancelled it (only ever my own prompt id) to make room when
