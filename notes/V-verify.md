@@ -135,4 +135,67 @@ empty tensor.
 `622:403`**, so none of these strings is sitting in an already-safe band, and the
 green arms are not measuring nothing.
 
-*(sections 4-9 appended as the remaining arms land)*
+---
+
+## 4. THE REFUTATION — `622:403` reproduced 3/3 with the fix applied
+
+The brief also asked for "the awkward set: very long, punctuation-heavy,
+non-English". One of those three strings breaks the fix.
+
+`AW3_nonenglish`, **103 tokens** measured on the graph's own tokenizer:
+
+```
+luna、21歳の女性、そばかす、緑の瞳、詳細な肌の質感、柔らかい窓明かり
+молодая женщина, веснушки, зелёные глаза
+امرأة شابة، نمش، عيون خضراء
+νεαρή γυναίκα, φακίδες 🌸👁️ éàüñçß
+```
+
+On the **shipping artifact** — `620:110.device = "cpu"`, `620:114.denoise = 0.35`,
+both LoRAs, cold, empty queue, fresh `client_id`:
+
+| arm | device | status | error | exec s | cached | prompt_id |
+|---|---|---|---|---|---|---|
+| `V_AW3_nonenglish` | **cpu** | **error** | `622:403 MaskBoundingBox+` | 81.5 | `[]` | `5b92eedd-20fc-4300-975e-16d5700f016a` |
+| `V_AW3_rep1` | **cpu** | **error** | `622:403 MaskBoundingBox+` | 86.8 | `[]` | `08b43150-b078-475c-b2b8-9cdde2d727e3` |
+| `V_AW3_rep2` | **cpu** | **error** | `622:403 MaskBoundingBox+` | 86.3 | `[]` | `c9f674e0` |
+| `V_AW3_ctl` | `default` | error | `622:403 MaskBoundingBox+` | 49.4 | `[]` | `3f264f3d` |
+
+Exception text, identical to `notes/CRASH.md` Phase 0:
+
+```
+RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0.
+              Specify the reduction dim with the 'dim' argument.
+```
+
+22 nodes executed, the eyes stage never reached — the same 22 as every pre-fix
+crash arm.
+
+### It is the same failure, not a different bug on the same node
+
+`621:163` tap of `V_AW3_nonenglish` (device **cpu**) against the pre-fix crash
+arms (device `default`):
+
+| measure | `V_AW3_nonenglish` (**cpu, the fix**) | every pre-fix crash arm |
+|---|---|---|
+| largest contiguous single-RGB blob | **0.16969** | 0.16969 |
+| its colour | **(56,51,47)** | (56,51,47) |
+| `face_yolov8m.pt` max confidence | **0.4656** | 0.4656 |
+| faces detected at threshold 0.6 | **0** | 0 |
+| `flat_frac` | **0.2387** | 0.2387 |
+| exact-`(0,0,0)` fraction | 0.0 | 0.0 |
+
+Five measures, five exact matches. This is `620:114`'s black state, lifted to
+`(56,51,47)` by `620:111 ImageColorMatch+`, exactly as Track E described it —
+reached with the fix in place.
+
+### What the fix actually did
+
+It did not remove the failure. It moved the boundary of the region where the
+failure happens, so that the region no longer contains any of the strings the
+acceptance test looks at. Inside `PHASE3-spec.md`'s proof set and inside Track
+A's 11–50 token map, the fix works — every arm in §3 and §5 passes all four
+checks. Outside it, the failure is untouched: at 103 tokens `device: cpu` and
+`device: default` both fail, in the same way, at the same node.
+
+*(sections 5-9 appended as the remaining arms land)*
