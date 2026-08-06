@@ -90,12 +90,27 @@ seam — **in the steps-8 graph you approved**. cf 1.5 is the same face without 
 and it refines **0.04 % more** pixels, so it is not doing less. **If the residual
 lip blister bothers you, 1.0 is one integer away** (`widgets_values[15]`).
 
-> ⚠ **Speed: unquantified. Do not quote the numbers I gave you.** I said "26 %
-> faster" and "400.7 s → 189.3 s". A cold control has since shown the steps-8
-> LoRA arm is **388.9 s cold**, not 189.3 s — that run had 57 nodes cached
-> including the whole base generator. **Most of that gap was cache, not steps.**
-> A proper cold pair was rendering when this was written. Treat steps 8 as a
-> **quality** change until it lands.
+### Speed — now measured properly, cache held constant
+
+| arm | `#114` | exec |
+|---|---|---|
+| steps 8, denoise 0.50 | | 145.2 s |
+| steps 8, denoise 0.35 | | 145.6 s |
+| **steps 30**, denoise 0.35 | | **198.7 s** |
+
+*Byte-identical `execution_cached` sets — 57 nodes, same ids, asserted.*
+
+- **steps 30 → 8 saves 53.1 s, −26.7 %.** So the "26 %" I withdrew was right after
+  all; it just had not been *measured* until now.
+- **denoise costs nothing** — 0.4 s apart. It moves where on the noise schedule
+  the pass starts, it does not shorten it.
+- **crop factor 3 → 1.5 saves 118.4 s, −30 %**, from a matched **cold** pair
+  (388.9 → 270.5 s, both from `/free` at 0 cached).
+
+**And the reason every timing claim in this project went wrong:** the same graph
+cold versus warm is 388.9 s vs 190.1 s. **120–200 s of a cold render on this pod
+is model loading** — larger than either lever being argued about. Any comparison
+that does not hold cache constant measures loading, not sampling.
 
 ### Luna's freckles — answered, and it moves the question off this node
 
@@ -132,10 +147,39 @@ Three things fall out that nobody knew:
 pure LANCZOS resize in either direction moves the measure only 2–5 % relative,
 against the 67 % drop across `#98`. The step is real, not resampling.*
 
-**Still open, and the sheet answers it:** whether denoise moves as well. Four
-arms with your LoRAs were rendering when this was written. **Contact sheets:**
-`results/face/facetight_face_sheet1of1.png` (all arms, tight, 1:1) and
-`face_skin_sheet1of1.png` (texture without features).
+### The denoise question — **recommendation: `#114 denoise` 0.80 → 0.35**
+
+`widgets_values[9]`, `0.8` → `0.35`. One float. **Not applied — you pick from the
+sheet.** `results/face/R1denoise_face_sheet1of1.png`, 7 tiles at 1:1, row 1 is
+what you already saw at cf 3, rows 2–3 are the shipping graph with your LoRAs.
+
+**In plain language.** At the shipped **0.80** the cheeks, nose and brow carry a
+fine granular crust — much fainter than at 30 steps, but the surface still reads
+like **orange peel**: small pale raised specks packed edge to edge, catching the
+light. That is the pass adding texture that is not skin.
+
+At **0.35** it is gone. The cheek *is* skin — even, carrying the pore-scale
+texture that was already in the image before the face pass. Eyelashes are
+separate strands. The iris has structure instead of being a flat disc. And a
+small brown mark below the right eye survives that appears in **no** 0.80 arm —
+it is in the pre-pass tap, so it is real, and 0.35 is the only setting that
+carries it through.
+
+**0.50 fails in the direction nobody expects: it is *smoother* than 0.35**, not
+rougher (fine texture 0.883 vs 0.972), and the brown mark is gone. So if you look
+at the 0.35 tile and want *less* smoothing, 0.50 is the wrong way to go.
+
+**Steps 30 at the same denoise puts the crust back** (bright-blob 3.36 % vs
+1.68 %) and costs 53 s — the control showing the two levers are independent.
+
+**It does not bring the freckles back.** Nothing on this node can; see below.
+
+**One honest negative on my crop-factor change:** on the *cheek* specifically,
+cf 1.5 is not better than cf 3 at the same steps and denoise (8.19 % vs 7.78 %
+bright-blob). The case for cf 1.5 is the philtrum, lips, chin and jaw seam —
+different regions. **On the nose and cheeks the lever is denoise, not crop
+factor.** Both are worth having; they are not doing the same job. For the record,
+the server log confirms cf engaged: 9.29 MP → 5.75 MP per pass, a 38 % cut.
 
 **Cleared, not the cause:** `#607` first face pass (your stop condition fired —
 it looks identical to baseline), `#87` skin blend (8 % vs steps' 69 %, and it
