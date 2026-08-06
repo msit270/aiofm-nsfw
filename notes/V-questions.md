@@ -163,6 +163,33 @@ results readable rather than decorative.
 
 ---
 
+## The near-miss worth recording
+
+The arm that refuted the fix, `V_AW3_nonenglish`, is **not** in
+`PHASE3-spec.md`'s required proof set. The spec's five strings (P1–P5) all pass,
+in both measured bands, on all four acceptance checks. So does the 26–50 band
+sweep the brief asked for. **The fix would have been declared proven by its own
+acceptance test.**
+
+It only fell over because the brief also said "then the awkward set: very long,
+punctuation-heavy, non-English". I wrote three such strings almost as a
+formality, and one of them — 103 tokens of mixed Japanese/Russian/Arabic/Greek
+plus emoji — reproduced the failure twice out of two on the shipping artifact.
+
+Two lessons I would want carried forward:
+
+1. **The proof set was written against the failure as it was understood** — a
+   token-count band measured on English prompts between 11 and 50 tokens. It
+   could only ever confirm the fix inside that understanding. Every acceptance
+   set has this property; the guard against it is arms that are deliberately
+   *outside* the model of the bug, not more arms inside it.
+2. **Track A's map stops at 50 tokens** and the region above it was never
+   characterised at all — `notes/A-length-vs-content.md` calls 44+ "a threshold
+   with no top", which turns out to be an extrapolation from seven consecutive
+   values. At 103 tokens both device settings fail; at 166 tokens the fix arm
+   passed. So the region above 50 is not a monotone "everything fails" tail, and
+   nobody has mapped it.
+
 ## Open questions for the owner / the pod
 
 ### Q1. On a ComfyUI without the `device` widget, this fix silently does nothing
