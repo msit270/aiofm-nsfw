@@ -140,6 +140,12 @@ an eyelash shadow, a brown filament artifact and the dark interstices between
 the raised bumps; in `L1b` they are the nose's own shading edge and the nostril
 shadow. Not one is a freckle.
 
+Incidentally that corroborates R3 from a different direction: the objects my
+counter kept picking up on `L0b`'s cheek are **filaments and reddish-brown
+debris sitting on the skin**, which is the same class of artefact R3 describes
+on the philtrum and lips. I was not looking for them and my rule found them
+because they are the only high-contrast small dark objects in that region.
+
 So the table above is **a dark-mark count that over-counts on bumpy arms**, and
 I am not calling it a freckle count. It is reported because I ran it and
 because the direction it points is not wrong; the finding rests on the crops.
