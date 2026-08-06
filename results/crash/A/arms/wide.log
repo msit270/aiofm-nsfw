@@ -2,3 +2,7 @@ rep finished; running WIDE token sweep
 [T_tok36] submitted 40311034-08f0-4cf0-acad-3e21f42adbe3 cid=trackA-T_tok36-9bedb029 queue_before=(0,0) vram_free=54.7GiB
 [T_tok36] success exec=60.9s cached=0 err=None  imgs=['tap163_00067_.png', 'HasMetadata_00105_.png']
 [T_tok37] submitted fd4edd93-0c5a-42f0-8807-446721225693 cid=trackA-T_tok37-4eba4121 queue_before=(0,0) vram_free=56.3GiB
+[T_tok37] success exec=75.5s cached=0 err=None  imgs=['tap163_00068_.png', 'HasMetadata_00106_.png']
+[T_tok40] submitted ad5ac400-4248-4919-9f55-985a3d735a4b cid=trackA-T_tok40-68c23cf6 queue_before=(0,0) vram_free=52.7GiB
+[T_tok40] success exec=72.8s cached=0 err=None  imgs=['tap163_00069_.png', 'HasMetadata_00107_.png']
+[T_tok42] submitted 17544824-c0d8-458f-8a8f-0fbc7f882cd9 cid=trackA-T_tok42-6cde2c64 queue_before=(0,0) vram_free=46.0GiB

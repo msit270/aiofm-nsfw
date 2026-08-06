@@ -2515,5 +2515,90 @@
   "highest_conf": 0.8948644399642944,
   "luma_sd": 59.67,
   "flat_frac": 0.186
+ },
+ "T_tok37": {
+  "status": "success",
+  "prompt_id": "fd4edd93-0c5a-42f0-8807-446721225693",
+  "exec_seconds": 75.5,
+  "cached": 0,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00068_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8953912258148193
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8953912258148193
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8953912258148193
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8953912258148193
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8953912258148193
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8953912258148193
+   }
+  },
+  "highest_conf": 0.8953912258148193,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1872
+ },
+ "T_tok40": {
+  "status": "success",
+  "prompt_id": "ad5ac400-4248-4919-9f55-985a3d735a4b",
+  "exec_seconds": 72.8,
+  "cached": 0,
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "error_node": null,
+  "tap": "nTAP163__tap163_00069_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8951995372772217
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8951995372772217
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8951995372772217
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8951995372772217
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8951995372772217
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8951995372772217
+   }
+  },
+  "highest_conf": 0.8951995372772217,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1873
+ },
+ "T_tok42": {
+  "status": null,
+  "prompt_id": null,
+  "exec_seconds": null,
+  "cached": null,
+  "text": null,
+  "error_node": null,
+  "tap": null
  }
 }

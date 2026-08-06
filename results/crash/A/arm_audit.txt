@@ -11,16 +11,22 @@ CTL_placeholder_after_A3_C2_gardener_w17 tokens= 16 status=success  cached=0
 CTL_placeholder_after_A3_swap_Tuesday    tokens= 16 status=success  cached=0
 CTL_placeholder_after_A3_swap_fine       tokens= 16 status=success  cached=0
 CTL_placeholder_after_A3_swap_obvious    tokens= 16 status=success  cached=0
+CTL_placeholder_after_REP2_w17           tokens= 16 status=error    cached=16
+CTL_placeholder_after_REP2_w17__warm2    tokens= 16 status=success  cached=0
 CTL_placeholder_after_REP_w17            tokens= 16 status=error    cached=16
 CTL_placeholder_after_T_tok30            tokens= 16 status=success  cached=0
 CTL_placeholder_after_T_tok31            tokens= 16 status=success  cached=0
 CTL_placeholder_after_T_tok32            tokens= 16 status=success  cached=0
+CTL_placeholder_after_T_tok44            tokens= 16 status=success  cached=0
 CTL_placeholder_after_T_tok45            tokens= 16 status=success  cached=0
 CTL_placeholder_after_T_tok46            tokens= 16 status=success  cached=0
+CTL_placeholder_after_T_tok47            tokens= 16 status=success  cached=0
 CTL_placeholder_after_w17                tokens= 16 status=success  cached=0
 CTL_placeholder_after_w18                tokens= 16 status=success  cached=0
 CTL_placeholder_after_w24                tokens= 16 status=success  cached=0
 CTL_recovery_before_T                    tokens= 16 status=success  cached=0
+E398_tok28_ctl                           tokens= 16 status=success  cached=0
+E398_tok31                               tokens= 16 status=success  cached=0
 L_w01                                    tokens= 11 status=success  cached=0
 L_w02                                    tokens= 12 status=success  cached=0
 L_w03                                    tokens= 13 status=success  cached=0
@@ -37,9 +43,12 @@ L_w21                                    tokens= 38 status=success  cached=0
 L_w22                                    tokens= 39 status=success  cached=0
 L_w23                                    tokens= 41 status=success  cached=0
 L_w24                                    tokens= 45 status=error    cached=0
+REP2_w17                                 tokens= 30 status=error    cached=0
+REP2_w19                                 tokens= 33 status=success  cached=0
 REP_w17                                  tokens= 30 status=error    cached=0
 TAP114_placeholder                       tokens= 16 status=success  cached=0
 TAP114_w17                               tokens= 30 status=success  cached=0
+T_tok26                                  tokens= 26 status=success  cached=0
 T_tok27                                  tokens= 27 status=success  cached=0
 T_tok28                                  tokens= 28 status=success  cached=16
 T_tok28__warm2                           tokens= 28 status=success  cached=0
@@ -49,7 +58,13 @@ T_tok31                                  tokens= 31 status=error    cached=0
 T_tok32                                  tokens= 32 status=error    cached=0
 T_tok33                                  tokens= 33 status=success  cached=0
 T_tok34                                  tokens= 34 status=success  cached=0
+T_tok35                                  tokens= 35 status=success  cached=0
+T_tok36                                  tokens= 36 status=success  cached=0
+T_tok37                                  tokens= 37 status=success  cached=0
+T_tok40                                  tokens= 40 status=success  cached=0
+T_tok44                                  tokens= 44 status=error    cached=0
 T_tok45                                  tokens= 45 status=error    cached=0
 T_tok46                                  tokens= 46 status=error    cached=0
+T_tok47                                  tokens= 47 status=error    cached=0
 
 PROBLEMS: none

@@ -211,6 +211,16 @@
   ]
  },
  {
+  "tokens": 37,
+  "n_arms": 1,
+  "n_crash": 0,
+  "n_clean": 1,
+  "verdict": "clean",
+  "arms": [
+   "T_tok37"
+  ]
+ },
+ {
   "tokens": 38,
   "n_arms": 1,
   "n_crash": 0,
@@ -228,6 +238,16 @@
   "verdict": "clean",
   "arms": [
    "L_w22"
+  ]
+ },
+ {
+  "tokens": 40,
+  "n_arms": 1,
+  "n_crash": 0,
+  "n_clean": 1,
+  "verdict": "clean",
+  "arms": [
+   "T_tok40"
   ]
  },
  {
