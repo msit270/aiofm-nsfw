@@ -98,6 +98,29 @@ removed, 0 existing nodes changed.** Same render, same cost, no risk I can see
 beyond six extra PNG writes. I did not change `#87` or anything else, per
 main's instruction.
 
+**It paid for itself.** With two taps the answer would have been "the freckles
+die somewhere between `#92` and `#98`" and `#87` would still have been the
+prime suspect — which is what I had already guessed, and it was **wrong**. Six
+taps show `#92` changing nothing, `#87` being a pass-through of `#91`, `#91`
+nearly *doubling* the freckles, and the whole loss landing on `#98`. Three of
+those four are individually useful and none of them was reachable from two
+taps.
+
+## 6b. I let duplicate drivers of my own run, and it cost the shared GPU about four renders
+
+Two `window.py` instances and one `run_all.sh` chain were alive at the same
+time without my noticing, because a `pkill` pattern matched my own shell's
+command line and killed the shell instead of the target. The result: the tap
+render ran three times, the health control twice, and `Z2` twice.
+
+**No conclusion rests on it** — every duplicate was compared against the run I
+kept (mean absolute difference 0.0000, maximum 0 levels, on all seven tap
+outputs both times), the duplicates' PNGs were deleted, and every `prompt_id`
+in every `meta.json` resolves in `/history`. It also produced a free
+determinism control and a free cold/warm timing pair. But it was waste on a
+server three other agents were queuing behind, and it was my error, so it is
+recorded here rather than quietly cleaned up.
+
 ## 7. I rebased every arm onto cf 1.5 rather than deliver a sheet for a graph nobody ships
 
 Main offered me the choice: apply `bbox_crop_factor` 3 → 1.5 now and re-base,
