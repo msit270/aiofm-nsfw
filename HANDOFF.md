@@ -90,27 +90,38 @@ seam — **in the steps-8 graph you approved**. cf 1.5 is the same face without 
 and it refines **0.04 % more** pixels, so it is not doing less. **If the residual
 lip blister bothers you, 1.0 is one integer away** (`widgets_values[15]`).
 
-### Speed — now measured properly, cache held constant
+### Speed — **the whole-render speedup from steps is single digits, not 26 %**
 
-| arm | `#114` | exec |
+I gave you "26 % faster" and "400.7 s → 189.3 s". **Both were wrong, and the
+second was wrong by a factor of eight.** Closed cold-against-cold, 0 cached nodes
+on both sides, each verified as the same render (mean abs diff 0.0000):
+
+| | what you were shown | **cold vs cold** |
 |---|---|---|
-| steps 8, denoise 0.50 | | 145.2 s |
-| steps 8, denoise 0.35 | | 145.6 s |
-| **steps 30**, denoise 0.35 | | **198.7 s** |
+| steps 30 + your LoRAs | 400.7 s *(38 cached)* | **417.5 s** |
+| steps 8 + your LoRAs | 189.3 s *(57 cached)* | **388.9 s** |
+| | −53 % | **−28.6 s, −6.9 %** |
 
-*Byte-identical `execution_cached` sets — 57 nodes, same ids, asserted.*
+**The 53 % was cache.** And the 6.9 % is not quotable either: two ~400 s cold
+renders each carry ~200 s of model loading that varies run to run, so 28.6 s sits
+inside that variance.
 
-- **steps 30 → 8 saves 53.1 s, −26.7 %.** So the "26 %" I withdrew was right after
-  all; it just had not been *measured* until now.
-- **denoise costs nothing** — 0.4 s apart. It moves where on the noise schedule
-  the pass starts, it does not shorten it.
-- **crop factor 3 → 1.5 saves 118.4 s, −30 %**, from a matched **cold** pair
-  (388.9 → 270.5 s, both from `/free` at 0 cached).
+**What the lever is actually worth, cache held byte-identical (57 nodes, same
+ids):** steps 30 → 8 saves **53.1 s of sampling** (198.7 → 145.6 s). Denoise
+costs **0.4 s** — nothing. Crop factor 3 → 1.5 saves **118.4 s** on a matched
+cold pair, comfortably outside the load variance.
 
-**And the reason every timing claim in this project went wrong:** the same graph
-cold versus warm is 388.9 s vs 190.1 s. **120–200 s of a cold render on this pod
-is model loading** — larger than either lever being argued about. Any comparison
-that does not hold cache constant measures loading, not sampling.
+**So: steps 8 is still right, and the quality case is not close — but do not put
+a 26 % or 53 % speedup in the pack.** The honest line is "~50 s less sampling per
+render, single-digit percent of wall clock".
+
+**The root cause of every timing error in this project:** the same graph cold vs
+warm is 388.9 s vs 190.1 s. **120–200 s of a cold render here is model loading**,
+larger than any lever anyone argued about. A comparison that does not hold cache
+constant measures loading, not sampling.
+
+*(The older `−103.7 s / −26 %` figure has the same defect — 31 cached vs 8 — and
+has not been re-measured. Do not quote it.)*
 
 ### Luna's freckles — answered, and it moves the question off this node
 
