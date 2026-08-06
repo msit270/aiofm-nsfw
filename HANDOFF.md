@@ -168,23 +168,53 @@ a requirement, not step 3 of a list.
    selector.
 7. `AUDIT.md`, `MAP.md`, `PROPOSALS.md`, `SETUP.md` predate this work.
 
-## Publishing — one command, yours to run. **Nothing was uploaded.**
+## Publishing — owner runs this, nobody else. **Nothing was uploaded.**
 
 ```
 dist/AIOFMTech-NSFW.tar.gz   8,155,368 B   sha256 5f2a0f2b…c5ab1   170 files
-workflow inside it: a811b5d6…  (= the graph above, verified out of the archive)
+workflow inside it: a811b5d6…   verified out of the archive, not off the tree
 ```
+Verified against **these** bytes: all four buyer-path cases green (no token,
+rejected token, bad archive, happy path — exit 0 in 127 s, `integrity: OK`, all
+51 node types registered), the `PACK_TOP` assertion observed firing with a
+negative control that discriminates, and a 170 → 170 delta with **zero additions
+and zero removals**.
+
 ```bash
 HF_TOKEN="$(tr -d '[:space:]' < /workspace/.hf_token)" \
 /venv/main/bin/hf upload msit270/AIOFM-Pack \
-    /workspace/nsfw-fix/dist/AIOFMTech-NSFW.tar.gz dist/AIOFMTech-NSFW.tar.gz \
-    --commit-message "NSFW pack re-cut (workflow a811b5d6)"
+    /workspace/nsfw-fix/dist/AIOFMTech-NSFW.tar.gz \
+    dist/AIOFMTech-NSFW.tar.gz \
+    --commit-message "NSFW pack re-cut against the #114/#105 graph changes (workflow a811b5d6)"
 ```
-Verify — **if you see `3f6d0f2f…aada76` it did not land**:
+`dist/` is deliberate — it keeps the artifact out of the bulk
+`hf download --include "models/*"`.
+
+Check from the buyer's side, the only side that counts:
 ```bash
-curl -fsSL -H "Authorization: Bearer $(tr -d '[:space:]' < /workspace/.hf_token)" \
-  "https://huggingface.co/msit270/AIOFM-Pack/resolve/main/dist/AIOFMTech-NSFW.tar.gz" | sha256sum
+curl -sS -I -H "Authorization: Bearer $(tr -d '[:space:]' < /workspace/.hf_token)" \
+  "https://huggingface.co/msit270/AIOFM-Pack/resolve/main/dist/AIOFMTech-NSFW.tar.gz" \
+  | grep -i 'x-linked-etag\|x-linked-size'
+# expect: x-linked-etag: "5f2a0f2b…c5ab1"   x-linked-size: 8155368
 ```
-**Live HF is two cuts behind** — `3f6d0f2f…` is what it serves today; neither
-previous re-cut was ever uploaded. A green cut is **not** a clean licence
-position; see §7.4.
+
+**Seeing `3f6d0f2f…aada76` means the upload did not land — retry, do not wait for
+CDN lag.** That URL 302s to a content-keyed object, so the old hash means the
+repo still points at the old bytes.
+
+⚠ **`15706aa7…` and `27fa2e1c…` can never appear.** **Three consecutive re-cuts
+have never been uploaded** — so the "watch for this hash" lines in
+`notes/WS5-report.md` and `notes/P4-package.md` name hashes that cannot show up
+at that URL, and following either would misread a *successful* upload as a
+failure. **It also means buyers today still get the old `OFMTech-NSFW/`
+top-level directory**; the rename exists only in artifacts nobody published.
+
+Confirm the shipped graph without unpacking:
+```bash
+tar -xzOf /workspace/nsfw-fix/dist/AIOFMTech-NSFW.tar.gz \
+    AIOFMTech-NSFW/OFMTech_NSFW.json | sha256sum
+# a811b5d690ccc5207bc7bd1c626cdd3db3b720b9be60d0a687436efcfd2143d8
+```
+
+A green cut is **not** a clean licence position — these bytes contain the
+UnMarker and GrainNet trees. See §7.4 and `QUESTIONS.md` §0.
