@@ -1,6 +1,6 @@
 # HANDOFF.md
 
-**Workflow `a811b5d6…` · artifact `5f2a0f2b…` · nothing uploaded.**
+**Workflow `f5bed596…` (was `a811b5d6…`) · artifact being re-cut · nothing uploaded.**
 Evidence for every line: `notes/HANDOFF-detail.md` and the per-agent reports in `notes/`.
 
 ---
@@ -26,8 +26,8 @@ just the consequence — YOLO scores the leftover hair-and-head silhouette 0.466
 finds no face at 0.6.
 
 **It is driven by the TOKEN COUNT of the prompt, and content is irrelevant.**
-48 cold arms, 8 unrelated content families, and **not one token count produced two
-different outcomes**. The shape, ~54 cold arms:
+~56 cold arms, 8 unrelated content families, and **not one token count produced
+two different outcomes**. The shape:
 
 ```
 tokens   11 … 29  │ 30 31 32 │  33 … 43  │ 44 45 46 47 48 49 50 → …
