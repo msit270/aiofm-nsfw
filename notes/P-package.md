@@ -142,6 +142,29 @@ free."** The −12.1 s I measured is noise pointing in a flattering direction, a
 I am explicitly *not* claiming it. It is also consistent with the matched-cache
 warm figure of 0.4 s that was recorded before I started.
 
+#### The measurement refutes itself, which is the cleanest evidence here
+
+I timed the individual nodes off the websocket `executing` transitions. On a
+**cold** run, node `620:114 FaceDetailer` — the *only* node whose input differs
+between the two arms — takes:
+
+```
+P_D080  (denoise 0.80, cold)   620:114 = 6.47 s     whole render 308.7 s
+P_D035  (denoise 0.35)         620:114 = 6.00 s
+P_CLIPDEF (denoise 0.35, cold) 620:114 = 10.04 s
+```
+
+**The whole-render delta I measured (−12.1 s) is larger than the entire runtime
+of the node it is supposed to have come from (6.47 s).** Even if the denoise
+change had made `#114` instantaneous it could not have saved 12 s. That is
+conclusive, and it needs no statistics: the −12.1 s is load noise, full stop.
+
+Note also that the two *denoise-0.35* runs give 6.00 s and 10.04 s for the same
+node — a 4 s spread at identical settings. Node-level timing is noisy here too,
+so I am not claiming the 0.47 s difference either. What I am claiming is the
+**bound**: the lever can move at most ~6–10 s, it mechanistically moves ~0, and
+the warm matched-cache figure of 0.4 s is the best estimate anyone has.
+
 ### 1b. The `cpu` CLIPLoader — a real effect, but I cannot give a clean number
 
 ```
@@ -174,19 +197,83 @@ What stops me quoting it:
 - The 257.3 s run is a 35 s outlier and it drags the mean well below the median.
 - n=3.
 
-**Verdict: `cpu` costs something, most likely in the +15 to +30 s band on a cold
-render, and I would not put a single number in front of a buyer.** What I would
-say is: *the black-face fix costs roughly 5–10 % of a cold render, and it is
-worth it* — because the alternative is a ruined face.
+#### Per-node timing localises it exactly, and this is the number I would quote
 
-### The decisive follow-up
+Rather than leave it at a confounded whole-render figure, I timed every node off
+the websocket `executing` transitions on a **matched cold pair** that differs
+only in `620:110.device` (both denoise 0.35, both `execution_cached: []`):
 
-Both whole-render deltas are differences of ~300 s totals, most of which is model
-loading, so a lever worth seconds is buried. The fix is to time the two nodes
-directly off the websocket `executing` transitions, which gives per-node
-durations and is immune to the load confound entirely.
+```
+device=cpu      exec 313.7 s      device=default   exec 302.4 s
+whole-render difference = +11.3 s
+```
 
-*(results below)*
+Per node, largest absolute differences:
+
+| node | class_type | cpu (s) | default (s) | diff (s) |
+|---|---|---|---|---|
+| `622:398` | **CLIPTextEncode** | 11.29 | 0.03 | **+11.25** |
+| `621:166` | **CLIPTextEncode** | 9.63 | 0.05 | **+9.58** |
+| `620:106` | **CLIPTextEncode** | 10.54 | 1.25 | **+9.29** |
+| `622:394` | **CLIPTextEncode** | 8.65 | 1.30 | **+7.35** |
+| `620:110` | **CLIPLoader** | 2.11 | 2.34 | **−0.23** |
+| `587:92` | FaceDetailer | 23.30 | 35.51 | −12.20 |
+| `619:600` | KSamplerAdvanced | 1.83 | 7.54 | −5.71 |
+| `587:98` | UltimateSDUpscale | 96.00 | 100.78 | −4.78 |
+
+**The cost is not in the loader. It is in text encoding.**
+
+```
+four CLIPTextEncode nodes:  cpu 40.11 s   default 2.63 s   ->  +37.5 s
+CLIPLoader 620:110 itself:  cpu  2.11 s   default 2.34 s   ->   -0.2 s
+```
+
+That is a 375× ratio on `622:398` (11.29 s vs 0.03 s), far outside any noise seen
+at node level. The mechanism is exactly what you would expect: `device=cpu` keeps
+the Qwen text encoder in system RAM, so its **forward pass runs on the CPU**. The
+loading is unaffected — only the encoding is.
+
+The rows below `620:110` in that table are the reason the whole-render number was
+misleading. `587:92`, `619:600` and `587:98` swing by −12.2, −5.7 and −4.8 s
+between two runs that did not differ in any input touching them; that is
+ordinary run-to-run noise, and it cancelled most of the real +37.5 s, leaving a
+whole-render figure of only +11.3 s. Summed over every node the diffs come to
++11.9 s, consistent with the +11.3 s total, so the accounting closes.
+
+**Verdict on the CLIP lever.** The honest statement is:
+
+> `#110 CLIPLoader device = cpu` costs about **+37 s of text-encoding time per
+> cold render** — four `CLIPTextEncode` nodes going from ~2.6 s total on GPU to
+> ~40 s total on CPU. The loader itself is free. On a ~300 s cold render that is
+> roughly **12 %**.
+
+This supersedes both the never-measured ~+14 s estimate and my own confounded
++29 s whole-render mean.
+
+**It replicates, tightly.** I have four cold runs with node timing — two on each
+device setting — and the text-encode total is essentially constant within each:
+
+| run | cold | `622:398` | `621:166` | `620:106` | `622:394` | **encode total** | `620:110` loader |
+|---|---|---|---|---|---|---|---|
+| cpu, `n1_P_D080` | yes | 11.21 | 9.23 | 9.93 | 8.47 | **38.84** | 2.24 |
+| cpu, `n2_P_D035` | yes | 11.29 | 9.63 | 10.54 | 8.65 | **40.11** | 2.11 |
+| default, `n1_P_CLIPDEF` | yes | 0.03 | 0.05 | 1.25 | 1.30 | **2.63** | 2.34 |
+| default, `n2retry2_P_CLIPDEF` | yes | 0.03 | 0.05 | 0.20 | 1.21 | **1.50** | 1.90 |
+
+```
+device=cpu     encode total: 38.8, 40.1   mean 39.5 s   (spread 1.3 s)
+device=default encode total:  2.6,  1.5   mean  2.1 s   (spread 1.1 s)
+cost of device=cpu = +37.4 s               (n=2 vs n=2)
+```
+
+The within-group spread is ~1 s against a between-group difference of 37 s. This
+is the **one timing number in this report I would put in front of a buyer**, and
+it is the opposite of the whole-render figures in that respect. It also crosses
+arms: the cpu measurement holds on `P_D080` (denoise 0.80) and `P_D035`
+(denoise 0.35) alike, as it should, since the two levers are independent.
+
+It is still worth paying — the alternative is the black-face bug — but it is
+**not** free, and it should not be described as free.
 
 ---
 
