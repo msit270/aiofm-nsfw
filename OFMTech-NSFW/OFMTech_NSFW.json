@@ -6658,7 +6658,7 @@
             "widgets_values": [
               "qwen.safetensors",
               "lumina2",
-              "default"
+              "cpu"
             ],
             "color": "#223",
             "bgcolor": "#335"
