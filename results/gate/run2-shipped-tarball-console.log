@@ -1,0 +1,45 @@
+workflow        /workspace/comfy-r2gate/user/default/workflows/OFMTech_NSFW.json
+                sha256 f1ac7e55d375380033f6b0acc67ee0f4706dd618303075f86213fc09e6beb22e
+object_info     1935 node types registered on the server
+boot            4422 ms   44 console/page error(s) before any workflow was opened
+first-run modal 1 dialog(s) open on the very first page load of this install:
+                  "Templates / All Templates / Popular"
+screenshot      results/gate/run2-shipped-tarball-01-first-run-dialog.png  (893686 B)  — a fresh install opens the stock ComfyUI Templates browser over the UI; the buyer must close it
+first-run modal closed the way a buyer does; dialogs still open: 0
+open workflow   4541 ms   from the Workflows sidebar   title="OFMTech_NSFW - ComfyUI"
+node audit      109 nodes across root + every subgraph, 59 distinct types
+                frontend registered_node_types: 1952
+                node types NOT registered in the frontend (= red nodes): 0
+                node types absent from /object_info (excl. 7 subgraph hosts): 1
+                  ABSENT   MarkdownNote
+                nodes flagged has_errors: 0
+                modal dialogs on screen: 0
+                error toasts on screen: 0
+minimap         hidden for the canvas screenshots (was true) so it cannot cover a node
+fit view        scale=0.2253  framing 17 root-level nodes  canvas=1920,1018
+screenshot      results/gate/run2-shipped-tarball-02-workflow-open-full-canvas.png  (95858 B)  — OFMTech_NSFW opened from the workflow list; 109 nodes, 0 red, 0 dialogs
+prompt          typed into the RPG panel on #483 and committed on blur
+                textarea now : "photorealistic full body photograph of a young woman with long dark hair standing on a hot"...
+                node widget  : prompt_batch_data[0].positive_prompt = "photorealistic full body photograph of a young woman with long dark hair standing on a hot"...
+screenshot      results/gate/run2-shipped-tarball-03-prompt-entered.png  (235462 B)  — the prompt typed into the panel on #483 "1 · YOUR PROMPTS & SEED"
+lora            #618 SDXL stack: lora_01 = "lunaskye.safetensors"  (clicked in the widget's own menu)
+lora            #116 Z-Image stack: lora_01 = "luna.safetensors"  (clicked in the widget's own menu)
+screenshot      results/gate/run2-shipped-tarball-04-both-lora-stacks.png  (220540 B)  — #618 lora_01=lunaskye.safetensors  #116 lora_01=luna.safetensors  (both read back from the graph; #483 collapsed=true for this frame only)
+panel           #483 collapsed for the LoRA frame, restored afterwards (collapsed now: false; prompt panel visible again: false)
+press Run       the real Run button, label="Run"
+prompt accepted HTTP 200  prompt_id=76cbd518-9334-499b-8195-f282af7755a3  api graph 88 nodes  (1273 ms after the click)
+screenshot      results/gate/run2-shipped-tarball-05-run-submitted.png  (873006 B)  — prompt 76cbd518-9334-499b-8195-f282af7755a3 accepted, 88-node API graph
+screenshot      results/gate/run2-shipped-tarball-06-selector-popup.png  (873269 B)  — #603 INSTARAW_ImageFilter paused the render with 1 image(s) — the buyer must choose
+  selector      1 image(s); Send on open=true, after clicking #0=false, after clicking it again=true
+screenshot      results/gate/run2-shipped-tarball-07-selector-image-picked.png  (874638 B)  — image #0 of 1 selected; Send enabled
+  selector      Send pressed at 2s into the render
+  ...waiting    2s   ours_running=true  last node: "619:603"
+  ...waiting    62s   ours_running=true  last node: "587:98"
+  ...waiting    122s   ours_running=true  last node: "620:137"
+render          171s wall (queue included)
+  output        OK   /workspace/comfy-r2gate/output/Instaraw/SDXL/Metadata/HasMetadata_00001_.png  11151307 B  [node 505]
+screenshot      results/gate/run2-shipped-tarball-08-render-complete.png  (253212 B)  — the moment the render finished, as the buyer sees it
+screenshot      results/gate/run2-shipped-tarball-09-final-image-on-canvas.png  (496062 B)  — the finished image on #505 "YOUR IMAGE — saved to output/Instaraw/"
+screenshot      results/gate/run2-shipped-tarball-10-final-image-feed.png  (493098 B)  — the finished image in the ComfyUI image feed
+page errors     44 during boot, 1 after the workflow was opened
+                  console.error: Failed to load resource: the server responded with a status of 404 (Not Found)
