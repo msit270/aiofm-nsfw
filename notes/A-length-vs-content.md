@@ -558,7 +558,7 @@ tok  verdict  n  arms
   12  clean    1  L_w02
   13  clean    1  L_w03
   14  clean    1  L_w04
-  16  clean   17  A1_gate_placeholder, CTL_placeholder_after_w17, CTL_placeholder_after_w18, CTL_placeholder_after_w24, L_w06, CTL_placeholder_after_A3_C2_gardener_w17, CTL_placeholder_after_A3_swap_Tuesday, CTL_placeholder_after_A3_swap_fine, CTL_placeholder_after_A3_swap_obvious, CTL_recovery_before_T, CTL_placeholder_after_T_tok30, CTL_placeholder_after_T_tok31, CTL_placeholder_after_T_tok32, CTL_placeholder_after_T_tok45, CTL_placeholder_after_T_tok46, CTL_placeholder_after_T_tok44, CTL_placeholder_after_T_tok47
+  16  clean   18  A1_gate_placeholder, CTL_placeholder_after_w17, CTL_placeholder_after_w18, CTL_placeholder_after_w24, L_w06, CTL_placeholder_after_A3_C2_gardener_w17, CTL_placeholder_after_A3_swap_Tuesday, CTL_placeholder_after_A3_swap_fine, CTL_placeholder_after_A3_swap_obvious, CTL_recovery_before_T, CTL_placeholder_after_T_tok30, CTL_placeholder_after_T_tok31, CTL_placeholder_after_T_tok32, CTL_placeholder_after_T_tok45, CTL_placeholder_after_T_tok46, CTL_placeholder_after_T_tok44, CTL_placeholder_after_T_tok47, CTL_placeholder_after_REP2_w17__warm2
   20  clean    1  L_w08
   25  clean    1  L_w12
   26  clean    2  A3_C4_committee_w17, T_tok26
@@ -568,7 +568,7 @@ tok  verdict  n  arms
   30  CRASH    7  L_w17, A3_C2_gardener_w17, A3_swap_fine, A3_swap_Tuesday, A3_swap_obvious, T_tok30, REP2_w17
   31  CRASH    1  T_tok31
   32  CRASH    2  L_w18, T_tok32
-  33  clean    2  L_w19, T_tok33
+  33  clean    3  L_w19, T_tok33, REP2_w19
   34  clean    2  A3_C1_fisherman_w17, T_tok34
   35  clean    3  L_w20, A3_C3_locomotive_w17, T_tok35
   36  clean    1  T_tok36
@@ -782,6 +782,23 @@ Three consequences:
 3. **The shipped eye prompt is 28 tokens — two from the band**, and it is not a
    field anyone is warned about.
 
+
+
+---
+
+## Repeats — both load-bearing arms reproduce
+
+`REP_w17` and its control were voided (warm cache, above). Re-run cold on an
+attested server:
+
+| arm | tokens | expected | got |
+|---|---|---|---|
+| `REP2_w17` | 30 | crash, matching `L_w17` | **ERROR `622:403`**, 58.2 s, `cached 0`, tap bit-identical to `L_w17` |
+| `REP2_w19` | 33 | clean, matching `L_w19` | **success**, 69.8 s, `cached 0` |
+
+`REP2_w19` matters most: the non-monotone word ladder rested on a single clean
+observation at 19 words, and rule 6 says a single observation is not a pattern.
+It repeats.
 
 ---
 

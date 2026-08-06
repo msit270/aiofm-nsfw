@@ -11,3 +11,6 @@ token sweep finished; running REP redo
 [CTL_placeholder_after_REP2_w17__warm2] submitted 47848636-e986-4c9b-adf8-1adae51edb3a cid=trackA-CTL_placeholder_after_REP2_w17__warm2-e762dc6b queue_before=(0,0) vram_free=52.2GiB
 [CTL_placeholder_after_REP2_w17__warm2] success exec=74.9s cached=0 err=None  imgs=['tap163_00065_.png', 'HasMetadata_00103_.png']
 [REP2_w19] submitted ea8ed92d-a4f0-450e-a88b-275e02454863 cid=trackA-REP2_w19-8963d51b queue_before=(0,0) vram_free=46.2GiB
+[REP2_w19] success exec=69.8s cached=0 err=None  imgs=['tap163_00066_.png', 'HasMetadata_00104_.png']
+done
+rep redo done

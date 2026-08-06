@@ -1345,5 +1345,41 @@
    }
   ],
   "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
+ },
+ {
+  "arm": "REP2_w19",
+  "prompt_id": "ea8ed92d-a4f0-450e-a88b-275e02454863",
+  "client_id": "trackA-REP2_w19-8963d51b",
+  "wall_seconds": 70.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 49569817148,
+  "note": "REDO of REP_w19 -- repeat of the clean-again L_w19; this arm carries the non-monotonicity claim",
+  "status": "success",
+  "exec_seconds": 69.8,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00066_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00104_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed",
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed",
+  "words": 19
  }
 ]
