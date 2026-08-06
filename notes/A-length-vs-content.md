@@ -1,11 +1,13 @@
 # TRACK A — is the face-prompt crash LENGTH or WORDS?
 
-## **ANSWER: it is the LENGTH — specifically the exact TOKEN COUNT of the conditioning, and not as a threshold but as two narrow bands. Content is irrelevant.**
+## **ANSWER: it is the LENGTH — specifically the exact TOKEN COUNT of the conditioning, and not as a threshold but as two narrow bands. No content I tested changed the outcome at any length.**
 
 Every prompt whose tokenised length is **30, 31, 32, 45 or 46 tokens** crashes.
 Every other length measured — 11, 12, 13, 14, 16, 20, 25, 26, 29, 33, 34, 35, 38,
-39, 41 — renders clean. **Across 29 arms and eight unrelated content families
-there is not one token count that gave two different outcomes.** Six completely
+39, 41 — renders clean. **Across every cold arm in this run and eight unrelated content families there
+is not one token count that gave two different outcomes.** That is a strong
+statement about the lengths and content I measured; it is not a proof that no
+string anywhere could break the pattern. Six completely
 different 30-token strings all crash, including `"a woman's face"` (which renders
 clean at 12 tokens) padded to 30 with repetitions of the word `the`, and they all
 produce **bit-identical** output.
