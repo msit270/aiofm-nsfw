@@ -168,6 +168,26 @@ preflight lint assert `620:110.device == "cpu"` survives the round trip through
 `/object_info`. *Lower-risk option taken here:* none needed — this is a packaging
 concern, not something Track V can change without editing the workflow.
 
+### Q1b. One Phase 3 criterion is NOT met, and I did not try to meet it
+
+`PHASE3-spec.md` §4 lists, among the things that kill a candidate fix:
+
+> A pass that only reproduces on one instance. **Two, minimum, one of which was
+> shown able to fail.**
+
+**Track V validated on one instance.** `:18188` is the only reproducer anyone has
+found — Track E stood up four ComfyUIs from the same directory (`:32000`–`:32003`)
+and none of them would fail under any configuration, and Track D's `:31910` does
+not fail either. So a second instance is available only in the useless direction:
+it could show the fix does no harm on a healthy server, not that it repairs a
+sick one.
+
+I judged that a fifth non-reproducing instance was not worth an hour of GPU
+contention against the 60 arms that were actually discriminating, and that
+starting one while three ComfyUIs already share this GPU risked the run. **So this
+criterion is open, and it should not be recorded as met.** The pod session should
+close it on a second box that is first shown able to fail.
+
 ### Q2. The fix is a workaround and the underlying instability is untouched
 
 Nothing in this session made `620:114` stop being bistable; it moved the
