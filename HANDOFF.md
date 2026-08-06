@@ -151,15 +151,14 @@ because I do not yet know what it should say. `notes/R4-defects.md` §2b.
    lips segment when crop area exceeds **1,700,000**; observed values cluster
    **1.77–2.06 M**. One session: **19 passed, 20 dropped.** No warning.
 3. **A hard composite seam** at the face-box edge survives every arm (×6.76
-   baseline, ×3.57 at steps 8, never 1.0) and is visible in the delivered image.
+   baseline, ×3.57 at steps 8, never 1.0), visible in the delivered image.
 4. **Five licence blockers** — `QUESTIONS.md` §0, untouched as instructed. DMD2
    (cc-by-nc) **still ships**, because `--include "models/*"` sweeps it whatever
    the fetch list says.
-5. Stale `rgthree.compare._temp_*` names in the workflow — **observed firing** as
-   404s on a clean install's first open, real payload POSTed every run.
-6. `node_identifier` is saved in the workflow, so two open tabs both answer the
-   selector.
-7. `AUDIT.md`, `MAP.md`, `PROPOSALS.md`, `SETUP.md` predate this work.
+5. Smaller: stale `rgthree.compare._temp_*` names **observed firing** as 404s on a
+   clean install's first open (real payload POSTed every run) · `node_identifier`
+   saved in the workflow, so two open tabs both answer the selector ·
+   `AUDIT.md`/`MAP.md`/`PROPOSALS.md`/`SETUP.md` predate this work.
 
 ## 7. Using and testing it
 
