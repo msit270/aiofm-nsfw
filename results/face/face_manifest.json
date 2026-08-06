@@ -1,31 +1,31 @@
 {
- "generated": "2026-08-06 03:05",
- "source": "/workspace/nsfw-fix/results/face/arms",
+ "generated": "2026-08-06 03:08",
+ "source": "/workspace/nsfw-fix/results/face/arms_clean",
  "tool": "/workspace/nsfw-fix/tools/contact_sheet.py",
  "max_width": 4000,
  "detector": "/workspace/ComfyUI/models/ultralytics/bbox/face_yolov8m.pt",
  "detector_error": null,
  "face_box_xywh": [
-  665,
-  491,
-  1692,
-  2378
+  678,
+  525,
+  1668,
+  2332
  ],
  "skin_box_xywh": [
-  921,
-  2467,
+  942,
+  2453,
   400,
   400
  ],
  "skin_stats": {
-  "skin_frac": 0.9504,
-  "blur_grad": 0.2408,
+  "skin_frac": 0.9617,
+  "blur_grad": 0.248,
   "anchor": "face",
   "search_region": [
-   665,
-   491,
-   1692,
-   2378
+   678,
+   525,
+   1668,
+   2332
   ]
  },
  "image_size": [
@@ -35,10 +35,10 @@
  "sheets": [
   {
    "region": "face",
-   "path": "/workspace/nsfw-fix/results/face/face_face_sheet1of3.png",
+   "path": "/workspace/nsfw-fix/results/face/face_face_sheet1of2.png",
    "size": [
-    3442,
-    10434
+    3394,
+    10216
    ],
    "cols": 2,
    "tiles": [
@@ -49,7 +49,7 @@
     "B_zface_denoise_065",
     "C_zface_steps_08",
     "C_zface_steps_16",
-    "CF_crop_1.0"
+    "D_skinblend_075"
    ],
    "width_ok": true,
    "verify": [
@@ -57,25 +57,25 @@
      "arm": "A0_baseline",
      "ok": true,
      "src_box": [
-      665,
-      491,
-      1692,
-      2378
+      678,
+      525,
+      1668,
+      2332
      ],
      "sheet_at": [
       20,
-      401,
-      1692,
-      2378
+      367,
+      1668,
+      2332
      ],
      "src_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "sheet_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "max_abs_diff": 0
@@ -84,25 +84,25 @@
      "arm": "A_drop_sdxl_face_pass",
      "ok": true,
      "src_box": [
-      665,
-      491,
-      1692,
-      2378
+      678,
+      525,
+      1668,
+      2332
      ],
      "sheet_at": [
-      1730,
-      401,
-      1692,
-      2378
+      1706,
+      367,
+      1668,
+      2332
      ],
      "src_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "sheet_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "max_abs_diff": 0
@@ -111,25 +111,25 @@
      "arm": "B_zface_denoise_035",
      "ok": true,
      "src_box": [
-      665,
-      491,
-      1692,
-      2378
+      678,
+      525,
+      1668,
+      2332
      ],
      "sheet_at": [
       20,
-      2946,
-      1692,
-      2378
+      2866,
+      1668,
+      2332
      ],
      "src_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "sheet_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "max_abs_diff": 0
@@ -138,25 +138,25 @@
      "arm": "B_zface_denoise_050",
      "ok": true,
      "src_box": [
-      665,
-      491,
-      1692,
-      2378
+      678,
+      525,
+      1668,
+      2332
      ],
      "sheet_at": [
-      1730,
-      2946,
-      1692,
-      2378
+      1706,
+      2866,
+      1668,
+      2332
      ],
      "src_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "sheet_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "max_abs_diff": 0
@@ -165,25 +165,25 @@
      "arm": "B_zface_denoise_065",
      "ok": true,
      "src_box": [
-      665,
-      491,
-      1692,
-      2378
+      678,
+      525,
+      1668,
+      2332
      ],
      "sheet_at": [
       20,
-      5491,
-      1692,
-      2378
+      5365,
+      1668,
+      2332
      ],
      "src_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "sheet_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "max_abs_diff": 0
@@ -192,25 +192,25 @@
      "arm": "C_zface_steps_08",
      "ok": true,
      "src_box": [
-      665,
-      491,
-      1692,
-      2378
+      678,
+      525,
+      1668,
+      2332
      ],
      "sheet_at": [
-      1730,
-      5491,
-      1692,
-      2378
+      1706,
+      5365,
+      1668,
+      2332
      ],
      "src_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "sheet_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "max_abs_diff": 0
@@ -219,128 +219,25 @@
      "arm": "C_zface_steps_16",
      "ok": true,
      "src_box": [
-      665,
-      491,
-      1692,
-      2378
+      678,
+      525,
+      1668,
+      2332
      ],
      "sheet_at": [
       20,
-      8036,
-      1692,
-      2378
+      7864,
+      1668,
+      2332
      ],
      "src_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "sheet_shape": [
-      2378,
-      1692,
-      3
-     ],
-     "max_abs_diff": 0
-    },
-    {
-     "arm": "CF_crop_1.0",
-     "ok": true,
-     "src_box": [
-      665,
-      491,
-      1692,
-      2378
-     ],
-     "sheet_at": [
-      1730,
-      8036,
-      1692,
-      2378
-     ],
-     "src_shape": [
-      2378,
-      1692,
-      3
-     ],
-     "sheet_shape": [
-      2378,
-      1692,
-      3
-     ],
-     "max_abs_diff": 0
-    }
-   ]
-  },
-  {
-   "region": "face",
-   "path": "/workspace/nsfw-fix/results/face/face_face_sheet2of3.png",
-   "size": [
-    3442,
-    10434
-   ],
-   "cols": 2,
-   "tiles": [
-    "A0_baseline",
-    "CF_crop_1.5",
-    "D_skinblend_075",
-    "H_skinblend_050",
-    "L0b_baseline_loras",
-    "L1b_steps08_loras",
-    "X2_steps08_denoise050",
-    "X_steps08_denoise050"
-   ],
-   "width_ok": true,
-   "verify": [
-    {
-     "arm": "A0_baseline",
-     "ok": true,
-     "src_box": [
-      665,
-      491,
-      1692,
-      2378
-     ],
-     "sheet_at": [
-      20,
-      401,
-      1692,
-      2378
-     ],
-     "src_shape": [
-      2378,
-      1692,
-      3
-     ],
-     "sheet_shape": [
-      2378,
-      1692,
-      3
-     ],
-     "max_abs_diff": 0
-    },
-    {
-     "arm": "CF_crop_1.5",
-     "ok": true,
-     "src_box": [
-      665,
-      491,
-      1692,
-      2378
-     ],
-     "sheet_at": [
-      1730,
-      401,
-      1692,
-      2378
-     ],
-     "src_shape": [
-      2378,
-      1692,
-      3
-     ],
-     "sheet_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "max_abs_diff": 0
@@ -349,160 +246,25 @@
      "arm": "D_skinblend_075",
      "ok": true,
      "src_box": [
-      665,
-      491,
-      1692,
-      2378
+      678,
+      525,
+      1668,
+      2332
      ],
      "sheet_at": [
-      20,
-      2946,
-      1692,
-      2378
+      1706,
+      7864,
+      1668,
+      2332
      ],
      "src_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "sheet_shape": [
-      2378,
-      1692,
-      3
-     ],
-     "max_abs_diff": 0
-    },
-    {
-     "arm": "H_skinblend_050",
-     "ok": true,
-     "src_box": [
-      665,
-      491,
-      1692,
-      2378
-     ],
-     "sheet_at": [
-      1730,
-      2946,
-      1692,
-      2378
-     ],
-     "src_shape": [
-      2378,
-      1692,
-      3
-     ],
-     "sheet_shape": [
-      2378,
-      1692,
-      3
-     ],
-     "max_abs_diff": 0
-    },
-    {
-     "arm": "L0b_baseline_loras",
-     "ok": true,
-     "src_box": [
-      665,
-      491,
-      1692,
-      2378
-     ],
-     "sheet_at": [
-      20,
-      5491,
-      1692,
-      2378
-     ],
-     "src_shape": [
-      2378,
-      1692,
-      3
-     ],
-     "sheet_shape": [
-      2378,
-      1692,
-      3
-     ],
-     "max_abs_diff": 0
-    },
-    {
-     "arm": "L1b_steps08_loras",
-     "ok": true,
-     "src_box": [
-      665,
-      491,
-      1692,
-      2378
-     ],
-     "sheet_at": [
-      1730,
-      5491,
-      1692,
-      2378
-     ],
-     "src_shape": [
-      2378,
-      1692,
-      3
-     ],
-     "sheet_shape": [
-      2378,
-      1692,
-      3
-     ],
-     "max_abs_diff": 0
-    },
-    {
-     "arm": "X2_steps08_denoise050",
-     "ok": true,
-     "src_box": [
-      665,
-      491,
-      1692,
-      2378
-     ],
-     "sheet_at": [
-      20,
-      8036,
-      1692,
-      2378
-     ],
-     "src_shape": [
-      2378,
-      1692,
-      3
-     ],
-     "sheet_shape": [
-      2378,
-      1692,
-      3
-     ],
-     "max_abs_diff": 0
-    },
-    {
-     "arm": "X_steps08_denoise050",
-     "ok": true,
-     "src_box": [
-      665,
-      491,
-      1692,
-      2378
-     ],
-     "sheet_at": [
-      1730,
-      8036,
-      1692,
-      2378
-     ],
-     "src_shape": [
-      2378,
-      1692,
-      3
-     ],
-     "sheet_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "max_abs_diff": 0
@@ -511,16 +273,18 @@
   },
   {
    "region": "face",
-   "path": "/workspace/nsfw-fix/results/face/face_face_sheet3of3.png",
+   "path": "/workspace/nsfw-fix/results/face/face_face_sheet2of2.png",
    "size": [
-    3442,
-    5344
+    3394,
+    7717
    ],
    "cols": 2,
    "tiles": [
     "A0_baseline",
-    "X_steps08_denoise065",
-    "Z_control_steps08_repeat"
+    "H_skinblend_050",
+    "L0b_baseline_loras",
+    "L1b_steps08_loras",
+    "X2_steps08_denoise050"
    ],
    "width_ok": true,
    "verify": [
@@ -528,79 +292,133 @@
      "arm": "A0_baseline",
      "ok": true,
      "src_box": [
-      665,
-      491,
-      1692,
-      2378
+      678,
+      525,
+      1668,
+      2332
      ],
      "sheet_at": [
       20,
-      401,
-      1692,
-      2378
+      367,
+      1668,
+      2332
      ],
      "src_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "sheet_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "max_abs_diff": 0
     },
     {
-     "arm": "X_steps08_denoise065",
+     "arm": "H_skinblend_050",
      "ok": true,
      "src_box": [
-      665,
-      491,
-      1692,
-      2378
+      678,
+      525,
+      1668,
+      2332
      ],
      "sheet_at": [
-      1730,
-      401,
-      1692,
-      2378
+      1706,
+      367,
+      1668,
+      2332
      ],
      "src_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "sheet_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "max_abs_diff": 0
     },
     {
-     "arm": "Z_control_steps08_repeat",
+     "arm": "L0b_baseline_loras",
      "ok": true,
      "src_box": [
-      665,
-      491,
-      1692,
-      2378
+      678,
+      525,
+      1668,
+      2332
      ],
      "sheet_at": [
       20,
-      2946,
-      1692,
-      2378
+      2866,
+      1668,
+      2332
      ],
      "src_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
       3
      ],
      "sheet_shape": [
-      2378,
-      1692,
+      2332,
+      1668,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "L1b_steps08_loras",
+     "ok": true,
+     "src_box": [
+      678,
+      525,
+      1668,
+      2332
+     ],
+     "sheet_at": [
+      1706,
+      2866,
+      1668,
+      2332
+     ],
+     "src_shape": [
+      2332,
+      1668,
+      3
+     ],
+     "sheet_shape": [
+      2332,
+      1668,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "X2_steps08_denoise050",
+     "ok": true,
+     "src_box": [
+      678,
+      525,
+      1668,
+      2332
+     ],
+     "sheet_at": [
+      20,
+      5365,
+      1668,
+      2332
+     ],
+     "src_shape": [
+      2332,
+      1668,
+      3
+     ],
+     "sheet_shape": [
+      2332,
+      1668,
       3
      ],
      "max_abs_diff": 0
@@ -612,7 +430,7 @@
    "path": "/workspace/nsfw-fix/results/face/face_skin_sheet1of1.png",
    "size": [
     3784,
-    1332
+    1298
    ],
    "cols": 9,
    "tiles": [
@@ -623,16 +441,11 @@
     "B_zface_denoise_065",
     "C_zface_steps_08",
     "C_zface_steps_16",
-    "CF_crop_1.0",
-    "CF_crop_1.5",
     "D_skinblend_075",
     "H_skinblend_050",
     "L0b_baseline_loras",
     "L1b_steps08_loras",
-    "X2_steps08_denoise050",
-    "X_steps08_denoise050",
-    "X_steps08_denoise065",
-    "Z_control_steps08_repeat"
+    "X2_steps08_denoise050"
    ],
    "width_ok": true,
    "verify": [
@@ -640,14 +453,14 @@
      "arm": "A0_baseline",
      "ok": true,
      "src_box": [
-      921,
-      2467,
+      942,
+      2453,
       400,
       400
      ],
      "sheet_at": [
       20,
-      373,
+      339,
       400,
       400
      ],
@@ -667,14 +480,14 @@
      "arm": "A_drop_sdxl_face_pass",
      "ok": true,
      "src_box": [
-      921,
-      2467,
+      942,
+      2453,
       400,
       400
      ],
      "sheet_at": [
       438,
-      373,
+      339,
       400,
       400
      ],
@@ -694,14 +507,14 @@
      "arm": "B_zface_denoise_035",
      "ok": true,
      "src_box": [
-      921,
-      2467,
+      942,
+      2453,
       400,
       400
      ],
      "sheet_at": [
       856,
-      373,
+      339,
       400,
       400
      ],
@@ -721,14 +534,14 @@
      "arm": "B_zface_denoise_050",
      "ok": true,
      "src_box": [
-      921,
-      2467,
+      942,
+      2453,
       400,
       400
      ],
      "sheet_at": [
       1274,
-      373,
+      339,
       400,
       400
      ],
@@ -748,14 +561,14 @@
      "arm": "B_zface_denoise_065",
      "ok": true,
      "src_box": [
-      921,
-      2467,
+      942,
+      2453,
       400,
       400
      ],
      "sheet_at": [
       1692,
-      373,
+      339,
       400,
       400
      ],
@@ -775,14 +588,14 @@
      "arm": "C_zface_steps_08",
      "ok": true,
      "src_box": [
-      921,
-      2467,
+      942,
+      2453,
       400,
       400
      ],
      "sheet_at": [
       2110,
-      373,
+      339,
       400,
       400
      ],
@@ -802,68 +615,14 @@
      "arm": "C_zface_steps_16",
      "ok": true,
      "src_box": [
-      921,
-      2467,
+      942,
+      2453,
       400,
       400
      ],
      "sheet_at": [
       2528,
-      373,
-      400,
-      400
-     ],
-     "src_shape": [
-      400,
-      400,
-      3
-     ],
-     "sheet_shape": [
-      400,
-      400,
-      3
-     ],
-     "max_abs_diff": 0
-    },
-    {
-     "arm": "CF_crop_1.0",
-     "ok": true,
-     "src_box": [
-      921,
-      2467,
-      400,
-      400
-     ],
-     "sheet_at": [
-      2946,
-      373,
-      400,
-      400
-     ],
-     "src_shape": [
-      400,
-      400,
-      3
-     ],
-     "sheet_shape": [
-      400,
-      400,
-      3
-     ],
-     "max_abs_diff": 0
-    },
-    {
-     "arm": "CF_crop_1.5",
-     "ok": true,
-     "src_box": [
-      921,
-      2467,
-      400,
-      400
-     ],
-     "sheet_at": [
-      3364,
-      373,
+      339,
       400,
       400
      ],
@@ -883,14 +642,14 @@
      "arm": "D_skinblend_075",
      "ok": true,
      "src_box": [
-      921,
-      2467,
+      942,
+      2453,
       400,
       400
      ],
      "sheet_at": [
-      20,
-      912,
+      2946,
+      339,
       400,
       400
      ],
@@ -910,14 +669,14 @@
      "arm": "H_skinblend_050",
      "ok": true,
      "src_box": [
-      921,
-      2467,
+      942,
+      2453,
       400,
       400
      ],
      "sheet_at": [
-      438,
-      912,
+      3364,
+      339,
       400,
       400
      ],
@@ -937,14 +696,14 @@
      "arm": "L0b_baseline_loras",
      "ok": true,
      "src_box": [
-      921,
-      2467,
+      942,
+      2453,
       400,
       400
      ],
      "sheet_at": [
-      856,
-      912,
+      20,
+      878,
       400,
       400
      ],
@@ -964,14 +723,14 @@
      "arm": "L1b_steps08_loras",
      "ok": true,
      "src_box": [
-      921,
-      2467,
+      942,
+      2453,
       400,
       400
      ],
      "sheet_at": [
-      1274,
-      912,
+      438,
+      878,
       400,
       400
      ],
@@ -991,95 +750,14 @@
      "arm": "X2_steps08_denoise050",
      "ok": true,
      "src_box": [
-      921,
-      2467,
+      942,
+      2453,
       400,
       400
      ],
      "sheet_at": [
-      1692,
-      912,
-      400,
-      400
-     ],
-     "src_shape": [
-      400,
-      400,
-      3
-     ],
-     "sheet_shape": [
-      400,
-      400,
-      3
-     ],
-     "max_abs_diff": 0
-    },
-    {
-     "arm": "X_steps08_denoise050",
-     "ok": true,
-     "src_box": [
-      921,
-      2467,
-      400,
-      400
-     ],
-     "sheet_at": [
-      2110,
-      912,
-      400,
-      400
-     ],
-     "src_shape": [
-      400,
-      400,
-      3
-     ],
-     "sheet_shape": [
-      400,
-      400,
-      3
-     ],
-     "max_abs_diff": 0
-    },
-    {
-     "arm": "X_steps08_denoise065",
-     "ok": true,
-     "src_box": [
-      921,
-      2467,
-      400,
-      400
-     ],
-     "sheet_at": [
-      2528,
-      912,
-      400,
-      400
-     ],
-     "src_shape": [
-      400,
-      400,
-      3
-     ],
-     "sheet_shape": [
-      400,
-      400,
-      3
-     ],
-     "max_abs_diff": 0
-    },
-    {
-     "arm": "Z_control_steps08_repeat",
-     "ok": true,
-     "src_box": [
-      921,
-      2467,
-      400,
-      400
-     ],
-     "sheet_at": [
-      2946,
-      912,
+      856,
+      878,
       400,
       400
      ],
@@ -1102,7 +780,7 @@
   {
    "name": "A0_baseline",
    "param": "none (shipped graph; fixed seed 12345 + freckle prompt)",
-   "path": "results/face/arms/A0_baseline/HasMetadata_00014_.png",
+   "path": "results/face/arms_clean/A0_baseline/HasMetadata_00014_.png",
    "is_baseline": true,
    "extra": "397.8 s  |  31 cached nodes  |  prompt 4490058f",
    "warnings": [],
@@ -1115,10 +793,10 @@
    "det_conf": 0.9025262594223022,
    "det_status": "detected",
    "face_box": [
-    665,
-    491,
-    1692,
-    2378
+    678,
+    525,
+    1668,
+    2332
    ],
    "crop_mode": "common",
    "size": [
@@ -1129,7 +807,7 @@
   {
    "name": "A_drop_sdxl_face_pass",
    "param": "#607 FaceDetailerPipe removed from sg 2. Base Generator (SDXL)",
-   "path": "results/face/arms/A_drop_sdxl_face_pass/HasMetadata_00015_.png",
+   "path": "results/face/arms_clean/A_drop_sdxl_face_pass/HasMetadata_00015_.png",
    "is_baseline": false,
    "extra": "386.2 s  |  11 cached nodes  |  prompt 39a519f5",
    "warnings": [],
@@ -1142,10 +820,10 @@
    "det_conf": 0.9029903411865234,
    "det_status": "detected",
    "face_box": [
-    665,
-    491,
-    1692,
-    2378
+    678,
+    525,
+    1668,
+    2332
    ],
    "crop_mode": "common",
    "size": [
@@ -1156,7 +834,7 @@
   {
    "name": "B_zface_denoise_035",
    "param": "#114 denoise 0.80 -> 0.35",
-   "path": "results/face/arms/B_zface_denoise_035/HasMetadata_00022_.png",
+   "path": "results/face/arms_clean/B_zface_denoise_035/HasMetadata_00022_.png",
    "is_baseline": false,
    "extra": "290.7 s  |  57 cached nodes  |  prompt db4a6c84",
    "warnings": [],
@@ -1169,10 +847,10 @@
    "det_conf": 0.9047403931617737,
    "det_status": "detected",
    "face_box": [
-    665,
-    491,
-    1692,
-    2378
+    678,
+    525,
+    1668,
+    2332
    ],
    "crop_mode": "common",
    "size": [
@@ -1183,7 +861,7 @@
   {
    "name": "B_zface_denoise_050",
    "param": "#114 denoise 0.80 -> 0.50",
-   "path": "results/face/arms/B_zface_denoise_050/HasMetadata_00020_.png",
+   "path": "results/face/arms_clean/B_zface_denoise_050/HasMetadata_00020_.png",
    "is_baseline": false,
    "extra": "291.6 s  |  57 cached nodes  |  prompt 47cf5cb4",
    "warnings": [],
@@ -1196,10 +874,10 @@
    "det_conf": 0.9044134020805359,
    "det_status": "detected",
    "face_box": [
-    665,
-    491,
-    1692,
-    2378
+    678,
+    525,
+    1668,
+    2332
    ],
    "crop_mode": "common",
    "size": [
@@ -1210,7 +888,7 @@
   {
    "name": "B_zface_denoise_065",
    "param": "#114 denoise 0.80 -> 0.65",
-   "path": "results/face/arms/B_zface_denoise_065/HasMetadata_00021_.png",
+   "path": "results/face/arms_clean/B_zface_denoise_065/HasMetadata_00021_.png",
    "is_baseline": false,
    "extra": "290.8 s  |  57 cached nodes  |  prompt 4987d7dd",
    "warnings": [],
@@ -1223,10 +901,10 @@
    "det_conf": 0.9039496779441833,
    "det_status": "detected",
    "face_box": [
-    665,
-    491,
-    1692,
-    2378
+    678,
+    525,
+    1668,
+    2332
    ],
    "crop_mode": "common",
    "size": [
@@ -1237,7 +915,7 @@
   {
    "name": "C_zface_steps_08",
    "param": "#114 steps 30 -> 8",
-   "path": "results/face/arms/C_zface_steps_08/HasMetadata_00016_.png",
+   "path": "results/face/arms_clean/C_zface_steps_08/HasMetadata_00016_.png",
    "is_baseline": false,
    "extra": "294.1 s  |  8 cached nodes  |  prompt 347dcbe6",
    "warnings": [],
@@ -1250,10 +928,10 @@
    "det_conf": 0.9038963913917542,
    "det_status": "detected",
    "face_box": [
-    665,
-    491,
-    1692,
-    2378
+    678,
+    525,
+    1668,
+    2332
    ],
    "crop_mode": "common",
    "size": [
@@ -1264,7 +942,7 @@
   {
    "name": "C_zface_steps_16",
    "param": "#114 steps 30 -> 16",
-   "path": "results/face/arms/C_zface_steps_16/HasMetadata_00019_.png",
+   "path": "results/face/arms_clean/C_zface_steps_16/HasMetadata_00019_.png",
    "is_baseline": false,
    "extra": "224.1 s  |  57 cached nodes  |  prompt d3376ef0",
    "warnings": [],
@@ -1277,64 +955,10 @@
    "det_conf": 0.9031369686126709,
    "det_status": "detected",
    "face_box": [
-    665,
-    491,
-    1692,
-    2378
-   ],
-   "crop_mode": "common",
-   "size": [
-    2688,
-    3456
-   ]
-  },
-  {
-   "name": "CF_crop_1.0",
-   "param": "#114 bbox_crop_factor 3 -> 1.0",
-   "path": "results/face/arms/CF_crop_1.0/HasMetadata_00024_.png",
-   "is_baseline": false,
-   "extra": "138.6 s  |  57 cached nodes  |  prompt d0cdfc91",
-   "warnings": [],
-   "det_xyxy": [
-    781.6823120117188,
-    654.6798095703125,
-    2240.165283203125,
-    2681.175537109375
-   ],
-   "det_conf": 0.6466931700706482,
-   "det_status": "detected",
-   "face_box": [
-    665,
-    491,
-    1692,
-    2378
-   ],
-   "crop_mode": "common",
-   "size": [
-    2688,
-    3456
-   ]
-  },
-  {
-   "name": "CF_crop_1.5",
-   "param": "#114 bbox_crop_factor 3 -> 1.5",
-   "path": "results/face/arms/CF_crop_1.5/HasMetadata_00023_.png",
-   "is_baseline": false,
-   "extra": "296.6 s  |  10 cached nodes  |  prompt 65981fee",
-   "warnings": [],
-   "det_xyxy": [
-    798.8909301757812,
-    659.0882568359375,
-    2214.62109375,
-    2704.826171875
-   ],
-   "det_conf": 0.6865838766098022,
-   "det_status": "detected",
-   "face_box": [
-    665,
-    491,
-    1692,
-    2378
+    678,
+    525,
+    1668,
+    2332
    ],
    "crop_mode": "common",
    "size": [
@@ -1345,7 +969,7 @@
   {
    "name": "D_skinblend_075",
    "param": "#87 ImageBlend blend_factor 1 -> 0.75",
-   "path": "results/face/arms/D_skinblend_075/HasMetadata_00017_.png",
+   "path": "results/face/arms_clean/D_skinblend_075/HasMetadata_00017_.png",
    "is_baseline": false,
    "extra": "292.0 s  |  57 cached nodes  |  prompt 46124026",
    "warnings": [],
@@ -1358,10 +982,10 @@
    "det_conf": 0.9017576575279236,
    "det_status": "detected",
    "face_box": [
-    665,
-    491,
-    1692,
-    2378
+    678,
+    525,
+    1668,
+    2332
    ],
    "crop_mode": "common",
    "size": [
@@ -1372,7 +996,7 @@
   {
    "name": "H_skinblend_050",
    "param": "#87 ImageBlend blend_factor 1 -> 0.50",
-   "path": "results/face/arms/H_skinblend_050/HasMetadata_00018_.png",
+   "path": "results/face/arms_clean/H_skinblend_050/HasMetadata_00018_.png",
    "is_baseline": false,
    "extra": "291.6 s  |  57 cached nodes  |  prompt 8ad04cfd",
    "warnings": [],
@@ -1385,10 +1009,10 @@
    "det_conf": 0.9012513756752014,
    "det_status": "detected",
    "face_box": [
-    665,
-    491,
-    1692,
-    2378
+    678,
+    525,
+    1668,
+    2332
    ],
    "crop_mode": "common",
    "size": [
@@ -1399,7 +1023,7 @@
   {
    "name": "L0b_baseline_loras",
    "param": "LoRAs loaded (lunaskye + luna), settings shipped -- CONFIRMATION ARM, re-run after the server fault",
-   "path": "results/face/arms/L0b_baseline_loras/HasMetadata_00030_.png",
+   "path": "results/face/arms_clean/L0b_baseline_loras/HasMetadata_00030_.png",
    "is_baseline": false,
    "extra": "400.7 s  |  38 cached nodes  |  prompt 6f2a154e",
    "warnings": [],
@@ -1412,10 +1036,10 @@
    "det_conf": 0.8952162861824036,
    "det_status": "detected",
    "face_box": [
-    665,
-    491,
-    1692,
-    2378
+    678,
+    525,
+    1668,
+    2332
    ],
    "crop_mode": "common",
    "size": [
@@ -1426,7 +1050,7 @@
   {
    "name": "L1b_steps08_loras",
    "param": "#114 steps 30 -> 8, plus LoRAs (lunaskye + luna) -- CONFIRMATION ARM, re-run after the server fault",
-   "path": "results/face/arms/L1b_steps08_loras/HasMetadata_00031_.png",
+   "path": "results/face/arms_clean/L1b_steps08_loras/HasMetadata_00031_.png",
    "is_baseline": false,
    "extra": "189.3 s  |  57 cached nodes  |  prompt 5dc3b3e6",
    "warnings": [],
@@ -1439,10 +1063,10 @@
    "det_conf": 0.8947824835777283,
    "det_status": "detected",
    "face_box": [
-    665,
-    491,
-    1692,
-    2378
+    678,
+    525,
+    1668,
+    2332
    ],
    "crop_mode": "common",
    "size": [
@@ -1453,7 +1077,7 @@
   {
    "name": "X2_steps08_denoise050",
    "param": "#114 steps 30 -> 8 and denoise 0.80 -> 0.50 (re-run after the server fault)",
-   "path": "results/face/arms/X2_steps08_denoise050/HasMetadata_00029_.png",
+   "path": "results/face/arms_clean/X2_steps08_denoise050/HasMetadata_00029_.png",
    "is_baseline": false,
    "extra": "185.3 s  |  57 cached nodes  |  prompt 3e69f020",
    "warnings": [],
@@ -1466,91 +1090,10 @@
    "det_conf": 0.9045822024345398,
    "det_status": "detected",
    "face_box": [
-    665,
-    491,
-    1692,
-    2378
-   ],
-   "crop_mode": "common",
-   "size": [
-    2688,
-    3456
-   ]
-  },
-  {
-   "name": "X_steps08_denoise050",
-   "param": "#114 steps 30 -> 8 and denoise 0.80 -> 0.50",
-   "path": "results/face/arms/X_steps08_denoise050/HasMetadata_00025_.png",
-   "is_baseline": false,
-   "extra": "175.5 s  |  57 cached nodes  |  prompt 20871f13",
-   "warnings": [],
-   "det_xyxy": [
-    798.8909301757812,
-    659.0882568359375,
-    2214.62109375,
-    2704.826171875
-   ],
-   "det_conf": 0.6865838766098022,
-   "det_status": "detected",
-   "face_box": [
-    665,
-    491,
-    1692,
-    2378
-   ],
-   "crop_mode": "common",
-   "size": [
-    2688,
-    3456
-   ]
-  },
-  {
-   "name": "X_steps08_denoise065",
-   "param": "#114 steps 30 -> 8 and denoise 0.80 -> 0.65",
-   "path": "results/face/arms/X_steps08_denoise065/HasMetadata_00026_.png",
-   "is_baseline": false,
-   "extra": "175.3 s  |  57 cached nodes  |  prompt b1d122dd",
-   "warnings": [],
-   "det_xyxy": [
-    798.8909301757812,
-    659.0882568359375,
-    2214.62109375,
-    2704.826171875
-   ],
-   "det_conf": 0.6865838766098022,
-   "det_status": "detected",
-   "face_box": [
-    665,
-    491,
-    1692,
-    2378
-   ],
-   "crop_mode": "common",
-   "size": [
-    2688,
-    3456
-   ]
-  },
-  {
-   "name": "Z_control_steps08_repeat",
-   "param": "CONTROL: byte-identical resubmission of C_zface_steps_08's graph",
-   "path": "results/face/arms/Z_control_steps08_repeat/HasMetadata_00027_.png",
-   "is_baseline": false,
-   "extra": "282.6 s  |  10 cached nodes  |  prompt 55cf0fcf",
-   "warnings": [],
-   "det_xyxy": [
-    798.8909301757812,
-    659.0882568359375,
-    2214.62109375,
-    2704.826171875
-   ],
-   "det_conf": 0.6865838766098022,
-   "det_status": "detected",
-   "face_box": [
-    665,
-    491,
-    1692,
-    2378
+    678,
+    525,
+    1668,
+    2332
    ],
    "crop_mode": "common",
    "size": [
