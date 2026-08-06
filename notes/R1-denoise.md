@@ -43,10 +43,16 @@ I rebased onto `74c0f11` **before rendering anything**, at a cost of zero
 wasted renders, because cf is not an independent axis from denoise: cf sets how
 many pixels the pass fabricates and denoise sets how much of the input it is
 allowed to destroy. A denoise value chosen against a pass that fabricates twice
-as much is not the value you would choose otherwise. P2's own sweep shows the
-size of that: band-pass energy on `#114`'s footprint runs 5.311 at cf 3
-(2688x3456) and 4.196 at cf 1.5 (1945x2749), against 2.862 for the untouched
-input. **The decision sheet is built on the graph that ships.**
+as much is not the value you would choose otherwise.
+
+The size of the first half, from **P3's** resolution sweep
+(`results/cfg/compare/sweep_metrics.json`, arms `sw_cf1.5` / `sw_cf1.0` — *not*
+P2's `CF_crop_*` arms, which are void): band-pass energy on `#114`'s footprint
+runs **5.311 at cf 3** and **4.196 at cf 1.5**, against **2.862** for the
+untouched input. And from my own arms' server log, which needs no one else's
+numbers: `#114`'s crop is **2688x3456 = 9.29 MP at cf 3** and
+**2010x2859 = 5.75 MP at cf 1.5**, a **38 % cut** in what the pass diffuses.
+**The decision sheet is built on the graph that ships.**
 
 `#105` going empty is inert at cfg 1 — `comfy/samplers.py` never evaluates the
 uncond — so it does not affect any comparison here.
