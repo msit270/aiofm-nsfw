@@ -329,19 +329,35 @@ arm; what changes is the size of the canvas the model is asked to diffuse in one
 go.** Z-Image is a ~1024-class model, so at cf 3 it is being handed roughly 36×
 its trained area.
 
-### "A cleaner number may just mean it did less" — checked, and it is not that
+### "A cleaner number may just mean it did less" — measured, and it is not that
 
 This was the right thing to be suspicious of, so I did not answer it with a
-metric. `results/r3_crop/R3_crop_diffmap_vs_cf3.png` maps where each arm differs
-from the shipped one. **Both maps light up the entire face silhouette** —
-forehead to chin, ears included — not a shrinking central patch and not a ring.
-The refined footprint is the SAM face mask in all three arms, and the crop
-factor does not shrink it.
+band-pass number. A fourth render tapped **`620:137`, the image entering
+`#114`** (`results/r3_crop/R3_tap114in/`), so each arm's refined footprint could
+be measured against the thing it was handed rather than against another arm.
 
-*A tap of `620:137` — the image entering `#114` — was queued to turn that from a
-strong reading of the difference maps into a direct measurement of the refined
-footprint. It was still behind four other agents' prompts when this was written;
-if it landed, the result is appended at the end of this section.*
+Footprint = pixels differing from that input by more than 8 levels:
+
+| arm | area changed | % of frame | bounding box of the change | IoU with cf 3's footprint |
+|---|---|---|---|---|
+| **cf 3 (shipped)** | 1,231,640 px | 13.26 % | `[804, 693, 1433, 2003]` | 1.000 |
+| cf 1.5 | **1,232,183 px** | **13.26 %** | `[804, 690, 1434, 2011]` | 0.500 |
+| cf 1.0 | **1,204,435 px** | **12.96 %** | `[797, 696, 1436, 1999]` | 0.478 |
+
+**Same area, same bounding box.** cf 1.5 refines 0.04 % *more* pixels than the
+shipped setting and cf 1.0 refines 2.2 % fewer. The change box is 1433×2003 at
+cf 3 and 1436×1999 at cf 1.0 — both the detected face box (1430.5 × 1999.8), so
+the composited region is the SAM face mask in every arm and the crop factor does
+not shrink it. **cf 1.0 did not do less; it did the same work on a smaller
+canvas.**
+
+The IoU of ~0.5 is not a footprint difference — it is the same region with
+different pixels crossing a hard 8-level threshold, which is what "different
+texture, same area" looks like.
+
+`results/r3_crop/R3_refined_footprint_map.png` shows the three footprints;
+`R3_refined_footprint_vs_tap.json` has the figures. The earlier arm-vs-arm maps
+are in `R3_crop_diffmap_vs_cf3.png`.
 
 ### What I see, at 1:1
 
@@ -500,4 +516,7 @@ results/cfg/compare/R3_negative_when_live_worstregion_1to1.png  negative ON vs O
 results/r3_crop/R3_control_cf3/    R3_cf1.5/    R3_cf1.0/     api_graph.json, meta.json, PNG
 results/r3_crop/R3_crop_face_1to1.png   R3_crop_eyesnose_1to1.png   R3_crop_jawseam_1to1.png
 results/r3_crop/R3_crop_mouth_1to1.png  R3_crop_diffmap_vs_cf3.png
+results/r3_crop/R3_tap114in/            the image entering #114, tapped
+results/r3_crop/R3_refined_footprint_map.png   R3_refined_footprint_vs_tap.json
+results/r3_crop/R3_note_in_subgraph.png        browser proof of #652
 ```

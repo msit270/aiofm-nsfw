@@ -1,0 +1,35 @@
+{
+ "cf3": {
+  "area_px": 1231640,
+  "pct_frame": 13.258,
+  "bbox_xywh": [
+   804,
+   693,
+   1433,
+   2003
+  ],
+  "IoU_with_cf3_footprint": 1.0
+ },
+ "cf1.5": {
+  "area_px": 1232183,
+  "pct_frame": 13.264,
+  "bbox_xywh": [
+   804,
+   690,
+   1434,
+   2011
+  ],
+  "IoU_with_cf3_footprint": 0.5003
+ },
+ "cf1.0": {
+  "area_px": 1204435,
+  "pct_frame": 12.965,
+  "bbox_xywh": [
+   797,
+   696,
+   1436,
+   1999
+  ],
+  "IoU_with_cf3_footprint": 0.4775
+ }
+}
