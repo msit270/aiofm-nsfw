@@ -549,7 +549,7 @@ tok  verdict  n  arms
   12  clean    1  L_w02
   13  clean    1  L_w03
   14  clean    1  L_w04
-  16  clean   15  A1_gate_placeholder, CTL_placeholder_after_w17, CTL_placeholder_after_w18, CTL_placeholder_after_w24, L_w06, CTL_placeholder_after_A3_C2_gardener_w17, CTL_placeholder_after_A3_swap_Tuesday, CTL_placeholder_after_A3_swap_fine, CTL_placeholder_after_A3_swap_obvious, CTL_recovery_before_T, CTL_placeholder_after_T_tok30, CTL_placeholder_after_T_tok31, CTL_placeholder_after_T_tok32, CTL_placeholder_after_T_tok45, CTL_placeholder_after_T_tok46
+  16  clean   17  A1_gate_placeholder, CTL_placeholder_after_w17, CTL_placeholder_after_w18, CTL_placeholder_after_w24, L_w06, CTL_placeholder_after_A3_C2_gardener_w17, CTL_placeholder_after_A3_swap_Tuesday, CTL_placeholder_after_A3_swap_fine, CTL_placeholder_after_A3_swap_obvious, CTL_recovery_before_T, CTL_placeholder_after_T_tok30, CTL_placeholder_after_T_tok31, CTL_placeholder_after_T_tok32, CTL_placeholder_after_T_tok45, CTL_placeholder_after_T_tok46, CTL_placeholder_after_T_tok44, CTL_placeholder_after_T_tok47
   20  clean    1  L_w08
   25  clean    1  L_w12
   26  clean    2  A3_C4_committee_w17, T_tok26
@@ -569,6 +569,7 @@ tok  verdict  n  arms
   44  CRASH    1  T_tok44
   45  CRASH    2  L_w24, T_tok45
   46  CRASH    2  A1_gate_crashstring, T_tok46
+  47  CRASH    1  T_tok47
 
 MIXED (same token count, different outcome): none
 ```
@@ -583,6 +584,11 @@ itself, across families that share no vocabulary:
 * **29 tokens — 2 arms, both clean.** **32 tokens — 2 arms, both crash.**
 * **16 tokens — 13 arms, all clean.** (The shipped placeholder and every health
   control.)
+
+Sheet: **`results/crash/A/T_token_sweep_sheet.png`** — fifteen panels of the same
+prompt at 26–47 tokens. 26, 27, 28, 29 clean · **30, 31, 32 crash** · 33, 34, 35,
+36 clean · **44, 45, 46, 47 crash**. Nothing changes between panels except how
+many times the word `the` is repeated.
 
 ### So the answer to A3, in one sentence
 
@@ -676,6 +682,7 @@ All under `results/crash/A/`.
 | **A4 sheet** — crash vs clean at 1:1, red header | `A4_contact_sheet.png` |
 | **A2 sheet** — the whole word ladder, 19 panels | `A2_ladder_sheet.png` |
 | **A3 sheet** — the seven 17-word prompts | `A3_content_sheet.png` |
+| **T sheet** — the token sweep, identical content, length only | `T_token_sweep_sheet.png` |
 | offline YOLO at 0.6/0.5/0.4/0.3/0.2/0.1 for the A4 pair and the base | `yolo_A4.json` |
 | offline YOLO for **every** arm | `arm_yolo.json` |
 | the pooled token map | `token_map.txt`, `token_map.json` |

@@ -8,6 +8,14 @@ A = "/workspace/nsfw-fix/results/crash/A"
 
 if __name__ == "__main__":
     y = json.load(open(os.path.join(A, "arm_yolo.json")))
-    toks = sorted(int(k[5:]) for k in y if k.startswith("T_tok"))
-    order = [(f"{t} tokens", f"T_tok{t:02d}", None) for t in toks]
+    import json as _j, os as _os
+    names = []
+    for k in y:
+        if not k.startswith("T_tok"):
+            continue
+        mp = _os.path.join(A, "arms", k, "meta.json")
+        if not _os.path.exists(mp) or _j.load(open(mp)).get("cached") != 0:
+            continue                       # only cold arms
+        names.append((int(k[5:].split("__")[0]), k))
+    order = [(f"{t} tokens", k, None) for t, k in sorted(names)]
     print(build(order, out=os.path.join(A, "T_token_sweep_sheet.png")))
