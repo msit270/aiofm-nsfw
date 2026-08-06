@@ -162,36 +162,50 @@ long they take, and one of them is inflated.
 
 ## Open / unsure
 
-* **What produces the constant fill.** The failing image's face is a single RGB
-  value (56, 51, 47) with standard deviation exactly 0 over 360,000 pixels. It is
-  not a VAE decode of a constant latent (I swept latent values −1000…1000 through
-  the graph's own `ae.safetensors`; the flattest result still has sd ≈ 2.3) and it
-  is not a NaN reaching `SaveImage` (that would be black). **I do not know what
-  writes it.** The `TAP114_*` arms tap `620:114`'s raw output to find out whether
-  the face pass emits it or something between `620:114` and `621:163` does.
-* **Whether "visible" is special or whether that position is.** The swap arms
-  (`A3_swap_*`) hold word count *and* token count at 17/30 and change only the
-  17th word. If they crash too, the position matters more than the word.
+### Resolved during the run — kept here so the trail is visible
+* ~~What produces the constant fill~~ — **answered.** `620:114` returns pure
+  `(0,0,0)` (`TAP114_w17`: 16.94 % of the frame exactly black, one unique colour
+  in a 600×600 centre patch, against 0.0000 % and 39,957 colours on the
+  placeholder control). The `(56,51,47)` two nodes later is `620:111
+  ImageColorMatch+`'s global affine map applied to that black. And it is **not**
+  NaN: `compute_mean_std` uses a plain `.mean()`, so one NaN would flatten the
+  *entire* frame, and the frame is not flat.
+* ~~Whether `visible` is special or the position is~~ — **neither.** All three
+  swap arms crash, including `…texture with Tuesday`. It is the token count.
+
+### Still open
+* **Why `620:114` returns black at 30–32 and 45–46 conditioning tokens.** This is
+  the actual fault and I have not touched it. The server log shows the pass
+  running normally — `force inpaint`, `crop region (2010, 2859) x 1.0`, eight
+  sampler steps at ~2.5 s/it, `vae decoded in 1.4s` — and no warning. It is a
+  Z-Image / sampler question. **[I]** A sequence-length-dependent numerical path
+  (attention kernel tiling, a padding boundary) is the shape of thing that
+  produces exact bands like this, but I have not looked and will not assert it.
+* **Whether the bands belong to the encoder or to `620:114` specifically.**
+  `E398_tok31` tests exactly this: `620:106` left at the safe 16-token
+  placeholder, and the **eye** prompt `622:398` padded 28 → 31 tokens. If the eye
+  pass blacks out, the bands are a property of the encoder/model on this pipeline,
+  not of the face node.
+* **Whether the bands move with the base image.** Every arm shares one frozen base
+  (`A0_base_tap137`). Re-running the T sweep against a base from a different seed
+  is the obvious next experiment. **[I]** I would now bet the bands *do not* move —
+  the failure output is bit-identical across content and the map has no mixed
+  cells, which reads like a property of the conditioning length rather than of the
+  picture — but that is a bet and it is the opposite of the bet I would have made
+  four hours ago.
+* **Whether the bands move with LoRA / denoise / steps / resolution.** Not varied.
+  Track B holds the LoRA cell. The crop the face pass samples is **2010×2859**,
+  which is unusually large for a detailer; whether the bands are resolution-linked
+  is untested and would be a good pod arm.
 * **Whether the probe's lower VRAM pressure changes the crashing set.** The probe
-  reproduces the gate exactly and reproduces `w24`/`w25` — both known crashers
-  from full renders — so the crashing cases carry over. Whether some string that
-  is clean under the probe would crash under a full render is untested, and it is
-  the one direction the gate does not cover.
-* **Everything here is with both owner LoRAs loaded and on the shipping graph.**
-  I did not vary LoRAs, denoise, steps, sampler or `bbox_threshold`. Track B has
-  the LoRA cell.
-* **One base image.** Every arm in this file shares a single frozen base render
-  (`A0_base_tap137`, from the shipping graph's own fixed seeds, so it is the base
-  the R4 full renders had too). Whether the crashing *set of strings* is a
-  property of this face or of the model is untested, and it is the most obvious
-  next experiment: re-run the ladder against a base rendered from a different
-  seed. If the crashing set moves, the trigger is an interaction with the image,
-  not a property of the prompt at all. **[I]** I would bet it moves, but that is a
-  bet, not a measurement.
-* **Whether the crash set is a fixed point of the string or of a hash of it.**
-  Four crashing strings give bit-identical output, and the run is deterministic
-  (every seed `fixed`, base frozen, controls reproduce bit-for-bit). What I have
-  not done is repeat a *clean* arm at two different times to prove the clean side
-  is equally deterministic — `CTL_placeholder_*` does exactly that three times
-  over for the placeholder, so I am treating that as settled for the placeholder
-  and as strongly implied, not proven, for the rest.
+  prunes the SDXL half, so the SDXL checkpoint is not resident. It reproduces the
+  gate exactly and reproduces `w24`/`w25`, both known crashers from full renders.
+  What is untested is the other direction: a string clean under the probe that
+  would crash under a full render.
+* **Bands outside 11–47 tokens.** The wide `T_tok` sweep (13–28, 34–44, 47–50) was
+  queued and whatever landed is in `results/crash/A/token_map.txt`. **A cell that
+  did not run is "not run"** — the map is the map, and I am not interpolating the
+  gaps.
+* **`E398`-style exposure on the other live prompts.** `#398` at 28 tokens is two
+  from a band. `#166` at 12 and the three empty negatives at 8 are far from one.
+  I have not tested whether the bands are the same for the eye and mouth passes.
