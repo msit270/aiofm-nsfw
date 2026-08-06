@@ -1,0 +1,61 @@
+{
+ "arm": "V_AW1_verylong_ctl",
+ "prompt_id": "e23f77ce-10c5-4923-a5cb-3646333718f8",
+ "client_id": "trackV-V_AW1_verylong_ctl-6a97a359",
+ "wall_seconds": 61.0,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 68799527452,
+ "free_wait_s": 20.5,
+ "note": "Control for the awkward arm AW1_verylong: same string, device default. Establishes whether this instance fails at that length at all.",
+ "tokens": 166,
+ "executed_nodes": [
+  "BASE",
+  "620:108",
+  "620:107",
+  "620:110",
+  "620:105",
+  "620:106",
+  "620:109",
+  "620:113",
+  "116",
+  "620:114",
+  "620:111",
+  "620:648",
+  "621:161",
+  "621:166",
+  "620:165",
+  "621:163",
+  "TAP163",
+  "622:431",
+  "622:398",
+  "622:424",
+  "622:407",
+  "622:403"
+ ],
+ "ws_error": null,
+ "status": "error",
+ "exec_seconds": 60.1,
+ "cached": 0,
+ "cached_ids": [],
+ "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+ "error_node": "622:403",
+ "error_type": "MaskBoundingBox+",
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00041_.png",
+   "subfolder": "crashV",
+   "type": "output"
+  }
+ ],
+ "text_106": "luna, a young woman photographed in a quiet north-facing studio on a grey afternoon, light freckles scattered across the bridge of her nose and over both cheekbones, natural skin texture with visible pores and fine vellus hair catching the light, faint shadows under the eyes, a small mole below the left jaw, dark hair pushed back behind one ear, detailed eyes with a clear catchlight from a large softbox placed slightly camera left and above, relaxed mouth, unretouched complexion with a little redness around the nostrils, photorealistic portrait photograph shot on an 85mm lens at f2 with shallow depth of field, colour graded gently towards neutral, no makeup, no jewellery, plain \u80cc\u666f, calm expression, looking directly into the camera lens",
+ "620:110": {
+  "device": "default"
+ },
+ "620:114": {
+  "denoise": 0.35
+ }
+}

@@ -103,6 +103,16 @@ AW3_ARMS = [
         "The same string on the fully pre-fix graph (denoise 0.80, device default)."),
 ]
 
+# The region above 50 tokens was never mapped by anyone. 103 fails on both
+# devices; 166 passes on cpu; 72 passes on cpu. This finds the edges of the
+# second band and, at each point, whether the fix makes any difference there.
+BAND2 = []
+for n in (60, 72, 80, 90, 96, 110, 120, 140, 166):
+    BAND2.append(arm(f"V_B2_tok{n}_cpu", HEAD, ladder(n), n,
+                     f"Second-band map, {n} tokens, ASCII ladder, device cpu (the fix)."))
+    BAND2.append(arm(f"V_B2_tok{n}_gpu", MID, ladder(n), n,
+                     f"Second-band map, {n} tokens, ASCII ladder, device default."))
+
 SWEEP = []
 for n in range(26, 51):
     SWEEP.append(arm(f"V_SW_tok{n}", HEAD, ladder(n), n,
@@ -171,7 +181,8 @@ E398 = [
 
 STAGES = {"iso": ISO, "proof": PROOF, "awkward": AWKWARD, "sweep": SWEEP,
           "endctl": ENDCTL, "clean": CLEAN, "seeds": SEEDS, "e398": E398,
-          "awkctl": AWKCTL, "aw3": AW3_ARMS}
+          "awkctl": AWKCTL, "aw3": AW3_ARMS,
+          "band2": BAND2}
 
 # --- full 88-node renders -------------------------------------------------
 # The probe stages freeze the base image at trackA_base137.png. The SHIPPED file's
