@@ -299,10 +299,14 @@ metrics are unaffected.)*
 
 ---
 
-## ⚠ A SECOND, INDEPENDENT ROUTE TO THE SAME CRASH: **VRAM pressure**
+## ~~A SECOND, INDEPENDENT ROUTE TO THE SAME CRASH: VRAM pressure~~ — **WITHDRAWN**
 
-This came out of a control, not a hypothesis, and it is the most important thing
-in this document after cell B.
+> **I published this and then a later control refuted it. Read the withdrawal at
+> the end of this section before using anything in it.** The *data* below is
+> good; the *conclusion* I drew from it was wrong, and it was wrong in the exact
+> way this project keeps going wrong — one correlation, no control that varied
+> the thing I was blaming. It is left standing rather than deleted so the
+> correction is visible.
 
 `D2_eyesprompt_crashstring` changed **one** input, `622:398.text` — and `622:398`
 feeds only `622:406`, which is **downstream** of `622:403` (reachability walked on
@@ -345,25 +349,36 @@ repeat of `A1`, ran immediately after `D2` and came back **`max_abs_diff 0`**
 against `A1`. So this is not `HANDOFF.md` §7.1's NaN mode — it is a distinct
 third mechanism.
 
-**What this means, and it goes beyond my grid:**
+### The withdrawal — `CTL3` killed it
 
-1. **`622:403` can be reached with a perfectly good prompt**, purely because the
-   box was short of VRAM and ComfyUI partially unloaded and patched the Lumina2
-   model mid-graph. The lowvram path changes the numerics of the face pass, the
-   face comes out different, the detectors lose it, the mask is empty, `.min()`
-   on an empty tensor raises. **A buyer on a smaller card can hit this crash with
-   no prompt problem at all.** That is a shipping risk that nothing in
-   `HANDOFF.md` currently covers.
-2. **Any arm on this box measured while a co-tenant is loaded is suspect.**
-   `nvidia-smi` showed the 18188 server at 20–24 GB and a third process at
-   20–24 GB throughout. **Check `lowvram patches` in the log for every arm before
-   believing it** — status, timing and even `execution_cached` all look normal on
-   a lowvram run.
-3. `D2` as submitted is **void as a measurement of the eyes prompt** and is
-   re-run below.
+I concluded from the table above that the lowvram path changes the face pass's
+numerics and so is an independent cause of the crash. **That is refuted.**
 
-I would not have caught this from `/history`. It is only visible in the server's
-stdout, which is why `results/crash/B/logslice.py` exists.
+`CTL3_clean_final` — the byte-identical repeat of `A1` — ran with
+**85 lowvram patches** at 11 824 MB usable, the same patch count as `D3` which
+crashed, and it produced an image that is **`max_abs_diff 0` against `A1`**.
+
+```
+run #16  D3    85 lowvram patches, 14808 MB usable   -> CRASH 622:403
+run #17  CTL3  85 lowvram patches, 11824 MB usable   -> success, BIT-IDENTICAL to A1
+```
+
+So lowvram patching does **not** change this graph's output. The `A1` graph is
+bit-identical **4/4** (`A1`, `CTL1`, `CTL2`, `CTL3`) across 22 GB → 11.8 GB usable
+and 0 → 85 lowvram patches. Memory pressure is not a cause of anything here.
+
+**What survives:** the *observation* that `D2` (run #10) went lowvram is true and
+the per-run table is accurate and worth keeping — check it for any arm. Two arms
+of mine are genuinely unusable for a different reason and are marked so in the
+grid (`C3`, `C3b`, where the cfg change itself doubles sampler memory). **What
+does not survive:** "VRAM pressure is an independent route to the crash" and "a
+buyer on a smaller card can hit this with a good prompt". I retract both. I had
+one lowvram run that crashed and no control in which lowvram happened *without*
+the crash — `CTL3` is that control and it says the opposite.
+
+I would not have caught either the finding or its refutation from `/history`.
+Both are only visible in the server's stdout, which is why
+`results/crash/B/logslice.py` exists.
 
 ---
 
@@ -464,3 +479,61 @@ cfg 1, measured cleanly. cfg 5 crashed twice but both runs went lowvram, so it i
 "crashed, confounded" and not a clean result — and the useful finding from those
 two arms is a different one: raising cfg above 1 on `620:114` doubles that pass's
 sampler memory, because cfg exactly 1 is a fast path that skips the uncond.**
+
+---
+
+## The `622:398` anomaly, restated after the withdrawal — **this is the open item**
+
+With the VRAM explanation gone, the `D2` result is sharper, not weaker.
+
+| cell | `622:398.text` | length | prompt_id | status | cached | exception node |
+|---|---|---|---|---|---|---|
+| `A1` / `CTL1` / `CTL2` / `CTL3` | shipped eye prompt | 96 | four ids in the grid | **success ×4, all bit-identical** | 0 | — |
+| `D2_eyesprompt_crashstring` | the crashing string | 169 | `65e905d5-…` | **error** | 0 | `622:403` |
+| `D2b_..._repeat` | the crashing string | 169 | `56d4c152-…` | **error** | 0 | `622:403` |
+| `D3_eyesprompt_neutral169` | **neutral** string, shipped idiom | **169** | `c241acf8-4488-4017-af0d-9eda0cf35d32` | **error** | 0 | `622:403` |
+
+**Clean 4/4 with a 96-character eye prompt. Crash 3/3 with a 169-character one.
+`620:106` is at the safe placeholder in all seven. The only input that differs is
+`622:398.text`, whose sole consumer is `622:406`, which is downstream of the node
+that crashes.**
+
+`D3` is the arm that separates content from length: its 169 characters are
+`"perfect eyes, round pupils, … crisp, detailed"` — the shipped prompt's own
+idiom, none of the crashing string's words, no `luna`, no freckles. It crashes
+just the same. **So it is not the content of the eyes prompt. It tracks its
+length.**
+
+Verified, so nobody re-derives it:
+
+* `622:398` is referenced exactly **once** in the whole 88-node API graph, by
+  `622:406`. No dict-valued inputs, no non-`[str,int]` link forms anywhere.
+* `622:403` is in `622:406`'s dependency closure, not the reverse. 69 nodes are
+  upstream of `622:403`; `622:398` and `622:406` are not among them.
+* ComfyUI's execution order is **value-independent** —
+  `comfy_execution/graph.py:270 ux_friendly_pick_node` branches only on
+  `class_type`, `OUTPUT_NODE`, `is_async` and the `blocking` structure, falling
+  back to `node_list[0]`. Changing a widget string cannot reorder execution.
+* The face pass gets an **identical** detection box in the clean and crashing
+  arms — `1 face`, crop `(2010, 2859)`, centre `(1340.1992, 1906.2034)` — so its
+  *inputs* are the same. Its *output* is not: the clean arms then find `1 lips`
+  and `1 face`, the crashing arms find `(no detections)` twice.
+
+**I cannot account for this and I am not going to invent a mechanism.** The one
+thing a longer `622:398` demonstrably does is make the lumina2 text encoder
+produce a longer conditioning tensor, early — the first model loaded in every run
+is `ZImageTEModel_` — which then sits resident while the face pass runs. Whether
+that is enough to change a kernel choice or a reduction order in `620:114` I do
+not know, and `A1`'s 4/4 bit-identity across a 10 GB swing in free VRAM argues
+against it.
+
+**What it means practically.** Something makes `620:114`'s output depend on state
+that is not in its inputs, and the eyes-stage detector sits close enough to its
+threshold that the difference flips a crash. That is a bigger problem than the
+prompt: it means **the crash is not fully determined by the graph**, and any fix
+validated only against `#106` may leave it live.
+
+**Verdict D (`#406`): `#406` is `622:406 DetailerForEachDebug`, the eyes detailer;
+its prompt is `622:398`. Lengthening `622:398` crashes the graph 3/3 at
+`622:403` — a node it cannot reach — with `#106` safe. Content is ruled out by
+`D3`. Mechanism unknown. This is the highest-value open item I am leaving.**

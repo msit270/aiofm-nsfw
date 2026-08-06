@@ -1,0 +1,44 @@
+{
+ "arm": "CTL3_clean_final",
+ "note": "FINAL CONTROL. Byte-identical repeat of A1_baseline_clean. Brackets the C and D blocks. If not bit-identical to A1, everything after CTL2 is void.",
+ "expect": "clean",
+ "server": "127.0.0.1:28191",
+ "base": "results/r4/R4_CF15_placeholder/api_graph.json",
+ "changes": [],
+ "graph_sha256": "64a926815edead0f87e0176e9d6f8669243756bd740f525c4228904e8ea78c85",
+ "prompt_id": "45cbb945-04e1-4096-9f4a-8a07c0b9f444",
+ "client_id": "trackB-CTL3_clean_final-9275ff2d",
+ "status": "success",
+ "exec_seconds": 308.7,
+ "wall_seconds": 318.3,
+ "cached_count": 0,
+ "cached_nodes": [],
+ "images": [
+  "HasMetadata_00010_.png"
+ ],
+ "health": [
+  {
+   "file": "HasMetadata_00010_.png",
+   "size": [
+    2688,
+    3456
+   ],
+   "flat_frac": 0.03088,
+   "luma_sd": 59.505,
+   "luma_mean": 138.668,
+   "luma_min": 4.673,
+   "modal_rgb": [
+    255,
+    255,
+    255
+   ],
+   "modal_frac": 0.02448,
+   "has_nan": false,
+   "suspect_poisoned": false
+  }
+ ],
+ "error_node_id": null,
+ "error_node_type": null,
+ "exception_type": null,
+ "exception_message": null
+}

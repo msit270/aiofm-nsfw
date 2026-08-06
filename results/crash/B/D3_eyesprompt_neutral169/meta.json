@@ -1,0 +1,28 @@
+{
+ "arm": "D3_eyesprompt_neutral169",
+ "note": "SEPARATOR ARM for the D2 anomaly. 622:398 gets a NEUTRAL 169-character string in the shipped eye-prompt idiom -- exactly the same length as the crashing string, none of its content. #106 at the placeholder. If this ALSO crashes, D2 is length/perturbation, not content. If it renders clean, the content of a downstream-only text node is somehow load-bearing.",
+ "expect": "unknown",
+ "server": "127.0.0.1:28191",
+ "base": "results/r4/R4_CF15_placeholder/api_graph.json",
+ "changes": [
+  {
+   "path": "622:398.inputs.text",
+   "from": "perfect eyes, round pupils, round iris, symmetrical eyes, realistic eyes, perfect circles, round",
+   "to": "perfect eyes, round pupils, round iris, symmetrical eyes, realistic eyes, perfect circles, round, clear sclera, natural lashes, sharp focus, fine detail, crisp, detailed"
+  }
+ ],
+ "graph_sha256": "7d8973eebee151b17cc0e1c4568deaf57645954220162337429e1304217289fc",
+ "prompt_id": "c241acf8-4488-4017-af0d-9eda0cf35d32",
+ "client_id": "trackB-D3_eyesprompt_neutral169-d12b06b8",
+ "status": "error",
+ "exec_seconds": 288.1,
+ "wall_seconds": 294.3,
+ "cached_count": 0,
+ "cached_nodes": [],
+ "images": [],
+ "health": [],
+ "error_node_id": "622:403",
+ "error_node_type": "MaskBoundingBox+",
+ "exception_type": "RuntimeError",
+ "exception_message": "min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n"
+}
