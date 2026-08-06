@@ -71,14 +71,24 @@ def health(png_path):
     g[:-1, :] += gy
     flat_frac = float((g == 0).mean())
     luma_sd = float(luma.std())
+    # modal-colour coverage: a degenerate render pastes one exact RGB over a large
+    # area.  A healthy frame's modal colour here is blown-out white at ~2.5 %.
+    b = a.astype(np.int64)
+    q = (b[..., 0] << 16) | (b[..., 1] << 8) | b[..., 2]
+    vals, cnts = np.unique(q, return_counts=True)
+    i = int(cnts.argmax()); top = int(vals[i])
+    modal_frac = float(cnts[i] / q.size)
     return {
         "file": os.path.basename(png_path),
         "size": list(im.size),
         "flat_frac": round(flat_frac, 6),
         "luma_sd": round(luma_sd, 3),
         "luma_mean": round(float(luma.mean()), 3),
+        "luma_min": round(float(luma.min()), 3),
+        "modal_rgb": [(top >> 16) & 255, (top >> 8) & 255, top & 255],
+        "modal_frac": round(modal_frac, 5),
         "has_nan": bool(np.isnan(a).any()),
-        "suspect_poisoned": bool(flat_frac > 0.20 or luma_sd < 8.0),
+        "suspect_poisoned": bool(flat_frac > 0.20 or luma_sd < 8.0 or modal_frac > 0.10),
     }
 
 

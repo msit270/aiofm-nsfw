@@ -1,0 +1,48 @@
+{
+ "arm": "B1b_noloras_crashstring_repeat",
+ "note": "CELL B repeat of B1. B1 returned status success but with a solid black void where the face is (flat_frac 0.256, suspect_poisoned True). Repeating to establish whether that is deterministic.",
+ "expect": "unknown",
+ "server": "127.0.0.1:28191",
+ "base": "results/r4/R4_CF15_filled/api_graph.json",
+ "changes": [
+  {
+   "path": "116.inputs.lora_01",
+   "from": "luna.safetensors",
+   "to": "None"
+  },
+  {
+   "path": "618.inputs.lora_01",
+   "from": "lunaskye.safetensors",
+   "to": "None"
+  }
+ ],
+ "graph_sha256": "c819f0b88a135efae9cc51330d22c8bfb5d854811a524f2a6897f48cb9811cd9",
+ "prompt_id": "138e71bb-7394-4914-aca5-a0ffac5010a0",
+ "client_id": "trackB-B1b_noloras_crashstring_repeat-72da90f5",
+ "status": "success",
+ "exec_seconds": 276.6,
+ "wall_seconds": 288.7,
+ "cached_count": 0,
+ "cached_nodes": [],
+ "images": [
+  "HasMetadata_00004_.png"
+ ],
+ "health": [
+  {
+   "file": "HasMetadata_00004_.png",
+   "size": [
+    2688,
+    3456
+   ],
+   "flat_frac": 0.255651,
+   "luma_sd": 66.593,
+   "luma_mean": 123.254,
+   "has_nan": false,
+   "suspect_poisoned": true
+  }
+ ],
+ "error_node_id": null,
+ "error_node_type": null,
+ "exception_type": null,
+ "exception_message": null
+}
