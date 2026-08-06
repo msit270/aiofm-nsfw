@@ -232,13 +232,34 @@ prompt on, at a cfg where it genuinely runs, buys nothing.
 **Leave cfg at 1 on `#114`, `#165` and `#406`. Empty the negatives. Say so on
 canvas.** The evidence supports it and I checked before writing it down:
 
-* Raising cfg is **off-design**. `zimage.safetensors` is byte-for-byte
-  Z-Image-**Turbo** by sha256 against the publisher's manifest
-  (`2407613050b809ff…825574a6`), the vendor's own quick-start says
-  `guidance_scale=0.0, # Guidance should be 0 for the Turbo models`, ComfyUI's
-  shipped turbo template runs cfg 1 where the base template runs cfg 4, and the
-  checkpoint contains no guidance tensors to fall back on. That argument comes
-  from a hash, a vendor statement and a source line — none of it from a render.
+* Raising cfg is **off-design**. Two of the three legs of that argument I
+  re-checked myself rather than inherit:
+
+  ```
+  $ sha256sum /workspace/ComfyUI/models/diffusion_models/zimage.safetensors
+  2407613050b809ffdff18a4ac99af83ea6b95443ecebdf80e064a79c825574a6
+  ```
+
+  which is the hash P3 matched against `Comfy-Org/z_image_turbo`'s
+  `z_image_turbo_bf16.safetensors` in the publisher's manifest. And ComfyUI's
+  own shipped turbo template, read off this pod at
+  `comfyui_workflow_templates_media_other/templates/image_z_image_turbo.json`:
+
+  ```
+  #28 UNETLoader       z_image_turbo_bf16.safetensors
+  #30 CLIPLoader       qwen_3_4b.safetensors, lumina2
+  #3  KSampler         [0, randomize, 8, 1, res_multistep, simple, 1]   <- steps 8, cfg 1
+        positive  <- #27 CLIPTextEncode
+        negative  <- #33 ConditioningZeroOut  <- #27   (the POSITIVE encode)
+  ```
+
+  **There is one text box in that template and the negative is a zero-out of the
+  positive.** ComfyUI's reference implementation for this exact checkpoint does
+  not give the user a negative prompt at all. The template's own note names the
+  same VAE (`ae.safetensors`) and text encoder (`qwen_3_4b.safetensors`) this
+  graph loads. The third leg — the vendor's
+  `guidance_scale=0.0, # Guidance should be 0 for the Turbo models` — is P3's,
+  from the web, and I did not re-fetch it.
 * Raising cfg has **no payoff**. The thing you would raise it *for* — making the
   negative live — moves 0.048 % / 0.000 % / 0.000 % of pixels.
 * So the trade is: leave a documented operating point, for nothing.
