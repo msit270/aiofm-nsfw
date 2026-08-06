@@ -154,12 +154,24 @@ is a requirement, not step 3 of a list.
    `bbox_crop_factor` is **not** catastrophic (those arms are **void, untested**,
    and that lever is **unmeasured, not closed**), and the buyer's LoRAs do **not**
    crash the graph.*
-   **What this means for you: if a render ever comes back with a flat grey face,
-   the fix is `/free` or a ComfyUI restart, not a settings change.** And a render
-   can fail this way with no error at all.
-   Related **latent** defect, no claim about triggers: the Eyes stage has no
-   empty-mask guard, so anything that makes the face undetectable becomes a hard
-   crash at `622:403 MaskBoundingBox+` rather than a degraded image.
+   **It recurs**, hours after a clearing fixed it. **And it does not always look
+   the same.** It has presented two ways:
+   - a **flat grey face** delivered with `status: success` and no warning, and
+   - a **hard crash** at `622:403 MaskBoundingBox+` →
+     `ComfyUI_essentials/mask.py:184`, `x1 = max(0, x.min().item() - padding)` on
+     an all-zero mask → `RuntimeError: min(): Expected reduction dim to be
+     specified for input.numel() == 0`.
+
+   So the empty-mask crash is **no longer a latent defect** — it has fired three
+   times across two agents. Anything that makes the face undetectable becomes a
+   crash rather than a degraded render, and the poisoned-model state is one thing
+   that does it.
+
+   **What this means for you: if a render comes back with a flat grey face, or
+   dies at `MaskBoundingBox+`, suspect the server before your settings.** The fix
+   is `POST /free {"unload_models": true, "free_memory": true}` or a ComfyUI
+   restart. Confirm recovery with a byte-identical resubmission of something that
+   already worked, before trusting anything measured afterwards.
 2. **A hard seam at the mask edge**, with faint text-like marks, survives into
    your saved image. Steps 8 halves it (×6.76 → ×3.57); it does not remove it.
 3. **Five licence blockers** — `QUESTIONS.md` §0. DMD2 (cc-by-nc) **still ships**
