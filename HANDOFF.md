@@ -1,11 +1,39 @@
 # HANDOFF.md
 
-**Workflow `a811b5d6…` · artifact `5f2a0f2b…` · nothing uploaded. All work closed.**
+**Workflow `a811b5d6…` · artifact `5f2a0f2b…` · nothing uploaded.**
 Evidence for every line: `notes/HANDOFF-detail.md` and the per-agent reports in `notes/`.
 
 ---
 
-## Two things want you, everything else is done
+## CRASH RUN — live status
+
+| phase | state |
+|---|---|
+| **0. Get the exception** | **DONE** — full trace in `notes/CRASH.md`, and it **corrects the mechanism** (below) |
+| **1. Bisect** | running — A (length vs content) on `:18188`, B–E (LoRAs/cfg/other nodes/hook) on `:28191` |
+| **2. Root cause** | partial — the lumina2 shape hypothesis is **disfavoured**, on source *and* on the trace |
+| 3. Fix and prove | not started |
+| 4. Browser gate | not started |
+| 5. Land denoise 0.35, re-cut, cold timing | not started — **graph deliberately frozen while arms are in flight** |
+
+**Phase 0's finding, in one line: the crash is a *detection* failure, not mask
+arithmetic.** `torch.where()` on an all-zero mask returns **empty** index tensors,
+and `.min()` on an empty tensor is what raises — so the real event is that the
+Eyes stage's face detector found **no face at all**, and nothing guards that case.
+This corrects "`.min()` on an all-zero mask", which is what I told you before and
+which pointed at the wrong kind of fix.
+
+**Phase 2 so far:** the brief's lumina2 shape-mismatch idea does not survive
+source. That tokenizer sets `pad_to_max_length=False`, `max_length=99999999` — the
+conditioning length is just the token count, variable and unpadded by design, so
+there is no shape for a downstream node to trip on. **And there is no 77-token
+boundary in this encoder**; 77 is CLIP's, this is Gemma2/SentencePiece. The
+traceback agrees independently: 64 nodes executed, both samplers finished, and it
+died at a detector five nodes past the last conditioning consumer.
+
+---
+
+## Two things want you from the previous run
 
 **1. Pick a denoise.** `#114 widgets_values[9]`, `0.80` → **`0.35`** is my
 recommendation. **Not applied.** Sheet: `results/face/R1denoise_face_sheet1of1.png`
