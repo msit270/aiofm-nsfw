@@ -109,6 +109,11 @@ bumpiest arm as the most freckled is not measuring freckles.
 So the precise statement is: **the discrete flat brown marks are gone in both
 delivered arms; a faint pigment mottle survives and does not read as freckles.**
 
+**And they are gone before `#114` runs at all** — §3 locates it at
+`#98 UltimateSDUpscale`, two stages upstream. Which means **no setting on
+`#114` can bring them back**, and the denoise decision is purely about how the
+skin looks.
+
 ## `HANDOFF.md` says something about this that is not true of his configuration
 
 `HANDOFF.md` §4 says that at steps 8 *"freckles [come] back as flat brown
@@ -409,9 +414,47 @@ noise level. So `Y1` and `Y2` should differ in *fabricated texture*, not in
 
 ---
 
-# 5. The arms
+# 5. The arms, and what denoise actually does on the shipping graph
 
-*(Filled in when they land.)*
+Four arms, all with `lunaskye.safetensors` on `#618` and `luna.safetensors` on
+`#116` at strength 1, all on `74c0f11` (`#114` `bbox_crop_factor` 1.5, `#105`
+empty), seed 12345, the same freckle-bearing prompt as the rest of the grid.
+`Z0` is the tap render; its six `SaveImage` sinks change no executed node's
+inputs, so its `#505` output is a legitimate tile.
+
+Measured over the same fixed nose/cheek mask, with the image `#114` **receives**
+as the reference line — which is the number that matters, because the question
+is whether the pass improves what it is handed or damages it:
+
+| arm | `#114` | pigment % | **bright-blob %** | chroma b\* RMS | luma L\* RMS |
+|---|---|---|---|---|---|
+| — | *the input, `620:137`* | 2.096 | *3.172* | 0.799 | 1.262 |
+| `L0b` *(cf 3)* | steps 30, den 0.80 | 8.525 | **20.910** | 1.148 | 2.862 |
+| `L1b` *(cf 3)* | steps 8, den 0.80 | 2.430 | **7.777** | 0.716 | 1.485 |
+| `Z0` | steps 8, den 0.80 | 3.252 | **8.191** | 0.736 | 1.459 |
+| `Z2` | steps 8, den 0.35 | 0.729 | **1.681** | 0.563 | 0.972 |
+
+**The line that decides it: `Z2`'s bright-blob coverage is 1.681 %, and the
+image the pass was handed is 3.172 %.** At denoise 0.35 `#114` stops adding
+bumps altogether — it comes out *below* its own input. At denoise 0.80 it comes
+out at 8.191 %, roughly 2.6x what it received. Steps 30 at denoise 0.80 (`L0b`)
+is 20.9 %, 6.6x.
+
+**And denoise is the only `#114` setting that preserves anything of Luna.** The
+handful of pigment marks that survive `#98` are visible in the tap of
+`620:137`; at denoise 0.35 one of them comes through into the delivered frame
+as a distinct brown mark on the cheek, and at denoise 0.80 it is gone. That is
+the mechanism from §4 showing up in the image: denoise decides how much of the
+input survives, so it is the *only* lever that can carry a real mark through.
+
+**One honest negative: cf 1.5 does not improve this particular measure.** `Z0`
+(cf 1.5) is 8.191 % against `L1b`'s (cf 3) 7.777 % on the same mask, with
+denoise and steps identical. That is a **cheek** measurement and R3's case for
+cf 1.5 is about the **philtrum, lips, chin and the jaw seam** — different
+regions, and I am not contradicting it. But on the nose and upper cheeks, at
+denoise 0.80, cf 1.5 is not the improvement; **denoise is.**
+
+*(`Z1` denoise 0.50 and `Z3` steps 30 / denoise 0.35 fill in below as they land.)*
 
 ---
 
