@@ -12,6 +12,12 @@ different 30-token strings all crash, including `"a woman's face"` (which render
 clean at 12 tokens) padded to 30 with repetitions of the word `the`, and they all
 produce **bit-identical** output.
 
+**Every crashing arm in the entire run — 13 of them, at 30, 31, 32, 45 and 46
+tokens, across every content family — has a `621:163` that is bit-identical to
+every other** (`max_abs_diff 0` over 2688×3456×3;
+`results/crash/A/crash_identity.txt`). Once a prompt lands in a band the
+conditioning stops affecting the image at all.
+
 **In words the answer is "neither":** the word-count ladder is non-monotone (17
 and 18 words crash, 19–23 are clean, 24 and 25 crash), and at a fixed 17 words
 one stranger's description crashes while another is clean. Word count does not

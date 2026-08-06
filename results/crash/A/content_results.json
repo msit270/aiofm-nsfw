@@ -865,5 +865,77 @@
    }
   ],
   "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
+ },
+ {
+  "arm": "T_tok28__warm2",
+  "prompt_id": "32f4aa28-8a9d-409b-9baf-2131080d1342",
+  "client_id": "trackA-T_tok28__warm2-2a290040",
+  "wall_seconds": 85.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 49825872412,
+  "note": "token-count probe: fixed content + 16 x \" the\" = exactly 28 tokens",
+  "status": "success",
+  "exec_seconds": 82.0,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00051_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00093_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "a woman's face the the the the the the the the the the the the the the the the",
+  "text": "a woman's face the the the the the the the the the the the the the the the the",
+  "words": 19
+ },
+ {
+  "arm": "T_tok34",
+  "prompt_id": "58022461-9d1e-4947-9828-3b13990b5e1a",
+  "client_id": "trackA-T_tok34-58e14bfd",
+  "wall_seconds": 85.2,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 55731452444,
+  "note": "token-count probe: fixed content + 22 x \" the\" = exactly 34 tokens",
+  "status": "success",
+  "exec_seconds": 84.5,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00052_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00094_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the the",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the",
+  "words": 25
  }
 ]

@@ -30,3 +30,7 @@ done
 [T_tok28] success exec=77.2s cached=16 err=None  imgs=['tap163_00050_.png', 'HasMetadata_00092_.png']
 [T_tok28] NOT COLD (cached=16) -- discarding and re-running
 [T_tok28__warm2] submitted 32f4aa28-8a9d-409b-9baf-2131080d1342 cid=trackA-T_tok28__warm2-2a290040 queue_before=(0,0) vram_free=46.4GiB
+[T_tok28__warm2] success exec=82.0s cached=0 err=None  imgs=['tap163_00051_.png', 'HasMetadata_00093_.png']
+[T_tok34] submitted 58022461-9d1e-4947-9828-3b13990b5e1a cid=trackA-T_tok34-58e14bfd queue_before=(0,0) vram_free=51.9GiB
+[T_tok34] success exec=84.5s cached=0 err=None  imgs=['tap163_00052_.png', 'HasMetadata_00094_.png']
+[T_tok27] submitted 1c6de074-804a-44ab-a74e-b0ac064ecba4 cid=trackA-T_tok27-2685f0a0 queue_before=(0,0) vram_free=57.4GiB
