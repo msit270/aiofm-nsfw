@@ -1,16 +1,16 @@
 {
  "arm": "T_tok47",
- "prompt_id": "94b949ae-0648-4660-b280-9150279f9b6a",
- "client_id": "trackA-T_tok47-5f638882",
- "wall_seconds": 60.1,
+ "prompt_id": "ba57492b-b604-4337-8b17-778e296da610",
+ "client_id": "trackA-T_tok47-3ea6a694",
+ "wall_seconds": 40.5,
  "queue_before": [
   0,
   0
  ],
- "vram_free_after_free": 60374608668,
+ "vram_free_after_free": 53771528220,
  "note": "token-count probe: fixed content + 35 x \" the\" = exactly 47 tokens",
  "status": "error",
- "exec_seconds": 56.8,
+ "exec_seconds": 39.0,
  "cached": 0,
  "cached_ids": [],
  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
@@ -19,7 +19,7 @@
  "images": [
   {
    "node": "TAP163",
-   "filename": "tap163_00059_.png",
+   "filename": "tap163_00074_.png",
    "subfolder": "crashA",
    "type": "output"
   }
