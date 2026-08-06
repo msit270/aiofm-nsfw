@@ -1045,5 +1045,105 @@
   "text_106": "a woman's face the the the the the the the the the the the the the the",
   "text": "a woman's face the the the the the the the the the the the the the the",
   "words": 17
+ },
+ {
+  "arm": "T_tok36",
+  "prompt_id": "c789e3a9-ecc6-4f67-b54c-112fc9abac49",
+  "client_id": "trackA-T_tok36-a438b2c4",
+  "wall_seconds": 110.4,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 57692677660,
+  "note": "token-count probe: fixed content + 24 x \" the\" = exactly 36 tokens",
+  "status": "success",
+  "exec_seconds": 104.5,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00056_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00098_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the",
+  "words": 27
+ },
+ {
+  "arm": "T_tok44",
+  "prompt_id": "497a758a-1899-49db-a231-953b05731e9e",
+  "client_id": "trackA-T_tok44-71524066",
+  "wall_seconds": 75.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 52514421276,
+  "note": "token-count probe: fixed content + 32 x \" the\" = exactly 44 tokens",
+  "status": "error",
+  "exec_seconds": 72.1,
+  "cached": 0,
+  "cached_ids": [],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00057_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "words": 35
+ },
+ {
+  "arm": "CTL_placeholder_after_T_tok44",
+  "prompt_id": "584854da-0297-4590-b55d-9e6af96ed217",
+  "client_id": "trackA-CTL_placeholder_after_T_tok44-131d71c5",
+  "wall_seconds": 70.2,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 60095423084,
+  "note": "health control after an error arm",
+  "status": "success",
+  "exec_seconds": 65.7,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00058_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00099_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
  }
 ]

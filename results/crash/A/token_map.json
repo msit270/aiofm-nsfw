@@ -85,12 +85,13 @@
  },
  {
   "tokens": 26,
-  "n_arms": 1,
+  "n_arms": 2,
   "n_crash": 0,
-  "n_clean": 1,
+  "n_clean": 2,
   "verdict": "clean",
   "arms": [
-   "A3_C4_committee_w17"
+   "A3_C4_committee_w17",
+   "T_tok26"
   ]
  },
  {
@@ -195,6 +196,16 @@
   ]
  },
  {
+  "tokens": 36,
+  "n_arms": 1,
+  "n_crash": 0,
+  "n_clean": 1,
+  "verdict": "clean",
+  "arms": [
+   "T_tok36"
+  ]
+ },
+ {
   "tokens": 38,
   "n_arms": 1,
   "n_crash": 0,
@@ -222,6 +233,16 @@
   "verdict": "clean",
   "arms": [
    "L_w23"
+  ]
+ },
+ {
+  "tokens": 44,
+  "n_arms": 1,
+  "n_crash": 1,
+  "n_clean": 0,
+  "verdict": "CRASH",
+  "arms": [
+   "T_tok44"
   ]
  },
  {

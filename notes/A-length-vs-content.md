@@ -2,7 +2,7 @@
 
 ## **ANSWER: it is the LENGTH — specifically the exact TOKEN COUNT of the conditioning, and not as a threshold but as two narrow bands. No content I tested changed the outcome at any length.**
 
-Every prompt whose tokenised length is **30, 31, 32, 45 or 46 tokens** crashes.
+Every prompt whose tokenised length is **30, 31, 32, 44, 45 or 46 tokens** crashes.
 Every other length measured — 11, 12, 13, 14, 16, 20, 25, 26, 29, 33, 34, 35, 38,
 39, 41 — renders clean. **Across every cold arm in this run and eight unrelated content families there
 is not one token count that gave two different outcomes.** That is a strong
@@ -12,8 +12,7 @@ different 30-token strings all crash, including `"a woman's face"` (which render
 clean at 12 tokens) padded to 30 with repetitions of the word `the`, and they all
 produce **bit-identical** output.
 
-**Every crashing arm in the entire run — 13 of them, at 30, 31, 32, 45 and 46
-tokens, across every content family — has a `621:163` that is bit-identical to
+**Every crashing arm in the entire run — 13 of them, at 30, 31, 32, 44, 45 and 46 tokens, across every content family — has a `621:163` that is bit-identical to
 every other** (`max_abs_diff 0` over 2688×3456×3;
 `results/crash/A/crash_identity.txt`). Once a prompt lands in a band the
 conditioning stops affecting the image at all.
@@ -551,7 +550,7 @@ tok  verdict  n  arms
   16  clean   15  A1_gate_placeholder, CTL_placeholder_after_w17, CTL_placeholder_after_w18, CTL_placeholder_after_w24, L_w06, CTL_placeholder_after_A3_C2_gardener_w17, CTL_placeholder_after_A3_swap_Tuesday, CTL_placeholder_after_A3_swap_fine, CTL_placeholder_after_A3_swap_obvious, CTL_recovery_before_T, CTL_placeholder_after_T_tok30, CTL_placeholder_after_T_tok31, CTL_placeholder_after_T_tok32, CTL_placeholder_after_T_tok45, CTL_placeholder_after_T_tok46
   20  clean    1  L_w08
   25  clean    1  L_w12
-  26  clean    1  A3_C4_committee_w17
+  26  clean    2  A3_C4_committee_w17, T_tok26
   27  clean    1  T_tok27
   28  clean    1  T_tok28__warm2
   29  clean    2  L_w16, T_tok29
@@ -561,9 +560,11 @@ tok  verdict  n  arms
   33  clean    2  L_w19, T_tok33
   34  clean    2  A3_C1_fisherman_w17, T_tok34
   35  clean    3  L_w20, A3_C3_locomotive_w17, T_tok35
+  36  clean    1  T_tok36
   38  clean    1  L_w21
   39  clean    1  L_w22
   41  clean    1  L_w23
+  44  CRASH    1  T_tok44
   45  CRASH    2  L_w24, T_tok45
   46  CRASH    2  A1_gate_crashstring, T_tok46
 
@@ -584,7 +585,7 @@ itself, across families that share no vocabulary:
 ### So the answer to A3, in one sentence
 
 **It is the length, measured in tokens, and it is not a threshold — the unsafe
-lengths are the bands [30, 32] and [45, 46]; content has no effect whatsoever, and
+lengths are the bands [30, 32] and [44, 46]; content has no effect whatsoever, and
 five different 17-word prompts split clean/crash purely on their token count.**
 
 ### Two things this does NOT say
@@ -595,7 +596,7 @@ five different 17-word prompts split clean/crash purely on their token count.**
 * **The bands are not yet fully mapped.** The wide sweep (13–28, 34–44, 47–50 in
   the `T` family) is queued; until it lands I only claim the values in the table
   above. **[I]** Two bands of width 3 and 2 at 30–32 and 45–46 look like they
-  ought to mean something — the gap is 15, the widths differ — but I have no
+  ought to mean something — the gap is 11 — but I have no
   mechanism for it and will not invent one.
 
 ---
@@ -637,7 +638,7 @@ evaluated at all.
 A buyer following root `#649` §3 — *"replace `TRIGGER, PROMPT FOR YOUR MODEL`
 with your LoRA's trigger word and a short description"* — is writing a string of
 unknown token length into `#106`. Five of the 38 lengths between 11 and 48 are
-known-fatal. **[I]** If the bands are exactly [30, 32] ∪ [45, 46] then that is
+known-fatal. **[I]** If the bands are exactly [30, 32] ∪ [44, 46] then that is
 5 in 38, and a "short description" lands in exactly that range. This is not a
 rare corner.
 

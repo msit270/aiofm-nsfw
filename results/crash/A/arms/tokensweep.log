@@ -40,3 +40,9 @@ done
 [T_tok26] submitted 10077bcc-1f76-42a2-b131-395c7f147ffc cid=trackA-T_tok26-bd9f81d9 queue_before=(0,0) vram_free=58.1GiB
 [T_tok26] success exec=117.5s cached=0 err=None  imgs=['tap163_00055_.png', 'HasMetadata_00097_.png']
 [T_tok36] submitted c789e3a9-ecc6-4f67-b54c-112fc9abac49 cid=trackA-T_tok36-a438b2c4 queue_before=(0,0) vram_free=53.7GiB
+[T_tok36] success exec=104.5s cached=0 err=None  imgs=['tap163_00056_.png', 'HasMetadata_00098_.png']
+[T_tok44] submitted 497a758a-1899-49db-a231-953b05731e9e cid=trackA-T_tok44-71524066 queue_before=(0,0) vram_free=48.9GiB
+[T_tok44] error exec=72.1s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00057_.png']
+[CTL_placeholder_after_T_tok44] submitted 584854da-0297-4590-b55d-9e6af96ed217 cid=trackA-CTL_placeholder_after_T_tok44-131d71c5 queue_before=(0,0) vram_free=56.0GiB
+[CTL_placeholder_after_T_tok44] success exec=65.7s cached=0 err=None  imgs=['tap163_00058_.png', 'HasMetadata_00099_.png']
+[T_tok47] submitted 94b949ae-0648-4660-b280-9150279f9b6a cid=trackA-T_tok47-5f638882 queue_before=(0,0) vram_free=56.2GiB
