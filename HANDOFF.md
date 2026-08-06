@@ -413,11 +413,34 @@ each verified independently, and none of them was in the original hypothesis:
 `zimage.safetensors` is **Z-Image-TURBO** (sha256 `2407613050b8…5574a6`, exact
 match to Comfy-Org's `z_image_turbo_bf16`), distilled for **8 steps at cfg 1**.
 
-Contact sheets will be at `results/face/face_sheet*.png` (faces) and
-`results/face/face_skin_sheet*.png` (flat skin). Rebuild any time with:
+### The contact sheets — **open this one first**
+
+```
+results/face/facetight_face_sheet1of1.png    3854x4295   <- START HERE
+    tight eyes/nose/mouth box, 4 arms per row, all 9 arms on one sheet
+
+results/face/face_skin_sheet1of1.png         3784x759
+    400x400 cheek, all 9 arms in a single row — texture without features
+
+results/face/face_face_sheet1of2.png         3394x10208
+results/face/face_face_sheet2of2.png         3394x2717
+    the full detected face at 1:1. Tall, because this composition's face nearly
+    fills the frame, so only 2 tiles fit per row under the 4000px cap.
+```
+
+Baseline is top-left on every sheet. Every tile is verified **byte-identical to
+its source crop** — there is no resize anywhere in the image path.
+
+Rebuild as the remaining arms land (they are skipped cleanly until they exist):
 ```bash
 python3 tools/contact_sheet.py --arms-dir results/face/arms --out-dir results/face --prefix face
+python3 tools/contact_sheet.py --arms-dir results/face/arms --out-dir results/face --prefix facetight \
+    --face-box 1060,1180,940,1180 --no-skin-sheet
 ```
+
+Nine arms are on these sheets. Still rendering: `CF_crop_1.0`, `CF_crop_1.5`,
+`X_steps08_denoise050`, `X_steps08_denoise065`, and the LoRA confirmation pair
+`L0_baseline_loras` / `L1_steps08_loras`.
 
 ---
 
