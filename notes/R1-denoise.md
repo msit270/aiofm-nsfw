@@ -658,13 +658,44 @@ The same graph, cold against warm:
 **Roughly 120–200 s of a cold render on this pod is model loading, not
 sampling.** That is larger than either lever under discussion, which is exactly
 why every cross-cache comparison in this project has come out wrong. A number
-quoted from a warm run and a number quoted from a cold run are not comparable
-even when they are the same graph.
+from a warm run and a number from a cold run are not comparable even when they
+are the same graph.
 
-**A bonus matched cold pair fell out of it, and it is R3's lever not mine:**
-cf 3 → cf 1.5 at identical steps, denoise and LoRAs, both from `/free` with
-0 cached nodes — **388.9 s → 270.5 s, −118.4 s, −30 %.** Independent
-confirmation that cf 1.5 is a real saving, cold, in the owner's configuration.
+## The steps lever measured twice, independently, and the two agree
+
+**Cold**, both from `/free` on an empty queue, both **0 cached**, both denoise
+0.35, cf 1.5, LoRAs — and each re-render compared to its own arm's delivered
+PNG at **mean absolute difference 0.0000, maximum 0 levels**, so they are the
+same renders:
+
+| arm | `#114` | cold exec |
+|---|---|---|
+| `Z2` | steps **8**, denoise 0.35 | **262.6 s** |
+| `Z3` | steps **30**, denoise 0.35 | **315.5 s** |
+| | | **−52.9 s, −16.8 % of the whole render** |
+
+**Warm**, byte-identical 57-node cache sets: **−53.1 s.**
+
+**52.9 s and 53.1 s.** Two measurements of the same lever from opposite cache
+regimes, agreeing to 0.2 s. **That is the size of the steps lever**, and I am
+confident in it in a way I am not confident in any single cold delta.
+
+## Two cold deltas I will NOT quote as measurements, and why
+
+* **cf 3 → cf 1.5, cold: `L1b` 388.9 s → `Z0` 270.5 s (−118.4 s).** That is
+  *larger* than the ~38 s R3 measured for the pass itself, and `Z0` was also
+  writing six extra full-resolution PNGs. Either something else got cheaper too
+  or a single cold pair carries tens of seconds of load-time variance. **I am
+  not claiming cf 1.5 saves 30 %.**
+* **steps 30 → 8 at cf 3, cold: 417.5 s → 388.9 s (−28.6 s).** This one is
+  *backwards on physics*: at cf 3 the pass diffuses 9.29 MP against 5.75 MP at
+  cf 1.5, so 22 fewer steps should save **more** at cf 3, not half as much.
+  Since the cf-1.5 pair is confirmed twice at ~53 s, the cf-3 cold pair's
+  28.6 s is best read as that variance showing up.
+
+**The conclusion the owner needs survives all of it**, because it does not
+depend on any single cold delta: **the whole-render speedup from steps 30 → 8
+is around 50 s — a sixth of a cold render, not a half.**
 
 ## The owner's own pair, cold against cold: **−6.9 %, not −53 %**
 

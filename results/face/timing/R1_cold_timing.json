@@ -1,0 +1,41 @@
+[
+  {
+    "arm": "L0b_baseline_loras",
+    "what": "steps 30, denoise 0.80, cf 3, LoRAs -- the owner's 400.7 s arm, cold",
+    "prompt_id": "5aead918-baa1-4b2e-a49d-394995d23535",
+    "cold_start": true,
+    "exec_seconds": 417.5,
+    "cached_nodes": 0,
+    "cached_node_ids": [],
+    "status": "success",
+    "error": null,
+    "mean_abs_diff_vs_arm": 0.0,
+    "max_abs_diff_vs_arm": 0
+  },
+  {
+    "arm": "Z3_cf15_steps30_denoise035",
+    "what": "steps 30, denoise 0.35, cf 1.5, LoRAs -- shipping graph, cold",
+    "prompt_id": "e25e7333-8850-4164-8258-f26e5be387a2",
+    "cold_start": true,
+    "exec_seconds": 315.5,
+    "cached_nodes": 0,
+    "cached_node_ids": [],
+    "status": "success",
+    "error": null,
+    "mean_abs_diff_vs_arm": 0.0,
+    "max_abs_diff_vs_arm": 0
+  },
+  {
+    "arm": "Z2_cf15_denoise035",
+    "what": "steps 8,  denoise 0.35, cf 1.5, LoRAs -- shipping graph, cold",
+    "prompt_id": "4a422a94-0f29-442d-a64d-732b27d32f0e",
+    "cold_start": true,
+    "exec_seconds": 262.6,
+    "cached_nodes": 0,
+    "cached_node_ids": [],
+    "status": "success",
+    "error": null,
+    "mean_abs_diff_vs_arm": 0.0,
+    "max_abs_diff_vs_arm": 0
+  }
+]
