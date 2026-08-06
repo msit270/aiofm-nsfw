@@ -27,3 +27,6 @@ done
 [CTL_placeholder_after_T_tok45] submitted 9eed6a2c-bdce-428b-9705-e2aaca9ee491 cid=trackA-CTL_placeholder_after_T_tok45-0e94e72d queue_before=(0,0) vram_free=53.7GiB
 [CTL_placeholder_after_T_tok45] success exec=119.3s cached=0 err=None  imgs=['tap163_00049_.png', 'HasMetadata_00091_.png']
 [T_tok28] submitted 63f2f526-00cb-4718-86ef-39c0f28266f2 cid=trackA-T_tok28-5a80c03f queue_before=(0,0) vram_free=36.8GiB
+[T_tok28] success exec=77.2s cached=16 err=None  imgs=['tap163_00050_.png', 'HasMetadata_00092_.png']
+[T_tok28] NOT COLD (cached=16) -- discarding and re-running
+[T_tok28__warm2] submitted 32f4aa28-8a9d-409b-9baf-2131080d1342 cid=trackA-T_tok28__warm2-2a290040 queue_before=(0,0) vram_free=46.4GiB

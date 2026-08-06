@@ -1,0 +1,51 @@
+{
+ "arm": "T_tok28",
+ "prompt_id": "63f2f526-00cb-4718-86ef-39c0f28266f2",
+ "client_id": "trackA-T_tok28-5a80c03f",
+ "wall_seconds": 80.1,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 39524791506,
+ "note": "token-count probe: fixed content + 16 x \" the\" = exactly 28 tokens",
+ "status": "success",
+ "exec_seconds": 77.2,
+ "cached": 16,
+ "cached_ids": [
+  "116",
+  "620:107",
+  "620:108",
+  "620:105",
+  "620:110",
+  "620:109",
+  "620:113",
+  "620:648",
+  "621:166",
+  "621:167",
+  "621:160",
+  "621:161",
+  "622:426",
+  "622:394",
+  "622:398",
+  "BASE"
+ ],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00050_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00092_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "text_106": "a woman's face the the the the the the the the the the the the the the the the"
+}

@@ -31,6 +31,8 @@ def main():
         txt = m.get("text_106")
         if txt is None or r.get("status") is None:
             continue
+        if m.get("cached") not in (0,):        # not cold -> not evidence
+            continue
         n = len(tok.tokenize_with_weights(txt)["qwen3_4b"][0])
         rows.append({"arm": arm, "tokens": n, "words": len(txt.split()),
                      "status": r["status"], "conf": r.get("highest_conf"),
