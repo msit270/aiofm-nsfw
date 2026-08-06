@@ -41,9 +41,9 @@
  },
  {
   "tokens": 16,
-  "n_arms": 18,
+  "n_arms": 19,
   "n_crash": 0,
-  "n_clean": 18,
+  "n_clean": 19,
   "verdict": "clean",
   "arms": [
    "A1_gate_placeholder",
@@ -63,7 +63,8 @@
    "CTL_placeholder_after_T_tok46",
    "CTL_placeholder_after_T_tok44",
    "CTL_placeholder_after_T_tok47",
-   "CTL_placeholder_after_REP2_w17__warm2"
+   "CTL_placeholder_after_REP2_w17__warm2",
+   "CTL_placeholder_after_T_tok48"
   ]
  },
  {
@@ -330,6 +331,16 @@
   "verdict": "CRASH",
   "arms": [
    "T_tok48"
+  ]
+ },
+ {
+  "tokens": 49,
+  "n_arms": 1,
+  "n_crash": 1,
+  "n_clean": 0,
+  "verdict": "CRASH",
+  "arms": [
+   "T_tok49"
   ]
  }
 ]
