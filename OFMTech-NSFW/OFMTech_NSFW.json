@@ -6485,7 +6485,7 @@
               1,
               "euler_ancestral",
               "kl_optimal",
-              0.8,
+              0.35,
               18,
               true,
               true,
