@@ -78,6 +78,47 @@ script prints GiB while labelling it "GB".
 
 ---
 
+## 2c. Publishing the re-cut pack — one command, for you to run
+
+The tarball is re-cut against the D1-reverted graph and verified end to end.
+**Nothing was uploaded.**
+
+```
+dist/AIOFMTech-NSFW.tar.gz   8,154,217 bytes
+sha256  27fa2e1c5496c4d0efee7d5b626e7638b197e1327500f86936a2a9e918dd3d37
+170 files, top-level AIOFMTech-NSFW/   (matches the archive name)
+```
+
+```bash
+HF_TOKEN="$(tr -d '[:space:]' < /workspace/.hf_token)" \
+/venv/main/bin/hf upload msit270/AIOFM-Pack \
+    /workspace/nsfw-fix/dist/AIOFMTech-NSFW.tar.gz \
+    dist/AIOFMTech-NSFW.tar.gz \
+    --commit-message "NSFW pack re-cut against the D1-reverted graph (workflow f1ac7e55)"
+```
+
+Verify it landed:
+```bash
+curl -fsSL -H "Authorization: Bearer $(tr -d '[:space:]' < /workspace/.hf_token)" \
+  "https://huggingface.co/msit270/AIOFM-Pack/resolve/main/dist/AIOFMTech-NSFW.tar.gz" | sha256sum
+# must print 27fa2e1c…dd3d37
+```
+
+**If it prints `3f6d0f2f…aada76`, the upload did not land — retry, do not wait for
+CDN lag.** That is the hash live HF serves *today*: **the previous run's re-cut
+was never published**, so this artifact supersedes it and `3f6d0f2f…` is the
+"before" you are watching for. (An earlier draft of these instructions would have
+told you to watch for a hash that cannot appear.)
+
+Delta against what is published: **164 → 170 files, six additions — the licence
+files — and no removals.** Against the previous unpublished cut: 170 → 170, one
+file changed, the workflow. The gist needs no edit.
+
+**A green cut is not a clean licence position.** These bytes contain the UnMarker
+and GrainNet trees — see §7 and `QUESTIONS.md` §0.
+
+---
+
 ## 3. What to do in the browser once it loads
 
 Everything you touch is in the green box at the top left.
