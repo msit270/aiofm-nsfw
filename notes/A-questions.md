@@ -110,6 +110,18 @@ on.
 
 ---
 
+### I contaminated my own timings for one arm and am saying so rather than quietly dropping it.
+While `CTL_placeholder_after_A3_swap_Tuesday` was rendering I started an offline
+CPU probe of the text encoder that took ~30 cores. That arm reports **112.2 s**
+against 69–81 s for the four byte-identical health controls around it. The
+**status** is unaffected (it succeeded, `cached 0`, and its image is bit-identical
+to the other controls), but the 112.2 s is a measurement of my own interference,
+not of the graph. I killed the probe. **No `exec` figure in this file should be
+read as a benchmark** — they are there to show arms actually ran and roughly how
+long they take, and one of them is inflated.
+
+---
+
 ## Open / unsure
 
 * **What produces the constant fill.** The failing image's face is a single RGB

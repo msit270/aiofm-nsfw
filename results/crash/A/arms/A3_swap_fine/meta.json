@@ -1,0 +1,28 @@
+{
+ "arm": "A3_swap_fine",
+ "prompt_id": "ac2c390f-03c5-4058-9487-6af06a18d175",
+ "client_id": "trackA-A3_swap_fine-5e2cebb2",
+ "wall_seconds": 55.1,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 54246377496,
+ "note": "boundary swap: CLEAN 16-word prefix + a different 17th word. 17 words and 30 tokens, matching the crashing w17 exactly on both counts.",
+ "status": "error",
+ "exec_seconds": 49.6,
+ "cached": 0,
+ "cached_ids": [],
+ "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+ "error_node": "622:403",
+ "error_type": "MaskBoundingBox+",
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00027_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  }
+ ],
+ "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with fine"
+}

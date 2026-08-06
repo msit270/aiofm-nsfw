@@ -9,3 +9,11 @@
 [A3_C4_committee_w17] submitted a69e50d1-972b-4f41-925f-c31c0717417b cid=trackA-A3_C4_committee_w17-70498812 queue_before=(0,0) vram_free=59.1GiB
 [A3_C4_committee_w17] success exec=75.1s cached=0 err=None  imgs=['tap163_00026_.png', 'HasMetadata_00080_.png']
 [A3_swap_fine] submitted ac2c390f-03c5-4058-9487-6af06a18d175 cid=trackA-A3_swap_fine-5e2cebb2 queue_before=(0,0) vram_free=50.5GiB
+[A3_swap_fine] error exec=49.6s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00027_.png']
+[CTL_placeholder_after_A3_swap_fine] submitted 4a316d80-e751-426e-b895-e327b49a8568 cid=trackA-CTL_placeholder_after_A3_swap_fine-180065c0 queue_before=(0,0) vram_free=54.7GiB
+[CTL_placeholder_after_A3_swap_fine] success exec=71.4s cached=0 err=None  imgs=['tap163_00028_.png', 'HasMetadata_00081_.png']
+[A3_swap_Tuesday] submitted 8e988367-7988-4604-a269-1ddd42c6e28a cid=trackA-A3_swap_Tuesday-e9ce113f queue_before=(0,0) vram_free=64.6GiB
+[A3_swap_Tuesday] error exec=57.3s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00029_.png']
+[CTL_placeholder_after_A3_swap_Tuesday] submitted a7422bc8-2350-43d5-8e10-550689750d37 cid=trackA-CTL_placeholder_after_A3_swap_Tuesday-e96bca60 queue_before=(0,0) vram_free=64.0GiB
+[CTL_placeholder_after_A3_swap_Tuesday] success exec=112.2s cached=0 err=None  imgs=['tap163_00030_.png', 'HasMetadata_00082_.png']
+[A3_swap_obvious] submitted 164d181c-5446-4915-9931-c9af9bfdd3ee cid=trackA-A3_swap_obvious-595d7dd3 queue_before=(0,0) vram_free=73.8GiB

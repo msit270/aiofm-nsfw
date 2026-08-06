@@ -921,13 +921,42 @@
   "flat_frac": 0.1862
  },
  "A3_C4_committee_w17": {
-  "status": null,
-  "prompt_id": null,
-  "exec_seconds": null,
-  "cached": null,
-  "text": null,
+  "status": "success",
+  "prompt_id": "a69e50d1-972b-4f41-925f-c31c0717417b",
+  "exec_seconds": 75.1,
+  "cached": 0,
+  "text": "the committee approved the revised schedule on Tuesday and asked the treasurer to circulate a summary before",
   "error_node": null,
-  "tap": null
+  "tap": "nTAP163__tap163_00026_.png",
+  "per_threshold": {
+   "0.6": {
+    "n": 1,
+    "max_conf": 0.8953856825828552
+   },
+   "0.5": {
+    "n": 1,
+    "max_conf": 0.8953856825828552
+   },
+   "0.4": {
+    "n": 1,
+    "max_conf": 0.8953856825828552
+   },
+   "0.3": {
+    "n": 1,
+    "max_conf": 0.8953856825828552
+   },
+   "0.2": {
+    "n": 1,
+    "max_conf": 0.8953856825828552
+   },
+   "0.1": {
+    "n": 1,
+    "max_conf": 0.8953856825828552
+   }
+  },
+  "highest_conf": 0.8953856825828552,
+  "luma_sd": 59.67,
+  "flat_frac": 0.1879
  },
  "CTL_placeholder_after_A3_C2_gardener_w17": {
   "status": "success",
@@ -966,5 +995,14 @@
   "highest_conf": 0.8952752351760864,
   "luma_sd": 59.67,
   "flat_frac": 0.1876
+ },
+ "A3_swap_fine": {
+  "status": null,
+  "prompt_id": null,
+  "exec_seconds": null,
+  "cached": null,
+  "text": null,
+  "error_node": null,
+  "tap": null
  }
 }

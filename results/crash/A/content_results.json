@@ -170,5 +170,133 @@
   "text_106": "the committee approved the revised schedule on Tuesday and asked the treasurer to circulate a summary before",
   "text": "the committee approved the revised schedule on Tuesday and asked the treasurer to circulate a summary before",
   "words": 17
+ },
+ {
+  "arm": "A3_swap_fine",
+  "prompt_id": "ac2c390f-03c5-4058-9487-6af06a18d175",
+  "client_id": "trackA-A3_swap_fine-5e2cebb2",
+  "wall_seconds": 55.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 54246377496,
+  "note": "boundary swap: CLEAN 16-word prefix + a different 17th word. 17 words and 30 tokens, matching the crashing w17 exactly on both counts.",
+  "status": "error",
+  "exec_seconds": 49.6,
+  "cached": 0,
+  "cached_ids": [],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00027_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with fine",
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with fine",
+  "words": 17
+ },
+ {
+  "arm": "CTL_placeholder_after_A3_swap_fine",
+  "prompt_id": "4a316d80-e751-426e-b895-e327b49a8568",
+  "client_id": "trackA-CTL_placeholder_after_A3_swap_fine-180065c0",
+  "wall_seconds": 75.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 58778901064,
+  "note": "health control after an error arm",
+  "status": "success",
+  "exec_seconds": 71.4,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00028_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00081_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
+ },
+ {
+  "arm": "A3_swap_Tuesday",
+  "prompt_id": "8e988367-7988-4604-a269-1ddd42c6e28a",
+  "client_id": "trackA-A3_swap_Tuesday-e9ce113f",
+  "wall_seconds": 65.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 69377821208,
+  "note": "boundary swap: CLEAN 16-word prefix + a different 17th word. 17 words and 30 tokens, matching the crashing w17 exactly on both counts.",
+  "status": "error",
+  "exec_seconds": 57.3,
+  "cached": 0,
+  "cached_ids": [],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00029_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with Tuesday",
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with Tuesday",
+  "words": 17
+ },
+ {
+  "arm": "CTL_placeholder_after_A3_swap_Tuesday",
+  "prompt_id": "a7422bc8-2350-43d5-8e10-550689750d37",
+  "client_id": "trackA-CTL_placeholder_after_A3_swap_Tuesday-e96bca60",
+  "wall_seconds": 115.7,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 68771198024,
+  "note": "health control after an error arm",
+  "status": "success",
+  "exec_seconds": 112.2,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00030_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00082_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
  }
 ]
