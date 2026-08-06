@@ -1525,5 +1525,71 @@
   "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
   "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
   "words": 33
+ },
+ {
+  "arm": "T_tok43",
+  "prompt_id": "97af5733-43a8-4568-99a3-c14a1cf6e30e",
+  "client_id": "trackA-T_tok43-a8879b6b",
+  "wall_seconds": 55.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 54032556604,
+  "note": "token-count probe: fixed content + 31 x \" the\" = exactly 43 tokens",
+  "status": "success",
+  "exec_seconds": 51.7,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00071_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00109_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "words": 34
+ },
+ {
+  "arm": "T_tok44",
+  "prompt_id": "0b1976fb-5557-490b-9a48-e062ffa17a88",
+  "client_id": "trackA-T_tok44-4133f67a",
+  "wall_seconds": 40.3,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 54008544796,
+  "note": "token-count probe: fixed content + 32 x \" the\" = exactly 44 tokens",
+  "status": "error",
+  "exec_seconds": 38.9,
+  "cached": 0,
+  "cached_ids": [],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00072_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "words": 35
  }
 ]

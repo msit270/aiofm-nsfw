@@ -4,9 +4,10 @@
 
 Every prompt whose tokenised length is **30, 31, 32, or 44 and above** crashes.
 Every other length measured — 11, 12, 13, 14, 16, 20, 25, 26, 27, 28, 29, 33, 34,
-35, 36, 37, 38, 39, 40, 41, 42 — renders clean. **The upper region's top edge has not been
-found**: 44, 45, 46 and 47 all crash and I have not yet measured above 47, so I am
-calling it "44 and above" rather than a band. **Across every cold arm in this run and eight unrelated content families there
+35, 36, 37, 38, 39, 40, 41, 42, 43 — renders clean. **Its lower edge is exact and its top edge is not
+found**: 43 is clean and 44, 45, 46 and 47 all crash, and I have not measured
+above 47 — so "44 and above" is what the data supports, not a band with a known
+top. **Across every cold arm in this run and eight unrelated content families there
 is not one token count that gave two different outcomes.** That is a strong
 statement about the lengths and content I measured; it is not a proof that no
 string anywhere could break the pattern. Six completely
@@ -578,6 +579,7 @@ tok  verdict  n  arms
   40  clean    1  T_tok40
   41  clean    1  L_w23
   42  clean    1  T_tok42
+  43  clean    1  T_tok43
   44  CRASH    1  T_tok44
   45  CRASH    2  L_w24, T_tok45
   46  CRASH    2  A1_gate_crashstring, T_tok46
@@ -597,9 +599,9 @@ itself, across families that share no vocabulary:
 * **16 tokens — 13 arms, all clean.** (The shipped placeholder and every health
   control.)
 
-Sheet: **`results/crash/A/T_token_sweep_sheet.png`** — fifteen panels of the same
-prompt at 26–47 tokens. 26, 27, 28, 29 clean · **30, 31, 32 crash** · 33, 34, 35,
-36 clean · **44, 45, 46, 47 crash**. Nothing changes between panels except how
+Sheet: **`results/crash/A/T_token_sweep_sheet.png`** — the same prompt at 26–47
+tokens. 26–29 clean · **30, 31, 32 crash** · 33–37, 40, 42, 43 clean ·
+**44, 45, 46, 47 crash**. Nothing changes between panels except how
 many times the word `the` is repeated.
 
 ### So the answer to A3, in one sentence
