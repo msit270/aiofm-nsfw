@@ -143,3 +143,19 @@ string's *words* — but it does not pin the number.
 every cell as asked. `git push` and even reading the remote URL were **blocked by
 the permission system**, so all 9 commits are local on branch
 `trackB-crash-grid`. Nothing is lost, but somebody has to push it.
+
+**10. A cross-track contradiction somebody has to reconcile — not mine to
+settle.** Track D has committed "the documented 4/4 crash did not reproduce on
+the shipped bytes — 3/3 clean". My `A0_baseline_crash` **did** crash, cold,
+`execution_cached []`, on `results/r4/R4_CF15_filled/api_graph.json`, which is a
+conversion of `a811b5d6…` and differs from the clean `R4_CF15_placeholder` graph
+in `620:106.inputs.text` alone. The two are not the same experiment — mine is an
+API submission of an already converted graph on 28191, theirs is the browser path
+on the shipped file — but both cannot be describing the same artifact's behaviour.
+My baseline is anchored by `A1` being **bit-identical** to the 18188 reference
+render, so I am confident about what my arms did; I make no claim about theirs.
+
+**11. The branch is shared.** `trackB-crash-grid` carries Track A's and Track D's
+commits as well as mine. I only ever `git add`-ed my own paths
+(`results/crash/B/`, `notes/B-*.md`) and never `-A`. `remotes/origin/trackB-crash-grid`
+exists, so somebody has push rights; I do not.
