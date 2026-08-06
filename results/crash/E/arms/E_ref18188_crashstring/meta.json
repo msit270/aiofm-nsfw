@@ -1,0 +1,28 @@
+{
+ "arm": "E_ref18188_crashstring",
+ "prompt_id": "cbc85696-87e8-466f-9932-09f66f0e8622",
+ "client_id": "trackA-E_ref18188_crashstring-17148f36",
+ "wall_seconds": 50.0,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 32476723740,
+ "note": "REFERENCE CONTROL on 18188: is the crash still live there right now? Same probe graph Track A used.",
+ "status": "error",
+ "exec_seconds": 46.3,
+ "cached": 0,
+ "cached_ids": [],
+ "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+ "error_node": "622:403",
+ "error_type": "MaskBoundingBox+",
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00084_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  }
+ ],
+ "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens"
+}

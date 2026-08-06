@@ -1,0 +1,34 @@
+{
+ "arm": "E_noprobe_crashstring",
+ "prompt_id": "4c95f578-10b0-4613-9947-7d7a6ff93aab",
+ "client_id": "trackA-E_noprobe_crashstring-581ddc92",
+ "wall_seconds": 80.0,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 17098866688,
+ "note": "CONTROL: Track E's own server with the probe pack REMOVED. Same tree, same argv otherwise.",
+ "status": "success",
+ "exec_seconds": 77.6,
+ "cached": 0,
+ "cached_ids": [],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00003_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00003_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed eyes, photorealistic portrait photograph, 85mm lens"
+}

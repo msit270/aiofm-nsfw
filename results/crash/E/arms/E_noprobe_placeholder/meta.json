@@ -1,0 +1,34 @@
+{
+ "arm": "E_noprobe_placeholder",
+ "prompt_id": "0838d834-dccc-41fe-b205-1c41a027e5aa",
+ "client_id": "trackA-E_noprobe_placeholder-e21b9b3e",
+ "wall_seconds": 80.1,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 16696993824,
+ "note": "its clean control",
+ "status": "success",
+ "exec_seconds": 75.8,
+ "cached": 0,
+ "cached_ids": [],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00004_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00004_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
+}

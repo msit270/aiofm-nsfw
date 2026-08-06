@@ -93,12 +93,21 @@ safe, and it crashes **3/3** at `622:403`. Track B left this as its highest-valu
 unknown, and it is the best lead in the whole run: **the failure is not travelling
 through the wiring.**
 
-> **[I] Reconciling B with A, because they look like they disagree and do not.**
-> B reports that dropping the `luna, ` prefix gives a clean, healthy image and
-> concludes the prefix is load-bearing. `luna, ` is **4 content tokens**; the
-> crashing string is **46**; 46 − 4 = **42**, and A measured 42 as clean. So the
-> prefix most likely matters only because its tokens push the prompt over the
-> 44 edge — which is A's result, not a second effect. Not yet tested directly.
+> **B and A look like they disagree. They do not — and checking it turned into
+> the best confirmation in the run.** B concluded the `luna, ` prefix is
+> load-bearing, because removing it renders clean. I guessed that was really a
+> token-count effect, then measured it instead of leaving it as a guess:
+>
+> | | tokens | band |
+> |---|---|---|
+> | crashing string, with prefix | **46** | CRASH |
+> | B's arm — same string, prefix removed | **43** | clean |
+>
+> The prefix costs **3 tokens** (I had guessed 4). So B's clean arm sits at **43
+> — exactly one token under A's threshold of 44.** Two agents, two servers, two
+> different experiments, and B's result lands one token below the cliff A
+> measured independently. The prefix is not a second effect; it is A's threshold
+> seen from the other side.
 >
 > B also retracted a published finding mid-run (VRAM pressure as a second route)
 > after a control ran 85 lowvram patches and came back `max_abs_diff 0`.
