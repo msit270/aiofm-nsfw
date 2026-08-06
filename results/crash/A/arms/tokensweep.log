@@ -36,3 +36,5 @@ done
 [T_tok27] submitted 1c6de074-804a-44ab-a74e-b0ac064ecba4 cid=trackA-T_tok27-2685f0a0 queue_before=(0,0) vram_free=57.4GiB
 [T_tok27] success exec=70.8s cached=0 err=None  imgs=['tap163_00053_.png', 'HasMetadata_00095_.png']
 [T_tok35] submitted 3818f5ef-fba9-4a5a-abe6-217d034578bf cid=trackA-T_tok35-be3bd6b5 queue_before=(0,0) vram_free=46.2GiB
+[T_tok35] success exec=106.5s cached=0 err=None  imgs=['tap163_00054_.png', 'HasMetadata_00096_.png']
+[T_tok26] submitted 10077bcc-1f76-42a2-b131-395c7f147ffc cid=trackA-T_tok26-bd9f81d9 queue_before=(0,0) vram_free=58.1GiB
