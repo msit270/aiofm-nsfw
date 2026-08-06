@@ -679,17 +679,19 @@ pair had matched caches. **Steps 8 is still the right setting; it is just not a
   companion that `seed` (widget 3) drags in; index 5 = `steps` held `8`,
   index 9 = `denoise` held `0.8`, both verified against the file.
 * Every arm passes `python3 tools/preflight/integrity.py <arm.json>` with
-  **0 problems** before submission. All three did.
+  **0 problems** before submission. All four did.
 * Every arm is converted to API format by the real frontend —
   `tools/browser_harness/run.js --no-submit --api-out`, i.e.
   `app.loadGraphData()` + `app.graphToPrompt()` in Chromium against the live
   server, the same call the Run button makes. Nothing reached the server during
   conversion.
-* Every submitted prompt is diffed against the submitted prompt of an arm that
-  has already rendered cleanly (`L1b` or `L0b`) with a node-by-node,
-  input-by-input comparison. **Each new arm shows exactly one difference,
-  `620:114.denoise`, and nothing else.** The tap arm shows six added
-  `SaveImage` nodes, zero removed, and zero existing nodes changed.
+* Every submitted prompt is diffed against another submitted prompt with a
+  node-by-node, input-by-input comparison:
+  `Z1` and `Z2` differ from `Z0` by **exactly one input** (`620:114.denoise`);
+  `Z3` by **two** (`denoise` + `steps`); `Z0` differs from `L1b` by exactly two
+  (`620:114.bbox_crop_factor` 3 → 1.5 and `620:105.text` → `''`); and the tap
+  arm differs from `Z0` by **six nodes added, zero removed, zero existing nodes
+  changed**, so `#505`'s output is unaffected by the taps.
 * `inputs.pick_list = "0"` on `619:603 INSTARAW_ImageFilter` and the removal of
   the frontend-only `419.inputs.rgthree_comparer` are applied **to the
   submitted prompt only, identically in every arm**. No arm's workflow file
@@ -714,11 +716,24 @@ pair had matched caches. **Steps 8 is still the right setting; it is just not a
 * **No `POST /api/interrupt`. No `POST /api/queue {"clear": true}`.** No queue
   item was deleted, so `execution.py:1218-1229`'s `wipe_queue()` path was never
   reachable.
+* **Every arm was checked for the two known server-fault signatures after it
+  landed** — a large constant region at RGB (53, 47, 43), a black frame, or no
+  variance in the face box — because a foreign job can poison the resident
+  model between my renders and the failure is silent. All four came back
+  `flat=0.00001 black=0.00000 faceStd≈44.5`, and the check is recorded in each
+  `meta.json` under `health`.
+* **Two duplicate drivers of my own were alive without my noticing**, which is
+  why the tap render exists three times and the health control twice. Every
+  duplicate was compared against the run I kept — mean 0.0000, max 0 levels, on
+  all seven tap outputs both times — and then deleted. No conclusion in this
+  report rests on a render whose `prompt_id` does not resolve in `/history`.
+  It also cost the shared GPU about four wasted renders, which was my error.
 * **Hash comparison of rendered output is not used as a verification method
-  anywhere in this report.** The one place two images are compared for equality
-  — the two base renders — is reported as mean and maximum absolute difference
-  over the full frame, and it is a control on the instrument, not a proof that
-  a change is inert.
+  anywhere in this report.** Images are compared for equality in four places —
+  the two base renders, the health control, the duplicate tap runs, and the
+  cold timing re-runs — and every one is reported as mean and maximum absolute
+  difference over the full frame. All four are controls on the instrument. None
+  is used to argue that a change is inert.
 
 ---
 
