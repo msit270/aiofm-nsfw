@@ -1009,5 +1009,41 @@
   "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the",
   "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the",
   "words": 26
+ },
+ {
+  "arm": "T_tok26",
+  "prompt_id": "10077bcc-1f76-42a2-b131-395c7f147ffc",
+  "client_id": "trackA-T_tok26-bd9f81d9",
+  "wall_seconds": 125.4,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 62374045724,
+  "note": "token-count probe: fixed content + 14 x \" the\" = exactly 26 tokens",
+  "status": "success",
+  "exec_seconds": 117.5,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00055_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00097_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "a woman's face the the the the the the the the the the the the the the",
+  "text": "a woman's face the the the the the the the the the the the the the the",
+  "words": 17
  }
 ]

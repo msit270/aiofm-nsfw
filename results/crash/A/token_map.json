@@ -41,9 +41,9 @@
  },
  {
   "tokens": 16,
-  "n_arms": 13,
+  "n_arms": 15,
   "n_crash": 0,
-  "n_clean": 13,
+  "n_clean": 15,
   "verdict": "clean",
   "arms": [
    "A1_gate_placeholder",
@@ -58,7 +58,9 @@
    "CTL_recovery_before_T",
    "CTL_placeholder_after_T_tok30",
    "CTL_placeholder_after_T_tok31",
-   "CTL_placeholder_after_T_tok32"
+   "CTL_placeholder_after_T_tok32",
+   "CTL_placeholder_after_T_tok45",
+   "CTL_placeholder_after_T_tok46"
   ]
  },
  {
@@ -89,6 +91,26 @@
   "verdict": "clean",
   "arms": [
    "A3_C4_committee_w17"
+  ]
+ },
+ {
+  "tokens": 27,
+  "n_arms": 1,
+  "n_crash": 0,
+  "n_clean": 1,
+  "verdict": "clean",
+  "arms": [
+   "T_tok27"
+  ]
+ },
+ {
+  "tokens": 28,
+  "n_arms": 1,
+  "n_crash": 0,
+  "n_clean": 1,
+  "verdict": "clean",
+  "arms": [
+   "T_tok28__warm2"
   ]
  },
  {
@@ -151,23 +173,25 @@
  },
  {
   "tokens": 34,
-  "n_arms": 1,
-  "n_crash": 0,
-  "n_clean": 1,
-  "verdict": "clean",
-  "arms": [
-   "A3_C1_fisherman_w17"
-  ]
- },
- {
-  "tokens": 35,
   "n_arms": 2,
   "n_crash": 0,
   "n_clean": 2,
   "verdict": "clean",
   "arms": [
+   "A3_C1_fisherman_w17",
+   "T_tok34"
+  ]
+ },
+ {
+  "tokens": 35,
+  "n_arms": 3,
+  "n_crash": 0,
+  "n_clean": 3,
+  "verdict": "clean",
+  "arms": [
    "L_w20",
-   "A3_C3_locomotive_w17"
+   "A3_C3_locomotive_w17",
+   "T_tok35"
   ]
  },
  {
@@ -202,22 +226,24 @@
  },
  {
   "tokens": 45,
-  "n_arms": 1,
-  "n_crash": 1,
+  "n_arms": 2,
+  "n_crash": 2,
   "n_clean": 0,
   "verdict": "CRASH",
   "arms": [
-   "L_w24"
+   "L_w24",
+   "T_tok45"
   ]
  },
  {
   "tokens": 46,
-  "n_arms": 1,
-  "n_crash": 1,
+  "n_arms": 2,
+  "n_crash": 2,
   "n_clean": 0,
   "verdict": "CRASH",
   "arms": [
-   "A1_gate_crashstring"
+   "A1_gate_crashstring",
+   "T_tok46"
   ]
  }
 ]
