@@ -186,6 +186,32 @@ band-pass step across the jaw goes from **x6.76** baseline to **x3.57** at steps
 8. The composite boundary is still visible in the delivered image and wants its
 own fix, whatever you decide here.
 
+### `#87` skin filter — cleared. Leave it at 1.0.
+
+Turning the skin amplifier down **does not fix the skin**. Blobs per megapixel:
+baseline (1.0) **764**, at 0.75 **702**, at 0.50 **702** — an 8 % move, against
+steps' 69 %. At 1:1 the three are genuinely hard to tell apart.
+
+The check that makes this a disproof rather than an absence of evidence:
+changing `blend_factor` **does** reach the neck — neck and shoulder pixels move
+by mean 1.6–2.5 levels, up to 1.70 % of them by more than 8 — **and yet neck
+band-pass RMS stays flat at 0.94 / 0.99 / 0.96 across all three values.** It
+reaches the neck, changes it, and creates no bumps there. So it is not creating
+them on the face either.
+
+### Correction: the gold lip artifact does not reproduce
+
+I told you earlier this was real and caused by the blend change. **The second
+half of that is not supported and I withdraw it.** Five arms were re-tested under
+the same rule in three windows, including `H_skinblend_050` — P1's *exact*
+setting — and every one returns **0 px**. The object genuinely is in the older
+render P1 measured; that was a different composition and a different prompt. One
+occurrence, not a reproducible effect of the setting. The only two arms with any
+warm specks near the lips are ones that never touch `#87`.
+
+So the reason to leave `#87` alone is simply that **turning it down does not fix
+the skin** — not the artifact.
+
 ### The rest of the grid **[IN FLIGHT]**
 
 ### D3 — STOPPED. Your stop condition triggered. Nothing was applied.
