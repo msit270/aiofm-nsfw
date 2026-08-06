@@ -1,0 +1,61 @@
+{
+ "arm": "V_AW3_nonenglish",
+ "prompt_id": "5b92eedd-20fc-4300-975e-16d5700f016a",
+ "client_id": "trackV-V_AW3_nonenglish-55d50fa3",
+ "wall_seconds": 85.1,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 56115952156,
+ "free_wait_s": 22.1,
+ "note": "Awkward set: AW3_nonenglish. Token count measured, not assumed.",
+ "tokens": 103,
+ "executed_nodes": [
+  "BASE",
+  "620:108",
+  "620:107",
+  "620:110",
+  "620:105",
+  "620:106",
+  "620:109",
+  "620:113",
+  "116",
+  "620:114",
+  "620:111",
+  "620:648",
+  "621:161",
+  "621:166",
+  "620:165",
+  "621:163",
+  "TAP163",
+  "622:431",
+  "622:398",
+  "622:424",
+  "622:407",
+  "622:403"
+ ],
+ "ws_error": null,
+ "status": "error",
+ "exec_seconds": 81.5,
+ "cached": 0,
+ "cached_ids": [],
+ "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+ "error_node": "622:403",
+ "error_type": "MaskBoundingBox+",
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00030_.png",
+   "subfolder": "crashV",
+   "type": "output"
+  }
+ ],
+ "text_106": "luna\u300121\u6b73\u306e\u5973\u6027\u3001\u305d\u3070\u304b\u3059\u3001\u7dd1\u306e\u77b3\u3001\u8a73\u7d30\u306a\u808c\u306e\u8cea\u611f\u3001\u67d4\u3089\u304b\u3044\u7a93\u660e\u304b\u308a \u043c\u043e\u043b\u043e\u0434\u0430\u044f \u0436\u0435\u043d\u0449\u0438\u043d\u0430, \u0432\u0435\u0441\u043d\u0443\u0448\u043a\u0438, \u0437\u0435\u043b\u0451\u043d\u044b\u0435 \u0433\u043b\u0430\u0437\u0430 \u0627\u0645\u0631\u0623\u0629 \u0634\u0627\u0628\u0629\u060c \u0646\u0645\u0634\u060c \u0639\u064a\u0648\u0646 \u062e\u0636\u0631\u0627\u0621 \u03bd\u03b5\u03b1\u03c1\u03ae \u03b3\u03c5\u03bd\u03b1\u03af\u03ba\u03b1, \u03c6\u03b1\u03ba\u03af\u03b4\u03b5\u03c2 \ud83c\udf38\ud83d\udc41\ufe0f \u00e9\u00e0\u00fc\u00f1\u00e7\u00df",
+ "620:110": {
+  "device": "cpu"
+ },
+ "620:114": {
+  "denoise": 0.35
+ }
+}

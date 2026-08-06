@@ -1,0 +1,79 @@
+{
+ "arm": "V_AW2_punct",
+ "prompt_id": "0c9ae8de-e1a0-443f-ba00-459f3e227fe4",
+ "client_id": "trackV-V_AW2_punct-6ccb695d",
+ "wall_seconds": 100.1,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 60712909340,
+ "free_wait_s": 16.0,
+ "note": "Awkward set: AW2_punct. Token count measured, not assumed.",
+ "tokens": 72,
+ "executed_nodes": [
+  "BASE",
+  "620:108",
+  "620:107",
+  "620:110",
+  "620:105",
+  "620:106",
+  "620:109",
+  "620:113",
+  "116",
+  "620:114",
+  "620:111",
+  "620:648",
+  "621:161",
+  "621:166",
+  "620:165",
+  "621:163",
+  "TAP163",
+  "622:431",
+  "622:398",
+  "622:424",
+  "622:407",
+  "622:403",
+  "622:404",
+  "622:414",
+  "622:399",
+  "622:415",
+  "622:410",
+  "622:402",
+  "622:408",
+  "622:406",
+  "622:400",
+  "622:401",
+  "622:418",
+  "505"
+ ],
+ "ws_error": null,
+ "status": "success",
+ "exec_seconds": 97.7,
+ "cached": 0,
+ "cached_ids": [],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00029_.png",
+   "subfolder": "crashV",
+   "type": "output"
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00145_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "text_106": "luna,,, ((21-year-old woman)) [freckles!!] {green eyes} <detailed skin> -- \"soft window light\"; 85mm/f1.4 @ 1/125s ... ***photoreal*** #portrait $$$ 100% ~~~ |||",
+ "620:110": {
+  "device": "cpu"
+ },
+ "620:114": {
+  "denoise": 0.35
+ }
+}

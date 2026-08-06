@@ -28,6 +28,8 @@ def ladder(n):
 
 
 def arm(name, variant, text, tokens, note, overrides=None):
+    if tokens is None:
+        tokens = v_tok.count(text)
     return (name, tokens, note, {"variant": variant, "text": text, "overrides": overrides})
 
 
@@ -72,6 +74,34 @@ AWKCTL = [arm(f"V_{k}_ctl", MID, v_strings.AWKWARD[k], v_tok.count(v_strings.AWK
               f"Control for the awkward arm {k}: same string, device default. "
               f"Establishes whether this instance fails at that length at all.")
           for k in ("AW1_verylong", "AW2_punct", "AW3_nonenglish")]
+
+# ---------------------------------------------------------------------------
+# THE REFUTATION. V_AW3_nonenglish -- 103 tokens, mixed Japanese/Russian/Arabic/
+# Greek/emoji -- errored at 622:403 WITH THE FIX APPLIED (device cpu, denoise
+# 0.35, cold, queue empty), and its 621:163 tap carries the identical failure
+# signature: (56,51,47) over 0.16969 of the frame, YOLO 0.4656, flat_frac 0.2387.
+# Everything here exists to answer: is it reproducible, is it length or content,
+# and does device default fail there too?
+AW3 = v_strings.AWKWARD["AW3_nonenglish"]
+AW3_ARMS = [
+    arm("V_AW3_rep1", HEAD, AW3, 103, "Is the failure under the fix reproducible? Repeat 1."),
+    arm("V_AW3_ctl", MID, AW3, 103, "Same string, device default. Does backing the fix out change anything here?"),
+    arm("V_AW3_rep2", HEAD, AW3, 103, "Repeat 2 under the fix."),
+    arm("V_AW3_ascii103", HEAD, ladder(103), 103,
+        "LENGTH vs CONTENT: an ASCII ladder string at exactly 103 tokens, device cpu. "
+        "If this is clean, 103 tokens is not the problem and the non-ASCII content is."),
+    arm("V_AW3_ascii103_ctl", MID, ladder(103), 103, "Its device-default control."),
+    arm("V_AW3_ascii166", HEAD, ladder(166), 166,
+        "AW1 was 166 tokens and passed, but it is nearly all ASCII. ASCII ladder at 166, device cpu."),
+    arm("V_AW3_jp_only", HEAD,
+        "luna、21歳の女性、そばかす、緑の瞳、詳細な肌の質感、柔らかい窓明かり", None,
+        "Isolating the script: Japanese only, device cpu."),
+    arm("V_AW3_ru_only", HEAD,
+        "luna, молодая женщина, веснушки, зелёные глаза, детальная текстура кожи", None,
+        "Isolating the script: Russian only, device cpu."),
+    arm("V_AW3_prefix_ctl", PREFIX, AW3, 103,
+        "The same string on the fully pre-fix graph (denoise 0.80, device default)."),
+]
 
 SWEEP = []
 for n in range(26, 51):
@@ -141,7 +171,7 @@ E398 = [
 
 STAGES = {"iso": ISO, "proof": PROOF, "awkward": AWKWARD, "sweep": SWEEP,
           "endctl": ENDCTL, "clean": CLEAN, "seeds": SEEDS, "e398": E398,
-          "awkctl": AWKCTL}
+          "awkctl": AWKCTL, "aw3": AW3_ARMS}
 
 # --- full 88-node renders -------------------------------------------------
 # The probe stages freeze the base image at trackA_base137.png. The SHIPPED file's
