@@ -821,6 +821,12 @@ in a weight — it is a stale execution cache after a crash, and `/free` cures i
 because `free_memory` calls `e.reset()`. **2/2 is a reproduction, not a proof**,
 and I have not isolated *which* of the 16 cached nodes matters.
 
+**And a proper free cures it, 2/2.** Both times, re-running the identical arm
+after waiting for the VRAM to actually come back gave `success`, `cached 0`, and
+an image bit-identical to every other placeholder control
+(`CTL_recovery_before_T`, 79.0 s; `CTL_placeholder_after_REP2_w17__warm2`,
+74.9 s). So the server was never damaged — only its cache was stale.
+
 **What it means operationally, and it is not subtle:** `POST /free` followed by a
 2-second sleep is **not** enough. `drive.py` now polls `/system_stats` until the
 VRAM has actually come back, and discards and re-runs any arm whose
