@@ -321,5 +321,15 @@
   "arms": [
    "T_tok47"
   ]
+ },
+ {
+  "tokens": 48,
+  "n_arms": 1,
+  "n_crash": 1,
+  "n_clean": 0,
+  "verdict": "CRASH",
+  "arms": [
+   "T_tok48"
+  ]
  }
 ]

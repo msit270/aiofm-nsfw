@@ -584,6 +584,7 @@ tok  verdict  n  arms
   45  CRASH    2  L_w24, T_tok45
   46  CRASH    2  A1_gate_crashstring, T_tok46
   47  CRASH    1  T_tok47
+  48  CRASH    1  T_tok48
 
 MIXED (same token count, different outcome): none
 ```
