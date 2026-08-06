@@ -1,2 +1,4 @@
 token sweep finished; running REP redo
 [E398_tok31] submitted 22d1dc43-fbcb-4680-a504-fdf28e39494f cid=trackA-E398_tok31-2e3bd81a queue_before=(0,0) vram_free=51.7GiB
+[E398_tok31] success exec=83.7s cached=0 err=None  imgs=['tap163_00061_.png', 'HasMetadata_00101_.png']
+[E398_tok28_ctl] submitted 4d5de9c9-2154-4a24-a7c2-cb5cc050589f cid=trackA-E398_tok28_ctl-75ad298b queue_before=(0,0) vram_free=49.9GiB

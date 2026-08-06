@@ -1,0 +1,34 @@
+{
+ "arm": "E398_tok31",
+ "prompt_id": "22d1dc43-fbcb-4680-a504-fdf28e39494f",
+ "client_id": "trackA-E398_tok31-2e3bd81a",
+ "wall_seconds": 85.2,
+ "queue_before": [
+  0,
+  0
+ ],
+ "vram_free_after_free": 55475546564,
+ "note": "PREDICTION TEST: 620:106 left at the SAFE 16-token placeholder; the EYE positive prompt 622:398 padded from 28 to 31 tokens (inside the band). If the bands belong to the encoder rather than to 620:114, the EYE pass should black out while the graph still completes.",
+ "status": "success",
+ "exec_seconds": 83.7,
+ "cached": 0,
+ "cached_ids": [],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00061_.png",
+   "subfolder": "crashA",
+   "type": "output"
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00101_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
+}

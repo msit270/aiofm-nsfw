@@ -1,0 +1,28 @@
+{
+ "arm": "C3b_cfg5_repeat",
+ "note": "C3 REPEAT. C3 crashed but ran with lowvram patches 30, 6 partial unloads and only 4962 MB usable -- confounded like D2. Re-running while the co-tenants are idle.",
+ "expect": "unknown",
+ "server": "127.0.0.1:28191",
+ "base": "results/r4/R4_CF15_filled/api_graph.json",
+ "changes": [
+  {
+   "path": "620:114.inputs.cfg",
+   "from": 1,
+   "to": 5
+  }
+ ],
+ "graph_sha256": "290e1cac4bd27cc9e7b1deb5bb7a43200db34f9c833d5759ecedcb7ae3932575",
+ "prompt_id": "74a754f8-a40d-406d-a904-58c4a8c85316",
+ "client_id": "trackB-C3b_cfg5_repeat-82865384",
+ "status": "error",
+ "exec_seconds": 292.4,
+ "wall_seconds": 300.2,
+ "cached_count": 0,
+ "cached_nodes": [],
+ "images": [],
+ "health": [],
+ "error_node_id": "622:403",
+ "error_node_type": "MaskBoundingBox+",
+ "exception_type": "RuntimeError",
+ "exception_message": "min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n"
+}

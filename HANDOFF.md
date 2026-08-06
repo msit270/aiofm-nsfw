@@ -10,11 +10,36 @@ Evidence for every line: `notes/HANDOFF-detail.md` and the per-agent reports in 
 | phase | state |
 |---|---|
 | **0. Get the exception** | **DONE** — full trace in `notes/CRASH.md`, and it **corrects the mechanism** (below) |
-| **1. Bisect** | running — A (length vs content) on `:18188`, B–E (LoRAs/cfg/other nodes/hook) on `:28191` |
-| **2. Root cause** | partial — the lumina2 shape hypothesis is **disfavoured**, on source *and* on the trace |
-| 3. Fix and prove | not started |
-| 4. Browser gate | not started |
+| **1. Bisect** | A running on `:18188`; B reproduced the crash independently on `:28191` |
+| **2. Root cause** | partial — shape hypothesis **disfavoured**; a better one below |
+| **3. Fix** | **designed, not applied** — `notes/C-fix-design.md`. Zero code changes, zero new deps |
+| **4. Browser gate** | **all four shots PASS** from the shipped tarball — `results/gate2/`, 67 artifacts |
 | 5. Land denoise 0.35, re-cut, cold timing | not started — **graph deliberately frozen while arms are in flight** |
+
+### ⚠ The crash is environment-dependent. This is the biggest thing found today.
+
+**Track D could not reproduce it.** On a third ComfyUI built from the shipped
+tarball it ran the crash arm's *own graph* — cold, 0 cached, the same 169-byte
+string — and got a clean, complete portrait. **3/3 clean.** It nearly filed that
+as a refutation, diffed its submitted graph against `R4_CF15_filled`, found `#483`
+differed, re-ran controlled, and still got clean; the final input-wise diff across
+all 88 nodes was three differences, each examined, none substantive.
+
+So: crashes 4/4 on `:18188`, reproduces on `:28191`, **does not reproduce on a
+third instance**. The bug is real — two independent instances hit it — but *which
+box you are on decides whether you see it.*
+
+**Consequence you must not let anyone skip: a green run after the fix proves
+nothing unless that same instance was first shown able to fail.** Any fix
+validation needs a positive control before it counts. `notes/D-gate.md` §6 carries
+this and a one-line pre-fix probe.
+
+**[I] The hypothesis that would unify all of it:** the long prompt does not
+destroy the face, it pushes YOLO's confidence to sit *near* the 0.6 threshold.
+Marginal detection looks exactly like this — deterministic inside one instance
+(same numerics, same side of the line, hence a clean 4/4) and flipping between
+instances. Track A is measuring the actual confidence numbers now; if a crashing
+arm scores well under 0.3 this is wrong and the face really is being destroyed.
 
 **Phase 0's finding, in one line: the crash is a *detection* failure, not mask
 arithmetic.** `torch.where()` on an all-zero mask returns **empty** index tensors,
@@ -220,15 +245,27 @@ number, and I would rather leave it open than round it up).
    with a byte-identical resubmission of something that already worked before
    trusting anything measured afterwards. *This voided six arms and produced two
    confident wrong conclusions before controls caught them.*
-2. **`#165 Mouth Detailer` is silently skipped ~half the time.** `#648` drops the
+2. **Three things only a browser could see, all in the shipped bytes** — found by
+   Track D this run, all confirmed file↔screenshot, none touched:
+   - **All seven subgraph hosts ship `flags.collapsed: true`.** §7 below sends the
+     buyer to `#106` for the face prompt; on the shipped canvas `#620` is a bare
+     title bar with no widgets and **no way in** until they find the collapse box.
+   - **`#106`'s promoted widgets are unlabelled** on canvas — two boxes both drawn
+     `seed`, two text boxes with no name at all.
+   - **126 Cyrillic `localized_name` fields** across all seven subgraphs (57 in
+     Base Generator alone). The frontend draws `label || localized_name || name`,
+     no slot has a `label`, and the pack ships no settings file — so **every buyer
+     sees Russian slot labels regardless of their locale.** Invisible to any API
+     check.
+3. **`#165 Mouth Detailer` is silently skipped ~half the time.** `#648` drops the
    lips segment when crop area exceeds **1,700,000**; observed values cluster
    **1.77–2.06 M**. One session: **19 passed, 20 dropped.** No warning.
-3. **A hard composite seam** at the face-box edge survives every arm (×6.76
+4. **A hard composite seam** at the face-box edge survives every arm (×6.76
    baseline, ×3.57 at steps 8, never 1.0), visible in the delivered image.
-4. **Five licence blockers** — `QUESTIONS.md` §0, untouched as instructed. DMD2
+5. **Five licence blockers** — `QUESTIONS.md` §0, untouched as instructed. DMD2
    (cc-by-nc) **still ships**, because `--include "models/*"` sweeps it whatever
    the fetch list says.
-5. Smaller: stale `rgthree.compare._temp_*` names **observed firing** as 404s on a
+6. Smaller: stale `rgthree.compare._temp_*` names **observed firing** as 404s on a
    clean install's first open (real payload POSTed every run) · `node_identifier`
    saved in the workflow, so two open tabs both answer the selector ·
    `AUDIT.md`/`MAP.md`/`PROPOSALS.md`/`SETUP.md` predate this work.

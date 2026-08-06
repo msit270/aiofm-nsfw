@@ -1,0 +1,28 @@
+{
+ "arm": "C2_cfg2",
+ "note": "CELL C. Crashing string in #106, 620:114.cfg 1 -> 2. Control for this cell is A0_baseline_crash, which IS cfg 1 = shipping. Testing crash/no-crash only; Z-Image-Turbo is guidance-distilled so the image may degrade badly and that is not being judged.",
+ "expect": "unknown",
+ "server": "127.0.0.1:28191",
+ "base": "results/r4/R4_CF15_filled/api_graph.json",
+ "changes": [
+  {
+   "path": "620:114.inputs.cfg",
+   "from": 1,
+   "to": 2
+  }
+ ],
+ "graph_sha256": "fa5363fc3361d4b80ac70f45ee29c2c759e6e95b411693431d118b949cb18d3c",
+ "prompt_id": "79f3bebe-8ad1-4da0-b7b0-44dcd731ba7e",
+ "client_id": "trackB-C2_cfg2-1b0aa1b1",
+ "status": "error",
+ "exec_seconds": 449.5,
+ "wall_seconds": 457.3,
+ "cached_count": 0,
+ "cached_nodes": [],
+ "images": [],
+ "health": [],
+ "error_node_id": "622:403",
+ "error_node_type": "MaskBoundingBox+",
+ "exception_type": "RuntimeError",
+ "exception_message": "min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n"
+}

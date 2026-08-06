@@ -1,0 +1,28 @@
+{
+ "arm": "C3_cfg5",
+ "note": "CELL C. Crashing string in #106, 620:114.cfg 1 -> 5.",
+ "expect": "unknown",
+ "server": "127.0.0.1:28191",
+ "base": "results/r4/R4_CF15_filled/api_graph.json",
+ "changes": [
+  {
+   "path": "620:114.inputs.cfg",
+   "from": 1,
+   "to": 5
+  }
+ ],
+ "graph_sha256": "290e1cac4bd27cc9e7b1deb5bb7a43200db34f9c833d5759ecedcb7ae3932575",
+ "prompt_id": "6959d90a-6f06-4c3c-8f38-e1f12ecd0c8b",
+ "client_id": "trackB-C3_cfg5-72be630c",
+ "status": "error",
+ "exec_seconds": 496.7,
+ "wall_seconds": 505.0,
+ "cached_count": 0,
+ "cached_nodes": [],
+ "images": [],
+ "health": [],
+ "error_node_id": "622:403",
+ "error_node_type": "MaskBoundingBox+",
+ "exception_type": "RuntimeError",
+ "exception_message": "min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n"
+}
