@@ -878,10 +878,15 @@ ladder · `A3_C*` content controls · `A3_swap_*` same-word-and-token swaps ·
 `T_tok*` the token sweep · `TAP114_*` the `620:114` taps · `CTL_*` health controls
 · `REP*`/`E398_*` repeats and the prediction test.
 
-**Two arms are VOID and are kept only for the trail:** `REP_w17` and
-`CTL_placeholder_after_REP_w17` (that control failed with `execution_cached: 16`;
-see `A-questions.md`). `T_tok28` is also void — `cached 16` — and its cold re-run
-is `T_tok28__warm2`, which is confusingly named: the `__warm2` suffix marks the
-*second attempt*, and it is the **good, cold** one. Everything downstream filters
-on `cached == 0`.
+**VOID arms, kept on disk only for the trail.** Anything whose `meta.json` says
+`cached` is not 0 was not cold and is excluded from every table and every map:
+`CTL_placeholder_after_REP_w17`, `CTL_placeholder_after_REP2_w17` and `T_tok28`.
+`REP_w17` is void too — it was cold, but the control after it failed, and rule 2
+voids everything back to the last good control; it is re-run as `REP2_w17`.
+
+**A naming trap.** The `__warm2` suffix marks the **second attempt**, which is the
+**good, cold** one — the bare name is the discarded warm run. So
+`T_tok28__warm2` and `CTL_placeholder_after_REP2_w17__warm2` are the valid arms.
+Bad naming on my part; every tool filters on `cached == 0` rather than on the
+name, so nothing downstream is affected.
 

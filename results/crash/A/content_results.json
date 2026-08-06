@@ -1381,5 +1381,41 @@
   "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed",
   "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible pores, detailed",
   "words": 19
+ },
+ {
+  "arm": "T_tok36",
+  "prompt_id": "40311034-08f0-4cf0-acad-3e21f42adbe3",
+  "client_id": "trackA-T_tok36-9bedb029",
+  "wall_seconds": 65.0,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 58711505436,
+  "note": "token-count probe: fixed content + 24 x \" the\" = exactly 36 tokens",
+  "status": "success",
+  "exec_seconds": 60.9,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00067_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00105_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the",
+  "words": 27
  }
 ]
