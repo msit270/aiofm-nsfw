@@ -1145,5 +1145,35 @@
    }
   ],
   "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
+ },
+ {
+  "arm": "T_tok47",
+  "prompt_id": "94b949ae-0648-4660-b280-9150279f9b6a",
+  "client_id": "trackA-T_tok47-5f638882",
+  "wall_seconds": 60.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 60374608668,
+  "note": "token-count probe: fixed content + 35 x \" the\" = exactly 47 tokens",
+  "status": "error",
+  "exec_seconds": 56.8,
+  "cached": 0,
+  "cached_ids": [],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00059_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+  "words": 38
  }
 ]

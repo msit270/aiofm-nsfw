@@ -1,10 +1,12 @@
 # TRACK A — is the face-prompt crash LENGTH or WORDS?
 
-## **ANSWER: it is the LENGTH — specifically the exact TOKEN COUNT of the conditioning, and not as a threshold but as two narrow bands. No content I tested changed the outcome at any length.**
+## **ANSWER: it is the LENGTH — specifically the TOKEN COUNT of the conditioning. No content I tested changed the outcome at any length.**
 
-Every prompt whose tokenised length is **30, 31, 32, 44, 45 or 46 tokens** crashes.
-Every other length measured — 11, 12, 13, 14, 16, 20, 25, 26, 29, 33, 34, 35, 38,
-39, 41 — renders clean. **Across every cold arm in this run and eight unrelated content families there
+Every prompt whose tokenised length is **30, 31, 32, or 44 and above** crashes.
+Every other length measured — 11, 12, 13, 14, 16, 20, 25, 26, 27, 28, 29, 33, 34,
+35, 36, 38, 39, 41 — renders clean. **The upper region's top edge has not been
+found**: 44, 45, 46 and 47 all crash and I have not yet measured above 47, so I am
+calling it "44 and above" rather than a band. **Across every cold arm in this run and eight unrelated content families there
 is not one token count that gave two different outcomes.** That is a strong
 statement about the lengths and content I measured; it is not a proof that no
 string anywhere could break the pattern. Six completely
@@ -12,7 +14,7 @@ different 30-token strings all crash, including `"a woman's face"` (which render
 clean at 12 tokens) padded to 30 with repetitions of the word `the`, and they all
 produce **bit-identical** output.
 
-**Every crashing arm in the entire run — 13 of them, at 30, 31, 32, 44, 45 and 46 tokens, across every content family — has a `621:163` that is bit-identical to
+**Every crashing arm in the entire run — 13 of them, at 30, 31, 32, 44, 45, 46 and 47 tokens, across every content family — has a `621:163` that is bit-identical to
 every other** (`max_abs_diff 0` over 2688×3456×3;
 `results/crash/A/crash_identity.txt`). Once a prompt lands in a band the
 conditioning stops affecting the image at all.
@@ -585,7 +587,7 @@ itself, across families that share no vocabulary:
 ### So the answer to A3, in one sentence
 
 **It is the length, measured in tokens, and it is not a threshold — the unsafe
-lengths are the bands [30, 32] and [44, 46]; content has no effect whatsoever, and
+lengths are the band [30, 32] and everything from 44 up; content has no effect whatsoever, and
 five different 17-word prompts split clean/crash purely on their token count.**
 
 ### Two things this does NOT say
@@ -638,7 +640,7 @@ evaluated at all.
 A buyer following root `#649` §3 — *"replace `TRIGGER, PROMPT FOR YOUR MODEL`
 with your LoRA's trigger word and a short description"* — is writing a string of
 unknown token length into `#106`. Five of the 38 lengths between 11 and 48 are
-known-fatal. **[I]** If the bands are exactly [30, 32] ∪ [44, 46] then that is
+known-fatal. **[I]** If the bands are exactly [30, 32] ∪ [44, …] then that is
 5 in 38, and a "short description" lands in exactly that range. This is not a
 rare corner.
 
