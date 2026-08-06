@@ -1,43 +1,57 @@
 # HANDOFF.md
 
-Two pages, as asked. Evidence for every line is in **`notes/HANDOFF-detail.md`**.
-Live document — some Phase 2 arms were still rendering when this was written.
+Two pages. Evidence for every line is in **`notes/HANDOFF-detail.md`** and the
+per-agent reports in `notes/`. Some work was still running when this was written;
+those lines say so.
+
+**Graph as it stands: workflow `a811b5d6…`. Artifact `5f2a0f2b…`.**
 
 ---
 
 ## 1. Is the browser bug fixed? **YES**
 
-`No output node found for id [647] slot [4] MODEL` is gone. Proved in a real
-browser on the graph you ship, not taken from the previous run:
+`No output node found for id [647] slot [4] MODEL` is gone, proved twice in a
+real browser — once on the dev copy, once from the **shipped tarball** into a
+ComfyUI that was empty before the run.
 
 ```
-opened OFMTech_NSFW from the Workflows sidebar
-sdxl=lunaskye.safetensors  zit=luna.safetensors  seed=20260806
-pressed Run  ->  POST /prompt 200, 88 nodes
-RESULT status=success  outputs=[["505","HasMetadata_00012_.png"]]   pageerrors: 0
+110 nodes audited: 0 unregistered (red), 0 has_errors, 0 dialogs, 0 toasts
+#618 lora_01 = lunaskye.safetensors   #116 lora_01 = luna.safetensors
+   (both clicked in the widget's own menu, both read back from the graph)
+prompt typed -> Run pressed -> POST /prompt 200, 88-node API graph
+selector driven -> render -> HasMetadata_00041_.png, 11,140,426 B
 ```
 
-**Screenshot: `results/phase0/04-final.png`** — your workflow loaded, rendered
-portrait in the image feed. Merge commit `b328f024`.
+**Screenshots: `results/gate/`.** What it was: three links inside subgraph
+`1. Canvas & Routing` ran straight from the SubgraphInputNode `-10` to the
+SubgraphOutputNode `-20` with no node between — `1497 = -10[3] → -20[4] (MODEL)`
+is the exact slot named. `LLink.resolve` returns early on the input side with no
+`outputNode` key, so the resolver throws. Those links and the passthrough IO are
+gone.
+
+**Also worth knowing:** on a **first-ever** page load of a fresh install, stock
+ComfyUI puts the Templates browser modal over the whole UI. You must close it
+before you can reach the Workflows sidebar. Not ours, harmless — but it is your
+buyer's literal first screen, and no API-level check could ever see it.
 
 ## 2. Testing it yourself
 
-**On this pod** — 9 s, no GPU. Run this after any graph edit:
+**This pod** — 9 s, no GPU, run after any graph edit:
 ```bash
 cd /workspace/nsfw-fix
 node tools/browser_harness/run.js --workflow OFMTech_NSFW --no-submit
 ```
-`0` = pass · `1` = workflow broken · `2` = test couldn't run (**not** a pass).
-Full journey incl. the selector pause: swap `--no-submit` for `--drive-selector`.
+`0` = pass · `1` = workflow broken · `2` = couldn't run (**not** a pass).
+Full journey incl. the selector pause: `--drive-selector` instead of `--no-submit`.
 
 **Fresh pod:**
 ```bash
 echo "hf_YOUR_TOKEN" > /workspace/.hf_token
 bash <(curl -sSL "https://gist.githubusercontent.com/msit270/70256ac1ebf2760e10f78804862db528/raw/aiofm_setupnsfw.sh")
 ```
-Then restart ComfyUI **and** hard-reload the browser. Look for `workflow nodes :
-all 88 present` and `integrity : OK`. **Provision 250 GB** — the old "~176 GB"
-was wrong low, and the script prints GiB while labelling it GB.
+Restart ComfyUI **and** hard-reload the browser. Look for `workflow nodes : all
+88 present` and `integrity : OK`. **Provision 250 GB** — the old "~176 GB" was
+wrong low, and the script prints GiB while labelling it GB.
 
 ## 3. In the browser
 
@@ -46,159 +60,131 @@ was wrong low, and the script prints GiB while labelling it GB.
 | prompts + seed | the panel beside `1 · YOUR PROMPTS & SEED` |
 | **SDXL LoRA** | node **`618`** — body, pose, hands, upscales |
 | **Z-Image LoRA** | node **`116`** — face, mouth, eyes. **Your likeness lives here** |
-| **face prompt** | subgraph `5 · Face & Mouth Detail`, node **"Face Detailer Prompt"** (`#106`), reads `TRIGGER, PROMPT FOR YOUR MODEL` |
+| **face prompt** | sg `5 · Face & Mouth Detail`, **"Face Detailer Prompt"** (`#106`) — reads `TRIGGER, PROMPT FOR YOUR MODEL`, replace it |
 
-Your `luna` / `lunaskye` are both present and both were exercised in the proof.
-**Fill both slots** — the first face pass runs on SDXL through `618`, everything
-after on Z-Image through `116`. **The render pauses** at an image selector and
-waits for you; if you walk away it times out after 10 min and sends nothing.
+**Fill both slots.** The first face pass runs on SDXL through `618`; face, mouth
+and eyes run on Z-Image through `116`. **The render pauses** at an image selector
+and waits for you — walk away and it times out after 10 minutes and sends nothing.
 
-## 4. The face — **set `#114` steps 30 → 8**
+## 4. What I applied to the graph
 
-**Open `results/face/facetight_face_sheet1of1.png` first** (all arms, tight
-crop, 1:1). Then `face_skin_sheet1of1.png` for texture without features.
-Baseline is top-left on every sheet; every tile is verified byte-identical to
-its source crop.
+| commit | change | why |
+|---|---|---|
+| `2e4e8e9` | `#114` **steps 30 → 8** | your pick and the grid's, independently |
+| `a806ce3` | `#105` **emptied** + note `#652` inside sg 5 | the text cannot act at cfg 1 |
+| `74c0f11` | `#114` **`bbox_crop_factor` 3 → 1.5** | cf 3 was putting visible damage on the face |
 
-`#114` runs **30 steps on a model distilled for 8** — and your own mouth pass
-`#165` already runs 8 on that same model.
+**steps 8:** bumps gone, lips look like lips, lashes are strands not scribble.
+Softer than before — **and the grain it loses was never pores, it was damage.**
+Steps 16 is not enough; it keeps a third of the defect.
 
-| | blobs/MP ↓ *(the defect)* | pores/MP ↑ *(what you asked for)* | exec |
-|---|---|---|---|
-| baseline 30 / 0.80 | 764 | 16,471 | 397.8 s |
-| steps 16 | 552 | 19,339 | 224.1 s |
-| **steps 8** | **239** | **23,213** | 294.1 s |
-| denoise 0.50 | 157 | 23,050 | 291.6 s |
+**crop factor 1.5:** at cf 3 the crop clamps to the full frame, so the pass
+diffuses 9.29 MP in one go on a ~1024-class model. At 1:1 that was leaving
+fibrous growth on the philtrum, debris on the lips, a scaly chin and a hard jaw
+seam — **in the steps-8 graph you approved**. cf 1.5 is the same face without it,
+and it refines **0.04 % more** pixels, so it is not doing less. **If the residual
+lip blister bothers you, 1.0 is one integer away** (`widgets_values[15]`).
 
-**Change one integer:** sg `5. Face & Mouth Detail (Z-Image)`, node `#114`,
-`widgets_values[5]`, 30 → 8. Nothing was applied; the workflow is still
-`f1ac7e55…`.
+> ⚠ **Speed: unquantified. Do not quote the numbers I gave you.** I said "26 %
+> faster" and "400.7 s → 189.3 s". A cold control has since shown the steps-8
+> LoRA arm is **388.9 s cold**, not 189.3 s — that run had 57 nodes cached
+> including the whole base generator. **Most of that gap was cache, not steps.**
+> A proper cold pair was rendering when this was written. Treat steps 8 as a
+> **quality** change until it lands.
 
-Bumps gone, freckles back as **flat brown marks**, lips look like lips, lashes
-are strands not scribble. **26 % faster, a lower bound** (every sampler cold in
-both arms, with 23 *more* loaders to warm in the faster one). It is a little
-softer — **and the grain it loses was never pores, it was damage.** Whether you
-want more grain than that is the one thing the sheet has to decide, not me.
-**Steps 16 is not enough**: it keeps a third of the defect.
+> **Freckles — the honest answer to your question.** In *your* configuration the
+> base render has discrete, crisp, flat brown freckles and the delivered image
+> **does not**; what survives is a faint mottle with no discrete marks in it. That
+> is true at steps 30 **and** at steps 8, so this is not something steps 8 took
+> away. A pigment rule says 3.39 % (base) vs 2.43 % (steps 8) — but the same rule
+> scores the **shipped 30-step** render **8.53 %**, higher than the base render
+> that actually has the freckles, because it counts the gaps between raised bumps
+> as pigment. **The rule cannot tell a freckle from an artefact. Trust the crops.**
+> Evidence suggests they die *upstream* of `#114` — a tap render was queued to
+> confirm. If so, no `#114` setting can bring them back.
 
-### The metric winner is the wrong answer — read this before trusting the table
+**Still open, and the sheet answers it:** whether denoise moves as well. Four
+arms with your LoRAs were rendering when this was written. **Contact sheets:**
+`results/face/facetight_face_sheet1of1.png` (all arms, tight, 1:1) and
+`face_skin_sheet1of1.png` (texture without features).
 
-`steps 8 + denoise 0.50` wins **every column**: 48 blobs/MP against 239, more
-pores, the smallest seam, and 185 s. **Looking at it, it is wrong** — almost
-airbrushed, freckles reduced to barely-there, palest iris in the grid. You asked
-for visible pores and freckles; it gives neither.
+**Cleared, not the cause:** `#607` first face pass (your stop condition fired —
+it looks identical to baseline), `#87` skin blend (8 % vs steps' 69 %, and it
+demonstrably reaches the neck without making bumps there), and cfg.
 
-The reason the table lies here is worth knowing: the `pores/MP` column counts
-dark fine minima, and at that smoothness those are as likely to be noise as
-pores — **the count rises while the thing being counted disappears.** This is
-exactly why you said metrics tell you something changed, not whether it looks
-better. The table would not have caught it.
+**The metric winner was the wrong answer.** `steps 8 + denoise 0.50` wins every
+column and looks airbrushed. Its `pores/MP` column counts dark minima, and at
+that smoothness those are as likely noise as pores — **the count rises while the
+thing being counted disappears.**
 
-### Confirmed in *your* configuration, with your LoRAs
+## 5. cfg — **left at 1. Negatives emptied and explained on canvas.**
 
-`lunaskye` on `#618`, `luna` on `#116`, both at strength 1. **Both rendered
-fine** — so the earlier LoRA-crash suspicion is now positively disproved, not
-merely withdrawn.
+`zimage.safetensors` is Z-Image-**Turbo** by sha256; the vendor documents
+`guidance_scale=0.0`; at cfg 1 `comfy/samplers.py:369-370` never evaluates the
+uncond, so a negative's tokens never reach the model. Raising cfg does **not**
+visibly break anything — but making the negative live moves **0.048 % / 0.000 % /
+0.000 %** of pixels. No benefit behind the dead field, so raising cfg is
+pointless rather than catastrophic. `#167` and `#394` were already empty; `#105`
+now matches them, and note `#652` sits beside them explaining why in plain words.
 
-| | blobs/MP | seam | exec |
-|---|---|---|---|
-| shipped settings + your LoRAs | 404 | 4.82x | 400.7 s |
-| **steps 8 + your LoRAs** | **133** | **2.29x** | 189.3 s |
-
-**The defect is present in your own configuration and steps 8 fixes it there
-too.** `results/p2_evidence/CONFIRMATION_loras_shipped_vs_steps8.png`.
-
-**Not the cause, all cleared:** the first face pass `#607` (D3 — your stop
-condition fired, nothing applied), `#87` skin blend (8 % vs steps' 69 %), and
-cfg. **No safe way to make `#114` sample fewer pixels exists** — `guide_size` is
-inert, `bbox_crop_factor` is catastrophic (see §7).
-
-## 5. cfg — **empty the negatives, note it on canvas. Do not raise cfg.**
-
-`zimage.safetensors` is **Z-Image-Turbo** by sha256; vendor says
-`guidance_scale=0.0`; at cfg 1 `comfy/samplers.py:370` never evaluates the
-uncond, so the negative's tokens never reach the model. **Two of the three are
-already empty** (`#167`, `#394`); only `#105` still carries text.
-
-Raising cfg does **not** visibly break the image — but making the negative live
-moves **0.048 % / 0.000 % / 0.000 %** of pixels. There is no benefit behind the
-dead field. Draft canvas wording in `notes/P3-cfg.md` §7.
-
-**At cfg 1 your positive prompt is the only conditioning** — so filling in `#106`
-is a requirement, not step 3 of a list.
+**At cfg 1 your positive prompt is the only conditioning** — filling in `#106` is
+a requirement, not step 3 of a list.
 
 ## 6. Changed without being asked
 
-- **Reverted D1** (`73f3d5c`) before any render, so the run used the graph you ship.
-- **`popup.js` ×2** — it threw for any browser receiving a selector broadcast for
-  a node it lacked, and **the Send button never tracked the selection**, so with
-  >1 image the buyer could not send at all. Verified fixed by a 4-image browser run.
+- **`popup.js` ×2** — threw for any browser receiving a selector broadcast for a
+  node it lacked; and the Send button never tracked the selection, so with >1
+  image the buyer **could not send at all**. Verified fixed by a 4-image run.
 - **`reality_prompt_generator.js`** — a `console.error` on every buyer's first
-  load, downgraded to `debug` after checking it was a normal condition.
-- **`aiofm_setup.sh`** — `SETUP_URL` returned **HTTP 404**, in both places a stuck
-  buyer is told to retry; two banners named the *video* pack; disk figure was low.
+  load, downgraded after confirming it was a normal condition.
+- **`aiofm_setup.sh`** — `SETUP_URL` returned **HTTP 404** in both places a stuck
+  buyer is told to retry; two banners named the *video* pack; the disk figure was
+  low.
 - Docs: `STATE.md`, `QUESTIONS.md`, `CLAUDE.md` environment section.
 
 ## 7. Still broken
 
-1. **A NaN in one render can poison the server so every later render silently
-   delivers a faceless image.** Six arms came back with a **flat RGB (53, 47, 43)**
-   region over 23.5 % of the frame where the face should be, `status: success`,
-   no warning. **Settled by control, not by theory:** a *byte-identical*
-   resubmission of an arm that had rendered cleanly at 01:30 also came back flat
-   at 02:38 — same graph, same hash. After `POST /free {"unload_models": true}`
-   the same graph rendered **bit-identical to the 01:30 original** (mean abs diff
-   0.0000) from a cold cache. So the fault was **server model state**, following
-   a NaN reaching `tensor2pil` at 02:11:21 (`impact/utils.py:155`).
-   *Two intermediate claims were retracted along the way and neither is true:
-   `bbox_crop_factor` is **not** catastrophic (those arms are **void, untested**,
-   and that lever is **unmeasured, not closed**), and the buyer's LoRAs do **not**
-   crash the graph.*
-   **It recurs**, hours after a clearing fixed it. **And it does not always look
-   the same.** It has presented two ways:
-   - a **flat grey face** delivered with `status: success` and no warning, and
-   - a **hard crash** at `622:403 MaskBoundingBox+` →
-     `ComfyUI_essentials/mask.py:184`, `x1 = max(0, x.min().item() - padding)` on
-     an all-zero mask → `RuntimeError: min(): Expected reduction dim to be
-     specified for input.numel() == 0`.
-
-   So the empty-mask crash is **no longer a latent defect** — it has fired three
-   times across two agents. Anything that makes the face undetectable becomes a
-   crash rather than a degraded render, and the poisoned-model state is one thing
-   that does it.
-
-   **What this means for you: if a render comes back with a flat grey face, or
-   dies at `MaskBoundingBox+`, suspect the server before your settings.** The fix
-   is `POST /free {"unload_models": true, "free_memory": true}` or a ComfyUI
-   restart. Confirm recovery with a byte-identical resubmission of something that
-   already worked, before trusting anything measured afterwards.
-2. **A hard seam at the mask edge**, with faint text-like marks, survives into
-   your saved image. Steps 8 halves it (×6.76 → ×3.57); it does not remove it.
-3. **Five licence blockers** — `QUESTIONS.md` §0. DMD2 (cc-by-nc) **still ships**
-   because `--include "models/*"` sweeps it regardless of the fetch list.
-   Removing UnMarker/GrainNet is a **code change, not an `rm`** (95 node types → 0).
-4. Ten stale `rgthree.compare._temp_*` names in the workflow — 404s on open, and
+1. **A NaN in one render poisons the server so later renders fail silently.** Two
+   symptoms: a **flat grey face** delivered with `status: success`, or a **hard
+   crash** at `622:403 MaskBoundingBox+` (`x.min()` on an all-zero mask). **It
+   recurs.** Fix: `POST /free {"unload_models": true, "free_memory": true}` —
+   confirmed to recover it; a restart was not needed. Always confirm with a
+   byte-identical resubmission of something that already worked before trusting
+   anything measured afterwards. *This voided six arms and produced two confident
+   wrong conclusions before controls caught them.*
+2. **`#165 Mouth Detailer` is silently skipped about half the time.** `#648`'s
+   guard drops the lips segment when its crop area exceeds **1,700,000**, and
+   observed values cluster **1.77–2.06 M**. Across one session: **19 passed, 20
+   dropped.** No warning, `status: success`. Whether your mouth gets detailed
+   depends on how large it happens to render.
+3. **A hard composite seam** at the face-box edge survives every arm (×6.76
+   baseline, ×3.57 at steps 8, never 1.0) and is visible in the delivered image.
+4. **Five licence blockers** — `QUESTIONS.md` §0, untouched this run as you
+   instructed. DMD2 (cc-by-nc) **still ships** because `--include "models/*"`
+   sweeps it regardless of the fetch list.
+5. Ten stale `rgthree.compare._temp_*` names in the workflow — 404s on open, and
    **real payload POSTed every run**.
-5. `node_identifier` is saved in the workflow, so two open tabs both answer the
+6. `node_identifier` is saved in the workflow, so two open tabs both answer the
    selector.
-6. `AUDIT.md`, `MAP.md`, `PROPOSALS.md`, `SETUP.md` predate this work.
+7. `AUDIT.md`, `MAP.md`, `PROPOSALS.md`, `SETUP.md` predate this work.
 
 ## Publishing — one command, yours to run. **Nothing was uploaded.**
 
 ```
-dist/AIOFMTech-NSFW.tar.gz  8,154,217 B  sha256 27fa2e1c…dd3d37  170 files
+dist/AIOFMTech-NSFW.tar.gz   8,155,368 B   sha256 5f2a0f2b…c5ab1   170 files
+workflow inside it: a811b5d6…  (= the graph above, verified out of the archive)
 ```
 ```bash
 HF_TOKEN="$(tr -d '[:space:]' < /workspace/.hf_token)" \
 /venv/main/bin/hf upload msit270/AIOFM-Pack \
     /workspace/nsfw-fix/dist/AIOFMTech-NSFW.tar.gz dist/AIOFMTech-NSFW.tar.gz \
-    --commit-message "NSFW pack re-cut (workflow f1ac7e55)"
+    --commit-message "NSFW pack re-cut (workflow a811b5d6)"
 ```
-Verify it landed — **if you see `3f6d0f2f…aada76` it did not** (that is what HF
-serves today; the previous run's re-cut was never published):
+Verify — **if you see `3f6d0f2f…aada76` it did not land**:
 ```bash
 curl -fsSL -H "Authorization: Bearer $(tr -d '[:space:]' < /workspace/.hf_token)" \
   "https://huggingface.co/msit270/AIOFM-Pack/resolve/main/dist/AIOFMTech-NSFW.tar.gz" | sha256sum
 ```
-A green cut is **not** a clean licence position — these bytes contain the
-encumbered trees. See §7.3.
+**Live HF is two cuts behind** — `3f6d0f2f…` is what it serves today; neither
+previous re-cut was ever uploaded. A green cut is **not** a clean licence
+position; see §7.4.
