@@ -10,7 +10,7 @@ Evidence for every line: `notes/HANDOFF-detail.md` and the per-agent reports in 
 | phase | state |
 |---|---|
 | **0. Get the exception** | **DONE** — full trace in `notes/CRASH.md`, and it **corrects the mechanism** (below) |
-| **1. Bisect** | **DONE** — it is **token count**, not content. Bands: 30/31/32 and 44+ |
+| **1. Bisect** | **DONE** — it is **token count**, not content. ≥3 bands: 30–32, 44–50, 103–120 |
 | **2. Root cause** | `620:114` is **bistable on numerical noise**. Why a token count trips it: **open** |
 | **3. Fix** | **APPLIED** `7ce1539` — but **partial**. Fails 103–120 tokens. Keep, do not call it fixed |
 | **4. Browser gate** | **all four shots PASS** from the shipped tarball — `results/gate2/`, 67 artifacts |
