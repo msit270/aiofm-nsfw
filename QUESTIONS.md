@@ -241,3 +241,34 @@ Full reasoning in the linked files. Only the call and its one-line basis here.
   cannot be recovered from `/history`. Recorded because the run's A/B evidence
   depends on no arm having silently vanished.
 </content>
+
+---
+
+## Crash run — terminology slip in the brief, interpreted rather than asked
+
+**The brief says "4/4 — 3/3 at cfg 3, 1/1 at cfg 1.5 which is what ships" and
+Phase 1C says "It crashes at 3 and at 1.5. Test 1.0 and something high."**
+
+Those 3 and 1.5 figures are **`bbox_crop_factor`**, not `cfg`. Actual `cfg` on
+`620:114` is **1** and always has been — visible in the crash arm's own submitted
+`api_graph.json` (`620:114.inputs.cfg = 1`), and §5 of HANDOFF is the whole
+argument for why it must stay 1 on a guidance-distilled Turbo model.
+
+**My reading, taken without stopping:** Phase 1C is asking whether *real* cfg is a
+factor, so the arms are `620:114.cfg` at 1 (control = shipping), 2 and 5. Raising
+it will probably degrade the image badly — that is expected and irrelevant, the
+cell is crash/no-crash only.
+
+**Risk if I read it wrong:** low. If he meant "re-test crop factor 1.0 and a high
+crop factor", that has already been answered — crop factor is not a factor,
+crash 3/3 at cf 3 and 1/1 at cf 1.5. Either reading leaves the cfg cell worth
+running, and it had never been run.
+
+## Crash run — no 77-token boundary in this encoder
+
+The brief flags "77 is a number worth checking against" for the length ladder.
+77 is **CLIP's** padded context length. `620:110` loads `qwen.safetensors` as type
+`lumina2`, whose tokenizer sets `pad_to_max_length=False` and `max_length=99999999`
+(`comfy/text_encoders/lumina2.py`), so nothing pads or chunks at 77 or anywhere
+else. Checking it anyway because a boundary appearing exactly at 77 would be
+genuinely informative — but the prediction is that it will not.

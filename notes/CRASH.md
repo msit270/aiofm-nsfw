@@ -136,6 +136,76 @@ not the direct cause.
 
 ---
 
+## Phase 2 (partial, static) — the lumina2 shape hypothesis is DISFAVOURED
+
+The brief proposed: *"a shape mismatch between what that [lumina2] encoder emits
+and what a downstream node expects is a plausible mechanism."* Checked in source.
+It does not hold up, on two independent grounds.
+
+### 1. The encoder cannot produce a shape surprise — it is unpadded by design
+
+`comfy/text_encoders/lumina2.py`, `Gemma2BTokenizer.__init__` — this is the
+tokenizer `620:110 CLIPLoader (type lumina2)` instantiates for `qwen.safetensors`:
+
+```python
+super().__init__(tokenizer, pad_with_end=False, embedding_size=2304,
+                 embedding_key='gemma2_2b', tokenizer_class=SPieceTokenizer,
+                 has_end_token=False,
+                 pad_to_max_length=False,      # <- no padding
+                 max_length=99999999,          # <- no chunking, in practice
+                 min_length=1,
+                 tokenizer_args={"add_bos": True, "add_eos": False, ...})
+```
+
+Against `comfy/sd1_clip.py`, where those two flags are consumed:
+
+```python
+632   if len(t_group) + len(batch) > self.max_length - has_end_token:   # chunk split
+660   if self.pad_to_max_length and len(batch) < self.max_length:       # pad
+661       self.pad_tokens(batch, self.max_length - len(batch))
+662   if min_length is not None and len(batch) < min_length:
+```
+
+With `pad_to_max_length=False` line 660 never fires, and with
+`max_length=99_999_999` line 632 never fires. **The conditioning sequence length
+is exactly the prompt's token count — variable, unpadded, unchunked, effectively
+unbounded.** Variable length is the architecture's normal operating mode here,
+not an edge case, so there is nothing for a downstream consumer to be surprised by.
+
+**Consequence worth stating separately: there is no 77-token boundary in this
+encoder.** 77 is CLIP's padded context. This is a SentencePiece/Gemma2-2B path
+with no such limit. If a boundary shows up in the ladder it will not be 77 for
+this reason, and if one appears *at* 77 that would be a genuine surprise needing
+its own explanation. Track A is measuring it empirically regardless — this is a
+prediction, not a substitute for the measurement.
+
+### 2. The traceback rules it out independently
+
+A conditioning shape mismatch throws **inside the encoder or the sampler**. The
+Phase 0 record shows neither: **64 nodes executed**, including `620:114` (face
+pass) and `620:165` (mouth pass) — both samplers ran to completion — and the
+graph died 248.8 s in at a **detector**, five nodes downstream of the last thing
+that consumes conditioning. Sampling succeeded. It produced an image; that image
+simply had no face in it that `face_yolov8m.pt` would accept at 0.6.
+
+### What this leaves [I]
+
+The surviving hypothesis is the plain one: **`620:114` runs at `denoise 0.80`,
+`cfg 1`, 8 steps, with the test prompt as its only conditioning, and a long
+elaborate prompt pulls that crop far enough from "a face" that YOLO no longer
+scores one at 0.6.** That is inference, not established. Track A's A4 tap — the
+actual image handed to the failing detector, plus offline detection at descending
+thresholds — is what decides it, and it distinguishes "face destroyed" from "face
+fine, detector too strict" directly.
+
+**Not yet checked:** whether an empty negative (`620:105 = ""`, my `a806ce3`)
+interacts. Currently believed irrelevant on two grounds — at cfg 1 the uncond is
+never evaluated (`comfy/samplers.py:369-370`), and the cf 3 arms crashed while
+still carrying a *non*-empty negative, per R4's own graph diff. Recorded so it is
+not silently assumed.
+
+---
+
 ## Efficiency note for Phase 1 — the base image is prompt-independent
 
 Everything up to and including `620:137` (`ImageColorMatch+`, the input to the
