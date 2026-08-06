@@ -831,5 +831,39 @@
   "text_106": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
   "text": "a woman's face the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
   "words": 36
+ },
+ {
+  "arm": "CTL_placeholder_after_T_tok45",
+  "prompt_id": "9eed6a2c-bdce-428b-9705-e2aaca9ee491",
+  "client_id": "trackA-CTL_placeholder_after_T_tok45-0e94e72d",
+  "wall_seconds": 125.4,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 57685138504,
+  "note": "health control after an error arm",
+  "status": "success",
+  "exec_seconds": 119.3,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00049_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00091_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
  }
 ]

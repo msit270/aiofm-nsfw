@@ -15,8 +15,8 @@ def control(tag):
                          note="health control after an error arm")
 
 
-def run(name, text, note):
-    g = mk.probe_graph(text, BASE_IMG)
+def run(name, text, note, overrides=None):
+    g = mk.probe_graph(text, BASE_IMG, overrides=overrides)
     m = drive.run_arm(name, g, note=note)
     m["text"] = text
     m["words"] = len(text.split(" ")) if text else 0
@@ -25,8 +25,8 @@ def run(name, text, note):
 
 def main(pairs):
     res = json.load(open(LOG)) if os.path.exists(LOG) else []
-    for name, text, note in pairs:
-        m = run(name, text, note)
+    for name, text, note, ov in pairs:
+        m = run(name, text, note, ov)
         res.append(m)
         json.dump(res, open(LOG, "w"), indent=1)
         if m.get("status") == "error":
@@ -41,4 +41,4 @@ def main(pairs):
 
 if __name__ == "__main__":
     spec = json.load(open(sys.argv[1]))
-    main([(s["name"], s["text"], s.get("note", "")) for s in spec])
+    main([(s["name"], s["text"], s.get("note", ""), s.get("overrides")) for s in spec])

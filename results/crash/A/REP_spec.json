@@ -1,5 +1,25 @@
 [
  {
+  "name": "E398_tok31",
+  "text": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "overrides": {
+   "622:398": {
+    "text": "perfect eyes, round pupils, round iris, symmetrical eyes, realistic eyes, perfect circles, round the the the"
+   }
+  },
+  "note": "PREDICTION TEST: 620:106 left at the SAFE 16-token placeholder; the EYE positive prompt 622:398 padded from 28 to 31 tokens (inside the band). If the bands belong to the encoder rather than to 620:114, the EYE pass should black out while the graph still completes."
+ },
+ {
+  "name": "E398_tok28_ctl",
+  "text": "TRIGGER, PROMPT FOR YOUR MODEL",
+  "overrides": {
+   "622:398": {
+    "text": "perfect eyes, round pupils, round iris, symmetrical eyes, realistic eyes, perfect circles, round"
+   }
+  },
+  "note": "control for E398_tok31: the shipped 28-token eye prompt, everything else identical"
+ },
+ {
   "name": "REP2_w17",
   "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with visible",
   "note": "REDO of the voided REP_w17 -- repeat of L_w17 on an attested server"

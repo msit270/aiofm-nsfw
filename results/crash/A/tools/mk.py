@@ -42,7 +42,7 @@ def base_graph():
     return prune(g, ["TAP137"])
 
 
-def probe_graph(text, base_image_filename, tap163=True):
+def probe_graph(text, base_image_filename, tap163=True, overrides=None):
     """Cheap probe: LoadImage(frozen base) -> 620:114 -> 620:111 -> 620:165
     -> 621:163 -> 622:431 -> 622:424 -> 622:407 -> 622:403 -> ... -> 505 SaveImage."""
     g = copy.deepcopy(load("filled"))
@@ -52,6 +52,8 @@ def probe_graph(text, base_image_filename, tap163=True):
     g["620:114"]["inputs"]["image"] = ["BASE", 0]
     g["620:111"]["inputs"]["reference"] = ["BASE", 0]
     g["620:106"]["inputs"]["text"] = text
+    for nid, kv in (overrides or {}).items():
+        g[nid]["inputs"].update(kv)
     outs = ["505"]
     if tap163:
         g["TAP163"] = {"class_type": "SaveImage",

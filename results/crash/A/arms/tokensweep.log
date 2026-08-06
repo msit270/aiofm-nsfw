@@ -25,3 +25,5 @@ done
 [T_tok45] submitted 6741f3af-7326-4c31-a010-2127be5e25cc cid=trackA-T_tok45-98cbf08a queue_before=(0,0) vram_free=49.8GiB
 [T_tok45] error exec=70.2s cached=0 err=622:403 RuntimeError: min(): Expected reduction dim to be specified for input.numel() == imgs=['tap163_00048_.png']
 [CTL_placeholder_after_T_tok45] submitted 9eed6a2c-bdce-428b-9705-e2aaca9ee491 cid=trackA-CTL_placeholder_after_T_tok45-0e94e72d queue_before=(0,0) vram_free=53.7GiB
+[CTL_placeholder_after_T_tok45] success exec=119.3s cached=0 err=None  imgs=['tap163_00049_.png', 'HasMetadata_00091_.png']
+[T_tok28] submitted 63f2f526-00cb-4718-86ef-39c0f28266f2 cid=trackA-T_tok28-5a80c03f queue_before=(0,0) vram_free=36.8GiB
