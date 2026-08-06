@@ -290,6 +290,78 @@ am not treating identical output as proof of anything.
 
 <!--RESULTS-->
 
+## 5b · `guide_size` / `bbox_crop_factor` on `#114` — asked for mid-run
+
+Main asked for a `guide_size`/`max_size` sweep at 1024 / 1408 / 1808 / 2048 on
+the premise that `#114` downsamples its crop to `max_size` and scales back up
+~3.4×. **That premise is wrong**, and I said so before running anything so the
+prediction can be checked against me rather than taken on trust.
+
+### The mechanism, from source and from the log
+
+`modules/impact/core.py:291-320`:
+
+```python
+if guide_size_for_bbox:
+    upscale = guide_size / min(bbox_w, bbox_h)
+new_w, new_h = int(w * upscale), int(h * upscale)
+if new_w > max_size or new_h > max_size:
+    upscale *= max_size / max(new_w, new_h)
+    new_w, new_h = int(w * upscale), int(h * upscale)
+if not force_inpaint:
+    if upscale <= 1.0:   -> "segment skip", the pass does nothing
+else:
+    if upscale <= 1.0:   -> upscale = 1.0; new_w = w; new_h = h
+```
+
+`#114` has `force_inpaint: true`, so any computed **downscale is clamped back up
+to 1.0** and the crop is sampled at native size. After the `max_size` cap the
+bbox term cancels and the scale reduces to `max_size / max(crop_w, crop_h)`.
+
+Both halves are visible in the same log file. `#114` (clamped):
+
+    Detailer: force inpaint
+    Detailer: segment upscale for ((1297.18, 1833.26)) | crop region (2688, 3456) x 1.0 -> (2688, 3456)
+
+`#165`, where it is an upscale and therefore not clamped:
+
+    Detailer: segment upscale for ((536.4, 278.2)) | crop region (1609, 834) x 1.1236852407455444 -> (1808, 937)
+
+and `1808 / 1609 = 1.12368524…` exactly. Formula confirmed on live output.
+
+So on `#114`, with a crop region 3456 px tall, `max_size` has **no effect at all
+below 3456**. 1408, 1808 and 2048 would each burn a render to reproduce the
+shipped image. The lever only engages above 3456, and the only way to make this
+pass sample *smaller* is `bbox_crop_factor`.
+
+### Predictions, registered before the renders returned
+
+| arm | change | predicted `Detailer:` log | predicted sampling size |
+|---|---|---|---|
+| `face_cfg1.0_negshipped` | shipped (1024/1024, cf 3) | `force inpaint`, `x 1.0` | 2688×3456 |
+| `sw_gs2048` | guide=max=2048 | `force inpaint`, `x 1.0` | 2688×3456 — **identical output to shipped** |
+| `sw_gs4096` | guide=max=4096 | `x 1.185…` | ≈3186×4096 |
+| `sw_cf1.5` | `bbox_crop_factor` 1.5 | `force inpaint`, `x 1.0` | ≈1945×2750 |
+| `sw_cf1.0` | `bbox_crop_factor` 1.0 | `force inpaint`, `x 1.0` | ≈1297×1833 |
+
+### Why the direction is probably backwards
+
+Z-Image is a ~1024-class model. At the shipped settings `#114` diffuses
+**2688×3456 = 9.3 megapixels in a single pass**, roughly 36× the training area,
+at denoise 0.8 for 30 steps. Repeated micro-structure — bumps, grids, hexagons,
+ladders — is the classic signature of sampling far above native resolution.
+Raising `guide_size` pushes further out; `bbox_crop_factor` is what pulls back.
+
+This also re-explains the WS4 vs P2-RENDER difference without any downsample
+ratio: both ran at native crop resolution (WS4's smaller face gives a crop
+region of roughly 1962×2673, P2-RENDER's clamps to 2688×3456), so the variable
+is the absolute pixel count being diffused in one pass, 5.2 MP versus 9.3 MP.
+Since the crop clamps to the frame as soon as `bbox × 3` exceeds it, tighter
+framing is strictly worse and saturates at the whole frame. *That last paragraph
+is inference from geometry; the sweep tests it.*
+
+<!--SWEEP RESULTS-->
+
 ## 6 · Adjacent finding, not investigated
 
 Listing every cfg-bearing node in the API graph turned up **two more cfg-1
