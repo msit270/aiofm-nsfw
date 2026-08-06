@@ -172,7 +172,7 @@ lazy input is **not added to the pending set and no blocking link is created**.
 It is scheduled only if `check_lazy_status` later asks for it, via
 `make_input_strong_link` (`execution.py:490-497`, `graph.py:121-129`).
 
-`ImpactConditionalBranch.check_lazy_status` (`modules/impact/logics.py:77-81`)
+`ImpactConditionalBranch.check_lazy_status` (`modules/impact/logics.py:78-82`)
 asks for `tt_value` only when `cond` is true and `ff_value` only when it is false.
 So when no face is found, **`622:418`, `622:403`, `622:404`, `622:414`,
 `622:415`, `622:410`, `622:402`, `622:408`, `622:406`, `622:401`, `622:399`,
