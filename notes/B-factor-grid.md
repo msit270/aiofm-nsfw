@@ -158,3 +158,9 @@ bit-identical. They are NOT load-bearing for the underlying defect: with the
 LoRAs off the same prompt still destroys the face, and the pipeline then returns
 `success` with a quarter of the frame a constant colour. Turning the LoRAs off is
 not a workaround; it converts a loud failure into a silent one.**
+
+**Health control after B1/B1b.** `CTL1_clean_after_B1`, prompt
+`dd4384ec-43f5-4f48-bedc-e2b07999165b`, success 292.8 s, cached 0, and
+**bit-identical to `A1_baseline_clean`** (`max_abs_diff 0`). So the constant fill
+in `B1` is not the server going bad — the server produced the reference render
+again immediately afterwards. `B1` is a real result.

@@ -1,0 +1,44 @@
+{
+ "arm": "CTL1_clean_after_B1",
+ "note": "HEALTH CONTROL after B1/B1b, which both returned status success with a 23.5%-of-frame constant-colour fill. Byte-identical repeat of A1_baseline_clean. If this is not bit-identical to A1, everything since A1 is void.",
+ "expect": "clean",
+ "server": "127.0.0.1:28191",
+ "base": "results/r4/R4_CF15_placeholder/api_graph.json",
+ "changes": [],
+ "graph_sha256": "64a926815edead0f87e0176e9d6f8669243756bd740f525c4228904e8ea78c85",
+ "prompt_id": "dd4384ec-43f5-4f48-bedc-e2b07999165b",
+ "client_id": "trackB-CTL1_clean_after_B1-0e03f640",
+ "status": "success",
+ "exec_seconds": 292.8,
+ "wall_seconds": 306.2,
+ "cached_count": 0,
+ "cached_nodes": [],
+ "images": [
+  "HasMetadata_00005_.png"
+ ],
+ "health": [
+  {
+   "file": "HasMetadata_00005_.png",
+   "size": [
+    2688,
+    3456
+   ],
+   "flat_frac": 0.03088,
+   "luma_sd": 59.505,
+   "luma_mean": 138.668,
+   "luma_min": 4.673,
+   "modal_rgb": [
+    255,
+    255,
+    255
+   ],
+   "modal_frac": 0.02448,
+   "has_nan": false,
+   "suspect_poisoned": false
+  }
+ ],
+ "error_node_id": null,
+ "error_node_type": null,
+ "exception_type": null,
+ "exception_message": null
+}
