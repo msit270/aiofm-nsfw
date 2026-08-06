@@ -1,16 +1,16 @@
 {
  "arm": "CTL_placeholder_after_T_tok44",
- "prompt_id": "584854da-0297-4590-b55d-9e6af96ed217",
- "client_id": "trackA-CTL_placeholder_after_T_tok44-131d71c5",
- "wall_seconds": 70.2,
+ "prompt_id": "9a9b2356-2d2e-43bb-a7da-a23b3f56e531",
+ "client_id": "trackA-CTL_placeholder_after_T_tok44-0ba00ad1",
+ "wall_seconds": 55.0,
  "queue_before": [
   0,
   0
  ],
- "vram_free_after_free": 60095423084,
+ "vram_free_after_free": 54032821020,
  "note": "health control after an error arm",
  "status": "success",
- "exec_seconds": 65.7,
+ "exec_seconds": 51.8,
  "cached": 0,
  "cached_ids": [],
  "error": null,
@@ -19,13 +19,13 @@
  "images": [
   {
    "node": "TAP163",
-   "filename": "tap163_00058_.png",
+   "filename": "tap163_00073_.png",
    "subfolder": "crashA",
    "type": "output"
   },
   {
    "node": "505",
-   "filename": "HasMetadata_00099_.png",
+   "filename": "HasMetadata_00110_.png",
    "subfolder": "Instaraw/SDXL/Metadata",
    "type": "output"
   }
