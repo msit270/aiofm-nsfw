@@ -326,6 +326,113 @@ output, before `620:111`'s colour match, to localise it.
 
 ---
 
-## A3 — content control
+## A3 — content control, and it turned the answer over
+
+Seven arms, all at **17 words** — the first word count that crashes — each
+differing from every other arm in `620:106.inputs.text` and nothing else
+(`results/crash/A/graph_diffs.txt`). `POST /free` before each; every one reports
+`execution_cached: []`; every error arm was followed by a byte-identical
+known-clean control and all of those came back clean.
+
+Four are *content controls*: a completely different subject, no `luna`, no
+freckles, no camera words. Three are *swap controls*: the *clean* 16-word prefix
+with a different 17th word, so word count **and** token count both match the
+crashing `L_w17` exactly.
+
+| arm | words | tokens | status | exec s | cached | conf @621:163 | n@0.6 | flat_frac | prompt_id |
+|---|---|---|---|---|---|---|---|---|---|
+| `A3_C1_fisherman_w17` | 17 | 34 | success | 79.9 | 0 | 0.8944 | 1 | 0.1855 | `185cb8f6-1890-4bfa-b216-88b9b4fea7c7` |
+| `A3_C2_gardener_w17` | 17 | 30 | **ERROR 622:403** | 41.5 | 0 | 0.4656 | 0 | 0.3591 | `c71446c4-68eb-4c68-a4cf-63a9d00d7188` |
+| `A3_C3_locomotive_w17` | 17 | 35 | success | 83.7 | 0 | 0.8942 | 1 | 0.1862 | `719863c8-1fe1-40f0-b68c-a8a201834b2e` |
+| `A3_C4_committee_w17` | 17 | 26 | success | 75.1 | 0 | 0.8954 | 1 | 0.1879 | `a69e50d1-972b-4f41-925f-c31c0717417b` |
+| `A3_swap_fine` | 17 | 30 | **ERROR 622:403** | 49.6 | 0 | 0.4656 | 0 | 0.3591 | `ac2c390f-03c5-4058-9487-6af06a18d175` |
+| `A3_swap_Tuesday` | 17 | 30 | **ERROR 622:403** | 57.3 | 0 | 0.4656 | 0 | 0.3591 | `8e988367-7988-4604-a269-1ddd42c6e28a` |
+| `A3_swap_obvious` | 17 | 30 | **ERROR 622:403** | 52.9 | 0 | 0.4656 | 0 | 0.3591 | `164d181c-5446-4915-9931-c9af9bfdd3ee` |
+
+The strings, in full:
+
+```
+A3_C1_fisherman_w17   a bearded fisherman in his sixties, deep lines around the eyes, sun-darkened forehead, grey stubble along the
+A3_C2_gardener_w17    an elderly gardener with a broad flat nose, heavy grey eyebrows, deep creases on both cheeks, a
+A3_C3_locomotive_w17  a rusting freight locomotive parked on overgrown sidings, bramble climbing the couplings, chipped enamel plates, oil stains
+A3_C4_committee_w17   the committee approved the revised schedule on Tuesday and asked the treasurer to circulate a summary before
+A3_swap_fine          luna, a young woman with light freckles across her nose and cheeks, natural skin texture with fine
+A3_swap_Tuesday       luna, a young woman with light freckles across her nose and cheeks, natural skin texture with Tuesday
+A3_swap_obvious       luna, a young woman with light freckles across her nose and cheeks, natural skin texture with obvious
+```
+
+### The result is not "words" and it is not "length as a threshold"
+
+Same-length-different-content came back **split**, and the split is not random —
+it lines up exactly with the **token** count:
+
+* `A3_C2_gardener_w17` shares **no words** with the crashing string, describes a
+  different person, and **crashes**. It is 30 tokens.
+* `A3_C1_fisherman_w17` (34 tokens), `A3_C3_locomotive_w17` (35 tokens) and
+  `A3_C4_committee_w17` (26 tokens) are **clean**.
+* All three swap arms are 30 tokens and **all three crash** — including
+  `A3_swap_Tuesday`, which is a grammatically broken sentence
+  (`…natural skin texture with Tuesday`), and `A3_swap_obvious`. So it is not
+  the word `visible`, and it is not the meaning of the clause.
+
+Put the ladder and A3 together and every crashing arm so far is **30, 32, 45 or
+46 tokens**, and every clean arm is 11–29, 33, 34, 35, 38, 39 or 41:
+
+```
+tokens   11 12 13 14 16 20 25 26 29 |30| 31? |32| 33 34 35 38 39 41 |45 46|
+outcome   .  .  .  .  .  .  .  .  . | X |  ?  | X |  .  .  .  .  .  . | X  X |
+n crashing strings measured at 30 tokens: 5, sharing no common vocabulary
+```
+
+**Five unrelated strings at 30 tokens all crash. Nine strings at other lengths,
+including two longer 17-word ones, are all clean.** That is not a content
+effect. It also is not a threshold, because 33, 34, 35, 38, 39 and 41 tokens are
+all clean and 30 is not.
+
+### And the crashing frames are the same pixels regardless of what the words were
+
+```
+A3_C2_gardener_w17  vs  L_w17     max_abs_diff 0   mean 0.00000   (2688 x 3456 x 3)
+```
+
+A description of an elderly male gardener and a description of a freckled young
+woman, run through the same face pass, produce **bit-identical** output. The
+conditioning has stopped mattering entirely.
+
+### One more thing this exposes about `#106` — it barely matters even when it works
+
+On the clean side, changing `620:106` moves the frame by about as much as
+re-running the graph would:
+
+```
+A3_C1_fisherman_w17 vs A1_gate_placeholder   PSNR 48.27 dB   mean 0.35 levels   0.25 % of pixels beyond 8 levels
+A3_C1_fisherman_w17 vs L_w16                 PSNR 48.48 dB   mean 0.31 levels   0.28 %
+L_w19               vs A1_gate_placeholder   PSNR 49.01 dB   mean 0.27 levels   0.23 %
+```
+
+This project's measured run-to-run floor is ~48.7 dB. So a 17-word description of
+a **bearded fisherman**, applied at denoise 0.80 to a young woman's face, changes
+the output by roughly the noise floor — the rendered face is still recognisably
+the same woman (`results/crash/A/thumbs/A3_C1_fisherman_w17__tap163_facebox_half.png`).
+Corroborates R4 §2's 1.28 %. **So `#106` has almost no semantic authority over
+the image, and can still detonate the pass.** Whatever this is, it is not the
+model "listening to the prompt and drawing something else".
+
+### The experiment this forces — `T_tok*`
+
+Content is now the *controlled* variable and length is the one under test. Fixed
+phrase `"a woman's face"` (12 tokens, known clean) plus k repetitions of the
+single-token word `" the"`, giving **exactly** 12+k tokens with the semantics
+held as constant as I can make them. Sweeping 26–36, then 44–47.
+
+* If 30 and 32 crash and 29, 31, 33 do not → **it is the token count**, full stop.
+* If none of them crash → 30 tokens is not sufficient on its own and the five
+  hits are an interaction I have not isolated.
+
+Results below.
+
+---
+
+## T — the token-count sweep
 
 _(running)_

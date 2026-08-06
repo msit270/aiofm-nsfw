@@ -298,5 +298,69 @@
    }
   ],
   "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
+ },
+ {
+  "arm": "A3_swap_obvious",
+  "prompt_id": "164d181c-5446-4915-9931-c9af9bfdd3ee",
+  "client_id": "trackA-A3_swap_obvious-595d7dd3",
+  "wall_seconds": 55.0,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 79227873308,
+  "note": "boundary swap: CLEAN 16-word prefix + a different 17th word. 17 words and 30 tokens, matching the crashing w17 exactly on both counts.",
+  "status": "error",
+  "exec_seconds": 52.9,
+  "cached": 0,
+  "cached_ids": [],
+  "error": "RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the 'dim' argument.\n",
+  "error_node": "622:403",
+  "error_type": "MaskBoundingBox+",
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00031_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   }
+  ],
+  "text_106": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with obvious",
+  "text": "luna, a young woman with light freckles across her nose and cheeks, natural skin texture with obvious",
+  "words": 17
+ },
+ {
+  "arm": "CTL_placeholder_after_A3_swap_obvious",
+  "prompt_id": "064939cf-f022-44a5-b271-eda099959b9d",
+  "client_id": "trackA-CTL_placeholder_after_A3_swap_obvious-44712035",
+  "wall_seconds": 75.1,
+  "queue_before": [
+   0,
+   0
+  ],
+  "vram_free_after_free": 57211675208,
+  "note": "health control after an error arm",
+  "status": "success",
+  "exec_seconds": 68.5,
+  "cached": 0,
+  "cached_ids": [],
+  "error": null,
+  "error_node": null,
+  "error_type": null,
+  "images": [
+   {
+    "node": "TAP163",
+    "filename": "tap163_00032_.png",
+    "subfolder": "crashA",
+    "type": "output"
+   },
+   {
+    "node": "505",
+    "filename": "HasMetadata_00083_.png",
+    "subfolder": "Instaraw/SDXL/Metadata",
+    "type": "output"
+   }
+  ],
+  "text_106": "TRIGGER, PROMPT FOR YOUR MODEL"
  }
 ]
