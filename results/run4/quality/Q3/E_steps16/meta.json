@@ -1,0 +1,37 @@
+{
+ "arm": "E_steps16",
+ "param": "eyes 622:406 steps 8 -> 16",
+ "baseline": false,
+ "prompt_id": "6a249201-982c-4b21-8c00-72801962dd38",
+ "client_id": "q3-E_steps16-ccf8882e",
+ "lock_wait_s": 635.2,
+ "boot_s": 10.0,
+ "wall_seconds": 295.3,
+ "exec_seconds": 294.8,
+ "status": "success",
+ "error": null,
+ "error_node": null,
+ "execution_cached": [],
+ "vram": {
+  "gpu_peak_used_mib": 75011,
+  "arm_server_peak_mib": 29752
+ },
+ "images": [
+  "nTAP137__tap137_00001_.png",
+  "nTAP114__tap114_00001_.png",
+  "nTAP111__tap111_00001_.png",
+  "nTAP163__tap163_00001_.png",
+  "n505__HasMetadata_00001_.png"
+ ],
+ "overrides": {
+  "622:406": {
+   "steps": 16
+  }
+ },
+ "detailer_log_lines": [
+  "Detailer: segment upscale for ((np.float32(176.66824), np.float32(233.17259))) | crop region (530, 699) x 1.8313348293304443 -> (970, 1280)",
+  "Detailer: segment upscale for ((np.float32(224.58838), np.float32(154.11841))) | crop region (336, 231) x 3.0482542514801025 -> (1024, 704)",
+  "Detailer: segment upscale for ((np.float32(329.10498), np.float32(433.51907))) | crop region (493, 650) x 1.5757390260696411 -> (776, 1024)",
+  "Detailer: segment upscale for ((np.int64(956), np.int64(137))) | crop region (1459, 411) x 1.3159891033931772 -> (1920, 540)"
+ ]
+}

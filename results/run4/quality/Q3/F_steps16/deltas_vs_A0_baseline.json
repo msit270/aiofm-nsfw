@@ -1,0 +1,213 @@
+{
+ "arm": "F_steps16",
+ "baseline": "A0_baseline",
+ "tags": {
+  "tap114": {
+   "base_facebox_xyxy": [
+    813,
+    282,
+    1142,
+    718
+   ],
+   "base_conf": 0.868,
+   "arm_facebox_xyxy": [
+    813,
+    282,
+    1142,
+    718
+   ],
+   "arm_conf": 0.868,
+   "face_centre_moved_px": 0.0,
+   "frame_mean_abs": 0.026,
+   "frame_max_abs": 25,
+   "frame_pct_gt0": 1.2,
+   "frame_pct_gt8": 0.02,
+   "frame_psnr_db": 58.25,
+   "face_mean_abs": 1.638,
+   "face_max_abs": 25,
+   "face_pct_gt0": 75.67,
+   "face_pct_gt8": 1.16,
+   "face_psnr_db": 40.15,
+   "eyeband_mean_abs": 2.021,
+   "eyeband_max_abs": 22,
+   "eyeband_pct_gt0": 86.59,
+   "eyeband_pct_gt8": 1.83,
+   "eyeband_psnr_db": 38.94,
+   "mouthband_mean_abs": 1.807,
+   "mouthband_max_abs": 25,
+   "mouthband_pct_gt0": 86.39,
+   "mouthband_pct_gt8": 1.0,
+   "mouthband_psnr_db": 39.95,
+   "lapvar_face_arm": 222.0,
+   "lapvar_face_base": 219.3,
+   "skin_box_xywh": [
+    893,
+    306,
+    109,
+    109
+   ],
+   "skin_stats": {
+    "skin_frac": 1.0,
+    "blur_grad": 0.5774,
+    "anchor": "face",
+    "search_region": [
+     813,
+     282,
+     329,
+     436
+    ]
+   },
+   "lapvar_skin_arm": 146.3,
+   "lapvar_skin_base": 147.3,
+   "pigment_rect_xyxy": [
+    862,
+    434,
+    1092,
+    609
+   ],
+   "pigment_radius_px": 7,
+   "pigment_pct_arm": 1.729,
+   "brightblob_pct_arm": 5.098,
+   "pigment_pct_base": 1.324,
+   "brightblob_pct_base": 3.883
+  },
+  "tap163": {
+   "base_facebox_xyxy": [
+    813,
+    282,
+    1142,
+    718
+   ],
+   "base_conf": 0.868,
+   "arm_facebox_xyxy": [
+    813,
+    283,
+    1142,
+    718
+   ],
+   "arm_conf": 0.868,
+   "face_centre_moved_px": 0.5,
+   "frame_mean_abs": 0.028,
+   "frame_max_abs": 25,
+   "frame_pct_gt0": 2.04,
+   "frame_pct_gt8": 0.01,
+   "frame_psnr_db": 58.44,
+   "face_mean_abs": 1.587,
+   "face_max_abs": 25,
+   "face_pct_gt0": 76.07,
+   "face_pct_gt8": 0.92,
+   "face_psnr_db": 40.48,
+   "eyeband_mean_abs": 1.958,
+   "eyeband_max_abs": 22,
+   "eyeband_pct_gt0": 86.79,
+   "eyeband_pct_gt8": 1.52,
+   "eyeband_psnr_db": 39.24,
+   "mouthband_mean_abs": 1.744,
+   "mouthband_max_abs": 25,
+   "mouthband_pct_gt0": 86.72,
+   "mouthband_pct_gt8": 0.72,
+   "mouthband_psnr_db": 40.32,
+   "lapvar_face_arm": 219.3,
+   "lapvar_face_base": 217.2,
+   "skin_box_xywh": [
+    893,
+    306,
+    109,
+    109
+   ],
+   "skin_stats": {
+    "skin_frac": 1.0,
+    "blur_grad": 0.5762,
+    "anchor": "face",
+    "search_region": [
+     813,
+     282,
+     329,
+     436
+    ]
+   },
+   "lapvar_skin_arm": 143.4,
+   "lapvar_skin_base": 145.8,
+   "pigment_rect_xyxy": [
+    862,
+    434,
+    1092,
+    609
+   ],
+   "pigment_radius_px": 7,
+   "pigment_pct_arm": 1.349,
+   "brightblob_pct_arm": 4.763,
+   "pigment_pct_base": 0.971,
+   "brightblob_pct_base": 3.682
+  },
+  "final": {
+   "base_facebox_xyxy": [
+    812,
+    282,
+    1142,
+    718
+   ],
+   "base_conf": 0.867,
+   "arm_facebox_xyxy": [
+    813,
+    283,
+    1142,
+    718
+   ],
+   "arm_conf": 0.867,
+   "face_centre_moved_px": 0.7,
+   "frame_mean_abs": 0.028,
+   "frame_max_abs": 25,
+   "frame_pct_gt0": 2.14,
+   "frame_pct_gt8": 0.01,
+   "frame_psnr_db": 58.53,
+   "face_mean_abs": 1.588,
+   "face_max_abs": 25,
+   "face_pct_gt0": 81.88,
+   "face_pct_gt8": 0.85,
+   "face_psnr_db": 40.58,
+   "eyeband_mean_abs": 1.916,
+   "eyeband_max_abs": 22,
+   "eyeband_pct_gt0": 90.12,
+   "eyeband_pct_gt8": 1.33,
+   "eyeband_psnr_db": 39.46,
+   "mouthband_mean_abs": 1.74,
+   "mouthband_max_abs": 25,
+   "mouthband_pct_gt0": 87.8,
+   "mouthband_pct_gt8": 0.71,
+   "mouthband_psnr_db": 40.35,
+   "lapvar_face_arm": 196.0,
+   "lapvar_face_base": 193.6,
+   "skin_box_xywh": [
+    892,
+    306,
+    110,
+    110
+   ],
+   "skin_stats": {
+    "skin_frac": 1.0,
+    "blur_grad": 0.5853,
+    "anchor": "face",
+    "search_region": [
+     812,
+     282,
+     330,
+     436
+    ]
+   },
+   "lapvar_skin_arm": 123.8,
+   "lapvar_skin_base": 125.3,
+   "pigment_rect_xyxy": [
+    861,
+    434,
+    1092,
+    609
+   ],
+   "pigment_radius_px": 7,
+   "pigment_pct_arm": 1.304,
+   "brightblob_pct_arm": 4.616,
+   "pigment_pct_base": 0.925,
+   "brightblob_pct_base": 3.579
+  }
+ }
+}

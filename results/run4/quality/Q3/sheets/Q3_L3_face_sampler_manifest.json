@@ -1,0 +1,316 @@
+{
+ "generated": "2026-08-07 16:13",
+ "source": "explicit --arm list",
+ "tool": "/workspace/nsfw-fix/tools/contact_sheet.py",
+ "max_width": 4000,
+ "detector": "/workspace/ComfyUI/models/ultralytics/bbox/face_yolov8m.pt",
+ "detector_error": null,
+ "face_box_xywh": [
+  785,
+  247,
+  386,
+  506
+ ],
+ "skin_box_xywh": [
+  889,
+  303,
+  110,
+  110
+ ],
+ "skin_stats": {
+  "skin_frac": 1.0,
+  "blur_grad": 0.5879,
+  "anchor": "face",
+  "search_region": [
+   785,
+   247,
+   386,
+   506
+  ]
+ },
+ "image_size": [
+  2688,
+  3456
+ ],
+ "sheets": [
+  {
+   "region": "face",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/sheets/Q3_L3_face_sampler_face_sheet1of1.png",
+   "size": [
+    1234,
+    880
+   ],
+   "cols": 3,
+   "tiles": [
+    "A0_baseline",
+    "F_euler",
+    "F_res_multistep"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "A0_baseline",
+     "ok": true,
+     "src_box": [
+      785,
+      247,
+      386,
+      506
+     ],
+     "sheet_at": [
+      20,
+      354,
+      386,
+      506
+     ],
+     "src_shape": [
+      506,
+      386,
+      3
+     ],
+     "sheet_shape": [
+      506,
+      386,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "F_euler",
+     "ok": true,
+     "src_box": [
+      785,
+      247,
+      386,
+      506
+     ],
+     "sheet_at": [
+      424,
+      354,
+      386,
+      506
+     ],
+     "src_shape": [
+      506,
+      386,
+      3
+     ],
+     "sheet_shape": [
+      506,
+      386,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "F_res_multistep",
+     "ok": true,
+     "src_box": [
+      785,
+      247,
+      386,
+      506
+     ],
+     "sheet_at": [
+      828,
+      354,
+      386,
+      506
+     ],
+     "src_shape": [
+      506,
+      386,
+      3
+     ],
+     "sheet_shape": [
+      506,
+      386,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  },
+  {
+   "region": "skin",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/sheets/Q3_L3_face_sampler_skin_sheet1of1.png",
+   "size": [
+    406,
+    511
+   ],
+   "cols": 3,
+   "tiles": [
+    "A0_baseline",
+    "F_euler",
+    "F_res_multistep"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "A0_baseline",
+     "ok": true,
+     "src_box": [
+      889,
+      303,
+      110,
+      110
+     ],
+     "sheet_at": [
+      20,
+      381,
+      110,
+      110
+     ],
+     "src_shape": [
+      110,
+      110,
+      3
+     ],
+     "sheet_shape": [
+      110,
+      110,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "F_euler",
+     "ok": true,
+     "src_box": [
+      889,
+      303,
+      110,
+      110
+     ],
+     "sheet_at": [
+      148,
+      381,
+      110,
+      110
+     ],
+     "src_shape": [
+      110,
+      110,
+      3
+     ],
+     "sheet_shape": [
+      110,
+      110,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "F_res_multistep",
+     "ok": true,
+     "src_box": [
+      889,
+      303,
+      110,
+      110
+     ],
+     "sheet_at": [
+      276,
+      381,
+      110,
+      110
+     ],
+     "src_shape": [
+      110,
+      110,
+      3
+     ],
+     "sheet_shape": [
+      110,
+      110,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  }
+ ],
+ "arms": [
+  {
+   "name": "A0_baseline",
+   "param": "BASELINE (ships) - shipped settings -- exec 313.5s cold",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/A0_baseline/n505__HasMetadata_00001_.png",
+   "is_baseline": true,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    812.9241333007812,
+    282.5942077636719,
+    1142.3170166015625,
+    718.320556640625
+   ],
+   "det_conf": 0.8674536347389221,
+   "det_status": "detected",
+   "face_box": [
+    785,
+    247,
+    386,
+    506
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "F_euler",
+   "param": "620:114 sampler_name=euler -- exec 302.2s cold",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/F_euler/n505__HasMetadata_00001_.png",
+   "is_baseline": false,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    812.5540161132812,
+    283.22686767578125,
+    1143.37646484375,
+    717.646728515625
+   ],
+   "det_conf": 0.8670186400413513,
+   "det_status": "detected",
+   "face_box": [
+    785,
+    247,
+    386,
+    506
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "F_res_multistep",
+   "param": "620:114 sampler_name=res_multistep -- exec 303.6s cold",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/F_res_multistep/n505__HasMetadata_00001_.png",
+   "is_baseline": false,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    811.4600219726562,
+    283.05029296875,
+    1144.06298828125,
+    717.2939453125
+   ],
+   "det_conf": 0.8663228154182434,
+   "det_status": "detected",
+   "face_box": [
+    785,
+    247,
+    386,
+    506
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ ]
+}

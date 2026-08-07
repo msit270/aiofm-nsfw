@@ -17,7 +17,7 @@ LEVERS = {
     "L2_face_denoise": ["A0_baseline", "F_den030", "F_den045"],
     "L3_face_sampler": ["A0_baseline", "F_res_multistep", "F_euler"],
     "L4_eyes_steps": ["A0_baseline", "E_steps16"],
-    "L5_mouth_steps": ["A0_baseline", "M_steps16"],
+    "L5_mouth_steps": ["P0_portrait_baseline", "P_M_steps16"],
 }
 
 
@@ -28,9 +28,14 @@ def label(arm):
     if not ov:
         what = "shipped settings"
     else:
-        (nid, kv), = ov.items()
-        what = nid + " " + ", ".join(f"{k}={v}" for k, v in kv.items())
-    return f"{base}{what}  |  exec {m['exec_seconds']}s cold"
+        parts = []
+        for nid, kv in ov.items():
+            if nid == "483":
+                parts.append("483 portrait prompt")
+            else:
+                parts.append(nid + " " + ", ".join(f"{k}={v}" for k, v in kv.items()))
+        what = "; ".join(parts)
+    return f"{base}{what} -- exec {m['exec_seconds']}s cold"
 
 
 def final_png(arm):

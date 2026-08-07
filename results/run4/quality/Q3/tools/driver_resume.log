@@ -1,0 +1,46 @@
+[F_den030] waiting for gpu lock ...
+[F_den030] lock acquired after 3596.5s
+[F_den030] vram_free 32447 < 50000 MiB — waiting 60 s
+[F_den030] vram_free 32447 < 50000 MiB — waiting 60 s
+[F_den030] vram_free 32447 < 50000 MiB — waiting 60 s
+[F_den030] server up (pid 322616) in 10.0s
+[F_den030] submitted 15ebd8d2-1893-4f07-86f1-e65d5a22337b
+[F_den030] success exec=295.9s cached=[] vram_arm_peak=29752MiB imgs=5
+[F_den030] lock released
+[F_den045] waiting for gpu lock ...
+[F_den045] lock acquired after 307.2s
+[F_den045] server up (pid 325925) in 10.0s
+[F_den045] submitted f367b7c1-6378-42e5-8371-dc4efe3655a3
+[F_den045] success exec=305.5s cached=[] vram_arm_peak=25112MiB imgs=5
+[F_den045] lock released
+[F_res_multistep] waiting for gpu lock ...
+[F_res_multistep] lock acquired after 646.2s
+[F_res_multistep] server up (pid 330225) in 10.0s
+[F_res_multistep] submitted 35cf5ed3-a206-46b1-acb5-ff43430f00b2
+[F_res_multistep] success exec=303.6s cached=[] vram_arm_peak=29752MiB imgs=5
+[F_res_multistep] lock released
+[F_euler] waiting for gpu lock ...
+[F_euler] lock acquired after 622.4s
+[F_euler] server up (pid 334495) in 10.0s
+[F_euler] submitted f546372d-6db8-4fe1-9222-ddd3ca09e972
+[F_euler] success exec=302.2s cached=[] vram_arm_peak=29432MiB imgs=5
+[F_euler] lock released
+[E_steps16] waiting for gpu lock ...
+[E_steps16] lock acquired after 635.2s
+[E_steps16] server up (pid 338881) in 10.0s
+[E_steps16] submitted 6a249201-982c-4b21-8c00-72801962dd38
+[E_steps16] success exec=294.8s cached=[] vram_arm_peak=29752MiB imgs=5
+[E_steps16] lock released
+[P0_portrait_baseline] waiting for gpu lock ...
+[P0_portrait_baseline] lock acquired after 301.3s
+[P0_portrait_baseline] server up (pid 342418) in 10.0s
+[P0_portrait_baseline] submitted dbb6c2d2-af59-4461-a2b1-1c0b13324f28
+[P0_portrait_baseline] success exec=288.8s cached=[] vram_arm_peak=29750MiB imgs=5
+[P0_portrait_baseline] lock released
+[P_M_steps16] waiting for gpu lock ...
+[P_M_steps16] lock acquired after 0.0s
+[P_M_steps16] server up (pid 344717) in 10.0s
+[P_M_steps16] submitted a981f67f-575a-4827-87a1-9dff273c6822
+[P_M_steps16] success exec=290.2s cached=[] vram_arm_peak=25110MiB imgs=5
+[P_M_steps16] lock released
+QUEUE-DONE

@@ -1,0 +1,316 @@
+{
+ "generated": "2026-08-07 13:46",
+ "source": "explicit --arm list",
+ "tool": "/workspace/nsfw-fix/tools/contact_sheet.py",
+ "max_width": 4000,
+ "detector": "/workspace/ComfyUI/models/ultralytics/bbox/face_yolov8m.pt",
+ "detector_error": null,
+ "face_box_xywh": [
+  786,
+  248,
+  384,
+  506
+ ],
+ "skin_box_xywh": [
+  890,
+  304,
+  110,
+  110
+ ],
+ "skin_stats": {
+  "skin_frac": 1.0,
+  "blur_grad": 0.5849,
+  "anchor": "face",
+  "search_region": [
+   786,
+   248,
+   384,
+   506
+  ]
+ },
+ "image_size": [
+  2688,
+  3456
+ ],
+ "sheets": [
+  {
+   "region": "face",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/sheets/Q3_L1_face_steps_face_sheet1of1.png",
+   "size": [
+    1228,
+    880
+   ],
+   "cols": 3,
+   "tiles": [
+    "A0_baseline",
+    "F_steps12",
+    "F_steps16"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "A0_baseline",
+     "ok": true,
+     "src_box": [
+      786,
+      248,
+      384,
+      506
+     ],
+     "sheet_at": [
+      20,
+      354,
+      384,
+      506
+     ],
+     "src_shape": [
+      506,
+      384,
+      3
+     ],
+     "sheet_shape": [
+      506,
+      384,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "F_steps12",
+     "ok": true,
+     "src_box": [
+      786,
+      248,
+      384,
+      506
+     ],
+     "sheet_at": [
+      422,
+      354,
+      384,
+      506
+     ],
+     "src_shape": [
+      506,
+      384,
+      3
+     ],
+     "sheet_shape": [
+      506,
+      384,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "F_steps16",
+     "ok": true,
+     "src_box": [
+      786,
+      248,
+      384,
+      506
+     ],
+     "sheet_at": [
+      824,
+      354,
+      384,
+      506
+     ],
+     "src_shape": [
+      506,
+      384,
+      3
+     ],
+     "sheet_shape": [
+      506,
+      384,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  },
+  {
+   "region": "skin",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/sheets/Q3_L1_face_steps_skin_sheet1of1.png",
+   "size": [
+    406,
+    511
+   ],
+   "cols": 3,
+   "tiles": [
+    "A0_baseline",
+    "F_steps12",
+    "F_steps16"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "A0_baseline",
+     "ok": true,
+     "src_box": [
+      890,
+      304,
+      110,
+      110
+     ],
+     "sheet_at": [
+      20,
+      381,
+      110,
+      110
+     ],
+     "src_shape": [
+      110,
+      110,
+      3
+     ],
+     "sheet_shape": [
+      110,
+      110,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "F_steps12",
+     "ok": true,
+     "src_box": [
+      890,
+      304,
+      110,
+      110
+     ],
+     "sheet_at": [
+      148,
+      381,
+      110,
+      110
+     ],
+     "src_shape": [
+      110,
+      110,
+      3
+     ],
+     "sheet_shape": [
+      110,
+      110,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "F_steps16",
+     "ok": true,
+     "src_box": [
+      890,
+      304,
+      110,
+      110
+     ],
+     "sheet_at": [
+      276,
+      381,
+      110,
+      110
+     ],
+     "src_shape": [
+      110,
+      110,
+      3
+     ],
+     "sheet_shape": [
+      110,
+      110,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  }
+ ],
+ "arms": [
+  {
+   "name": "A0_baseline",
+   "param": "BASELINE (ships) - shipped settings -- exec 313.5s cold",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/A0_baseline/n505__HasMetadata_00001_.png",
+   "is_baseline": true,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    812.9241333007812,
+    282.5942077636719,
+    1142.3170166015625,
+    718.320556640625
+   ],
+   "det_conf": 0.8674536347389221,
+   "det_status": "detected",
+   "face_box": [
+    786,
+    248,
+    384,
+    506
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "F_steps12",
+   "param": "620:114 steps=12 -- exec 290.1s cold",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/F_steps12/n505__HasMetadata_00001_.png",
+   "is_baseline": false,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    812.9920043945312,
+    282.9101257324219,
+    1142.980712890625,
+    718.65673828125
+   ],
+   "det_conf": 0.8675371408462524,
+   "det_status": "detected",
+   "face_box": [
+    786,
+    248,
+    384,
+    506
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "F_steps16",
+   "param": "620:114 steps=16 -- exec 285.5s cold",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/F_steps16/n505__HasMetadata_00001_.png",
+   "is_baseline": false,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    813.0950317382812,
+    283.287109375,
+    1142.82666015625,
+    718.6411743164062
+   ],
+   "det_conf": 0.8674497008323669,
+   "det_status": "detected",
+   "face_box": [
+    786,
+    248,
+    384,
+    506
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ ]
+}

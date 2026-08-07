@@ -1,0 +1,39 @@
+{
+ "arm": "P0_portrait_baseline",
+ "param": "BASELINE-2 (ships, portrait): identical settings, 483 prompt = the shipped placeholder portrait (mouth pass has lips to find here)",
+ "baseline": true,
+ "prompt_id": "dbb6c2d2-af59-4461-a2b1-1c0b13324f28",
+ "client_id": "q3-P0_portrait_baseline-995de383",
+ "lock_wait_s": 301.3,
+ "boot_s": 10.0,
+ "wall_seconds": 290.5,
+ "exec_seconds": 288.8,
+ "status": "success",
+ "error": null,
+ "error_node": null,
+ "execution_cached": [],
+ "vram": {
+  "gpu_peak_used_mib": 75009,
+  "arm_server_peak_mib": 29750
+ },
+ "images": [
+  "nTAP137__tap137_00001_.png",
+  "nTAP114__tap114_00001_.png",
+  "nTAP111__tap111_00001_.png",
+  "nTAP163__tap163_00001_.png",
+  "n505__HasMetadata_00001_.png"
+ ],
+ "overrides": {
+  "483": {
+   "prompt_batch_data": "[{\"id\": \"default-01\", \"positive_prompt\": \"photorealistic portrait photograph of a young woman standing in soft window light, natural skin texture with visible pores, detailed eyes, detailed hands at her sides, looking at the camera, 85mm lens, shallow depth of field\", \"negative_prompt\": \"bad quality, worst quality, low quality, deformed, extra fingers, watermark, text\", \"repeat_count\": 1, \"seed\": 12345, \"seed_control\": \"fixed\", \"tags\": [], \"source_id\": \"default\"}]"
+  }
+ },
+ "detailer_log_lines": [
+  "Detailer: force inpaint",
+  "Detailer: segment upscale for ((np.float32(359.268), np.float32(495.8613))) | crop region (1077, 1487) x 1.0 -> (1077, 1487)",
+  "Detailer: force inpaint",
+  "Detailer: segment upscale for ((np.float32(690.8927), np.float32(921.08136))) | crop region (1036, 1381) x 1.0 -> (1036, 1381)",
+  "Detailer: segment upscale for ((np.float32(305.66418), np.float32(132.8971))) | crop region (916, 398) x 1.9739152193069458 -> (1808, 785)",
+  "Detailer: segment upscale for ((np.int64(975), np.int64(152))) | crop region (1420, 456) x 1.3521761585050942 -> (1920, 616)"
+ ]
+}

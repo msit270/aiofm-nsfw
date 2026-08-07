@@ -1,0 +1,37 @@
+{
+ "arm": "F_euler",
+ "param": "face 620:114 sampler euler_ancestral -> euler (scheduler stays kl_optimal)",
+ "baseline": false,
+ "prompt_id": "f546372d-6db8-4fe1-9222-ddd3ca09e972",
+ "client_id": "q3-F_euler-79bbf388",
+ "lock_wait_s": 622.4,
+ "boot_s": 10.0,
+ "wall_seconds": 305.3,
+ "exec_seconds": 302.2,
+ "status": "success",
+ "error": null,
+ "error_node": null,
+ "execution_cached": [],
+ "vram": {
+  "gpu_peak_used_mib": 75011,
+  "arm_server_peak_mib": 29432
+ },
+ "images": [
+  "nTAP137__tap137_00001_.png",
+  "nTAP114__tap114_00001_.png",
+  "nTAP111__tap111_00001_.png",
+  "nTAP163__tap163_00001_.png",
+  "n505__HasMetadata_00001_.png"
+ ],
+ "overrides": {
+  "620:114": {
+   "sampler_name": "euler"
+  }
+ },
+ "detailer_log_lines": [
+  "Detailer: segment upscale for ((np.float32(176.66824), np.float32(233.17259))) | crop region (530, 699) x 1.8313348293304443 -> (970, 1280)",
+  "Detailer: segment upscale for ((np.float32(224.58838), np.float32(154.11841))) | crop region (336, 231) x 3.0482542514801025 -> (1024, 704)",
+  "Detailer: segment upscale for ((np.float32(329.10498), np.float32(433.51907))) | crop region (493, 650) x 1.5757390260696411 -> (776, 1024)",
+  "Detailer: segment upscale for ((np.int64(958), np.int64(137))) | crop region (1471, 411) x 1.3052645741974434 -> (1920, 536)"
+ ]
+}

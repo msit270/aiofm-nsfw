@@ -1,0 +1,233 @@
+{
+ "generated": "2026-08-07 16:15",
+ "source": "explicit --arm list",
+ "tool": "/workspace/nsfw-fix/tools/contact_sheet.py",
+ "max_width": 4000,
+ "detector": "/workspace/ComfyUI/models/ultralytics/bbox/face_yolov8m.pt",
+ "detector_error": null,
+ "face_box_xywh": [
+  965,
+  430,
+  798,
+  1084
+ ],
+ "skin_box_xywh": [
+  1373,
+  654,
+  110,
+  110
+ ],
+ "skin_stats": {
+  "skin_frac": 1.0,
+  "blur_grad": 0.1955,
+  "anchor": "face",
+  "search_region": [
+   965,
+   430,
+   798,
+   1084
+  ]
+ },
+ "image_size": [
+  2688,
+  3456
+ ],
+ "sheets": [
+  {
+   "region": "face",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/sheets/Q3_L5_mouth_steps_face_sheet1of1.png",
+   "size": [
+    1654,
+    1511
+   ],
+   "cols": 2,
+   "tiles": [
+    "baseline-P0-portrait",
+    "P_M_steps16"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "baseline-P0-portrait",
+     "ok": true,
+     "src_box": [
+      965,
+      430,
+      798,
+      1084
+     ],
+     "sheet_at": [
+      20,
+      407,
+      798,
+      1084
+     ],
+     "src_shape": [
+      1084,
+      798,
+      3
+     ],
+     "sheet_shape": [
+      1084,
+      798,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "P_M_steps16",
+     "ok": true,
+     "src_box": [
+      965,
+      430,
+      798,
+      1084
+     ],
+     "sheet_at": [
+      836,
+      407,
+      798,
+      1084
+     ],
+     "src_shape": [
+      1084,
+      798,
+      3
+     ],
+     "sheet_shape": [
+      1084,
+      798,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  },
+  {
+   "region": "skin",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/sheets/Q3_L5_mouth_steps_skin_sheet1of1.png",
+   "size": [
+    278,
+    511
+   ],
+   "cols": 2,
+   "tiles": [
+    "baseline-P0-portrait",
+    "P_M_steps16"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "baseline-P0-portrait",
+     "ok": true,
+     "src_box": [
+      1373,
+      654,
+      110,
+      110
+     ],
+     "sheet_at": [
+      20,
+      381,
+      110,
+      110
+     ],
+     "src_shape": [
+      110,
+      110,
+      3
+     ],
+     "sheet_shape": [
+      110,
+      110,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "P_M_steps16",
+     "ok": true,
+     "src_box": [
+      1373,
+      654,
+      110,
+      110
+     ],
+     "sheet_at": [
+      148,
+      381,
+      110,
+      110
+     ],
+     "src_shape": [
+      110,
+      110,
+      3
+     ],
+     "sheet_shape": [
+      110,
+      110,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  }
+ ],
+ "arms": [
+  {
+   "name": "baseline-P0-portrait",
+   "param": "BASELINE (ships) - 483 portrait prompt -- exec 288.8s cold",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/P0_portrait_baseline/n505__HasMetadata_00001_.png",
+   "is_baseline": true,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    1019.414794921875,
+    505.04486083984375,
+    1707.670654296875,
+    1438.74658203125
+   ],
+   "det_conf": 0.8999987840652466,
+   "det_status": "detected",
+   "face_box": [
+    965,
+    430,
+    798,
+    1084
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "P_M_steps16",
+   "param": "483 portrait prompt; 620:165 steps=16 -- exec 290.2s cold",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/P_M_steps16/n505__HasMetadata_00001_.png",
+   "is_baseline": false,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    1019.401123046875,
+    505.0929870605469,
+    1707.677734375,
+    1438.7298583984375
+   ],
+   "det_conf": 0.900033175945282,
+   "det_status": "detected",
+   "face_box": [
+    965,
+    430,
+    798,
+    1084
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ ]
+}

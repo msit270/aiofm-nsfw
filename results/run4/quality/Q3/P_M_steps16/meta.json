@@ -1,0 +1,42 @@
+{
+ "arm": "P_M_steps16",
+ "param": "portrait composition + mouth 620:165 steps 8 -> 16 (one variable vs P0_portrait_baseline)",
+ "baseline": false,
+ "prompt_id": "a981f67f-575a-4827-87a1-9dff273c6822",
+ "client_id": "q3-P_M_steps16-5840d75c",
+ "lock_wait_s": 0.0,
+ "boot_s": 10.0,
+ "wall_seconds": 290.8,
+ "exec_seconds": 290.2,
+ "status": "success",
+ "error": null,
+ "error_node": null,
+ "execution_cached": [],
+ "vram": {
+  "gpu_peak_used_mib": 70369,
+  "arm_server_peak_mib": 25110
+ },
+ "images": [
+  "nTAP137__tap137_00001_.png",
+  "nTAP114__tap114_00001_.png",
+  "nTAP111__tap111_00001_.png",
+  "nTAP163__tap163_00001_.png",
+  "n505__HasMetadata_00001_.png"
+ ],
+ "overrides": {
+  "483": {
+   "prompt_batch_data": "[{\"id\": \"default-01\", \"positive_prompt\": \"photorealistic portrait photograph of a young woman standing in soft window light, natural skin texture with visible pores, detailed eyes, detailed hands at her sides, looking at the camera, 85mm lens, shallow depth of field\", \"negative_prompt\": \"bad quality, worst quality, low quality, deformed, extra fingers, watermark, text\", \"repeat_count\": 1, \"seed\": 12345, \"seed_control\": \"fixed\", \"tags\": [], \"source_id\": \"default\"}]"
+  },
+  "620:165": {
+   "steps": 16
+  }
+ },
+ "detailer_log_lines": [
+  "Detailer: force inpaint",
+  "Detailer: segment upscale for ((np.float32(359.268), np.float32(495.8613))) | crop region (1077, 1487) x 1.0 -> (1077, 1487)",
+  "Detailer: force inpaint",
+  "Detailer: segment upscale for ((np.float32(690.8927), np.float32(921.08136))) | crop region (1036, 1381) x 1.0 -> (1036, 1381)",
+  "Detailer: segment upscale for ((np.float32(305.66418), np.float32(132.8971))) | crop region (916, 398) x 1.9739152193069458 -> (1808, 785)",
+  "Detailer: segment upscale for ((np.int64(976), np.int64(152))) | crop region (1420, 456) x 1.3521761585050942 -> (1920, 616)"
+ ]
+}

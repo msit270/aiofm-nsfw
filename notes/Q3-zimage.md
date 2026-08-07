@@ -1,207 +1,241 @@
-# Q3 — Z-Image detail passes: quality menu (run 4, 2026-08-07)
+# Q3 — Z-Image detail passes: quality menu (run 4, 2026-08-07) — COMPLETE
 
-Status: IN PROGRESS — arms rendering. This header section is settled; per-lever
-sections are filled as arms land.
+**One line: of the five levers swept around the settled 8/0.35/cfg-1 baseline,
+only the face-pass SAMPLER moves the image visibly; steps and denoise nudge
+texture by percents in directions already known to end badly, and the eyes-
+and mouth-pass step counts are dead levers. Two composition findings matter
+more than any dial: the mouth pass never runs on small-face renders, and the
+face pass samples at a different resolution regime per composition.**
 
-Recommend-only. Nothing in `OFMTech-NSFW/`, the workflow JSON, or `dist/` was
-touched. Evidence: `results/run4/quality/Q3/<arm>/` (submitted graph, verbatim
-history, PNGs incl. four tap points, full server log, 2 s nvidia-smi samples).
+Recommend-only: nothing in `OFMTech-NSFW/`, the workflow JSON, or `dist/` was
+touched. cfg stayed 1 in every arm (settled; guidance-distilled Turbo).
+n = 1 render per cell throughout — every number below is a single cold render
+per configuration; treat magnitudes as indicative, directions as measured.
 
-## The three passes, read from the shipping conversion
+## The three passes, quoted from the shipping conversion
 
-Node ids and shipped values quoted from `results/run3/guard/api_guarded.json`
-and re-verified identical in `api_final.json` (see "base bytes" below):
+Read from `results/run3/guard/api_guarded.json`, re-verified byte-identical in
+`api_final.json`:
 
-| pass | node | class | steps | denoise | cfg | sampler | scheduler | guide/max | feather | noise_mask/feather | seed | detector path |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| face | `620:114` | FaceDetailer | **8** | **0.35** | **1** | euler_ancestral | kl_optimal | 1024/1024 | 18 | True/20 | 1111111 | `620:107` bbox face, SAM `620:108`, bbox_crop_factor 1.5 |
-| mouth | `620:165` | FaceDetailer | **8** | **0.35** | **1** | euler_ancestral | kl_optimal | 1808/1808 | 3 | True/20 | 1111111 | `621:161` bbox lips (thr 0.7), SAM `621:160`, crop_factor 3, hook `620:648` SEGS≤4M |
-| eyes | `622:406` | DetailerForEachDebug | **8** | **0.42** | **1** | euler | beta | 1920/1920 | 2 | True/20 | 1111112 | MediaPipe FaceMesh eyes+pupils → `622:408` MaskToSEGS, on the `622:414` 1920px face crop |
+| pass | node | class | steps | denoise | cfg | sampler | scheduler | guide/max | feather | noise_mask_feather | seed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| face | `620:114` | FaceDetailer | 8 | 0.35 | 1 | euler_ancestral | kl_optimal | 1024/1024 | 18 | 20 | 1111111 |
+| mouth | `620:165` | FaceDetailer | 8 | 0.35 | 1 | euler_ancestral | kl_optimal | 1808/1808 | 3 | 20 | 1111111 |
+| eyes | `622:406` | DetailerForEachDebug | 8 | 0.42 | 1 | euler | beta | 1920/1920 | 2 | 20 | 1111112 |
 
-A correction to my own brief: the mouth SAMPLER is `620:165` (API id under
-host 620), not under host 621 — host 621 holds only its prompts/detectors
-(`621:166/167/161/160`) and the after-mouth colormatch `621:163`. The eyes
-sampler is under 622 as expected. All three sample the Z-Image Turbo model:
-`620:113 UNETLoader zimage.safetensors` → `116` LoRA stack → each pass's
-`model` input. cfg is 1 everywhere and stays 1 in every arm (settled;
-HANDOFF §"cfg=1 negatives", STATE §8, notes/R3-decisions.md §2).
+Correction to my own brief: the mouth SAMPLER is `620:165` (host 620), not
+under host 621 — host 621 holds only its prompts/detectors (`621:166/167`,
+`621:161/160`) and the after-mouth colormatch `621:163`. All three passes
+draw the model from `620:113 UNETLoader zimage.safetensors` → `116` LoRA
+stack. Downstream-wired output slots (trap STATE #10): slot 0 on all three
+(`620:114→620:111`, `620:165→621:163`, `622:406→622:401`); every measurement
+here is on slot-0 taps or the delivered frame, never `cropped_refined`.
 
-Downstream-wired output slots (trap STATE #10 — measure the wired slot):
-`620:114` slot 0 → `620:111`; `620:165` slot 0 → `621:163`; `622:406` slot 0 →
-`622:401`. All measurements below are on slot-0/tap or delivered images, never
-`cropped_refined`.
+## Base bytes — a protocol correction the next agent needs
 
-## Base bytes — a protocol note the next agent needs
+Q-PROTOCOL names `api_guarded.json` as "the current shipping bytes". It
+predates two shipped changes: the eyes feather (`622:664 FeatherMask` →
+`622:418.mask`) and the mouth ceiling (`620:648.max_value` 1.7M→4M). Proof:
+`api_final.json` differs from the verified fresh-buyer conversion
+(`results/run3/fresh/fresh-buyer-api_graph.json`) on exactly the four
+buyer-typed values; `api_guarded.json` differs on those four plus the two
+changes above. Arms here are based on **`api_final.json`** + the four buyer
+values (both Luna LoRAs; balcony 483 prompt, seed 12345 fixed; the 60-token
+`620:106` face prompt) + `pick_list "0"`, so the baseline graph IS the
+verified buyer render graph with 0 other differences (asserted in
+`tools/q3.py`). Four SaveImage taps — 620:137 face-in, 620:114 face-out,
+620:111 mouth-in, 621:163 eyes-in — are identical in every arm. The three
+pass settings are byte-identical between the two guard files, so the sweep is
+unaffected by the base choice, but mouth/eye-band evidence on `api_guarded`
+would not have matched shipped output.
 
-Q-PROTOCOL says base arms on `results/run3/guard/api_guarded.json` ("the
-current shipping bytes"). That file predates two shipped changes: the eyes
-feather (`622:664 FeatherMask` → `622:418.mask`, commit 72f95ba) and the mouth
-ceiling (`620:648.max_value` 1.7M → 4M, commit 07d61b2). Proof:
-`api_guarded.json` vs the verified fresh-buyer conversion
-(`results/run3/fresh/fresh-buyer-api_graph.json`) differs on exactly those two
-plus the four buyer-typed values; **`api_final.json` differs on the four
-buyer-typed values only.** So arms here are based on `api_final.json` + those
-four buyer values (both Luna LoRAs, the balcony 483 prompt seed 12345 fixed,
-the 60-token `620:106` face prompt) + `pick_list "0"` — i.e. the baseline arm's
-graph IS the verified buyer render graph, 0 other differences (asserted in
-code, `tools/q3.py`). Four SaveImage taps (620:137 face-in, 620:114 face-out
-slot 0, 620:111 mouth-in, 621:163 eyes-in) are identical in every arm,
-including the baseline.
+## Method and validity (all arms)
 
-The three pass settings are byte-identical between `api_guarded.json` and
-`api_final.json`; the sweep itself is unaffected by the base choice, but the
-mouth and eye-band evidence would not have matched shipped output on the
-older file.
+Fresh server per arm on :19188 under the flock; `execution_cached: []`
+verified on all 10 arms; evidence per arm under `results/run4/quality/Q3/
+<arm>/` (submitted graph, verbatim history, server log, 2 s nvidia-smi
+samples, 5 PNGs). Structural check (`tools/q3_checks.py`, ALL PASS): every
+face-lever arm's TAP137 is **byte-identical** to the baseline's (max abs diff
+0 — seven independent cold processes reproduced everything upstream of the
+face pass bit-exactly), E_steps16's four pre-eye taps are byte-identical, and
+P_M's three pre-mouth taps are byte-identical to P0's. So each variable
+expressed itself only downstream of its own pass. (This is same-window
+determinism corroboration, not the banned inertness-by-hash method — the
+changed stage is REQUIRED to differ, and does.)
 
-## Findings so far (baseline arm)
+**Timing.** Cold whole-render times spread 285.5–313.5 s across arms whose
+sampling differs by ≤ 2 s — ±5 % cold noise (R1 §6), so whole-render deltas
+are NOT lever costs. The honest lever costs come from the sampling loop rate:
+the face pass runs ~4.9 it/s at its sampled size, so steps 8→12→16 costs
+≈ +0.8 s / +1.6 s. Denoise and sampler changes are time-free. VRAM: arm-server
+peak 25,110–29,752 MiB across all arms (2 s sampling; the two recurring values
+look like allocator variance in USDU tiling, not a lever effect — no arm
+stood out).
 
-**Baseline (`A0_baseline`)**: success, cold (`execution_cached: []`),
-**313.5 s** server-side, arm-server VRAM peak **29,752 MiB** (whole-GPU peak
-75,011 MiB with the resident :18188 instance). Output 2688×3456. Face detected
-at (812,282)-(1142,718), conf 0.867 — the face is ~330×436 px, ~12 % of frame
-width (full-body balcony composition).
+**Composition matters more than any dial (trap STATE #11, measured).** The
+`Detailer: segment upscale` lines per arm:
+- Balcony full-body (all A0/F/E arms, identical line in every one):
+  face seg 329×433, `crop (493, 650) x 1.576 -> (776, 1024)` — the guide/max
+  1024 pair ENGAGES as an upscale; the pass samples 0.79 MP. Eyes:
+  seg 956×137, `crop (1459, 411) x 1.316 -> (1920, 540)`.
+  **Mouth: no line — the lips detector logs `0: 640x512 (no detections)`**
+  (bbox_threshold 0.7, face ~330 px wide); TAP111 vs TAP163 differ by max
+  1 level (colormatch residue). **The mouth pass is a no-op on this
+  buyer-default composition.**
+- Portrait (P0/P_M; the shipped 483 placeholder prompt): face seg 690×921,
+  `crop (1036, 1381) x 1.0` — clamped, sampled at native 1.43 MP, no upscale;
+  mouth RUNS: lips seg 305×132, `crop (916, 398) x 1.974 -> (1808, 785)`;
+  eyes `x 1.352 -> (1920, 616)`; and the HANDS pass finds no hand (its
+  detector logs the no-detection line instead). So which detail passes
+  actually run, and at what sampling resolution, flips with framing — a menu
+  fact bigger than any of the step/denoise dials below.
 
-**Detailer segment-upscale lines (trap STATE #11), baseline, in order:**
+## Results by lever (metrics on TAP114 = the face pass's wired output, fixed
+nose/cheek rect [861,434]-[1092,609], R1's CIELAB rule, radius 7 px;
+"final eye-band" on the delivered frame; per-arm JSON in each arm dir)
 
-```
-SDXL face 619:607 : seg 176x233 | crop region (530, 699)  x 1.831 -> (970, 1280)
-hands     587:92  : seg 224x154 | crop region (336, 231)  x 3.048 -> (1024, 704)
-Z face    620:114 : seg 329x433 | crop region (493, 650)  x 1.576 -> (776, 1024)
-Z eyes    622:406 : seg 956x137 | crop region (1459, 411) x 1.316 -> (1920, 540)
-```
+### Lever 3 — face-pass sampler (euler_ancestral ships) — THE ONLY LIVE LEVER
 
-On this composition the guide/max interplay ENGAGES as an upscale (unlike the
-R1/R3 portrait renders where it clamped to ×1.0): the face pass samples the
-493×650 crop at 776×1024 (~0.79 MP), the eye pass samples at 1920×540. The
-identity `min(guide/min(seg), max/max(crop×up)) = 1.576` reproduces the logged
-factor exactly.
+| arm | face %>8 (tap114) | PSNR | pigment % | bright-blob % | lapvar face | lapvar skin | exec s |
+|---|---|---|---|---|---|---|---|
+| **euler_ancestral (ships)** | — | — | 1.324 | 3.883 | 219.3 | 147.3 | 313.5 |
+| euler | 4.28 | 37.7 dB | 1.846 (+39 %) | 6.122 (+58 %) | 226.0 | 154.8 | 302.2 |
+| res_multistep | 9.96 | 35.5 dB | 3.302 (+149 %) | 10.696 (+175 %) | 239.2 | 170.0 | 303.6 |
 
-**The mouth pass is a no-op on this buyer-default composition.** The lips
-detector logs `0: 640x512 (no detections)` (server.log:403); there is no mouth
-`segment upscale` line and no `[filter]` line; TAP111 vs TAP163 differ by max
-1 level on 0.086 % of pixels — the colormatch's numerical residue, no sampling.
-The face is too small for the lips model at `bbox_threshold 0.7`. Consequence:
-(a) the mouth-steps lever is measured on a second baseline (`P0_portrait_
-baseline`) using the OTHER shipped buyer default — `api_final.json`'s own 483
-placeholder portrait prompt — where lips do detect; (b) menu item: on
-full-body/small-face renders, mouth quality is whatever the face pass leaves —
-no dedicated pass runs. n=1 composition; threshold sensitivity unmeasured.
+Sight-read (describe-only): **res_multistep transforms the face** — freckles
+become dense, dark, clumped masses spreading to regions the baseline leaves
+clear (nose bridge, between brows, chin), a reddish mottle appears on the
+cheek centres, the whole complexion reads warmer/darker and heavily textured.
+Depending on taste this is "rich lived-in skin" or "blotchy/irritated"; at 3×
+the cheek mottle reads to me closer to irritation, but that is exactly the
+judgement reserved for the owner. **euler** is the midpoint: denser fine
+freckling than shipped, crisper micro-texture, a faint cheek mottle, no heavy
+clumping. **euler_ancestral (ships) is the cleanest/smoothest of the three.**
+Sheets: `sheets/Q3_L3_face_sampler_*`. Cost: none (same step count; exec
+deltas are noise). Caveats: kl_optimal was held constant to keep one variable,
+so `res_multistep + simple` — the vendor template's actual pairing
+(R3-decisions §2) — is UNTESTED; and the eye pass re-renders on the changed
+face (R3-eyes coupling), so eye-band deltas (6.5 %/13.9 % >8) include both
+effects.
 
-**Baseline texture numbers** (nose/cheek rect [861,434]-[1092,609], R1's
-CIELAB rule at radius 7 px ≈ 2 % of face width): pigment 0.925 %, bright-blob
-3.579 % (absolute values are composition-specific and only comparable within
-this sweep). Sight-read of the baseline face at 2×: discrete brown freckles across
-nose and both cheeks, structured irises with catchlights, lash and brow
-strands resolved, fine pore texture on the nose, lips slightly soft with faint
-vertical texture. No bump-crust visible at this scale.
+**Menu entry:** if the owner wants more freckle/texture character from the
+face pass, the sampler is the lever that actually does something, and the L3
+face sheet is the decision artifact. If the shipped look is right, ship stays.
+
+### Lever 1 — face-pass steps (8 ships; 12, 16) — free, moves toward the known crust
+
+| arm | face %>8 (tap114) | PSNR | pigment % | bright-blob % | lapvar face | exec s |
+|---|---|---|---|---|---|---|
+| **8 (ships)** | — | — | 1.324 | 3.883 | 219.3 | 313.5 |
+| 12 | 0.17 | 42.7 dB | 1.511 (+14 %) | 4.604 (+19 %) | 220.9 | 290.1 |
+| 16 | 1.16 | 40.2 dB | 1.729 (+31 %) | 5.098 (+31 %) | 222.0 | 285.5 |
+
+Monotonic speckle densification — more freckle-coloured marks AND more bright
+micro-blobs, broadband lapvar flat. The added marks look freckle-like at 3×,
+not raised-bump, but this metric pair cannot distinguish added speckle from
+early crust (R1 §1), and the trajectory ends at the steps-30 bump mat the
+owner already paid to remove. Freckle placement is unchanged; additions are
+new marks. Sampling cost ≈ +0.8 s/+1.6 s. Diff maps show the eye pass
+amplifying the change into iris/catchlight micro-structure (0.75 %/1.33 %
+eye-band >8) — sub-visible at 1:1 on the band sheets. My first side-by-side
+glance "saw" denser freckles where the diff map showed 0.31 % — recorded as a
+caution on sight-reads without a diff. **Recommendation: keep 8; 12 only if
+the owner reads the L1 sheet's speckle as character rather than crust.**
+
+### Lever 2 — face-pass denoise (0.35 ships; 0.30, 0.45) — confirms 0.35 as the knee
+
+| arm | face %>8 (tap114) | PSNR | pigment % | bright-blob % | lapvar skin | exec s |
+|---|---|---|---|---|---|---|
+| **0.35 (ships)** | — | — | 1.324 | 3.883 | 147.3 | 313.5 |
+| 0.30 | 0.05 | 46.7 dB | 1.354 (+2 %) | 4.236 (+9 %) | 149.3 | 295.9 |
+| 0.45 | 0.46 | 43.1 dB | 1.376 (+4 %) | 3.675 (−5 %) | 142.3 | 305.5 |
+
+0.30 is a near no-op — R1's "there may be nothing left to win below 0.35" now
+measured. 0.45 moves the OTHER way: bright-blob down, flat-skin lapvar −3.4 %
+— the beginning of the smoothing/airbrush direction that R1 documented at
+0.50 ("the near miss... softer... the arm I would call airbrushed"). The
+shipped 0.35 sits at the knee between the speckle direction (steps up) and
+the airbrush direction (denoise up). Time-free. **Recommendation: no change;
+this lever is done being litigated — both sides of 0.35 are now measured.**
+
+### Lever 4 — eyes-pass steps (8 ships; 16) — DEAD LEVER
+
+Pre-eye taps byte-identical; the delivered frame differs by **max 4 levels on
+0.015 % of pixels** (face PSNR 70.5 dB). Mechanistically coherent: `622:406`
+runs plain `euler` — a deterministic ODE solver — so more steps refine the
+same trajectory instead of changing the noise sequence (unlike
+euler_ancestral on the face pass, which is why face steps DO move pixels).
+Costs ~2 s for nothing. Sheets: `Q3_L4_eyes_steps_*`. **Recommendation:
+skip; eye-pass step count buys nothing measurable at denoise 0.42.**
+
+### Lever 5 — mouth-pass steps (8 ships; 16, on the portrait where lips detect) — DEAD DIAL, LIVE DETECTOR FINDING
+
+P0 (portrait baseline) vs P_M (mouth steps 16): pre-mouth taps byte-identical;
+after-mouth tap differs max 14 levels on 0.57 % of the frame; mouth-band
+0.01 % >8, PSNR 55 dB; the L5 mouth-band tiles are indistinguishable at 1:1.
+The change is confined to the SAM lips mask and is tiny. **Recommendation:
+skip the dial.** The real mouth-quality lever is upstream: on the full-body
+buyer default the lips detector (thr 0.7) finds nothing and `620:165` never
+samples — mouth quality on that class of render is whatever `620:114` leaves.
+If mouth quality on full-body renders matters, the follow-up arm is
+`621:161`-side threshold (0.7 → ~0.5) or a detector swap, not steps — one
+render each, same harness, UNTESTED here (arm cap).
+
+## Unmeasured cells (stated per protocol)
+
+Face-pass `noise_mask`/`feather`/`noise_mask_feather` variants (the brief's
+lever 5) — traded for the portrait pair after the mouth no-op discovery.
+`res_multistep + simple` (vendor pairing). Mouth-detector threshold on
+full-body. Everything is n=1; nothing here was replicated.
 
 ## Untested possibility (no pack installs permitted): GGUF text encoder
 
-`models/text_encoders/qwen-4b-zimage-heretic-q8.gguf` ships in the pack and
-nothing loads it: ComfyUI core `CLIPLoader` does not enumerate `.gguf`, and no
-GGUF loader pack is installed. Swapping the Z-Image text encoder to this file
-would need city96-style `ComfyUI-GGUF` (a new pack — out of scope, banned) and
-would change conditioning on all three passes. Provenance + licence read from
-the HF API this session, raw responses under `results/run4/quality/licences/`:
-sha256 `70af2493…f1ef3` matches `Lockout/qwen3-4b-heretic-zimage` (created
-2025-11-30, licence tag **apache-2.0**; byte-identical mirror
-`ItBitter/qwen3-4b-heretic-zimage`). Card: "the actual TE from z-image
-[run] through heretic … abliterated." Upstream `Tongyi-MAI/Z-Image-Turbo`:
+`models/text_encoders/qwen-4b-zimage-heretic-q8.gguf` (4.28 GB) ships and
+nothing loads it: core `CLIPLoader` does not enumerate `.gguf` and no GGUF
+loader pack is installed (verified `custom_nodes` listing). Swapping the
+Z-Image text encoder to it needs a city96-style `ComfyUI-GGUF` pack and would
+change conditioning on all three passes — effect UNKNOWN, no claim made.
+Provenance/licence read from the HF API this session (raw responses under
+`results/run4/quality/licences/`): sha256 `70af2493…f1ef3` matches
+`Lockout/qwen3-4b-heretic-zimage` (2025-11-30, licence tag **apache-2.0**;
+byte-identical mirror `ItBitter/…`); card: "the actual TE from z-image [run]
+through heretic … abliterated"; upstream `Tongyi-MAI/Z-Image-Turbo`
 apache-2.0. A V2 ("lower KLD") exists in the same repo, different bytes. See
-`licences/qwen-4b-zimage-heretic-q8_PROVENANCE.md`. Whether an abliterated
-encoder changes NSFW-prompt adherence on the detail passes is UNKNOWN — no
-claim is made.
+`licences/qwen-4b-zimage-heretic-q8_PROVENANCE.md`.
 
-## Arms (planned; results appended as they land)
+## The ranked menu
 
-One variable per arm vs `A0_baseline` (P_M_steps16 vs `P0_portrait_baseline`),
-fresh server per arm on :19188 under the flock, cold asserted from
-`execution_cached: []`, fixed seeds throughout.
+1. **Face sampler `620:114` (owner eyeballs `Q3_L3_face_sampler_face_sheet1of1.png`).**
+   The only lever with a visible payoff either way. euler = moderately denser
+   freckle/texture; res_multistep = heavy freckle character + cheek mottle
+   (risk: reads as blotchy). Free in time. If shipped look is right, change
+   nothing.
+2. **Face steps 12** — only if the L1 sheet's extra speckle reads as
+   character; direction is the old defect, cost ≈ +0.8 s.
+3. **Mouth detector coverage on full-body renders** (untested follow-up):
+   threshold 0.7 → ~0.5 on `621:161`'s consumer path, one arm, before anyone
+   tunes mouth-pass dials that currently never execute on such renders.
+4. **`res_multistep + simple`** (vendor pairing, untested) — only if the
+   owner likes the res_multistep direction but wants it on-template.
+5. **Denoise, eye steps, mouth steps: leave alone** — measured dead or
+   knee-confirmed.
+6. **GGUF encoder swap** — untested possibility, apache-2.0 chain recorded;
+   needs a pack decision first.
 
-| arm | change | lever |
-|---|---|---|
-| A0_baseline | — (ships) | reference, n=1 |
-| F_steps12 / F_steps16 | face steps 8→12 / 8→16 | 1 |
-| F_den030 / F_den045 | face denoise 0.35→0.30 / →0.45 | 2 |
-| F_res_multistep / F_euler | face sampler euler_ancestral→res_multistep / →euler (scheduler kl_optimal held) | 3 |
-| E_steps16 | eyes steps 8→16 | 4 |
-| P0_portrait_baseline | 483 prompt → shipped placeholder portrait (2nd baseline) | 5 |
-| P_M_steps16 | portrait + mouth steps 8→16 | 5 |
+## Evidence index
 
-**Unmeasured cells at the yield point** (resume on `.track1_gate_done`):
-face denoise 0.30 / 0.45 (lever 2), face sampler res_multistep / euler
-(lever 3), eyes steps 16 (lever 4), portrait baseline + portrait mouth
-steps 16 (lever 5). Nothing below this line claims anything about those.
-
-**Scheduling note (2026-08-07 ~13:39):** orchestrator priority interrupt —
-track 1's gate starved on the lock behind three Q drivers. F_steps16 was
-mid-render and was allowed to finish; the driver is stopped in the between-arms
-window after it, and resumes on the `.track1_gate_done` sentinel. Fresh-process
-per arm means the pause cannot contaminate any comparison.
-
-## Lever 1 — face-pass steps (8 ships; 12, 16 swept) — COMPLETE, n=1 per cell
-
-Sheets: `results/run4/quality/Q3/sheets/Q3_L1_face_steps_{face,skin}_sheet1of1.png`
-(+ `_eyeband.png`, `_mouthband.png`), all 1:1-verified, baseline marked.
-
-| arm (n=1 each) | exec s (cold) | VRAM MiB | tap114 face %>8 | tap114 PSNR | pigment % | bright-blob % | lapvar face | final eye-band %>8 |
-|---|---|---|---|---|---|---|---|---|
-| **steps 8 (ships)** | 313.5 | 29752 | — | — | 1.324 | 3.883 | 219.3 | — |
-| steps 12 | 290.1 | 29752 | 0.17 | 42.7 dB | 1.511 | 4.604 | 220.9 | 0.75 |
-| steps 16 | 285.5 | 25112 | 1.16 | 40.2 dB | 1.729 | 5.098 | 222.0 | 1.33 |
-
-(pigment/blob/lapvar measured on TAP114, the pass's wired output, fixed
-nose/cheek rect; "final eye-band" is the delivered frame, where the eye pass
-re-renders on the changed input — the R3-eyes coupling, and the diff maps show
-exactly that: iris/catchlight hotspots plus diffuse sub-8-level texture.)
-
-**Cost: effectively zero on this composition.** The pass samples 776×1024 at
-~4.9 it/s; 8→16 steps is ≈ +1.6 s of sampling. Whole-render deltas
-(313.5→285.5 s) are cold-run noise, not the lever — the ladder got FASTER as
-steps rose, which is physically backwards and disqualifies the whole-render
-number (R1 §6's variance).
-
-**Effect: monotonic speckle densification, direction of the known crust.**
-pigment +14 %/+31 % rel, bright-blob +19 %/+31 % rel at steps 12/16; broadband
-lapvar flat (+1 %). At 3× the steps-16 cheek carries visibly more small dark
-freckle-like marks AND more bright micro-speckle than baseline; the marks look
-freckle-like, not raised-bump — but R1 §1 proved this exact metric pair
-cannot distinguish added freckle-like speckle from early crust (at steps 30
-the same trend ends in the bump mat, blob ~2× at 3.364 vs Z2's 1.681 on R1's
-composition). Freckle placement is unchanged; the additions are new marks.
-
-**Recommendation: leave steps at 8.** The lever is free in time but the only
-measurable movement is toward the defect the owner already paid to remove
-(steps 30→8, HANDOFF §4). If the owner LIKES the denser speckle on the sheet,
-steps 12 is the safer of the two increments (blob +19 % vs +31 %). What would
-change this: the owner reading the steps-16 cheek tile as better freckle
-character rather than incipient crust — that is precisely the judgement I am
-not allowed to make.
-
-### Lever 1 raw log (was the in-flight partial)
-
-`F_steps12` (steps 8→12): success, cold, **290.1 s** (baseline 313.5 s — the
-23 s gap is cold-run noise, not the lever; R1 §6 puts single-cold-pair
-variance at tens of seconds). VRAM peak 29,752 MiB — identical to baseline.
-The face pass samples the same `(493, 650) x 1.576 -> (776, 1024)` crop
-(segment-upscale line identical to baseline), ~4.9 it/s, so 8→12 steps costs
-**≈ 0.8 s of sampling**. Direct effect at `620:114`'s wired output (TAP114):
-face box 0.17 % of pixels >8 levels, PSNR 42.7 dB. Delivered frame: face
-0.31 % >8, eye band 0.75 % >8 (the eye pass re-rendering on a marginally
-changed input — R3-eyes coupling, visible in the diff map as iris/catchlight
-hotspots), mouth band 0.06 %. Texture: pigment 1.51 vs 1.32 (+14 % rel),
-bright-blob 4.60 vs 3.88 (+18.6 % rel — direction of the steps-30 crust,
-magnitude tiny), lapvar face 220.9 vs 219.3 (+0.7 %), flat-skin lapvar 147.8
-vs 147.3. Sight-read at 2×: I could not honestly tell the tiles apart —
-freckles identical in count and placement; the amplified diff shows diffuse
-sub-8-level texture inside the noise-mask region and the eye hotspots.
-(A first side-by-side glance "saw" denser freckles on steps-12; the diff map
-refutes that — recorded as a caution against sight-reads without a diff.)
-
-Prior art this sweep builds on, not re-litigates: steps 30→8 removed the
-bump-crust defect (HANDOFF §4, R1 §5: steps 30 at den 0.35 puts crust back,
-3.364 % vs 1.681 % bright-blob); denoise 0.80→0.35 shipped after R1's ladder
-(0.50 = "airbrushed" near-miss, softer than 0.35; below 0.35 untested — that
-is what F_den030 tests); cf 1.5 shipped after R3-decisions. The sampler lever
-is new: the vendor's own Z-Image-Turbo template pairs `res_multistep/simple`,
-while the graph ships `euler_ancestral/kl_optimal` — no recorded reason.
+- Arms: `results/run4/quality/Q3/{A0_baseline,F_steps12,F_steps16,F_den030,
+  F_den045,F_res_multistep,F_euler,E_steps16,P0_portrait_baseline,
+  P_M_steps16}/` — api_graph.json, history.json, meta.json (incl. per-arm
+  `detailer_log_lines` and VRAM peaks), server.log, vram_samples.csv, 5 PNGs.
+- Sheets (all 1:1-verified, baseline tile marked, labels carry the change +
+  cold exec seconds): `results/run4/quality/Q3/sheets/Q3_L{1..5}_*`.
+- Per-arm deltas: `<arm>/deltas_vs_A0_baseline.json`
+  (`P_M_steps16/deltas_vs_P0_portrait_baseline.json`).
+- Tools: `results/run4/quality/Q3/tools/{q3.py,q3_analyze.py,q3_checks.py,
+  q3_sheets.py,q3_table.py}`; sampler enums snapshot
+  `tools/object_info_detailers.json` (res_multistep/euler/kl_optimal all
+  valid on this 0.15.1 instance — checked before the sampler arms ran).
+- Scheduling: track-1 priority interrupt honoured mid-queue (driver stopped
+  between arms after F_steps16, resumed on `.track1_gate_done`); fresh-
+  process-per-arm makes the pause unable to contaminate comparisons.

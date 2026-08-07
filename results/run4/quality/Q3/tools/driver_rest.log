@@ -5,3 +5,10 @@
 [F_steps12] success exec=290.1s cached=[] vram_arm_peak=29752MiB imgs=5
 [F_steps12] lock released
 [F_steps16] waiting for gpu lock ...
+[F_steps16] lock acquired after 575.7s
+[F_steps16] server up (pid 313461) in 10.0s
+[F_steps16] submitted 7e4faa79-b0fb-4651-b467-847f76d9e7b4
+[F_steps16] success exec=285.5s cached=[] vram_arm_peak=25112MiB imgs=5
+[F_steps16] lock released
+[F_den030] waiting for gpu lock ...
+[Q3-YIELD] driver stopped after F_steps16 for track-1 precedence

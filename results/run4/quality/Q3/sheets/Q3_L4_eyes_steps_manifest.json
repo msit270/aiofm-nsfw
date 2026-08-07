@@ -1,0 +1,233 @@
+{
+ "generated": "2026-08-07 16:14",
+ "source": "explicit --arm list",
+ "tool": "/workspace/nsfw-fix/tools/contact_sheet.py",
+ "max_width": 4000,
+ "detector": "/workspace/ComfyUI/models/ultralytics/bbox/face_yolov8m.pt",
+ "detector_error": null,
+ "face_box_xywh": [
+  787,
+  247,
+  382,
+  506
+ ],
+ "skin_box_xywh": [
+  891,
+  303,
+  110,
+  110
+ ],
+ "skin_stats": {
+  "skin_frac": 1.0,
+  "blur_grad": 0.5852,
+  "anchor": "face",
+  "search_region": [
+   787,
+   247,
+   382,
+   506
+  ]
+ },
+ "image_size": [
+  2688,
+  3456
+ ],
+ "sheets": [
+  {
+   "region": "face",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/sheets/Q3_L4_eyes_steps_face_sheet1of1.png",
+   "size": [
+    822,
+    880
+   ],
+   "cols": 2,
+   "tiles": [
+    "A0_baseline",
+    "E_steps16"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "A0_baseline",
+     "ok": true,
+     "src_box": [
+      787,
+      247,
+      382,
+      506
+     ],
+     "sheet_at": [
+      20,
+      354,
+      382,
+      506
+     ],
+     "src_shape": [
+      506,
+      382,
+      3
+     ],
+     "sheet_shape": [
+      506,
+      382,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "E_steps16",
+     "ok": true,
+     "src_box": [
+      787,
+      247,
+      382,
+      506
+     ],
+     "sheet_at": [
+      420,
+      354,
+      382,
+      506
+     ],
+     "src_shape": [
+      506,
+      382,
+      3
+     ],
+     "sheet_shape": [
+      506,
+      382,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  },
+  {
+   "region": "skin",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/sheets/Q3_L4_eyes_steps_skin_sheet1of1.png",
+   "size": [
+    278,
+    511
+   ],
+   "cols": 2,
+   "tiles": [
+    "A0_baseline",
+    "E_steps16"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "A0_baseline",
+     "ok": true,
+     "src_box": [
+      891,
+      303,
+      110,
+      110
+     ],
+     "sheet_at": [
+      20,
+      381,
+      110,
+      110
+     ],
+     "src_shape": [
+      110,
+      110,
+      3
+     ],
+     "sheet_shape": [
+      110,
+      110,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "E_steps16",
+     "ok": true,
+     "src_box": [
+      891,
+      303,
+      110,
+      110
+     ],
+     "sheet_at": [
+      148,
+      381,
+      110,
+      110
+     ],
+     "src_shape": [
+      110,
+      110,
+      3
+     ],
+     "sheet_shape": [
+      110,
+      110,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  }
+ ],
+ "arms": [
+  {
+   "name": "A0_baseline",
+   "param": "BASELINE (ships) - shipped settings -- exec 313.5s cold",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/A0_baseline/n505__HasMetadata_00001_.png",
+   "is_baseline": true,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    812.9241333007812,
+    282.5942077636719,
+    1142.3170166015625,
+    718.320556640625
+   ],
+   "det_conf": 0.8674536347389221,
+   "det_status": "detected",
+   "face_box": [
+    787,
+    247,
+    382,
+    506
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "E_steps16",
+   "param": "622:406 steps=16 -- exec 294.8s cold",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q3/E_steps16/n505__HasMetadata_00001_.png",
+   "is_baseline": false,
+   "extra": "",
+   "warnings": [],
+   "det_xyxy": [
+    812.9043579101562,
+    282.59246826171875,
+    1142.3106689453125,
+    718.322509765625
+   ],
+   "det_conf": 0.8674662113189697,
+   "det_status": "detected",
+   "face_box": [
+    787,
+    247,
+    382,
+    506
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ ]
+}
