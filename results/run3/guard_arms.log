@@ -10,3 +10,7 @@ WARNING:root:WARNING: You need pytorch with cu130 or higher to use optimized CUD
 [R3_AB_guard_16] 9df75957-98fd-44fe-8b11-7061012532b1 cid=trackV-R3_AB_guard_16-11889598 q=[0, 0] vram_free=70.1GiB
 [R3_AB_guard_16] success exec=239.5s cached=0 err=None nodes_exec=83 eyes406=True imgs=['tap163_00003_.png', 'HasMetadata_00207_.png']
 [R3_GUARD_46] 212ea0b3-5b28-41a6-9b87-59594462a8c6 cid=trackV-R3_GUARD_46-b7232df9 q=[0, 0] vram_free=70.1GiB
+[R3_GUARD_46] success exec=242.5s cached=0 err=None nodes_exec=83 eyes406=True imgs=['tap163_00004_.png', 'HasMetadata_00208_.png']
+[R3_GUARD_103] 0e7a9ab6-9012-493d-a711-d4318a9719c2 cid=trackV-R3_GUARD_103-aeca9d8f q=[0, 0] vram_free=70.1GiB
+[R3_GUARD_103] success exec=246.9s cached=0 err=None nodes_exec=83 eyes406=True imgs=['tap163_00005_.png', 'HasMetadata_00209_.png']
+[R3_GUARD_110] 041d4380-8349-4ef5-bd6f-d8dd499e1c20 cid=trackV-R3_GUARD_110-33a9fad8 q=[0, 0] vram_free=70.1GiB

@@ -43,15 +43,15 @@ def facebox(img_path):
     return x1, y1, x2, y2, float(res.boxes.conf[bi])
 
 
-def eyesheet(out, specs):
+def eyesheet(out, specs, band=(0.18, 0.55), banner=None):
     tiles, labels = [], []
     for spec in specs:
         arm, _, label = spec.partition(":")
         p = delivered(arm)
         x1, y1, x2, y2, conf = facebox(p)
-        # the eye band: upper-middle of the face box, full box width, 1:1
+        # band: fraction of the face box height, full box width, 1:1
         h = y2 - y1
-        ey1, ey2 = y1 + int(0.18 * h), y1 + int(0.55 * h)
+        ey1, ey2 = y1 + int(band[0] * h), y1 + int(band[1] * h)
         img = Image.open(p).convert("RGB").crop((x1, ey1, x2, ey2))
         tiles.append(img)
         labels.append(f"{label or arm}   (YOLO {conf:.3f})  crop {x2-x1}x{ey2-ey1} @1:1")
@@ -61,7 +61,7 @@ def eyesheet(out, specs):
     sheet = Image.new("RGB", (W, H), (12, 12, 12))
     dr = ImageDraw.Draw(sheet)
     dr.rectangle([0, 0, W, BANNER], fill=(140, 20, 20))
-    dr.text((12, 8),
+    dr.text((12, 8), banner or
             "RUN3 EYE BAND -- same seed, cold, 1:1 native pixels, no resampling.\n"
             "Rows differ ONLY in which device encodes which Z-Image prompts.",
             fill=(255, 255, 255))
@@ -90,3 +90,7 @@ if __name__ == "__main__":
         pair(sys.argv[2], sys.argv[3])
     elif cmd == "eyesheet":
         eyesheet(sys.argv[2], sys.argv[3:])
+    elif cmd == "mouthsheet":
+        eyesheet(sys.argv[2], sys.argv[3:], band=(0.55, 1.0),
+                 banner="RUN3 MOUTH BAND -- same graph, cold, 1:1 native pixels, no resampling.\n"
+                        "Rows differ ONLY in 620:648 max_value (the mouth-guard ceiling).")
