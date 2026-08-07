@@ -1,0 +1,205 @@
+{
+  "tag": "fresh4-buyer",
+  "workflow": "OFMTech_NSFW",
+  "url": "http://127.0.0.1:31960",
+  "started": "2026-08-07T13:43:39.713Z",
+  "workflow_sha256": "4741960602085c6277eecd5f3d25e8e023e71df842c5987714886ef2fca30d4b",
+  "load_path": "workflow-list (sidebar click)",
+  "node_audit": {
+    "total_nodes": 102,
+    "distinct_types": 61,
+    "subgraph_host_types": [
+      "a15fc81c-c28c-42cf-bc13-1493f12e4309",
+      "9050d895-4e70-44f5-9c2b-57e2be7df0ec",
+      "3ff96466-2d66-45ea-8761-c9123bec3435",
+      "f6d04669-26a7-4a01-b136-c39684ddee0f",
+      "d6db378b-b089-4636-91bb-6e0cf9a81503",
+      "f3ba7c90-fce5-4154-9cb0-7a1de52da0fe"
+    ],
+    "frontend_registered_count": 1132,
+    "not_registered_in_frontend": [],
+    "not_in_object_info": [
+      "MarkdownNote"
+    ],
+    "nodes_flagged_has_errors": [],
+    "dialogs": [],
+    "toasts": []
+  },
+  "loras": {
+    "116": {
+      "widget": "lora_01",
+      "requested": "luna.safetensors",
+      "readBack": "luna.safetensors",
+      "title": "2 · Your ZIT LoRa  (face, mouth, eyes)"
+    },
+    "618": {
+      "widget": "lora_01",
+      "requested": "lunaskye.safetensors",
+      "readBack": "lunaskye.safetensors",
+      "title": "2 · Your SDXL LoRa  (body, pose, hands)"
+    }
+  },
+  "prompt": {
+    "typed": "photorealistic full body photograph of a young woman with long dark hair standing on a hotel balcony at golden hour, wearing a black silk slip dress, natural skin texture with visible pores and freckles, shot on 85mm, shallow depth of field",
+    "textarea": "photorealistic full body photograph of a young woman with long dark hair standing on a hotel balcony at golden hour, wearing a black silk slip dress, natural skin texture with visible pores and freckles, shot on 85mm, shallow depth of field",
+    "committed": "photorealistic full body photograph of a young woman with long dark hair standing on a hotel balcony at golden hour, wearing a black silk slip dress, natural skin texture with visible pores and freckles, shot on 85mm, shallow depth of field",
+    "entries": 1,
+    "panel_after_restore": {
+      "present": true,
+      "visible": true,
+      "value": "photorealistic full body photograph of a young woman with lo"
+    }
+  },
+  "prompt_id": "f710fff9-dc79-455e-9c0d-e2fb4440e0fa",
+  "api_graph_nodes": 92,
+  "selector": {
+    "driven": true,
+    "appeared": true,
+    "images": 1,
+    "picked": 0,
+    "send_enabled_on_open": false,
+    "send_enabled_after_click": true,
+    "send_enabled_after_reclick": null,
+    "auto_picked_single_image": false
+  },
+  "outputs": [
+    {
+      "filename": "HasMetadata_00001_.png",
+      "subfolder": "Instaraw/SDXL/Metadata",
+      "type": "output",
+      "node": "505",
+      "path": "/workspace/comfy-fresh4/output/Instaraw/SDXL/Metadata/HasMetadata_00001_.png",
+      "exists": true,
+      "size": 11122341
+    }
+  ],
+  "timings": {
+    "boot_ms": 3867,
+    "load_ms": 4551,
+    "submit_ms": 1515,
+    "execute_ms": 279900
+  },
+  "page_errors": [
+    {
+      "when": "2026-08-07T13:43:39.988Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31960/user.css"
+    },
+    {
+      "when": "2026-08-07T13:43:40.003Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31960/api/userdata/user.css"
+    },
+    {
+      "when": "2026-08-07T13:43:40.498Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31960/api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true"
+    },
+    {
+      "when": "2026-08-07T13:43:40.585Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31960/api/userdata/comfy.templates.json"
+    },
+    {
+      "when": "2026-08-07T13:43:45.840Z",
+      "text": "console.error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:31960/api/userdata/workflows%2F.index.json"
+    }
+  ],
+  "failures": [],
+  "screenshots": [
+    {
+      "file": "/workspace/nsfw-fix/results/run4/fresh/fresh4-buyer-01-first-run-dialog.png",
+      "note": "a fresh install opens the stock ComfyUI Templates browser over the UI; the buyer must close it",
+      "bytes": 895451
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/run4/fresh/fresh4-buyer-02-workflow-open-full-canvas.png",
+      "note": "OFMTech_NSFW opened from the workflow list; 102 nodes, 0 red, 0 dialogs",
+      "bytes": 90299
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/run4/fresh/fresh4-buyer-03-prompt-entered.png",
+      "note": "the prompt typed into the panel on #483 \"1 · YOUR PROMPTS & SEED\"",
+      "bytes": 235294
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/run4/fresh/fresh4-buyer-04-both-lora-stacks.png",
+      "note": "#618 lora_01=lunaskye.safetensors  #116 lora_01=luna.safetensors  (both read back from the graph; #483 collapsed=true for this frame only)",
+      "bytes": 213438
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/run4/fresh/fresh4-buyer-05-face-host-as-shipped.png",
+      "note": "#620 \"5 · Face & Mouth Detail\" as the workflow ships it — collapsed=false",
+      "bytes": 194576
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/run4/fresh/fresh4-buyer-06-face-prompt-on-node-106.png",
+      "note": "#106 \"Face Detailer Prompt\" inside \"5. Face & Mouth Detail (Z-Image)\", carrying: \"luna, a young woman in her mid twenties with wavy auburn hair, warm hazel eyes, soft natural makeup, light fre…\"",
+      "bytes": 402222
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/run4/fresh/fresh4-buyer-07-run-submitted.png",
+      "note": "prompt f710fff9-dc79-455e-9c0d-e2fb4440e0fa accepted, 92-node API graph",
+      "bytes": 95707
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/run4/fresh/fresh4-buyer-08-selector-popup.png",
+      "note": "#603 INSTARAW_ImageFilter paused the render with 1 image(s) — the buyer must choose",
+      "bytes": 871856
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/run4/fresh/fresh4-buyer-09-selector-image-picked.png",
+      "note": "image #0 of 1 selected; Send enabled",
+      "bytes": 873324
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/run4/fresh/fresh4-buyer-10-render-complete.png",
+      "note": "the moment the render finished, as the buyer sees it",
+      "bytes": 244938
+    },
+    {
+      "file": "/workspace/nsfw-fix/results/run4/fresh/fresh4-buyer-11-final-image-on-canvas.png",
+      "note": "the finished image on #505 \"YOUR IMAGE — saved to output/Instaraw/\"",
+      "bytes": 659890
+    }
+  ],
+  "status": "pass",
+  "first_run_dialog": {
+    "seen": true,
+    "dialogs": [
+      {
+        "cls": "p-dialog p-component global-dialog rounded-2xl overflow-hidden",
+        "text": "Templates\nAll Templates\nPopular\nUse Cases\nUtility\nGetting Started\nGENERATION TYPE\nImage\nVideo\nAudio\n3D Model\nLLM\nPartner Nodes\nEXTENSIONS\nComfyUI-Impact-Pack\nComfyUI_UltimateSDUpscale\nModel Filter\nTasks\nRuns on\nDefault\nGetting Started\nImage\nText to Image\n1.1 Starter – Text to Image\n\nLearn how to generate an image, download models, connect nodes, run a workflow and download an image using Z Image T"
+      }
+    ],
+    "closed": true
+  },
+  "face_prompt": {
+    "requested": "luna, a young woman in her mid twenties with wavy auburn hair, warm hazel eyes, soft natural makeup, light freckles on her cheeks, gentle smile, photorealistic skin texture with visible pores, soft diffused studio light",
+    "host": 620,
+    "node": 106,
+    "host_shipped_collapsed": false,
+    "typed_via": "promoted widget on the host",
+    "shipped_value": "TRIGGER, PROMPT FOR YOUR MODEL",
+    "entered_via": "title-button click (the UI affordance)",
+    "inside_subgraph": {
+      "isRoot": false,
+      "name": "5. Face & Mouth Detail (Z-Image)",
+      "nodeCount": 13,
+      "breadcrumb": [
+        "OFMTech_NSFW",
+        "5. Face & Mouth Detail (Z-Image)"
+      ]
+    },
+    "subgraph_name": "5. Face & Mouth Detail (Z-Image)",
+    "promoted_widget_name": "106: text",
+    "promoted_value": "luna, a young woman in her mid twenties with wavy auburn hair, warm hazel eyes, soft natural makeup, light freckles on her cheeks, gentle smile, photorealistic skin texture with visible pores, soft diffused studio light",
+    "inner_node_type": "CLIPTextEncode",
+    "inner_node_title": "Face Detailer Prompt",
+    "inner_value": "luna, a young woman in her mid twenties with wavy auburn hair, warm hazel eyes, soft natural makeup, light freckles on her cheeks, gentle smile, photorealistic skin texture with visible pores, soft diffused studio light",
+    "same_object": false,
+    "back_at_root": true
+  },
+  "finished": "2026-08-07T13:49:08.784Z"
+}

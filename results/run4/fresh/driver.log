@@ -1,0 +1,171 @@
+=== preconditions ===
+  target absent, ports dead, civitai key present: OK
+=== fresh tree ===
+  withheld: models/checkpoints/SDXLNSFW.safetensors
+  withheld: models/diffusion_models/SDXLNSFW.safetensors
+  withheld: models/loras/dmd2_sdxl_4step_lora_fp16.safetensors
+  withheld: models/checkpoints/v1-5-pruned-emaonly-fp16.safetensors
+  custom_nodes entries: 0 (0 = empty)
+  models: hardlinked (29 dirs), 4 files withheld
+=== THE BUYER'S ONE-LINER, from the live gist ===
+  bash <(wget -qO- https://gist.githubusercontent.com/msit270/70256ac1ebf2760e10f78804862db528/raw/aiofm_setupnsfw.sh)
+  [pre-publish] pack served from local mirror: AIOFM_PACK_URL=http://127.0.0.1:31962/AIOFMTech-NSFW.tar.gz
+  [pre-publish] sha256 8f37692638535f004c19e93454c90f395774ca4bba737f8fb9cbf0adf21c41f5
+
+[1;36m=== AIOFM · OFMTech NSFW — bootstrap ===[0m
+
+  using HF_TOKEN from the environment
+  downloading the pack from msit270/AIOFM-Pack …
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 7904k  100 7904k    0     0   954M      0 --:--:-- --:--:-- --:--:--  964M
+  downloaded 7.8M
+  unpacked to /workspace/fresh-pack4/AIOFMTech-NSFW
+
+  handing over to the installer in /workspace/fresh-pack4/AIOFMTech-NSFW
+
+==========================================
+  AIOFM · OFM Tech NSFW — setup
+  ComfyUI dir: /workspace/comfy-fresh4
+==========================================
+  Built for this template:
+  https://cloud.vast.ai/?ref_id=638421&creator_id=638421&name=AIOFM%20ComfyUI
+
+
+[1/14] Environment
+    GPU: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB, 595.45.04
+    torch: 2.9.1+cu128 | cuda: 12.8
+
+      disk before:
+overlay         410G  208G  203G  51% /
+
+
+[2/14] Download accelerators
+      RAM: 1133G total, 628G available  ->  workers: 12
+      ✓ SageAttention already installed
+
+
+[3/14] onnxruntime / CUDA
+      ✓ onnxruntime matches torch CUDA
+      ✓ CUDA library paths registered (ldconfig)
+
+
+[4/14] ComfyUI core version
+      ✓ ComfyUI core 0.15.1 @ 3dd10a59 (validated)
+      ✓ CLIPLoader supports the 'device' input (black-face fix will apply)
+
+
+[5/14] ComfyUI frontend (pinned 1.39.19)
+      ✓ comfyui-frontend-package already 1.39.19
+
+
+[6/14] Base checkpoint preflight (Civitai)
+      ✓ found your Civitai API key
+      ✓ Civitai still publishes the exact verified file (SHA256 match)
+      ✓ your Civitai key unlocks the download (HTTP 307)
+      ✓ disk space is sufficient for the checkpoint download
+
+[7/14] Downloading models (msit270/AIOFM-Pack, profile: all)
+      asking the Hub how much there is to fetch...
+      164.2 GB total, 0 KB still to download
+      ✓ already up to date — nothing to download
+>>> models/detection
+>>> models/checkpoints
+    get:  SDXLNSFW.safetensors  (6.5 GB from civitai.com)
+      Civitai is slower than HuggingFace — this is normally the longest single download
+      verifying SHA256 (reads the whole 6.5 GB — under a minute)
+      ✓ SDXLNSFW.safetensors installed from Civitai and SHA256-verified (LUSTIFY! GGWP (V7))
+>>> models/clip_vision
+>>> models/diffusion_models
+    link: SDXLNSFW.safetensors -> diffusion_models
+>>> models/loras
+>>> models/sam3
+>>> models/text_encoders
+>>> models/ultralytics
+    bbox: done
+>>> models/sams
+>>> models/upscale_models
+>>> models/vae
+
+
+[8/14] Custom nodes (pinned)
+      ✓ rgthree-comfy @ 6b76ee6
+      ✓ ComfyUI-Impact-Pack @ 429d015
+      ✓ ComfyUI-Impact-Subpack @ 50c7b71
+      ✓ comfyui_controlnet_aux @ 95a13e2
+      ✓ ComfyUI_essentials @ 9d9f4be
+      ✓ ComfyUI_UltimateSDUpscale @ a5547db
+      ✓ ComfyUI_INSTARAW vendored @ 12afb909 (provenance marker)
+
+
+[9/14] Custom node dependencies
+      ✓ ComfyUI-Impact-Pack
+      ✓ ComfyUI-Impact-Subpack
+      ✓ comfyui_controlnet_aux
+      ✓ ComfyUI_essentials
+      ✓ ComfyUI_INSTARAW
+      ✓ mediapipe==0.10.14 already satisfied
+      ✓ opencv-python-headless==4.10.0.84 already satisfied
+      ✓ mediapipe exposes mp.solutions (controlnet_aux face mesh will load)
+
+
+[10/14] Workflow
+      ✓ OFMTech_NSFW.json installed
+      open ComfyUI and it will be in the workflow list
+
+
+[11/14] Integrity check
+      ✓ all sized files match the manifest
+
+
+[12/14] ViTPose GPU inference check
+      providers: ['CUDAExecutionProvider', 'CPUExecutionProvider']
+      OK — pose detection will run on the GPU
+
+
+[13/14] Workflow node check
+      ✓ all 27 node types found on disk (static check of the installed packs)
+
+
+[14/14] ComfyUI restart
+      ComfyUI expected on port 31961
+      ✓ ComfyUI is not running — the new nodes will register when you start it
+
+==========================================================
+  AIOFM · OFM Tech NSFW — setup done
+==========================================================
+  profile        : all
+  time           : 2m 49s
+  downloaded     : 6.5 GB  (~39 MB/s avg)
+  models total   : 171.9 GB in 86 files
+  free space     : 197G
+  integrity      : OK
+  comfyui core   : 0.15.1 validated
+  workflow nodes : all packs present — verified on first start
+  node versions  : pinned
+  frontend       : pinned 1.39.19
+  comfyui        : not running — nodes load on next start
+  log            : /workspace/setup.log
+==========================================================
+  Options:
+   PROFILE=video   — only pull the Wan video models
+   PIN_NODES=0     — track each node repo's default branch instead of
+                     the pinned commits (pinned is the default)
+   SAGE_INSTALL=0  — skip SageAttention
+   FIX_ORT=0       — leave onnxruntime alone
+   PIN_FRONTEND=0  — keep the pod image's ComfyUI frontend instead of
+                     1.39.19 (subgraph widgets are version-sensitive)
+   HF_WORKERS=N    — set the worker count manually
+==========================================================
+--> installer exit 0 after 170s
+=== the Civitai route, verified on the installed bytes ===
+  size   : 6938099634
+  sha256 : d234c60d67cedfe69433e3934a459707c2cf43b30232d3db2becd10371d2220f
+  diffusion_models mirror: hardlink of the Civitai file (same inode, 0 extra bytes)
+  still absent (excluded): models/loras/dmd2_sdxl_4step_lora_fp16.safetensors
+  still absent (excluded): models/checkpoints/v1-5-pruned-emaonly-fp16.safetensors
+=== boot the fresh ComfyUI on :31960 ===
+  up. object_info types: 1109
+=== boot log: packs that failed to import ===
+0
+=== ready for the browser gate ===
