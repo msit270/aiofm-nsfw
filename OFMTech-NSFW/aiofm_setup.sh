@@ -619,6 +619,35 @@ else
     COMFY_STATUS="$COMFY_VER (validated on $COMFY_VALIDATED)"
 fi
 
+# --- CLIPLoader `device` capability — the black-face fix depends on it -------
+#
+# The shipped workflow sets CLIPLoader device="cpu" on the Z-Image text encoder
+# (node 620:110; commit 7ce1539 in the pack's history). That input is OPTIONAL
+# in ComfyUI, so on a core that predates it (added upstream in v0.3.11,
+# 5cbf7978) the value is silently dropped at load — no error, no red node — and
+# the buyer renders the broken configuration while believing they have the fix.
+# A version floor alone can't catch a modified or partially-updated tree, so
+# assert the capability itself in the source that will run.
+if ! python3 - "$COMFYUI_DIR/nodes.py" <<'PYEOF'
+import re, sys
+try:
+    src = open(sys.argv[1], encoding="utf-8").read()
+except Exception as e:
+    print("      could not read nodes.py: %s" % e); sys.exit(1)
+m = re.search(r'class CLIPLoader\b.*?(?=\nclass\s)', src, re.S)
+sys.exit(0 if (m and '"device"' in m.group(0)) else 1)
+PYEOF
+then
+    die "this ComfyUI's CLIPLoader has no 'device' input ($COMFYUI_DIR/nodes.py).
+  The workflow sets device=\"cpu\" on the Z-Image text encoder (node 620:110) —
+  the fix for the black-face / MaskBoundingBox+ crash. Because the input is
+  optional, an older core SILENTLY DROPS the value and you would render the
+  broken configuration believing you have the fix.
+  Update ComfyUI core (the input exists from v0.3.11; this pack is validated
+  on $COMFY_VALIDATED) and re-run setup."
+fi
+ok "CLIPLoader supports the 'device' input (black-face fix will apply)"
+
 FRONTEND_VERSION="${FRONTEND_VERSION:-1.39.19}"
 if [[ "${PIN_FRONTEND:-1}" == "1" ]]; then
     echo ""
@@ -1774,9 +1803,24 @@ if derived:
               % (len(added), ", ".join(added)))
 
 try:
-    have = set(json.load(urllib.request.urlopen(sys.argv[1] + "/object_info", timeout=30)))
+    info = json.load(urllib.request.urlopen(sys.argv[1] + "/object_info", timeout=30))
+    have = set(info)
 except Exception as e:
     print("      could not read object_info: %s" % e); sys.exit(1)
+# The running server must expose CLIPLoader's optional `device` input — the
+# black-face fix (620:110 device="cpu") is silently dropped without it. The
+# static check at install time reads the source; this reads the server that
+# will actually execute the graph. Both must hold.
+try:
+    dev = info["CLIPLoader"]["input"]["optional"]["device"]
+except (KeyError, TypeError):
+    dev = None
+if not dev:
+    print("      FATAL: the running ComfyUI's CLIPLoader has no optional 'device'")
+    print("      input. The workflow's device=\"cpu\" (the black-face fix, node")
+    print("      620:110) would be SILENTLY DROPPED. Update ComfyUI core")
+    print("      (>= v0.3.11) and re-run setup.")
+    sys.exit(2)
 missing = [n for n in need if n not in have]
 if missing:
     print("      %d of %d node types did NOT register:" % (len(missing), len(need)))
