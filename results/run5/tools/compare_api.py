@@ -13,12 +13,19 @@ from collections import defaultdict
 BENIGN_KEYS = {"rgthree_comparer", "node_identifier", "previewMode"}
 
 
+def nnum(v):
+    # frontend serializes 1.0 as 1; numerically equal is equal
+    if isinstance(v, float) and v == int(v):
+        return int(v)
+    return v
+
 def norm(g):
     out = {}
     for nid, n in g.items():
         if nid.startswith("TAP_"):
             continue
-        inputs = {k: v for k, v in n["inputs"].items() if k not in BENIGN_KEYS}
+        inputs = {k: nnum(v) for k, v in n["inputs"].items()
+                  if k not in BENIGN_KEYS}
         out[nid] = {"class_type": n["class_type"], "inputs": inputs}
     return out
 

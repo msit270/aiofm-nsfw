@@ -97,3 +97,38 @@ def sdxl_fixed(prompt=FIXED_PROMPT, taps=None, mouth_thr=0.5, tdd_cfg=None,
         overrides=ov,
         rewires={("619:610", "model"): ["618", 0],
                  ("619:610", "clip"): ["618", 1]})
+
+
+def final_graph(kind="luna_z", pick_list="", **kw):
+    """The shippable graph: no measurement taps, selector live by default,
+    product SaveImage prefix, prompt/seed WIRED from the 483 UI node, dead
+    SDXL-side nodes pruned."""
+    g = luna_z(taps={}, **kw) if kind == "luna_z" else sdxl_fixed(taps={}, **kw)
+    g["619:603"]["inputs"]["pick_list"] = pick_list
+    g["505"]["inputs"]["filename_prefix"] = "Luna/Personal"
+    if kind == "luna_z":
+        # dev instrumentation out of the product (run-2 verdict; its stale
+        # rgthree_comparer temp URLs were a known buyer-visible trap)
+        g.pop("419", None)
+        # the owner's prompt/seed UI (483 -> 590 string, 483 slot2 seed)
+        g["ZB_pos"]["inputs"]["text"] = ["619:590", 0]
+        g["ZB_k"]["inputs"]["seed"] = ["483", 2]
+        # ZU (tiled-refine cond) follows the same prompt
+        g["ZU_pos"]["inputs"]["text"] = ["619:590", 0]
+        # prune everything unreachable from the terminal nodes
+        sinks = [n for n, v in g.items() if v["class_type"] in
+                 ("SaveImage", "PreviewAny", "Image Comparer (rgthree)",
+                  "INSTARAW_PromptBatchPreview")]
+        seen = set()
+        def walk(n):
+            if n in seen:
+                return
+            seen.add(n)
+            for v in g[n]["inputs"].values():
+                if isinstance(v, list) and str(v[0]) in g:
+                    walk(str(v[0]))
+        for s in sinks:
+            walk(s)
+        for n in [n for n in g if n not in seen]:
+            del g[n]
+    return g

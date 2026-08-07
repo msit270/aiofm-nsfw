@@ -1,0 +1,10 @@
+{
+ "arm": "D_sdxlfix_PT",
+ "batch": "D",
+ "ok": true,
+ "exec_s": 143.29,
+ "cached_nodes": 27,
+ "prompt_id": "877e535f-8462-438c-9f74-dc7dcf6556f3",
+ "outputs_dir": "/workspace/run5/output/D/D_sdxlfix_PT",
+ "status_str": "success"
+}
