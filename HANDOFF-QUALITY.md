@@ -201,3 +201,31 @@ The sellable product is untouched: dist/AIOFMTech-NSFW.tar.gz, the gist,
 and the published HF paths were never written to (pack builder carries a
 dist/ write-guard; every artifact of this run lives under dist-personal/,
 Personal-NSFW/, results/run5/).
+
+## MID-RUN OWNER DIRECTION (2026-08-08, run 5 continues)
+
+CONSTRAINT 1 — CHARACTER-GENERAL BUILD. Luna is the tuning subject, not the
+target. cos-to-Luna is an instrument only. Every landed setting gets marked
+character-general vs character-specific (documented default + sane range).
+LoRA path stays a widget; nothing Luna-named ships in prompts/nodes/files;
+"LUNA-Z" name retired (architecture = Z-NATIVE, config = PC). A
+CHARACTER-SWAP-CHECKLIST.md will list what to re-check on first non-Luna
+LoRA. Generalisation is UNPROVEN (only Luna LoRAs exist here) and will be
+stated as such.
+
+CONSTRAINT 2 — PHOTOGRAPHIC BEATS DETAILED. More texture was PICKED (S3
+body, S4 res_multistep freckling); what loses is anything that reads
+PROCESSED (LUNA-Z S1 face = too hard; S10 Z-hands = overbaked/veiny; SDXL
+baseline = plastic). Arms are scored by that rule; metric disagreements get
+called out explicitly.
+
+VERDICTS: S1 face → zusdu617 (soft SDXL-born face, gently Z-textured);
+S3 body → LUNA-Z-30 (Z base 30/cfg2); S4 res_multistep+simple won on ship
+arch — RETEST on the shipping graph; S6 mouth: no visible difference fired
+vs not → agent B tests full deletion; S5/S10 hands: both rejected, S10
+layout broken → agents A + E.
+
+IN FLIGHT: batch G = PC reconciliation (Z-30/cfg2 base + live negatives +
+soft face pass) x3 comps + den/sampler/hybrid tiles + negative-liveness
+proof. Agents: A hands research, C lighting research, D black-render
+research, F architecture research. GPU serialized through the orchestrator.
