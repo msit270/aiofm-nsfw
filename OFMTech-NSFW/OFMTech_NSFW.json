@@ -1,8 +1,8 @@
 {
   "id": "0f57b357-3d3a-43e7-b5c0-d90d68ea606f",
   "revision": 0,
-  "last_node_id": 662,
-  "last_link_id": 1524,
+  "last_node_id": 664,
+  "last_link_id": 1526,
   "nodes": [
     {
       "id": 480,
@@ -7404,8 +7404,8 @@
         "version": 1,
         "state": {
           "lastGroupId": 38,
-          "lastNodeId": 662,
-          "lastLinkId": 1524,
+          "lastNodeId": 664,
+          "lastLinkId": 1526,
           "lastRerouteId": 10
         },
         "revision": 0,
@@ -7753,7 +7753,9 @@
               {
                 "name": "MASK",
                 "type": "MASK",
-                "links": []
+                "links": [
+                  1525
+                ]
               },
               {
                 "name": "IMAGE",
@@ -8066,7 +8068,7 @@
                 "name": "mask",
                 "shape": 7,
                 "type": "MASK",
-                "link": null
+                "link": 1526
               },
               {
                 "localized_name": "x",
@@ -8935,6 +8937,86 @@
             "color": "#653",
             "bgcolor": "#764",
             "title": "eyes ran? False = no face found, eye detail SKIPPED"
+          },
+          {
+            "id": 664,
+            "type": "FeatherMask",
+            "pos": [
+              5240.0,
+              5480.0
+            ],
+            "size": [
+              240.0,
+              150.0
+            ],
+            "flags": {},
+            "order": 24,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "mask",
+                "type": "MASK",
+                "link": 1525
+              },
+              {
+                "name": "left",
+                "type": "INT",
+                "widget": {
+                  "name": "left"
+                },
+                "link": null
+              },
+              {
+                "name": "top",
+                "type": "INT",
+                "widget": {
+                  "name": "top"
+                },
+                "link": null
+              },
+              {
+                "name": "right",
+                "type": "INT",
+                "widget": {
+                  "name": "right"
+                },
+                "link": null
+              },
+              {
+                "name": "bottom",
+                "type": "INT",
+                "widget": {
+                  "name": "bottom"
+                },
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "MASK",
+                "type": "MASK",
+                "links": [
+                  1526
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.3.66",
+              "Node name for S&R": "FeatherMask",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.4.1"
+              }
+            },
+            "widgets_values": [
+              30,
+              30,
+              30,
+              30
+            ],
+            "title": "feather the eyes composite (seam fix)"
           }
         ],
         "groups": [],
@@ -9298,6 +9380,22 @@
             "target_id": 662,
             "target_slot": 0,
             "type": "BOOLEAN"
+          },
+          {
+            "id": 1525,
+            "origin_id": 403,
+            "origin_slot": 0,
+            "target_id": 664,
+            "target_slot": 0,
+            "type": "MASK"
+          },
+          {
+            "id": 1526,
+            "origin_id": 664,
+            "origin_slot": 0,
+            "target_id": 418,
+            "target_slot": 2,
+            "type": "MASK"
           }
         ],
         "extra": {
