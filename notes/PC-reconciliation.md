@@ -77,3 +77,24 @@ as INSTRUMENT data (cos-to-Luna), not the goal (constraint 1).
 - den 0.35 vs 0.50 on PC: .761/9.79 vs .799/9.73 — 0.50 keeps identity
   AND softness (the higher repaint replaces 30-step crunch with
   euler_ancestral's cleaner rendering).
+
+## CLOSE-UP REGIME FINDING (constraint-2 failure on CU, 2026-08-08 ~00:0x)
+
+G_PC1_CU (base 30/cfg2): the face texture goes blotchy/crusty at close-up —
+large raised-looking patches across forehead/cheeks/chin; reads PROCESSED
+(MY JUDGEMENT), cos drops to 0.658. The same config is clean on FB (0.799)
+and PT (0.740, photographic-read: good directional window light, natural
+skin — MY JUDGEMENT; verifier flagged these lines missing, added here).
+Mechanism (consistent with trap #11 + F research): on close-ups the face is
+huge, the detail passes sample it at native resolution, and the 30-step
+cfg-2 base's dense texture compounds through the chain — the old
+"steps-30 crust" regime returns, composition-gated.
+Consequence: base 30/cfg2 (the S3 pick) is COMPOSITION-SENSITIVE, not just
+character-specific. Candidate resolutions, pending batch I's cfg-1.5 arm:
+(a) default 8/cfg1 with 30/cfg2 as the documented full-body/texture option;
+(b) middle setting (cfg 1.5) if I_cfg15 holds FB texture without CU crust.
+S12 sheet is the decision artifact. Verifier-3's other fixes adopted: the
+"fast 30-step bars" exclusion rationale was wrong (they are healthy
+detailer-crop bars — the 11-12 s base figure itself stands); negproof's
+negative addition was ", black dress, black clothing, dark fabric" and its
+graph also drops the 8 tap sinks (verified inert).

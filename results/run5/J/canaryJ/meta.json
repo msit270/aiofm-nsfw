@@ -1,0 +1,10 @@
+{
+ "arm": "canaryJ",
+ "batch": "J",
+ "ok": true,
+ "exec_s": 0.112,
+ "cached_nodes": 9,
+ "prompt_id": "9c661bcc-7ee5-453c-b7c8-d14a4568cd34",
+ "outputs_dir": "/workspace/run5/output/J/canaryJ",
+ "status_str": "success"
+}
