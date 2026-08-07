@@ -1,219 +1,152 @@
-# HANDOFF.md — run 3 (2026-08-07)
+# HANDOFF.md — run 4 (2026-08-07, evening)
 
-**Workflow `47419606…fca30d4b` · archive `29175edc…5fe16a3e` (8,153,528 B, 170
-files) · PUBLISHED to `msit270/AIOFM-Pack` 2026-08-07 (HF commit `d1e7c75d`,
-owner-supplied write token) and verified from the buyer's side: etag and size
-match, the full download hashes byte-identical to the local cut, and the
-workflow inside the published archive hashes `47419606…`.**
+**The licensing run. Workflow `47419606…fca30d4b` (byte-identical to run 3 —
+no rendered pixel changed) · new archive `8f376926…df21c41f5` (8,094,057 B,
+159 files) · NOT yet published — the pod token is read-only; the publish and
+repo-deletion commands are in `OWNER-ACTIONS.md` and are the owner's first
+move. Fresh-install + buyer gate PASS on the new cut with the checkpoint
+fetched from Civitai for real.**
 
-Everything in the definition-of-done is DONE, with evidence under
-`results/run3/` and the reasoning in `QUESTIONS.md` §4, `notes/R3-guard.md`,
-`notes/R3-eyes.md`.
-
----
-
-## Publishing — DONE this run (owner-supplied token), kept for the record
-
-The pod's own HF token (`/workspace/.hf_token`, "VastAI") is **role: read**
-and cannot upload. The owner supplied a write token in-session
-("pack-publish-aug7"); the upload ran from the pod, the token file was deleted
-afterwards, and **the owner should revoke that token** since it passed through
-the conversation. For any future re-publish, with a write token:
-
-```bash
-HF_TOKEN="hf_your_WRITE_token" \
-/venv/main/bin/hf upload msit270/AIOFM-Pack \
-    /workspace/nsfw-fix/dist/AIOFMTech-NSFW.tar.gz \
-    dist/AIOFMTech-NSFW.tar.gz \
-    --commit-message "NSFW run-3 cut: no-face guard, selector fixes, setup device asserts, polish. Workflow 47419606, archive 29175edc"
-```
-
-Then confirm from the buyer's side (the only side that counts):
-
-```bash
-curl -sS -I -H "Authorization: Bearer $HF_TOKEN" \
-  "https://huggingface.co/msit270/AIOFM-Pack/resolve/main/dist/AIOFMTech-NSFW.tar.gz" \
-  | grep -i 'x-linked-etag\|x-linked-size'
-# expect: x-linked-etag: "29175edc581cd61d96324bd3bcedc4da36c638b90211554fa1823f4c5fe16a3e"
-#         x-linked-size: 8153528
-```
-
-Verified live 2026-08-07 after the upload: the resolve URL returns
-`x-linked-etag "29175edc…"` / `x-linked-size 8153528`, replacing the old
-`3f6d0f2f…` artifact that had none of the graph fixes. The buyer one-liner
-(unchanged, the gist needed no edit):
-
-```bash
-echo "hf_YOUR_TOKEN" > /workspace/.hf_token
-bash <(wget -qO- "https://gist.githubusercontent.com/msit270/70256ac1ebf2760e10f78804862db528/raw/aiofm_setupnsfw.sh")
-```
+Read in this order: `LEGAL-MEMO.md` (what is proven vs. what is your
+judgement), `OWNER-ACTIONS.md` (the commands only you can run),
+`results/run4/MODEL-AUDIT.md` (every model file, hash-identified, flags from
+APIs), `notes/R4-decisions.md` (this run's judgment calls). Acceptance
+criteria this run was judged against: `results/run4/ACCEPTANCE.md`; verifier
+notes beside it.
 
 ---
 
 ## What changed, and the proof for each
 
-**1. `622:403` can no longer kill a render — at any prompt length (DoD 3).**
-The eyes stage now checks its own face detection (`ImpactIsNotEmptySEGS` →
-lazy `ImpactConditionalBranch`, C-fix-design C1): no face found → the whole
-eyes subtree (including the crashing `MaskBoundingBox+` and its 8-step
-sampler) is never scheduled and the mouth-stage image passes through, with
-`PreviewAny` ("eyes ran? False = …") putting the skip in `/history` and on the
-canvas (C1b). Commit `6de805d`. Proof: fold-diff vs the pre-guard export
-IDENTICAL; happy path **byte-identical pixels** (max abs diff 0, full frame,
-cold, fixed seeds); and the deterministic pair — detector threshold forced to
-0.99 so detection MUST fail — crashes the unguarded bytes at `622:403` and
-completes on the guarded bytes with the delivered image pixel-equal to the
-mouth-stage tap. Bands on the shipping config, all cold, all healthy faces
-(YOLO 0.90 class): 16, 46, 103, 110 tokens.
+**1. The base checkpoint is no longer redistributed (route a — the run's
+point).** `SDXLNSFW.safetensors` is LUSTIFY! GGWP (V7) — proven by SHA256
+(repo LFS oid == Civitai version 2155386's published hash; the brief's
+1094291 was wrong, it maps to the ENDGAME-era version). Flags read from the
+API this session and stored: `allowCommercialUse ['RentCivit','Image']`
+(no Sell), `allowDerivatives false`. The installer now: excludes both repo
+copies from the bulk pull (`LICENCE_EXCLUDE_PATHS`), preflights Civitai
+BEFORE any download (key present → version resolves → upstream hash still
+identical → key unlocks the download (401/403 disambiguated) → disk
+sufficient), downloads with the buyer's own key, verifies exact size then
+full SHA256, places, and hardlinks the diffusion_models mirror. Every
+failure is fatal and names the cause + the buyer's next step; none is a
+warning. Negative-tested six ways on the shipped bytes
+(`results/run4/routea/SUMMARY.md`). Commit `cbc4ac2`.
 
-**2. The "103–120 band" was probe-only — a correction to the last handoff.**
-All eight arms behind "103–120 still crashes, fix or no fix" ran the probe
-graph (frozen base image). The full 88-node graph had never been run at 103
-tokens; it rendered clean today (`R3_PC_head_103`). The full-graph crash is
-still real — `R3_PC_mid_46` (device default, 46 tokens) died at `622:403`
-cold the same hour — and the bistability now flips arm-to-arm on one process,
-so only same-window controls mean anything. `notes/R3-guard.md`.
+**2. Proven end-to-end on a fresh install (DoD).** `fresh_install4.sh`:
+fresh tree, empty custom_nodes, SDXLNSFW/dmd2/v1-5 withheld, LIVE gist
+one-liner, run-4 pack via the bootstrap's own mirror override. Install exit
+0 in 170 s — the 6.94 GB came from civitai.com (~2.5 min on this pod's
+link), SHA256-verified in-script, and the excluded files did not arrive
+(asserted, including hardlink-inode identity for the diffusion_models
+mirror). Buyer gate PASS: both LoRAs via widget menus, face prompt typed
+into `#106` and read back, Run → 92-node graph accepted, selector answered
+(Send disabled on open → click → enabled), render success 280 s,
+`HasMetadata_00001_.png` 2688×3456 delivered, eyes stage ran
+(`622:662 → True`), face YOLO 0.8652. Twelve screenshots +
+api graph + result.json in `results/run4/fresh/`. Only page errors:
+ComfyUI's stock first-boot userdata 404s (user.css/templates/index probes),
+none from our packs. Commit `d34c481`.
+Buyer journey delta: **one new step** — put a free Civitai API key in
+`/workspace/.civitai_token`; skip it and the install stops in minute one
+with the five-step instructions.
 
-**3. The eye regression: `device=cpu` stays, and the dual-loader idea is dead
-(DoD 5).** The experiment: face/mouth encodes on cpu with eye encodes back on
-the GPU renders **pixel-identical to full-cpu** (max 2 levels) while both
-differ from all-default identically. So the eye change enters through the
-face-pass output image — changing the face encode IS the fix — and no loader
-arrangement keeps both. Reverting instead would reopen black-face failures at
-ordinary prompt lengths (30–96, 166 measured); the guard would make those
-loud, but a loud black face is still not sellable output. Cost on the full
-graph, measured: 2.97 % of pixels, eye band mean 0.5 levels / max 85 / 3.2 %
-of eye-band pixels over 4 levels — milder than the probe-graph sheet that
-alarmed us. Sheets (1:1, labelled): `results/run3/sheets/
-R3_EYES_default_cpu_dual.png` and V's original
-`results/crash/V/out/V_SHEET_EYES_face_sheet1of1.png`. Overrule me with
-`git revert 7ce1539` — everything else stands either way. `notes/R3-eyes.md`.
+**3. The pack-list trim (run-3's §4-amendment debt, paid).** NODE_REPOS is
+now exactly the six packs the graph resolves to (rgthree, Impact-Pack,
+Impact-Subpack, controlnet_aux, essentials, UltimateSDUpscale) + vendored
+INSTARAW; Swwan, pysssss and eleven other video repos gone, IPAdapter_plus
+and ofmtechclip gone (zero graph nodes from either), the RIFE/SAM2
+render-time stage gone with them. Both node checks rescoped: static = 27
+verified (pack, literal) pairs incl. rgthree's runtime names via their
+`get_name()` call sites; runtime = 27-type baseline ∪ workflow-derived
+(= 54 types, re-derived independently and confirmed against the fresh
+server). Fresh boot: 7 packs, 0 import failures, 0 Swwan/pysssss lines,
+0 collisions — the ~40 cosmetic boot errors are gone at the source, so the
+three run-3 `product-known` ignore rules are now moot in fresh installs.
+Commit `b0ab0d4`. Model downloads deliberately untouched.
 
-**4. The setup script cannot let a buyer run the broken config believing they
-are fixed (DoD 4).** Two assertions, both naming the fix in their failure
-text: a static regex of CLIPLoader's class block in the installed `nodes.py`
-(dies during install), and a runtime check of `/object_info` (exit 3 → die;
-the verifier caught the first version being swallowed and it is now
-end-to-end fatal). Negative-tested against a doctored pre-v0.3.11 `nodes.py`.
-Commits `d4bde0f`, `d7ea270`.
+**4. UnMarker (B3) and GrainNet (B4) are out of the shipped INSTARAW.**
+11 files deleted (both declared "Ported from ai-watermark" files +
+unmarker_full + the GrainNet trio incl. `grainnet.pt` + the dead, already
+un-importable UnMarker driver pipeline + — judgment call, reversible,
+`notes/R4B-instaraw-removal.md` §6.1 — `non_semantic_attack.py` and its
+`INSTARAW_Spectral_Normalizer` node). Root cause of the old 95→0 trap:
+`utils/__init__.py:12` imported the encumbered chain unconditionally.
+Result: 98→96 registered types, delta exactly the two intended nodes, all
+7 workflow types present, registration surface of survivors identical to a
+control (0 field diffs), ComfyUI's own loader clean both sides —
+independently re-verified before commit. Also: `__pycache__` purged
+(bytecode ships code; `strings` on the .pyc proved it) — build_pack already
+excludes it and the published run-3 tarball was checked clean of .pyc.
+Commit `9776061`.
 
-**5. The selector trap is gone (DoD 8).** No auto-pick: the popup opens with
-nothing selected and Send disabled; one click selects and enables, every
-batch size. Companions: Enter now respects the disabled Send (it used to
-submit an empty selection — `InterruptProcessingException`, render dead, from
-one keypress), and digit keys can no longer index past the batch end. Browser
-proof in both DoD-2 gates: `send_enabled on open=false → one click → true`.
-Commits `f3cff3b`, `fd77e7a`.
+**5. The full model audit — the pack was dirtier than QUESTIONS §0 said.**
+All 43 LFS binaries identified by hash (38/42 unique contents to a named
+model; obfuscated names fall away: IronSight_V7 = Wan CLIP-Vision H,
+EchoVault_T9 = UMT5-XXL, High/Low = a no-Sell Civitai Wan fine-tune, etc.),
+every flag from a stored API response. `results/run4/MODEL-AUDIT.md`,
+commit `9c37b00`. Headlines:
+- **Three NEW problems ON the NSFW render path**, unfixed (each fix
+  changes output → owner's eye required): `4x-UltraSharpV2.pth`
+  (cc-by-nc-sa-4.0, loaded TWICE — #612 main upscale, #100 second),
+  `x1_ITF_SkinDiffDetail_Lite_v1.pth` (cc-by-nc-sa-4.0, #90), `lips_v1.pt`
+  (Civitai 142240, flags no-Sell — found by downloading the publisher's
+  ZIP and hashing its members; a by-hash 404 means "not published as a
+  bare file", not "not on Civitai"). NC restricts USE, not just
+  redistribution — a buyer-side fetch cannot cure the first two.
+  Permissively-licensed replacement candidates with stored flags:
+  `notes/Q1-currency.md`.
+- Delete-safe encumbered dead weight staged for the owner: flux-2
+  (= FLUX.2-klein-9B, non-commercial, source-gated, 18 GB), flux2-vae
+  (FLUX.2-dev VAE), sam3.pt (Meta SAM License, gated=manual), High+Low
+  (29 GB), Z-TurboSkinForge (grants neither commercial images nor
+  redistribution), VelvetPores, DetailedNipples, HyperFleshUltrav4
+  (Sell granted but credit required, not given), upscale1.pth
+  (= 4x-UltraSharp v1, cc-by-nc-sa-4.0), dmd2 (cc-by-nc-4.0), v1-5.
+- Video impact of every deletion checked in the published video tarball:
+  the video workflow loads none of them; worst case is `warn` lines under
+  PROFILE=all. Deleting breaks no video render.
+- Still unidentified: `nipple.pt`, `pussyV2.pt` (dead path),
+  `RealityGlass4x.pth` (unreferenced). The zip-member trick has not been
+  tried on them.
 
-**6. ignore.json (DoD 7): two rules fixed at source, three reclassified by
-what the fresh install exposed.** The two original `product-known` rules are
-deleted because their defects are gone: the ten stale
-`rgthree.compare._temp_*.png` refs are out of the workflow (8 died with the
-anatomy subgraph, 2 reset on `#419`), and the RPG `console.error` was already
-downgraded (`73e0a2c`). Then the fresh install falsified a run-2 premise: the
-three "environment" rules claimed a buyer never has Swwan / pysssss / the
-rgthree collision — but **the NSFW installer reuses the video `NODE_REPOS`
-wholesale, so every buyer gets all of them**, and a fresh install's boot logs
-~40 cosmetic console errors from Swwan's two missing web files plus its
-extension-name collisions with the rgthree the graph genuinely needs. Those
-three rules are now honestly `product-known` with the fix named: **trim
-`NODE_REPOS` to the packs the NSFW graph uses and drop the Swwan fork**.
-Deferred this run because the "Workflow node check" stage hard-names video
-packs, and editing install-check logic during a distribution cut risks more
-than labeled console noise. Nothing here gates: boot errors never fail a run
-by design, and both this run's gates were green with zero load/run errors.
+**6. Docs.** INSTALL MODELS.txt rewritten for a first-time ComfyUI user
+(terms defined, bootstrap primary, the two keys as one step with exact
+clicks, "all 54 present" derived-not-hardcoded). Commit `9a09fcd`. The
+installer header no longer describes the video product (`f7da36b`).
 
-**7. Polish, each provably conversion-inert (fold-diff IDENTICAL, integrity
-0 problems, plus the byte-identical A6 render):** dead anatomy subgraph
-deleted (`b4f7359` — it sat bypassed on the live image wire; a buyer can no
-longer un-bypass into five never-validated detailer paths); `#419` comparer
-state reset (`4226580`); all 120 remaining Russian `localized_name` fields
-stripped (`fd140a2` — every buyer saw Russian slot labels); host `#620` ships
-expanded (`fea23a3` — the face-prompt route is visible).
+**7. Owner-gated state.** `OWNER-ACTIONS.md`: publish command + buyer-side
+verify line for the `8f376926` cut; two-tier `hf repos delete-files`
+commands (full paths, no wildcards); run-3 write-token revocation reminder;
+video-pack re-cut noted as cosmetic. Publish, then re-run
+`fresh_install4.sh` WITHOUT `MIRROR_PACK` for the fully-live proof.
 
-**8. Output-changing fixes, each with its A/B sheet (the standing rule):**
-- **Mouth guard ceiling 1.7M → 4M** (`07d61b2`): the old ceiling sat inside
-  the real-lips range and silently deleted mouth detail on close-up renders
-  (20 recorded drops; one session went 19-passed / 20-dropped). The full
-  211-line log dataset is now in the repo: real lips up to 2.06M, the
-  full-frame false positive the guard exists for at 9.29M, nothing between.
-  A/B on the recorded dropping config: the same 1,933,356 segment drops at
-  1.7M and passes at 4M. Sheet: `results/run3/sheets/R3_MOUTH_ceiling_ab.png`.
-- **Eyes-composite feather, P14** (`72f95ba`): `622:418` pasted the
-  eye-detailed crop back with NO mask — a hard rectangle on the face box.
-  `622:403`'s already-computed mask now runs through `FeatherMask` 30 px into
-  `622:418.mask`. A/B: 0.35 % of the frame, max 5 levels, all in the boundary
-  ring, interior 0.0000 %. Sheet: `results/run3/sheets/R3_SEAM_feather_ab.png`.
-  (The `#114`-internal mask-edge step is a separate, unfixed defect.)
-- **CORS wildcard removed** (`5c17404`): 12 responses hardcoded
-  `Access-Control-Allow-Origin: *`; all callers are same-origin and ComfyUI's
-  middleware owns the policy. The three OPTIONS handlers had provably never
-  executed.
+## Track 2 — quality menu (recommend-only, in flight at handoff time)
 
-**9. Console hygiene:** the five perpetual-interval RPG debug dumps (one
-every 5 s, forever) → `console.debug` (`cda9c93`); popup per-image URL log →
-debug. Per-action logs remain — accepted this run.
+Four Q agents ran under `notes/Q-PROTOCOL.md` (GPU lock, fresh server per
+arm on :19188, never 18188, one variable per arm). Q1 (currency) is
+complete — `notes/Q1-currency.md`: six of seven pins current;
+controlnet_aux's 7-commit lag is a MediaPipe rewrite PROVEN to crash under
+our pin (do not bump); core v0.29 changed Z-Image RoPE numerics
+(output-affecting — pin stands); detector/upscaler alternatives with
+API-read licences; zero hands detected in all 14 delivered frames (the
+hands pass may be idle at default framing — menu item). Q2
+(bbox_crop_factor: UNTESTED→measured), Q3 (Z-Image levers), Q4 (other
+settings) had completed arms + partial sheets at handoff and resume
+automatically; their notes land in `notes/Q2-…/Q3-…/Q4-settings.md` and
+sheets under `results/run4/quality/`. NOTHING from track 2 touched the
+pack: the workflow hash is the invariant above. Mid-run lesson now in the
+protocol's history: flock is not FIFO — the track-1 gate was starved until
+a sentinel-yield was imposed (`notes/R4-decisions.md` #10).
 
-**10. `INSTALL MODELS.txt` step 1** no longer tells gist-bootstrap buyers
-their working install is broken (`0079b53`).
+## Standing facts (unchanged from run 3)
 
-## Verified-stale items from your list (checked on current bytes, not assumed)
+The run-3 published pack (`29175edc`) remains live until the owner
+publishes. Crash guard, selector fixes, cpu CLIPLoader, mouth ceiling 4M,
+eyes feather, two-LoRA design: all stand; nothing output-changing shipped
+this run. `d_setup.sh`/`d_gate.sh` EXPECT hashes moved to the `8f376926`
+cut (workflow EXPECT unchanged).
 
-- **`#600` reseeding**: no sampler randomizes — all 11 seed controls on current bytes read
-  `fixed` (13 before the anatomy subgraph deletion); the graph is reproducible from its exposed seeds. (Fixed in a
-  prior run; the open-items list predated it.)
-- **cfg=1 negatives**: all three Z-side negatives (`105`, `167`, `394`) ship
-  empty, and canvas notes `649`/`652` explain why at length. The SDXL side
-  runs real cfg and its negatives apply. Nothing to change.
-- **ControlNet / SetUnionControlNetType**: zero matches in the file — that
-  path was deleted before this run.
-- **"Dont touch!!!" subgraph names**: already renamed; all six (was seven)
-  defs carry descriptive names.
-- **`#597`→`#616` VAE round-trip**: present, per your "D1 stays reverted".
-- **Double face detail (sg1 0.45 → sg2 0.80)**: kept. Removal saved no
-  measurable time and pass 1 measurably survives into the final image; the
-  A/B pair is in `results/ws4/` if you want to overrule.
-
-## Accepted, with reasons (QUESTIONS.md §4)
-
-Loader duplication (3× face_yolov8m, 3× sam_vit_b, 2× UltraSharp);
-`node_identifier` persistence + the server-global selector waiter
-(single-tenant product); RPG per-action logs; `#98` tiling question;
-`MAP.md`/`AUDIT.md` describe the pre-run-2 graph and were not rewritten —
-`notes/` + this file are current.
-
-## Licensing (untouched, per instruction)
-
-`QUESTIONS.md` §0 unchanged and still accurate: LUSTIFY (B1) is your next
-run; DMD2/UnMarker/GrainNet (B2–B4) still ship to every buyer because the
-model repo and pack contents were out of scope here. Publishing the run-3
-tarball changes `dist/` only — it does not fix B2–B4.
-
-## The fresh-install proof (DoD 1)
-
-`tools/browser_harness/fresh_install.sh`: fresh tree (empty `custom_nodes`,
-hardlinked models), the LIVE gist one-liner, the run-3 pack served through
-the bootstrap's own `AIOFM_PACK_URL` override (read-only token — see above;
-re-run without `MIRROR_PACK` after you publish for the full-live version).
-Install exit 0 in 85 s with the device assertion visibly passing; ComfyUI
-booted on `:31950`; the buyer gate (`results/run3/fresh/`): **PASS** — zero
-red nodes, both Luna LoRAs through the widget menus, the 60-token character
-description typed and read back on `#106`, Run, 92-node graph accepted,
-selector answered with a single click (Send: disabled on open → enabled after
-the click), render complete in 271 s, `HasMetadata_00001_.png` delivered, and
-twelve screenshots including the finished image on the canvas
-(`fresh-buyer-11-final-image-on-canvas.png`; the last file is the image feed,
-`fresh-buyer-12-final-image-feed.png`). Face confidences for every frame
-named in this file are on disk in `results/run3/yolo_confidences.json`.
-
-## Instruments
-
-- `results/run3/ACCEPTANCE.md` — the criteria this run was judged against.
-- `results/run3/tools/r3.py` — the arm driver (cold discipline inherited from
-  Track V); `analyze.py` — pixel compares + 1:1 sheets.
-- Gates: `node tools/browser_harness/gate.js -w OFMTech_NSFW --url … --tag …
-  --face-prompt-file …` (typing now follows the buyer route into the
-  subgraph); `run.js --no-submit --install` for 9-second conversion checks.
-- `d_gate.sh` / `d_setup.sh` EXPECT hashes moved to the `29175edc…` cut.
-
-*Everything is on `master`, one commit per change, pushed.*
+*Everything on `master`, one commit per change. The pod HF token cannot
+push to HuggingFace and there is no git remote configured for this repo on
+this pod beyond what `git log` shows pushed previously.*
