@@ -141,18 +141,17 @@ WARNINGS=0
 # Custom nodes are always installed (the workflow cannot load without them);
 # PIN_NODES only decides whether they are pinned or left on their default
 # branch, so it no longer adds or removes a stage.
-# Twelve stages always run: Environment, Download accelerators, ComfyUI core
+# Eleven stages always run: Environment, Download accelerators, ComfyUI core
 # version, Base checkpoint preflight (Civitai), Downloading models, Custom
 # nodes (one of the pinned/unpinned pair), Custom node dependencies,
-# Render-time models, Integrity check, ViTPose check, Workflow node check,
-# ComfyUI restart.
+# Integrity check, ViTPose check, Workflow node check, ComfyUI restart.
 #
 # This read 10, which is where "[14/13]" came from. Two further errors sat on
 # top of it: the Workflow stage was never counted at all, and SageAttention was
 # counted whenever SAGE_INSTALL=1 even though its stage only runs when a build
 # was actually started -- on a pod that already has it, it is counted and never
 # runs. Those cancelled to -1 rather than to 0.
-STAGES=12
+STAGES=11
 [[ "${FIX_ORT:-1}"     == "1" ]] && STAGES=$((STAGES+1))
 [[ "${PIN_FRONTEND:-1}" == "1" ]] && STAGES=$((STAGES+1))
 # The Workflow stage runs when a workflow sits beside this script. That is
@@ -1326,60 +1325,45 @@ fi
 # ============================================
 # Custom nodes
 #
-# Every pack the video workflow references, pinned to a commit verified to
-# provide the node types the graph actually uses. Pinning is the default so a
-# fresh pod reproduces the environment the workflow was authored against
-# without the buyer setting anything; PIN_NODES=0 tracks default branches
-# instead.
+# Exactly the packs OFMTech_NSFW.json needs — derived from the workflow's own
+# node types and their cnr_id / aux_id fields, not from a hand list. The NSFW
+# graph's 102 nodes resolve to: comfy-core (built in), ComfyUI_INSTARAW
+# (vendored below, not cloned), and the six packs here. Nothing else.
 #
-# Repo URLs were resolved from the workflow JSON's own cnr_id / aux_id fields
-# through the ComfyUI registry (api.comfy.org/nodes/<cnr_id>) and each repo was
-# confirmed to still export the node names the graph expects. They are not
-# guesses. The previous pin (WanVideoWrapper 5a23836) predated Wan Animate and
-# was missing 5 of the 13 WanVideo* classes this graph needs.
+# This list used to be the VIDEO pack's twenty repos plus these six, which
+# shipped every NSFW buyer packs their graph never loads — including a Swwan
+# fork whose two missing web files and rgthree extension-name collisions put
+# ~40 cosmetic console errors in every fresh boot log (the run-3 ignore.json
+# 'product-known' rules). The fix is this trim, not the ignore list. A pack
+# that is not installed cannot collide.
+#
+# Pinning is the default so a fresh pod reproduces the environment the
+# workflow was validated against; PIN_NODES=0 tracks default branches instead.
+# Every SHA below is the commit checked out on the pod where OFMTech_NSFW.json
+# rendered end to end — validated by a working render, not resolved on paper.
+#
+# Notes that cost real time to establish, kept because they will bite again:
+#   * UltralyticsDetectorProvider (5 instances) is in Impact SUBPACK, not
+#     Impact Pack. Installing only the Pack leaves those nodes unresolvable.
+#   * MediaPipeFaceMeshToSEGS is in Impact PACK, not controlnet_aux.
+#     controlnet_aux supplies only MediaPipe-FaceMeshPreprocessor here.
+#   * UltimateSDUpscale has a hard floor: both UltimateSDUpscale nodes carry
+#     21 widgets_values ending in batch_size, added ~fe0196319f19
+#     (2026-02-08). Pinning older silently desyncs every widget on both.
+#     a5547db9 is 2026-06-22, comfortably past it.
+#   * cubiq's essentials is in declared maintenance-only mode (README banner,
+#     2025-04-14). ImageColorMatch+ runs three times on the live path. An
+#     unmaintained dependency in a product being sold is a deliberate risk,
+#     not an oversight — QUESTIONS Q12. (IPAdapter_plus, the other cubiq
+#     pack, is no longer installed: the graph path that used it was deleted.)
 #
 # Format: <clone url>|<commit sha>
 # ============================================
 NODE_REPOS=(
-    "https://github.com/kijai/ComfyUI-WanVideoWrapper.git|088128b224242e110d3906c6750e9a3a348a659b"
-    "https://github.com/kijai/ComfyUI-KJNodes.git|4d46ac107c33ed8a3d181b8776ede66498583380"
-    "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git|4ee72c065db22c9d96c2427954dc69e7b908444b"
-    "https://github.com/kijai/ComfyUI-WanAnimatePreprocess.git|0e0b6a2a555625acf4d4aefb780e27d06937132f"
-    "https://github.com/kijai/ComfyUI-segment-anything-2.git|0c35fff5f382803e2310103357b5e985f5437f32"
-    "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation.git|26545cc2dd95bc3d27f056016300673bdeee78f5"
     "https://github.com/rgthree/rgthree-comfy.git|6b76ee6f2c5a007710b5a16f97c94330d6ecc871"
-    "https://github.com/yolain/ComfyUI-Easy-Use.git|595e0738a9e3f8d0d9c4d875461b2d2c9e7559c7"
-    "https://github.com/evanspearman/ComfyMath.git|c01177221c31b8e5fbc062778fc8254aeb541638"
-    "https://github.com/digitaljohn/comfyui-propost.git|df6a6d122498f57ad7195d58e07701a501c9dcb6"
-    "https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git|609f3afaa74b2f88ef9ce8d939626065e3247469"
-    "https://github.com/aining2022/ComfyUI_Swwan.git|258a15eacd9f956b94fca134442e77709e8d45f7"
-
-    # --- Added for the NSFW image workflow (OFMTech_NSFW.json) ---
-    # None of these six were installed by this script before, which left that
-    # graph a wall of red nodes. Every SHA below is the commit that is checked
-    # out on the pod where OFMTech_NSFW.json was rendered end to end, so these
-    # are validated by a working 240s render, not resolved on paper.
-    #
-    # Two notes that cost real time to establish:
-    #   * UltralyticsDetectorProvider (7 instances) is in Impact SUBPACK, not
-    #     Impact Pack. Installing only the Pack leaves 7 nodes unresolvable.
-    #   * MediaPipeFaceMeshToSEGS is in Impact PACK, not controlnet_aux.
-    #     controlnet_aux supplies only MediaPipe-FaceMeshPreprocessor and
-    #     DepthAnythingV2Preprocessor.
-    #
-    # UltimateSDUpscale has a hard floor: both UltimateSDUpscale nodes in that
-    # graph carry 21 widgets_values ending in batch_size, which was added
-    # around fe0196319f19 (~2026-02-08). Pinning older silently desyncs every
-    # widget on both nodes. a5547db9 is 2026-06-22, comfortably past it.
-    #
-    # cubiq's essentials and IPAdapter_plus are both in declared
-    # maintenance-only mode (README banners, 2025-04-14). ImageColorMatch+ is
-    # used three times on the live path. Two unmaintained dependencies in a
-    # product being sold is a deliberate risk, not an oversight -- QUESTIONS Q12.
     "https://github.com/ltdrdata/ComfyUI-Impact-Pack|429d0159ad429e64d2b3916e6e7be9c22d025c3c"
     "https://github.com/ltdrdata/ComfyUI-Impact-Subpack|50c7b71a6a224734cc9b21963c6d1926816a97f1"
     "https://github.com/Fannovel16/comfyui_controlnet_aux|95a13e2e5d8f8ae57583fbebb0be1f670889858b"
-    "https://github.com/cubiq/ComfyUI_IPAdapter_plus|a0f451a5113cf9becb0847b92884cb10cbdec0ef"
     "https://github.com/cubiq/ComfyUI_essentials|9d9f4bedfc9f0321c19faf71855e228c93bd0dc9"
     "https://github.com/ssitu/ComfyUI_UltimateSDUpscale|a5547db9e1d07d3318bb21e9e9c474f4c1e9c8df"
 )
@@ -1445,18 +1429,8 @@ for entry in "${NODE_REPOS[@]}"; do
     install_node "${entry%%|*}" "${entry##*|}"
 done
 
-# ofmtechclip is not pinned: it is our own repo and is expected to move.
-OFMTECH_URL="https://github.com/msit270/ofmtechclip.git"
-if [[ -d "$COMFYUI_DIR/custom_nodes/ofmtechclip/.git" ]]; then
-    ( cd "$COMFYUI_DIR/custom_nodes/ofmtechclip" && "${GIT_Q[@]}" pull -q ) || true
-    ok "ofmtechclip updated"
-elif "${GIT_Q[@]}" clone -q "$OFMTECH_URL" "$COMFYUI_DIR/custom_nodes/ofmtechclip" 2>/dev/null; then
-    ok "ofmtechclip cloned"
-else
-    NODE_CLONE_FAIL=$((NODE_CLONE_FAIL+1))
-    warn "CLONE FAILED: ofmtechclip"
-    printf '        repo: %s\n' "$OFMTECH_URL"
-fi
+# ofmtechclip (our own video-pack helper repo) is deliberately NOT installed:
+# no node type in OFMTech_NSFW.json comes from it.
 
 if (( PIPED )); then
     warn "this script was piped, so it cannot see the files shipped beside it"
@@ -1506,16 +1480,16 @@ fi
 #
 # Two package families are filtered out before install:
 #
-#   onnxruntime / onnxruntime-gpu — ComfyUI_Swwan and ComfyUI-Easy-Use list
-#     plain `onnxruntime` unpinned, and WanAnimatePreprocess lists
-#     `onnxruntime-gpu` unpinned. Installing either here would pull a CUDA 13
-#     build over the CUDA 12 one selected in the onnxruntime stage above and
-#     send ViTPose-H silently back to the CPU. Having both packages installed
-#     side by side causes the same failure. onnxruntime-gpu already provides
-#     the `onnxruntime` module, so nothing loses a real dependency.
+#   onnxruntime / onnxruntime-gpu — ComfyUI_INSTARAW lists plain
+#     `onnxruntime` unpinned. Installing it here would pull a CUDA 13 build
+#     over the CUDA 12 one selected in the onnxruntime stage above, and
+#     having both packages side by side causes the same silent-CPU failure.
+#     onnxruntime-gpu already provides the `onnxruntime` module, so nothing
+#     loses a real dependency.
 #
-#   torch / torchvision / torchaudio — unpinned in ComfyUI_Swwan. Letting pip
-#     resolve those risks replacing the cu12x build the pod is set up around.
+#   torch / torchvision / torchaudio — unpinned in comfyui_controlnet_aux.
+#     Letting pip resolve those risks replacing the cu12x build the pod is
+#     set up around.
 #
 #   numpy — ComfyUI_INSTARAW pins `numpy==1.26.4`, a hard pin that downgrades
 #     numpy for the entire ComfyUI environment, not just that pack. Its own
@@ -1645,65 +1619,11 @@ if [[ -n "$SAGE_PID" ]]; then
     fi
 fi
 
-# ============================================
-# Models that other nodes fetch themselves at render time.
-# Pulling them here means no mid-render network call — a failed
-# download at that point costs the whole sampling pass.
-# ============================================
-stage "Render-time models (RIFE, SAM2)"
-
-# ComfyUI-Frame-Interpolation resolves a checkpoint as
-#     <pack root>/<ckpts_path from config.yaml>/<model type>
-# where ckpts_path defaults to "./ckpts" and the model type for RIFE is the
-# directory name "rife". The file therefore has to land in <pack>/ckpts/rife
-# or the node ignores it and downloads again mid-render. The pack is installed
-# above, so this path is now deterministic rather than globbed for.
-RIFE_DIR="$COMFYUI_DIR/custom_nodes/ComfyUI-Frame-Interpolation/ckpts/rife"
-mkdir -p "$RIFE_DIR"
-if [[ -s "$RIFE_DIR/rife49.pth" ]]; then
-    ok "rife49.pth present"
-else
-    for u in "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation/releases/download/models/rife49.pth" \
-             "https://github.com/styler00dollar/VSGAN-tensorrt-docker/releases/download/models/rife49.pth"; do
-        if wget -q --show-progress -O "$RIFE_DIR/rife49.pth" "$u"; then
-            ok "rife49.pth fetched"; break
-        fi
-        rm -f "$RIFE_DIR/rife49.pth"
-    done
-    [[ -s "$RIFE_DIR/rife49.pth" ]] || warn "rife49.pth could not be fetched — it will download mid-render"
-fi
-
-# DownloadAndLoadSAM2Model does NOT load the filename shown on its widget.
-# ComfyUI-segment-anything-2/nodes.py:62-65:
-#     if precision != 'fp32' and "2.1" in model:
-#         base_name, extension = model.rsplit('.', 1)
-#         model = f"{base_name}-fp16.{extension}"
-# The graph runs that node at precision=fp16 with sam2.1_hiera_base_plus, so
-# the file it actually opens is sam2.1_hiera_base_plus-fp16.safetensors and
-# anything else is downloaded mid-render — which is exactly what this stage
-# exists to prevent. Fetching the plain name pulled 323 MB that is never read
-# and still left the 162 MB the render needs to arrive during sampling.
-# Verified on this pod: setup wrote the plain file at 00:19, and the node
-# downloaded the -fp16 file itself at 00:42 during the first render.
-mkdir -p "$COMFYUI_DIR/models/sam2"
-SAM2_FILE="sam2.1_hiera_base_plus-fp16.safetensors"
-if [[ -s "$COMFYUI_DIR/models/sam2/$SAM2_FILE" ]]; then
-    ok "$SAM2_FILE present"
-else
-    hf_pull_flat "Kijai/sam2-safetensors" "$SAM2_FILE" \
-                 "$COMFYUI_DIR/models/sam2" \
-        && ok "sam2 fetched (fp16)" \
-        || warn "sam2 not fetched — it will download on first render"
-fi
-# Only needed if a buyer switches that node to precision=fp32, which the
-# shipped graph does not. Fetched best-effort so that path is not a surprise,
-# but its absence is not worth a warning.
-if [[ ! -s "$COMFYUI_DIR/models/sam2/sam2.1_hiera_base_plus.safetensors" ]] \
-   && [[ "${SAM2_FP32:-0}" == "1" ]]; then
-    hf_pull_flat "Kijai/sam2-safetensors" "sam2.1_hiera_base_plus.safetensors" \
-                 "$COMFYUI_DIR/models/sam2" \
-        && ok "sam2 fp32 variant fetched" || true
-fi
+# (The old "Render-time models (RIFE, SAM2)" stage is gone with the video
+# packs: RIFE's checkpoint lived INSIDE ComfyUI-Frame-Interpolation — fetching
+# it would recreate a bare directory under custom_nodes that ComfyUI then
+# fails to import on every boot — and SAM2 is loaded only by
+# ComfyUI-segment-anything-2. The NSFW graph uses neither.)
 
 # ============================================
 # Install the workflow itself
@@ -1886,77 +1806,44 @@ check_node() {   # $1 = pack directory name, $2 = node type string
     return 0
 }
 
-for n in WanVideoAnimateEmbeds WanVideoBlockSwap WanVideoClipVisionEncode \
-         WanVideoDecode WanVideoLoraSelect WanVideoLoraSelectMulti \
-         WanVideoModelLoader WanVideoSampler WanVideoSetBlockSwap \
-         WanVideoSetLoRAs WanVideoTextEncodeCached \
-         WanVideoTorchCompileSettings WanVideoVAELoader; do
-    check_node ComfyUI-WanVideoWrapper "$n"
+# The NSFW graph's non-core node types, one check per (pack, type). This list
+# was derived from OFMTech_NSFW.json's node types + cnr_id/aux_id fields and
+# every literal below was verified to occur in the pinned pack sources, so a
+# MISSING here means the pack really is absent or has moved, not that the
+# grep style is wrong.
+for n in BboxDetectorSEGS DetailerForEachDebug FaceDetailer FaceDetailerPipe \
+         ImpactConditionalBranch ImpactIsNotEmptySEGS MaskToSEGS \
+         MediaPipeFaceMeshToSEGS SAMLoader SEGSRangeFilterDetailerHookProvider \
+         SegsToCombinedMask ToDetailerPipeSDXL; do
+    check_node ComfyUI-Impact-Pack "$n"
 done
-for n in BlockifyMask GetImageSizeAndCount GrowMaskWithBlur ImageConcatMulti \
-         ImageResizeKJv2 INTConstant; do
-    check_node ComfyUI-KJNodes "$n"
+check_node ComfyUI-Impact-Subpack   UltralyticsDetectorProvider
+check_node comfyui_controlnet_aux   MediaPipe-FaceMeshPreprocessor
+for n in "ImageColorMatch+" "ImageResize+" "MaskBoundingBox+"; do
+    check_node ComfyUI_essentials "$n"
 done
-# SetNode / GetNode are deliberately not in that list — see the frontend-only
-# section below.
-check_node ComfyUI-VideoHelperSuite   VHS_LoadVideo
-check_node ComfyUI-VideoHelperSuite   VHS_VideoCombine
-for n in PoseAndFaceDetection DrawViTPose OnnxDetectionModelLoader \
-         PoseRetargetPromptHelper; do
-    check_node ComfyUI-WanAnimatePreprocess "$n"
+check_node ComfyUI_UltimateSDUpscale UltimateSDUpscale
+for n in INSTARAW_BatchFromImageList INSTARAW_BooleanBypass \
+         INSTARAW_ImageFilter INSTARAW_ImageListFromBatch \
+         INSTARAW_ImageResizeFill INSTARAW_PromptBatchPreview \
+         INSTARAW_RealityPromptGenerator; do
+    check_node ComfyUI_INSTARAW "$n"
 done
-check_node ComfyUI-segment-anything-2 DownloadAndLoadSAM2Model
-check_node ComfyUI-segment-anything-2 Sam2Segmentation
-check_node ComfyUI-Frame-Interpolation "RIFE VFI"
-for n in "easy cleanGpuUsed" "easy clearCacheAll" "easy mathFloat" \
-         "easy showAnything"; do
-    check_node ComfyUI-Easy-Use "$n"
-done
-check_node ComfyMath                  CM_IntToFloat
-check_node comfyui-propost            ProPostFilmGrain
-check_node ComfyUI-Custom-Scripts     "ShowText|pysssss"
-check_node ComfyUI_Swwan              DrawMaskOnImage
 
-# --- nodes that are NOT registered in Python ---
-#
-# Four of the graph's node types never appear in NODE_CLASS_MAPPINGS, so
-# grepping the Python sources for them reports a false MISSING on a perfectly
-# good install, and they never show up in /object_info either:
-#
-#   SetNode, GetNode        KJNodes registers these client-side with
-#                           LiteGraph.registerNodeType() in
-#                           web/js/setgetnodes.js, delivered via
-#                           WEB_DIRECTORY = "./web". No Python class exists —
-#                           the strings do not occur anywhere in the pack's
-#                           .py files.
-#   Label (rgthree)         Same situation: frontend-only, registered in JS as
-#                           rgthree.Label in web/comfyui/label.js.
-#   Any Switch (rgthree)    Does have a Python class, but its name is built at
-#                           runtime — py/constants.py sets NAMESPACE='rgthree'
-#                           and get_name() appends " (rgthree)" — so the literal
-#                           string never appears in the source either.
-#
-# For all four, check the real marker that proves the node will be available.
-check_web_node() {   # $1 = pack dir, $2 = marker file relative to it, $3 = node name
+# rgthree builds its two node names at runtime — py/constants.py sets
+# NAMESPACE='rgthree' and get_name() appends " (rgthree)" — so the literal
+# "Lora Loader Stack (rgthree)" never occurs in the source. Check the
+# get_name() call sites instead (verified against the pinned commit).
+for n in "Lora Loader Stack" "Image Comparer"; do
     NODE_CHECKED=$((NODE_CHECKED+1))
-    if [[ -f "$CN_DIR/$1/$2" ]]; then return 0; fi
-    printf '      %sMISSING NODE%s  %-34s expected in: %s/%s\n' "$C_R" "$C_0" "$3" "$1" "$2"
-    NODE_FAIL=$((NODE_FAIL+1))
-    return 0
-}
-
-check_web_node ComfyUI-KJNodes web/js/setgetnodes.js      SetNode
-check_web_node ComfyUI-KJNodes web/js/setgetnodes.js      GetNode
-check_web_node rgthree-comfy   web/comfyui/label.js       "Label (rgthree)"
-
-NODE_CHECKED=$((NODE_CHECKED+1))
-if [[ -d "$CN_DIR/rgthree-comfy" ]]; then
-    grep -rqF 'get_name("Any Switch")' "$CN_DIR/rgthree-comfy" 2>/dev/null \
-        || { printf '      %sMISSING NODE%s  Any Switch (rgthree)\n' "$C_R" "$C_0"; NODE_FAIL=$((NODE_FAIL+1)); }
-else
-    printf '      %sMISSING PACK%s  rgthree-comfy\n' "$C_R" "$C_0"
-    NODE_FAIL=$((NODE_FAIL+1))
-fi
+    if [[ ! -d "$CN_DIR/rgthree-comfy" ]]; then
+        printf '      %sMISSING PACK%s  rgthree-comfy                      provides: %s (rgthree)\n' "$C_R" "$C_0" "$n"
+        NODE_FAIL=$((NODE_FAIL+1))
+    elif ! grep -rqF --include='*.py' "get_name('$n')" "$CN_DIR/rgthree-comfy" 2>/dev/null; then
+        printf '      %sMISSING NODE%s  %-34s expected in: rgthree-comfy\n' "$C_R" "$C_0" "$n (rgthree)"
+        NODE_FAIL=$((NODE_FAIL+1))
+    fi
+done
 
 if [[ "$NODE_FAIL" -eq 0 ]]; then
     ok "all $NODE_CHECKED node types found on disk (static check of the installed packs)"
@@ -2030,28 +1917,39 @@ comfy_wait_up() {   # $1 = max seconds. Images note ComfyUI can take 30-60s to r
 
 # Verifies the packs actually registered, which the static check above cannot
 # do — it only proves the files are on disk, not that they imported cleanly.
-# The 3 frontend-only types (SetNode, GetNode, Label (rgthree)) are excluded:
-# they are registered client-side by LiteGraph and never appear in object_info.
+# (Frontend-only types would never appear in /object_info; the NSFW graph has
+# none, and the workflow-derived set below filters Note/MarkdownNote and
+# subgraph hosts for the same reason.)
 comfy_verify_nodes() {
     # Propagate python's real exit status: 0 ok, 1 unreadable, 2 nodes missing,
     # 3 the CLIPLoader-device FATAL (the caller dies on 3, warns otherwise).
     python3 - "$COMFY_URL" "${SCRIPT_DIR:-}" <<'PYEOF' 2>/dev/null
 import glob, json, os, sys, urllib.request
-need = ["Any Switch (rgthree)","BlockifyMask","CM_IntToFloat","DownloadAndLoadSAM2Model",
-        "DrawMaskOnImage","DrawViTPose","GetImageSizeAndCount","GrowMaskWithBlur",
-        "INTConstant","ImageConcatMulti","ImageResizeKJv2","OnnxDetectionModelLoader",
-        "PoseAndFaceDetection","PoseRetargetPromptHelper","ProPostFilmGrain","RIFE VFI",
-        "Sam2Segmentation","ShowText|pysssss","VHS_LoadVideo","VHS_VideoCombine",
-        "WanVideoAnimateEmbeds","WanVideoBlockSwap","WanVideoClipVisionEncode",
-        "WanVideoDecode","WanVideoLoraSelect","WanVideoLoraSelectMulti",
-        "WanVideoModelLoader","WanVideoSampler","WanVideoSetBlockSwap","WanVideoSetLoRAs",
-        "WanVideoTextEncodeCached","WanVideoTorchCompileSettings","WanVideoVAELoader",
-        "easy cleanGpuUsed","easy clearCacheAll","easy mathFloat","easy showAnything"]
-# The list above is hand-maintained and had drifted: it missed CLIPVisionLoader
-# and LoadImage, which the shipped graph uses, and named three nodes the graph
-# does not contain. So derive the truth from the workflow when it is beside
-# this script, and UNION it with the list -- union, so this can only ever check
-# MORE than before, never fewer, and the other profile's extras stay covered.
+# The baseline list is the NSFW graph's 27 non-core node types (7 INSTARAW +
+# 12 Impact Pack + Subpack's detector provider + controlnet_aux's face mesh +
+# 3 essentials + UltimateSDUpscale + 2 rgthree). It exists so the check still
+# verifies something real when the script runs piped with no workflow beside
+# it; the workflow-derived set below is the authoritative source when the
+# json is present. (The video pack's 37 types are gone from here because the
+# video packs are no longer installed by this script.)
+need = ["INSTARAW_BatchFromImageList","INSTARAW_BooleanBypass",
+        "INSTARAW_ImageFilter","INSTARAW_ImageListFromBatch",
+        "INSTARAW_ImageResizeFill","INSTARAW_PromptBatchPreview",
+        "INSTARAW_RealityPromptGenerator",
+        "BboxDetectorSEGS","DetailerForEachDebug","FaceDetailer",
+        "FaceDetailerPipe","ImpactConditionalBranch","ImpactIsNotEmptySEGS",
+        "MaskToSEGS","MediaPipeFaceMeshToSEGS","SAMLoader",
+        "SEGSRangeFilterDetailerHookProvider","SegsToCombinedMask",
+        "ToDetailerPipeSDXL",
+        "UltralyticsDetectorProvider",
+        "MediaPipe-FaceMeshPreprocessor",
+        "ImageColorMatch+","ImageResize+","MaskBoundingBox+",
+        "UltimateSDUpscale",
+        "Lora Loader Stack (rgthree)","Image Comparer (rgthree)"]
+# A hand list drifts (the old video one missed two types the graph used and
+# named three it did not), so derive the truth from the workflow when it is
+# beside this script, and UNION it with the list -- union, so this can only
+# ever check MORE than the baseline, never fewer.
 def from_workflow(script_dir):
     found = set()
     if not script_dir:
