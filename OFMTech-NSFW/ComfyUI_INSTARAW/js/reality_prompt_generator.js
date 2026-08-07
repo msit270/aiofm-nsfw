@@ -8789,7 +8789,7 @@ DO NOT use tags like "1girl, solo" or similar categorization prefixes.`;
 						const currentDims = getTargetDimensions();
 						const dimsKey = `${currentDims.width}x${currentDims.height}:${currentDims.aspect_label}`;
 						if (lastDimensions !== null && lastDimensions !== dimsKey) {
-							console.log(`[RPG] Dimensions changed: ${lastDimensions} -> ${dimsKey}`);
+							console.debug(`[RPG] Dimensions changed: ${lastDimensions} -> ${dimsKey}`);
 							renderUI();
 						}
 						lastDimensions = dimsKey;
@@ -8811,7 +8811,7 @@ DO NOT use tags like "1girl, solo" or similar categorization prefixes.`;
 						const imagesInput = node.inputs?.find(input => input.name === "images");
 
 						if (debugLog) {
-							console.log(`[RPG AIL Sync Debug] Check #${syncCheckCounter}:`, {
+							console.debug(`[RPG AIL Sync Debug] Check #${syncCheckCounter}:`, {
 								hasImagesInput: !!imagesInput,
 								hasLink: imagesInput?.link != null,
 								linkId: imagesInput?.link,
@@ -8855,14 +8855,14 @@ DO NOT use tags like "1girl, solo" or similar categorization prefixes.`;
 						// Read current mode from AIL - based on enable_img2img input/widget, NOT the "mode" widget
 						// The "mode" widget is for Batch Tensor vs Sequential, not img2img vs txt2img
 						if (debugLog) {
-							console.log(`[RPG ${node.id}] AIL widgets:`, ailNode.widgets?.map(w => ({ name: w.name, type: w.type, value: typeof w.value === 'object' ? JSON.stringify(w.value).substring(0, 50) : w.value })));
+							console.debug(`[RPG ${node.id}] AIL widgets:`, ailNode.widgets?.map(w => ({ name: w.name, type: w.type, value: typeof w.value === 'object' ? JSON.stringify(w.value).substring(0, 50) : w.value })));
 						}
 
 						const enableImg2ImgWidget = ailNode.widgets?.find(w => w.name === "enable_img2img");
 						const enableImg2ImgValue = enableImg2ImgWidget?.value;
 
 						if (debugLog) {
-							console.log(`[RPG ${node.id}] enable_img2img widget:`, enableImg2ImgWidget);
+							console.debug(`[RPG ${node.id}] enable_img2img widget:`, enableImg2ImgWidget);
 						}
 
 						// Check if enable_img2img is connected to another node
@@ -8964,7 +8964,7 @@ DO NOT use tags like "1girl, solo" or similar categorization prefixes.`;
 						}
 
 						if (debugLog) {
-							console.log(`[RPG ${node.id} AIL Sync Debug] AIL Node #${ailNode.id} state:`, {
+							console.debug(`[RPG ${node.id} AIL Sync Debug] AIL Node #${ailNode.id} state:`, {
 								enableImg2ImgWidget: enableImg2ImgValue,
 								enableImg2ImgFinal: finalEnableImg2Img,
 								detectedMode: detectedMode,
