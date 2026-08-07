@@ -1,0 +1,10 @@
+{
+ "arm": "C_zhands",
+ "batch": "C",
+ "ok": true,
+ "exec_s": 157.687,
+ "cached_nodes": 49,
+ "prompt_id": "8f4bacec-f320-4e6e-aa5c-d0fccb8b1d75",
+ "outputs_dir": "/workspace/run5/output/C/C_zhands",
+ "status_str": "success"
+}

@@ -95,3 +95,32 @@ LoRA), dpmpp_2m_sde 30 steps @ denoise 0.42.
 **Z-Image holds the full-body composition** (zref_B_12345: coherent balcony
 3/4-body frame, likeness 0.81, freckled skin, warm light) — Q2's "one render
 answers it" answered YES (feet out of frame; framing control TBD).
+
+## Phase-2 results (batches B/C — structure arms; likeness_scores.json)
+
+- **NaN incident**: str08 (LoRA strength 0.8) black-framed and poisoned all
+  subsequent Z-UNET renders on that server; killed, quarantined, re-run clean
+  with canary brackets (notes/R5-nan-poisoning.md). Canary bit-identical.
+- **luna does NOT transfer to Z-Image BASE** (z_image_bf16 + luna = confetti
+  garbage on a canary-verified-clean server; base WITHOUT LoRA renders a
+  clean prompt-faithful portrait). The Z-native path stays on Turbo.
+  If the owner ever retrains luna on base, negatives + 28-50-step quality
+  open up (vendor: base = cfg 3-5, steps 28-50).
+- **Turbo at 30 steps / cfg 2** (DiffSynth "non-acceleration config"): NOT
+  blurry — denser freckles, crisper strands, same identity (0.843 to
+  centroid). No acceleration-loss symptom for luna at 8 steps either.
+  A base-config taste tile (D_lunaz30).
+- **Mouth threshold**: 0.7→0.5 makes the lips detector fire on the full-body
+  default ("1 lips", T10→T12 now differs 18 levels on the lips); 0.3 adds
+  nothing over 0.5. ADOPTED 0.5 in both candidates — objectively correct
+  (stage never ran on this composition class at 0.7).
+- SDXL repairs, final-frame cos: fix610 0.571, fixprompt 0.597, fixboth
+  0.647 (vs A0 0.585). den085 0.696 (best SDXL number; risk: 0.85 face
+  rebuild — owner's eye). rms_simple 0.612, texture slightly crisper
+  (faceHF 7.97 vs 7.73).
+- **B_v9 (naive checkpoint swap, V7 tuning): 0.499 — WORSE.** Confirms
+  "re-derive, do not carry over". V9 needs its own mini-derive (batch E)
+  before it can claim the base slot.
+- C_tdd_cfg (TDD at author-recommended cfg 1.8/sgm_uniform): likeness ~flat
+  (0.587), texture bands softer (faceHF 7.63, f-lap 82 vs 104). NOT adopted
+  by default; sheet tile only.
