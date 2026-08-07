@@ -47,12 +47,32 @@ echo "  models: hardlinked ($(ls -A "$TARGET/models" | wc -l) dirs)"
 
 echo "=== THE BUYER'S ONE-LINER, from the live gist ==="
 echo "  bash <(wget -qO- $GIST_URL)"
+# Pre-publish mode: the pod's HF token is READ-ONLY (role: read), so the run-3
+# cut cannot be uploaded from here. AIOFM_PACK_URL is the bootstrap's OWN
+# documented override for verifying a pack before it is published; when
+# MIRROR_PACK is set we serve the freshly cut tarball on a local port and hand
+# that URL in. The gist bytes still come from the LIVE gist. After the owner
+# publishes, running this script with MIRROR_PACK unset is the full-live test.
+MIRROR_PID=""
+EXTRA_ENV=()
+if [[ -n "${MIRROR_PACK:-}" ]]; then
+  MPORT=31952
+  curl -fsS --max-time 2 "http://127.0.0.1:$MPORT/" >/dev/null 2>&1 && { echo "✗ mirror port $MPORT busy"; exit 2; }
+  ( cd "$(dirname "$MIRROR_PACK")" && exec python3 -m http.server "$MPORT" --bind 127.0.0.1 ) >/dev/null 2>&1 &
+  MIRROR_PID=$!
+  sleep 1
+  EXTRA_ENV+=( "AIOFM_PACK_URL=http://127.0.0.1:$MPORT/$(basename "$MIRROR_PACK")" )
+  echo "  [pre-publish] pack served from local mirror: ${EXTRA_ENV[0]}"
+  echo "  [pre-publish] sha256 $(sha256sum "$MIRROR_PACK" | cut -d' ' -f1)"
+fi
 t0=$SECONDS
 env HF_TOKEN="$(tr -d '[:space:]' < /workspace/.hf_token)" \
     AIOFM_DEST="$DEST" \
     COMFYUI_DIR="$TARGET" \
     COMFYUI_PORT="$DEAD" \
+    "${EXTRA_ENV[@]}" \
     bash <(wget -qO- "$GIST_URL") 2>&1 | tee "$OUT/install.log"
+[[ -n "$MIRROR_PID" ]] && kill "$MIRROR_PID" 2>/dev/null
 rc=${PIPESTATUS[0]}
 echo "--> installer exit $rc after $((SECONDS-t0))s" | tee -a "$OUT/install.log"
 [[ $rc -eq 0 ]] || exit $rc
