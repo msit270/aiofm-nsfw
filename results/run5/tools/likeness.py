@@ -15,30 +15,36 @@ from insightface.app import FaceAnalysis
 
 OUT = "/workspace/run5/output"
 
-_app = None
-def app():
-    global _app
-    if _app is None:
-        _app = FaceAnalysis(name="buffalo_l", providers=["CPUExecutionProvider"])
-        _app.prepare(ctx_id=-1, det_size=(1024, 1024))
-    return _app
+_apps = {}
+def app(ds=640):
+    if ds not in _apps:
+        a = FaceAnalysis(name="buffalo_l", providers=["CPUExecutionProvider"])
+        # NOTE: det_size (1024,1024) returns 0 faces on 896x1152 inputs in this
+        # build (debugged 2026-08-07) -> 640 primary, 320 fallback.
+        a.prepare(ctx_id=-1, det_size=(ds, ds))
+        _apps[ds] = a
+    return _apps[ds]
 
 def top_face(path):
     img = cv2.imread(path)
     if img is None:
         return None
-    faces = app().get(img)
-    if not faces:
-        # retry on upper-centre crop (full-body small-face fallback)
-        h, w = img.shape[:2]
-        crop = img[0:int(h*0.55), int(w*0.15):int(w*0.85)]
-        faces = app().get(crop)
-        if not faces:
-            return None
-    f = max(faces, key=lambda x: x.det_score)
-    return {"emb": f.normed_embedding.astype(float).tolist(),
-            "det": float(f.det_score),
-            "bbox": [float(v) for v in f.bbox]}
+    variants = [("full", img)]
+    h, w = img.shape[:2]
+    # frame-filling face: SCRFD misses very large faces -> downscale retries
+    variants.append(("half", cv2.resize(img, (w // 2, h // 2))))
+    variants.append(("quarter", cv2.resize(img, (w // 4, h // 4))))
+    # full-body small face: upper-centre crop retry
+    variants.append(("upper", img[0:int(h * 0.55), int(w * 0.15):int(w * 0.85)]))
+    for tag, v in [(f"{t}@{d}", vv) for t, vv in variants for d in (640, 320)]:
+        d = int(tag.split("@")[1])
+        faces = app(d).get(v)
+        if faces:
+            f = max(faces, key=lambda x: x.det_score)
+            return {"emb": f.normed_embedding.astype(float).tolist(),
+                    "det": float(f.det_score), "via": tag,
+                    "bbox": [float(x) for x in f.bbox]}
+    return None
 
 def cos(a, b):
     a, b = np.asarray(a), np.asarray(b)

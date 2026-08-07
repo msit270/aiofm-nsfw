@@ -1,0 +1,10 @@
+{
+ "arm": "ZB1",
+ "batch": "B",
+ "ok": true,
+ "exec_s": 165.37,
+ "cached_nodes": 3,
+ "prompt_id": "20fe75a9-e538-4088-9436-b07846043188",
+ "outputs_dir": "/workspace/run5/output/B/ZB1",
+ "status_str": "success"
+}

@@ -1,0 +1,10 @@
+{
+ "arm": "A0_repeat",
+ "batch": "A",
+ "ok": true,
+ "exec_s": 73.806,
+ "cached_nodes": 57,
+ "prompt_id": "b1e00d3b-1f0b-4388-a682-491d9b08562e",
+ "outputs_dir": "/workspace/run5/output/A/A0_repeat",
+ "status_str": "success"
+}

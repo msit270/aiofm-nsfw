@@ -1,0 +1,393 @@
+{
+ "omdb_repo_last_commit": "2026-08-01",
+ "models_since_2025_09": [
+  {
+   "name": "1x-Archiver-AntiLines",
+   "arch": "esrgan",
+   "scale": 1,
+   "license": "MIT",
+   "date": "2025-12-17",
+   "tags": [
+    "denoise",
+    "restoration",
+    "dehalo",
+    "cartoon"
+   ]
+  },
+  {
+   "name": "1x-Archiver-Medium",
+   "arch": "esrgan",
+   "scale": 1,
+   "license": "MIT",
+   "date": "2025-12-17",
+   "tags": [
+    "denoise",
+    "restoration",
+    "dehalo",
+    "cartoon"
+   ]
+  },
+  {
+   "name": "1x-Archiver-RGB",
+   "arch": "esrgan",
+   "scale": 1,
+   "license": "MIT",
+   "date": "2025-12-17",
+   "tags": [
+    "denoise",
+    "restoration",
+    "dehalo",
+    "cartoon"
+   ]
+  },
+  {
+   "name": "1x-Archiver-Rough",
+   "arch": "esrgan",
+   "scale": 1,
+   "license": "MIT",
+   "date": "2025-12-17",
+   "tags": [
+    "denoise",
+    "restoration",
+    "dehalo",
+    "cartoon"
+   ]
+  },
+  {
+   "name": "1x-Archiver-Soft",
+   "arch": "esrgan",
+   "scale": 1,
+   "license": "MIT",
+   "date": "2025-12-17",
+   "tags": [
+    "denoise",
+    "restoration",
+    "dehalo",
+    "cartoon"
+   ]
+  },
+  {
+   "name": "1x-NES-Composite-2-RGB-Small",
+   "arch": "compact",
+   "scale": 1,
+   "license": "MIT",
+   "date": "2025-09-17",
+   "tags": [
+    "debanding",
+    "denoise",
+    "game-screenshots",
+    "restoration",
+    "video-frame"
+   ]
+  },
+  {
+   "name": "1x-SEGA-Genesis-Cleanup",
+   "arch": "omnisr",
+   "scale": 1,
+   "license": "MIT",
+   "date": "2025-09-03",
+   "tags": [
+    "deblur",
+    "game-screenshots",
+    "general-upscaler",
+    "restoration",
+    "video-frame"
+   ]
+  },
+  {
+   "name": "1x-Sega-Genesis-Cleanup-Small",
+   "arch": "compact",
+   "scale": 1,
+   "license": "MIT",
+   "date": "2025-09-16",
+   "tags": [
+    "compression-removal",
+    "denoise",
+    "game-screenshots",
+    "restoration",
+    "video-frame"
+   ]
+  },
+  {
+   "name": "1x-StarSample-V2-Lite-NS",
+   "arch": "span",
+   "scale": 1,
+   "license": "CC-BY-NC-SA-4.0",
+   "date": "2026-02-12",
+   "tags": [
+    "cartoon",
+    "compression-removal",
+    "general-upscaler",
+    "restoration"
+   ]
+  },
+  {
+   "name": "1x-StarSample-V2-NS",
+   "arch": "esrgan",
+   "scale": 1,
+   "license": "CC-BY-NC-SA-4.0",
+   "date": "2026-02-12",
+   "tags": [
+    "cartoon",
+    "compression-removal",
+    "general-upscaler",
+    "restoration"
+   ]
+  },
+  {
+   "name": "2x-90s-Sonic-LG",
+   "arch": "realplksr",
+   "scale": 2,
+   "license": "MIT",
+   "date": "2026-08-01",
+   "tags": [
+    "cartoon",
+    "restoration",
+    "video-frame"
+   ]
+  },
+  {
+   "name": "2x-90s-Sonic",
+   "arch": "compact",
+   "scale": 2,
+   "license": "MIT",
+   "date": "2026-08-01",
+   "tags": [
+    "cartoon",
+    "restoration",
+    "video-frame"
+   ]
+  },
+  {
+   "name": "2x-Adore",
+   "arch": "real-cugan",
+   "scale": 2,
+   "license": "CC-BY-NC-SA-4.0",
+   "date": "2026-04-11",
+   "tags": [
+    "anime",
+    "restoration"
+   ]
+  },
+  {
+   "name": "2x-DigitalPokemon-l",
+   "arch": "omnisr",
+   "scale": 2,
+   "license": "MIT",
+   "date": "2025-09-16",
+   "tags": [
+    "anime",
+    "cartoon",
+    "general-upscaler"
+   ]
+  },
+  {
+   "name": "2x-Fallin-Soft",
+   "arch": "cugan",
+   "scale": 2,
+   "license": "CC-BY-4.0",
+   "date": "2025-09-14",
+   "tags": [
+    "anime",
+    "restoration"
+   ]
+  },
+  {
+   "name": "2x-Fallin-Strong",
+   "arch": "cugan",
+   "scale": 2,
+   "license": "CC-BY-4.0",
+   "date": "2025-09-14",
+   "tags": [
+    "anime",
+    "restoration"
+   ]
+  },
+  {
+   "name": "2x-StarSample-V2-HQ",
+   "arch": "hat",
+   "scale": 2,
+   "license": "CC-BY-NC-SA-4.0",
+   "date": "2026-02-12",
+   "tags": [
+    "cartoon",
+    "compression-removal",
+    "general-upscaler",
+    "restoration"
+   ]
+  },
+  {
+   "name": "2x-StarSample-V2-Lite",
+   "arch": "span",
+   "scale": 2,
+   "license": "CC-BY-NC-SA-4.0",
+   "date": "2026-02-12",
+   "tags": [
+    "cartoon",
+    "compression-removal",
+    "general-upscaler",
+    "restoration"
+   ]
+  },
+  {
+   "name": "2x-StarSample-V2",
+   "arch": "esrgan",
+   "scale": 2,
+   "license": "CC-BY-NC-SA-4.0",
+   "date": "2026-02-12",
+   "tags": [
+    "cartoon",
+    "compression-removal",
+    "general-upscaler",
+    "restoration"
+   ]
+  }
+ ],
+ "staged_candidates": [
+  {
+   "name": "4x-FaceUpDAT",
+   "arch": "dat",
+   "scale": 4,
+   "license": "CC-BY-4.0",
+   "date": "2023-09-02",
+   "tags": [
+    "faces",
+    "photo"
+   ]
+  },
+  {
+   "name": "4x-Nomos2-hq-atd",
+   "arch": "atd",
+   "scale": 4,
+   "license": "CC-BY-4.0",
+   "date": "2024-09-05",
+   "tags": [
+    "general-upscaler",
+    "photo"
+   ]
+  },
+  {
+   "name": "4x-Nomos2-hq-dat2",
+   "arch": "dat",
+   "scale": 4,
+   "license": "CC-BY-4.0",
+   "date": "2024-08-29",
+   "tags": [
+    "general-upscaler",
+    "photo"
+   ]
+  },
+  {
+   "name": "4x-Nomos2-hq-drct-l",
+   "arch": "drct",
+   "scale": 4,
+   "license": "CC-BY-4.0",
+   "date": "2024-09-08",
+   "tags": [
+    "general-upscaler",
+    "photo"
+   ]
+  },
+  {
+   "name": "4x-Nomos2-hq-mosr",
+   "arch": "mosr",
+   "scale": 4,
+   "license": "CC-BY-4.0",
+   "date": "2024-08-25",
+   "tags": [
+    "general-upscaler",
+    "photo"
+   ]
+  },
+  {
+   "name": "4x-Nomos8kDAT",
+   "arch": "dat",
+   "scale": 4,
+   "license": "CC-BY-4.0",
+   "date": "2023-08-13",
+   "tags": [
+    "anime",
+    "compression-removal",
+    "general-upscaler",
+    "jpeg",
+    "photo",
+    "restoration"
+   ]
+  },
+  {
+   "name": "4x-NomosUni-span-multijpg",
+   "arch": "span",
+   "scale": 4,
+   "license": "CC-BY-4.0",
+   "date": "2023-12-15",
+   "tags": [
+    "anime",
+    "compression-removal",
+    "jpeg",
+    "restoration"
+   ]
+  },
+  {
+   "name": "4x-PurePhoto-RealPLSKR",
+   "arch": "realplksr",
+   "scale": 4,
+   "license": "CC-BY-SA-4.0",
+   "date": "2024-09-21",
+   "tags": [
+    "ai-generated",
+    "compression-removal",
+    "jpeg",
+    "photo",
+    "restoration"
+   ]
+  },
+  {
+   "name": "4x-RealWebPhoto-v4-dat2",
+   "arch": "dat",
+   "scale": 4,
+   "license": "CC-BY-4.0",
+   "date": "2024-04-30",
+   "tags": [
+    "general-upscaler",
+    "photo",
+    "restoration"
+   ]
+  },
+  {
+   "name": "4x-UltraSharpV2",
+   "arch": "dat",
+   "scale": 4,
+   "license": "CC-BY-NC-SA-4.0",
+   "date": "2025-05-23",
+   "tags": [
+    "ai-generated",
+    "anime",
+    "anti-aliasing",
+    "compression-removal",
+    "deblur",
+    "game-textures",
+    "general-upscaler",
+    "jpeg",
+    "photo",
+    "restoration",
+    "text"
+   ]
+  },
+  {
+   "name": "4x-realesrgan-x4plus",
+   "arch": "esrgan",
+   "scale": 4,
+   "license": "BSD-3-Clause",
+   "date": "2021-07-22",
+   "tags": [
+    "compression-removal",
+    "general-upscaler",
+    "jpeg",
+    "photo",
+    "research",
+    "restoration"
+   ]
+  }
+ ],
+ "newest_photo_4x": []
+}

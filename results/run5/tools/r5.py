@@ -117,12 +117,12 @@ STD_TAPS = {
 def zit_simple(prompt, seed, w=896, h=1152, steps=8, cfg=1.0,
                sampler="res_multistep", scheduler="simple", denoise=1.0,
                lora="luna.safetensors", lora_strength=1.0, shift=None,
-               neg="", arm="zit"):
+               neg="", arm="zit", unet="zimage.safetensors"):
     """Reconstruction of the owner's 'simple ZIT workflow': vendor Z-Image
     template graph + character LoRA. shift=None -> model default (ZImage 3.0)."""
     g = {
         "u": {"class_type": "UNETLoader",
-              "inputs": {"unet_name": "zimage.safetensors", "weight_dtype": "default"}},
+              "inputs": {"unet_name": unet, "weight_dtype": "default"}},
         "c": {"class_type": "CLIPLoader",
               "inputs": {"clip_name": "qwen.safetensors", "type": "lumina2", "device": "default"}},
         "v": {"class_type": "VAELoader", "inputs": {"vae_name": "ae.safetensors"}},
@@ -250,3 +250,27 @@ def run_arm(batch, arm, graph, timeout=900):
 if __name__ == "__main__":
     boot()
     print("server up")
+
+
+def zbase_splice(g, prompt=BALCONY, seed=12345, steps=8, cfg=1.0,
+                 sampler="res_multistep", scheduler="simple", w=896, h=1152):
+    """Replace the SDXL base generator with Z-Image+luna in a pipeline graph.
+    Call on the dict returned by pipeline_graph(); returns g. The SDXL base
+    nodes (647:635, 619:592, 619:591) become unreachable and are pruned by
+    the server unless a tap references them."""
+    g["ZB_lat"] = {"class_type": "EmptySD3LatentImage",
+                   "inputs": {"width": w, "height": h, "batch_size": 1}}
+    g["ZB_pos"] = {"class_type": "CLIPTextEncode",
+                   "inputs": {"text": prompt, "clip": ["620:110", 0]}}
+    g["ZB_neg"] = {"class_type": "ConditioningZeroOut",
+                   "inputs": {"conditioning": ["ZB_pos", 0]}}
+    g["ZB_k"] = {"class_type": "KSampler",
+                 "inputs": {"seed": seed, "steps": steps, "cfg": cfg,
+                            "sampler_name": sampler, "scheduler": scheduler,
+                            "denoise": 1.0, "model": ["116", 0],
+                            "positive": ["ZB_pos", 0], "negative": ["ZB_neg", 0],
+                            "latent_image": ["ZB_lat", 0]}}
+    g["ZB_dec"] = {"class_type": "VAEDecode",
+                   "inputs": {"samples": ["ZB_k", 0], "vae": ["620:109", 0]}}
+    g["619:593"]["inputs"]["image"] = ["ZB_dec", 0]
+    return g

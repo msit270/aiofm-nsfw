@@ -1,0 +1,10 @@
+{
+ "arm": "A_skip607",
+ "batch": "A",
+ "ok": true,
+ "exec_s": 135.888,
+ "cached_nodes": 53,
+ "prompt_id": "e6685247-651f-42dc-a2dc-ee70ab269369",
+ "outputs_dir": "/workspace/run5/output/A/A_skip607",
+ "status_str": "success"
+}

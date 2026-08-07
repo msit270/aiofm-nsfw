@@ -62,3 +62,33 @@ Done so far (all evidence under `results/run5/`):
   + skip #607). Vendor-pairing arm res_multistep+simple on #114.
 - V9 base swap arm + re-derivation (V7-calibrated values do not carry).
 - Mouth threshold 0.5 arm on full-body. Three compositions. Sheets. Package.
+
+## Phase-1 results (batch A, all numbers in results/run5/likeness_scores.json + tap_metrics.json)
+
+Determinism: A0_repeat bit-identical to A0 (max_abs_diff 0, 9.29M px) on the
+persistent warm server — same-server comparisons valid (ACCEPTANCE A4 PASS).
+
+**Likeness (cos to luna-ZIT centroid; same-identity band 0.92-0.94, stranger
+floor ~0.33):** base out 0.287 → after LoRA-less TDD refine 0.163 (the pass
+DESTROYS identity) → after SDXL face pass 0.546 → after USDU617 0.487 (erodes)
+→ after USDU98 0.523 → after Z face pass 0.581 → final 0.585.
+Arms: skip607 final 0.457 (607 EARNS its keep — run-3's keep-decision holds,
+now on likeness grounds); skip114 final 0.523; den0.50 0.638; den0.65 0.664.
+The user's simple-ZIT reference sits at 0.92-0.94 (portraits), 0.76-0.81
+(full-body small-face). The SDXL-base architecture caps likeness ~0.66 even
+at denoise 0.65.
+
+**Texture (freckle-band RMS face/body, scale-normalized):** ZIT ref 10.6/9.5;
+pipeline 7.5-8.9/6.1-6.8 at every stage — never reaches ZIT level anywhere;
+USDU617 is the biggest smoother (8.29→7.55 face); the body NEVER gets a
+texture pass (Z pass is face-crop only). Face local contrast (lapvar): ZIT
+277 vs pipeline ~110 — where the "flat lighting" look lives.
+
+**Hands correction to Q1:** on THIS composition the hand detector FIRES
+(1 hand, 1024x704 crop sampled, run5/A/A0 server log) — the pass runs and the
+hand still reads wrong; its model is the RAW checkpoint (no character/detail
+LoRA), dpmpp_2m_sde 30 steps @ denoise 0.42.
+
+**Z-Image holds the full-body composition** (zref_B_12345: coherent balcony
+3/4-body frame, likeness 0.81, freckled skin, warm light) — Q2's "one render
+answers it" answered YES (feet out of frame; framing control TBD).

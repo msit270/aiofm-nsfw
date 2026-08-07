@@ -1,0 +1,10 @@
+{
+ "arm": "A_den065",
+ "batch": "A",
+ "ok": true,
+ "exec_s": 73.215,
+ "cached_nodes": 57,
+ "prompt_id": "f9251faf-d2a3-4727-b3db-b02807dabf33",
+ "outputs_dir": "/workspace/run5/output/A/A_den065",
+ "status_str": "success"
+}
