@@ -8,7 +8,7 @@ SDXL-FIXED: keep the shipped architecture; apply the measured repairs
 """
 import sys, json
 sys.path.insert(0, "/workspace/run5/tools")
-from r5 import pipeline_graph, zbase_splice, STD_TAPS, BALCONY, buyer_values
+from r5 import pipeline_graph, zbase_splice, STD_TAPS, BALCONY, buyer_values, FINAL
 
 ZTAPS = {k: v for k, v in STD_TAPS.items()
          if k not in ("T01_base591", "T03_refine596", "T04_sdxlface607")}
@@ -197,4 +197,52 @@ def hybrid_zusdu(base_steps=30, base_cfg=2.0, taps=None, prompt=BALCONY, seed=12
     pb[0]["positive_prompt"] = prompt
     pb[0]["seed"] = seed
     g["483"]["inputs"]["prompt_batch_data"] = _j.dumps(pb)
+    return g
+
+
+def pc_final(mouth="delete", hands_prompt="neutral", base_steps=30,
+             base_cfg=2.0, face_denoise=0.50, extra_overrides=None,
+             extra_rewires=None, pick_list=""):
+    """The shippable PC graph — CHARACTER-NEUTRAL defaults:
+    620:106 face prompt = placeholder, LoRA widgets = None (owner selects),
+    483 = the neutral window-light default prompt. Verdict slots:
+    mouth: "delete" | "keep"; hands_prompt: "neutral" | "ship"."""
+    g = photo_config(base_steps=base_steps, base_cfg=base_cfg,
+                     face_denoise=face_denoise, taps={}, seed=12345)
+    # neutral character inputs
+    g["620:106"]["inputs"]["text"] = "TRIGGER, PROMPT FOR YOUR MODEL"
+    g["116"]["inputs"]["lora_01"] = "None"
+    bv = buyer_values()
+    orig = json.load(open(FINAL))["483"]["inputs"]["prompt_batch_data"]
+    g["483"]["inputs"]["prompt_batch_data"] = orig   # neutral default prompt
+    if mouth == "delete":
+        g["622:431"]["inputs"]["images"] = ["620:111", 0]
+        for n in ("620:165", "621:163", "621:160", "621:161", "621:166",
+                  "621:167", "620:648"):
+            g.pop(n, None)
+    if hands_prompt == "neutral":
+        g["587:93"]["inputs"]["text"] = ("young woman's hand, smooth soft "
+            "skin, natural hand, elegant fingers, neat fingernails")
+    for nid, kv in (extra_overrides or {}).items():
+        g[nid]["inputs"].update(kv)
+    for (nid, inp), src in (extra_rewires or {}).items():
+        g[nid]["inputs"][inp] = src
+    g["619:603"]["inputs"]["pick_list"] = pick_list
+    g["505"]["inputs"]["filename_prefix"] = "Personal/render"
+    # prune unreachable (dead SDXL side etc.)
+    g.pop("419", None)
+    sinks = [n for n, v in g.items() if v["class_type"] in
+             ("SaveImage", "PreviewAny", "INSTARAW_PromptBatchPreview")]
+    seen = set()
+    def walk(n):
+        if n in seen:
+            return
+        seen.add(n)
+        for v in g[n]["inputs"].values():
+            if isinstance(v, list) and str(v[0]) in g:
+                walk(str(v[0]))
+    for s in sinks:
+        walk(s)
+    for n in [n for n in g if n not in seen]:
+        del g[n]
     return g

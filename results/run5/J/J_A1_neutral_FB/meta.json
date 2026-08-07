@@ -1,0 +1,10 @@
+{
+ "arm": "J_A1_neutral_FB",
+ "batch": "J",
+ "ok": true,
+ "exec_s": 160.691,
+ "cached_nodes": 3,
+ "prompt_id": "e6fc2659-ebbf-4b94-828d-b333bf7287e1",
+ "outputs_dir": "/workspace/run5/output/J/J_A1_neutral_FB",
+ "status_str": "success"
+}
