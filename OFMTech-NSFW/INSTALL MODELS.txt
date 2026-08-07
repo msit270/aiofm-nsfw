@@ -1,110 +1,139 @@
 OFM Tech NSFW -- installation
 
-Read step 0 before you start. Steps 1-3 are the whole install.
+This guide assumes you have never used ComfyUI. Words like "checkpoint" are
+explained the first time they appear. If you have done this before, the short
+version is: two key files, one command, wait, add your LoRAs, render.
 
 
-0. WHAT YOUR GPU NEEDS
+WHAT YOU ARE INSTALLING (one minute of background)
 
-This workflow peaked at 40.3 GB of VRAM on a measured end-to-end render at the
-shipped 896x1152 base resolution, and produced a 2688x3456 image in about four
-minutes.
+ComfyUI is the app that makes the images. Your rented pod already has it.
+A "workflow" is a recipe file that tells ComfyUI what to do; this pack ships
+one, called OFMTech_NSFW. The recipe needs "models" -- large files that hold
+the actual AI -- and small helper add-ons called "custom nodes". You install
+none of this by hand: one setup command downloads every model, installs every
+add-on at the exact tested version, and puts the workflow in your list.
 
-That was measured on a 95 GB card, which is more than the workflow needs -
-ComfyUI uses the memory that is there. Starting ComfyUI with
+One model is special. The base "checkpoint" (the model that paints the whole
+image before the detail passes) is LUSTIFY! GGWP (V7) from civitai.com. Its
+licence lets you SELL THE IMAGES you make with it, but it does not let us ship
+you the model file itself. So the installer downloads it directly from
+Civitai using your own free Civitai account. That is why there are two keys
+in step 1 instead of one. The installer checks the file it gets, byte for
+byte, against the exact version this workflow was built on.
+
+
+0. WHAT YOUR POD NEEDS
+
+DISK: provision at least 250 GB.
+The models come to about 180 GiB, which is ~194 GB in the units pod providers
+usually quote. Those are two different numbers for the same thing, and
+confusing them is how an install runs out of space at 95%.
+
+GPU MEMORY (VRAM): this workflow peaked at 40.3 GB of VRAM on a measured
+end-to-end render at the shipped 896x1152 base resolution, and produced a
+2688x3456 image in about four minutes. That was measured on a 95 GB card,
+which is more than the workflow needs - ComfyUI uses the memory that is
+there. Starting ComfyUI with
 
     --fast dynamic_vram --reserve-vram N
 
 brought the peak down to 32.6 GB with no change to the workflow, at about 6%
-more time. Note it did NOT leave the image identical, so treat it as a setting
-to test rather than a free win.
+more time. Note it did NOT leave the image identical, so treat it as a
+setting to test rather than a free win.
 
-No 24 GB card has been tested. We do not know whether a 4090 runs this, and we
-are not going to claim either way until someone measures it. If 24 GB is what
-you have, try it - and if it runs out of memory, lower the base resolution
-(Width/Height inside the "1. Canvas & Routing" subgraph) and expect to lose
-output size with it.
+No 24 GB card has been tested. We do not know whether a 4090 runs this, and
+we are not going to claim either way until someone measures it. If 24 GB is
+what you have, try it - and if it runs out of memory, lower the base
+resolution (Width/Height inside the "1. Canvas & Routing" subgraph) and
+expect to lose output size with it.
 
 
-1. RUN THE SETUP SCRIPT
+1. PUT YOUR TWO KEYS IN PLACE  (once per pod, ~3 minutes)
 
-Unpack this folder somewhere on the pod - /workspace is fine - then in the
-Jupyter terminal:
+The installer reads both from files, so you do this once and never type them
+again. Open the pod's terminal (in Jupyter: File -> New -> Terminal) and:
 
-    cd /workspace/AIOFMTech-NSFW
-    bash aiofm_setup.sh
+  a) Your HuggingFace token -- this is what unlocks the AIOFM model library
+     that comes with your purchase. Run:
 
-Run it THIS WAY, from inside the unpacked folder. The script copies
-ComfyUI_INSTARAW and the workflow from beside itself, so it has to be able to
-see them. If you pipe THIS script as a one-liner ("bash <(wget ...)" of the
-aiofm_setup.sh URL) instead, the models still download but you will NOT get
-the custom nodes or the workflow, and nothing will tell you until the graph
-opens full of red boxes.
+         echo "hf_your_token_here" > /workspace/.hf_token
 
-EXCEPTION - the official bootstrap one-liner. If you were given the
+     (paste your real token between the quotes). If you do not have one yet:
+     huggingface.co -> create a free account -> Settings -> Access Tokens ->
+     Create new token (Read) -> copy it. The token must belong to the account
+     your purchase gave repository access to -- if the install later says it
+     "could not download", that is the thing to check with support.
+
+  b) Your Civitai API key -- this is what lets YOUR pod download the base
+     checkpoint under your own account (see the background section above):
+
+         echo "paste-your-civitai-key-here" > /workspace/.civitai_token
+
+     To get the key: civitai.com -> create a free account (or log in) ->
+     click your profile picture (top right) -> Account settings -> scroll to
+     "API Keys" -> "Add API key" -> name it anything -> Save -> copy it.
+
+If you skip (b), nothing breaks: the install stops in its first minute with
+the same instructions you just read, and you re-run it after making the key.
+
+
+2. RUN THE ONE-LINE INSTALL
+
+Paste the install command from your welcome message into the pod terminal.
+It looks like this:
 
     bash <(wget -qO- https://gist.githubusercontent.com/msit270/.../aiofm_setupnsfw.sh)
 
-command, that IS the supported path: it downloads this whole pack to disk
-first and then runs aiofm_setup.sh from inside it, so the custom nodes and
-the workflow install correctly. If you installed that way, this step already
-happened and you do not need to run anything again.
+That single command downloads this pack, unpacks it, and runs the real
+installer from inside it, so the custom nodes and the workflow land where
+ComfyUI looks for them. It is the supported path. Use it even if you have
+installed things into ComfyUI by hand before.
 
-The script will ask for a HuggingFace token if it cannot find one. Put it in
-place first with:
+(Only if you were told to install manually: unpack the pack somewhere real,
+then run the script FROM INSIDE the unpacked folder --
+"cd /workspace/AIOFMTech-NSFW && bash aiofm_setup.sh". Do not pipe
+aiofm_setup.sh itself as a one-liner from a URL: run that way it cannot see
+the files shipped beside it, so you would get models but NO custom nodes and
+NO workflow, and nothing tells you until the graph opens full of red boxes.
+The bootstrap one-liner above exists precisely to prevent that.)
 
-    echo "hf_your_token_here" > /workspace/.hf_token
+What you will see, in order: a few environment checks; a "Base checkpoint
+preflight" that proves your Civitai key works BEFORE any big download starts;
+the model downloads (this is the long part -- how long depends entirely on
+your pod's connection; the checkpoint from Civitai is normally the slowest
+single file); the six custom node packs; the workflow install; an integrity
+check; and ComfyUI restarting by itself so the new nodes load.
 
-That is the whole install. It fetches every model, installs every custom node
-pack at the exact version this workflow was built against, copies the
-ComfyUI_INSTARAW folder into custom_nodes for you, and puts the workflow into
-your ComfyUI workflow list.
+If anything goes wrong, the install STOPS and prints what is wrong and what
+to do about it -- a missing key, a rejected key, not enough disk, a file that
+failed its check. Fix the named thing and run the same command again: it
+resumes where it stopped, re-downloads nothing it already has, and skips
+whatever is already correct.
 
-DISK: provision at least 250 GB.
+When it finishes it prints a summary. The two lines that matter:
 
-The models come to about 180 GiB, which is ~194 GB in the units pod providers
-usually quote. Those are two different numbers for the same thing and confusing
-them is how an install runs out of space at 95%. ComfyUI and the node packs add
-roughly another gigabyte on top.
-
-The script prints its own total when it finishes, and that is the authority on
-what actually landed. One thing to know before you compare it to anything: its
-file count is every file under models/, which includes 31 empty placeholder and
-config files that ComfyUI itself ships. So that count is larger than the number
-of real model weights, and both numbers are normal.
-
-How long it takes is dominated by your pod's download speed, so we are not
-going to quote a figure we cannot promise. What we have measured, on a pod
-with an empty custom_nodes directory, is the part that does NOT depend on
-your connection:
-
-    cloning the 18 custom node packs      28 s
-    resolving their pip dependencies      36 s
-
-So roughly a minute of the run is setup and the rest is the models coming
-down. The script prints its own elapsed time and total downloaded when it
-finishes.
-
-If it stops partway, run it again. It resumes downloads rather than starting
-over, and skips anything already present.
-
-When it finishes it prints a summary. The two lines that matter are:
-
-    workflow nodes : all 88 present
+    workflow nodes : all 54 present
     integrity      : OK
 
-If either says anything else, stop and read the warnings above it.
+If either line says anything else, stop and read the warnings above it. (The
+node count is for this workflow version; the script derives it from the
+workflow file itself, so it is the number your install was actually checked
+against.)
 
 
-2. ADD YOUR OWN LoRAs
+3. ADD YOUR OWN LoRAs
 
-Put your character LoRAs in /workspace/ComfyUI/models/loras
+A LoRA is a small add-on model that teaches the big models your specific
+character. Put yours in:  /workspace/ComfyUI/models/loras
+(you can drag-and-drop into that folder through the Jupyter file browser).
 
 The workflow has two LoRA slots at the top level and they are NOT
 interchangeable -- they feed two different model families:
 
-  "Your SDXL LoRa"  -> SDXLNSFW.safetensors
-                       Drives the base image, the hands pass and both upscales.
-                       This slot needs an SDXL LoRA.
+  "Your SDXL LoRa"  -> the base checkpoint (SDXLNSFW.safetensors)
+                       Drives the base image, the hands pass and both
+                       upscales. This slot needs an SDXL LoRA.
 
   "Your ZIT LoRa"   -> zimage.safetensors  (Z-Image)
                        Drives the face detail, mouth detail and eye passes.
@@ -117,46 +146,40 @@ Both slots ship set to "None", so the workflow renders a generic person until
 you fill them in.
 
 
-3. RESTART COMFYUI, THEN OPEN THE WORKFLOW
+4. OPEN THE WORKFLOW AND RENDER
 
-Restart ComfyUI, then hard-reload the browser tab (Ctrl-Shift-R, or Cmd-Shift-R
-on a Mac). Custom nodes only load at startup, and the browser caches the old
-interface across a restart.
+The installer restarts ComfyUI itself when it can (it says so in the
+summary). Then hard-reload the ComfyUI browser tab (Ctrl-Shift-R, or
+Cmd-Shift-R on a Mac) -- the browser caches the old interface across a
+restart, and a stale tab is the usual reason things look wrong after a fresh
+install.
 
-Open "OFMTech_NSFW" from your workflow list.
-
-
-DO NOT USE COMFYUI MANAGER
-
-Do not run "Update All" and do not run "Install Missing Custom Nodes".
-
-Every node pack is pinned to a specific commit that this workflow was built
-and tested against. Manager moves those pins, and the failures it causes are
-quiet ones -- a widget silently reading the wrong value rather than an error
-message. If nodes are red after the setup script, you have not restarted
-ComfyUI yet. Restart first.
-
-
-WHEN YOU RENDER: THE IMAGE SELECTOR WILL WAIT FOR YOU
-
-Partway through the render a selector window opens and the pipeline STOPS
-there until you choose. This is deliberate -- it lets you reject a bad base
-image before paying for the expensive detail passes.
-
-If you walk away and it times out, it currently sends nothing onward and you
-get no image at all. That is the shipped default ("send none", 10 minutes).
-
-
-BEFORE YOU EXPECT GOOD FACES: FILL IN THE FACE PROMPT
-
-Inside the face-and-mouth subgraph, the node titled "Face Detailer Prompt"
-ships with the literal placeholder text:
+Open "OFMTech_NSFW" from the workflow list (the folder icon in ComfyUI's left
+sidebar). Pick your two LoRAs in the two slots. Then, before you expect good
+faces: inside the face-and-mouth subgraph, the node titled "Face Detailer
+Prompt" ships with the literal placeholder text
 
     TRIGGER, PROMPT FOR YOUR MODEL
 
 That text is the prompt for the single most expensive pass in the workflow --
 about 30% of total render time, at the highest denoise setting in the graph.
 Replace it with your LoRA's trigger word and a description of your character.
+
+Press Run. Partway through the render a selector window opens and the
+pipeline STOPS there until you choose an image. This is deliberate -- it lets
+you reject a bad base image before paying for the expensive detail passes.
+Click the image you want, then press Send. If you walk away and it times out
+(10 minutes), it sends nothing onward and you get no image at all.
+
+
+DO NOT USE COMFYUI MANAGER
+
+Do not run "Update All" and do not run "Install Missing Custom Nodes".
+Every node pack is pinned to a specific commit that this workflow was built
+and tested against. Manager moves those pins, and the failures it causes are
+quiet ones -- a widget silently reading the wrong value rather than an error
+message. If nodes are red after the setup script, you have not restarted
+ComfyUI yet (or have not hard-reloaded the tab). Restart first.
 
 
 NOTES
@@ -175,3 +198,8 @@ NOTES
 - The "authentic metadata" save nodes also need the exiftool binary, which pip
   cannot supply:  apt-get install -y libimage-exiftool-perl
   The main workflow does not use those nodes, so this is optional.
+
+- If the install ever stops saying the base checkpoint "did not resolve on
+  Civitai", that means the model's creator changed something upstream. Do not
+  hunt for the file elsewhere -- an unverified copy can silently change every
+  image you make. Contact support for an updated pack.
