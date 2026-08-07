@@ -140,20 +140,7 @@
           "version": "7.4.1"
         }
       },
-      "widgets_values": [
-        [
-          {
-            "name": "A",
-            "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_tpbop_00001_.png&type=temp&subfolder=&rand=0.4849143384465904"
-          },
-          {
-            "name": "B",
-            "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_tpbop_00002_.png&type=temp&subfolder=&rand=0.548351700629904"
-          }
-        ]
-      ],
+      "widgets_values": [],
       "color": "#223",
       "bgcolor": "#335",
       "title": "Before / After  -  base render  vs  finished image"
