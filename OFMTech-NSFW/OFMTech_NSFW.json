@@ -1,8 +1,8 @@
 {
   "id": "0f57b357-3d3a-43e7-b5c0-d90d68ea606f",
   "revision": 0,
-  "last_node_id": 652,
-  "last_link_id": 1511,
+  "last_node_id": 662,
+  "last_link_id": 1524,
   "nodes": [
     {
       "id": 480,
@@ -7621,8 +7621,8 @@
         "version": 1,
         "state": {
           "lastGroupId": 38,
-          "lastNodeId": 647,
-          "lastLinkId": 1508,
+          "lastNodeId": 662,
+          "lastLinkId": 1524,
           "lastRerouteId": 10
         },
         "revision": 0,
@@ -8328,10 +8328,7 @@
                 "type": "IMAGE",
                 "slot_index": 0,
                 "links": [
-                  764,
-                  773,
-                  774,
-                  775
+                  1522
                 ]
               }
             ],
@@ -8513,7 +8510,8 @@
                 "name": "SEGS",
                 "type": "SEGS",
                 "links": [
-                  791
+                  791,
+                  1520
                 ]
               }
             ],
@@ -8887,7 +8885,8 @@
                   796,
                   797,
                   798,
-                  799
+                  799,
+                  1523
                 ]
               }
             ],
@@ -9026,6 +9025,155 @@
             ],
             "color": "#223",
             "bgcolor": "#335"
+          },
+          {
+            "id": 660,
+            "type": "ImpactIsNotEmptySEGS",
+            "pos": [
+              5088.0,
+              5560.0
+            ],
+            "size": [
+              270,
+              26
+            ],
+            "flags": {
+              "collapsed": true
+            },
+            "order": 21,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "segs",
+                "name": "segs",
+                "type": "SEGS",
+                "link": 1520
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOOLEAN",
+                "name": "BOOLEAN",
+                "type": "BOOLEAN",
+                "links": [
+                  1521,
+                  1524
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfyui-impact-pack",
+              "ver": "8.25.1",
+              "Node name for S&R": "ImpactIsNotEmptySEGS",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.4.1"
+              }
+            },
+            "widgets_values": [],
+            "title": "face found?"
+          },
+          {
+            "id": 661,
+            "type": "ImpactConditionalBranch",
+            "pos": [
+              5480.0,
+              5667.0
+            ],
+            "size": [
+              270,
+              66
+            ],
+            "flags": {},
+            "order": 22,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "cond",
+                "name": "cond",
+                "type": "BOOLEAN",
+                "link": 1521
+              },
+              {
+                "localized_name": "tt_value",
+                "name": "tt_value",
+                "type": "*",
+                "link": 1522
+              },
+              {
+                "localized_name": "ff_value",
+                "name": "ff_value",
+                "type": "*",
+                "link": 1523
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "*",
+                "name": "*",
+                "type": "*",
+                "links": [
+                  764,
+                  773,
+                  774,
+                  775
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfyui-impact-pack",
+              "ver": "8.25.1",
+              "Node name for S&R": "ImpactConditionalBranch",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.4.1"
+              }
+            },
+            "widgets_values": [],
+            "title": "eyes pass, or pass through if no face"
+          },
+          {
+            "id": 662,
+            "type": "PreviewAny",
+            "pos": [
+              5480.0,
+              5790.0
+            ],
+            "size": [
+              420.0,
+              100.0
+            ],
+            "flags": {},
+            "order": 23,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "source",
+                "type": "*",
+                "link": 1524
+              }
+            ],
+            "outputs": [],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.3.66",
+              "Node name for S&R": "PreviewAny",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.4.1"
+              }
+            },
+            "widgets_values": [
+              null,
+              null,
+              null
+            ],
+            "color": "#653",
+            "bgcolor": "#764",
+            "title": "eyes ran? False = no face found, eye detail SKIPPED"
           }
         ],
         "groups": [],
@@ -9304,7 +9452,7 @@
           },
           {
             "id": 764,
-            "origin_id": 418,
+            "origin_id": 661,
             "origin_slot": 0,
             "target_id": -20,
             "target_slot": 0,
@@ -9312,7 +9460,7 @@
           },
           {
             "id": 773,
-            "origin_id": 418,
+            "origin_id": 661,
             "origin_slot": 0,
             "target_id": -20,
             "target_slot": 0,
@@ -9320,7 +9468,7 @@
           },
           {
             "id": 774,
-            "origin_id": 418,
+            "origin_id": 661,
             "origin_slot": 0,
             "target_id": -20,
             "target_slot": 0,
@@ -9328,7 +9476,7 @@
           },
           {
             "id": 775,
-            "origin_id": 418,
+            "origin_id": 661,
             "origin_slot": 0,
             "target_id": -20,
             "target_slot": 0,
@@ -9349,6 +9497,46 @@
             "target_id": -20,
             "target_slot": 1,
             "type": "IMAGE"
+          },
+          {
+            "id": 1520,
+            "origin_id": 424,
+            "origin_slot": 0,
+            "target_id": 660,
+            "target_slot": 0,
+            "type": "SEGS"
+          },
+          {
+            "id": 1521,
+            "origin_id": 660,
+            "origin_slot": 0,
+            "target_id": 661,
+            "target_slot": 0,
+            "type": "BOOLEAN"
+          },
+          {
+            "id": 1522,
+            "origin_id": 418,
+            "origin_slot": 0,
+            "target_id": 661,
+            "target_slot": 1,
+            "type": "IMAGE"
+          },
+          {
+            "id": 1523,
+            "origin_id": 431,
+            "origin_slot": 0,
+            "target_id": 661,
+            "target_slot": 2,
+            "type": "IMAGE"
+          },
+          {
+            "id": 1524,
+            "origin_id": 660,
+            "origin_slot": 0,
+            "target_id": 662,
+            "target_slot": 0,
+            "type": "BOOLEAN"
           }
         ],
         "extra": {
