@@ -1,0 +1,36 @@
+==========================================
+  AIOFM · OFM Tech NSFW — setup
+  ComfyUI dir: /tmp/claude-0/-workspace-nsfw-fix/42cf139c-b337-4377-8985-05c89c65deb5/scratchpad/civitest/ComfyUI
+==========================================
+  Built for this template:
+  https://cloud.vast.ai/?ref_id=638421&creator_id=638421&name=AIOFM%20ComfyUI
+
+
+[1/13] Environment
+    GPU: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB, 595.45.04
+    torch: 2.9.1+cu128 | cuda: 12.8
+
+      disk before:
+overlay         410G  207G  204G  51% /
+
+
+[2/13] Download accelerators
+      RAM: 1133G total, 627G available  ->  workers: 12
+
+
+[3/13] ComfyUI core version
+      ✓ ComfyUI core 0.15.1 (validated)
+      ✓ CLIPLoader supports the 'device' input (black-face fix will apply)
+
+
+[4/13] Base checkpoint preflight (Civitai)
+      ✓ found your Civitai API key
+      ✓ Civitai still publishes the exact verified file (SHA256 match)
+      ✓ your Civitai key unlocks the download (HTTP 307)
+
+✗ not enough free disk for the base checkpoint.
+      need : 93133.3 GB  (checkpoint 93132.3 GB + 1 GB headroom)
+      free : 203.1 GB  at /tmp/claude-0/-workspace-nsfw-fix/42cf139c-b337-4377-8985-05c89c65deb5/scratchpad/civitest/ComfyUI/models/checkpoints
+  Free up space or provision a larger disk, then re-run this install.
+  (The full pack needs the disk sized per INSTALL MODELS.txt — at least 250 GB.)
+  log: /tmp/claude-0/-workspace-nsfw-fix/42cf139c-b337-4377-8985-05c89c65deb5/scratchpad/civitest/setup_test.log

@@ -141,17 +141,18 @@ WARNINGS=0
 # Custom nodes are always installed (the workflow cannot load without them);
 # PIN_NODES only decides whether they are pinned or left on their default
 # branch, so it no longer adds or removes a stage.
-# Eleven stages always run: Environment, Download accelerators, ComfyUI core
-# version, Downloading models, Custom nodes (one of the pinned/unpinned pair),
-# Custom node dependencies, Render-time models, Integrity check, ViTPose check,
-# Workflow node check, ComfyUI restart.
+# Twelve stages always run: Environment, Download accelerators, ComfyUI core
+# version, Base checkpoint preflight (Civitai), Downloading models, Custom
+# nodes (one of the pinned/unpinned pair), Custom node dependencies,
+# Render-time models, Integrity check, ViTPose check, Workflow node check,
+# ComfyUI restart.
 #
 # This read 10, which is where "[14/13]" came from. Two further errors sat on
 # top of it: the Workflow stage was never counted at all, and SageAttention was
 # counted whenever SAGE_INSTALL=1 even though its stage only runs when a build
 # was actually started -- on a pod that already has it, it is counted and never
 # runs. Those cancelled to -1 rather than to 0.
-STAGES=11
+STAGES=12
 [[ "${FIX_ORT:-1}"     == "1" ]] && STAGES=$((STAGES+1))
 [[ "${PIN_FRONTEND:-1}" == "1" ]] && STAGES=$((STAGES+1))
 # The Workflow stage runs when a workflow sits beside this script. That is
@@ -193,6 +194,29 @@ EchoVault_T9.safetensors IronSight_V7.safetensors SolarFlint_L2.safetensors \
 VelvetRush_Q4.safetensors FrostByte_K7.safetensors PhantomWeave_R5.safetensors \
 NovaMind_X1.safetensors vitpose_h_wholebody_model.onnx \
 vitpose_h_wholebody_data.bin yolov10m.onnx"
+
+# --- Files this installer must NEVER deliver from the AIOFM-Pack repo ---
+# Each is excluded from the bulk pull for a licence reason, whether or not it
+# is still present in the repo (the repo copies are scheduled for deletion;
+# excluding them here makes this script correct in both states):
+#
+#   SDXLNSFW.safetensors (both repo locations) — LUSTIFY! GGWP (V7), Civitai
+#     model 573152. allowCommercialUse ['RentCivit','Image'] permits selling
+#     the IMAGES it makes but not redistributing the file, so the buyer
+#     fetches their own copy from Civitai — see the LUSTIFY block below.
+#   dmd2_sdxl_4step_lora_fp16.safetensors — tianweiy/DMD2, cc-by-nc-4.0.
+#     Already replaced by TDD (Apache-2.0) on the fetch list; the bulk pull
+#     must not quietly deliver it anyway (fnmatch's * matches /, so
+#     "models/*" sweeps everything — that is exactly how it kept shipping).
+#   v1-5-pruned-emaonly-fp16.safetensors — referenced by nothing in either
+#     pack; creativeml-openrail-m flow-down obligations for a file nothing
+#     uses.
+LICENCE_EXCLUDE_PATHS=(
+    "models/checkpoints/SDXLNSFW.safetensors"
+    "models/diffusion_models/SDXLNSFW.safetensors"
+    "models/loras/dmd2_sdxl_4step_lora_fp16.safetensors"
+    "models/checkpoints/v1-5-pruned-emaonly-fp16.safetensors"
+)
 
 want() {
     [[ "$PROFILE" == "all" ]] && return 0
@@ -244,16 +268,21 @@ dl_bytes_now() {
 
 # --- expected download size, asked of the Hub up front ---
 repo_expected_bytes() {
-    python3 - "$HF_REPO_ID" "$PROFILE" "$VIDEO_FILES" <<'PYEOF' 2>/dev/null || echo 0
+    python3 - "$HF_REPO_ID" "$PROFILE" "$VIDEO_FILES" "${LICENCE_EXCLUDE_PATHS[*]}" <<'PYEOF' 2>/dev/null || echo 0
 import os, sys
 try:
     from huggingface_hub import HfApi
     repo, profile, vf = sys.argv[1], sys.argv[2], sys.argv[3].split()
+    excluded = set(sys.argv[4].split()) if len(sys.argv) > 4 else set()
     info = HfApi().repo_info(repo, files_metadata=True,
                              token=os.environ.get("HF_TOKEN"))
     total = 0
     for f in info.siblings:
         if not f.rfilename.startswith("models/"):
+            continue
+        # the licence-excluded files are never pulled, so counting them would
+        # make the progress bar promise bytes that never arrive
+        if f.rfilename in excluded:
             continue
         if profile != "all" and os.path.basename(f.rfilename) not in vf:
             continue
@@ -327,6 +356,154 @@ file_complete() {
     exp="$(expected_size "$fname")" || return 0   # unverifiable: accept
     have="$(stat -c %s "$path" 2>/dev/null || echo 0)"
     [[ "$have" == "$exp" ]]
+}
+
+# =============================================================
+#  The base checkpoint — LUSTIFY! GGWP (V7) — comes from CIVITAI,
+#  fetched with the BUYER'S OWN API key, never from the AIOFM-Pack repo.
+#
+#  Why: SDXLNSFW.safetensors is coyotte's "LUSTIFY! [NSFW checkpoint]",
+#  version GGWP (V7). Its Civitai licence flags are
+#  allowCommercialUse ['RentCivit','Image'], allowDerivatives false —
+#  selling the IMAGES it generates is permitted; redistributing the model
+#  file is not. So this pack does not ship the file: every install
+#  downloads its own copy straight from Civitai under the buyer's own
+#  (free) account and API key.
+#
+#  The identification is by hash, not by name: the file this workflow was
+#  built and verified against is SHA256 d234c60d67cedfe6…, which is
+#  byte-identical to Civitai version id 2155386's primary file
+#  (lustifyNSFWCheckpoint_ggwpV7.safetensors). Both the preflight and the
+#  post-download check compare against that hash, so a wrong or swapped
+#  upstream file can never be silently installed.
+#
+#  Endpoint behaviour (verified, not assumed): the download URL answers
+#  401 with no key or a bad key, and 307 to the CDN with a valid one.
+#  The metadata URL needs no key. Civitai is slower than HuggingFace for
+#  a file this size; the retry loop requests a freshly signed CDN link on
+#  each attempt and resumes into the same partial file.
+# =============================================================
+LUSTIFY_MODEL_ID=573152
+LUSTIFY_VERSION_ID="${LUSTIFY_VERSION_ID:-2155386}"
+LUSTIFY_NAME="LUSTIFY! GGWP (V7)"
+LUSTIFY_FILE="SDXLNSFW.safetensors"
+LUSTIFY_SHA256="${LUSTIFY_SHA256:-d234c60d67cedfe69433e3934a459707c2cf43b30232d3db2becd10371d2220f}"
+LUSTIFY_BYTES="${LUSTIFY_BYTES:-6938099634}"
+LUSTIFY_META_URL="https://civitai.com/api/v1/model-versions/${LUSTIFY_VERSION_ID}"
+LUSTIFY_DL_URL="https://civitai.com/api/download/models/${LUSTIFY_VERSION_ID}"
+CIVITAI_TOKEN_FILE="${CIVITAI_TOKEN_FILE:-/workspace/.civitai_token}"
+
+CIVITAI_KEY_HOWTO='    1. Create a free account at https://civitai.com (or log in)
+    2. Click your profile picture (top right)  ->  Account settings
+    3. Scroll to "API Keys"  ->  "Add API key"  ->  name it anything  ->  Save
+    4. Copy the key, then run this in the pod terminal:
+         echo "PASTE-YOUR-KEY-HERE" > /workspace/.civitai_token
+    5. Re-run the same install command you used before.
+  Nothing already installed is lost — the install resumes where it stopped.'
+
+civitai_token() {   # prints the buyer's key, or returns 1 if there is none
+    local t=""
+    if [[ -n "${CIVITAI_TOKEN:-}" ]]; then
+        t="$CIVITAI_TOKEN"
+    elif [[ -f "$CIVITAI_TOKEN_FILE" ]]; then
+        t="$(tr -d '[:space:]' < "$CIVITAI_TOKEN_FILE")"
+    fi
+    [[ -n "$t" ]] || return 1
+    printf '%s' "$t"
+}
+
+lustify_installed() {   # complete file already in place?
+    local have
+    have="$(stat -c %s "$COMFYUI_DIR/models/checkpoints/$LUSTIFY_FILE" 2>/dev/null || echo 0)"
+    [[ "$have" == "$LUSTIFY_BYTES" ]]
+}
+
+# Download the checkpoint from Civitai into models/checkpoints, resuming a
+# partial file if one exists, and refuse to install anything whose SHA256 is
+# not the one this pack was built against. Every failure mode dies with the
+# cause and the buyer's next action — none of them is a warning.
+fetch_lustify() {
+    local dest="$COMFYUI_DIR/models/checkpoints"
+    mkdir -p "$dest"
+    if lustify_installed; then
+        ok "$LUSTIFY_FILE already installed ($(human $LUSTIFY_BYTES)) — nothing to fetch"
+        return 0
+    fi
+    local tok part have got attempt rc code
+    tok="$(civitai_token)" || die "no Civitai API key found — the base checkpoint needs one.
+  The base model ($LUSTIFY_NAME) is licensed so that this pack may not ship
+  the file; your pod downloads it directly from civitai.com instead. One-time
+  setup, about two minutes:
+$CIVITAI_KEY_HOWTO"
+    part="$dest/.${LUSTIFY_FILE}.civitai-partial"
+    have="$(stat -c %s "$part" 2>/dev/null || echo 0)"
+    if (( have > 0 )); then
+        info "resuming $LUSTIFY_FILE ($(human $have) of $(human $LUSTIFY_BYTES) already here)"
+    else
+        echo "    get:  $LUSTIFY_FILE  ($(human $LUSTIFY_BYTES) from civitai.com)"
+        info "Civitai is slower than HuggingFace — this is normally the longest single download"
+    fi
+    rc=1
+    for attempt in 1 2 3 4 5; do
+        rc=0
+        if [[ -n "$TTY" ]]; then
+            curl -fL --retry 3 --retry-delay 5 --retry-connrefused -C - \
+                 -H "Authorization: Bearer $tok" --progress-bar \
+                 -o "$part" "$LUSTIFY_DL_URL" 2>"$TTY" || rc=$?
+        else
+            curl -fsSL --retry 3 --retry-delay 5 --retry-connrefused -C - \
+                 -H "Authorization: Bearer $tok" \
+                 -o "$part" "$LUSTIFY_DL_URL" || rc=$?
+        fi
+        (( rc == 0 )) && break
+        # Name the cause if it is the key rather than the network: a key can be
+        # deleted on civitai.com while this script is mid-download.
+        code="$(curl -s -o /dev/null -w '%{http_code}' -m 30 \
+                     -H "Authorization: Bearer $tok" "$LUSTIFY_DL_URL")" || code=000
+        if [[ "$code" == "401" ]]; then
+            die "Civitai rejected your API key while downloading (HTTP 401).
+  The key was valid when the install started, so it has probably been deleted
+  or expired on civitai.com. Make a fresh key:
+$CIVITAI_KEY_HOWTO"
+        elif [[ "$code" == "403" ]]; then
+            die "Civitai refused the download with your key (HTTP 403).
+  Your account does not currently have access to this model. Log in to
+  civitai.com in a browser, open https://civitai.com/models/$LUSTIFY_MODEL_ID,
+  confirm the Download button works for you there, then re-run this install."
+        fi
+        have="$(stat -c %s "$part" 2>/dev/null || echo 0)"
+        info "civitai download interrupted (attempt $attempt of 5, $(human $have) so far) — retrying with a fresh link"
+        sleep 5
+    done
+    if (( rc != 0 )); then
+        die "could not download $LUSTIFY_NAME from Civitai after 5 attempts.
+  The partial file is kept, so re-running this install resumes instead of
+  restarting. If civitai.com is having an outage, wait and re-run later."
+    fi
+    have="$(stat -c %s "$part" 2>/dev/null || echo 0)"
+    if (( have < LUSTIFY_BYTES )); then
+        die "the Civitai download ended early: $have bytes of $LUSTIFY_BYTES
+  (short by $((LUSTIFY_BYTES - have)), $(human $((LUSTIFY_BYTES - have)))).
+  The partial file is kept — re-run this install to resume it."
+    elif (( have > LUSTIFY_BYTES )); then
+        rm -f "$part"
+        die "the Civitai download is LARGER than the expected file: $have bytes
+  vs $LUSTIFY_BYTES. That cannot be resumed, so the file has been deleted —
+  re-run this install to fetch it fresh. If it happens twice, contact support."
+    fi
+    info "verifying SHA256 (reads the whole $(human $LUSTIFY_BYTES) — under a minute)"
+    got="$(sha256sum "$part" | awk '{print $1}')"
+    if [[ "$got" != "$LUSTIFY_SHA256" ]]; then
+        rm -f "$part"
+        die "the downloaded file is NOT the $LUSTIFY_NAME release this pack was built against.
+      expected SHA256: $LUSTIFY_SHA256
+      downloaded     : $got
+  The bad file has been deleted. Re-run this install to try again; if this
+  happens twice, the file on Civitai has changed — contact AIOFM support for
+  an updated pack rather than installing an unverified model."
+    fi
+    mv -f "$part" "$dest/$LUSTIFY_FILE"
+    ok "$LUSTIFY_FILE installed from Civitai and SHA256-verified ($LUSTIFY_NAME)"
 }
 
 SETUP_LOG="${SETUP_LOG:-/workspace/setup.log}"
@@ -678,6 +855,107 @@ else
 fi
 
 # =============================================================
+#  Base checkpoint preflight — runs BEFORE any download so a buyer with a
+#  missing/bad Civitai key, or a vanished upstream model, finds out in the
+#  first minute rather than after 30+ GB of model downloads. Four checks:
+#  the key exists, the Civitai version still resolves, the file it points
+#  at is still byte-identical to the one this pack was built against, and
+#  the key actually unlocks the download. Plus a disk-space check sized to
+#  the checkpoint. Every failure is fatal and names its cause; nothing
+#  here is a warning.
+# =============================================================
+echo ""
+stage "Base checkpoint preflight (Civitai)"
+if lustify_installed; then
+    ok "$LUSTIFY_FILE already installed — Civitai is not needed on this run"
+else
+    # 1. the buyer's key
+    CIVI_TOKEN="$(civitai_token)" || die "no Civitai API key found — the base checkpoint needs one.
+  The base model ($LUSTIFY_NAME) is licensed so that this pack may not ship
+  the file to you; your pod downloads it directly from civitai.com under your
+  own (free) account instead. One-time setup, about two minutes:
+$CIVITAI_KEY_HOWTO"
+    ok "found your Civitai API key"
+
+    # 2. the pinned version must still exist on Civitai
+    META_TMP="$(mktemp)"
+    META_CODE="$(curl -s -o "$META_TMP" -w '%{http_code}' --retry 3 --retry-delay 3 \
+                      -m 60 "$LUSTIFY_META_URL")" || META_CODE=000
+    if [[ "$META_CODE" != "200" ]]; then
+        rm -f "$META_TMP"
+        die "$LUSTIFY_NAME did not resolve on Civitai (HTTP $META_CODE for
+  model $LUSTIFY_MODEL_ID, version $LUSTIFY_VERSION_ID).
+  This install downloads the base checkpoint from Civitai because its licence
+  does not allow the pack to ship the file. If this is a network hiccup or a
+  Civitai outage, re-run in a few minutes. If it keeps failing, the creator
+  may have removed or replaced this model version — contact AIOFM support for
+  an updated pack; the install cannot complete without this exact file."
+    fi
+
+    # 3. …and must still publish the exact bytes this pack was built against
+    API_SHA="$(python3 -c "
+import json,sys
+d = json.load(open(sys.argv[1]))
+fs = [f for f in d.get('files',[]) if f.get('primary')] or d.get('files',[])
+print(fs[0].get('hashes',{}).get('SHA256','').lower() if fs else '')
+" "$META_TMP" 2>/dev/null)" || API_SHA=""
+    rm -f "$META_TMP"
+    if [[ -z "$API_SHA" ]]; then
+        die "Civitai answered for $LUSTIFY_NAME but the reply had no file hash
+  in it — the API may have changed shape. Not downloading an unverifiable
+  file. Re-run later; if it persists, contact AIOFM support."
+    elif [[ "$API_SHA" != "$LUSTIFY_SHA256" ]]; then
+        die "Civitai still lists version $LUSTIFY_VERSION_ID of $LUSTIFY_NAME,
+  but the file published there is NO LONGER the one this pack was built and
+  verified against:
+      expected SHA256: $LUSTIFY_SHA256
+      Civitai now has: $API_SHA
+  Installing a different file under the same name would silently change every
+  render, so this stops here. Contact AIOFM support for an updated pack."
+    fi
+    ok "Civitai still publishes the exact verified file (SHA256 match)"
+
+    # 4. the key must actually unlock the download (401 = bad key, 403 = no
+    #    access; with a valid key Civitai answers 307 to its CDN)
+    DL_CODE="$(curl -s -o /dev/null -w '%{http_code}' -m 60 \
+                    -H "Authorization: Bearer $CIVI_TOKEN" "$LUSTIFY_DL_URL")" || DL_CODE=000
+    case "$DL_CODE" in
+        30*|200)
+            ok "your Civitai key unlocks the download (HTTP $DL_CODE)" ;;
+        401)
+            die "Civitai rejected your API key (HTTP 401).
+  The key in $CIVITAI_TOKEN_FILE (or \$CIVITAI_TOKEN) is wrong, expired, or
+  has been deleted on civitai.com. Make a fresh key:
+$CIVITAI_KEY_HOWTO" ;;
+        403)
+            die "your Civitai API key is valid, but your account cannot download
+  this model (HTTP 403). Log in to civitai.com in a browser, open
+  https://civitai.com/models/$LUSTIFY_MODEL_ID, and confirm the Download
+  button works for you there; resolve whatever it reports (some models
+  require being logged in with a verified account), then re-run this install." ;;
+        *)
+            die "civitai.com answered HTTP $DL_CODE for the download link.
+  Civitai may be down or rate-limiting. Wait a few minutes and re-run this
+  install — nothing already downloaded is lost." ;;
+    esac
+
+    # 5. room for it on disk (checked here, not mid-download)
+    mkdir -p "$COMFYUI_DIR/models/checkpoints"
+    PART_HAVE="$(stat -c %s "$COMFYUI_DIR/models/checkpoints/.${LUSTIFY_FILE}.civitai-partial" 2>/dev/null || echo 0)"
+    DISK_AVAIL="$(df -B1 --output=avail "$COMFYUI_DIR/models/checkpoints" 2>/dev/null | tail -1 | tr -d ' ')" || DISK_AVAIL=""
+    DISK_NEED=$(( LUSTIFY_BYTES - PART_HAVE + 1073741824 ))   # +1 GB headroom
+    (( DISK_NEED < 0 )) && DISK_NEED=0
+    if [[ -n "$DISK_AVAIL" ]] && (( DISK_AVAIL < DISK_NEED )); then
+        die "not enough free disk for the base checkpoint.
+      need : $(human $DISK_NEED)  (checkpoint $(human $LUSTIFY_BYTES) + 1 GB headroom$( ((PART_HAVE>0)) && printf ', %s already resumed' "$(human $PART_HAVE)" ))
+      free : $(human $DISK_AVAIL)  at $COMFYUI_DIR/models/checkpoints
+  Free up space or provision a larger disk, then re-run this install.
+  (The full pack needs the disk sized per INSTALL MODELS.txt — at least 250 GB.)"
+    fi
+    ok "disk space is sufficient for the checkpoint download"
+fi
+
+# =============================================================
 #  BULK PULL — the whole repo in one parallel download.
 #  hf download verifies each file's checksum, so truncated or corrupt
 #  models can't get through. If it fails, the wget path below takes over.
@@ -694,6 +972,11 @@ if [[ "$BULK_OK" == "1" ]]; then
     if [[ "$PROFILE" != "all" ]]; then
         INC=()
         for f in $VIDEO_FILES; do INC+=(--include "models/**/$f"); done
+    else
+        # The licence exclusions (see LICENCE_EXCLUDE_PATHS above). The video
+        # profile's include list never names these files, so only the bulk
+        # "models/*" sweep needs them.
+        for p in "${LICENCE_EXCLUDE_PATHS[@]}"; do INC+=(--exclude "$p"); done
     fi
 
     info "asking the Hub how much there is to fetch..."
@@ -858,9 +1141,15 @@ dl_public "https://huggingface.co/Wan-AI/Wan2.2-Animate-14B/resolve/main/process
 
 # ============================================
 # models/checkpoints
+#
+# The base checkpoint comes from Civitai with the buyer's own key — see the
+# LUSTIFY block near the top. The preflight stage has already proven the key
+# works and the upstream file is the verified one, so a failure here is a
+# mid-download event (network drop, key deleted mid-flight), and every one of
+# those is fatal with the cause named.
 # ============================================
 echo ">>> models/checkpoints"
-dl "$REPO/SDXLNSFW.safetensors" "$COMFYUI_DIR/models/checkpoints"
+fetch_lustify
 
 # ============================================
 # models/clip_vision
@@ -881,8 +1170,13 @@ dl "$REPO/Low.safetensors" "$COMFYUI_DIR/models/diffusion_models"
 dl "$REPO/Z-TurboSkinForge.safetensors" "$COMFYUI_DIR/models/diffusion_models"
 dl "$REPO/zimage.safetensors" "$COMFYUI_DIR/models/diffusion_models"
 
-# --- SDXLNSFW is needed in both checkpoints and diffusion_models.
-#     A hardlink instead of a second download: 0 bytes, 0 seconds. ---
+# --- SDXLNSFW is kept in both checkpoints and diffusion_models (the NSFW
+#     graph loads only the checkpoints copy, via CheckpointLoaderSimple #613;
+#     the second location is kept for layout parity with existing installs).
+#     A hardlink instead of a second download: 0 bytes, 0 seconds.
+#     fetch_lustify above guarantees the checkpoints copy exists, so there is
+#     no "neither exists" case — and no repo fallback: the repo must never be
+#     the source for this file. ---
 SDXL_CKPT="$COMFYUI_DIR/models/checkpoints/SDXLNSFW.safetensors"
 SDXL_DIFF="$COMFYUI_DIR/models/diffusion_models/SDXLNSFW.safetensors"
 if [[ -s "$SDXL_CKPT" && ! -s "$SDXL_DIFF" ]]; then
@@ -891,8 +1185,6 @@ if [[ -s "$SDXL_CKPT" && ! -s "$SDXL_DIFF" ]]; then
 elif [[ -s "$SDXL_DIFF" && ! -s "$SDXL_CKPT" ]]; then
     ln "$SDXL_DIFF" "$SDXL_CKPT" 2>/dev/null || cp "$SDXL_DIFF" "$SDXL_CKPT"
     echo "    link: SDXLNSFW.safetensors -> checkpoints"
-elif [[ ! -s "$SDXL_CKPT" && ! -s "$SDXL_DIFF" ]]; then
-    dl "$REPO/SDXLNSFW.safetensors" "$COMFYUI_DIR/models/diffusion_models"
 fi
 
 # ============================================

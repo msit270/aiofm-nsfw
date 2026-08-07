@@ -1,0 +1,4 @@
+    get:  SDXLNSFW.safetensors  (24 KB from civitai.com)
+info: Civitai is slower than HuggingFace — this is normally the longest single download
+info: verifying SHA256 (reads the whole 24 KB — under a minute)
+OK  : SDXLNSFW.safetensors installed from Civitai and SHA256-verified (LUSTIFY! GGWP (V7))

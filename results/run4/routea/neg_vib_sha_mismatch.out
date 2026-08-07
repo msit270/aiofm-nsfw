@@ -1,0 +1,8 @@
+info: resuming SDXLNSFW.safetensors (12 KB of 24 KB already here)
+info: verifying SHA256 (reads the whole 24 KB — under a minute)
+DIE : the downloaded file is NOT the LUSTIFY! GGWP (V7) release this pack was built against.
+      expected SHA256: c74b4e810b030f6b75fde959e2db678c268d07115b85356d3c0138ba5eb42340
+      downloaded     : 70ec02a64918fe6bfd8d90632ef085065e2bb7c584a4893e9896d2b6bae775fd
+  The bad file has been deleted. Re-run this install to try again; if this
+  happens twice, the file on Civitai has changed — contact AIOFM support for
+  an updated pack rather than installing an unverified model.

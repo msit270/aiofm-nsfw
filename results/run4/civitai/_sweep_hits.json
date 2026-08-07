@@ -1,0 +1,191 @@
+{
+  "models/clip_vision/IronSight_V7.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/IronSight_V7_by_hash.json",
+    "modelId": 1329096,
+    "versionId": 1501088,
+    "model": "Wan Video 2.1",
+    "version": "Clip Vision h"
+  },
+  "models/diffusion_models/High.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/High_by_hash.json",
+    "modelId": 1981116,
+    "versionId": 2555640,
+    "model": "\u269c\ufe0f\ud83d\udc80 DaSiWa WAN 2.2 I2V 14B | Lightspeed | Safetensors \ud83d\udc80\u269c\ufe0f",
+    "version": "SynthSeduction High v9"
+  },
+  "models/diffusion_models/HyperFleshUltrav4.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/HyperFleshUltrav4_by_hash.json",
+    "modelId": 978314,
+    "versionId": 1413133,
+    "model": "UltraReal Fine-Tune",
+    "version": "v4"
+  },
+  "models/diffusion_models/Low.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/Low_by_hash.json",
+    "modelId": 1981116,
+    "versionId": 2555652,
+    "model": "\u269c\ufe0f\ud83d\udc80 DaSiWa WAN 2.2 I2V 14B | Lightspeed | Safetensors \ud83d\udc80\u269c\ufe0f",
+    "version": "SynthSeduction Low v9"
+  },
+  "models/diffusion_models/Z-TurboSkinForge.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/Z-TurboSkinForge_by_hash.json",
+    "modelId": 2305301,
+    "versionId": 2593828,
+    "model": "Z-epiCRealism",
+    "version": "Turbo V1 (fp8)"
+  },
+  "models/diffusion_models/flux-2.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/flux-2_by_hash.json",
+    "modelId": 2322332,
+    "versionId": 2612554,
+    "model": "Flux.2 Klein",
+    "version": "9B"
+  },
+  "models/diffusion_models/flux4b.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/flux4b_by_hash.json",
+    "modelId": 2322332,
+    "versionId": 2612557,
+    "model": "Flux.2 Klein",
+    "version": "4B"
+  },
+  "models/diffusion_models/wan2.2_animate_14B_bf16.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/wan2.2_animate_14B_bf16_by_hash.json",
+    "modelId": 1974861,
+    "versionId": 2238586,
+    "model": "Wan2.2 Animate FP8/16 and Quants",
+    "version": "fp16"
+  },
+  "models/diffusion_models/zimage.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/zimage_by_hash.json",
+    "modelId": 2168935,
+    "versionId": 2442439,
+    "model": "Z Image Turbo",
+    "version": "Turbo"
+  },
+  "models/loras/DetailedNipples.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/DetailedNipples_by_hash.json",
+    "modelId": 328932,
+    "versionId": 368603,
+    "model": "Detailed nipples XL",
+    "version": "v1.0"
+  },
+  "models/loras/FrostByte_K7.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/FrostByte_K7_by_hash.json",
+    "modelId": 2226769,
+    "versionId": 2506898,
+    "model": "Wan2.2-I2V-A14B-4steps-lora-rank64-Seko-V1",
+    "version": "Seko_lora_low_noise"
+  },
+  "models/loras/NovaMind_X1.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/NovaMind_X1_by_hash.json",
+    "modelId": 1953737,
+    "versionId": 2211200,
+    "model": "Wan2.2-Fun-A14B-InP-low-noise-MPS",
+    "version": "v1.0"
+  },
+  "models/loras/VelvetPores_Flux.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/VelvetPores_Flux_by_hash.json",
+    "modelId": 1157318,
+    "versionId": 1301668,
+    "model": "Photorealistic Skin \u26d4\ufe0f No plastic [FLUX]",
+    "version": "FLUX v0.1"
+  },
+  "models/loras/dmd2_sdxl_4step_lora_fp16.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/dmd2_sdxl_4step_lora_fp16_by_hash.json",
+    "modelId": 1608870,
+    "versionId": 1820946,
+    "model": "DMD2 Speed LoRA [SDXL, Pony, Illustrious]",
+    "version": "dmd2_sdxl_4step_lora_fp16"
+  },
+  "models/loras/primary_net_v2.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/primary_net_v2_by_hash.json",
+    "modelId": 2420939,
+    "versionId": 2721846,
+    "model": "z-image-turbo-flow-dpo",
+    "version": "v1.0"
+  },
+  "models/loras/x_gen_weights.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/x_gen_weights_by_hash.json",
+    "modelId": 2268008,
+    "versionId": 2600004,
+    "model": "Realistic Snapshot (Z-Image-Turbo + Krea 2)",
+    "version": "ZIT v3.5 (PHOTOREALISM)"
+  },
+  "models/sam3/sam3.pt": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/sam3_by_hash.json",
+    "modelId": 2231845,
+    "versionId": 2512460,
+    "model": "samsan",
+    "version": "v1.0"
+  },
+  "models/text_encoders/EchoVault_T9.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/EchoVault_T9_by_hash.json",
+    "modelId": 1295569,
+    "versionId": 1464054,
+    "model": "LTX 2.3 \u9ad8\u901f\u7248 GTAnimation | 25 frames in 5S! 12G VRAM",
+    "version": "Kijai-umt5-xxl-enc-Wan"
+  },
+  "models/text_encoders/TitanFP8.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/TitanFP8_by_hash.json",
+    "modelId": 704402,
+    "versionId": 787922,
+    "model": "Flux textencoder t5-xxl fp8 (e4m3fn)",
+    "version": "v1.0"
+  },
+  "models/text_encoders/clip_l.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/clip_l_by_hash.json",
+    "modelId": 2644014,
+    "versionId": 2940170,
+    "model": "LunaR - v2",
+    "version": "v2"
+  },
+  "models/text_encoders/qwen.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/qwen_by_hash.json",
+    "modelId": 2168935,
+    "versionId": 2442439,
+    "model": "Z Image Turbo",
+    "version": "Turbo"
+  },
+  "models/text_encoders/umt5.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/umt5_by_hash.json",
+    "modelId": 1295569,
+    "versionId": 1464054,
+    "model": "LTX 2.3 \u9ad8\u901f\u7248 GTAnimation | 25 frames in 5S! 12G VRAM",
+    "version": "Kijai-umt5-xxl-enc-Wan"
+  },
+  "models/upscale_models/4x_NMKD-Superscale-SP_178000_G.pth": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/4x_NMKD-Superscale-SP_178000_G_by_hash.json",
+    "modelId": 141491,
+    "versionId": 156841,
+    "model": "4x NMKD Superscale",
+    "version": "4x NMKD Superscale SP1780"
+  },
+  "models/upscale_models/upscale1.pth": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/upscale1_by_hash.json",
+    "modelId": 116225,
+    "versionId": 125843,
+    "model": "4x-Ultrasharp",
+    "version": "4x-UltraSharp v1.0"
+  },
+  "models/vae/GlassRoot_D2.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/GlassRoot_D2_by_hash.json",
+    "modelId": 1295569,
+    "versionId": 1463486,
+    "model": "LTX 2.3 \u9ad8\u901f\u7248 GTAnimation | 25 frames in 5S! 12G VRAM",
+    "version": "Kijai_Wan2_1_VAE"
+  },
+  "models/vae/flux2-vae.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/flux2-vae_by_hash.json",
+    "modelId": 2165923,
+    "versionId": 2439129,
+    "model": "Flux2-Dev FP8 & GGUF",
+    "version": "Flux2-Dev VAE"
+  },
+  "models/vae/variational_encoder_primary.safetensors": {
+    "file": "/workspace/nsfw-fix/results/run4/civitai/variational_encoder_primary_by_hash.json",
+    "modelId": 636193,
+    "versionId": 711305,
+    "model": "Flux vae.sft",
+    "version": "ae.sft"
+  }
+}

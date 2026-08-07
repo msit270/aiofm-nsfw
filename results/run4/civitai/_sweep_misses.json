@@ -1,0 +1,86 @@
+[
+  {
+    "path": "models/checkpoints/v1-5-pruned-emaonly-fp16.safetensors",
+    "oid": "e9476a13728cd75d8279f6ec8bad753a66a1957ca375a1464dc63b37db6e3916",
+    "http": "404",
+    "body_head": "{\"error\":\"Model not found\"}"
+  },
+  {
+    "path": "models/detection/vitpose_h_wholebody_data.bin",
+    "oid": "f6a9e7cb3a87ed65a098b096029e70150408acfafc3d695019a66b289d7719e1",
+    "http": "404",
+    "body_head": "{\"error\":\"Model not found\"}"
+  },
+  {
+    "path": "models/detection/vitpose_h_wholebody_model.onnx",
+    "oid": "f21466cd6c93d0066782ad5923c14a4e6569133def212dc2895c73596c2e553b",
+    "http": "404",
+    "body_head": "{\"error\":\"Model not found\"}"
+  },
+  {
+    "path": "models/detection/yolov10m.onnx",
+    "oid": "89b526498a6d55f869a6ab52e3a2eb20ad45b3711c1f7de3dd9ca0b399dfd6d7",
+    "http": "404",
+    "body_head": "{\"error\":\"Model not found\"}"
+  },
+  {
+    "path": "models/loras/PhantomWeave_R5.safetensors",
+    "oid": "a510b5562e05efa831127bd6a6b3aecf1c4747cffdddcc0b28f88c0667ef1694",
+    "http": "404",
+    "body_head": "{\"error\":\"Model not found\"}"
+  },
+  {
+    "path": "models/loras/SolarFlint_L2.safetensors",
+    "oid": "5f4b6b9d3bc745a86e7bfd511f3880d90cf59c3bded9584d92c028f583fa74a3",
+    "http": "404",
+    "body_head": "{\"error\":\"Model not found\"}"
+  },
+  {
+    "path": "models/loras/VelvetRush_Q4.safetensors",
+    "oid": "0bda20598ece84b0b2f2385204e1f2e32b1fd2e2648662021be832fe1f227fab",
+    "http": "404",
+    "body_head": "{\"error\":\"Model not found\"}"
+  },
+  {
+    "path": "models/text_encoders/qwen-4b-zimage-heretic-q8.gguf",
+    "oid": "70af2493307e38df4f3957811887d037821c4cea3d4230bb7430cd78d90f1ef3",
+    "http": "404",
+    "body_head": "{\"error\":\"Model not found\"}"
+  },
+  {
+    "path": "models/ultralytics/lips_v1.pt",
+    "oid": "ce9fe145352af12c072ee11536a3d0de9425280096c4367e7a08636f57c7fe99",
+    "http": "404",
+    "body_head": "{\"error\":\"Model not found\"}"
+  },
+  {
+    "path": "models/ultralytics/nipple.pt",
+    "oid": "67e04f8d23cb3e56f94a2b892657e500184a9cceabd7cfad2adeb313c19c5b5c",
+    "http": "404",
+    "body_head": "{\"error\":\"Model not found\"}"
+  },
+  {
+    "path": "models/ultralytics/pussyV2.pt",
+    "oid": "b7c38d3ecf1c743e99a0d42d64d658c203e63b39b824706c1522ebde57533a8b",
+    "http": "404",
+    "body_head": "{\"error\":\"Model not found\"}"
+  },
+  {
+    "path": "models/upscale_models/4x-UltraSharpV2.pth",
+    "oid": "0335cf48ad654ef79fc14aa97146f0c143c499b0602b2636e2be112f4cd403cf",
+    "http": "404",
+    "body_head": "{\"error\":\"Model not found\"}"
+  },
+  {
+    "path": "models/upscale_models/RealityGlass4x.pth",
+    "oid": "a4cd3a25b00e0be949d4302fc774eb4d7f2ed5f47cdb51551e2d75fa6562e51e",
+    "http": "404",
+    "body_head": "{\"error\":\"Model not found\"}"
+  },
+  {
+    "path": "models/upscale_models/x1_ITF_SkinDiffDetail_Lite_v1.pth",
+    "oid": "94d368b633614958f84f335b129fd85abd30200e8fbc575b859ba6762116222b",
+    "http": "404",
+    "body_head": "{\"error\":\"Model not found\"}"
+  }
+]

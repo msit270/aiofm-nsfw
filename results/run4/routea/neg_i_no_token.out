@@ -1,0 +1,39 @@
+==========================================
+  AIOFM · OFM Tech NSFW — setup
+  ComfyUI dir: /tmp/claude-0/-workspace-nsfw-fix/42cf139c-b337-4377-8985-05c89c65deb5/scratchpad/civitest/ComfyUI
+==========================================
+  Built for this template:
+  https://cloud.vast.ai/?ref_id=638421&creator_id=638421&name=AIOFM%20ComfyUI
+
+
+[1/13] Environment
+    GPU: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB, 595.45.04
+    torch: 2.9.1+cu128 | cuda: 12.8
+
+      disk before:
+overlay         410G  207G  204G  51% /
+
+
+[2/13] Download accelerators
+      RAM: 1133G total, 612G available  ->  workers: 12
+
+
+[3/13] ComfyUI core version
+      ✓ ComfyUI core 0.15.1 (validated)
+      ✓ CLIPLoader supports the 'device' input (black-face fix will apply)
+
+
+[4/13] Base checkpoint preflight (Civitai)
+
+✗ no Civitai API key found — the base checkpoint needs one.
+  The base model (LUSTIFY! GGWP (V7)) is licensed so that this pack may not ship
+  the file to you; your pod downloads it directly from civitai.com under your
+  own (free) account instead. One-time setup, about two minutes:
+    1. Create a free account at https://civitai.com (or log in)
+    2. Click your profile picture (top right)  ->  Account settings
+    3. Scroll to "API Keys"  ->  "Add API key"  ->  name it anything  ->  Save
+    4. Copy the key, then run this in the pod terminal:
+         echo "PASTE-YOUR-KEY-HERE" > /workspace/.civitai_token
+    5. Re-run the same install command you used before.
+  Nothing already installed is lost — the install resumes where it stopped.
+  log: /tmp/claude-0/-workspace-nsfw-fix/42cf139c-b337-4377-8985-05c89c65deb5/scratchpad/civitest/setup_test.log

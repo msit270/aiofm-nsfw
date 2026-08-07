@@ -1,0 +1,36 @@
+==========================================
+  AIOFM · OFM Tech NSFW — setup
+  ComfyUI dir: /tmp/claude-0/-workspace-nsfw-fix/42cf139c-b337-4377-8985-05c89c65deb5/scratchpad/civitest/ComfyUI
+==========================================
+  Built for this template:
+  https://cloud.vast.ai/?ref_id=638421&creator_id=638421&name=AIOFM%20ComfyUI
+
+
+[1/13] Environment
+    GPU: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB, 595.45.04
+    torch: 2.9.1+cu128 | cuda: 12.8
+
+      disk before:
+overlay         410G  207G  204G  51% /
+
+
+[2/13] Download accelerators
+      RAM: 1133G total, 611G available  ->  workers: 12
+
+
+[3/13] ComfyUI core version
+      ✓ ComfyUI core 0.15.1 (validated)
+      ✓ CLIPLoader supports the 'device' input (black-face fix will apply)
+
+
+[4/13] Base checkpoint preflight (Civitai)
+      ✓ found your Civitai API key
+
+✗ LUSTIFY! GGWP (V7) did not resolve on Civitai (HTTP 404 for
+  model 573152, version 999999999).
+  This install downloads the base checkpoint from Civitai because its licence
+  does not allow the pack to ship the file. If this is a network hiccup or a
+  Civitai outage, re-run in a few minutes. If it keeps failing, the creator
+  may have removed or replaced this model version — contact AIOFM support for
+  an updated pack; the install cannot complete without this exact file.
+  log: /tmp/claude-0/-workspace-nsfw-fix/42cf139c-b337-4377-8985-05c89c65deb5/scratchpad/civitest/setup_test.log
