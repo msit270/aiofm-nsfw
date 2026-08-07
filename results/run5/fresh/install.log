@@ -1,0 +1,62 @@
+
+[1;36m=== AIOFM · OFMTech NSFW — bootstrap ===[0m
+
+  read your HuggingFace token from /workspace/.hf_token
+  downloading the pack from msit270/AIOFM-Pack …
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  275M  100  275M    0     0  4873M      0 --:--:-- --:--:-- --:--:-- 4923M
+  downloaded 276M
+  unpacked to /workspace/fresh5-dest/AIOFMTech-NSFW-Personal
+
+  handing over to the installer in /workspace/fresh5-dest/AIOFMTech-NSFW-Personal
+
+==========================================
+  AIOFM · OFM Tech NSFW — setup
+  ComfyUI dir: /workspace/comfy-fresh5
+==========================================
+  Built for this template:
+  https://cloud.vast.ai/?ref_id=638421&creator_id=638421&name=AIOFM%20ComfyUI
+
+
+[1/14] Environment
+    GPU: NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 97887 MiB, 580.82.07
+    torch: 2.9.1+cu128 | cuda: 12.8
+
+      disk before:
+overlay         410G  218G  193G  54% /
+
+
+[2/14] Download accelerators
+      RAM: 123G total, 92G available  ->  workers: 4
+      ✓ SageAttention already installed
+
+
+[3/14] onnxruntime / CUDA
+      ✓ onnxruntime matches torch CUDA
+      ✓ CUDA library paths registered (ldconfig)
+
+
+[4/14] ComfyUI core version
+      ✓ ComfyUI core 0.15.1 @ 3dd10a59 (validated)
+      ✓ CLIPLoader supports the 'device' input (black-face fix will apply)
+
+
+[5/14] ComfyUI frontend (pinned 1.39.19)
+      ✓ comfyui-frontend-package already 1.39.19
+
+
+[6/14] Base checkpoint preflight (Civitai)
+      ✓ found your Civitai API key
+      ✓ Civitai still publishes the exact verified file (SHA256 match)
+      ✓ your Civitai key unlocks the download (HTTP 307)
+      ✓ disk space is sufficient for the checkpoint download
+
+[7/14] Downloading models (msit270/AIOFM-Pack, profile: all)
+      asking the Hub how much there is to fetch...
+      164.2 GB total, 0 KB still to download
+      ✓ already up to date — nothing to download
+>>> models/detection
+>>> models/checkpoints
+    get:  lustifyNSFWCheckpoint_zenithV9.safetensors  (6.5 GB from civitai.com)
+      Civitai is slower than HuggingFace — this is normally the longest single download

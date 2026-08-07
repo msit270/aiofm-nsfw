@@ -146,3 +146,39 @@ answers it" answered YES (feet out of frame; framing control TBD).
 - Metric arch-bias control: Z-rendered stranger 0.3373 vs SDXL-rendered
   stranger 0.3350 — architecture alone contributes ~0.002; likeness deltas
   are identity, not texture-statistics.
+
+## FINAL STATE (end of run 5, 2026-08-08 ~00:0x)
+
+**Recommendation: LUNA-Z** — Z-Image Turbo + luna drives base AND every
+sampling pass; SDXL fully out of the render path (79-node executed graph).
+Numbers (cos to luna centroid; ZIT-to-ZIT band 0.92-0.94):
+- LUNA-Z: FB 0.733 / PT 0.740 / CU 0.746 / base-30-variant 0.774.
+  Texture at reference level (faceHF 10.3-11.5, bodyHF 9.6+; A0 ship: 7.7/6.8;
+  framing caveat in verify/phase23_verifier.md).
+- Ship-arch A0: 0.585 FB; PT arm black-faced 2/2 boots on this pod.
+- Repaired SDXL (fixboth-class): 0.61-0.77 on FB depending on den085,
+  but composition-fragile: sdxlfix PT 0.485 / CU 0.413.
+- V9 < V7 for likeness even fully repaired (0.708 vs 0.769 at den085) —
+  lunaskye expresses better on V7. V9 installed for future re-derive.
+
+**Shipped artifact** (results/run5/PACK.txt): AIOFMTech-NSFW-Personal.tar.gz
+sha256 8573e474…, workflow OFMTech_NSFW_Personal.json (flat, 71 nodes,
+member sha f89bb021…). Proof chain: measured winner D_lunaz_FB ← bit-identical
+(max_abs_diff 0, two servers) ← final_luna_z_api.json ← harness round-trip
+EQUIVALENT ← the UI file in the pack. Buyer-journey values (mouth thr 0.5,
+prompt wiring via 483, selector live) included.
+
+**Known open defect — intermittent Z-render black frames on THIS pod:**
+~7 events across ~90 Z renders, both architectures (incl. the SHIPPED A0 on
+the PT comp, 2/2 boots), per-graph deterministic within a boot, varies across
+boots; LUNA-Z default config 5/5 clean across boots. ZeroOut-negative and
+LoRA-strength theories tested and falsified. Mitigation shipped: fresh-boot
++ re-render; fresh_install5 gate black-checks its render. Root-cause session
+proposed (torch 2.9.1+cu128 / Blackwell numeric edge suspected, unproven);
+failing graphs preserved under results/run5/*/api_graph.json.
+
+**Fresh-tree one-command install:** tools/fresh_install5.sh — live sellable
+gist + AIOFM_PACK_URL override to the personal pack; withholds V9+LoRAs,
+verifies they arrive (V9 sha-checked from civitai), installs the personal
+workflow, boots, browser-harness renders end-to-end with the selector
+driven, black-checks the output. Result recorded below when it lands.
