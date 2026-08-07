@@ -377,3 +377,28 @@ making the video-typed "Workflow node check" profile-aware. Deferred: editing
 install-check logic during a distribution cut was judged the larger risk, per
 WS5's own caution. Nothing gates on these; both DoD-2 gates and the DoD-1
 gate were green with zero load/run errors.
+
+---
+
+# §5. Run 4 (2026-08-07) — the licensing run's calls
+
+Full list with reasons: `notes/R4-decisions.md`. Headlines only:
+
+- **§0's table is superseded by `results/run4/MODEL-AUDIT.md`.** B1 (LUSTIFY)
+  is closed by the buyer-side Civitai fetch (route a, implemented + gated);
+  B2 (DMD2) is excluded from the NSFW install and staged for repo deletion;
+  B3/B4 (UnMarker/GrainNet) are deleted from the shipped INSTARAW (96 types
+  survive, the workflow's 7 all present). B5 (no pack licence) is UNCHANGED —
+  still open, owner/lawyer item.
+- **The audit found THREE NEW problems on the live render path** that §0
+  never contained: `4x-UltraSharpV2.pth` (cc-by-nc-sa-4.0, loaded twice),
+  `x1_ITF_SkinDiffDetail_Lite_v1.pth` (cc-by-nc-sa-4.0), `lips_v1.pt`
+  (Civitai flags with no Sell). Not fixed this run — each fix changes
+  rendered output. This is the top of the next session's list:
+  `LEGAL-MEMO.md` §3b, candidates in `notes/Q1-currency.md`.
+- **Owner actions staged, not executed** (pod token is read-only):
+  `OWNER-ACTIONS.md` — publish the 8f376926 cut, delete the encumbered repo
+  files (tier 1 required, tier 2 owner's call), revoke the run-3 write
+  token, re-cut the video pack at leisure.
+- The `non_semantic_attack.py` judgment call: removed while uncleared
+  (`notes/R4B-instaraw-removal.md` §6.1 has the two-file revert).
