@@ -1,4 +1,4 @@
-# run-5 lesson — NaN poisoning on a persistent server, second occurrence
+# run-5 lesson — intermittent black-frame Z-render failures (revised)
 
 2026-08-07 ~21:4x. On the persistent :19188 arm server, the arm
 `zref_P_12345_str08` (Z-Image Turbo + luna at `LoraLoaderModelOnly`
@@ -36,3 +36,23 @@ of failure impossible; the persistent-server speedup traded that away. The
 canary-bracket keeps most of the speed and catches the failure class after
 the fact instead of preventing it — acceptable for a personal run, not for
 product gates.
+
+
+## REVISION (2026-08-07 ~22:5x, after batch D)
+
+The "poisoning" model above was over-confident. New evidence: batch D's
+zref_PT_12345 (and zref_CU, 1.7 s each) rendered BLACK on the long-lived
+server, while D_lunaz_FB / D_lunaz_PT rendered immediately after on the same
+process came out healthy (0.733/0.740, faces detected). So blackness did not
+propagate that time. Honest current model:
+
+- An intermittent Z-UNET black/garbage render failure, cause unknown,
+  ~3-4 occurrences in ~60 Z renders this session (str08, fix610's face
+  region, zref_PT, likely zref_CU).
+- Whether str08 CAUSED fix610/zbref's corruption or they were independent
+  occurrences is UNPROVEN either way; the fresh-server re-runs of both came
+  out healthy/clean, which is consistent with both models.
+- The controls that stand regardless: canary brackets (bit-identity) around
+  batches, black-frame sweeps after each batch, re-render failed arms.
+  All likeness/texture rows in the record come from visually-verified,
+  face-detected frames.
