@@ -829,6 +829,42 @@
   "C/C_zusdu617/T12_mouth163_00001_.png": {
    "cos_to_luna": 0.6729133441196511,
    "det": 0.9011306762695312
+  },
+  "D/D_lunaz_FB/Instaraw/SDXL/Metadata/HasMetadata_00001_.png": {
+   "cos_to_luna": 0.7327182614987167,
+   "det": 0.8352669477462769
+  },
+  "D/D_lunaz_FB/T00_zbase_00001_.png": {
+   "cos_to_luna": 0.811590695476637,
+   "det": 0.8252295255661011
+  },
+  "D/D_lunaz_FB/T02_nmkd595_00001_.png": {
+   "cos_to_luna": 0.7956263922214363,
+   "det": 0.8195084929466248
+  },
+  "D/D_lunaz_FB/T05_usdu617_00001_.png": {
+   "cos_to_luna": 0.7121588029284502,
+   "det": 0.8161964416503906
+  },
+  "D/D_lunaz_FB/T06_hands92_00001_.png": {
+   "cos_to_luna": 0.7121588029284502,
+   "det": 0.8161964416503906
+  },
+  "D/D_lunaz_FB/T07_blend87_00001_.png": {
+   "cos_to_luna": 0.7143643930154547,
+   "det": 0.8122755289077759
+  },
+  "D/D_lunaz_FB/T08_usdu98_00001_.png": {
+   "cos_to_luna": 0.6519072222064719,
+   "det": 0.8237262964248657
+  },
+  "D/D_lunaz_FB/T10_zface114_00001_.png": {
+   "cos_to_luna": 0.7442901903602128,
+   "det": 0.8334054946899414
+  },
+  "D/D_lunaz_FB/T12_mouth163_00001_.png": {
+   "cos_to_luna": 0.7289223780161023,
+   "det": 0.8336247205734253
   }
  }
 }
