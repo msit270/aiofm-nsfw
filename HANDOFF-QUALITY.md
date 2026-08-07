@@ -182,3 +182,22 @@ gist + AIOFM_PACK_URL override to the personal pack; withholds V9+LoRAs,
 verifies they arrive (V9 sha-checked from civitai), installs the personal
 workflow, boots, browser-harness renders end-to-end with the selector
 driven, black-checks the output. Result recorded below when it lands.
+
+
+## FRESH-TREE GATE: PASS (2026-08-08 ~00:2x)
+
+Install phase: exit 0 in 115 s via the LIVE sellable gist + AIOFM_PACK_URL
+override to the local mirror of pack 8573e474. Withheld V9 + both LoRAs
+arrived (V9 re-fetched from civitai.com, sha256 byte-exact); personal
+workflow installed. First gate invocation failed on the first-boot Templates
+modal appearing after the dismissal window (cold tree) — harness dismissal
+loop hardened (waits until the overlay mask is gone, <=25 s) — second
+invocation: real-browser open -> Run -> selector driven -> render complete,
+zero frontend errors, and the delivered frame is BIT-IDENTICAL
+(max_abs_diff 0) to the measured D_lunaz_FB winner, face det 0.835.
+Evidence: results/run5/fresh/{install.log,gate2/,render/}.
+
+The sellable product is untouched: dist/AIOFMTech-NSFW.tar.gz, the gist,
+and the published HF paths were never written to (pack builder carries a
+dist/ write-guard; every artifact of this run lives under dist-personal/,
+Personal-NSFW/, results/run5/).

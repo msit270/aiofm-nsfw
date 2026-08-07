@@ -1,0 +1,113 @@
+{
+  "run_id": "20260807-224254-OFMTech_NSFW_Personal",
+  "status": "fail",
+  "failure_classes": [
+    "workflow-load"
+  ],
+  "failure_class": "workflow-load",
+  "failures": [
+    {
+      "class": "workflow-load",
+      "message": "could not open the workflow through the UI: page.click: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"side-toolbar\"] button.workflows-tab-button')\u001b[22m\n\u001b[2m    - locator resolved to <button data-v-73583d92=\"\" data-v-1a367cd0=\"\" data-pd-tooltip=\"true\" aria-label=\"Workflows (w)\" class=\"relative inline-flex items-center justify-center gap-2 whitespace-nowrap appearance-none font-medium font-inter transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-muted-foreground bg-transparent hover:bg-secondary-background-hover h-8 rounded-lg p-2 …>…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div data-pc-section=\"mask\" class=\"p-dialog-mask p-overlay-mask p-overlay-mask-enter\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div data-pc-section=\"mask\" class=\"p-dialog-mask p-overlay-mask p-overlay-mask-enter\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    37 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div data-pc-section=\"mask\" class=\"p-dialog-mask p-overlay-mask p-overlay-mask-enter\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+    }
+  ],
+  "message": "could not open the workflow through the UI: page.click: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"side-toolbar\"] button.workflows-tab-button')\u001b[22m\n\u001b[2m    - locator resolved to <button data-v-73583d92=\"\" data-v-1a367cd0=\"\" data-pd-tooltip=\"true\" aria-label=\"Workflows (w)\" class=\"relative inline-flex items-center justify-center gap-2 whitespace-nowrap appearance-none font-medium font-inter transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-muted-foreground bg-transparent hover:bg-secondary-background-hover h-8 rounded-lg p-2 …>…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div data-pc-section=\"mask\" class=\"p-dialog-mask p-overlay-mask p-overlay-mask-enter\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div data-pc-section=\"mask\" class=\"p-dialog-mask p-overlay-mask p-overlay-mask-enter\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    37 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div data-pc-section=\"mask\" class=\"p-dialog-mask p-overlay-mask p-overlay-mask-enter\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+  "url": "http://127.0.0.1:31970",
+  "workflow": "OFMTech_NSFW_Personal",
+  "mode": "execute",
+  "load_path_used": null,
+  "comfyui_version": "0.15.1",
+  "frontend_version": "1.39.19",
+  "prompt_posted": false,
+  "prompt_http_status": null,
+  "prompt_id": null,
+  "api_graph": null,
+  "outputs": [],
+  "timings_ms": {
+    "boot_ms": 3612
+  },
+  "counts": {
+    "boot_errors": 1,
+    "load_errors": 0,
+    "run_errors": 0,
+    "ignored": 4
+  },
+  "errors": [
+    {
+      "t_ms": 3668,
+      "phase": "boot",
+      "kind": "dialog",
+      "severity": "error",
+      "origin": "unknown",
+      "product_signal": true,
+      "text": "Templates\nAll Templates\nBasics\nGENERATION TYPE\n...\n...\nCLOSED SOURCE MODELS\n...\nModel Filter\nTasks\nRuns on\nDefault",
+      "cls": "p-dialog p-component global-dialog rounded-2xl overflow-hidden p-dialog-enter-from p-dialog-enter-active"
+    }
+  ],
+  "ignored": [
+    {
+      "t_ms": 74,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "optional-user-css",
+      "ignored_reason": "user.css is ComfyUI's optional user stylesheet override, requested unconditionally on every page load by both the static path and the userdata API. It does not ship with comfyui_frontend_package (verified: no user.css under .../comfyui_frontend_package/static/) and is absent here (verified: no /workspace/ComfyUI/user/default/user.css). Verified live: GET /user.css -> 404 and GET /api/userdata/user.css -> 404. A buyer on a clean install sees both.",
+      "ignored_scope": "benign",
+      "at": "http://127.0.0.1:31970/user.css:0"
+    },
+    {
+      "t_ms": 75,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "optional-user-css",
+      "ignored_reason": "user.css is ComfyUI's optional user stylesheet override, requested unconditionally on every page load by both the static path and the userdata API. It does not ship with comfyui_frontend_package (verified: no user.css under .../comfyui_frontend_package/static/) and is absent here (verified: no /workspace/ComfyUI/user/default/user.css). Verified live: GET /user.css -> 404 and GET /api/userdata/user.css -> 404. A buyer on a clean install sees both.",
+      "ignored_scope": "benign",
+      "at": "http://127.0.0.1:31970/api/userdata/user.css:0"
+    },
+    {
+      "t_ms": 279,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "optional-subgraphs-dir",
+      "ignored_reason": "The frontend lists the user's saved subgraph-blueprint directory on boot. ComfyUI only creates it once the user saves a blueprint. Verified live: GET /api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true -> 404. A buyer on a clean install sees this.",
+      "ignored_scope": "benign",
+      "at": "http://127.0.0.1:31970/api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true:0"
+    },
+    {
+      "t_ms": 311,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "optional-node-templates",
+      "ignored_reason": "comfy.templates.json holds the user's saved node templates. ComfyUI only writes it once the user saves one. Verified live: GET /api/userdata/comfy.templates.json -> 404. A buyer on a clean install sees this.",
+      "ignored_scope": "benign",
+      "at": "http://127.0.0.1:31970/api/userdata/comfy.templates.json:0"
+    }
+  ],
+  "ignore_rules_file": "/workspace/nsfw-quality/tools/browser_harness/ignore.json",
+  "selector": {
+    "driven": false,
+    "abandoned": false,
+    "appeared": false,
+    "images": 0,
+    "picked": null,
+    "sent_at_ms": null,
+    "foreignSeen": false,
+    "our_run_started_ms": null
+  },
+  "artifacts_dir": "/workspace/nsfw-quality/results/run5/fresh/gate"
+}

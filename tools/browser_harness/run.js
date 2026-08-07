@@ -725,17 +725,22 @@ async function main() {
   // modal, whose overlay mask blocks the sidebar click. Close any open PrimeVue
   // dialog before proceeding. Gated by env so the stock behaviour is unchanged.
   if (process.env.RUN5_DISMISS_BOOT === '1') {
-    for (let i = 0; i < 5; i++) {
+    // The first-boot Templates modal can appear late on a cold tree; keep
+    // dismissing until the sidebar is actually reachable (max ~25 s).
+    const t0 = Date.now();
+    while (Date.now() - t0 < 25000) {
       const closed = await page.evaluate(() => {
         const btn = document.querySelector('.p-dialog .p-dialog-close-button, .p-dialog [data-pc-section="closebutton"]');
         if (btn) { btn.click(); return true; }
         return false;
       }).catch(() => false);
-      if (!closed) break;
-      await sleep(400);
+      if (closed) { await sleep(500); continue; }
+      await page.keyboard.press('Escape').catch(() => {});
+      const blocked = await page.evaluate(() =>
+        !!document.querySelector('.p-dialog-mask, .p-overlay-mask')).catch(() => false);
+      if (!blocked) break;
+      await sleep(500);
     }
-    await page.keyboard.press('Escape').catch(() => {});
-    await sleep(400);
   }
   await drainInPage();
   timings.boot_ms = Date.now() - tPhase;

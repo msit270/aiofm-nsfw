@@ -1,0 +1,78 @@
+[    72ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:31970/api/userdata/user.css
+[    72ms][boot][console.error/ignored][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[    72ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:31970/api/userdata/user.css net::ERR_ABORTED
+[    72ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:31970/user.css
+[    72ms][boot][console.error/ignored][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[    72ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:31970/user.css net::ERR_ABORTED
+[   275ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:31970/api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true
+[   275ms][boot][console.error/ignored][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[   310ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:31970/api/userdata/comfy.templates.json
+[   310ms][boot][console.error/ignored][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[   310ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:31970/api/userdata/comfy.templates.json net::ERR_ABORTED
+[   341ms][boot][console.warning/warn][comfyui-asset] [ComfyUI Notice] "scripts/widgets.js" is an internal module, not part of the public API. Future updates may break this import.
+[   346ms][boot][console.log/info][instaraw] [BIG] ========== BATCH IMAGE GENERATOR JS LOADED ==========
+[   349ms][boot][console.warning/warn][comfyui-asset] [ComfyUI Deprecated] Importing from "scripts/ui.js" is deprecated and will be removed in v1.34.
+[   350ms][boot][console.warning/warn][third-party-pack:core] [ComfyUI Notice] "extensions/core/clipspace.js" is an internal module, not part of the public API. Future updates may break this import.
+[   356ms][boot][console.warning/warn][frontend-core] [MaskEditor] ComfyApp.open_maskeditor is deprecated. Plugins should migrate to using the command system or direct node context menu integration.
+[   357ms][boot][websocket/info][unknown] open ws://127.0.0.1:31970/ws
+[   393ms][boot][console.log/info][instaraw] [BIG] PhotoSwipe CSS loaded from CDN
+[   411ms][boot][console.log/info][instaraw] [BIG] PhotoSwipe scripts loaded
+[   411ms][boot][console.log/info][instaraw] [BIG] PhotoSwipe ready
+[  1132ms][boot][console.log/info][instaraw] [BIG] Registering custom UI for BatchImageGenerator
+[  1149ms][boot][console.warning/warn][frontend-core] Use of defaultInput on required input custom_nodes.ComfyUI-Impact-Pack:ImpactSchedulerAdapter:scheduler is deprecated. Please drop the defaultInput option.
+[  1182ms][boot][console.log/info][instaraw] [BIG] Extension setup() called - loading CSS
+[  1183ms][boot][console.warning/warn][frontend-core] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "rgthree.QueueNode")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit
+[  3359ms][load][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:31970/api/userdata/workflows%2F.index.json
+[  3359ms][load][console.error/ignored][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[  3359ms][load][requestfailed/warn][comfyui-asset] http://127.0.0.1:31970/api/userdata/workflows%2F.index.json net::ERR_ABORTED
+[  3422ms][load][console.log/info][instaraw] [RPG] Global execution_success listener installed
+[  3448ms][load][console.log/info][instaraw] [RPG] ============ setupEventHandlers CALLED ============
+[  3448ms][load][console.log/info][instaraw] [RPG] Current active tab: library
+[  3448ms][load][console.log/info][instaraw] [RPG] === DEBUG: Looking for MAIN details element ===
+[  3448ms][load][console.log/info][instaraw] [RPG] Active tab: library
+[  3449ms][load][console.log/info][instaraw] [RPG] Total <details> elements: 0
+[  3449ms][load][console.log/info][instaraw] [RPG] Preview button found: false
+[  3449ms][load][console.log/info][instaraw] [RPG] Details element (with preview) found: false open: undefined preview mode: false
+[  3449ms][load][console.debug/info][instaraw] [RPG] details element absent (not on the Generate tab) - skipping preview toggle
+[  3698ms][load][console.log/info][instaraw] [RPG] Re-rendering after connection change. AIL mode: null, initialized: true
+[  5535ms][load][console.log/info][instaraw] [RPG] IndexedDB saved key "prompts_db_cache" successfully
+[  5535ms][load][console.log/info][instaraw] [RPG] Target dimensions from label: {width: 1, height: 1, aspect_label: 1:1} Aspect ratio: 1
+[  5539ms][load][console.log/info][instaraw] [RPG] Raw IndexedDB user_prompts: undefined
+[  5539ms][load][console.log/info][instaraw] [RPG] Loaded 0 user prompts from IndexedDB
+[  5540ms][load][console.log/info][instaraw] [RPG] Loaded 0 generated prompts
+[  5540ms][load][console.log/info][instaraw] [RPG] Loaded 0 bookmarks from IndexedDB
+[  5541ms][load][console.log/info][instaraw] [RPG] Merged database: 0 user + 0 generated + 7891 library = 7891 total
+[  7530ms][run][console.log/info][instaraw] [RPG] Target dimensions from label: {width: 1, height: 1, aspect_label: 1:1} Aspect ratio: 1
+[  8531ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #10: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 13528ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #20: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 18528ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #30: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 23531ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #40: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 28531ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #50: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 33528ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #60: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 38532ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #70: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 43532ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #80: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 48531ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #90: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 53528ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #100: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 58528ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #110: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 63528ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #120: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 68529ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #130: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 73537ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #140: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 78530ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #150: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 83530ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #160: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 88528ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #170: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 93536ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #180: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[ 98531ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #190: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[103529ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #200: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[108531ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #210: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[113528ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #220: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[118528ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #230: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[123528ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #240: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[128574ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #250: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[133553ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #260: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[138528ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #270: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[143528ms][run][console.debug/info][instaraw] [RPG AIL Sync Debug] Check #280: {hasImagesInput: true, hasLink: false, linkId: null, currentRPGMode: null, currentRPGNodeId: null}
+[146550ms][run][console.log/info][instaraw] [RPG] Execution completed successfully, updating seeds for next run...
+[146550ms][run][console.log/info][instaraw] [RPG] Updating seeds for node 4

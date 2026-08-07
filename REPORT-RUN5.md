@@ -56,8 +56,9 @@ PROVEN (measured, re-derived by independent verifiers):
   SDXL base for lunaskye TODAY.
 - The pack: workflow member == proven graph (harness round-trip EQUIVALENT);
   that graph rendered bit-identical to the measured winner on two separate
-  server boots; fresh-tree one-command install gate: see PACK.txt +
-  results/run5/fresh/.
+  server boots; fresh-tree one-command install gate PASSED: install exit 0 in 115 s,
+  V9 re-fetched from Civitai byte-exact, browser render bit-identical to
+  the measured winner (results/run5/fresh/).
 - Determinism held throughout (every canary bit-identical), and the
   likeness metric shows no architecture bias (Z-stranger 0.337 vs
   SDXL-stranger 0.335).
