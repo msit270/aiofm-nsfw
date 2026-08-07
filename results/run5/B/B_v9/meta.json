@@ -1,0 +1,10 @@
+{
+ "arm": "B_v9",
+ "batch": "B",
+ "ok": true,
+ "exec_s": 131.485,
+ "cached_nodes": 32,
+ "prompt_id": "b1debba0-3863-41ef-b8f3-bb882a509b8c",
+ "outputs_dir": "/workspace/run5/output/B/B_v9",
+ "status_str": "success"
+}

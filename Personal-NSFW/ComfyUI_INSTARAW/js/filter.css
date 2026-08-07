@@ -1,0 +1,132 @@
+/* --------------------------------------------------------------------------
+ * Portions of this file are derived from cg-image-filter
+ *   https://github.com/chrisgoringe/cg-image-filter
+ *   Copyright 2024-2025 Chris Goringe
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * NOTICE: This file has been modified from the cg-image-filter original. The
+ * CSS class prefix was renamed .cg_popup -> .instaraw_popup and
+ * interactive-crop rules were added.
+ *
+ * Full third-party attribution for this package is in
+ * ../THIRD_PARTY_NOTICES.md (package root). Licence text:
+ * ../licenses/Apache-2.0.txt
+ */
+
+.instaraw_popup {
+    position: absolute;
+    width:100%;
+    height:100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 100000;
+    --text_area_height: 0px;
+}
+
+.instaraw_popup .grid {
+    position: absolute;
+    width:70%;
+    left:15%;
+    height:calc(100% - 60px - var(--text_area_height));
+    top:55px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.instaraw_popup .overlaygrid {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.instaraw_popup .title {
+    position: absolute;
+    width:100%;
+    text-align: center;
+    top: 10px;
+    font-size: 250%;
+}
+
+.instaraw_popup .tip {
+    display: block;
+    padding-top: 10px;
+    line-height: 20px;
+}
+
+.instaraw_popup .buttons {
+    position: absolute;
+    width:14%;
+    left:86%;
+    height:90%;
+    top:5%;
+    font-size: small;
+}
+
+.instaraw_popup .control_text:after {
+    content:"\a";
+    white-space: pre;
+}
+
+.instaraw_popup .grid img {
+    margin: 2px;
+    border: 1px solid white;
+    padding: 4px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.instaraw_popup .grid img.selected {
+    border: 3px solid green;
+    padding: 2px;
+}
+
+.instaraw_popup .grid img.hover {
+    box-shadow: 0 0 4px 4px red;
+}
+
+.instaraw_popup.hidden {
+    display:none !important;
+}
+
+.instaraw_popup .hidden {
+    display: none !important;
+}
+
+.cgfloat .hidden {
+    display: none !important;
+}
+
+/* --- Interactive Crop Styles --- */
+.instaraw_popup .crop_container {
+    position: absolute;
+    width: 70%;
+    left: 15%;
+    height: calc(100% - 60px);
+    top: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.instaraw_popup .crop_image_bg {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.instaraw_popup .crop_canvas_overlay {
+    position: absolute;
+    cursor: crosshair;
+}

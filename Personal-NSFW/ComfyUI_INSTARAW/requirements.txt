@@ -1,0 +1,88 @@
+# ComfyUI INSTARAW dependencies
+#
+# torch, torchvision, numpy and opencv are supplied by the ComfyUI environment.
+# Do not pin them here. Pinning any of them from a custom node's requirements
+# re-resolves them for the whole install, which is how you break a working pod.
+#
+# Everything below is imported by a file in this pack. Verified by grep, not by
+# habit -- see the notes at the bottom for what was removed and why.
+
+# --- API / networking nodes -------------------------------------------------
+requests
+aiohttp
+huggingface_hub[hf_xet]
+
+# --- imaging ----------------------------------------------------------------
+Pillow
+scikit-image
+scipy
+kornia                 # feather_mask, grow_mask_with_blur, realistic_noise,
+                       # realistic_jpeg, texture_engine
+lpips                  # texture_engine
+piexif
+tqdm
+matplotlib
+
+# --- NSFW detector ----------------------------------------------------------
+onnxruntime            # satisfied by onnxruntime-gpu if that is already
+                       # installed; do not install both, they collide
+
+# --- authentic-metadata nodes -----------------------------------------------
+# pyexiftool is a wrapper, not the tool. save_with_metadata.py:132 and
+# synthesize_with_metadata.py:404 shell out to the exiftool binary, so the host
+# also needs:  apt-get install -y libimage-exiftool-perl
+pyexiftool
+
+# --- Gemini / Grok prompt generation (optional) -----------------------------
+# Needed only by the API prompt nodes. The NSFW image workflow does not use
+# them, and every import of them in this pack is guarded, so the pack loads
+# without this.
+#
+# Left unpinned deliberately. The previous `google-genai~=1.43.0` pinned *down*
+# from the `#google-genai>=1.51.0` line commented out directly above it, with
+# no reason recorded.
+google-genai
+
+
+# ============================================================================
+# Removed, with reasons. Do not paste these back.
+# ============================================================================
+#
+# google-api-core
+#     Not a dependency of google-genai at any version (1.43.0 requires only
+#     anyio, google-auth, httpx, pydantic, requests, tenacity, websockets,
+#     typing-extensions; protobuf is an optional extra). It was listed
+#     explicitly, and it is the single reason this file could not be installed
+#     alongside the rest of the stack: google-api-core requires
+#     protobuf<8.0.0,>=5.29.6, while mediapipe 0.10.x requires protobuf<5.
+#     mediapipe is required by comfyui_controlnet_aux, which this workflow
+#     needs for sg4's face mesh. The two constraints have no solution, so
+#     installing this file as written could never coexist with the workflow it
+#     ships with.
+#
+# numpy==1.26.4
+#     Hard pin that downgrades numpy for the entire ComfyUI environment. The
+#     comment at the top of the old file said numpy was already provided by
+#     ComfyUI; line 63 then pinned it anyway.
+#
+# opencv-contrib-python==4.10.0.84
+#     The non-headless build. comfyui_controlnet_aux installs the headless
+#     one. Mixing the two distributions in one environment is a known
+#     breakage, and nothing in this pack needs the contrib modules.
+#
+# mediapipe==0.10.14
+#     Imported by zero files in this pack (grep confirms). It belongs to
+#     comfyui_controlnet_aux, and the version matters enough that it is now
+#     handled explicitly by the setup script -- see SETUP.md. 0.10.14 also
+#     requires numpy<2, which is what dragged the numpy pin in behind it.
+#
+# absl-py, attrs, cffi, contourpy, cycler, flatbuffers, fonttools, jax, jaxlib,
+# kiwisolver, ml-dtypes, opt-einsum, packaging, pillow==10.4.0, protobuf,
+# pycparser, pyparsing, python-dateutil, scipy==1.13.1, sentencepiece, six,
+# sounddevice
+#     Lines 29-98 of the old file were a verbatim paste of MediaPipe's own
+#     pip-compile lockfile, header comment included:
+#       #  pip-compile --output-file=mediapipe/opensource_only/requirements_lock_3_12.txt
+#     They are MediaPipe's build dependencies, not this pack's. Several of them
+#     (jax, jaxlib, sounddevice, sentencepiece) are imported nowhere in ComfyUI
+#     at all, and pillow/scipy appeared twice, once unpinned and once pinned.

@@ -1,0 +1,10 @@
+{
+ "arm": "B_rms_simple",
+ "batch": "B",
+ "ok": true,
+ "exec_s": 139.19,
+ "cached_nodes": 36,
+ "prompt_id": "bce6e3c7-3bbb-446f-8f0c-34da6b2bb39a",
+ "outputs_dir": "/workspace/run5/output/B/B_rms_simple",
+ "status_str": "success"
+}

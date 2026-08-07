@@ -1,0 +1,10 @@
+{
+ "arm": "B_mouth03",
+ "batch": "B",
+ "ok": true,
+ "exec_s": 75.537,
+ "cached_nodes": 57,
+ "prompt_id": "95abad94-17f0-4e3e-afbd-3ff99ae09786",
+ "outputs_dir": "/workspace/run5/output/B/B_mouth03",
+ "status_str": "success"
+}

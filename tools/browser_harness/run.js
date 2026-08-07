@@ -721,6 +721,22 @@ async function main() {
     return finish({ status: 'harness-error', failureClass: 'boot', message: `ComfyUI UI did not come up: ${e.message}` });
   }
   await sleep(2000); // let deferred extension imports settle into the boot bucket
+  // RUN5 personal branch: a fresh browser profile gets the first-boot Templates
+  // modal, whose overlay mask blocks the sidebar click. Close any open PrimeVue
+  // dialog before proceeding. Gated by env so the stock behaviour is unchanged.
+  if (process.env.RUN5_DISMISS_BOOT === '1') {
+    for (let i = 0; i < 5; i++) {
+      const closed = await page.evaluate(() => {
+        const btn = document.querySelector('.p-dialog .p-dialog-close-button, .p-dialog [data-pc-section="closebutton"]');
+        if (btn) { btn.click(); return true; }
+        return false;
+      }).catch(() => false);
+      if (!closed) break;
+      await sleep(400);
+    }
+    await page.keyboard.press('Escape').catch(() => {});
+    await sleep(400);
+  }
   await drainInPage();
   timings.boot_ms = Date.now() - tPhase;
   const bootErrors = rec.errorsIn(['boot']);

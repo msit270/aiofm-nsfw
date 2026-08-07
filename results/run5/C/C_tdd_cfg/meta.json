@@ -1,0 +1,10 @@
+{
+ "arm": "C_tdd_cfg",
+ "batch": "C",
+ "ok": true,
+ "exec_s": 130.748,
+ "cached_nodes": 32,
+ "prompt_id": "bc99bf78-c974-417e-9d0e-b6e63c7acb6d",
+ "outputs_dir": "/workspace/run5/output/C/C_tdd_cfg",
+ "status_str": "success"
+}
