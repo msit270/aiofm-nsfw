@@ -116,10 +116,17 @@ When it finishes it prints a summary. The two lines that matter:
     workflow nodes : all 54 present
     integrity      : OK
 
-If either line says anything else, stop and read the warnings above it. (The
-node count is for this workflow version; the script derives it from the
-workflow file itself, so it is the number your install was actually checked
-against.)
+The nodes line has a second healthy form. If ComfyUI was not running while
+the script worked (normal on a brand-new pod), the script cannot count
+registered nodes yet, and the line reads:
+
+    workflow nodes : all packs present — verified on first start
+
+That is also a pass — the count happens when ComfyUI starts. Anything OTHER
+than these — a number missing, "X missing", integrity not OK — means stop
+and read the warnings above it. (The 54 is for this workflow version; the
+script derives it from the workflow file itself, so it is the number your
+install was actually checked against.)
 
 
 3. ADD YOUR OWN LoRAs

@@ -17,7 +17,7 @@ HF_TOKEN="hf_your_WRITE_token" \
 /venv/main/bin/hf upload msit270/AIOFM-Pack \
     /workspace/nsfw-fix/dist/AIOFMTech-NSFW.tar.gz \
     dist/AIOFMTech-NSFW.tar.gz \
-    --commit-message "NSFW run-4: buyer-side Civitai checkpoint fetch, pack-list trim, UnMarker/GrainNet removed. Archive 8f376926, workflow 47419606 (unchanged)"
+    --commit-message "NSFW run-4: buyer-side Civitai checkpoint fetch, pack-list trim, UnMarker/GrainNet removed. Archive 06ad99f2, workflow 47419606 (unchanged)"
 ```
 
 Then confirm from the buyer's side, which is the only side that counts:
@@ -26,8 +26,8 @@ Then confirm from the buyer's side, which is the only side that counts:
 curl -sS -I -H "Authorization: Bearer $HF_TOKEN" \
   "https://huggingface.co/msit270/AIOFM-Pack/resolve/main/dist/AIOFMTech-NSFW.tar.gz" \
   | grep -i 'x-linked-etag\|x-linked-size'
-# expect: x-linked-etag: "8f37692638535f004c19e93454c90f395774ca4bba737f8fb9cbf0adf21c41f5"
-#         x-linked-size: 8094057
+# expect: x-linked-etag: "06ad99f2f733ea3f6a9eb8c0e8594da12821f3c496f91354508d2c88134affb9"
+#         x-linked-size: 8094282
 ```
 
 The gist needs no edit. The workflow inside the archive is byte-identical to

@@ -7,7 +7,7 @@ export WS5_TARGET=/workspace/comfy-d-gate
 export WS5_MIRROR_PORT=31921
 export WS5_DEAD_PORT=31939
 REPO=/workspace/nsfw-fix
-EXPECT=8f37692638535f004c19e93454c90f395774ca4bba737f8fb9cbf0adf21c41f5
+EXPECT=06ad99f2f733ea3f6a9eb8c0e8594da12821f3c496f91354508d2c88134affb9
 
 echo "=== artifact verification (before anything is unpacked) ==="
 GOT=$(sha256sum "$REPO/dist/AIOFMTech-NSFW.tar.gz" | cut -d' ' -f1)

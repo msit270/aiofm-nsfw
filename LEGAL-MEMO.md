@@ -42,8 +42,9 @@ Every item cites files in this repo.
    images made with it is expressly within the granted permissions; selling
    or redistributing the model file is not.** Your buyers' use case sits in
    the granted column. (One unknown field recorded honestly: the version
-   carries `licensingFee: 1`; Civitai does not document its semantics in the
-   response and I did not interpret it.)
+   object carries `licensingFee: 1` — that field is in
+   `results/run4/civitai/sdxlnsfw_by_hash.json`, the version-level response;
+   Civitai does not document its semantics and I did not interpret it.)
 3. **The installer no longer delivers it.** Grep-provable in the shipped
    `aiofm_setup.sh` (no repo URL for the file remains; the bulk pull
    `--exclude`s both repo paths), and proven end-to-end on a genuinely fresh

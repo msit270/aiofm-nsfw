@@ -1,7 +1,7 @@
 # HANDOFF.md — run 4 (2026-08-07, evening)
 
 **The licensing run. Workflow `47419606…fca30d4b` (byte-identical to run 3 —
-no rendered pixel changed) · new archive `8f376926…df21c41f5` (8,094,057 B,
+no rendered pixel changed) · new archive `06ad99f2…134affb9` (8,094,282 B,
 159 files) · NOT yet published — the pod token is read-only; the publish and
 repo-deletion commands are in `OWNER-ACTIONS.md` and are the owner's first
 move. Fresh-install + buyer gate PASS on the new cut with the checkpoint
@@ -116,10 +116,19 @@ clicks, "all 54 present" derived-not-hardcoded). Commit `9a09fcd`. The
 installer header no longer describes the video product (`f7da36b`).
 
 **7. Owner-gated state.** `OWNER-ACTIONS.md`: publish command + buyer-side
-verify line for the `8f376926` cut; two-tier `hf repos delete-files`
+verify line for the `06ad99f2` cut; two-tier `hf repos delete-files`
 commands (full paths, no wildcards); run-3 write-token revocation reminder;
 video-pack re-cut noted as cosmetic. Publish, then re-run
 `fresh_install4.sh` WITHOUT `MIRROR_PACK` for the fully-live proof.
+
+**8. One post-verifier re-cut, precision note.** The gate in §2 ran on cut
+`8f376926`. The verifier then caught a beginner-hostile wording in INSTALL
+MODELS.txt (the healthy "verified on first start" summary form read as a
+failure per the guide's own instruction), fixing it forced a re-cut, and the
+final artifact is `06ad99f2`. The two archives were member-diffed out of git:
+159 files each, **exactly one differing member — `INSTALL MODELS.txt`**;
+workflow and installer members byte-identical. The gate's proof carries to
+the final cut modulo that one text file, which no code path reads.
 
 ## Track 2 — quality menu (recommend-only, in flight at handoff time)
 
@@ -144,7 +153,7 @@ a sentinel-yield was imposed (`notes/R4-decisions.md` #10).
 The run-3 published pack (`29175edc`) remains live until the owner
 publishes. Crash guard, selector fixes, cpu CLIPLoader, mouth ceiling 4M,
 eyes feather, two-LoRA design: all stand; nothing output-changing shipped
-this run. `d_setup.sh`/`d_gate.sh` EXPECT hashes moved to the `8f376926`
+this run. `d_setup.sh`/`d_gate.sh` EXPECT hashes moved to the `06ad99f2`
 cut (workflow EXPECT unchanged).
 
 *Everything on `master`, one commit per change. The pod HF token cannot

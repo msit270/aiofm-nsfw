@@ -67,3 +67,25 @@ feeds QUESTIONS.md §5.
     54 workflow-derived; baseline is a strict subset). Verified against the
     fresh server's /object_info: none missing. INSTALL MODELS.txt quotes
     54 and says the script derives it, so the doc cannot silently drift.
+
+## Post-verifier addendum (same day)
+
+The fresh-context verifier passed every acceptance section and raised six
+non-blocking defects. Disposition:
+- **Fixed:** INSTALL MODELS.txt now documents BOTH healthy forms of the
+  summary's nodes line (the "verified on first start" fallback would have
+  told an obedient beginner to stop on a healthy install); MODEL-AUDIT §C
+  carries a correction note (it audited the pre-trim script — over-inclusion
+  only); LEGAL-MEMO's licensingFee sentence now cites the version-level
+  response file it actually lives in.
+- **Accepted, recorded:** `count_nodes.py --cpu` is inert (ComfyUI ignores
+  sys.argv without enable_args_parsing) — results unaffected, verifier's
+  CPU-only re-run matched exactly; the gist bootstrap prints the repo name
+  rather than the mirror URL under AIOFM_PACK_URL (pre-publish testing only,
+  buyers never see it, and editing the live gist for a log line is worse
+  than the line); the idempotent re-run skip is size-only by design — the
+  realistic same-size file IS the same bytes (fresh installs stay fully
+  SHA-gated, and re-hashing 6.9 GB on every re-run taxes every buyer for a
+  hypothetical).
+- The INSTALL MODELS fix forces a re-cut; the member-level diff against the
+  gate-proven 8f376926 cut is recorded in the re-cut commit.

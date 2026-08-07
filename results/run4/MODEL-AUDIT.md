@@ -179,6 +179,13 @@ sources at install time** — the owner does not redistribute these bytes;
 each buyer downloads them from the named public repo under that repo's own
 terms.
 
+> **Correction (verifier, same day):** this section was drafted against the
+> PRE-TRIM script, so the quoted line numbers are historical, and two rows
+> below — `rife49.pth` and `sam2.1_hiera_base_plus-fp16.safetensors` — are
+> no longer fetched at all: the trimmed script deleted the render-time
+> RIFE/SAM2 stage with the video packs. Over-inclusion only; every licence
+> fact still stands for what the older script shipped.
+
 | file (script line) | source URL | licence read this session | verdict |
 |---|---|---|---|
 | `vitpose_h_wholebody_data.bin`, `vitpose_h_wholebody_model.onnx` (851-856) | huggingface.co/Kijai/vitpose_comfy | `license:apache-2.0` (`hf/Kijai_vitpose_comfy_meta.json`) | CLEAN |
