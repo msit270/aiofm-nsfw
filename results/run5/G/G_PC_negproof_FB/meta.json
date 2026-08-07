@@ -1,0 +1,10 @@
+{
+ "arm": "G_PC_negproof_FB",
+ "batch": "G",
+ "ok": true,
+ "exec_s": 150.34,
+ "cached_nodes": 40,
+ "prompt_id": "9ff419e7-4442-4c65-84f0-fd138597848f",
+ "outputs_dir": "/workspace/run5/output/G/G_PC_negproof_FB",
+ "status_str": "success"
+}

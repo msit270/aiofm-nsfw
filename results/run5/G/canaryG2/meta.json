@@ -1,0 +1,10 @@
+{
+ "arm": "canaryG2",
+ "batch": "G",
+ "ok": true,
+ "exec_s": 4.309,
+ "cached_nodes": 3,
+ "prompt_id": "e2bfc43a-ce59-4007-ac29-97efc44d6593",
+ "outputs_dir": "/workspace/run5/output/G/canaryG2",
+ "status_str": "success"
+}

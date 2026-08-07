@@ -1,0 +1,10 @@
+{
+ "arm": "G_PC_rms_FB",
+ "batch": "G",
+ "ok": true,
+ "exec_s": 85.482,
+ "cached_nodes": 40,
+ "prompt_id": "4a8a9a2c-d20a-4864-9c1d-e9a010e73c17",
+ "outputs_dir": "/workspace/run5/output/G/G_PC_rms_FB",
+ "status_str": "success"
+}

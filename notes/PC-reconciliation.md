@@ -56,3 +56,24 @@ as INSTRUMENT data (cos-to-Luna), not the goal (constraint 1).
   on the character's skin; range 0.35-0.55, checklist item).
 - Z-USDU 617/98 res_multistep + denoise 0.25/0.08: **character-general**
   (structure), texture intensity partly character-fed.
+
+## G-batch closeout (all arms, canaries bit-identical, zero black frames)
+
+- **Negative liveness at cfg 2: PROVEN behaviourally** — editing ONLY the
+  negative string changed 76.2% of pixels (>8 levels) on the deterministic
+  pipeline. Caveat that matters for use: a negative cannot override a
+  DIRECT positive conflict ("black silk slip dress" in the positive kept
+  the dress black against "black dress" in the negative). Negatives steer
+  everything the positive doesn't nail down.
+- **S4 retest on the shipping graph**: res_multistep+simple on the face
+  pass = cos .776, faceHF 10.28, f-lap 641 vs PC1 euler_ancestral's 9.73 /
+  549. On the ship arch the baseline face was SOFT and rms added welcome
+  freckling (your S4 verdict); on PC the base already carries texture and
+  rms stacks more. METRIC vs CONSTRAINT-2 tension flagged: my judgement is
+  euler_ancestral for the default; S11 sheet has both tiles — your call.
+- PC-H (literal hybrid, SDXL face treatment on Z-30 base): cos .723,
+  faceHF 8.23 — the softest face of the family; costs SDXL residency
+  (~7 GB + its load time) and re-imports the SDXL identity pull.
+- den 0.35 vs 0.50 on PC: .761/9.79 vs .799/9.73 — 0.50 keeps identity
+  AND softness (the higher repaint replaces 30-step crunch with
+  euler_ancestral's cleaner rendering).

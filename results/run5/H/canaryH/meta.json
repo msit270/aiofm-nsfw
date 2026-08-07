@@ -1,0 +1,10 @@
+{
+ "arm": "canaryH",
+ "batch": "H",
+ "ok": true,
+ "exec_s": 0.122,
+ "cached_nodes": 9,
+ "prompt_id": "32955aef-c7db-493f-b203-afb7ed5e8795",
+ "outputs_dir": "/workspace/run5/output/H/canaryH",
+ "status_str": "success"
+}

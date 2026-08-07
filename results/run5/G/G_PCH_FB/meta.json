@@ -1,0 +1,10 @@
+{
+ "arm": "G_PCH_FB",
+ "batch": "G",
+ "ok": true,
+ "exec_s": 137.614,
+ "cached_nodes": 36,
+ "prompt_id": "b4f2583d-165e-4556-bfb4-51583c603835",
+ "outputs_dir": "/workspace/run5/output/G/G_PCH_FB",
+ "status_str": "success"
+}
