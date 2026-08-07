@@ -25,3 +25,22 @@ A9. The reconstructed ZIT reference is labelled as a reconstruction
     (owner's actual simple workflow not found on pod) everywhere it is used.
 A10. Mouth-threshold decision backed by detector log lines from the arm
      servers (which threshold fires on which composition), not inference.
+
+## Phase-2/3 addenda (written 2026-08-07 ~22:4x, BEFORE the phase-2/3 verification)
+
+A11. The NaN containment claim: str08's frame is max()==0 black; every arm
+     LISTED as re-run in batchBC2 has a fresh history + canary bit-identity
+     rows in the log; no post-purge likeness row cites a poisoned render.
+A12. luna-on-base incompatibility: zbref_P_12345 re-rendered AFTER a clean
+     canary on a fresh server; nolora control clean. Both files exist.
+A13. Mouth threshold: "1 lips" lines exist in the arm server log; T10-vs-T12
+     diff >8 confined to lips region at thr 0.5; identical result at 0.3.
+A14. LUNA-Z numbers (0.733 final etc.) re-derive from likeness_scores.json
+     against the PINNED centroid.json (not a per-run centroid).
+A15. The converter equivalence: compare_api.py run on A0 source vs
+     harness-captured api graph prints EQUIVALENT; the benign-key allowlist
+     is exactly {rgthree_comparer, node_identifier, previewMode}.
+A16. Texture parity claim (faceHF 10.35/bodyHF 9.66 vs ref 10.6/9.5) traces
+     to tap_metrics.json rows for D_lunaz_FB and zref_B/zref_P refs;
+     the caveat that framing differs between LUNA-Z and A0 is stated
+     wherever parity is claimed.
