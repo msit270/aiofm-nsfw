@@ -1,0 +1,10 @@
+{
+ "arm": "B_fixprompt",
+ "batch": "B",
+ "ok": true,
+ "exec_s": 129.169,
+ "cached_nodes": 36,
+ "prompt_id": "8e47f423-8253-4c07-93b7-526565cf00ea",
+ "outputs_dir": "/workspace/run5/output/B/B_fixprompt",
+ "status_str": "success"
+}

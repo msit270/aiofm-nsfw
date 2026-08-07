@@ -79,14 +79,17 @@ The user's simple-ZIT reference sits at 0.92-0.94 (portraits), 0.76-0.81
 at denoise 0.65.
 
 **Texture (freckle-band RMS face/body, scale-normalized):** ZIT ref 10.6/9.5;
-pipeline 7.5-8.9/6.1-6.8 at every stage — never reaches ZIT level anywhere;
-USDU617 is the biggest smoother (8.29→7.55 face); the body NEVER gets a
-texture pass (Z pass is face-crop only). Face local contrast (lapvar): ZIT
-277 vs pipeline ~110 — where the "flat lighting" look lives.
+pipeline face 7.5-8.9, body 6.1-7.5 across stages — never reaches ZIT level
+anywhere; USDU617 is the biggest smoother (8.28→7.55 face); the body NEVER
+gets a texture pass (Z pass is face-crop only).
+VERIFIER CORRECTION (phase1_verifier.md): the earlier lapvar-based "face
+local contrast 277 vs 110" lighting claim was overstated — the 277 anchor is
+the PORTRAIT ref; the composition-matched full-body ZIT ref measures 93.0,
+below the pipeline final's 104. Lighting flatness therefore has NO clean
+objective metric yet; it goes to the owner's eye via sheets.
 
 **Hands correction to Q1:** on THIS composition the hand detector FIRES
-(1 hand, 1024x704 crop sampled, run5/A/A0 server log) — the pass runs and the
-hand still reads wrong; its model is the RAW checkpoint (no character/detail
+(1 hand, 1024x704 crop sampled, run5/A/A0 server log) — the pass runs; to MY eye the railing hand still reads wrong (owner judges from the sheet); its model is the RAW checkpoint (no character/detail
 LoRA), dpmpp_2m_sde 30 steps @ denoise 0.42.
 
 **Z-Image holds the full-body composition** (zref_B_12345: coherent balcony

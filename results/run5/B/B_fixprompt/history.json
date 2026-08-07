@@ -1,7 +1,7 @@
 {
  "prompt": [
-  3,
-  "9e412ef9-fdc6-4fe4-a7e8-ae6bb99d7f2b",
+  4,
+  "8e47f423-8253-4c07-93b7-526565cf00ea",
   {
    "116": {
     "inputs": {
@@ -82,7 +82,7 @@
      "gemini_api_key": "",
      "grok_api_key": "",
      "aspect_label": "",
-     "prompt_batch_data": "[{\"id\":\"default-01\",\"positive_prompt\":\"photorealistic full body photograph of a young woman with long dark hair standing on a hotel balcony at golden hour, wearing a black silk slip dress, natural skin texture with visible pores and freckles, shot on 85mm, shallow depth of field\",\"negative_prompt\":\"bad quality, worst quality, low quality, deformed, extra fingers, watermark, text\",\"repeat_count\":1,\"seed\":12345,\"seed_control\":\"fixed\",\"tags\":[],\"source_id\":\"default\"}]",
+     "prompt_batch_data": "[{\"id\": \"default-01\", \"positive_prompt\": \"lunaskye, photorealistic full body photograph of a young woman with long straight blonde hair with dark roots and curtain bangs, standing on a hotel balcony at golden hour, wearing a black silk slip dress, natural skin texture with visible pores and freckles, shot on 85mm, shallow depth of field\", \"negative_prompt\": \"bad quality, worst quality, low quality, deformed, extra fingers, watermark, text\", \"repeat_count\": 1, \"seed\": 12345, \"seed_control\": \"fixed\", \"tags\": [], \"source_id\": \"default\"}]",
      "sdxl_mode": false
     },
     "class_type": "INSTARAW_RealityPromptGenerator",
@@ -92,7 +92,7 @@
    },
    "505": {
     "inputs": {
-     "filename_prefix": "B/B_fix610/Instaraw/SDXL/Metadata/HasMetadata",
+     "filename_prefix": "B/B_fixprompt/Instaraw/SDXL/Metadata/HasMetadata",
      "images": [
       "622:661",
       0
@@ -957,11 +957,11 @@
      "strength_model": 1.0,
      "strength_clip": 1.0,
      "model": [
-      "618",
+      "619:613",
       0
      ],
      "clip": [
-      "618",
+      "619:613",
       1
      ]
     },
@@ -1730,7 +1730,7 @@
       "619:591",
       0
      ],
-     "filename_prefix": "B/B_fix610/T01_base591"
+     "filename_prefix": "B/B_fixprompt/T01_base591"
     },
     "_meta": {
      "title": "r5 tap T01_base591"
@@ -1743,7 +1743,7 @@
       "619:595",
       0
      ],
-     "filename_prefix": "B/B_fix610/T02_nmkd595"
+     "filename_prefix": "B/B_fixprompt/T02_nmkd595"
     },
     "_meta": {
      "title": "r5 tap T02_nmkd595"
@@ -1756,7 +1756,7 @@
       "619:596",
       0
      ],
-     "filename_prefix": "B/B_fix610/T03_refine596"
+     "filename_prefix": "B/B_fixprompt/T03_refine596"
     },
     "_meta": {
      "title": "r5 tap T03_refine596"
@@ -1769,7 +1769,7 @@
       "619:607",
       0
      ],
-     "filename_prefix": "B/B_fix610/T04_sdxlface607"
+     "filename_prefix": "B/B_fixprompt/T04_sdxlface607"
     },
     "_meta": {
      "title": "r5 tap T04_sdxlface607"
@@ -1782,7 +1782,7 @@
       "619:617",
       0
      ],
-     "filename_prefix": "B/B_fix610/T05_usdu617"
+     "filename_prefix": "B/B_fixprompt/T05_usdu617"
     },
     "_meta": {
      "title": "r5 tap T05_usdu617"
@@ -1795,7 +1795,7 @@
       "587:92",
       0
      ],
-     "filename_prefix": "B/B_fix610/T06_hands92"
+     "filename_prefix": "B/B_fixprompt/T06_hands92"
     },
     "_meta": {
      "title": "r5 tap T06_hands92"
@@ -1808,7 +1808,7 @@
       "587:87",
       0
      ],
-     "filename_prefix": "B/B_fix610/T07_blend87"
+     "filename_prefix": "B/B_fixprompt/T07_blend87"
     },
     "_meta": {
      "title": "r5 tap T07_blend87"
@@ -1821,7 +1821,7 @@
       "587:98",
       0
      ],
-     "filename_prefix": "B/B_fix610/T08_usdu98"
+     "filename_prefix": "B/B_fixprompt/T08_usdu98"
     },
     "_meta": {
      "title": "r5 tap T08_usdu98"
@@ -1834,7 +1834,7 @@
       "620:114",
       0
      ],
-     "filename_prefix": "B/B_fix610/T10_zface114"
+     "filename_prefix": "B/B_fixprompt/T10_zface114"
     },
     "_meta": {
      "title": "r5 tap T10_zface114"
@@ -1847,7 +1847,7 @@
       "621:163",
       0
      ],
-     "filename_prefix": "B/B_fix610/T12_mouth163"
+     "filename_prefix": "B/B_fixprompt/T12_mouth163"
     },
     "_meta": {
      "title": "r5 tap T12_mouth163"
@@ -1855,7 +1855,7 @@
    }
   },
   {
-   "create_time": 1786137739014
+   "create_time": 1786137880117
   },
   [
    "TAP_T10_zface114",
@@ -1878,19 +1878,19 @@
  "outputs": {
   "480": {
    "text": [
-    "\ud83d\udcca BATCH PREVIEW: 1 prompts\n============================================================\n\n[1] Seed: 12345\n\u2705 photorealistic full body photograph of a young woman with long dark hair standin...\n\u274c bad quality, worst quality, low quality, deformed, extra fingers, watermark, tex...\n"
+    "\ud83d\udcca BATCH PREVIEW: 1 prompts\n============================================================\n\n[1] Seed: 12345\n\u2705 lunaskye, photorealistic full body photograph of a young woman with long straigh...\n\u274c bad quality, worst quality, low quality, deformed, extra fingers, watermark, tex...\n"
    ]
   },
   "481": {
    "text": [
-    "\ud83d\udcca BATCH PREVIEW: 1 prompts\n============================================================\n\n[1] Seed: 12345\n\u2705 photorealistic full body photograph of a young woman with long dark hair standin...\n\u274c bad quality, worst quality, low quality, deformed, extra fingers, watermark, tex...\n"
+    "\ud83d\udcca BATCH PREVIEW: 1 prompts\n============================================================\n\n[1] Seed: 12345\n\u2705 lunaskye, photorealistic full body photograph of a young woman with long straigh...\n\u274c bad quality, worst quality, low quality, deformed, extra fingers, watermark, tex...\n"
    ]
   },
   "TAP_T01_base591": {
    "images": [
     {
      "filename": "T01_base591_00001_.png",
-     "subfolder": "B/B_fix610",
+     "subfolder": "B/B_fixprompt",
      "type": "output"
     }
    ]
@@ -1899,7 +1899,7 @@
    "images": [
     {
      "filename": "T02_nmkd595_00001_.png",
-     "subfolder": "B/B_fix610",
+     "subfolder": "B/B_fixprompt",
      "type": "output"
     }
    ]
@@ -1908,7 +1908,7 @@
    "images": [
     {
      "filename": "T03_refine596_00001_.png",
-     "subfolder": "B/B_fix610",
+     "subfolder": "B/B_fixprompt",
      "type": "output"
     }
    ]
@@ -1917,7 +1917,7 @@
    "images": [
     {
      "filename": "T04_sdxlface607_00001_.png",
-     "subfolder": "B/B_fix610",
+     "subfolder": "B/B_fixprompt",
      "type": "output"
     }
    ]
@@ -1926,7 +1926,7 @@
    "images": [
     {
      "filename": "T05_usdu617_00001_.png",
-     "subfolder": "B/B_fix610",
+     "subfolder": "B/B_fixprompt",
      "type": "output"
     }
    ]
@@ -1935,7 +1935,7 @@
    "images": [
     {
      "filename": "T06_hands92_00001_.png",
-     "subfolder": "B/B_fix610",
+     "subfolder": "B/B_fixprompt",
      "type": "output"
     }
    ]
@@ -1944,7 +1944,7 @@
    "images": [
     {
      "filename": "T07_blend87_00001_.png",
-     "subfolder": "B/B_fix610",
+     "subfolder": "B/B_fixprompt",
      "type": "output"
     }
    ]
@@ -1953,7 +1953,7 @@
    "images": [
     {
      "filename": "T08_usdu98_00001_.png",
-     "subfolder": "B/B_fix610",
+     "subfolder": "B/B_fixprompt",
      "type": "output"
     }
    ]
@@ -1962,7 +1962,7 @@
    "images": [
     {
      "filename": "T10_zface114_00001_.png",
-     "subfolder": "B/B_fix610",
+     "subfolder": "B/B_fixprompt",
      "type": "output"
     }
    ]
@@ -1971,7 +1971,7 @@
    "images": [
     {
      "filename": "T12_mouth163_00001_.png",
-     "subfolder": "B/B_fix610",
+     "subfolder": "B/B_fixprompt",
      "type": "output"
     }
    ]
@@ -1984,14 +1984,14 @@
   "419": {
    "a_images": [
     {
-     "filename": "rgthree.compare._temp_ozlci_00001_.png",
+     "filename": "rgthree.compare._temp_ozlci_00003_.png",
      "subfolder": "",
      "type": "temp"
     }
    ],
    "b_images": [
     {
-     "filename": "rgthree.compare._temp_ozlci_00002_.png",
+     "filename": "rgthree.compare._temp_ozlci_00004_.png",
      "subfolder": "",
      "type": "temp"
     }
@@ -2001,7 +2001,7 @@
    "images": [
     {
      "filename": "HasMetadata_00001_.png",
-     "subfolder": "B/B_fix610/Instaraw/SDXL/Metadata",
+     "subfolder": "B/B_fixprompt/Instaraw/SDXL/Metadata",
      "type": "output"
     }
    ]
@@ -2014,26 +2014,60 @@
    [
     "execution_start",
     {
-     "prompt_id": "9e412ef9-fdc6-4fe4-a7e8-ae6bb99d7f2b",
-     "timestamp": 1786137739015
+     "prompt_id": "8e47f423-8253-4c07-93b7-526565cf00ea",
+     "timestamp": 1786137880118
     }
    ],
    [
     "execution_cached",
     {
      "nodes": [
+      "116",
+      "618",
+      "647:625",
+      "647:627",
+      "647:628",
+      "647:635",
+      "587:506",
+      "587:508",
+      "587:509",
+      "587:97",
+      "587:100",
+      "587:89",
+      "587:88",
+      "587:90",
+      "587:93",
+      "619:608",
+      "619:609",
+      "619:611",
+      "619:612",
+      "619:613",
+      "619:615",
+      "620:107",
+      "620:108",
+      "620:106",
+      "620:105",
+      "620:110",
       "620:109",
-      "620:113"
+      "620:113",
+      "620:648",
+      "621:166",
+      "621:167",
+      "621:160",
+      "621:161",
+      "622:426",
+      "622:394",
+      "622:398"
      ],
-     "prompt_id": "9e412ef9-fdc6-4fe4-a7e8-ae6bb99d7f2b",
-     "timestamp": 1786137739101
+     "prompt_id": "8e47f423-8253-4c07-93b7-526565cf00ea",
+     "timestamp": 1786137880181
     }
    ],
    [
     "execution_success",
     {
-     "prompt_id": "9e412ef9-fdc6-4fe4-a7e8-ae6bb99d7f2b",
-     "timestamp": 1786137879050
+     "prompt_id": "8e47f423-8253-4c07-93b7-526565cf00ea",
+     "timestamp": 1786138009287
     }
    ]
   ]
