@@ -1,0 +1,10 @@
+{
+ "arm": "zref_P_12345_eak",
+ "batch": "A",
+ "ok": true,
+ "exec_s": 1.833,
+ "cached_nodes": 7,
+ "prompt_id": "b7d9a5e0-3c5a-426f-8431-7ea9768d1c43",
+ "outputs_dir": "/workspace/run5/output/A/zref_P_12345_eak",
+ "status_str": "success"
+}

@@ -1,0 +1,10 @@
+{
+ "arm": "sxref_P_12345_nolora",
+ "batch": "A",
+ "ok": true,
+ "exec_s": 6.356,
+ "cached_nodes": 2,
+ "prompt_id": "c29a9a53-2a1c-401e-885d-52295c406233",
+ "outputs_dir": "/workspace/run5/output/A/sxref_P_12345_nolora",
+ "status_str": "success"
+}

@@ -1,0 +1,10 @@
+{
+ "arm": "sxref_P_12345_luna_trigger",
+ "batch": "A",
+ "ok": true,
+ "exec_s": 5.442,
+ "cached_nodes": 6,
+ "prompt_id": "7038f65f-d557-4899-9a2d-72a1b94d4586",
+ "outputs_dir": "/workspace/run5/output/A/sxref_P_12345_luna_trigger",
+ "status_str": "success"
+}

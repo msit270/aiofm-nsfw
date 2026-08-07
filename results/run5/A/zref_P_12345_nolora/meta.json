@@ -1,0 +1,10 @@
+{
+ "arm": "zref_P_12345_nolora",
+ "batch": "A",
+ "ok": true,
+ "exec_s": 3.072,
+ "cached_nodes": 6,
+ "prompt_id": "fe9b3786-8b31-4eb5-b1e1-9efb276109df",
+ "outputs_dir": "/workspace/run5/output/A/zref_P_12345_nolora",
+ "status_str": "success"
+}

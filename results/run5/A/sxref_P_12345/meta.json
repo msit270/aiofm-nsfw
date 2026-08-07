@@ -1,0 +1,10 @@
+{
+ "arm": "sxref_P_12345",
+ "batch": "A",
+ "ok": true,
+ "exec_s": 8.551,
+ "cached_nodes": 0,
+ "prompt_id": "bf1f9b62-fac2-46bd-8b75-f52cb3dbdee2",
+ "outputs_dir": "/workspace/run5/output/A/sxref_P_12345",
+ "status_str": "success"
+}

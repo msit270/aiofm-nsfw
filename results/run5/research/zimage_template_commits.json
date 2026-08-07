@@ -1,0 +1,1150 @@
+[
+  {
+    "sha": "52a53af170145cfd579e6e6f6334ce25e9b8cf10",
+    "node_id": "C_kwDOOBPhXdoAKDUyYTUzYWYxNzAxNDVjZmQ1NzllNmU2ZjYzMzRjZTI1ZTliOGNmMTA",
+    "commit": {
+      "author": {
+        "name": "Daxiong (Lin)",
+        "email": "contact@comfyui-wiki.com",
+        "date": "2026-05-21T14:49:47Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-05-21T14:49:47Z"
+      },
+      "message": "Note node head color and template title update (#875)",
+      "tree": {
+        "sha": "c5186730e2beea754ef2bfe6295fe695d5ff490d",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/trees/c5186730e2beea754ef2bfe6295fe695d5ff490d"
+      },
+      "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/commits/52a53af170145cfd579e6e6f6334ce25e9b8cf10",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqDxuLCRC1aQ7uu5UhlAAAulwQAGN2eYfJ5fiSwpYwyl3lWZoF\nfH9EikX6sg+qQ6GL2K4Wh3Ph9RQBr9p/SrNyuuogo7UXfnxVU6ILnzGkmj/wYApj\nQECCbF0r9FLed0GmdIRWRSSS8/0y2GVdOajhx6/eyR4u42f0TKmRm0q2DydTbZ3+\naKU4X6xqnpVm2iGayVTk1t1tqLy0n0oFIF7V4/lt+2ASZk0lmzj8r/yEIBPoFz74\nZtUxNPuadtLbcUhYxCd7yWMlREusz1mSxXnhq8YruoWaZO7qYKnR1eddeKxtI8dO\nWTxyzogX92ihn0Y+FLepJk0lIdO+RqdKij/vXKXLbkBc7JvUkdzCOwFMYtz6rUZL\nLMyrHa6n/lUdbJMSZuPKCDVGMzd3cUdnx3+DCHDoXvc7J8VCuq+pg2qxmeIrhbSS\n7+OWT6H8Tstnpb5adrzWp36I4oIlPfD9hAyLf/KtED4KounGvzL9OupnCBBE5Njl\nifRcCwBIspLwiTywMlgdWyKbz4Rpg/2/4IR8eiOgCQXm1juog/ZwCcpxfdK9GwVz\nC5mrv/0YhXzUhMWjYd22/Vwl9b7ZC7T0RtMoSz9/kx4bgvsD5JBo0aD8fqeazYC3\n2zC1hircuBO76SFlYncw/xnGrezyQVL7uZVcURWTqsommFvK+d/cUyOyqEF8Z0hk\nmYmxc42TKlquVSlBfge2\n=pVqk\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree c5186730e2beea754ef2bfe6295fe695d5ff490d\nparent ac0c2fbd5ed4e704450df1f98a457f879e231838\nauthor Daxiong (Lin) <contact@comfyui-wiki.com> 1779374987 +0800\ncommitter GitHub <noreply@github.com> 1779374987 +0800\n\nNote node head color and template title update (#875)",
+        "verified_at": "2026-05-21T14:49:50Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/52a53af170145cfd579e6e6f6334ce25e9b8cf10",
+    "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/52a53af170145cfd579e6e6f6334ce25e9b8cf10",
+    "comments_url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/52a53af170145cfd579e6e6f6334ce25e9b8cf10/comments",
+    "author": {
+      "login": "comfyui-wiki",
+      "id": 192523189,
+      "node_id": "U_kgDOC3mrtQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/192523189?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/comfyui-wiki",
+      "html_url": "https://github.com/comfyui-wiki",
+      "followers_url": "https://api.github.com/users/comfyui-wiki/followers",
+      "following_url": "https://api.github.com/users/comfyui-wiki/following{/other_user}",
+      "gists_url": "https://api.github.com/users/comfyui-wiki/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/comfyui-wiki/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/comfyui-wiki/subscriptions",
+      "organizations_url": "https://api.github.com/users/comfyui-wiki/orgs",
+      "repos_url": "https://api.github.com/users/comfyui-wiki/repos",
+      "events_url": "https://api.github.com/users/comfyui-wiki/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/comfyui-wiki/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ac0c2fbd5ed4e704450df1f98a457f879e231838",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/ac0c2fbd5ed4e704450df1f98a457f879e231838",
+        "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/ac0c2fbd5ed4e704450df1f98a457f879e231838"
+      }
+    ]
+  },
+  {
+    "sha": "336b2f08d02cf465619537fdaf9cf34082ec558e",
+    "node_id": "C_kwDOOBPhXdoAKDMzNmIyZjA4ZDAyY2Y0NjU2MTk1MzdmZGFmOWNmMzQwODJlYzU1OGU",
+    "commit": {
+      "author": {
+        "name": "Daxiong (Lin)",
+        "email": "contact@comfyui-wiki.com",
+        "date": "2026-05-10T09:52:06Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-05-10T09:52:06Z"
+      },
+      "message": "New templates and template issue fixes (#851)\n\nCo-authored-by: Cursor <cursoragent@cursor.com>",
+      "tree": {
+        "sha": "7a725b68010f4d3d4f1f6da20b37a19c85c0363c",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/trees/7a725b68010f4d3d4f1f6da20b37a19c85c0363c"
+      },
+      "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/commits/336b2f08d02cf465619537fdaf9cf34082ec558e",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqAFVGCRC1aQ7uu5UhlAAAVcIQAG/fe2lPzmKAI90EleY3DMO4\nVb3lQWizNH4Z2/NbRaV+9Fa3yj3I7unoIf65fvf9yHfwKasQJiZNIXrrZPgMmXrJ\niwEhrktmnTXLBLpaYO2EYpCDh3syzXPq9xvYl4Y+YkOAEcMSedmWQJoSUnmhDA68\nRKahMWDpc7yuMwvSpmUL5qbKBrYcRfA11xvuw2INQpS+QKVSixi2gzI/kKhBI8Y7\nYh5PTgI5PU9kccGkb+WBY0xpEwx5PW6Fhhzlk/Wg5XE/S//XpMC61jZ/YbPwMYIX\nwg7vHXuQ/YhTf5wtoK6RKjnegaGYpVsvvHzqpHGmp827yZQf9kgmaW7gtV4ui2tA\nMy27Am+FS+UCRIUhDHcPLSRwcbYvq+zBIFZW0JkFNnsb638cKFLQsYCiGaHTYK5y\nN3XseuiRyLCrvmGKW4ZfDkJRuCRIxL1RpgwXww7mhOsUKvSrdtQwv6pMZxfb7wCU\njvooADlMXXJUVYOim1YvaCByi8SipepJg8jxa/V0Q/45cVK2UiqJ60JBkBpS8dQv\n687yOCq3FHv/GVECokQFyOwdgLGy+Y0KzYTZv/C+2tzkSFGc5KihoxuG8TDXIKDP\neN+nw6Tht+QKAq2rhNkePQKDLlAAi+QFVHHUc6BlSGzJbKgjC4KHdveOuXIPu106\nBTC7xq0Q4Egb0obcp81w\n=EFt+\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 7a725b68010f4d3d4f1f6da20b37a19c85c0363c\nparent 5fc9e0ac24140ef11b8cf5bc0d3d9b01b2fc0f59\nauthor Daxiong (Lin) <contact@comfyui-wiki.com> 1778406726 +0800\ncommitter GitHub <noreply@github.com> 1778406726 +0800\n\nNew templates and template issue fixes (#851)\n\nCo-authored-by: Cursor <cursoragent@cursor.com>",
+        "verified_at": "2026-05-10T09:52:07Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/336b2f08d02cf465619537fdaf9cf34082ec558e",
+    "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/336b2f08d02cf465619537fdaf9cf34082ec558e",
+    "comments_url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/336b2f08d02cf465619537fdaf9cf34082ec558e/comments",
+    "author": {
+      "login": "comfyui-wiki",
+      "id": 192523189,
+      "node_id": "U_kgDOC3mrtQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/192523189?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/comfyui-wiki",
+      "html_url": "https://github.com/comfyui-wiki",
+      "followers_url": "https://api.github.com/users/comfyui-wiki/followers",
+      "following_url": "https://api.github.com/users/comfyui-wiki/following{/other_user}",
+      "gists_url": "https://api.github.com/users/comfyui-wiki/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/comfyui-wiki/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/comfyui-wiki/subscriptions",
+      "organizations_url": "https://api.github.com/users/comfyui-wiki/orgs",
+      "repos_url": "https://api.github.com/users/comfyui-wiki/repos",
+      "events_url": "https://api.github.com/users/comfyui-wiki/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/comfyui-wiki/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5fc9e0ac24140ef11b8cf5bc0d3d9b01b2fc0f59",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/5fc9e0ac24140ef11b8cf5bc0d3d9b01b2fc0f59",
+        "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/5fc9e0ac24140ef11b8cf5bc0d3d9b01b2fc0f59"
+      }
+    ]
+  },
+  {
+    "sha": "6e237fb5160189b00e5127c5c29f18276ac4233c",
+    "node_id": "C_kwDOOBPhXdoAKDZlMjM3ZmI1MTYwMTg5YjAwZTUxMjdjNWMyOWYxODI3NmFjNDIzM2M",
+    "commit": {
+      "author": {
+        "name": "Daxiong (Lin)",
+        "email": "contact@comfyui-wiki.com",
+        "date": "2026-05-02T13:09:29Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-05-02T13:09:29Z"
+      },
+      "message": "Fix template layout issue (#835)",
+      "tree": {
+        "sha": "80c982ac3745966675840c32589b004e246582a9",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/trees/80c982ac3745966675840c32589b004e246582a9"
+      },
+      "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/commits/6e237fb5160189b00e5127c5c29f18276ac4233c",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp9feJCRC1aQ7uu5UhlAAAfGoQAAsKTCgvCK4VRA6Ys2hiFas6\niWYIgwOQrtSLbaBzly/skyLWfMgfaQbURXhv3NaUPLiJYO7kLax17q/E6ONKeQ1B\nLte/+er9KGi2Q+Kx96ad6OE5pPMitWyq5/rfgkRe5Es8OZU3wSEtpjHyGAwsvJcv\nA5CnyGroTkPePv2OUUN6Rjdjj1Z+HzCDND+iXbpInWn1+S7XVRJqHEjR/Rxx1/EN\nZWU81+QJl4KRSTU2n7pJgiti4PyOQmXtTV/P9Ab8zHesbq7PrYTurP+iT9wfU+A4\nPBOjt0VY4LHHMlBo3Zb842nj31vAspSZTPxoEnN6nYD19S3Mrc7JqpVuMEObFfK5\nPF/t0SI78nfbrR4bx8B+PF7bi/skPLgtdmlefGzQJmTnBAomwVB8cuYwHYPkI/lu\nXAjZuj4CR530KW2HGF8rimjV47zBZJBIeJ2ihZBlTjKXYXDBf7HCuOxu1lZ37H0Q\n+HZtEsMo+QKL5YW28OFkzyTDMg4oM92xKl9+HHiLDt3F/boAiuiOR9KIXciRCNwG\nfU7ikU+dVUT25J2uIWRnEimQFrPMzPxeMiRSRO3nXOj18tGRUgIj2YX4GP/4s/Sg\nVoznmUzXyCPpjFL5DqgOjt6CBvrTvPjoBfSXsiCbkP1GkmX6f/Khb9otVFXUt5n4\nFMPP2r1QNggz8vfNvmid\n=S1FL\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 80c982ac3745966675840c32589b004e246582a9\nparent a8e207752d8bd2f33f5092db46e423e7742ee3c7\nauthor Daxiong (Lin) <contact@comfyui-wiki.com> 1777727369 +0800\ncommitter GitHub <noreply@github.com> 1777727369 +0800\n\nFix template layout issue (#835)",
+        "verified_at": "2026-05-02T13:09:29Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/6e237fb5160189b00e5127c5c29f18276ac4233c",
+    "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/6e237fb5160189b00e5127c5c29f18276ac4233c",
+    "comments_url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/6e237fb5160189b00e5127c5c29f18276ac4233c/comments",
+    "author": {
+      "login": "comfyui-wiki",
+      "id": 192523189,
+      "node_id": "U_kgDOC3mrtQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/192523189?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/comfyui-wiki",
+      "html_url": "https://github.com/comfyui-wiki",
+      "followers_url": "https://api.github.com/users/comfyui-wiki/followers",
+      "following_url": "https://api.github.com/users/comfyui-wiki/following{/other_user}",
+      "gists_url": "https://api.github.com/users/comfyui-wiki/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/comfyui-wiki/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/comfyui-wiki/subscriptions",
+      "organizations_url": "https://api.github.com/users/comfyui-wiki/orgs",
+      "repos_url": "https://api.github.com/users/comfyui-wiki/repos",
+      "events_url": "https://api.github.com/users/comfyui-wiki/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/comfyui-wiki/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "a8e207752d8bd2f33f5092db46e423e7742ee3c7",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/a8e207752d8bd2f33f5092db46e423e7742ee3c7",
+        "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/a8e207752d8bd2f33f5092db46e423e7742ee3c7"
+      }
+    ]
+  },
+  {
+    "sha": "9fa94616ef3cec7c90ac7c8429283ce82f3d3d6c",
+    "node_id": "C_kwDOOBPhXdoAKDlmYTk0NjE2ZWYzY2VjN2M5MGFjN2M4NDI5MjgzY2U4MmYzZDNkNmM",
+    "commit": {
+      "author": {
+        "name": "ComfyUI Wiki",
+        "email": "contact@comfyui-wiki.com",
+        "date": "2026-02-23T17:00:09Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-02-23T17:00:09Z"
+      },
+      "message": "ElevenLabs, capybara and Text Gen templates (#608)",
+      "tree": {
+        "sha": "93b260b4a262b80742df18c316f97fda77cc13c4",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/trees/93b260b4a262b80742df18c316f97fda77cc13c4"
+      },
+      "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/commits/9fa94616ef3cec7c90ac7c8429283ce82f3d3d6c",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpnIeZCRC1aQ7uu5UhlAAAgmkQAAu06BBVUb9TnnPiyZtMoKwl\ncXi/zl5j/3GmC+wpO79Ov1nrj91NXGJpGM15HJFOIjEgaSrM+nKOJeIjX/7BJ8kE\np2Daj9U/zpEbyShfxssBwAUQRKWT+7ELR+KPw6qYfXAM9d3h1J6/uBXN/r3QSE/9\nqPfjKxvc/RST85+Szd4OzQ7r8LnCjnN8t9rEgKTi//t+2P9y5UWz5g0ALWJoUWob\n2K95rndRFaAnhPWOAZcuAaLUxxG3cvpoffnPI//Ta29iE3Dn3DzyP7NkmdoOkt2Y\nc4i86PcHRQQF4caHgBDaKE1dgAdwlcTx2krmtrRyPXFF111EbjEAOrnSjIz4E5hq\nTppDGq1PJZSRlvJVvt4No7zurXG4cpa7gkqiF4qOxnP6vSdsbKr+hP9uu6nIBnrQ\n9ILZe9RG+BYmlYZgP/ynL/EoS3+zCps95Raikll1dXPQm6unnrCK09+afQJ/fQI3\nCV0zDJpclvvRn+piz/dWtWOAfHk9qeM4zd36/YsAFr/AEL+NXCMDN1btpJtQinU8\n5C87Z/ciwSNwbfFpMTfYgSVCiOWVpgk+BXBTGWZaiMewrWUg0CNVyUg2YOis1eGk\nL1Geblt4cwJduR5TMZrCwWHSFjQkDmryP915cRdICeQW3vbhn9vQE1Ocl9Yk4NnL\nnizwQPa0P0M8TJmAws6s\n=9QEz\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 93b260b4a262b80742df18c316f97fda77cc13c4\nparent 43034e45b72e932f7cd72a57efbc79c9b69ae329\nauthor ComfyUI Wiki <contact@comfyui-wiki.com> 1771866009 +0800\ncommitter GitHub <noreply@github.com> 1771866009 +0800\n\nElevenLabs, capybara and Text Gen templates (#608)\n\n",
+        "verified_at": "2026-02-23T17:00:09Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/9fa94616ef3cec7c90ac7c8429283ce82f3d3d6c",
+    "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/9fa94616ef3cec7c90ac7c8429283ce82f3d3d6c",
+    "comments_url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/9fa94616ef3cec7c90ac7c8429283ce82f3d3d6c/comments",
+    "author": {
+      "login": "comfyui-wiki",
+      "id": 192523189,
+      "node_id": "U_kgDOC3mrtQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/192523189?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/comfyui-wiki",
+      "html_url": "https://github.com/comfyui-wiki",
+      "followers_url": "https://api.github.com/users/comfyui-wiki/followers",
+      "following_url": "https://api.github.com/users/comfyui-wiki/following{/other_user}",
+      "gists_url": "https://api.github.com/users/comfyui-wiki/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/comfyui-wiki/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/comfyui-wiki/subscriptions",
+      "organizations_url": "https://api.github.com/users/comfyui-wiki/orgs",
+      "repos_url": "https://api.github.com/users/comfyui-wiki/repos",
+      "events_url": "https://api.github.com/users/comfyui-wiki/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/comfyui-wiki/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "43034e45b72e932f7cd72a57efbc79c9b69ae329",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/43034e45b72e932f7cd72a57efbc79c9b69ae329",
+        "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/43034e45b72e932f7cd72a57efbc79c9b69ae329"
+      }
+    ]
+  },
+  {
+    "sha": "60204b8fa62e9a75544d7543d54501e97f2d67e5",
+    "node_id": "C_kwDOOBPhXdoAKDYwMjA0YjhmYTYyZTlhNzU1NDRkNzU0M2Q1NDUwMWU5N2YyZDY3ZTU",
+    "commit": {
+      "author": {
+        "name": "ComfyUI Wiki",
+        "email": "contact@comfyui-wiki.com",
+        "date": "2026-02-06T03:22:08Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-02-06T03:22:08Z"
+      },
+      "message": "Add new upscale templates (#538)",
+      "tree": {
+        "sha": "a9fb275642c909c6e77a130ff171577a6459fa30",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/trees/a9fb275642c909c6e77a130ff171577a6459fa30"
+      },
+      "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/commits/60204b8fa62e9a75544d7543d54501e97f2d67e5",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJphV5gCRC1aQ7uu5UhlAAA9k0QAD2o7NtEORMyQ5QnibiE5NaZ\n1K5V5OybvkRmA0h0nTFAq2emBbwSAjE8mvYWTRXGIa00iDOLN2nIfvxiaDQ9/7JZ\nnwPVeiEtvPl2nTCCupxt05kX1bbqYW2yuix6cJIn26UQzRiN6yaGTtuOhtfiAwM+\niEuvA+swnxZWemGGkpQao0KHwinTYClgPuoaZLqL8/UjxSoYDa+SwxSeoUnDB7kx\nCgco97wCSwzDRqlGPXJZKyGDonYttWeqSfvUGbi6leBSp2xqYFwj5yB3ZehZLOvd\n9bzAgUWv7s//8eVdZUT2Nj5PTuuNviRIIboHXPDDRmxfXfTaVh8ufIHXHGXYDLS6\nac6PDvcRcXSiGxduCUvAcZRM1l465bDdkd5Vh07SlSvGnowxK37JBb08KIM8iGt3\ngygg/UsHchTN11bQGHS8sRzy8BvkLpSx0cuUtkJK2ZwColLmm8DVayufzk4CGcDA\nnqhCCdfrfu/hgB+G9URS/bqLEpZ+d/FLVQem/td21tO+W/3Jsvm40Ae9aN7zqN3h\nf43V5+eM+mfs2CdLohFhhjoOLK2cKtLHa2r+3W+sRFJVucKF5HwQJdzm6yYWxKsa\noK/JBZVdr02H+N5JZKWMOs48lLyhRH2lqQtrZ4PtKFio6CRxLx8ntA33t7bOwPHg\nOtwMPNc8GzEBEcjsBq21\n=9zfb\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree a9fb275642c909c6e77a130ff171577a6459fa30\nparent 3e09ca28052f408cb377f8571ea6e31f20024a17\nauthor ComfyUI Wiki <contact@comfyui-wiki.com> 1770348128 +0800\ncommitter GitHub <noreply@github.com> 1770348128 +0800\n\nAdd new upscale templates (#538)\n\n",
+        "verified_at": "2026-02-06T03:22:09Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/60204b8fa62e9a75544d7543d54501e97f2d67e5",
+    "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/60204b8fa62e9a75544d7543d54501e97f2d67e5",
+    "comments_url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/60204b8fa62e9a75544d7543d54501e97f2d67e5/comments",
+    "author": {
+      "login": "comfyui-wiki",
+      "id": 192523189,
+      "node_id": "U_kgDOC3mrtQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/192523189?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/comfyui-wiki",
+      "html_url": "https://github.com/comfyui-wiki",
+      "followers_url": "https://api.github.com/users/comfyui-wiki/followers",
+      "following_url": "https://api.github.com/users/comfyui-wiki/following{/other_user}",
+      "gists_url": "https://api.github.com/users/comfyui-wiki/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/comfyui-wiki/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/comfyui-wiki/subscriptions",
+      "organizations_url": "https://api.github.com/users/comfyui-wiki/orgs",
+      "repos_url": "https://api.github.com/users/comfyui-wiki/repos",
+      "events_url": "https://api.github.com/users/comfyui-wiki/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/comfyui-wiki/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "3e09ca28052f408cb377f8571ea6e31f20024a17",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/3e09ca28052f408cb377f8571ea6e31f20024a17",
+        "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/3e09ca28052f408cb377f8571ea6e31f20024a17"
+      }
+    ]
+  },
+  {
+    "sha": "7c9426461ce0ff6c783ffd2326d9f5e183f6d18b",
+    "node_id": "C_kwDOOBPhXdoAKDdjOTQyNjQ2MWNlMGZmNmM3ODNmZmQyMzI2ZDlmNWUxODNmNmQxOGI",
+    "commit": {
+      "author": {
+        "name": "ComfyUI Wiki",
+        "email": "contact@comfyui-wiki.com",
+        "date": "2026-01-19T19:18:59Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-01-19T19:18:59Z"
+      },
+      "message": "Fix subgraph issue (#489)\n\nCo-authored-by: GitHub Action <action@github.com>",
+      "tree": {
+        "sha": "d2966b123757e321fc19b09ddc64bf66ec8c9be3",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/trees/d2966b123757e321fc19b09ddc64bf66ec8c9be3"
+      },
+      "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/commits/7c9426461ce0ff6c783ffd2326d9f5e183f6d18b",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpboOjCRC1aQ7uu5UhlAAAukMQAF+huszhXszu5Lv/wADlvPbk\n4k0AWyvCdj3KRvysTPWFEGot+hcqQxlM0XJ7CPE9NK1fL4BgLLaqbj+HhdgvceMg\neD41+C2LX5EOcxg+r5hDcXgd1H6GasTEfuVSDitFUgpkZRqW60lsS0BCnCPddgNR\nrTZVfVCI5S8CgpHIKbS28R+bfNwW2uAovlWwu5sB1vFN3TWgm0Uk5wrlDbWSzkE5\nMPATiw3tUzVZmPv8fS7L0Dve0PRs3eSguWLJwE+ixXWtlkG+vd4plBQdwWkii0TZ\nmfTpKvq2E0nG52xuzjsIYQMu2yKTi6FGo3dMSBronPcYg0v2aooQYBNVcaGWLahy\nRKHHVY8zkvQVQNqhRwiSeQZ5bceksSY4THNihpKrGknETBsTqHn65VlPKPXr9wtA\nvyXYlpQUQrlXRgmmjcrrg3D1AM+uM0TuP+mGHx+oG0sXYItMtE0SyD/SN3RDJc/s\nS8W4NhitKuowIn7ncrtjQyEczSaplTsAL9rKoVd+fuamxEpkNIebVL05NOmmztZ0\nWlBnfAGl+1xgr4o1SPMQycW6eY4RzMm90uGH4M3gdynuHzmgpHclYuFTLSjA4Yot\nWLtyI2yv93xsdhoYP7IugEQ5ga4kiZ/KY/YbPk35MjplrjNjc10L+w0upmARIsqT\nEgiTbUyKz/N1vFG964vt\n=Dr3A\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d2966b123757e321fc19b09ddc64bf66ec8c9be3\nparent bbf28f31e337dced652d48ba08027880bb3d3839\nauthor ComfyUI Wiki <contact@comfyui-wiki.com> 1768850339 +0800\ncommitter GitHub <noreply@github.com> 1768850339 +0800\n\nFix subgraph issue (#489)\n\nCo-authored-by: GitHub Action <action@github.com>",
+        "verified_at": "2026-01-19T19:18:59Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/7c9426461ce0ff6c783ffd2326d9f5e183f6d18b",
+    "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/7c9426461ce0ff6c783ffd2326d9f5e183f6d18b",
+    "comments_url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/7c9426461ce0ff6c783ffd2326d9f5e183f6d18b/comments",
+    "author": {
+      "login": "comfyui-wiki",
+      "id": 192523189,
+      "node_id": "U_kgDOC3mrtQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/192523189?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/comfyui-wiki",
+      "html_url": "https://github.com/comfyui-wiki",
+      "followers_url": "https://api.github.com/users/comfyui-wiki/followers",
+      "following_url": "https://api.github.com/users/comfyui-wiki/following{/other_user}",
+      "gists_url": "https://api.github.com/users/comfyui-wiki/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/comfyui-wiki/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/comfyui-wiki/subscriptions",
+      "organizations_url": "https://api.github.com/users/comfyui-wiki/orgs",
+      "repos_url": "https://api.github.com/users/comfyui-wiki/repos",
+      "events_url": "https://api.github.com/users/comfyui-wiki/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/comfyui-wiki/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "bbf28f31e337dced652d48ba08027880bb3d3839",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/bbf28f31e337dced652d48ba08027880bb3d3839",
+        "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/bbf28f31e337dced652d48ba08027880bb3d3839"
+      }
+    ]
+  },
+  {
+    "sha": "2dd5f3dbe85a02afa16ccf052236b6e64445dc5e",
+    "node_id": "C_kwDOOBPhXdoAKDJkZDVmM2RiZTg1YTAyYWZhMTZjY2YwNTIyMzZiNmU2NDQ0NWRjNWU",
+    "commit": {
+      "author": {
+        "name": "ComfyUI Wiki",
+        "email": "contact@comfyui-wiki.com",
+        "date": "2025-12-31T15:57:53Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-12-31T15:57:53Z"
+      },
+      "message": "Add Qwen-Image 2512 template and convert more templates to subgraphed version (#443)\n\nCo-authored-by: GitHub Action <action@github.com>",
+      "tree": {
+        "sha": "d3458bfc487eddf40a8eb0f43acfd54999523506",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/trees/d3458bfc487eddf40a8eb0f43acfd54999523506"
+      },
+      "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/commits/2dd5f3dbe85a02afa16ccf052236b6e64445dc5e",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpVUgBCRC1aQ7uu5UhlAAAucsQAIjO2ZfawZuVdys6R2rF7B5k\n3uJkQ//Gk//V0DmyQTue6XEmJ8VGrrZyEY8YQvaPFSr6wabflelrCoeUl13HR7w0\nF7TcKNrDwsdOVTzBUyxFOU0rvolI7FuyibXlhKusYll7VB3VZD5klhoRMRdsvSgI\nNVuJKJVnN25z7ARRr9B0ZRgaKzh9CuY1x3XLtyOE/TBjWEOR/JwxUAVz/Qe0wWqI\nJgGvN+m3EZ94xNL2j0FlLyfa1jMYy8hC2+tx4tlF7RPU8/YrTH5obfhUQlRWOyYW\n8rYEvTLO8rzQCNoA0PAtRPcJdAzDMLV++XFwiyywgR+dBtd8vIjRKCEf5qLR5PvU\n1pylt0avRT7m1VvuiICkbd73eDrgAyJShZZcjMwls9CjjS9C8rZPu6rT72DJD5Eo\n3Ulhiuc72NIUwSXa9YnpLntFz0kOyYpMN4xQkQotDRVLdE4NRcdd0bvGZHKJFkjp\nSKESqZIafuk84FfaTN3Ybua1D1XyDGRGtzGHnViAbBhSOchRmPbelLzCEFHwkzvB\nTt7JLYop4MOUhm69esqo8xh3ikC1qdMYOd/b+x4vL7jMXm8t+CLCPuipa5SmQ3V6\nx8f9vcx+t5kBCfDb3Vdtp7uVYw6JQmztwCks0uqzL1l69O6HHTD6MjJmUh6F5+TS\n0jTl3cPDUxVvjfNDIRYh\n=6dJ+\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d3458bfc487eddf40a8eb0f43acfd54999523506\nparent de93437115610352fa098cb73da494f8dce02ed1\nauthor ComfyUI Wiki <contact@comfyui-wiki.com> 1767196673 +0800\ncommitter GitHub <noreply@github.com> 1767196673 +0800\n\nAdd Qwen-Image 2512 template and convert more templates to subgraphed version (#443)\n\nCo-authored-by: GitHub Action <action@github.com>",
+        "verified_at": "2025-12-31T15:57:54Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/2dd5f3dbe85a02afa16ccf052236b6e64445dc5e",
+    "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/2dd5f3dbe85a02afa16ccf052236b6e64445dc5e",
+    "comments_url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/2dd5f3dbe85a02afa16ccf052236b6e64445dc5e/comments",
+    "author": {
+      "login": "comfyui-wiki",
+      "id": 192523189,
+      "node_id": "U_kgDOC3mrtQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/192523189?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/comfyui-wiki",
+      "html_url": "https://github.com/comfyui-wiki",
+      "followers_url": "https://api.github.com/users/comfyui-wiki/followers",
+      "following_url": "https://api.github.com/users/comfyui-wiki/following{/other_user}",
+      "gists_url": "https://api.github.com/users/comfyui-wiki/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/comfyui-wiki/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/comfyui-wiki/subscriptions",
+      "organizations_url": "https://api.github.com/users/comfyui-wiki/orgs",
+      "repos_url": "https://api.github.com/users/comfyui-wiki/repos",
+      "events_url": "https://api.github.com/users/comfyui-wiki/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/comfyui-wiki/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "de93437115610352fa098cb73da494f8dce02ed1",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/de93437115610352fa098cb73da494f8dce02ed1",
+        "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/de93437115610352fa098cb73da494f8dce02ed1"
+      }
+    ]
+  },
+  {
+    "sha": "00ba479b61b0d61a471b1ea27ef616b4907170dc",
+    "node_id": "C_kwDOOBPhXdoAKDAwYmE0NzliNjFiMGQ2MWE0NzFiMWVhMjdlZjYxNmI0OTA3MTcwZGM",
+    "commit": {
+      "author": {
+        "name": "ComfyUI Wiki",
+        "email": "contact@comfyui-wiki.com",
+        "date": "2025-12-24T01:18:27Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-12-24T01:18:27Z"
+      },
+      "message": "Add qwen-image-edit 2511 template and update note background (#439)\n\nCo-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>\nCo-authored-by: GitHub Action <action@github.com>",
+      "tree": {
+        "sha": "58c355640d76a4f3ec3aacae390de42e014b59f9",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/trees/58c355640d76a4f3ec3aacae390de42e014b59f9"
+      },
+      "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/commits/00ba479b61b0d61a471b1ea27ef616b4907170dc",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpSz9jCRC1aQ7uu5UhlAAAWaQQAHS/MSJGVtshg6txzqoTWFoG\nWOcpVg6ZtiiqS/3nYGbtXJh+CBCiF46Nva969LozTKKyv3Ev7NRJpFXZUKQohoKk\nHU48tdSFkZyspgF14aDpvSsRVJYaFzPXq1Cj7UVQcdf6ea7/slYHrLzzjV6uQzWz\n984SxgywihjU6Vk6IPKAhOmB+KF+On3kOLfbdbGyLYuJjNFrtfLZu0S+x7xjHzCI\nW2CT38bLLdVUC5sWYz/59Z/x++wLHKdhT2YKf6LdpV5mXd/VY4NuyGKismtb4BpL\n21xl/MIwiBMtIvT0Y4jQM7C80Qh3c+7FXo8+tdUPD33+pgJBWJnBdM2tBTyAkePW\nnMuFBsiq7FVdxgcJLtio+UtRo/kOW0p00k8pPSeA896lJjqXA+FY1MrN1kl8xoxG\n43woN3VpOWKQyuuU6clYWqB1Tq/nUbDXOYdWjgcVxyVj329mvwhDCBGND1vFeiQJ\nZESCjuEj+L9N0tRLqmrIxSSkIu5lPY+nH9ki/WGeCE3RZZcfTPxGtuq0/+tF0pKh\ne8kIDKz7LmTA3GVDxwos7jMttoe4yt3+6UVm6ZLo6CVT7MBP1kbtRqTKo/PJuU2Z\nuMo2O/Ya5JH8js/f4xb9HqNlKufhYMP1eMPZrmi/SdTHvsMQHBo4jpwfAkLbjJmE\ngWHDbh1Osa+yAzIBAPGV\n=6SO9\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 58c355640d76a4f3ec3aacae390de42e014b59f9\nparent 3bef3f7c8acdb8bf52ffe210512f71f834c05bcd\nauthor ComfyUI Wiki <contact@comfyui-wiki.com> 1766539107 +0800\ncommitter GitHub <noreply@github.com> 1766539107 +0800\n\nAdd qwen-image-edit 2511 template and update note background (#439)\n\nCo-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>\nCo-authored-by: GitHub Action <action@github.com>",
+        "verified_at": "2025-12-24T01:18:28Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/00ba479b61b0d61a471b1ea27ef616b4907170dc",
+    "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/00ba479b61b0d61a471b1ea27ef616b4907170dc",
+    "comments_url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/00ba479b61b0d61a471b1ea27ef616b4907170dc/comments",
+    "author": {
+      "login": "comfyui-wiki",
+      "id": 192523189,
+      "node_id": "U_kgDOC3mrtQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/192523189?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/comfyui-wiki",
+      "html_url": "https://github.com/comfyui-wiki",
+      "followers_url": "https://api.github.com/users/comfyui-wiki/followers",
+      "following_url": "https://api.github.com/users/comfyui-wiki/following{/other_user}",
+      "gists_url": "https://api.github.com/users/comfyui-wiki/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/comfyui-wiki/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/comfyui-wiki/subscriptions",
+      "organizations_url": "https://api.github.com/users/comfyui-wiki/orgs",
+      "repos_url": "https://api.github.com/users/comfyui-wiki/repos",
+      "events_url": "https://api.github.com/users/comfyui-wiki/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/comfyui-wiki/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "3bef3f7c8acdb8bf52ffe210512f71f834c05bcd",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/3bef3f7c8acdb8bf52ffe210512f71f834c05bcd",
+        "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/3bef3f7c8acdb8bf52ffe210512f71f834c05bcd"
+      }
+    ]
+  },
+  {
+    "sha": "09c39fd60e271984d7cecad8641fe04cd690e4cc",
+    "node_id": "C_kwDOOBPhXdoAKDA5YzM5ZmQ2MGUyNzE5ODRkN2NlY2FkODY0MWZlMDRjZDY5MGU0Y2M",
+    "commit": {
+      "author": {
+        "name": "ComfyUI Wiki",
+        "email": "contact@comfyui-wiki.com",
+        "date": "2025-12-06T15:41:17Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-12-06T15:41:17Z"
+      },
+      "message": "Add new creatives templates and some template update (#399)\n\nCo-authored-by: GitHub Action <action@github.com>\nCo-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>",
+      "tree": {
+        "sha": "014ea48df936554958dd42e3d9ac7ec7cb58a7b7",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/trees/014ea48df936554958dd42e3d9ac7ec7cb58a7b7"
+      },
+      "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/commits/09c39fd60e271984d7cecad8641fe04cd690e4cc",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpNE6eCRC1aQ7uu5UhlAAA0OgQAHkatx5il+YRQO8GLt8NmrHp\n72B/DuBdnkF0fQZNuUDau47UVb6yHfflFuW3GzrJQriGHXzfHrZZ31e3d35WZawW\n5ySfD1UL5zsAl1756zFK5H2bWdMBONDinKIYyb05BAwE7vBA1q/cHezMgGfcjoCs\nPDAfSzaNlw1i18GbltsWsJWczA7rFtnaCJq8d/nVcWEDu6oZOxOR/vRMEmBQKzCf\nMy8yUvmLySp91W5MPPH6Hj9WNkOE1W9Q6ZJMF6hCSFIWeSfrrawbuXE6lWY9KOUc\neUVYOQfsORqlzgKqPwx/pS08jvQj7TTvScwEh9UM4v3MRsaxP16m/+WEd+uUWA+e\nxuC5LDk/xGOZIsi+VT01Q58VAZF+hCoNNX2hJdLSVMXnnkcKD08IQNhSN/lEp+a+\nPoxnGkVfvvyIo+3w06ruPSw4WVysT1uvcFYSuWKM3k8pRI2se2j0FxfH85AnCyvU\n23I7JJtX3yVJatuoN9I9BNx1/2pu34NwL2B+iY7aHqVvlz8S5OpJraw7Mgh/R8ag\nV7tGLLuoSQuprGvISkGPh4Uy5FbL16if4GYXu4sQRtfagaFN7Omxh2EmFo0apc8s\nSGoLyWaMfkYQwMhl7dMjZal4GXafrErBZ3MRp7oT9VaJmTBIqtlB7JBEnkaX9mOB\noO0nUdc0/dAK10K2NE+G\n=Q2iv\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 014ea48df936554958dd42e3d9ac7ec7cb58a7b7\nparent b36381d6310b175cabb0b0356130039f8b5b8a03\nauthor ComfyUI Wiki <contact@comfyui-wiki.com> 1765035677 +0800\ncommitter GitHub <noreply@github.com> 1765035677 +0800\n\nAdd new creatives templates and some template update (#399)\n\nCo-authored-by: GitHub Action <action@github.com>\nCo-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>",
+        "verified_at": "2025-12-06T15:41:18Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/09c39fd60e271984d7cecad8641fe04cd690e4cc",
+    "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/09c39fd60e271984d7cecad8641fe04cd690e4cc",
+    "comments_url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/09c39fd60e271984d7cecad8641fe04cd690e4cc/comments",
+    "author": {
+      "login": "comfyui-wiki",
+      "id": 192523189,
+      "node_id": "U_kgDOC3mrtQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/192523189?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/comfyui-wiki",
+      "html_url": "https://github.com/comfyui-wiki",
+      "followers_url": "https://api.github.com/users/comfyui-wiki/followers",
+      "following_url": "https://api.github.com/users/comfyui-wiki/following{/other_user}",
+      "gists_url": "https://api.github.com/users/comfyui-wiki/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/comfyui-wiki/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/comfyui-wiki/subscriptions",
+      "organizations_url": "https://api.github.com/users/comfyui-wiki/orgs",
+      "repos_url": "https://api.github.com/users/comfyui-wiki/repos",
+      "events_url": "https://api.github.com/users/comfyui-wiki/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/comfyui-wiki/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b36381d6310b175cabb0b0356130039f8b5b8a03",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/b36381d6310b175cabb0b0356130039f8b5b8a03",
+        "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/b36381d6310b175cabb0b0356130039f8b5b8a03"
+      }
+    ]
+  },
+  {
+    "sha": "be17e04c5917ffa8997b896aa11e3c8272eff1b0",
+    "node_id": "C_kwDOOBPhXdoAKGJlMTdlMDRjNTkxN2ZmYTg5OTdiODk2YWExMWUzYzgyNzJlZmYxYjA",
+    "commit": {
+      "author": {
+        "name": "ComfyUI Wiki",
+        "email": "contact@comfyui-wiki.com",
+        "date": "2025-12-02T16:07:22Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-12-02T16:07:22Z"
+      },
+      "message": "Add ovis template and update some templates (#356)\n\nCo-authored-by: GitHub Action <action@github.com>",
+      "tree": {
+        "sha": "5865999aa09d8e06a94b9b694e2dc5061a59932e",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/trees/5865999aa09d8e06a94b9b694e2dc5061a59932e"
+      },
+      "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/commits/be17e04c5917ffa8997b896aa11e3c8272eff1b0",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpLw66CRC1aQ7uu5UhlAAA6okQABdbGAqFu7mLRfhRbIrZa2sB\nTbv2+dyRTPyJ1+nN5J3LXMeIfhx9Hmdt/FqMX8oF589WFKTgjaUItAjKO5j1K0bY\nPfJZB3cJivo6Lg4NRr01ckK/d6ZA9rk7QyiJychNgIiDlcWmI88UgmSA7n229kg0\nB+eboDweUEKXpNYZ/lCOx2nwjT3NLCLYh9EC9VZd5y9PwCfDcMTzaeY1O+5OxZBg\ni84fVQxOpwr7qVJo/8RoIJ3ZIKZc1YikRwI+rOkbxkPPc6+g+i2NpwERVHuAEoMs\neVRyEu37F3dyjS6fshiBqrLolho7cNMwZlEe+JYefbt/nNw7dyOG8jRY2hg3XGG6\ntxz6ZWHp2NAH+lT3+6xW+owbSq/+flgH/uOZjFH3ASuWrdAVaaTJ6thuDu6GxMLJ\nqXcZcSOZVkp+oawjnxGa9VZZ/jPZtwGIEVr3jp36KjhfoE+xLweFpXnoR4TC95gC\nviyl3+62jscHwtiFCpexKFuOJQJHVlgYJC4BX8tW+Zl8fwYII/OsmEEYFcW2GP49\nMIAHmW8AuJiV6Y+Y3zAUgJ4eGlDb24thfAQhmXmfvA5CgBqDMiGeTHlnADZq8kCT\nGfa2Xnrc9gMpoKM3l7evEBvz3fG0v9t0M0jykZTn95UGlquWoRLqI2eLlSiky3w3\nLTPAEZhJeEPN5TQZIZpS\n=U0vQ\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 5865999aa09d8e06a94b9b694e2dc5061a59932e\nparent 5926a22201e0a48237cdb596b5b77e1d35c22ea7\nauthor ComfyUI Wiki <contact@comfyui-wiki.com> 1764691642 +0800\ncommitter GitHub <noreply@github.com> 1764691642 +0800\n\nAdd ovis template and update some templates (#356)\n\nCo-authored-by: GitHub Action <action@github.com>",
+        "verified_at": "2025-12-02T16:07:23Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/be17e04c5917ffa8997b896aa11e3c8272eff1b0",
+    "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/be17e04c5917ffa8997b896aa11e3c8272eff1b0",
+    "comments_url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/be17e04c5917ffa8997b896aa11e3c8272eff1b0/comments",
+    "author": {
+      "login": "comfyui-wiki",
+      "id": 192523189,
+      "node_id": "U_kgDOC3mrtQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/192523189?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/comfyui-wiki",
+      "html_url": "https://github.com/comfyui-wiki",
+      "followers_url": "https://api.github.com/users/comfyui-wiki/followers",
+      "following_url": "https://api.github.com/users/comfyui-wiki/following{/other_user}",
+      "gists_url": "https://api.github.com/users/comfyui-wiki/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/comfyui-wiki/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/comfyui-wiki/subscriptions",
+      "organizations_url": "https://api.github.com/users/comfyui-wiki/orgs",
+      "repos_url": "https://api.github.com/users/comfyui-wiki/repos",
+      "events_url": "https://api.github.com/users/comfyui-wiki/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/comfyui-wiki/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5926a22201e0a48237cdb596b5b77e1d35c22ea7",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/5926a22201e0a48237cdb596b5b77e1d35c22ea7",
+        "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/5926a22201e0a48237cdb596b5b77e1d35c22ea7"
+      }
+    ]
+  },
+  {
+    "sha": "83ec9f9cdd0f80258d1c9f221397b51d7b033a19",
+    "node_id": "C_kwDOOBPhXdoAKDgzZWM5ZjljZGQwZjgwMjU4ZDFjOWYyMjEzOTdiNTFkN2IwMzNhMTk",
+    "commit": {
+      "author": {
+        "name": "ComfyUI Wiki",
+        "email": "contact@comfyui-wiki.com",
+        "date": "2025-12-01T05:20:54Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-12-01T05:20:54Z"
+      },
+      "message": "Flux.2 text to image and z image turbo workflow update (#347)\n\nCo-authored-by: GitHub Action <action@github.com>",
+      "tree": {
+        "sha": "e60c6bd084de06f268e0fc9e8eff9d50ed15be8b",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/trees/e60c6bd084de06f268e0fc9e8eff9d50ed15be8b"
+      },
+      "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/commits/83ec9f9cdd0f80258d1c9f221397b51d7b033a19",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpLSW2CRC1aQ7uu5UhlAAAcU4QADVlfBsLjW1RFD2a1gdO8b2N\nyFdhUDshbtbMK3jrPa587a9rmEU3sDRyz9fhZTeqfvl64JoUZs8kAzkAKlFkxjXV\nWQP7scvM0TGgwyQ+4nX4js9NY9XziyVfCR8AUsQ9pwt5xl2oyjVrzpOuzcps3npH\nR6hcntBqmL7fdzQ3TTgB46zXlhiS3X6Jsy4rICONV/68hEh8JS3Id/SyY++NWZla\nwOi2mMRED8iMpxFEHxuS/JaGhVkgNtxSZDx5tL+SCimlOxcSBmtHR5eqREWX1OSg\nEi2pQDY+UB2gIgB1/0ZEEm5q8RSaKuqLVRgpGy2IxbTuf1PwbGIMpzjqRg4+nA1k\nkBCyFzqNKZNgIlBqIhGTl8i/0tCHgZ8l0cD8TGuO757APV0Yfksvt1CJPWQLEOOx\n4mbwMfy52427YYm7vIFqvi/fr5rDOr4Rld87wKmEbUYeqpbQdDVSl1NIXzh5bnxP\nB5LDPaoK/eibgxu92pP8ljI9hQxz5U2iDvMdecVSg/qgpZojmmkwZkNDYfeVET5V\nb086ap/LvcPJAWOk6tdaZODH4eTFcPpiGpSbRsMzrA/CA3HR+qf5s/pi1Pmw+01K\nIaBibLMpBKfU/jA1lTyTHzxYypSzd1mGcqLBZI6f5SdaTeKtAtWd9dOIkAVtpb5Z\n7FI0ueg6MvJoZDldFx+5\n=I16x\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree e60c6bd084de06f268e0fc9e8eff9d50ed15be8b\nparent 48400c26bc748d3ae41938cc1ebd8bdcdfc6d5a5\nauthor ComfyUI Wiki <contact@comfyui-wiki.com> 1764566454 +0800\ncommitter GitHub <noreply@github.com> 1764566454 +0800\n\nFlux.2 text to image and z image turbo workflow update (#347)\n\nCo-authored-by: GitHub Action <action@github.com>",
+        "verified_at": "2025-12-01T05:20:55Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/83ec9f9cdd0f80258d1c9f221397b51d7b033a19",
+    "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/83ec9f9cdd0f80258d1c9f221397b51d7b033a19",
+    "comments_url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/83ec9f9cdd0f80258d1c9f221397b51d7b033a19/comments",
+    "author": {
+      "login": "comfyui-wiki",
+      "id": 192523189,
+      "node_id": "U_kgDOC3mrtQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/192523189?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/comfyui-wiki",
+      "html_url": "https://github.com/comfyui-wiki",
+      "followers_url": "https://api.github.com/users/comfyui-wiki/followers",
+      "following_url": "https://api.github.com/users/comfyui-wiki/following{/other_user}",
+      "gists_url": "https://api.github.com/users/comfyui-wiki/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/comfyui-wiki/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/comfyui-wiki/subscriptions",
+      "organizations_url": "https://api.github.com/users/comfyui-wiki/orgs",
+      "repos_url": "https://api.github.com/users/comfyui-wiki/repos",
+      "events_url": "https://api.github.com/users/comfyui-wiki/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/comfyui-wiki/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "48400c26bc748d3ae41938cc1ebd8bdcdfc6d5a5",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/48400c26bc748d3ae41938cc1ebd8bdcdfc6d5a5",
+        "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/48400c26bc748d3ae41938cc1ebd8bdcdfc6d5a5"
+      }
+    ]
+  },
+  {
+    "sha": "538ee623b7d59dee7f060d4b5d37ff8713eda150",
+    "node_id": "C_kwDOOBPhXdoAKDUzOGVlNjIzYjdkNTlkZWU3ZjA2MGQ0YjVkMzdmZjg3MTNlZGExNTA",
+    "commit": {
+      "author": {
+        "name": "ComfyUI Wiki",
+        "email": "contact@comfyui-wiki.com",
+        "date": "2025-11-30T00:45:05Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-11-30T00:45:05Z"
+      },
+      "message": "Update prompt and workflow (#343)\n\nCo-authored-by: GitHub Action <action@github.com>",
+      "tree": {
+        "sha": "498603f6a3dc931b93adf225dc4c252bffea82a9",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/trees/498603f6a3dc931b93adf225dc4c252bffea82a9"
+      },
+      "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/commits/538ee623b7d59dee7f060d4b5d37ff8713eda150",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpK5ORCRC1aQ7uu5UhlAAAGoQQAKNuldbqMcxJ+mc6GDvFmfQj\nX37BzRYbXi9qbCbFwkyHWX64IZhnFscB/mYk+fmbZVgncZ7VXsaUG9GA8UfxKiST\nU80KTxEzcDfweIvcu72vpx1JOaRZCYlTKGVW3d/tyliAHRSpV4w6bF9Vs0kXlnzb\nVT1gHw3mzXphIpf4wphhw2gv88iOPGEIe8KRLHF0IbVhLqJELCNh6MOuKiZNOf7h\nRd2FOugOORNL7VMWXIWzRvPpuMdrfTGvVTkTuV9uFBJo0xWNCIBeE6/fEisse61Q\nYC0TKup+PiAqZlZZ5Dn+/aKh22YAn0ibwWq2Wxl5ufE5EqjoBjw3FQLFaxx09jM5\nHCm7Bh6SK1NpeBj4tqH4dXQXZSYG3mlIiOufYuVkzCr2jtYv75zE0zmEOJck99gv\nRDI6ot2ULr1wQMxLRW8I7Ao8193uSIG3TevYtA25DzWoQ723XxKdUQsSThC3LHq2\nGKcJUCV8FHmUK7g9uxi5RLBmmIgR/A4UMH/5DK9SjFITD6cm/aCMcGaxuZfNjCDq\nTamOoPe5vgDXbSfQdeEfV9DhKCSwPTDeGHLkWozUZwkGUlTagoO5HbnjqhTpSmsy\nUpJC5SKH17JTL3sGZ5nmH+nWvehgieRXTGEE1F9NbQY/Kq3dtsYCXGAUAM3pVgxB\nDxmYQot9/NaqGgAwerfc\n=rVuH\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 498603f6a3dc931b93adf225dc4c252bffea82a9\nparent 4186a007a26cec55cea35831b4df7fe9a2039abc\nauthor ComfyUI Wiki <contact@comfyui-wiki.com> 1764463505 +0800\ncommitter GitHub <noreply@github.com> 1764463505 +0800\n\nUpdate prompt and workflow (#343)\n\nCo-authored-by: GitHub Action <action@github.com>",
+        "verified_at": "2025-11-30T00:45:05Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/538ee623b7d59dee7f060d4b5d37ff8713eda150",
+    "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/538ee623b7d59dee7f060d4b5d37ff8713eda150",
+    "comments_url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/538ee623b7d59dee7f060d4b5d37ff8713eda150/comments",
+    "author": {
+      "login": "comfyui-wiki",
+      "id": 192523189,
+      "node_id": "U_kgDOC3mrtQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/192523189?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/comfyui-wiki",
+      "html_url": "https://github.com/comfyui-wiki",
+      "followers_url": "https://api.github.com/users/comfyui-wiki/followers",
+      "following_url": "https://api.github.com/users/comfyui-wiki/following{/other_user}",
+      "gists_url": "https://api.github.com/users/comfyui-wiki/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/comfyui-wiki/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/comfyui-wiki/subscriptions",
+      "organizations_url": "https://api.github.com/users/comfyui-wiki/orgs",
+      "repos_url": "https://api.github.com/users/comfyui-wiki/repos",
+      "events_url": "https://api.github.com/users/comfyui-wiki/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/comfyui-wiki/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "4186a007a26cec55cea35831b4df7fe9a2039abc",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/4186a007a26cec55cea35831b4df7fe9a2039abc",
+        "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/4186a007a26cec55cea35831b4df7fe9a2039abc"
+      }
+    ]
+  },
+  {
+    "sha": "4186a007a26cec55cea35831b4df7fe9a2039abc",
+    "node_id": "C_kwDOOBPhXdoAKDQxODZhMDA3YTI2Y2VjNTVjZWEzNTgzMWI0ZGY3ZmU5YTIwMzlhYmM",
+    "commit": {
+      "author": {
+        "name": "ComfyUI Wiki",
+        "email": "contact@comfyui-wiki.com",
+        "date": "2025-11-27T18:39:31Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-11-27T18:39:31Z"
+      },
+      "message": "Update z image turbo (#336)\n\nCo-authored-by: GitHub Action <action@github.com>",
+      "tree": {
+        "sha": "0d66de43f76523670c16bb053ed9cdd5f7ec3a2c",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/trees/0d66de43f76523670c16bb053ed9cdd5f7ec3a2c"
+      },
+      "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/commits/4186a007a26cec55cea35831b4df7fe9a2039abc",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpKJrjCRC1aQ7uu5UhlAAAyaoQAJ/2zoiAdNmLldPUsko5r5ot\nc/i1Vr1k4gtul1gqhbGwd3BuMr71JLkdPX+Hy+e0crJWiZLnTZlzZZ4Rec3nTAJd\n3m4FZcluhg/qQouPOTDf78ETks3in3ozz05ZgBvZswrQDQ8y/uJHhlOxWigaLnRo\nl27KhAH3tXfXTaKRi4lK+rIjjauHQb2IZvMNzBbihPtF6arLmh9I0fErRTJynyTM\n8kdwi8w6WvPZWW74AYMYdQppfGNEUTNUV+AbWwAzsBYxiUS5eTKYhZB1uRfkzRHQ\nGqlWkR+rTjod+J3nuJmwolEvQv7tAacKsDqCJCiuxtvfsZmjOUO5eW8PD84KjoEA\nrA65G/P/eqtfztqu3B+VSNeZIDE5poklAYN7y7vvhXIZrdsbtIac8XvDdOu61IsW\nhOIFI1Fv6RKnDSdEKpZnkseV3zDCxYx/yAEc7rUjNEOEynB2HvzU63H1pOCM6zqj\nbj6y0LHBY0O1ll6Z9/sSGjgBSdy/9Q+K/u/ZxpEZMbdAf29hPIfQ7U/4WCyRgEMG\nI4Mu9P+gnqBM1iTAdn0xG8AVj0pl7HJ7RUQChPdWDxWeQSYA3jKohs9XJV8RZ1t0\ndKa1fggGd9LqAmS3niiJiNnxsqCYF78WP0kY2wUd51T9iD6N8XnPWNnkuM7wGpgr\nW60lboZzQHS3OBqxEOsI\n=HwNn\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 0d66de43f76523670c16bb053ed9cdd5f7ec3a2c\nparent 952b03368b9b2cf68571752491da436e51e01d29\nauthor ComfyUI Wiki <contact@comfyui-wiki.com> 1764268771 +0800\ncommitter GitHub <noreply@github.com> 1764268771 +0800\n\nUpdate z image turbo (#336)\n\nCo-authored-by: GitHub Action <action@github.com>",
+        "verified_at": "2025-11-27T18:39:31Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/4186a007a26cec55cea35831b4df7fe9a2039abc",
+    "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/4186a007a26cec55cea35831b4df7fe9a2039abc",
+    "comments_url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/4186a007a26cec55cea35831b4df7fe9a2039abc/comments",
+    "author": {
+      "login": "comfyui-wiki",
+      "id": 192523189,
+      "node_id": "U_kgDOC3mrtQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/192523189?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/comfyui-wiki",
+      "html_url": "https://github.com/comfyui-wiki",
+      "followers_url": "https://api.github.com/users/comfyui-wiki/followers",
+      "following_url": "https://api.github.com/users/comfyui-wiki/following{/other_user}",
+      "gists_url": "https://api.github.com/users/comfyui-wiki/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/comfyui-wiki/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/comfyui-wiki/subscriptions",
+      "organizations_url": "https://api.github.com/users/comfyui-wiki/orgs",
+      "repos_url": "https://api.github.com/users/comfyui-wiki/repos",
+      "events_url": "https://api.github.com/users/comfyui-wiki/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/comfyui-wiki/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "952b03368b9b2cf68571752491da436e51e01d29",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/952b03368b9b2cf68571752491da436e51e01d29",
+        "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/952b03368b9b2cf68571752491da436e51e01d29"
+      }
+    ]
+  },
+  {
+    "sha": "8b8a91a99d74686cbeae4062919ac0783b4d33cd",
+    "node_id": "C_kwDOOBPhXdoAKDhiOGE5MWE5OWQ3NDY4NmNiZWFlNDA2MjkxOWFjMDc4M2I0ZDMzY2Q",
+    "commit": {
+      "author": {
+        "name": "ComfyUI Wiki",
+        "email": "contact@comfyui-wiki.com",
+        "date": "2025-11-27T05:59:49Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-11-27T05:59:49Z"
+      },
+      "message": "Add z-image-turbo workflow (#333)\n\nCo-authored-by: GitHub Action <action@github.com>",
+      "tree": {
+        "sha": "1d91a20effdc337138b05d0d7a7bf6fe6d9706f9",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/trees/1d91a20effdc337138b05d0d7a7bf6fe6d9706f9"
+      },
+      "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/git/commits/8b8a91a99d74686cbeae4062919ac0783b4d33cd",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpJ+jVCRC1aQ7uu5UhlAAAoLQQAJ1QESzfRcIxasLwe4anjgh5\nUu27plqCTRwxsFkECqBmFl0h5dkPEXX1Cr/eFp2uMWtOQrFhvKHK0XHWduxOzWIe\nJpT90Dn3bhYG6HzqNEgJY2pwfmGmJROAqsSSrne4gxrPw4DN0CJLf7MIIxguQcYG\nROMcr445YDGyglJOC15QuVZI7qIF5tz2ievJHEWDg/qQAWQy83ICD8xDIcw78GIm\nK0NJ9p99ZdaRU8h3AntPkchaMJ9PTXKA2NUT4Xn+JnsMk2n8EMviDrJ73Vywl7FB\n1J/DAgaqz3orm6xHSTC/9g/VnWDE/SE6STbETjx6VIFfXhJ4veuKkuOTovEmeE2e\nSSS1SuIB/p9hjxEyDf+fbI296y/AQ9pw8+1ff+xA5nkmxkSPYK6RXdQaMgKigOv6\na6g3wJNSg/iNr+gOVCJyI+AkZpxM1kcw5Tm2F/aKHVFtkkBYSNq74lkEwqqqjwMx\nMOw9Wygh+dZ2fwYFvjLXC6FRGJOD871GIydoZKQL87woh8l1YuVo42GRXjIY0wys\nldIV0S6s6OsMyxQH+3VOf5S+obCEiwrmLNFnwZX5v0IppDZoEYhY0amwWPu8gp+o\nFL+sJhpEttmsqbITzoQvrNdJDmPNcm6foS281pjV0iREWBkljU9w8ulIC/7eCGoR\nyZo+HQ/NYzg9M+S8nLJR\n=Pn2V\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 1d91a20effdc337138b05d0d7a7bf6fe6d9706f9\nparent 252647fc61b8ee7f97c28ed1a931c754e99e9965\nauthor ComfyUI Wiki <contact@comfyui-wiki.com> 1764223189 +0800\ncommitter GitHub <noreply@github.com> 1764223189 +0800\n\nAdd z-image-turbo workflow (#333)\n\nCo-authored-by: GitHub Action <action@github.com>",
+        "verified_at": "2025-11-27T05:59:50Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/8b8a91a99d74686cbeae4062919ac0783b4d33cd",
+    "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/8b8a91a99d74686cbeae4062919ac0783b4d33cd",
+    "comments_url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/8b8a91a99d74686cbeae4062919ac0783b4d33cd/comments",
+    "author": {
+      "login": "comfyui-wiki",
+      "id": 192523189,
+      "node_id": "U_kgDOC3mrtQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/192523189?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/comfyui-wiki",
+      "html_url": "https://github.com/comfyui-wiki",
+      "followers_url": "https://api.github.com/users/comfyui-wiki/followers",
+      "following_url": "https://api.github.com/users/comfyui-wiki/following{/other_user}",
+      "gists_url": "https://api.github.com/users/comfyui-wiki/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/comfyui-wiki/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/comfyui-wiki/subscriptions",
+      "organizations_url": "https://api.github.com/users/comfyui-wiki/orgs",
+      "repos_url": "https://api.github.com/users/comfyui-wiki/repos",
+      "events_url": "https://api.github.com/users/comfyui-wiki/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/comfyui-wiki/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "252647fc61b8ee7f97c28ed1a931c754e99e9965",
+        "url": "https://api.github.com/repos/Comfy-Org/workflow_templates/commits/252647fc61b8ee7f97c28ed1a931c754e99e9965",
+        "html_url": "https://github.com/Comfy-Org/workflow_templates/commit/252647fc61b8ee7f97c28ed1a931c754e99e9965"
+      }
+    ]
+  }
+]

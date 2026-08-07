@@ -1,0 +1,182 @@
+{
+ "prompt": [
+  7,
+  "bf1f9b62-fac2-46bd-8b75-f52cb3dbdee2",
+  {
+   "ck": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+     "ckpt_name": "SDXLNSFW.safetensors"
+    }
+   },
+   "lat": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+     "width": 896,
+     "height": 1152,
+     "batch_size": 1
+    }
+   },
+   "dec": {
+    "class_type": "VAEDecode",
+    "inputs": {
+     "samples": [
+      "k",
+      0
+     ],
+     "vae": [
+      "ck",
+      2
+     ]
+    }
+   },
+   "save": {
+    "class_type": "SaveImage",
+    "inputs": {
+     "images": [
+      "dec",
+      0
+     ],
+     "filename_prefix": "A/sxref_P_12345/img/img"
+    }
+   },
+   "lo": {
+    "class_type": "LoraLoader",
+    "inputs": {
+     "lora_name": "lunaskye.safetensors",
+     "strength_model": 1.0,
+     "strength_clip": 1.0,
+     "model": [
+      "ck",
+      0
+     ],
+     "clip": [
+      "ck",
+      1
+     ]
+    }
+   },
+   "pos": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+     "text": "lunaskye, a young woman in her mid twenties with wavy auburn hair, warm hazel eyes, soft natural makeup, light freckles on her cheeks, gentle smile, photorealistic skin texture with visible pores, soft diffused studio light",
+     "clip": [
+      "lo",
+      1
+     ]
+    }
+   },
+   "neg": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+     "text": "bad quality, worst quality, low quality, deformed, extra fingers, watermark, text",
+     "clip": [
+      "lo",
+      1
+     ]
+    }
+   },
+   "msd": {
+    "class_type": "ModelSamplingDiscrete",
+    "inputs": {
+     "sampling": "eps",
+     "zsnr": false,
+     "model": [
+      "lo",
+      0
+     ]
+    }
+   },
+   "pag": {
+    "class_type": "PerturbedAttentionGuidance",
+    "inputs": {
+     "scale": 1.0,
+     "model": [
+      "msd",
+      0
+     ]
+    }
+   },
+   "k": {
+    "class_type": "KSampler",
+    "inputs": {
+     "seed": 12345,
+     "steps": 40,
+     "cfg": 4.0,
+     "sampler_name": "dpmpp_2m_sde",
+     "scheduler": "karras",
+     "denoise": 1.0,
+     "model": [
+      "pag",
+      0
+     ],
+     "positive": [
+      "pos",
+      0
+     ],
+     "negative": [
+      "neg",
+      0
+     ],
+     "latent_image": [
+      "lat",
+      0
+     ]
+    }
+   }
+  },
+  {
+   "create_time": 1786136494880
+  },
+  [
+   "save"
+  ]
+ ],
+ "outputs": {
+  "save": {
+   "images": [
+    {
+     "filename": "img_00001_.png",
+     "subfolder": "A/sxref_P_12345/img",
+     "type": "output"
+    }
+   ]
+  }
+ },
+ "status": {
+  "status_str": "success",
+  "completed": true,
+  "messages": [
+   [
+    "execution_start",
+    {
+     "prompt_id": "bf1f9b62-fac2-46bd-8b75-f52cb3dbdee2",
+     "timestamp": 1786136494886
+    }
+   ],
+   [
+    "execution_cached",
+    {
+     "nodes": [],
+     "prompt_id": "bf1f9b62-fac2-46bd-8b75-f52cb3dbdee2",
+     "timestamp": 1786136494970
+    }
+   ],
+   [
+    "execution_success",
+    {
+     "prompt_id": "bf1f9b62-fac2-46bd-8b75-f52cb3dbdee2",
+     "timestamp": 1786136503437
+    }
+   ]
+  ]
+ },
+ "meta": {
+  "save": {
+   "node_id": "save",
+   "display_node": "save",
+   "parent_node": null,
+   "real_node_id": "save"
+  }
+ }
+}

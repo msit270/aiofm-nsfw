@@ -1,0 +1,107 @@
+{
+ "ck": {
+  "class_type": "CheckpointLoaderSimple",
+  "inputs": {
+   "ckpt_name": "SDXLNSFW.safetensors"
+  }
+ },
+ "dec": {
+  "class_type": "VAEDecode",
+  "inputs": {
+   "samples": [
+    "k",
+    0
+   ],
+   "vae": [
+    "ck",
+    2
+   ]
+  }
+ },
+ "k": {
+  "class_type": "KSampler",
+  "inputs": {
+   "cfg": 4.0,
+   "denoise": 1.0,
+   "latent_image": [
+    "lat",
+    0
+   ],
+   "model": [
+    "pag",
+    0
+   ],
+   "negative": [
+    "neg",
+    0
+   ],
+   "positive": [
+    "pos",
+    0
+   ],
+   "sampler_name": "dpmpp_2m_sde",
+   "scheduler": "karras",
+   "seed": 12345,
+   "steps": 40
+  }
+ },
+ "lat": {
+  "class_type": "EmptyLatentImage",
+  "inputs": {
+   "batch_size": 1,
+   "height": 1152,
+   "width": 896
+  }
+ },
+ "msd": {
+  "class_type": "ModelSamplingDiscrete",
+  "inputs": {
+   "model": [
+    "ck",
+    0
+   ],
+   "sampling": "eps",
+   "zsnr": false
+  }
+ },
+ "neg": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "ck",
+    1
+   ],
+   "text": "bad quality, worst quality, low quality, deformed, extra fingers, watermark, text"
+  }
+ },
+ "pag": {
+  "class_type": "PerturbedAttentionGuidance",
+  "inputs": {
+   "model": [
+    "msd",
+    0
+   ],
+   "scale": 1
+  }
+ },
+ "pos": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "ck",
+    1
+   ],
+   "text": "luna, a young woman in her mid twenties with wavy auburn hair, warm hazel eyes, soft natural makeup, light freckles on her cheeks, gentle smile, photorealistic skin texture with visible pores, soft diffused studio light"
+  }
+ },
+ "save": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "filename_prefix": "A/sxref_P_12345_nolora/img/img",
+   "images": [
+    "dec",
+    0
+   ]
+  }
+ }
+}

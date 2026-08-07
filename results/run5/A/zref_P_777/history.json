@@ -1,0 +1,178 @@
+{
+ "prompt": [
+  3,
+  "d892e361-8de5-4477-8264-2f0013a1ea44",
+  {
+   "u": {
+    "class_type": "UNETLoader",
+    "inputs": {
+     "unet_name": "zimage.safetensors",
+     "weight_dtype": "default"
+    }
+   },
+   "c": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+     "clip_name": "qwen.safetensors",
+     "type": "lumina2",
+     "device": "default"
+    }
+   },
+   "v": {
+    "class_type": "VAELoader",
+    "inputs": {
+     "vae_name": "ae.safetensors"
+    }
+   },
+   "lat": {
+    "class_type": "EmptySD3LatentImage",
+    "inputs": {
+     "width": 896,
+     "height": 1152,
+     "batch_size": 1
+    }
+   },
+   "pos": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+     "text": "luna, a young woman in her mid twenties with wavy auburn hair, warm hazel eyes, soft natural makeup, light freckles on her cheeks, gentle smile, photorealistic skin texture with visible pores, soft diffused studio light",
+     "clip": [
+      "c",
+      0
+     ]
+    }
+   },
+   "dec": {
+    "class_type": "VAEDecode",
+    "inputs": {
+     "samples": [
+      "k",
+      0
+     ],
+     "vae": [
+      "v",
+      0
+     ]
+    }
+   },
+   "save": {
+    "class_type": "SaveImage",
+    "inputs": {
+     "images": [
+      "dec",
+      0
+     ],
+     "filename_prefix": "A/zref_P_777/img/img"
+    }
+   },
+   "lo": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+     "lora_name": "luna.safetensors",
+     "strength_model": 1.0,
+     "model": [
+      "u",
+      0
+     ]
+    }
+   },
+   "neg": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+     "conditioning": [
+      "pos",
+      0
+     ]
+    }
+   },
+   "k": {
+    "class_type": "KSampler",
+    "inputs": {
+     "seed": 777,
+     "steps": 8,
+     "cfg": 1.0,
+     "sampler_name": "res_multistep",
+     "scheduler": "simple",
+     "denoise": 1.0,
+     "model": [
+      "lo",
+      0
+     ],
+     "positive": [
+      "pos",
+      0
+     ],
+     "negative": [
+      "neg",
+      0
+     ],
+     "latent_image": [
+      "lat",
+      0
+     ]
+    }
+   }
+  },
+  {
+   "create_time": 1786136479779
+  },
+  [
+   "save"
+  ]
+ ],
+ "outputs": {
+  "save": {
+   "images": [
+    {
+     "filename": "img_00001_.png",
+     "subfolder": "A/zref_P_777/img",
+     "type": "output"
+    }
+   ]
+  }
+ },
+ "status": {
+  "status_str": "success",
+  "completed": true,
+  "messages": [
+   [
+    "execution_start",
+    {
+     "prompt_id": "d892e361-8de5-4477-8264-2f0013a1ea44",
+     "timestamp": 1786136479780
+    }
+   ],
+   [
+    "execution_cached",
+    {
+     "nodes": [
+      "u",
+      "c",
+      "v",
+      "lat",
+      "pos",
+      "lo",
+      "neg"
+     ],
+     "prompt_id": "d892e361-8de5-4477-8264-2f0013a1ea44",
+     "timestamp": 1786136479788
+    }
+   ],
+   [
+    "execution_success",
+    {
+     "prompt_id": "d892e361-8de5-4477-8264-2f0013a1ea44",
+     "timestamp": 1786136481614
+    }
+   ]
+  ]
+ },
+ "meta": {
+  "save": {
+   "node_id": "save",
+   "display_node": "save",
+   "parent_node": null,
+   "real_node_id": "save"
+  }
+ }
+}

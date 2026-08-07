@@ -1,0 +1,10 @@
+{
+ "arm": "zref_P_999",
+ "batch": "A",
+ "ok": true,
+ "exec_s": 1.835,
+ "cached_nodes": 7,
+ "prompt_id": "5a780619-c761-4d2f-9c2a-9875dd07f6c1",
+ "outputs_dir": "/workspace/run5/output/A/zref_P_999",
+ "status_str": "success"
+}
