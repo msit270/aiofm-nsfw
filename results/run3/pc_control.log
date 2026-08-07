@@ -1,0 +1,5 @@
+WARNING:root:WARNING: You need pytorch with cu130 or higher to use optimized CUDA operations.
+[R3_PC_head_103] 66e70db6-21ea-44f0-a414-5c1b2b463eb9 cid=trackV-R3_PC_head_103-5146a137 q=[0, 0] vram_free=70.1GiB
+[R3_PC_head_103] success exec=246.5s cached=0 err=None nodes_exec=79 eyes406=True imgs=['ftap163_00004_.png', 'HasMetadata_00203_.png']
+[R3_PC_mid_46] 28303e60-9fb7-4f59-9a7d-d218ac8c2eab cid=trackV-R3_PC_mid_46-6a4dcef3 q=[0, 0] vram_free=70.1GiB
+[R3_PC_mid_46] error exec=214.1s cached=0 err=622:403 nodes_exec=66 eyes406=False imgs=['ftap163_00005_.png']
