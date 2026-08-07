@@ -6555,7 +6555,7 @@
             "flags": {},
             "order": 2,
             "mode": 0,
-            "title": "Mouth SEGS size guard (see note)",
+            "title": "Mouth size guard: drop full-frame false detections (area > 4M)",
             "inputs": [],
             "outputs": [
               {
@@ -6577,7 +6577,7 @@
               "area(=w*h)",
               true,
               0,
-              1700000
+              4000000
             ],
             "color": "#432",
             "bgcolor": "#653"
