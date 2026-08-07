@@ -296,3 +296,69 @@ default. One arm would tell us; requested from Track E as a low-priority
 discriminator, not yet run.
 
 **Not acted on.** Logged per the standing rule to log rather than start.
+
+---
+
+# §4. Run 3 (2026-08-07) — the ship-readiness run's calls
+
+Full evidence in `results/run3/` and `notes/R3-guard.md`. Only the call and its
+basis here. Nothing below blocked work.
+
+- **The guard went in even though HANDOFF §6 argued a guard ships ruined faces
+  by design.** The owner's brief resolved that argument explicitly: "a degraded
+  render beats a crash, and both beat a silent success with a ruined face" —
+  and the silent half is answered by C1b (`622:662 PreviewAny` lands the skip
+  in /history and on the canvas) plus the harness's flat-face demotion. A fired
+  guard is a failure report, not a pass.
+- **"103–120 still crashes" was a probe-graph fact, not a product fact.** All
+  eight V-track arms in that band ran the probe (frozen base). The full graph
+  at 103 tokens had never been run; today it rendered clean (`R3_PC_head_103`).
+  The mechanism (empty detection → 622:403) is still real on the full graph —
+  `R3_PC_mid_46` crashed cold the same hour — and the guard closes the
+  mechanism at any length, which is the stronger property anyway.
+- **The bistability now flips arm-to-arm on one process.** `R3_PC_mid_46`
+  (default device, 46 tok) errored at 00:48 UTC; `R3_GUARD_mid46` — same
+  config plus the guard — rendered a healthy 0.9016-confidence face at 01:01.
+  Consequence: only same-window controls mean anything, and the guard's proof
+  is the deterministic forced-threshold pair, not any band arm.
+- **Anatomy subgraph deleted, not revived.** It was bypassed on the live image
+  wire; conversion already folded it out of every render ever made (fold-diff
+  0 differences), reviving it would mean validating five never-tested detailer
+  paths and their models, and its def carried 8 of the 10 stale rgthree temp
+  refs. Delete was the lower-risk, higher-value call. Revert: `git revert
+  b4f7359`.
+- **CORS: deleted our headers rather than parameterizing them.** Every caller
+  is same-origin; ComfyUI's middleware owns cross-origin policy and overwrites
+  per-response headers when enabled. A pack must not widen a server's CORS
+  stance. The old audit line "23 routes with ACAO *" was wrong twice (24
+  registrations, 12 with the header).
+- **Selector: removed the auto-pick instead of special-casing the toggle.**
+  Uniform rule — nothing is selected until the buyer selects it; Send tracks
+  the selection. The Enter key now respects the disabled Send (it could submit
+  an empty selection and kill the render), and the keyboard path can no longer
+  index one past the batch end. TEXT-state sends are unaffected (its Send is
+  never selection-disabled).
+- **Mouth ceiling 1.7M → 4M is evidence-bounded, not a guess.** 203 logged
+  decisions: real lips 0.29M–2.06M (20 dropped in 1.77M–2.06M), the full-frame
+  false positive at 9.29M ×2, and NOTHING between 2.06M and 9.29M. 4M passes
+  every real segment ever logged at 2× margin and kills the false positive at
+  2.3× margin. The old ceiling silently deleted mouth detail on exactly the
+  close-up renders where it matters. (A/B pair on the recorded dropping config
+  ships with the change.)
+- **Seam: executed PROPOSALS P14 rather than inventing.** 622:418 composited
+  with NO mask (ComfyUI substitutes all-ones), i.e. a hard rectangle at the
+  face box; 622:403's mask output was computed and discarded. FeatherMask 30px
+  per edge on a ~700–900px crop. Output-changing by design; ships with the A/B
+  sheet; the #114-internal seam (its own feather 18/20) is out of scope here.
+- **INSTALL MODELS step 1 got its exception paragraph** instead of a full
+  rewrite: the blanket "one-liners give you no nodes" warning now names the
+  command it applies to and states that the gist bootstrap is the supported
+  path. The old text told bootstrap buyers their working install was broken.
+- **Accepted, with reasons, this run:** loader duplication (face_yolov8m ×3,
+  sam_vit_b ×3, UltraSharp ×2 — consolidation needs cross-subgraph IO edits of
+  the exact class that caused the 647 blocker, to save seconds of load);
+  node_identifier persistence + the server-global selector waiter (single-
+  tenant product, one render at a time; the harness handles it; fix touches
+  accept logic verifiable only cross-browser); RPG per-action console.log
+  saturation (the five perpetual interval dumps are silenced; the rest fire on
+  user action only); #98 whole-image tiling (Q8 stands, untouched).
