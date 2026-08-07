@@ -1,0 +1,10 @@
+{
+ "arm": "canary2_zref_P_12345",
+ "batch": "C",
+ "ok": true,
+ "exec_s": 4.351,
+ "cached_nodes": 2,
+ "prompt_id": "b17ee99e-c3c4-46d2-a0b5-b6c1bfd539d5",
+ "outputs_dir": "/workspace/run5/output/C/canary2_zref_P_12345",
+ "status_str": "success"
+}

@@ -1,0 +1,10 @@
+{
+ "arm": "C_nocm111",
+ "batch": "C",
+ "ok": true,
+ "exec_s": 73.474,
+ "cached_nodes": 56,
+ "prompt_id": "8f3ce585-79bb-40ce-818b-8fdb7f9fb6a8",
+ "outputs_dir": "/workspace/run5/output/C/C_nocm111",
+ "status_str": "success"
+}

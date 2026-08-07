@@ -1,0 +1,10 @@
+{
+ "arm": "C_zusdu617",
+ "batch": "C",
+ "ok": true,
+ "exec_s": 114.153,
+ "cached_nodes": 55,
+ "prompt_id": "c82b4a73-10a1-40f2-9f11-3269fbb96000",
+ "outputs_dir": "/workspace/run5/output/C/C_zusdu617",
+ "status_str": "success"
+}
