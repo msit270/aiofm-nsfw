@@ -61,25 +61,38 @@ def scan(dirs):
                   (f"det={r['det']:.3f}" if r else "NO FACE"), flush=True)
     return rows
 
-def main():
-    dirs = sys.argv[1:] or [OUT + "/A"]
-    rows = scan(dirs)
-    # centroid from ZIT portrait references (res_multistep arms only, with lora)
-    ref_keys = [k for k in rows
-                if "/zref_P_" in "/" + k and "nolora" not in k and "eak" not in k
-                and rows[k]["face"]]
-    if not ref_keys:
-        print("no ZIT portrait refs found"); sys.exit(1)
-    embs = np.array([rows[k]["face"]["emb"] for k in ref_keys])
+CENTROID_FILE = "/workspace/nsfw-quality/results/run5/centroid.json"
+REF_ARMS = ["A/zref_P_12345/img/img_00001_.png",
+            "A/zref_P_777/img/img_00001_.png",
+            "A/zref_P_999/img/img_00001_.png"]
+
+def get_centroid():
+    """Pinned reference identity: the three batch-A ZIT portrait renders.
+    Computed once, stored; every later scan scores against the SAME centroid."""
+    if os.path.exists(CENTROID_FILE):
+        d = json.load(open(CENTROID_FILE))
+        return np.array(d["centroid"]), d
+    rows = {k: {"face": top_face(os.path.join(OUT, k))} for k in REF_ARMS}
+    missing = [k for k in rows if not rows[k]["face"]]
+    if missing:
+        raise RuntimeError(f"centroid refs missing/faceless: {missing}")
+    embs = np.array([rows[k]["face"]["emb"] for k in REF_ARMS])
     centroid = embs.mean(axis=0)
     centroid /= np.linalg.norm(centroid)
-    # within-reference band
     band = [cos(rows[a]["face"]["emb"], rows[b]["face"]["emb"])
-            for i, a in enumerate(ref_keys) for b in ref_keys[i+1:]]
-    out = {"reference_images": ref_keys,
-           "zit_to_zit_pairwise": {"min": min(band) if band else None,
-                                    "max": max(band) if band else None,
-                                    "mean": float(np.mean(band)) if band else None},
+            for i, a in enumerate(REF_ARMS) for b in REF_ARMS[i+1:]]
+    d = {"centroid": centroid.tolist(), "reference_images": REF_ARMS,
+         "zit_to_zit_pairwise": {"min": min(band), "max": max(band),
+                                  "mean": float(np.mean(band))}}
+    json.dump(d, open(CENTROID_FILE, "w"), indent=1)
+    return centroid, d
+
+def main():
+    dirs = sys.argv[1:] or [OUT + "/A"]
+    centroid, cd = get_centroid()
+    rows = scan(dirs)
+    out = {"reference_images": cd["reference_images"],
+           "zit_to_zit_pairwise": cd["zit_to_zit_pairwise"],
            "scores": {}}
     for k, v in sorted(rows.items()):
         if v["face"]:
