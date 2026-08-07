@@ -18,14 +18,17 @@
 #   * same GPU, driver and venv as the dev instance.
 set -uo pipefail
 
-TARGET=/workspace/comfy-fresh4
-DEST=/workspace/fresh-pack4
-PORT=31960
-DEAD=31961
-MPORT=31962
+# All overridable so a re-run can use a fresh target/output and clobber
+# nothing: the run-4 gate evidence lives in results/run4/fresh and re-running
+# with defaults would overwrite install.log/comfy-fresh.log there.
+TARGET="${FRESH_TARGET:-/workspace/comfy-fresh4}"
+DEST="${FRESH_DEST:-/workspace/fresh-pack4}"
+PORT="${FRESH_PORT:-31960}"
+DEAD="${FRESH_DEAD:-31961}"
+MPORT="${FRESH_MPORT:-31962}"
 LIVE_COMFY=/workspace/ComfyUI
 GIST_URL="https://gist.githubusercontent.com/msit270/70256ac1ebf2760e10f78804862db528/raw/aiofm_setupnsfw.sh"
-OUT=/workspace/nsfw-fix/results/run4/fresh
+OUT="${FRESH_OUT:-/workspace/nsfw-fix/results/run4/fresh}"
 WITHHOLD=(
   "checkpoints/SDXLNSFW.safetensors"
   "diffusion_models/SDXLNSFW.safetensors"
