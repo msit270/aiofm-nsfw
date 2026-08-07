@@ -1,0 +1,9 @@
+AIOFMTech-NSFW-Personal.tar.gz — run-5 cut (2026-08-07)
+archive sha256 : 8573e474ecedf420a8294b2e2c7ab5737a335e3648292cdf5f3d726544cc486f
+size           : 289101521 bytes, 161 files, top-level AIOFMTech-NSFW-Personal/
+workflow member: OFMTech_NSFW_Personal.json 60894 bytes
+                 sha256 f89bb021bde60fbdd5d45b81e79222a5bc964f71dfcdef3e2f4407ac0b32c958
+installer member sha256: 99a2a78a7a3a91b8e33b2c0619c33ad1e9240ecbe626f447d282e320a47dfadd
+built by tools/build_pack_personal.sh (reproducible; dist/ write-guard active)
+The workflow member's graph == final_luna_z_api.json (harness round-trip
+EQUIVALENT) whose render is bit-identical to the measured D_lunaz_FB winner.

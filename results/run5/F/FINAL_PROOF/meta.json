@@ -1,0 +1,10 @@
+{
+ "arm": "FINAL_PROOF",
+ "batch": "F",
+ "ok": true,
+ "exec_s": 175.541,
+ "cached_nodes": 23,
+ "prompt_id": "49912a74-c59a-4fd7-a595-29c9821729f2",
+ "outputs_dir": "/workspace/run5/output/F/FINAL_PROOF",
+ "status_str": "success"
+}

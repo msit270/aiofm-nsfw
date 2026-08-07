@@ -1,0 +1,10 @@
+{
+ "arm": "E_v7fix_den085",
+ "batch": "E",
+ "ok": true,
+ "exec_s": 134.546,
+ "cached_nodes": 32,
+ "prompt_id": "db23e382-855a-4de3-ba76-39bbe4c0c6b2",
+ "outputs_dir": "/workspace/run5/output/E/E_v7fix_den085",
+ "status_str": "success"
+}

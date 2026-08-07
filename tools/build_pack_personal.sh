@@ -121,7 +121,7 @@ PACK_TOP="$(sed -n '1{s|/.*||;p;}' "$LIST")"
     || { echo "✗ bootstrap PACK_TOP would read '$PACK_TOP', expected '$TOP'" >&2; exit 1; }
 
 # The bootstrap dies if this file is not where it expects it (line 104).
-for must in "$TOP/aiofm_setup.sh" "$TOP/OFMTech_NSFW.json" "$TOP/INSTALL MODELS.txt"; do
+for must in "$TOP/aiofm_setup.sh" "$TOP/OFMTech_NSFW_Personal.json" "$TOP/README-PERSONAL.txt" "$TOP/loras/luna.safetensors" "$TOP/loras/lunaskye.safetensors"; do
     grep -qxF "$must" "$LIST" \
         || { echo "✗ '$must' is not in the archive" >&2; exit 1; }
 done
@@ -140,9 +140,9 @@ NFILES="$(grep -vc '/$' "$LIST" || true)"
 # an investigation. sha256sum consumes all of stdin, so this pipe cannot hit the
 # SIGPIPE/pipefail trap described above.
 member_sha() { tar -xzOf "$BUILD_TO" "$TOP/$1" | sha256sum | cut -d' ' -f1; }
-WF_SHA="$(member_sha OFMTech_NSFW.json)"
+WF_SHA="$(member_sha OFMTech_NSFW_Personal.json)"
 SETUP_SHA="$(member_sha aiofm_setup.sh)"
-WF_SIZE="$(tar -xzOf "$BUILD_TO" "$TOP/OFMTech_NSFW.json" | wc -c)"
+WF_SIZE="$(tar -xzOf "$BUILD_TO" "$TOP/OFMTech_NSFW_Personal.json" | wc -c)"
 
 printf '\n  archive        : %s\n' "$BUILD_TO"
 printf '  top-level      : %s/   (matches archive name)\n' "$PACK_TOP"
@@ -150,7 +150,7 @@ printf '  entries        : %s files\n' "$NFILES"
 printf '  size           : %s bytes\n' "$SIZE"
 printf '  sha256         : %s\n' "$SHA"
 printf '\n  shipped members (hashed out of the archive):\n'
-printf '    OFMTech_NSFW.json  %s bytes\n' "$WF_SIZE"
+printf '    OFMTech_NSFW_Personal.json  %s bytes\n' "$WF_SIZE"
 printf '      sha256       : %s\n' "$WF_SHA"
 printf '    aiofm_setup.sh\n'
 printf '      sha256       : %s\n\n' "$SETUP_SHA"
