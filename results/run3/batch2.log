@@ -1,0 +1,13 @@
+WARNING:root:WARNING: You need pytorch with cu130 or higher to use optimized CUDA operations.
+[R3_DUAL_16] e61057b1-76d6-4cd2-8a73-714ce5abdc4f cid=trackV-R3_DUAL_16-e0a706df q=[0, 0] vram_free=70.1GiB
+[R3_DUAL_16] success exec=240.9s cached=0 err=None nodes_exec=85 eyes406=True imgs=['tap163_00007_.png', 'HasMetadata_00211_.png']
+[R3_DEFAULT_16] 27996267-1530-4d71-889d-9e2e0cbd5fef cid=trackV-R3_DEFAULT_16-104118f0 q=[0, 0] vram_free=70.1GiB
+[R3_DEFAULT_16] success exec=228.4s cached=0 err=None nodes_exec=83 eyes406=True imgs=['tap163_00008_.png', 'HasMetadata_00212_.png']
+[R3_DUAL_46] 6d89d97e-e78b-4b19-b51d-9083ebb13591 cid=trackV-R3_DUAL_46-f827479a q=[0, 0] vram_free=70.1GiB
+[R3_DUAL_46] success exec=240.5s cached=0 err=None nodes_exec=85 eyes406=True imgs=['tap163_00009_.png', 'HasMetadata_00213_.png']
+[R3_MOUTH_ceil17] 96fab151-55b5-4223-938e-ce914428011c cid=trackV-R3_MOUTH_ceil17-a02c5a51 q=[0, 0] vram_free=70.1GiB
+[R3_MOUTH_ceil17] success exec=395.1s cached=0 err=None nodes_exec=79 eyes406=True imgs=['HasMetadata_00214_.png']
+[R3_MOUTH_ceil40] f4013f59-3a9f-4eac-83b0-3e0fbe918649 cid=trackV-R3_MOUTH_ceil40-37e2fe51 q=[0, 0] vram_free=70.1GiB
+[R3_MOUTH_ceil40] success exec=399.3s cached=0 err=None nodes_exec=79 eyes406=True imgs=['HasMetadata_00215_.png']
+[R3_FEATHER_16] 4ee5f2b0-557d-4ac0-be1c-d04ab3da7186 cid=trackV-R3_FEATHER_16-c7890cfb q=[0, 0] vram_free=70.1GiB
+[R3_FEATHER_16] success exec=237.2s cached=0 err=None nodes_exec=83 eyes406=True imgs=['HasMetadata_00216_.png']
