@@ -224,15 +224,14 @@ Every run with a `product-known` match prints:
      ignored only so they do not make every run red.
 ```
 
-**This list should be empty. Making it empty is the point.** Currently two
-entries, and here is exactly what makes the counter drop:
-
-| rule | what fixes it | counter goes |
-|---|---|---|
-| `rgthree-comparer-stale-temp-images` | Strip the saved image state from the `Image Comparer (rgthree)` nodes in `OFMTech-NSFW/OFMTech_NSFW.json` (ten `rgthree.compare._temp_*.png` filenames are baked in), then delete the rule | 7 → 1 |
-| `instaraw-rpg-details-element` | `console.error` → `console.debug` at `ComfyUI_INSTARAW/js/reality_prompt_generator.js:8281`, then delete the rule | 1 → 0 |
-
-Whoever does either can watch the banner disappear as their proof.
+**This list should be empty. Making it empty is the point — and as of run 3
+(2026-08-07) it IS empty.** The two entries it used to carry were fixed at the
+source and their rules deleted (commit `73e0a2c`): the ten baked
+`rgthree.compare._temp_*.png` refs are gone from the workflow (8 died with the
+anatomy subgraph `b4f7359`, 2 reset on node 419 `4226580`), and the RPG
+`console.error` was downgraded to `console.debug` in fix/run2. A later session
+finding this list growing again should treat that as the signal it was designed
+to be, not as normal.
 
 ### The interactive image selector
 
