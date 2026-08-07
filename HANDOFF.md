@@ -153,8 +153,8 @@ their working install is broken (`0079b53`).
 
 ## Verified-stale items from your list (checked on current bytes, not assumed)
 
-- **`#600` reseeding**: no sampler randomizes — all 13 seed controls read
-  `fixed`; the graph is reproducible from its exposed seeds. (Fixed in a
+- **`#600` reseeding**: no sampler randomizes — all 11 seed controls on current bytes read
+  `fixed` (13 before the anatomy subgraph deletion); the graph is reproducible from its exposed seeds. (Fixed in a
   prior run; the open-items list predated it.)
 - **cfg=1 negatives**: all three Z-side negatives (`105`, `167`, `394`) ship
   empty, and canvas notes `649`/`652` explain why at length. The SDXL side
@@ -195,8 +195,10 @@ red nodes, both Luna LoRAs through the widget menus, the 60-token character
 description typed and read back on `#106`, Run, 92-node graph accepted,
 selector answered with a single click (Send: disabled on open → enabled after
 the click), render complete in 271 s, `HasMetadata_00001_.png` delivered, and
-twelve screenshots ending with the finished image on the canvas
-(`fresh-buyer-11-final-image-on-canvas.png`).
+twelve screenshots including the finished image on the canvas
+(`fresh-buyer-11-final-image-on-canvas.png`; the last file is the image feed,
+`fresh-buyer-12-final-image-feed.png`). Face confidences for every frame
+named in this file are on disk in `results/run3/yolo_confidences.json`.
 
 ## Instruments
 

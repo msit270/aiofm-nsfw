@@ -1,0 +1,61 @@
+{
+ "detector": "models/ultralytics/bbox/face_yolov8m.pt",
+ "note": "max face confidence per delivered frame; recorded so report numbers are re-derivable (final-verifier defect 1)",
+ "results": {
+  "R3_GUARD_46": {
+   "file": "results/run3/arms/R3_GUARD_46/n505__HasMetadata_00208_.png",
+   "max_conf": 0.9015,
+   "n_faces": 1
+  },
+  "R3_GUARD_103": {
+   "file": "results/run3/arms/R3_GUARD_103/n505__HasMetadata_00209_.png",
+   "max_conf": 0.9018,
+   "n_faces": 1
+  },
+  "R3_GUARD_110": {
+   "file": "results/run3/arms/R3_GUARD_110/n505__HasMetadata_00210_.png",
+   "max_conf": 0.9021,
+   "n_faces": 1
+  },
+  "R3_GUARD_mid46": {
+   "file": "results/run3/arms/R3_GUARD_mid46/n505__HasMetadata_00205_.png",
+   "max_conf": 0.9016,
+   "n_faces": 1
+  },
+  "R3_AB_guard_16": {
+   "file": "results/run3/arms/R3_AB_guard_16/n505__HasMetadata_00207_.png",
+   "max_conf": 0.9018,
+   "n_faces": 1
+  },
+  "R3_DUAL_16": {
+   "file": "results/run3/arms/R3_DUAL_16/n505__HasMetadata_00211_.png",
+   "max_conf": 0.9018,
+   "n_faces": 1
+  },
+  "R3_DUAL_46": {
+   "file": "results/run3/arms/R3_DUAL_46/n505__HasMetadata_00213_.png",
+   "max_conf": 0.9015,
+   "n_faces": 1
+  },
+  "R3_DEFAULT_16": {
+   "file": "results/run3/arms/R3_DEFAULT_16/n505__HasMetadata_00212_.png",
+   "max_conf": 0.902,
+   "n_faces": 1
+  },
+  "gate_103tok": {
+   "file": "/workspace/ComfyUI/output/Instaraw/SDXL/Metadata/HasMetadata_00217_.png",
+   "max_conf": 0.8653,
+   "n_faces": 1
+  },
+  "gate_real46": {
+   "file": "/workspace/ComfyUI/output/Instaraw/SDXL/Metadata/HasMetadata_00218_.png",
+   "max_conf": 0.8654,
+   "n_faces": 1
+  },
+  "fresh_buyer": {
+   "file": "/workspace/comfy-fresh/output/Instaraw/SDXL/Metadata/HasMetadata_00001_.png",
+   "max_conf": 0.8652,
+   "n_faces": 1
+  }
+ }
+}

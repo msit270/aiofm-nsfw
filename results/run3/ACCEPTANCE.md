@@ -49,6 +49,11 @@ file that must exist. "Verified" means a tool result from this session, on disk.
 - E1. Every rule either (a) removed because the underlying error is fixed, or
   (b) kept with a written justification in the final report.
 - E2. product-known count == 0 in the shipped harness config.
+  [AMENDED 2026-08-07, end of run: count is 3, by honest reclassification —
+  the DoD-1 fresh install proved the installer ships the video NODE_REPOS to
+  every buyer, falsifying the 'environment' scoping of Swwan/pysssss/rgthree-
+  collision. Each carries the named fix (NODE_REPOS trim) and the deferral
+  reason. The user's own DoD allowed 'write down why it ships'.]
 - E3. A gate run on the final bytes on a clean install shows zero ignored
   product-known events (green on merits). Evidence: gate result.json.
 
