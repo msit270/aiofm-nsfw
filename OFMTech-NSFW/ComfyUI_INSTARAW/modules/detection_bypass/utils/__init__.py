@@ -9,11 +9,13 @@ from .gaussian_noise import add_gaussian_noise
 from .perturbation import randomized_perturbation
 from .glcm_normalization import glcm_normalize
 from .lbp_normalization import lbp_normalize
-from .unmarker_full import normalize_spectrum_twostage, SpectralNormalizer
 from .blend import blend_colors
 from .direct_spectral_matching import direct_spectral_match
 from .texture_utils import TextureMatcher # <-- ADD THIS LINE
-from .non_semantic_attack import non_semantic_attack
+
+# Three exports were removed from this package in this version, along with the
+# modules that provided them. Nothing else in the package imported them.
+# See THIRD_PARTY_NOTICES.md section 5 for the list and the reason.
 
 __all__ = [
     "auto_white_balance_ref",
@@ -26,10 +28,7 @@ __all__ = [
     "randomized_perturbation",
     "glcm_normalize",
     "lbp_normalize",
-    'normalize_spectrum_twostage',
-    'SpectralNormalizer',
     "blend_colors",
     'direct_spectral_match',
     "TextureMatcher",
-    "non_semantic_attack",
 ]

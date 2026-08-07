@@ -17,8 +17,8 @@ Pillow
 scikit-image
 scipy
 kornia                 # feather_mask, grow_mask_with_blur, realistic_noise,
-                       # realistic_jpeg, texture_engine, adaptive_filter
-lpips                  # texture_engine, non_semantic_attack, unmarker_losses
+                       # realistic_jpeg, texture_engine
+lpips                  # texture_engine
 piexif
 tqdm
 matplotlib

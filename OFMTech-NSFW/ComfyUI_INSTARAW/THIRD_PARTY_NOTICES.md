@@ -202,47 +202,84 @@ about this distribution. See `licenses/ICC-sRGB-profile-license.txt`.
 
 ---
 
-## 5. Items NOT cleared
+## 5. Items that were NOT cleared — removed in this version
 
-The following are shipped in this package and are **not** cleared for
-redistribution. They are recorded here so that nobody assumes they were
-checked. Adding a notice would not make them shippable — in the first two
-cases the upstream licence refuses commercial use outright.
+Sections 5.1 and 5.2 describe material that **used to be** in this package and
+that is **no longer shipped**. Neither was cleared for redistribution: in both
+cases the upstream licence refuses commercial use outright, so no notice could
+have made them shippable. They are kept on record here, marked as removed, so
+that anyone comparing this package against an older copy can see what changed
+and why. Section 5.3 lists items still shipped whose terms are not established.
 
-### 5.1 UnMarker — non-commercial only, NOT cleared
+### 5.1 UnMarker — non-commercial only, NOT cleared — **removed in this version**
+
+Removed files:
 
 - `modules/detection_bypass/utils/adaptive_filter.py`
 - `modules/detection_bypass/utils/unmarker_losses.py`
+- `modules/detection_bypass/utils/unmarker_full.py` (imported both of the above
+  at module level and could not run without them)
+- `modules/detection_bypass/utils/non_semantic_attack.py` (self-described as
+  "the core UnMarker-style optimization"; its provenance was never established
+  either way, so it was removed rather than shipped uncleared)
+- `nodes/utility_nodes/spectral_normalizer_node.py` — the `INSTARAW_Spectral_Normalizer`
+  node, whose only engine was `non_semantic_attack.py`
+- `modules/detection_bypass/processor.py`, `modules/detection_bypass/pipeline.py`,
+  `modules/detection_bypass/pipeline_v2.py` — the command-line and pipeline
+  orchestration around the attack. All three were already unreachable: nothing
+  in the package imported them, and `processor.py` and `pipeline_v2.py` could
+  not even be imported (they asked `utils` for a name, `attack_non_semantic`,
+  that no longer existed anywhere in the package)
 
-Both declare in their own docstrings that they are "Ported from
-`ai-watermark/modules/attack/unmark/cw.py:Filter`" and
-".../losses.py". Compared against
-https://github.com/andrekassis/ai-watermark at branch `master`, they share
-whole class inventories and dozens of verbatim lines with those files.
-That project's `LICENSE` ("Source Code License for UnMarker") says at 3.3:
+The first two declared in their own docstrings that they were "Ported from
+`ai-watermark/modules/attack/unmark/cw.py:Filter`" and ".../losses.py".
+Compared against https://github.com/andrekassis/ai-watermark at branch
+`master`, they shared whole class inventories and dozens of verbatim lines with
+those files. That project's `LICENSE` ("Source Code License for UnMarker") says
+at 3.3:
 
 > The Work and any derivative works thereof only may be used or intended for
 > use non-commercially. ... As used herein, "non-commercially" means for
 > research or evaluation purposes only.
 
-`unmarker_full.py` and `utils/__init__.py` import these modules.
+`utils/__init__.py` no longer imports any of them, and the two symbols it used
+to re-export from `unmarker_full` (`normalize_spectrum_twostage`,
+`SpectralNormalizer`) plus `non_semantic_attack` are gone from its `__all__`.
+No other file in the package referenced them.
 
-### 5.2 GrainNet — all rights reserved, academic use only, NOT cleared
+### 5.2 GrainNet — all rights reserved, academic use only, NOT cleared — **removed in this version**
+
+Removed files:
 
 - `modules/neural_grain/net.py`
 - `pretrained/neural_grain/grainnet.pt`
-- `nodes/utility_nodes/neural_grain_node.py` (the node that loads them)
+- `nodes/utility_nodes/neural_grain_node.py` — the `INSTARAW_NeuralGrain` node,
+  which loaded them
 
-`net.py` differs from
+`net.py` differed from
 https://github.com/Gwilherm-LESNE/Neural_Film_Grain_Rendering `net.py` by
-three lines out of 192, and `grainnet.pt` is **byte-identical** to that
+three lines out of 192, and `grainnet.pt` was **byte-identical** to that
 project's `models/GrainNet/default/grainnet.pt` (45,929 bytes, md5
 `91907c73885d4ac65790b198657a80d5`). That project has no LICENSE file; its
 README says, in full:
 
 > All rights reserved. The code is released for academic research use only.
 
-### 5.3 Not yet investigated
+The `pretrained/` directory existed only to hold that weight file and has been
+removed with it.
+
+### 5.2.1 A note on compiled bytecode
+
+Deleting the `.py` files is not on its own enough. This package previously
+shipped `__pycache__/` directories, and a `.pyc` compiled from an encumbered
+module contains that module's code — including, in `adaptive_filter`'s case,
+the "Ported from ai-watermark" docstring, readable with `strings`. Python never
+loads a `__pycache__/*.pyc` whose source file is absent, so such a file would
+have shipped the encumbered code while being invisible at runtime. **All
+`__pycache__/` directories have been removed from this package, and packaging
+must exclude them.**
+
+### 5.3 Not yet investigated — still shipped
 
 - `modules/authenticity_profiles/*.icc` (iPhone device profiles) —
   redistribution terms not established.

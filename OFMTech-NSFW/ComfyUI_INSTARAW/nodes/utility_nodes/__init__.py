@@ -79,10 +79,6 @@ from .color_science_node import (
     NODE_DISPLAY_NAME_MAPPINGS as COLOR_SCIENCE_DISPLAY_MAPPINGS,
 )
 from .auto_white_balance_node import INSTARAW_AutoWhiteBalance
-from .neural_grain_node import (
-    NODE_CLASS_MAPPINGS as NEURAL_GRAIN_MAPPINGS,
-    NODE_DISPLAY_NAME_MAPPINGS as NEURAL_GRAIN_DISPLAY_MAPPINGS,
-)
 from .lens_simulation_node import (
     NODE_CLASS_MAPPINGS as LENS_EFFECTS_MAPPINGS,
     NODE_DISPLAY_NAME_MAPPINGS as LENS_EFFECTS_DISPLAY_MAPPINGS,
@@ -97,7 +93,6 @@ from .fft_match import INSTARAW_FFT_Match
 from .texture_normalize import INSTARAW_GLCM_Normalize, INSTARAW_LBP_Normalize
 from .metadata_inspector import INSTARAW_Metadata_Inspector
 from .texture_engine import NODE_CLASS_MAPPINGS as TEXTURE_ENGINE_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS as TEXTURE_ENGINE_DISPLAY_MAPPINGS
-from .spectral_normalizer_node import INSTARAW_Spectral_Normalizer
 from .pixel_perturb import INSTARAW_Pixel_Perturb
 from .blend_colors import INSTARAW_BlendColors
 from .camera_simulator import INSTARAW_Camera_Simulator
@@ -144,7 +139,6 @@ NODE_CLASS_MAPPINGS = {
     **SPECTRAL_ENGINE_MAPPINGS,
     **COLOR_SCIENCE_MAPPINGS,
     "INSTARAW_AutoWhiteBalance": INSTARAW_AutoWhiteBalance,
-    **NEURAL_GRAIN_MAPPINGS,
     **LENS_EFFECTS_MAPPINGS,
     **COMPRESSION_MAPPINGS,
     "INSTARAW_AuthenticityProfile_Selector": INSTARAW_AuthenticityProfile_Selector,
@@ -153,7 +147,6 @@ NODE_CLASS_MAPPINGS = {
     "INSTARAW_LBP_Normalize": INSTARAW_LBP_Normalize,
     "INSTARAW_Metadata_Inspector": INSTARAW_Metadata_Inspector,
     **TEXTURE_ENGINE_MAPPINGS,
-    "INSTARAW_Spectral_Normalizer": INSTARAW_Spectral_Normalizer,
     "INSTARAW_Pixel_Perturb": INSTARAW_Pixel_Perturb,
     "INSTARAW_BlendColors": INSTARAW_BlendColors,
     "INSTARAW_Camera_Simulator": INSTARAW_Camera_Simulator,
@@ -193,7 +186,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     **SPECTRAL_ENGINE_DISPLAY_MAPPINGS,
     **COLOR_SCIENCE_DISPLAY_MAPPINGS,
     "INSTARAW_AutoWhiteBalance": "🎨 INSTARAW Auto White Balance",
-    **NEURAL_GRAIN_DISPLAY_MAPPINGS,
     **LENS_EFFECTS_DISPLAY_MAPPINGS,
     **COMPRESSION_DISPLAY_MAPPINGS,
     "INSTARAW_AuthenticityProfile_Selector": "👑 INSTARAW Authenticity Profile",
@@ -202,7 +194,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "INSTARAW_LBP_Normalize": "🛡️ INSTARAW LBP Normalize",
     "INSTARAW_Metadata_Inspector": "📊 INSTARAW Metadata Inspector",
     **TEXTURE_ENGINE_DISPLAY_MAPPINGS,
-    "INSTARAW_Spectral_Normalizer": "🛡️ INSTARAW Spectral Normalizer",
     "INSTARAW_Pixel_Perturb": "🛡️ INSTARAW Pixel Perturb",
     "INSTARAW_BlendColors": "🛡️ INSTARAW Blend Colors",
     "INSTARAW_Camera_Simulator": "🛡️ INSTARAW Camera Simulator",

@@ -1,0 +1,16 @@
+Node-registration signature diff  (control tree = /workspace/comfy-r5-verify/custom_nodes/ComfyUI_INSTARAW, untouched pre-edit copy)
+
+BEFORE(control) 98 nodes   AFTER 96 nodes
+removed: ['INSTARAW_NeuralGrain', 'INSTARAW_Spectral_Normalizer']
+added  : []
+
+Note: INSTARAW_SynthesizeAuthenticMetadata builds its start_date/end_date
+defaults from datetime.now() inside INPUT_TYPES, so those two strings differ
+between any two runs. ISO timestamps are normalised to <TIMESTAMP> below.
+
+
+surviving node types compared: 96
+field-level differences among survivors (timestamp-normalised): 0
+RESULT: every surviving node identical in module, qualname, RETURN_TYPES,
+RETURN_NAMES, FUNCTION, CATEGORY, OUTPUT_NODE, INPUT_IS_LIST, OUTPUT_IS_LIST,
+display name and full INPUT_TYPES spec: True

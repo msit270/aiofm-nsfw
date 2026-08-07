@@ -1,0 +1,18 @@
+BEFORE import_ok True count 98 display 98
+AFTER  import_ok True count 96 display 96
+
+REMOVED (2):
+  - INSTARAW_NeuralGrain
+  - INSTARAW_Spectral_Normalizer
+ADDED   (0):
+
+workflow node types still registered:
+   PRESENT INSTARAW_BatchFromImageList
+   PRESENT INSTARAW_BooleanBypass
+   PRESENT INSTARAW_ImageFilter
+   PRESENT INSTARAW_ImageListFromBatch
+   PRESENT INSTARAW_ImageResizeFill
+   PRESENT INSTARAW_PromptBatchPreview
+   PRESENT INSTARAW_RealityPromptGenerator
+
+arithmetic: 98 - 2 = 96 ; measured after = 96 ; match = True

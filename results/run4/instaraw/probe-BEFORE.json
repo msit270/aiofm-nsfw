@@ -1,0 +1,49 @@
+{
+  "label": "BEFORE",
+  "results": {
+    "ComfyUI_INSTARAW.modules.detection_bypass.utils": {
+      "import": "OK"
+    },
+    "ComfyUI_INSTARAW.modules.detection_bypass.utils.unmarker_full": {
+      "import": "OK"
+    },
+    "ComfyUI_INSTARAW.modules.detection_bypass.utils.unmarker_losses": {
+      "import": "OK"
+    },
+    "ComfyUI_INSTARAW.modules.detection_bypass.utils.adaptive_filter": {
+      "import": "OK"
+    },
+    "ComfyUI_INSTARAW.modules.detection_bypass.utils.non_semantic_attack": {
+      "import": "OK"
+    },
+    "ComfyUI_INSTARAW.modules.detection_bypass.pipeline": {
+      "import": "OK"
+    },
+    "ComfyUI_INSTARAW.modules.detection_bypass.pipeline_v2": {
+      "import": "FAIL",
+      "exc": "ImportError",
+      "msg": "cannot import name 'attack_non_semantic' from 'ComfyUI_INSTARAW.modules.detection_bypass.utils' (/workspace/nsfw-fix/OFMTech-NSFW/ComfyUI_INSTARAW/modules/detection_bypass/utils/__init__.py)",
+      "last_frame": [
+        "  File \"/workspace/nsfw-fix/OFMTech-NSFW/ComfyUI_INSTARAW/modules/detection_bypass/processor.py\", line 20, in <module>",
+        "    from .utils import (",
+        "ImportError: cannot import name 'attack_non_semantic' from 'ComfyUI_INSTARAW.modules.detection_bypass.utils' (/workspace/nsfw-fix/OFMTech-NSFW/ComfyUI_INSTARAW/modules/detection_bypass/utils/__init__.py)"
+      ]
+    },
+    "ComfyUI_INSTARAW.modules.detection_bypass.processor": {
+      "import": "FAIL",
+      "exc": "ImportError",
+      "msg": "cannot import name 'attack_non_semantic' from 'ComfyUI_INSTARAW.modules.detection_bypass.utils' (/workspace/nsfw-fix/OFMTech-NSFW/ComfyUI_INSTARAW/modules/detection_bypass/utils/__init__.py)",
+      "last_frame": [
+        "  File \"/workspace/nsfw-fix/OFMTech-NSFW/ComfyUI_INSTARAW/modules/detection_bypass/processor.py\", line 20, in <module>",
+        "    from .utils import (",
+        "ImportError: cannot import name 'attack_non_semantic' from 'ComfyUI_INSTARAW.modules.detection_bypass.utils' (/workspace/nsfw-fix/OFMTech-NSFW/ComfyUI_INSTARAW/modules/detection_bypass/utils/__init__.py)"
+      ]
+    },
+    "ComfyUI_INSTARAW.modules.detection_bypass.camera_pipeline": {
+      "import": "OK"
+    },
+    "ComfyUI_INSTARAW.modules.neural_grain.net": {
+      "import": "OK"
+    }
+  }
+}
