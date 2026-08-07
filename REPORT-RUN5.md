@@ -77,7 +77,7 @@ MY JUDGEMENT (override freely):
 ## The four defects, closed out
 
 - LIKENESS: structural, fixed by architecture (0.59 → 0.73-0.77; the
-  remaining gap to 0.92 is resampling/composite损, not identity drift).
+  remaining gap to 0.92 is resampling/composite loss, not identity drift).
 - PLASTIC SKIN: the SDXL chain never reached reference texture anywhere
   (7.5-8.9 face / 6.1-7.5 body vs ref 10.6/9.5); LUNA-Z lands 10.3-11.5 /
   9.5-9.7. Body skin now gets real freckle texture.
