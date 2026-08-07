@@ -1741,7 +1741,9 @@ comfy_wait_up() {   # $1 = max seconds. Images note ComfyUI can take 30-60s to r
 # The 3 frontend-only types (SetNode, GetNode, Label (rgthree)) are excluded:
 # they are registered client-side by LiteGraph and never appear in object_info.
 comfy_verify_nodes() {
-    python3 - "$COMFY_URL" "${SCRIPT_DIR:-}" <<'PYEOF' 2>/dev/null || return 1
+    # Propagate python's real exit status: 0 ok, 1 unreadable, 2 nodes missing,
+    # 3 the CLIPLoader-device FATAL (the caller dies on 3, warns otherwise).
+    python3 - "$COMFY_URL" "${SCRIPT_DIR:-}" <<'PYEOF' 2>/dev/null
 import glob, json, os, sys, urllib.request
 need = ["Any Switch (rgthree)","BlockifyMask","CM_IntToFloat","DownloadAndLoadSAM2Model",
         "DrawMaskOnImage","DrawViTPose","GetImageSizeAndCount","GrowMaskWithBlur",
@@ -1820,7 +1822,7 @@ if not dev:
     print("      input. The workflow's device=\"cpu\" (the black-face fix, node")
     print("      620:110) would be SILENTLY DROPPED. Update ComfyUI core")
     print("      (>= v0.3.11) and re-run setup.")
-    sys.exit(2)
+    sys.exit(3)
 missing = [n for n in need if n not in have]
 if missing:
     print("      %d of %d node types did NOT register:" % (len(missing), len(need)))
@@ -1950,7 +1952,16 @@ else
 fi
 
 if [[ "$RESTART_DONE" == "1" ]]; then
-    comfy_verify_nodes || warn "some node types did not register — see the list above"
+    # Exit 3 is the CLIPLoader-device FATAL from inside comfy_verify_nodes.
+    # Missing node registrations degrade to a warning (the buyer can still
+    # restart and re-run), but a server that would silently drop the
+    # black-face fix must stop the install with a nonzero exit.
+    comfy_verify_nodes && VERIFY_RC=0 || VERIFY_RC=$?   # set -e safe
+    if [[ "$VERIFY_RC" -eq 3 ]]; then
+        die "the running ComfyUI would silently drop the black-face fix (see the FATAL above). Not continuing."
+    elif [[ "$VERIFY_RC" -ne 0 ]]; then
+        warn "some node types did not register — see the list above"
+    fi
 elif [[ "$RESTART_NEEDED" == "0" ]]; then
     : # nothing running, nothing to verify
 fi

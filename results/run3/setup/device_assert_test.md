@@ -16,3 +16,11 @@ Upstream introduction: ComfyUI commit 5cbf7978 "Add advanced device option to
 clip loader nodes", first tag v0.3.11 (2025-01-05). COMFY_MIN in the script is
 0.3.70 — the version floor already implies the capability when the version
 string is honest; the capability check catches trees where it is not.
+
+## Amendment (verifier defect 2, same day)
+The runtime leg's FATAL was being swallowed: comfy_verify_nodes wrapped python
+with `|| return 1` and its caller used `|| warn`, so a device-missing server
+printed FATAL text and exited 0. Now: python exits 3 for the device FATAL, the
+wrapper propagates the real status, and the caller dies on 3 (set -e-safe
+`&& RC=0 || RC=$?` capture), warns on other nonzero. Propagation of rc 3
+through that construct verified in-shell this session.
