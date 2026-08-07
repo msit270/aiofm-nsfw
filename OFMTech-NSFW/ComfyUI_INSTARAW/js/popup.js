@@ -515,7 +515,11 @@ class Popup extends HTMLElement {
 		this.n_images = detail.urls?.length;
 		this.laidOut = -1;
 		this.picked = new Set();
-		if (this.n_images == 1) this.picked.add('0');
+		// No auto-pick, even for a single image. select_unselect() toggles, so a
+		// pre-picked image meant the buyer's first click DESELECTED it and disabled
+		// Send with no explanation — on exactly the image they were told to click.
+		// Opening with nothing selected makes "click the picture you want, press
+		// Send" true for every batch size; Send stays disabled until a real pick.
 
 		this.grid.innerHTML = '';
 		this.overlaygrid.innerHTML = '';

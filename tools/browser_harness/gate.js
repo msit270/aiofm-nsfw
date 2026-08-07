@@ -861,10 +861,11 @@ async function main() {
         await shot(page, 'selector-popup', `#603 INSTARAW_ImageFilter paused the render with ${n} image(s) — the buyer must choose`);
         const send = page.locator('button.control:visible').filter({ hasText: /^Send$/ });
         if (!(await send.count())) { fail('selector', 'selector popup appeared with no visible Send button'); selectorFailed = true; break; }
-        // popup.js:517-518 pre-picks image 0 when there is exactly ONE image, and
-        // select_unselect() (popup.js:687-704) TOGGLES. So on the single-image path
-        // the popup opens with Send already enabled and clicking the thumbnail
-        // DESELECTS it. Both paths are exercised, and which one ran is recorded.
+        // CURRENT pack: no auto-pick — the popup opens with nothing selected and
+        // Send disabled; one click selects and enables. The reclick branch below
+        // only fires against OLD pack builds (which pre-picked a single image so
+        // the first click DESELECTED it); keeping it lets this gate drive old
+        // bytes too, and send_enabled_on_open records which behavior was seen.
         sel.send_enabled_on_open = await send.first().isEnabled();
         sel.auto_picked_single_image = (n === 1 && sel.send_enabled_on_open === true);
         await imgs.nth(idx).click();
