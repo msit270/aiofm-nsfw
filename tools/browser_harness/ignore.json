@@ -65,24 +65,24 @@
         "text": "^Failed to load resource",
         "url": "/api/pysssss/autocomplete$"
       },
-      "scope": "environment",
-      "reason": "Served by ComfyUI-Custom-Scripts (verified: @PromptServer.instance.routes.get(\"/pysssss/autocomplete\") in custom_nodes/ComfyUI-Custom-Scripts/py/autocomplete.py); it 404s until the user creates the optional autocomplete word list. ComfyUI-Custom-Scripts is not among the packs the NSFW bootstrap installs, so a buyer does not have this route at all."
+      "scope": "product-known",
+      "reason": "CORRECTED BY THE RUN-3 FRESH INSTALL: the NSFW bootstrap DOES install ComfyUI-Custom-Scripts (the installer reuses the video NODE_REPOS wholesale), so every buyer has this route and sees this 404 once per boot until they create the optional word list. Upstream behavior, cosmetic, does not gate. The real fix is trimming NODE_REPOS to the packs the NSFW graph uses -- recorded as the top follow-up; deferred because the 'Workflow node check' stage hard-names video packs and editing install-check logic during a distribution cut risks more than labeled console noise."
     },
     {
       "id": "swwan-missing-web-files",
       "match": {
         "url": "/extensions/ComfyUI_Swwan/"
       },
-      "scope": "environment",
-      "reason": "ComfyUI_Swwan is an rgthree fork installed on this pod for the sibling video pipeline; it is not installed by the NSFW bootstrap. Two files its own modules import are missing from its web dir (verified absent: web/js/config.js and web/js/common/utils_dom.js), so Vite's dynamic import of every module that transitively imports them fails. Pod-only."
+      "scope": "product-known",
+      "reason": "CORRECTED BY THE RUN-3 FRESH INSTALL: ComfyUI_Swwan IS installed by the NSFW bootstrap (video NODE_REPOS reused wholesale), so every buyer's boot logs ~39 vite preloadError lines from its two missing web files. Upstream pack defect, cosmetic, never gates (boot phase). Real fix: drop Swwan from the NSFW NODE_REPOS -- it is a video-only rgthree fork the NSFW graph never references, and it also causes the extension-name collisions with the rgthree-comfy this graph DOES need. Same follow-up and same deferral reason as pysssss above."
     },
     {
       "id": "rgthree-extension-name-collision",
       "match": {
         "text": "Extension named 'rgthree\\.[A-Za-z]+' already registered"
       },
-      "scope": "environment",
-      "reason": "ComfyUI_Swwan and rgthree-comfy are both installed on this pod and both register the same extension names. Verified: 'name: \"rgthree.ImportIndividualNodes\"' appears in rgthree-comfy/web/comfyui/feature_import_individual_nodes.js AND ComfyUI_Swwan/web/js/feature_import_individual_nodes.js; rgthree.ImageComparer and rgthree.Seed collide the same way. A buyer installing only the NSFW pack has one of the two, so no collision."
+      "scope": "product-known",
+      "reason": "CORRECTED BY THE RUN-3 FRESH INSTALL: both colliding packs (rgthree-comfy and its fork ComfyUI_Swwan) are installed by the NSFW bootstrap, so every buyer sees these collisions, not just this pod. Cosmetic; the needed rgthree features won the registration in every observed run. Fixed for real by the same NODE_REPOS trim."
     }
   ]
 }

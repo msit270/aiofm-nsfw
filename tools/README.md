@@ -224,14 +224,16 @@ Every run with a `product-known` match prints:
      ignored only so they do not make every run red.
 ```
 
-**This list should be empty. Making it empty is the point — and as of run 3
-(2026-08-07) it IS empty.** The two entries it used to carry were fixed at the
-source and their rules deleted (commit `73e0a2c`): the ten baked
-`rgthree.compare._temp_*.png` refs are gone from the workflow (8 died with the
-anatomy subgraph `b4f7359`, 2 reset on node 419 `4226580`), and the RPG
-`console.error` was downgraded to `console.debug` in fix/run2. A later session
-finding this list growing again should treat that as the signal it was designed
-to be, not as normal.
+**This list should be empty. Making it empty is the point.** Run 3 emptied it
+and then partially refilled it, both honestly: the two original entries were
+fixed at source and deleted (`73e0a2c` — the ten baked temp refs are out of the
+workflow, the RPG `console.error` is `console.debug`), and then the run-3
+FRESH INSTALL falsified the "environment" classification of the other three:
+the NSFW installer reuses the video `NODE_REPOS` wholesale, so Swwan, pysssss
+and the rgthree collision land on every buyer's install. Those three are now
+`product-known`, each naming the real fix (trim `NODE_REPOS` to the NSFW-used
+packs and drop the Swwan fork) and why it was deferred. None of them gates:
+they are boot-phase console noise, and boot errors never fail a run.
 
 ### The interactive image selector
 

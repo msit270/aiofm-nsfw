@@ -362,3 +362,18 @@ basis here. Nothing below blocked work.
   accept logic verifiable only cross-browser); RPG per-action console.log
   saturation (the five perpetual interval dumps are silenced; the rest fire on
   user action only); #98 whole-image tiling (Q8 stands, untouched).
+
+## §4 amendment, same run — the fresh install falsified an accepted premise
+
+The three ignore.json rules scoped "environment" claimed a buyer never has
+ComfyUI_Swwan / ComfyUI-Custom-Scripts / the rgthree name collision. The DoD-1
+fresh install disproved it: `aiofm_setup.sh` installs the full video
+`NODE_REPOS` (20 packs), so a buyer's boot logs ~40 cosmetic console errors
+from Swwan's missing web files and its collisions with the rgthree-comfy this
+graph needs. Reclassified product-known with reasons; the recorded fix is a
+`NODE_REPOS` trim to the NSFW-used set (Impact, Subpack, essentials,
+rgthree-comfy, controlnet_aux, UltimateSDUpscale + vendored INSTARAW), plus
+making the video-typed "Workflow node check" profile-aware. Deferred: editing
+install-check logic during a distribution cut was judged the larger risk, per
+WS5's own caution. Nothing gates on these; both DoD-2 gates and the DoD-1
+gate were green with zero load/run errors.

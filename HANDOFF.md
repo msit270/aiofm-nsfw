@@ -1,202 +1,211 @@
-# HANDOFF.md
+# HANDOFF.md — run 3 (2026-08-07)
 
-**Workflow `f5bed596…` · artifact `8695a11e…` · nothing uploaded.**
-Detail in `notes/` — `CRASH.md`, then `A-` `B-` `C-` `D-` `E-` `V-` `P-` per track.
+**Workflow `47419606…fca30d4b` · archive `29175edc…5fe16a3e` (8,153,528 B, 170
+files) · NOT yet on HuggingFace — the pod's token is read-only; publishing is
+your one manual step, below.**
 
----
-
-## The one decision that wants you
-
-**The face-prompt crash has a one-widget fix, it is applied, and it costs you the
-eyes.** Sheet: **`results/crash/V/out/V_SHEET_EYES_face_sheet1of1.png`** — two
-tiles, 1:1, identical graph and seed, one widget apart.
-
-The change is **12.8 % of pixels on a render where nothing was wrong**, and it is
-almost entirely the eyes. Outside the face box only 1.7 % of pixels move at all,
-never by more than 2 levels. No tone shift, no colour cast, **no change in skin
-texture or sharpness** (high-frequency ratio 1.00012 — the cheek tile is on the
-sheet so you can check that rather than take it from me).
-
-Describing, not rating:
-- **`default` (before)** — pupil is a clean closed dark oval with a crisp edge;
-  the catchlight sits *beside* it as a fine branching wispy filament.
-- **`cpu` (now)** — the catchlight becomes a larger, blockier, harder-edged mass
-  that **crosses the pupil boundary**, so the pupil reads notched rather than
-  closed. Iris fibres above the pupil read coarser and lighter. Both eyes.
-
-**And the thing that makes this your call, not mine:** the graph's own eye prompt
-`622:398` reads *"perfect eyes, round pupils, round iris, symmetrical eyes,
-realistic eyes, perfect circles, round"*. **The fix moves the pupil away from
-closed and round** — against what the pipeline is explicitly asking for.
-
-**What you get for it:** two of the three crash bands closed, and — more
-importantly — the *silent* failure closed. The one arm all session that returned
-`status: success` with a ruined face was `device: default`. **No fix arm ever
-failed silently; where it fails, it fails loudly.** Cost **+37.4 s** (~12 % of a
-cold render). **Revert with one commit: `git revert 7ce1539`.**
+Everything else in the definition-of-done is DONE, with evidence under
+`results/run3/` and the reasoning in `QUESTIONS.md` §4, `notes/R3-guard.md`,
+`notes/R3-eyes.md`.
 
 ---
 
-## What the bug actually is
+## The one thing only you can do
 
-**`620:114 FaceDetailer` paints the face solid black** — pure `(0,0,0)` over ~17 %
-of the frame, the exact outline of the face with nothing inside it, hair and
-background normal. `ImageColorMatch+` lifts that to `(56,51,47)`. The
-`622:403 MaskBoundingBox+` crash is only the consequence: YOLO scores the leftover
-silhouette 0.466 and finds no face at 0.6.
-
-**It is the TOKEN COUNT of the prompt. Content is irrelevant** — ~56 cold arms,
-8 unrelated content families, not one token count with two different outcomes.
-
-```
-tokens  11…29 │30 31 32│ 33…43 │44…50│ 60 72 80 90 96 │103…120│ 140 166
-        clean │ CRASH  │ clean │CRASH│     clean      │ CRASH │  clean
-```
-
-**Bands, not a threshold.** At least three. The fix closes the first two and
-**does not close 103–120** — a buyer reaches that with an ordinary ASCII prompt.
-
-**Root cause is still open**, and I am not dressing it up. `620:114` is **bistable
-on numerical noise**: CPU and GPU conditioning differ by ~**4e-7 relative**, both
-finite, and that decides between a healthy render and a black face. Ruled out with
-controls: VRAM pressure, lowvram, `--reserve-vram`, sage attention, code-tree
-differences, environment — the box that reproduces and the box that does not have
-**identical `/proc/environ`**. It is a property of the **process**: a fourth
-ComfyUI from the *same directory* was clean 10/10 while `:18188` crashed 9/9 in
-the same window.
-
-**The crash is the good case.** Turning off the LoRAs gives `status: success` with
-23.5 % of the frame a flat fill. Padding the *eye* prompt by three tokens ships a
-delivered image with **two solid black eye holes**. A guard on the crash would
-produce exactly that shape by design — which is why the guard designed for this
-was **not** applied. Your shipped eye prompt sits **two tokens** from a band.
-
----
-
-## Applied this run — three commits, revert individually
-
-| commit | change | why |
-|---|---|---|
-| `8d166e0` | `#114` denoise `0.80 → 0.35` | your pick off the R1 sheet. **Free** — both arms run exactly 8 sampling steps |
-| `7ce1539` | `#110 CLIPLoader` device `→ cpu` | the partial fix above |
-| — | pack re-cut, `8695a11e…` | 170 → 170 files, one member changed |
-
-Earlier runs: `2e4e8e9` steps 30→8, `a806ce3` `#105` emptied + canvas note,
-`74c0f11` crop factor 3→1.5.
-
-## Still broken
-
-1. **103–120 tokens still crashes**, fix or no fix. Root cause open.
-2. **`device` is an *optional* `CLIPLoader` input.** On an older ComfyUI the
-   `"cpu"` is **silently dropped** — no error — and the buyer runs the broken
-   configuration believing they have the fix.
-3. **`622:403` has no guard.** "Detector found nothing" is still an unhandled
-   `RuntimeError`. Design ready in `notes/C-fix-design.md`, deliberately unapplied.
-4. **Three things only a browser can see, all in the shipped bytes:** all seven
-   subgraph hosts ship **collapsed**, so §7's route to `#106` has **no way in**
-   until the buyer finds the collapse box · `#106`'s promoted widgets are
-   **unlabelled** (two boxes both drawn `seed`) · **126 Cyrillic `localized_name`
-   fields**, so **every buyer sees Russian slot labels regardless of locale**.
-5. **`#165 Mouth Detailer` silently skipped ~half the time** — `#648` drops the
-   lips segment above 1.7 M crop area; observed 1.77–2.06 M. One session: 19
-   passed, 20 dropped.
-6. **A hard composite seam** at the face-box edge, visible in the delivered image.
-7. **Five licence blockers** — `QUESTIONS.md` §0, untouched as instructed. DMD2
-   (cc-by-nc) still ships because `--include "models/*"` sweeps it regardless.
-8. **`/free` is racy** — it only sets a flag the worker consumes on a 10 s timer,
-   so a late `/free` can go unconsumed and the next run silently runs warm. Always
-   confirm `execution_cached: []` in `/history`. *This is what the project has
-   been calling "server poisoning" — reproduced 2/2 as a stale execution cache.*
-
-## Where I was wrong this run
-
-Each is marked in place in the notes, not quietly dropped.
-
-- **"Marginal detection near the 0.6 threshold."** Refuted — the distribution is
-  two-valued with a 0.43 gap and nothing in it.
-- **"The cured arms are indistinguishable from a good render."** Wrong — I quoted
-  a 48.7 dB noise floor that does not exist on that instance (repeats are
-  bit-identical), so 48.9 dB was **100 % signal**. The fix is not inert.
-- **The tokenizer.** I read `lumina2.py` because the widget says `lumina2`; the
-  dispatch is on the state dict and it is `ZImageTokenizer`. Conclusion survived
-  by luck, not method.
-- **"+14 s for the fix."** It is **+37.4 s**.
-- **A confound I set and the verifier caught:** the fix's original evidence was
-  gathered at the old denoise value. A 2×2 showed `device` is the whole effect —
-  testable by luck, not design.
-- **Withdrawn timing figures, do not quote any of them:** `−103.7 s / −26 %`,
-  `−53 %`, `−6.9 %`, `−118 s`, `−12.1 s`.
-
-## Using it
-
-| what | where |
-|---|---|
-| prompts + seed | panel beside `1 · YOUR PROMPTS & SEED` |
-| **SDXL LoRA** | `#618` — body, pose, hands, upscales |
-| **Z-Image LoRA** | `#116` — face, mouth, eyes. **Your likeness lives here** |
-| **face prompt** | sg `5 · Face & Mouth Detail`, `#106` — subgraph ships collapsed |
-
-The render **pauses** at an image selector and waits — walk away and it times out
-after 10 minutes and sends nothing.
+The pod's HF token (`/workspace/.hf_token`, named "VastAI") is **role: read**.
+It downloads fine and cannot upload — no cut has ever been published from
+here. With a WRITE token, from any machine:
 
 ```bash
-# 9 s, no GPU, after any graph edit.  0=pass 1=broken 2=could-not-run
-node tools/browser_harness/run.js --workflow OFMTech_NSFW --no-submit
-# fresh pod (provision 250 GB — the old "~176 GB" was wrong low)
-echo "hf_YOUR_TOKEN" > /workspace/.hf_token
-bash <(curl -sSL "https://gist.githubusercontent.com/msit270/70256ac1ebf2760e10f78804862db528/raw/aiofm_setupnsfw.sh")
-```
-
-**Browser gate: all four shots pass** from the shipped tarball — zero red nodes
-across root and every subgraph, both LoRA stacks set through the widget's own
-menu, a real prompt in `#106`, finished image. `results/gate2/`, 67 artifacts.
-**But read the fourth shot narrowly:** it ran on an instance that does *not*
-reproduce the crash, with a prompt (`face_prompt_real.txt`, 46 tokens) that fails
-9/9 on one that does. It proves the workflow loads, converts and drives. It is
-**not** evidence a buyer's real prompt renders.
-
-**The `647:4 MODEL` blocker is proven gone on the *current* bytes** — not just on
-the pre-fix ones the gate tested. Real browser, workflow opened from the sidebar
-the way a buyer does, frontend UI→API conversion exercised: **exit 0, 0 failures,
-zero occurrences of the string**, 88-node API graph carrying `denoise 0.35` and
-`device cpu`. `results/browser/20260807-001734-OFMTech_NSFW_f5bed596/`. Nothing
-was submitted, so server validation and execution on these bytes stay untested
-through the browser — but the blocker was a *conversion-time* fault, which is
-exactly what this mode exercises.
-
-## Publishing — you run this, nobody else. **Nothing was uploaded.**
-
-**Fine for your own testing. I would not put it in front of a buyer yet** — item 1
-above means a normal-length prompt still kills the render, and item 2 means they
-may not even have the fix. Your call; it changes who should receive the bytes,
-not the bytes.
-
-```
-dist/AIOFMTech-NSFW.tar.gz   8,155,371 B   sha256 8695a11e…3b8af   170 files
-workflow inside it: f5bed596…   verified out of the archive, not off the tree
-```
-`170 → 170` files, zero additions, zero removals, exactly one member changed
-(`diff -rq` over both extracted trees) carrying exactly the two commits.
-`tar -tzf | wc -l` says 196 — that is 170 files + 26 directories. Reproducible:
-byte-identical rebuild. Buyer path: no-token exit 1, bad-archive exit 1, happy
-exit 0 in 85 s, 51/51 node types. **Live HF still serves an artifact four cuts
-behind; neither graph fix has ever been published.**
-
-```bash
-HF_TOKEN="$(tr -d '[:space:]' < /workspace/.hf_token)" \
+HF_TOKEN="hf_your_WRITE_token" \
 /venv/main/bin/hf upload msit270/AIOFM-Pack \
     /workspace/nsfw-fix/dist/AIOFMTech-NSFW.tar.gz \
     dist/AIOFMTech-NSFW.tar.gz \
-    --commit-message "NSFW pack re-cut: #114 denoise 0.80->0.35 (8d166e0) and #110 CLIPLoader device default->cpu, the black-face fix (7ce1539). Workflow f5bed596, archive 8695a11e"
+    --commit-message "NSFW run-3 cut: no-face guard, selector fixes, setup device asserts, polish. Workflow 47419606, archive 29175edc"
 ```
+
+Then confirm from the buyer's side (the only side that counts):
 
 ```bash
-# check from the buyer's side, the only side that counts
-curl -sS -I -H "Authorization: Bearer $(tr -d '[:space:]' < /workspace/.hf_token)" \
+curl -sS -I -H "Authorization: Bearer $HF_TOKEN" \
   "https://huggingface.co/msit270/AIOFM-Pack/resolve/main/dist/AIOFMTech-NSFW.tar.gz" \
   | grep -i 'x-linked-etag\|x-linked-size'
-# expect: x-linked-etag: "8695a11e…3b8af"   x-linked-size: 8155371
+# expect: x-linked-etag: "29175edc581cd61d96324bd3bcedc4da36c638b90211554fa1823f4c5fe16a3e"
+#         x-linked-size: 8153528
 ```
 
-*Everything from this run is on branch `trackB-crash-grid`, not `master`.*
-*Previous run's findings — freckles, cfg, the browser bug — in `notes/HANDOFF-detail.md`.*
+Live HF currently serves `3f6d0f2f…` (8,202,871 B) — an artifact with none of
+the graph fixes. The buyer one-liner (unchanged, the gist needed no edit):
+
+```bash
+echo "hf_YOUR_TOKEN" > /workspace/.hf_token
+bash <(wget -qO- "https://gist.githubusercontent.com/msit270/70256ac1ebf2760e10f78804862db528/raw/aiofm_setupnsfw.sh")
+```
+
+---
+
+## What changed, and the proof for each
+
+**1. `622:403` can no longer kill a render — at any prompt length (DoD 3).**
+The eyes stage now checks its own face detection (`ImpactIsNotEmptySEGS` →
+lazy `ImpactConditionalBranch`, C-fix-design C1): no face found → the whole
+eyes subtree (including the crashing `MaskBoundingBox+` and its 8-step
+sampler) is never scheduled and the mouth-stage image passes through, with
+`PreviewAny` ("eyes ran? False = …") putting the skip in `/history` and on the
+canvas (C1b). Commit `6de805d`. Proof: fold-diff vs the pre-guard export
+IDENTICAL; happy path **byte-identical pixels** (max abs diff 0, full frame,
+cold, fixed seeds); and the deterministic pair — detector threshold forced to
+0.99 so detection MUST fail — crashes the unguarded bytes at `622:403` and
+completes on the guarded bytes with the delivered image pixel-equal to the
+mouth-stage tap. Bands on the shipping config, all cold, all healthy faces
+(YOLO 0.90 class): 16, 46, 103, 110 tokens.
+
+**2. The "103–120 band" was probe-only — a correction to the last handoff.**
+All eight arms behind "103–120 still crashes, fix or no fix" ran the probe
+graph (frozen base image). The full 88-node graph had never been run at 103
+tokens; it rendered clean today (`R3_PC_head_103`). The full-graph crash is
+still real — `R3_PC_mid_46` (device default, 46 tokens) died at `622:403`
+cold the same hour — and the bistability now flips arm-to-arm on one process,
+so only same-window controls mean anything. `notes/R3-guard.md`.
+
+**3. The eye regression: `device=cpu` stays, and the dual-loader idea is dead
+(DoD 5).** The experiment: face/mouth encodes on cpu with eye encodes back on
+the GPU renders **pixel-identical to full-cpu** (max 2 levels) while both
+differ from all-default identically. So the eye change enters through the
+face-pass output image — changing the face encode IS the fix — and no loader
+arrangement keeps both. Reverting instead would reopen black-face failures at
+ordinary prompt lengths (30–96, 166 measured); the guard would make those
+loud, but a loud black face is still not sellable output. Cost on the full
+graph, measured: 2.97 % of pixels, eye band mean 0.5 levels / max 85 / 3.2 %
+of eye-band pixels over 4 levels — milder than the probe-graph sheet that
+alarmed us. Sheets (1:1, labelled): `results/run3/sheets/
+R3_EYES_default_cpu_dual.png` and V's original
+`results/crash/V/out/V_SHEET_EYES_face_sheet1of1.png`. Overrule me with
+`git revert 7ce1539` — everything else stands either way. `notes/R3-eyes.md`.
+
+**4. The setup script cannot let a buyer run the broken config believing they
+are fixed (DoD 4).** Two assertions, both naming the fix in their failure
+text: a static regex of CLIPLoader's class block in the installed `nodes.py`
+(dies during install), and a runtime check of `/object_info` (exit 3 → die;
+the verifier caught the first version being swallowed and it is now
+end-to-end fatal). Negative-tested against a doctored pre-v0.3.11 `nodes.py`.
+Commits `d4bde0f`, `d7ea270`.
+
+**5. The selector trap is gone (DoD 8).** No auto-pick: the popup opens with
+nothing selected and Send disabled; one click selects and enables, every
+batch size. Companions: Enter now respects the disabled Send (it used to
+submit an empty selection — `InterruptProcessingException`, render dead, from
+one keypress), and digit keys can no longer index past the batch end. Browser
+proof in both DoD-2 gates: `send_enabled on open=false → one click → true`.
+Commits `f3cff3b`, `fd77e7a`.
+
+**6. ignore.json (DoD 7): two rules fixed at source, three reclassified by
+what the fresh install exposed.** The two original `product-known` rules are
+deleted because their defects are gone: the ten stale
+`rgthree.compare._temp_*.png` refs are out of the workflow (8 died with the
+anatomy subgraph, 2 reset on `#419`), and the RPG `console.error` was already
+downgraded (`73e0a2c`). Then the fresh install falsified a run-2 premise: the
+three "environment" rules claimed a buyer never has Swwan / pysssss / the
+rgthree collision — but **the NSFW installer reuses the video `NODE_REPOS`
+wholesale, so every buyer gets all of them**, and a fresh install's boot logs
+~40 cosmetic console errors from Swwan's two missing web files plus its
+extension-name collisions with the rgthree the graph genuinely needs. Those
+three rules are now honestly `product-known` with the fix named: **trim
+`NODE_REPOS` to the packs the NSFW graph uses and drop the Swwan fork**.
+Deferred this run because the "Workflow node check" stage hard-names video
+packs, and editing install-check logic during a distribution cut risks more
+than labeled console noise. Nothing here gates: boot errors never fail a run
+by design, and both this run's gates were green with zero load/run errors.
+
+**7. Polish, each provably conversion-inert (fold-diff IDENTICAL, integrity
+0 problems, plus the byte-identical A6 render):** dead anatomy subgraph
+deleted (`b4f7359` — it sat bypassed on the live image wire; a buyer can no
+longer un-bypass into five never-validated detailer paths); `#419` comparer
+state reset (`4226580`); all 120 remaining Russian `localized_name` fields
+stripped (`fd140a2` — every buyer saw Russian slot labels); host `#620` ships
+expanded (`fea23a3` — the face-prompt route is visible).
+
+**8. Output-changing fixes, each with its A/B sheet (the standing rule):**
+- **Mouth guard ceiling 1.7M → 4M** (`07d61b2`): the old ceiling sat inside
+  the real-lips range and silently deleted mouth detail on close-up renders
+  (20 recorded drops; one session went 19-passed / 20-dropped). The full
+  211-line log dataset is now in the repo: real lips up to 2.06M, the
+  full-frame false positive the guard exists for at 9.29M, nothing between.
+  A/B on the recorded dropping config: the same 1,933,356 segment drops at
+  1.7M and passes at 4M. Sheet: `results/run3/sheets/R3_MOUTH_ceiling_ab.png`.
+- **Eyes-composite feather, P14** (`72f95ba`): `622:418` pasted the
+  eye-detailed crop back with NO mask — a hard rectangle on the face box.
+  `622:403`'s already-computed mask now runs through `FeatherMask` 30 px into
+  `622:418.mask`. A/B: 0.35 % of the frame, max 5 levels, all in the boundary
+  ring, interior 0.0000 %. Sheet: `results/run3/sheets/R3_SEAM_feather_ab.png`.
+  (The `#114`-internal mask-edge step is a separate, unfixed defect.)
+- **CORS wildcard removed** (`5c17404`): 12 responses hardcoded
+  `Access-Control-Allow-Origin: *`; all callers are same-origin and ComfyUI's
+  middleware owns the policy. The three OPTIONS handlers had provably never
+  executed.
+
+**9. Console hygiene:** the five perpetual-interval RPG debug dumps (one
+every 5 s, forever) → `console.debug` (`cda9c93`); popup per-image URL log →
+debug. Per-action logs remain — accepted this run.
+
+**10. `INSTALL MODELS.txt` step 1** no longer tells gist-bootstrap buyers
+their working install is broken (`0079b53`).
+
+## Verified-stale items from your list (checked on current bytes, not assumed)
+
+- **`#600` reseeding**: no sampler randomizes — all 13 seed controls read
+  `fixed`; the graph is reproducible from its exposed seeds. (Fixed in a
+  prior run; the open-items list predated it.)
+- **cfg=1 negatives**: all three Z-side negatives (`105`, `167`, `394`) ship
+  empty, and canvas notes `649`/`652` explain why at length. The SDXL side
+  runs real cfg and its negatives apply. Nothing to change.
+- **ControlNet / SetUnionControlNetType**: zero matches in the file — that
+  path was deleted before this run.
+- **"Dont touch!!!" subgraph names**: already renamed; all six (was seven)
+  defs carry descriptive names.
+- **`#597`→`#616` VAE round-trip**: present, per your "D1 stays reverted".
+- **Double face detail (sg1 0.45 → sg2 0.80)**: kept. Removal saved no
+  measurable time and pass 1 measurably survives into the final image; the
+  A/B pair is in `results/ws4/` if you want to overrule.
+
+## Accepted, with reasons (QUESTIONS.md §4)
+
+Loader duplication (3× face_yolov8m, 3× sam_vit_b, 2× UltraSharp);
+`node_identifier` persistence + the server-global selector waiter
+(single-tenant product); RPG per-action logs; `#98` tiling question;
+`MAP.md`/`AUDIT.md` describe the pre-run-2 graph and were not rewritten —
+`notes/` + this file are current.
+
+## Licensing (untouched, per instruction)
+
+`QUESTIONS.md` §0 unchanged and still accurate: LUSTIFY (B1) is your next
+run; DMD2/UnMarker/GrainNet (B2–B4) still ship to every buyer because the
+model repo and pack contents were out of scope here. Publishing the run-3
+tarball changes `dist/` only — it does not fix B2–B4.
+
+## The fresh-install proof (DoD 1)
+
+`tools/browser_harness/fresh_install.sh`: fresh tree (empty `custom_nodes`,
+hardlinked models), the LIVE gist one-liner, the run-3 pack served through
+the bootstrap's own `AIOFM_PACK_URL` override (read-only token — see above;
+re-run without `MIRROR_PACK` after you publish for the full-live version).
+Install exit 0 in 85 s with the device assertion visibly passing; ComfyUI
+booted on `:31950`; the buyer gate (`results/run3/fresh/`): **PASS** — zero
+red nodes, both Luna LoRAs through the widget menus, the 60-token character
+description typed and read back on `#106`, Run, 92-node graph accepted,
+selector answered with a single click (Send: disabled on open → enabled after
+the click), render complete in 271 s, `HasMetadata_00001_.png` delivered, and
+twelve screenshots ending with the finished image on the canvas
+(`fresh-buyer-11-final-image-on-canvas.png`).
+
+## Instruments
+
+- `results/run3/ACCEPTANCE.md` — the criteria this run was judged against.
+- `results/run3/tools/r3.py` — the arm driver (cold discipline inherited from
+  Track V); `analyze.py` — pixel compares + 1:1 sheets.
+- Gates: `node tools/browser_harness/gate.js -w OFMTech_NSFW --url … --tag …
+  --face-prompt-file …` (typing now follows the buyer route into the
+  subgraph); `run.js --no-submit --install` for 9-second conversion checks.
+- `d_gate.sh` / `d_setup.sh` EXPECT hashes moved to the `29175edc…` cut.
+
+*Everything is on `master`, one commit per change, pushed.*

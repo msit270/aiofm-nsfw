@@ -1,0 +1,57 @@
+workflow        /workspace/comfy-fresh/user/default/workflows/OFMTech_NSFW.json
+                sha256 4741960602085c6277eecd5f3d25e8e023e71df842c5987714886ef2fca30d4b
+object_info     1935 node types registered on the server
+boot            4750 ms   44 console/page error(s) before any workflow was opened
+first-run modal 1 dialog(s) open on the very first page load of this install:
+                  "Templates / All Templates / Popular"
+screenshot      results/run3/fresh/fresh-buyer-01-first-run-dialog.png  (884570 B)  — a fresh install opens the stock ComfyUI Templates browser over the UI; the buyer must close it
+first-run modal closed the way a buyer does; dialogs still open: 0
+open workflow   4522 ms   from the Workflows sidebar   title="OFMTech_NSFW - ComfyUI"
+node audit      102 nodes across root + every subgraph, 61 distinct types
+                frontend registered_node_types: 1951
+                node types NOT registered in the frontend (= red nodes): 0
+                node types absent from /object_info (excl. 6 subgraph hosts): 1
+                  ABSENT   MarkdownNote
+                nodes flagged has_errors: 0
+                modal dialogs on screen: 0
+                error toasts on screen: 0
+minimap         hidden for the canvas screenshots (was true) so it cannot cover a node
+fit view        scale=0.2253  framing 16 root-level nodes  canvas=1920,1018
+screenshot      results/run3/fresh/fresh-buyer-02-workflow-open-full-canvas.png  (94778 B)  — OFMTech_NSFW opened from the workflow list; 102 nodes, 0 red, 0 dialogs
+prompt          typed into the RPG panel on #483 and committed on blur
+                textarea now : "photorealistic full body photograph of a young woman with long dark hair standing on a hot"...
+                node widget  : prompt_batch_data[0].positive_prompt = "photorealistic full body photograph of a young woman with long dark hair standing on a hot"...
+screenshot      results/run3/fresh/fresh-buyer-03-prompt-entered.png  (235788 B)  — the prompt typed into the panel on #483 "1 · YOUR PROMPTS & SEED"
+lora            #618 SDXL stack: lora_01 = "lunaskye.safetensors"  (clicked in the widget's own menu)
+lora            #116 Z-Image stack: lora_01 = "luna.safetensors"  (clicked in the widget's own menu)
+screenshot      results/run3/fresh/fresh-buyer-04-both-lora-stacks.png  (215199 B)  — #618 lora_01=lunaskye.safetensors  #116 lora_01=luna.safetensors  (both read back from the graph; #483 collapsed=true for this frame only)
+panel           #483 collapsed for the LoRA frame, restored afterwards (collapsed now: false; prompt panel visible again: false)
+face prompt     #620 as shipped: collapsed=false
+screenshot      results/run3/fresh/fresh-buyer-05-face-host-as-shipped.png  (206150 B)  — #620 "5 · Face & Mouth Detail" as the workflow ships it — collapsed=false
+face prompt     "106: text" is a customtext DOM widget, visible=true
+face prompt     entered the subgraph: isRoot=false, "5. Face & Mouth Detail (Z-Image)", 13 nodes, breadcrumb=["OFMTech_NSFW","5. Face & Mouth Detail (Z-Image)"]
+face prompt     framed #106 inside the subgraph (scale 1.000)
+face prompt     read back from #106 CLIPTextEncode "Face Detailer Prompt" inside "5. Face & Mouth Detail (Z-Image)":
+                "luna, a young woman in her mid twenties with wavy auburn hair, warm hazel eyes, "...
+face prompt     promoted widget reads: "luna, a young woman in her mid twenties with wavy auburn hair, warm hazel eyes, "...
+screenshot      results/run3/fresh/fresh-buyer-06-face-prompt-on-node-106.png  (400563 B)  — #106 "Face Detailer Prompt" inside "5. Face & Mouth Detail (Z-Image)", carrying: "luna, a young woman in her mid twenties with wavy auburn hair, warm hazel eyes, soft natural makeup, light fre…"
+face prompt     back out via the breadcrumb: isRoot=true
+press Run       the real Run button, label="Run"
+prompt accepted HTTP 200  prompt_id=5eaa9eb2-8f88-44c9-a0d3-2b184e42efe1  api graph 92 nodes  (1226 ms after the click)
+screenshot      results/run3/fresh/fresh-buyer-07-run-submitted.png  (100439 B)  — prompt 5eaa9eb2-8f88-44c9-a0d3-2b184e42efe1 accepted, 92-node API graph
+  ...waiting    0s   ours_running=true  last node: "619:613"
+  ...waiting    61s   ours_running=true  last node: "619:617"
+screenshot      results/run3/fresh/fresh-buyer-08-selector-popup.png  (873029 B)  — #603 INSTARAW_ImageFilter paused the render with 1 image(s) — the buyer must choose
+  selector      1 image(s); Send on open=false, after clicking #0=true
+screenshot      results/run3/fresh/fresh-buyer-09-selector-image-picked.png  (874404 B)  — image #0 of 1 selected; Send enabled
+  selector      Send pressed at 104s into the render
+  ...waiting    122s   ours_running=true  last node: "587:98"
+  ...waiting    183s   ours_running=true  last node: "587:98"
+  ...waiting    243s   ours_running=true  last node: "621:166"
+render          271s wall (queue included)
+  output        OK   /workspace/comfy-fresh/output/Instaraw/SDXL/Metadata/HasMetadata_00001_.png  11122396 B  [node 505]
+screenshot      results/run3/fresh/fresh-buyer-10-render-complete.png  (249959 B)  — the moment the render finished, as the buyer sees it
+screenshot      results/run3/fresh/fresh-buyer-11-final-image-on-canvas.png  (491077 B)  — the finished image on #505 "YOUR IMAGE — saved to output/Instaraw/"
+screenshot      results/run3/fresh/fresh-buyer-12-final-image-feed.png  (492568 B)  — the finished image in the ComfyUI image feed
+page errors     44 during boot, 1 after the workflow was opened
+                  console.error: Failed to load resource: the server responded with a status of 404 (Not Found)

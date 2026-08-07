@@ -1,5 +1,9 @@
 # STATE.md — read this before AUDIT.md, MAP.md, SETUP.md or PROPOSALS.md
 
+> **A later run (run 3, 2026-08-07) happened after this file was written.**
+> `HANDOFF.md` is the current statement of the graph and the pack; this file
+> stands as the run-2 record. Where they disagree, HANDOFF.md wins.
+
 Written 2026-08-05, at the end of a run on a **live pod** (RTX PRO 6000, 96 GB
 VRAM; ComfyUI 0.15.1 on `127.0.0.1:18188`; frontend 1.39.19; all ~178 GB of
 models present). Branch `fix/run2`, 33 commits, all pushed.
