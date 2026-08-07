@@ -1,0 +1,809 @@
+{
+  "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/compare/95a13e2e5d8f8ae57583fbebb0be1f670889858b...main",
+  "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/compare/95a13e2e5d8f8ae57583fbebb0be1f670889858b...main",
+  "permalink_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/compare/Fannovel16:95a13e2...Fannovel16:e8b689a",
+  "diff_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/compare/95a13e2e5d8f8ae57583fbebb0be1f670889858b...main.diff",
+  "patch_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/compare/95a13e2e5d8f8ae57583fbebb0be1f670889858b...main.patch",
+  "base_commit": {
+    "sha": "95a13e2e5d8f8ae57583fbebb0be1f670889858b",
+    "node_id": "C_kwDOKIKiYNoAKDk1YTEzZTJlNWQ4ZjhhZTU3NTgzZmJlYmIwYmUxZjY3MDg4OTg1OGI",
+    "commit": {
+      "author": {
+        "name": "H.D.Tài 🇻🇳",
+        "email": "tai17082006.tk@gmail.com",
+        "date": "2026-02-16T05:53:04Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-02-16T05:53:04Z"
+      },
+      "message": "Merge pull request #615 from tazztone/fix/transformers-v5-mesh-graphormer\n\nfix: Transformers v5 compatibility for MeshGraphormer polyfill",
+      "tree": {
+        "sha": "8de3649d499ee869f2c47a7733603e15437eaa33",
+        "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/trees/8de3649d499ee869f2c47a7733603e15437eaa33"
+      },
+      "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/commits/95a13e2e5d8f8ae57583fbebb0be1f670889858b",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpkrDACRC1aQ7uu5UhlAAAbKcQAF5QpYAtBRTS9vN+wy98jdWq\nWLxhZ0R+UbfyuF5aJHtC+X+BaFHiSeLaCw1dedCXmIKOOI1kSAoVmqAaPYhSE43c\ngGS6cZpe6AiphieNi3RmybLj2LVsrdaBQsuST0Q+WB8wkhN+HQXuW4t+90Yjrx21\n4BvW0yo4tXvAVxkBbXK0+CkALtWcmEOYlITjFYoFhagXsk2x0l+Uc81YOMe7+g0T\nhMilNMmc4wiPfqtmERFmHAnU9sGHDmRby5TqQfR0MzuP1NZOj6MTmm8H2DuxUy1x\nTh5tgaCPeG6iJspO6f4Qc6IiPUyriHL2enPbQ9/zsH6ICvQAAY4oSzVm7iGb0690\nTyTOiS8kgB6aWcRSjip6mCaGC5cRqaz75SptIn89uIDdeG0CtB50dwCF/39or22e\nJH4vv45X07Bwsi04TJL3KGn9tjPdRAMGRV1bxufBh2MnGZTEif+2ReCsibkLMcO6\n9F1b6MQXgcHOO+I4J+aTabYFsIt62Kidq1/9u1g4MLXtxtp6EVb7RMETMf9uXSg6\nOntju2B89PHlOWN9BsvFBSzxq+GKYWdasgrM+4ZDhJnYdfSHpLpNM+LsCoHtV44w\nuzZDz0LZh6Pbis6w1zCSScqv5b8VNm8kqhENa92g9XthoBcD0q4UYDVsWRoB30Gp\nTyH125gmzKYzDvivG3gY\n=1CKG\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 8de3649d499ee869f2c47a7733603e15437eaa33\nparent fda077e0ae859aa7e0e41f0ebc2271a29263ca89\nparent f6c48cc615c5e605d2354180c6c405d21af2e5f0\nauthor H.D.Tài 🇻🇳 <tai17082006.tk@gmail.com> 1771221184 +0700\ncommitter GitHub <noreply@github.com> 1771221184 +0700\n\nMerge pull request #615 from tazztone/fix/transformers-v5-mesh-graphormer\n\nfix: Transformers v5 compatibility for MeshGraphormer polyfill",
+        "verified_at": "2026-02-16T05:53:04Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/95a13e2e5d8f8ae57583fbebb0be1f670889858b",
+    "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/95a13e2e5d8f8ae57583fbebb0be1f670889858b",
+    "comments_url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/95a13e2e5d8f8ae57583fbebb0be1f670889858b/comments",
+    "author": {
+      "login": "Fannovel16",
+      "id": 16047777,
+      "node_id": "MDQ6VXNlcjE2MDQ3Nzc3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16047777?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Fannovel16",
+      "html_url": "https://github.com/Fannovel16",
+      "followers_url": "https://api.github.com/users/Fannovel16/followers",
+      "following_url": "https://api.github.com/users/Fannovel16/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Fannovel16/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Fannovel16/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Fannovel16/subscriptions",
+      "organizations_url": "https://api.github.com/users/Fannovel16/orgs",
+      "repos_url": "https://api.github.com/users/Fannovel16/repos",
+      "events_url": "https://api.github.com/users/Fannovel16/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Fannovel16/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "fda077e0ae859aa7e0e41f0ebc2271a29263ca89",
+        "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/fda077e0ae859aa7e0e41f0ebc2271a29263ca89",
+        "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/fda077e0ae859aa7e0e41f0ebc2271a29263ca89"
+      },
+      {
+        "sha": "f6c48cc615c5e605d2354180c6c405d21af2e5f0",
+        "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/f6c48cc615c5e605d2354180c6c405d21af2e5f0",
+        "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/f6c48cc615c5e605d2354180c6c405d21af2e5f0"
+      }
+    ]
+  },
+  "merge_base_commit": {
+    "sha": "95a13e2e5d8f8ae57583fbebb0be1f670889858b",
+    "node_id": "C_kwDOKIKiYNoAKDk1YTEzZTJlNWQ4ZjhhZTU3NTgzZmJlYmIwYmUxZjY3MDg4OTg1OGI",
+    "commit": {
+      "author": {
+        "name": "H.D.Tài 🇻🇳",
+        "email": "tai17082006.tk@gmail.com",
+        "date": "2026-02-16T05:53:04Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-02-16T05:53:04Z"
+      },
+      "message": "Merge pull request #615 from tazztone/fix/transformers-v5-mesh-graphormer\n\nfix: Transformers v5 compatibility for MeshGraphormer polyfill",
+      "tree": {
+        "sha": "8de3649d499ee869f2c47a7733603e15437eaa33",
+        "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/trees/8de3649d499ee869f2c47a7733603e15437eaa33"
+      },
+      "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/commits/95a13e2e5d8f8ae57583fbebb0be1f670889858b",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpkrDACRC1aQ7uu5UhlAAAbKcQAF5QpYAtBRTS9vN+wy98jdWq\nWLxhZ0R+UbfyuF5aJHtC+X+BaFHiSeLaCw1dedCXmIKOOI1kSAoVmqAaPYhSE43c\ngGS6cZpe6AiphieNi3RmybLj2LVsrdaBQsuST0Q+WB8wkhN+HQXuW4t+90Yjrx21\n4BvW0yo4tXvAVxkBbXK0+CkALtWcmEOYlITjFYoFhagXsk2x0l+Uc81YOMe7+g0T\nhMilNMmc4wiPfqtmERFmHAnU9sGHDmRby5TqQfR0MzuP1NZOj6MTmm8H2DuxUy1x\nTh5tgaCPeG6iJspO6f4Qc6IiPUyriHL2enPbQ9/zsH6ICvQAAY4oSzVm7iGb0690\nTyTOiS8kgB6aWcRSjip6mCaGC5cRqaz75SptIn89uIDdeG0CtB50dwCF/39or22e\nJH4vv45X07Bwsi04TJL3KGn9tjPdRAMGRV1bxufBh2MnGZTEif+2ReCsibkLMcO6\n9F1b6MQXgcHOO+I4J+aTabYFsIt62Kidq1/9u1g4MLXtxtp6EVb7RMETMf9uXSg6\nOntju2B89PHlOWN9BsvFBSzxq+GKYWdasgrM+4ZDhJnYdfSHpLpNM+LsCoHtV44w\nuzZDz0LZh6Pbis6w1zCSScqv5b8VNm8kqhENa92g9XthoBcD0q4UYDVsWRoB30Gp\nTyH125gmzKYzDvivG3gY\n=1CKG\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 8de3649d499ee869f2c47a7733603e15437eaa33\nparent fda077e0ae859aa7e0e41f0ebc2271a29263ca89\nparent f6c48cc615c5e605d2354180c6c405d21af2e5f0\nauthor H.D.Tài 🇻🇳 <tai17082006.tk@gmail.com> 1771221184 +0700\ncommitter GitHub <noreply@github.com> 1771221184 +0700\n\nMerge pull request #615 from tazztone/fix/transformers-v5-mesh-graphormer\n\nfix: Transformers v5 compatibility for MeshGraphormer polyfill",
+        "verified_at": "2026-02-16T05:53:04Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/95a13e2e5d8f8ae57583fbebb0be1f670889858b",
+    "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/95a13e2e5d8f8ae57583fbebb0be1f670889858b",
+    "comments_url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/95a13e2e5d8f8ae57583fbebb0be1f670889858b/comments",
+    "author": {
+      "login": "Fannovel16",
+      "id": 16047777,
+      "node_id": "MDQ6VXNlcjE2MDQ3Nzc3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16047777?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Fannovel16",
+      "html_url": "https://github.com/Fannovel16",
+      "followers_url": "https://api.github.com/users/Fannovel16/followers",
+      "following_url": "https://api.github.com/users/Fannovel16/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Fannovel16/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Fannovel16/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Fannovel16/subscriptions",
+      "organizations_url": "https://api.github.com/users/Fannovel16/orgs",
+      "repos_url": "https://api.github.com/users/Fannovel16/repos",
+      "events_url": "https://api.github.com/users/Fannovel16/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Fannovel16/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "fda077e0ae859aa7e0e41f0ebc2271a29263ca89",
+        "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/fda077e0ae859aa7e0e41f0ebc2271a29263ca89",
+        "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/fda077e0ae859aa7e0e41f0ebc2271a29263ca89"
+      },
+      {
+        "sha": "f6c48cc615c5e605d2354180c6c405d21af2e5f0",
+        "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/f6c48cc615c5e605d2354180c6c405d21af2e5f0",
+        "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/f6c48cc615c5e605d2354180c6c405d21af2e5f0"
+      }
+    ]
+  },
+  "status": "ahead",
+  "ahead_by": 7,
+  "behind_by": 0,
+  "total_commits": 7,
+  "commits": [
+    {
+      "sha": "fa41fbbabde04ce9506d5f9d275cc73c67cbfd0f",
+      "node_id": "C_kwDOKIKiYNoAKGZhNDFmYmJhYmRlMDRjZTk1MDZkNWY5ZDI3NWNjNzNjNjdjYmZkMGY",
+      "commit": {
+        "author": {
+          "name": "wzgrx",
+          "email": "39661556+wzgrx@users.noreply.github.com",
+          "date": "2025-10-25T09:25:26Z"
+        },
+        "committer": {
+          "name": "GitHub",
+          "email": "noreply@github.com",
+          "date": "2025-10-25T09:25:26Z"
+        },
+        "message": "Update requirements.txt",
+        "tree": {
+          "sha": "0b3703f24c720133c3547676e090efe1e032e26d",
+          "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/trees/0b3703f24c720133c3547676e090efe1e032e26d"
+        },
+        "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/commits/fa41fbbabde04ce9506d5f9d275cc73c67cbfd0f",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJo/JeGCRC1aQ7uu5UhlAAAYG8QAKGUoRKsE7yma1v4KxWuki01\nziYHuQetPpmeFk3R5XIVZRmsRSjLcPOPBjbnWNK52oqamKNMneVnR1rfqVJIpzoZ\nIu85D6r9zF3opmf+wletOWvnK/hOxZO8SKKeunzrNHH1qO5x+eM1nSAwOPxHPTVI\n3jv1LW1JTMlwQLntlJGlnozJb3DM2gcEqFedNm45Eq/CgbF066NZaf6RWUbmz5wh\nr2Y2ZCCXkjSZovJK2e359keUeD4WsObvjVdxf+07Eey2uo+8zgJ7pBTN99Nqnjjp\nvHhVOZqID5g/AOod1xNcUtj8N/tJAE769c1jL3dIbKV1XAZnzJbRlV0dPQGj62HZ\ng6iHJgNwiZQ+S1ZN1qVPpZhyUEkJpZuY03yJtF5aOT4nYbE7NDV7l6jqkRGTqJmF\nm2HAuUrXlyjkjw7jxUrRVGhCop9hWqOUFTqP6MxiR+UJ+KqQPtzjOxOEflS6VYre\nPBZjzL2u+djiTuihj5KMB9WvrLwtm31N+iQT5cR50VOj4HsvUjpaFmtz9yP1rriQ\nvgC+cRioS+bpf0s6As56RzR/YZHKuo6z/wbaS9nu84cYoZnH9UP/6L5turbIip6I\n2cVRpV9mu1Rt7SiXOx29HoyycrdqD7ZtPm0hKrvHnZ4w3uDZaPViX1g2Btz2eZtg\nx9TZTPHk7SipzjuBN8Nc\n=Kj7x\n-----END PGP SIGNATURE-----\n",
+          "payload": "tree 0b3703f24c720133c3547676e090efe1e032e26d\nparent 12f35647f0d510e03b45a47fb420fe1245a575df\nauthor wzgrx <39661556+wzgrx@users.noreply.github.com> 1761384326 +0800\ncommitter GitHub <noreply@github.com> 1761384326 +0800\n\nUpdate requirements.txt",
+          "verified_at": "2025-10-25T09:25:26Z"
+        }
+      },
+      "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/fa41fbbabde04ce9506d5f9d275cc73c67cbfd0f",
+      "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/fa41fbbabde04ce9506d5f9d275cc73c67cbfd0f",
+      "comments_url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/fa41fbbabde04ce9506d5f9d275cc73c67cbfd0f/comments",
+      "author": {
+        "login": "wzgrx",
+        "id": 39661556,
+        "node_id": "MDQ6VXNlcjM5NjYxNTU2",
+        "avatar_url": "https://avatars.githubusercontent.com/u/39661556?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/wzgrx",
+        "html_url": "https://github.com/wzgrx",
+        "followers_url": "https://api.github.com/users/wzgrx/followers",
+        "following_url": "https://api.github.com/users/wzgrx/following{/other_user}",
+        "gists_url": "https://api.github.com/users/wzgrx/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/wzgrx/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/wzgrx/subscriptions",
+        "organizations_url": "https://api.github.com/users/wzgrx/orgs",
+        "repos_url": "https://api.github.com/users/wzgrx/repos",
+        "events_url": "https://api.github.com/users/wzgrx/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/wzgrx/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "web-flow",
+        "id": 19864447,
+        "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+        "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/web-flow",
+        "html_url": "https://github.com/web-flow",
+        "followers_url": "https://api.github.com/users/web-flow/followers",
+        "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+        "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+        "organizations_url": "https://api.github.com/users/web-flow/orgs",
+        "repos_url": "https://api.github.com/users/web-flow/repos",
+        "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/web-flow/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "12f35647f0d510e03b45a47fb420fe1245a575df",
+          "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/12f35647f0d510e03b45a47fb420fe1245a575df",
+          "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/12f35647f0d510e03b45a47fb420fe1245a575df"
+        }
+      ]
+    },
+    {
+      "sha": "4c742a7bee972dc5f19047ea0f1819174e993459",
+      "node_id": "C_kwDOKIKiYNoAKDRjNzQyYTdiZWU5NzJkYzVmMTkwNDdlYTBmMTgxOTE3NGU5OTM0NTk",
+      "commit": {
+        "author": {
+          "name": "wzgrx",
+          "email": "39661556+wzgrx@users.noreply.github.com",
+          "date": "2025-10-25T09:41:18Z"
+        },
+        "committer": {
+          "name": "GitHub",
+          "email": "noreply@github.com",
+          "date": "2025-10-25T09:41:18Z"
+        },
+        "message": "Update requirements.txt",
+        "tree": {
+          "sha": "6e7afdcd2eb3d38d6ee113879993fc302593826a",
+          "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/trees/6e7afdcd2eb3d38d6ee113879993fc302593826a"
+        },
+        "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/commits/4c742a7bee972dc5f19047ea0f1819174e993459",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJo/Js+CRC1aQ7uu5UhlAAA/O0QAItTPcEu1/pbUdw6Zc8kOVlF\nCkn0PGnCJUrMSA5BNYmKU+rv8nmEmWvy71JrJzBm71FJvpwkob3JgqbfVnoqR6rs\n4K4zhwKRK8EEyMXS3FkXUqOQqA6EQO/pbCIgHrYbT8nYJGous2sWJIIs2DhNG+8d\n0DvSBc4ubXqCm4UaC+WgRc9bZ/XL5srs/SLFJhUo98bbl8BdO0/4pO76ooegCScE\ntPce6905ZYqF84MDzMadTCY14h0Xk+92M3aiJD7KEMXJ40hIzl9jU3EaIZS5QfyX\nY6gr+bXlm/PGThgy9VtD/0BGQ+/iHeal0vuOLBNpeH2Q6dTZc5+6/29N7RwhhXH0\nbzmLyKHHBZjH5QEzzXV4z1iQ17ARMXjRekLgeGliPnFDQs2RvTtUs1aSrxg/IGlv\n4rmn6rN3S0e4z9loC0u+ofYxAMAkLm4bSiW4QrLWa7lo7DGGVK6lqqWfQ7sn3oON\nXpju6LGg5VnTiJoxOxhIUTa9NOslHmhHW0UFQoNOZOuDnKr96LMSHhTeaddtjTLo\n49WFBjJ0Fa1oSeo3DkXgbZLtb2OEbu4L8smGX0L5Cg0zn4jNe+LNawQzjOzvhjNB\nVrOZCFYAiFoEm0lBqOfcuRqS3GUh/m6bfX/XtPhGXrRdEa7bCZrukbW6pqTKh4Br\n/TyikzshUluJn3dr0jIV\n=/uXf\n-----END PGP SIGNATURE-----\n",
+          "payload": "tree 6e7afdcd2eb3d38d6ee113879993fc302593826a\nparent fa41fbbabde04ce9506d5f9d275cc73c67cbfd0f\nauthor wzgrx <39661556+wzgrx@users.noreply.github.com> 1761385278 +0800\ncommitter GitHub <noreply@github.com> 1761385278 +0800\n\nUpdate requirements.txt",
+          "verified_at": "2025-10-25T09:41:18Z"
+        }
+      },
+      "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/4c742a7bee972dc5f19047ea0f1819174e993459",
+      "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/4c742a7bee972dc5f19047ea0f1819174e993459",
+      "comments_url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/4c742a7bee972dc5f19047ea0f1819174e993459/comments",
+      "author": {
+        "login": "wzgrx",
+        "id": 39661556,
+        "node_id": "MDQ6VXNlcjM5NjYxNTU2",
+        "avatar_url": "https://avatars.githubusercontent.com/u/39661556?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/wzgrx",
+        "html_url": "https://github.com/wzgrx",
+        "followers_url": "https://api.github.com/users/wzgrx/followers",
+        "following_url": "https://api.github.com/users/wzgrx/following{/other_user}",
+        "gists_url": "https://api.github.com/users/wzgrx/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/wzgrx/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/wzgrx/subscriptions",
+        "organizations_url": "https://api.github.com/users/wzgrx/orgs",
+        "repos_url": "https://api.github.com/users/wzgrx/repos",
+        "events_url": "https://api.github.com/users/wzgrx/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/wzgrx/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "web-flow",
+        "id": 19864447,
+        "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+        "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/web-flow",
+        "html_url": "https://github.com/web-flow",
+        "followers_url": "https://api.github.com/users/web-flow/followers",
+        "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+        "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+        "organizations_url": "https://api.github.com/users/web-flow/orgs",
+        "repos_url": "https://api.github.com/users/web-flow/repos",
+        "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/web-flow/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "fa41fbbabde04ce9506d5f9d275cc73c67cbfd0f",
+          "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/fa41fbbabde04ce9506d5f9d275cc73c67cbfd0f",
+          "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/fa41fbbabde04ce9506d5f9d275cc73c67cbfd0f"
+        }
+      ]
+    },
+    {
+      "sha": "e8f52c945060394ca46848a424495067ccfdaad6",
+      "node_id": "C_kwDOKIKiYNoAKGU4ZjUyYzk0NTA2MDM5NGNhNDY4NDhhNDI0NDk1MDY3Y2NmZGFhZDY",
+      "commit": {
+        "author": {
+          "name": "ChrisFab16",
+          "email": "christopher@fabritius.dk",
+          "date": "2026-02-16T07:19:13Z"
+        },
+        "committer": {
+          "name": "ChrisFab16",
+          "email": "christopher@fabritius.dk",
+          "date": "2026-02-16T07:19:13Z"
+        },
+        "message": "Update mediapipe to >=0.8.0",
+        "tree": {
+          "sha": "02450e895d79c4877fbb1fb73305c697f02cc1a0",
+          "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/trees/02450e895d79c4877fbb1fb73305c697f02cc1a0"
+        },
+        "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/commits/e8f52c945060394ca46848a424495067ccfdaad6",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        }
+      },
+      "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/e8f52c945060394ca46848a424495067ccfdaad6",
+      "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/e8f52c945060394ca46848a424495067ccfdaad6",
+      "comments_url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/e8f52c945060394ca46848a424495067ccfdaad6/comments",
+      "author": {
+        "login": "ChrisFab16",
+        "id": 20229082,
+        "node_id": "MDQ6VXNlcjIwMjI5MDgy",
+        "avatar_url": "https://avatars.githubusercontent.com/u/20229082?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/ChrisFab16",
+        "html_url": "https://github.com/ChrisFab16",
+        "followers_url": "https://api.github.com/users/ChrisFab16/followers",
+        "following_url": "https://api.github.com/users/ChrisFab16/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ChrisFab16/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ChrisFab16/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ChrisFab16/subscriptions",
+        "organizations_url": "https://api.github.com/users/ChrisFab16/orgs",
+        "repos_url": "https://api.github.com/users/ChrisFab16/repos",
+        "events_url": "https://api.github.com/users/ChrisFab16/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ChrisFab16/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "ChrisFab16",
+        "id": 20229082,
+        "node_id": "MDQ6VXNlcjIwMjI5MDgy",
+        "avatar_url": "https://avatars.githubusercontent.com/u/20229082?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/ChrisFab16",
+        "html_url": "https://github.com/ChrisFab16",
+        "followers_url": "https://api.github.com/users/ChrisFab16/followers",
+        "following_url": "https://api.github.com/users/ChrisFab16/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ChrisFab16/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ChrisFab16/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ChrisFab16/subscriptions",
+        "organizations_url": "https://api.github.com/users/ChrisFab16/orgs",
+        "repos_url": "https://api.github.com/users/ChrisFab16/repos",
+        "events_url": "https://api.github.com/users/ChrisFab16/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ChrisFab16/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "136f125c89aed92ced1b6fbb491e13719b72fcc0",
+          "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/136f125c89aed92ced1b6fbb491e13719b72fcc0",
+          "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/136f125c89aed92ced1b6fbb491e13719b72fcc0"
+        }
+      ]
+    },
+    {
+      "sha": "4d8bc174379c4658aee4bee2c71d3fdf67bbdc29",
+      "node_id": "C_kwDOKIKiYNoAKDRkOGJjMTc0Mzc5YzQ2NThhZWU0YmVlMmM3MWQzZmRmNjdiYmRjMjk",
+      "commit": {
+        "author": {
+          "name": "ChrisFab16",
+          "email": "christopher@fabritius.dk",
+          "date": "2026-02-16T07:21:58Z"
+        },
+        "committer": {
+          "name": "ChrisFab16",
+          "email": "christopher@fabritius.dk",
+          "date": "2026-02-16T07:21:58Z"
+        },
+        "message": "Add MediaPipe 0.10.32+ compatibility",
+        "tree": {
+          "sha": "3764560362a2e473f3b66bf024a792984adb9c66",
+          "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/trees/3764560362a2e473f3b66bf024a792984adb9c66"
+        },
+        "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/commits/4d8bc174379c4658aee4bee2c71d3fdf67bbdc29",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        }
+      },
+      "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/4d8bc174379c4658aee4bee2c71d3fdf67bbdc29",
+      "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/4d8bc174379c4658aee4bee2c71d3fdf67bbdc29",
+      "comments_url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/4d8bc174379c4658aee4bee2c71d3fdf67bbdc29/comments",
+      "author": {
+        "login": "ChrisFab16",
+        "id": 20229082,
+        "node_id": "MDQ6VXNlcjIwMjI5MDgy",
+        "avatar_url": "https://avatars.githubusercontent.com/u/20229082?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/ChrisFab16",
+        "html_url": "https://github.com/ChrisFab16",
+        "followers_url": "https://api.github.com/users/ChrisFab16/followers",
+        "following_url": "https://api.github.com/users/ChrisFab16/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ChrisFab16/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ChrisFab16/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ChrisFab16/subscriptions",
+        "organizations_url": "https://api.github.com/users/ChrisFab16/orgs",
+        "repos_url": "https://api.github.com/users/ChrisFab16/repos",
+        "events_url": "https://api.github.com/users/ChrisFab16/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ChrisFab16/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "ChrisFab16",
+        "id": 20229082,
+        "node_id": "MDQ6VXNlcjIwMjI5MDgy",
+        "avatar_url": "https://avatars.githubusercontent.com/u/20229082?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/ChrisFab16",
+        "html_url": "https://github.com/ChrisFab16",
+        "followers_url": "https://api.github.com/users/ChrisFab16/followers",
+        "following_url": "https://api.github.com/users/ChrisFab16/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ChrisFab16/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ChrisFab16/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ChrisFab16/subscriptions",
+        "organizations_url": "https://api.github.com/users/ChrisFab16/orgs",
+        "repos_url": "https://api.github.com/users/ChrisFab16/repos",
+        "events_url": "https://api.github.com/users/ChrisFab16/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ChrisFab16/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "e8f52c945060394ca46848a424495067ccfdaad6",
+          "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/e8f52c945060394ca46848a424495067ccfdaad6",
+          "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/e8f52c945060394ca46848a424495067ccfdaad6"
+        }
+      ]
+    },
+    {
+      "sha": "9c49b2f29e5840d5e2995e4f376bf9cb83b688ec",
+      "node_id": "C_kwDOKIKiYNoAKDljNDliMmYyOWU1ODQwZDVlMjk5NWU0ZjM3NmJmOWNiODNiNjg4ZWM",
+      "commit": {
+        "author": {
+          "name": "H.D.Tài 🇻🇳",
+          "email": "tai17082006.tk@gmail.com",
+          "date": "2026-04-13T10:43:39Z"
+        },
+        "committer": {
+          "name": "GitHub",
+          "email": "noreply@github.com",
+          "date": "2026-04-13T10:43:39Z"
+        },
+        "message": "Merge pull request #613 from ChrisFab16/feature/mediapipe-10.32-compatibility\n\nfeat: Add MediaPipe 0.10.32+ compatibility",
+        "tree": {
+          "sha": "ce89b1e3c24fc0619d74f1a51672d79b921b69e9",
+          "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/trees/ce89b1e3c24fc0619d74f1a51672d79b921b69e9"
+        },
+        "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/commits/9c49b2f29e5840d5e2995e4f376bf9cb83b688ec",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp3MjbCRC1aQ7uu5UhlAAAWloQAFg02c8DVOwMb/Hcgf2EcVFN\nrUz90b+qEl+qa2Agc1J4RsoDTHgW0QDK4AMaS2//Nh1r4eMowIjdEUzH2xEt3ybo\nfoPkJSpca0kc+dmlT3r60ggaiN9LJfBisytc1nimYnk/+QR+/EHr/wl73twJq74R\nXpuCumb14k+2H+X2omReceyLjfYTrptIidybjKxJ5q9FoICYw2pZhOiBSPbiYeqf\nv/NFEAUvmFdDALuLU6kax8CxYx6LWoZSa3kXITtxcyjudq2G4CwB030vIAC4DxtV\niA1Rc7ZlHkdop5XmrhkXXF2JxPdeK8sFWico3Qt/S/u6mdtC8hVA+4wJgAPZTWsn\nXgCiyzs7zAKpDujNdJq8xiEM904cfnD14t5wvnZSs7fhcgMJYpTRY4LEMZO+8UYC\nGY4RftCxUmmsSRzASrFWgQqb9i/qa1zjx3NMLBaAAIqr99jG6OpXWI/pOo6uo3I7\nB0xJVDuiTxIzg6I4hy59fFFarr+aqAr/NI+EhKnlVbXN0yuoDx3Y4djxeoeEWNr+\nxoU+ldiHdgkUq/A/0c3+8+KE+dwJvuX5zPjGh9y6MQ6Y+9QzK04WqbxsRchWaVQM\nUAOPhNRymZ0bVOJoMKziNTGUivhhgMo4fQt9o1k0Iesk8bbzDa9Ub5v7a0cRauHP\nhYfOy4sw+0V6o1CTVz5H\n=0yBf\n-----END PGP SIGNATURE-----\n",
+          "payload": "tree ce89b1e3c24fc0619d74f1a51672d79b921b69e9\nparent 95a13e2e5d8f8ae57583fbebb0be1f670889858b\nparent 4d8bc174379c4658aee4bee2c71d3fdf67bbdc29\nauthor H.D.Tài 🇻🇳 <tai17082006.tk@gmail.com> 1776077019 +0700\ncommitter GitHub <noreply@github.com> 1776077019 +0700\n\nMerge pull request #613 from ChrisFab16/feature/mediapipe-10.32-compatibility\n\nfeat: Add MediaPipe 0.10.32+ compatibility",
+          "verified_at": "2026-04-13T10:43:39Z"
+        }
+      },
+      "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/9c49b2f29e5840d5e2995e4f376bf9cb83b688ec",
+      "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/9c49b2f29e5840d5e2995e4f376bf9cb83b688ec",
+      "comments_url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/9c49b2f29e5840d5e2995e4f376bf9cb83b688ec/comments",
+      "author": {
+        "login": "Fannovel16",
+        "id": 16047777,
+        "node_id": "MDQ6VXNlcjE2MDQ3Nzc3",
+        "avatar_url": "https://avatars.githubusercontent.com/u/16047777?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fannovel16",
+        "html_url": "https://github.com/Fannovel16",
+        "followers_url": "https://api.github.com/users/Fannovel16/followers",
+        "following_url": "https://api.github.com/users/Fannovel16/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fannovel16/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fannovel16/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fannovel16/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fannovel16/orgs",
+        "repos_url": "https://api.github.com/users/Fannovel16/repos",
+        "events_url": "https://api.github.com/users/Fannovel16/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fannovel16/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "web-flow",
+        "id": 19864447,
+        "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+        "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/web-flow",
+        "html_url": "https://github.com/web-flow",
+        "followers_url": "https://api.github.com/users/web-flow/followers",
+        "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+        "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+        "organizations_url": "https://api.github.com/users/web-flow/orgs",
+        "repos_url": "https://api.github.com/users/web-flow/repos",
+        "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/web-flow/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "95a13e2e5d8f8ae57583fbebb0be1f670889858b",
+          "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/95a13e2e5d8f8ae57583fbebb0be1f670889858b",
+          "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/95a13e2e5d8f8ae57583fbebb0be1f670889858b"
+        },
+        {
+          "sha": "4d8bc174379c4658aee4bee2c71d3fdf67bbdc29",
+          "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/4d8bc174379c4658aee4bee2c71d3fdf67bbdc29",
+          "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/4d8bc174379c4658aee4bee2c71d3fdf67bbdc29"
+        }
+      ]
+    },
+    {
+      "sha": "defae8cb020b9c39d45d2856ce52d15d827f4c75",
+      "node_id": "C_kwDOKIKiYNoAKGRlZmFlOGNiMDIwYjljMzlkNDVkMjg1NmNlNTJkMTVkODI3ZjRjNzU",
+      "commit": {
+        "author": {
+          "name": "H.D.Tài 🇻🇳",
+          "email": "tai17082006.tk@gmail.com",
+          "date": "2026-04-13T10:44:31Z"
+        },
+        "committer": {
+          "name": "GitHub",
+          "email": "noreply@github.com",
+          "date": "2026-04-13T10:44:31Z"
+        },
+        "message": "Merge pull request #592 from wzgrx/patch-1\n\nUpdate requirements.txt",
+        "tree": {
+          "sha": "ed771ee8a6f2caf668c17af1872d3f1ae8d11917",
+          "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/trees/ed771ee8a6f2caf668c17af1872d3f1ae8d11917"
+        },
+        "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/commits/defae8cb020b9c39d45d2856ce52d15d827f4c75",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp3MkPCRC1aQ7uu5UhlAAALIwQAJ0F4nC+BWUEcKi2nUwo+qUh\nLf3h/NNxztqQEAtnKpVbAZHMBFZe1tkz+FrqcgY46iiHnAT/TLmV/mg8nK9h1N42\n+dzZ6kdLKv5BI1FGcZZlAtl2VwJJmbMActvNWRK8+eUlKAUgB9REhyFBDBbi8iho\njT6h2Wiz/wzq6pbFOGWIOmlSxvpVhSVY0Q62N/DLHVi3rKTVmSy/4CQ9CJZ02X3O\nGxx9cVs3SwQ7yOyI9FYDkPDdkoexVJQvSoCCsbb7xOG6Ebeiq/qpiVXPdeDByIuP\nF1QGtiO+b/vnGXnWojfOE3KdimDgdpONoWh1e/1VnWhLoFdtZzXd7HDFC91gkfTr\n+mqvuJgUi6RgIJg2NW1BZj6odIf39Gwa1x533LIgvAdVuypXNqv3gFjLM6RHnhjl\nFCqTf1y9hrkcwwus8QNoQRpStEoIgBCrgZSdmD8Qx9gOfKA+Z7z8f+P0M3DRVUu5\n6ey7DgxUf94wdos4/Df3vA6ovfBzbPfweWHSLyaKKYNU5gsvGBdBbSNgzAcpzfyB\ntCeWsNEX1gtfc3dQUaxpu415Nj34gt2bmScv4TKU2VV9SiHSMmG2B/efGif9gXIY\nVP9dtgBnse/Zjx+klYmU3hwmXfyMsW4mpPh4W52x8qUczyD8NuuB/ltvzpLFauun\naMj3SIJmMRonMwZ8b9/E\n=uLBm\n-----END PGP SIGNATURE-----\n",
+          "payload": "tree ed771ee8a6f2caf668c17af1872d3f1ae8d11917\nparent 9c49b2f29e5840d5e2995e4f376bf9cb83b688ec\nparent 4c742a7bee972dc5f19047ea0f1819174e993459\nauthor H.D.Tài 🇻🇳 <tai17082006.tk@gmail.com> 1776077071 +0700\ncommitter GitHub <noreply@github.com> 1776077071 +0700\n\nMerge pull request #592 from wzgrx/patch-1\n\nUpdate requirements.txt",
+          "verified_at": "2026-04-13T10:44:31Z"
+        }
+      },
+      "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/defae8cb020b9c39d45d2856ce52d15d827f4c75",
+      "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/defae8cb020b9c39d45d2856ce52d15d827f4c75",
+      "comments_url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/defae8cb020b9c39d45d2856ce52d15d827f4c75/comments",
+      "author": {
+        "login": "Fannovel16",
+        "id": 16047777,
+        "node_id": "MDQ6VXNlcjE2MDQ3Nzc3",
+        "avatar_url": "https://avatars.githubusercontent.com/u/16047777?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fannovel16",
+        "html_url": "https://github.com/Fannovel16",
+        "followers_url": "https://api.github.com/users/Fannovel16/followers",
+        "following_url": "https://api.github.com/users/Fannovel16/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fannovel16/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fannovel16/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fannovel16/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fannovel16/orgs",
+        "repos_url": "https://api.github.com/users/Fannovel16/repos",
+        "events_url": "https://api.github.com/users/Fannovel16/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fannovel16/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "web-flow",
+        "id": 19864447,
+        "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+        "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/web-flow",
+        "html_url": "https://github.com/web-flow",
+        "followers_url": "https://api.github.com/users/web-flow/followers",
+        "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+        "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+        "organizations_url": "https://api.github.com/users/web-flow/orgs",
+        "repos_url": "https://api.github.com/users/web-flow/repos",
+        "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/web-flow/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "9c49b2f29e5840d5e2995e4f376bf9cb83b688ec",
+          "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/9c49b2f29e5840d5e2995e4f376bf9cb83b688ec",
+          "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/9c49b2f29e5840d5e2995e4f376bf9cb83b688ec"
+        },
+        {
+          "sha": "4c742a7bee972dc5f19047ea0f1819174e993459",
+          "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/4c742a7bee972dc5f19047ea0f1819174e993459",
+          "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/4c742a7bee972dc5f19047ea0f1819174e993459"
+        }
+      ]
+    },
+    {
+      "sha": "e8b689a513c3e6b63edc44066560ca5919c0576e",
+      "node_id": "C_kwDOKIKiYNoAKGU4YjY4OWE1MTNjM2U2YjYzZWRjNDQwNjY1NjBjYTU5MTljMDU3NmU",
+      "commit": {
+        "author": {
+          "name": "H.D.Tài 🇻🇳",
+          "email": "tai17082006.tk@gmail.com",
+          "date": "2026-04-13T10:45:44Z"
+        },
+        "committer": {
+          "name": "GitHub",
+          "email": "noreply@github.com",
+          "date": "2026-04-13T10:45:44Z"
+        },
+        "message": "Bump version from 1.1.4 to 1.1.5",
+        "tree": {
+          "sha": "d2ca43d24a80346e9604df26fb1f2d2db58bd07b",
+          "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/trees/d2ca43d24a80346e9604df26fb1f2d2db58bd07b"
+        },
+        "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/git/commits/e8b689a513c3e6b63edc44066560ca5919c0576e",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp3MlYCRC1aQ7uu5UhlAAAJAQQAIOXU5cpH2VC1lw/2mkiIhdp\nktui64Udditvqf662R+1PYwjhlSA5Q5xmPl+Ku435eKoanGBDQi9FEsitryZMla7\nPoA3X6qaZp5Qsy9zF1jPFzCupi+4lTkWudq2BDFqiXwM9SyOQYc+A5DbeYxCmFhS\nltQSb73csqGj12qmYK/kDQOZc/VtxARCV9VHOoA3ZMw9VdXF4ylfzNu4RHP7BWfX\nXJ4sNZHSLfbR+m5xMVajZUTq60NMW0lW1KR/J6yVkPAHuRBe69swEztKFJsdKnlc\nsAkoWJrjf26Pi9hmHffBoV+Zgwu1T6xGFvGIf1ebawnSGdGfaXUmKHxOSwKFC6m0\nYTcBRoo7cmqOTeXLMFOFAoHXuXBQLp9gFbm9oylLApKsT2FP2Yszi6XdDmwdM3yy\nqO6KHQ5H+jntky0oeX3JOU309Ol7c7/Tpk22q1U3BWC6o8+QRIuORKtcipJQl6wc\nuifK2IyEZpqlv8Zvq9I6eRMRZPvjYvRjzD6RaU8gZ2IGggY/HxvRBYnPBOyeUm4y\nYTZV+8dCqa+2KTxCQYE0xWZOSdc5g9k8w3EJCs68jlFvD7SCfgHKQF+r1Mvj14Qs\nJVcbn0bL90uWXoF1rdouds9mZVGJm2aSWU8KxLWrj1lTq4T+VdRl/fIBUL4V5T7J\n4mD990z/WYsJblNcZoqR\n=341D\n-----END PGP SIGNATURE-----\n",
+          "payload": "tree d2ca43d24a80346e9604df26fb1f2d2db58bd07b\nparent defae8cb020b9c39d45d2856ce52d15d827f4c75\nauthor H.D.Tài 🇻🇳 <tai17082006.tk@gmail.com> 1776077144 +0700\ncommitter GitHub <noreply@github.com> 1776077144 +0700\n\nBump version from 1.1.4 to 1.1.5",
+          "verified_at": "2026-04-13T10:45:45Z"
+        }
+      },
+      "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/e8b689a513c3e6b63edc44066560ca5919c0576e",
+      "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/e8b689a513c3e6b63edc44066560ca5919c0576e",
+      "comments_url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/e8b689a513c3e6b63edc44066560ca5919c0576e/comments",
+      "author": {
+        "login": "Fannovel16",
+        "id": 16047777,
+        "node_id": "MDQ6VXNlcjE2MDQ3Nzc3",
+        "avatar_url": "https://avatars.githubusercontent.com/u/16047777?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fannovel16",
+        "html_url": "https://github.com/Fannovel16",
+        "followers_url": "https://api.github.com/users/Fannovel16/followers",
+        "following_url": "https://api.github.com/users/Fannovel16/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fannovel16/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fannovel16/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fannovel16/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fannovel16/orgs",
+        "repos_url": "https://api.github.com/users/Fannovel16/repos",
+        "events_url": "https://api.github.com/users/Fannovel16/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fannovel16/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "web-flow",
+        "id": 19864447,
+        "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+        "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/web-flow",
+        "html_url": "https://github.com/web-flow",
+        "followers_url": "https://api.github.com/users/web-flow/followers",
+        "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+        "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+        "organizations_url": "https://api.github.com/users/web-flow/orgs",
+        "repos_url": "https://api.github.com/users/web-flow/repos",
+        "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/web-flow/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "defae8cb020b9c39d45d2856ce52d15d827f4c75",
+          "url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/commits/defae8cb020b9c39d45d2856ce52d15d827f4c75",
+          "html_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/commit/defae8cb020b9c39d45d2856ce52d15d827f4c75"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "sha": "5a3e8690e5828b16e71d26474401a566366c154b",
+      "filename": "pyproject.toml",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/blob/e8b689a513c3e6b63edc44066560ca5919c0576e/pyproject.toml",
+      "raw_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/raw/e8b689a513c3e6b63edc44066560ca5919c0576e/pyproject.toml",
+      "contents_url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/contents/pyproject.toml?ref=e8b689a513c3e6b63edc44066560ca5919c0576e",
+      "patch": "@@ -2,7 +2,7 @@\n name = \"comfyui_controlnet_aux\"\n description = \"Plug-and-play ComfyUI node sets for making ControlNet hint images\"\n \n-version = \"1.1.4\"\n+version = \"1.1.5\"\n dependencies = [\"torch\", \"importlib_metadata\", \"huggingface_hub\", \"scipy\", \"opencv-python>=4.7.0.72\", \"filelock\", \"numpy\", \"Pillow\", \"einops\", \"torchvision\", \"pyyaml\", \"scikit-image\", \"python-dateutil\", \"mediapipe\", \"fvcore\", \"yapf\", \"omegaconf\", \"ftfy\", \"addict\", \"yacs\", \"trimesh[easy]\", \"albumentations\", \"scikit-learn\", \"matplotlib\"]\n \n [project.urls]"
+    },
+    {
+      "sha": "bb86bb1fa124d27faf98e713ba9ac9a332b0aaec",
+      "filename": "requirements.txt",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "blob_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/blob/e8b689a513c3e6b63edc44066560ca5919c0576e/requirements.txt",
+      "raw_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/raw/e8b689a513c3e6b63edc44066560ca5919c0576e/requirements.txt",
+      "contents_url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/contents/requirements.txt?ref=e8b689a513c3e6b63edc44066560ca5919c0576e",
+      "patch": "@@ -2,7 +2,7 @@ torch\n importlib_metadata\n huggingface_hub\n scipy\n-opencv-python>=4.7.0.72\n+opencv-python\n filelock\n numpy\n Pillow\n@@ -11,7 +11,7 @@ torchvision\n pyyaml\n scikit-image\n python-dateutil\n-mediapipe\n+mediapipe>=0.8.0\n fvcore\n yapf\n omegaconf\n@@ -23,3 +23,4 @@ trimesh[easy]\n albumentations\n scikit-learn\n matplotlib\n+onnxruntime-gpu"
+    },
+    {
+      "sha": "093d04482edaac56df9c203c9fa58b742b706dfd",
+      "filename": "src/custom_controlnet_aux/mediapipe_face/mediapipe_face_common.py",
+      "status": "modified",
+      "additions": 237,
+      "deletions": 85,
+      "changes": 322,
+      "blob_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/blob/e8b689a513c3e6b63edc44066560ca5919c0576e/src%2Fcustom_controlnet_aux%2Fmediapipe_face%2Fmediapipe_face_common.py",
+      "raw_url": "https://github.com/Fannovel16/comfyui_controlnet_aux/raw/e8b689a513c3e6b63edc44066560ca5919c0576e/src%2Fcustom_controlnet_aux%2Fmediapipe_face%2Fmediapipe_face_common.py",
+      "contents_url": "https://api.github.com/repos/Fannovel16/comfyui_controlnet_aux/contents/src%2Fcustom_controlnet_aux%2Fmediapipe_face%2Fmediapipe_face_common.py?ref=e8b689a513c3e6b63edc44066560ca5919c0576e",
+      "patch": "@@ -1,20 +1,49 @@\n from typing import Mapping\n import warnings\n-\n-import mediapipe as mp\n import numpy\n \n+try:\n+    import mediapipe as mp\n+    from mediapipe.framework.formats import landmark_pb2\n+except ImportError:\n+    warnings.warn(\n+        \"The module 'mediapipe' is not installed. The package will have limited functionality. Please install it using the command: pip install 'mediapipe'\"\n+    )\n+    mp = None\n+\n if mp:\n-    mp_drawing = mp.solutions.drawing_utils\n-    mp_drawing_styles = mp.solutions.drawing_styles\n-    mp_face_detection = mp.solutions.face_detection  # Only for counting faces.\n-    mp_face_mesh = mp.solutions.face_mesh\n-    mp_face_connections = mp.solutions.face_mesh_connections.FACEMESH_TESSELATION\n-    mp_hand_connections = mp.solutions.hands_connections.HAND_CONNECTIONS\n-    mp_body_connections = mp.solutions.pose_connections.POSE_CONNECTIONS\n+    # Check MediaPipe version and API compatibility\n+    USE_NEW_API = False\n+    try:\n+        # Try to access new API (MediaPipe 0.10.32+)\n+        mp.tasks.vision.FaceLandmarker\n+        USE_NEW_API = True\n+    except AttributeError:\n+        USE_NEW_API = False\n \n-    DrawingSpec = mp.solutions.drawing_styles.DrawingSpec\n-    PoseLandmark = mp.solutions.drawing_styles.PoseLandmark\n+    if USE_NEW_API:\n+        # New API imports\n+        mp_drawing = mp.tasks.vision.drawing_utils\n+        mp_face_detection = mp.tasks.vision.FaceDetector\n+        mp_face_mesh = None  # Will be handled by wrapper\n+        mp_face_connections = mp.tasks.vision.FaceLandmarksConnections.FACE_LANDMARKS_TESSELATION\n+        mp_hand_connections = None\n+        mp_body_connections = None\n+        \n+        DrawingSpec = mp.tasks.vision.drawing_utils.DrawingSpec\n+        PoseLandmark = None\n+    else:\n+        # Old API imports\n+        mp_drawing = mp.solutions.drawing_utils\n+        mp_drawing_styles = mp.solutions.drawing_styles\n+        mp_face_detection = mp.solutions.face_detection\n+        mp_face_mesh = mp.solutions.face_mesh\n+        mp_face_connections = mp.solutions.face_mesh_connections.FACEMESH_TESSELATION\n+        mp_hand_connections = mp.solutions.hands_connections.HAND_CONNECTIONS\n+        mp_body_connections = mp.solutions.pose_connections.POSE_CONNECTIONS\n+\n+        DrawingSpec = mp.solutions.drawing_styles.DrawingSpec\n+        PoseLandmark = mp.solutions.drawing_styles.PoseLandmark\n \n     min_face_size_pixels: int = 64\n     f_thick = 2\n@@ -28,25 +57,143 @@\n     mouth_draw = DrawingSpec(color=(10, 180, 10), thickness=f_thick, circle_radius=f_rad)\n     head_draw = DrawingSpec(color=(10, 200, 10), thickness=f_thick, circle_radius=f_rad)\n \n-    # mp_face_mesh.FACEMESH_CONTOURS has all the items we care about.\n+    # Face connection specifications\n     face_connection_spec = {}\n-    for edge in mp_face_mesh.FACEMESH_FACE_OVAL:\n-        face_connection_spec[edge] = head_draw\n-    for edge in mp_face_mesh.FACEMESH_LEFT_EYE:\n-        face_connection_spec[edge] = left_eye_draw\n-    for edge in mp_face_mesh.FACEMESH_LEFT_EYEBROW:\n-        face_connection_spec[edge] = left_eyebrow_draw\n-    # for edge in mp_face_mesh.FACEMESH_LEFT_IRIS:\n-    #    face_connection_spec[edge] = left_iris_draw\n-    for edge in mp_face_mesh.FACEMESH_RIGHT_EYE:\n-        face_connection_spec[edge] = right_eye_draw\n-    for edge in mp_face_mesh.FACEMESH_RIGHT_EYEBROW:\n-        face_connection_spec[edge] = right_eyebrow_draw\n-    # for edge in mp_face_mesh.FACEMESH_RIGHT_IRIS:\n-    #    face_connection_spec[edge] = right_iris_draw\n-    for edge in mp_face_mesh.FACEMESH_LIPS:\n-        face_connection_spec[edge] = mouth_draw\n-    iris_landmark_spec = {468: right_iris_draw, 473: left_iris_draw}\n+    \n+    if USE_NEW_API:\n+        # New API face mesh connections - use tuples instead of Connection objects for hashability\n+        for edge in mp.tasks.vision.FaceLandmarksConnections.FACE_LANDMARKS_FACE_OVAL:\n+            face_connection_spec[(edge.start, edge.end)] = head_draw\n+        for edge in mp.tasks.vision.FaceLandmarksConnections.FACE_LANDMARKS_LEFT_EYE:\n+            face_connection_spec[(edge.start, edge.end)] = left_eye_draw\n+        for edge in mp.tasks.vision.FaceLandmarksConnections.FACE_LANDMARKS_LEFT_EYEBROW:\n+            face_connection_spec[(edge.start, edge.end)] = left_eyebrow_draw\n+        for edge in mp.tasks.vision.FaceLandmarksConnections.FACE_LANDMARKS_RIGHT_EYE:\n+            face_connection_spec[(edge.start, edge.end)] = right_eye_draw\n+        for edge in mp.tasks.vision.FaceLandmarksConnections.FACE_LANDMARKS_RIGHT_EYEBROW:\n+            face_connection_spec[(edge.start, edge.end)] = right_eyebrow_draw\n+        for edge in mp.tasks.vision.FaceLandmarksConnections.FACE_LANDMARKS_LIPS:\n+            face_connection_spec[(edge.start, edge.end)] = mouth_draw\n+        iris_landmark_spec = {468: right_iris_draw, 473: left_iris_draw}\n+    else:\n+        # Old API face mesh connections\n+        for edge in mp_face_mesh.FACEMESH_FACE_OVAL:\n+            face_connection_spec[edge] = head_draw\n+        for edge in mp_face_mesh.FACEMESH_LEFT_EYE:\n+            face_connection_spec[edge] = left_eye_draw\n+        for edge in mp_face_mesh.FACEMESH_LEFT_EYEBROW:\n+            face_connection_spec[edge] = left_eyebrow_draw\n+        for edge in mp_face_mesh.FACEMESH_RIGHT_EYE:\n+            face_connection_spec[edge] = right_eye_draw\n+        for edge in mp_face_mesh.FACEMESH_RIGHT_EYEBROW:\n+            face_connection_spec[edge] = right_eyebrow_draw\n+        for edge in mp_face_mesh.FACEMESH_LIPS:\n+            face_connection_spec[edge] = mouth_draw\n+        iris_landmark_spec = {468: right_iris_draw, 473: left_iris_draw}\n+\n+\n+class FaceMeshWrapper:\n+    \"\"\"Wrapper for MediaPipe FaceMesh that provides backward compatibility.\"\"\"\n+    \n+    def __init__(self, static_image_mode=True, max_num_faces=1, refine_landmarks=True, min_detection_confidence=0.5):\n+        self.static_image_mode = static_image_mode\n+        self.max_num_faces = max_num_faces\n+        self.refine_landmarks = refine_landmarks\n+        self.min_detection_confidence = min_detection_confidence\n+        \n+        if USE_NEW_API:\n+            self._init_new_api()\n+        else:\n+            self._init_old_api()\n+    \n+    def _init_new_api(self):\n+        \"\"\"Initialize the new MediaPipe API.\"\"\"\n+        try:\n+            # Create face landmarker options\n+            base_options = mp.tasks.BaseOptions(model_asset_path=\"face_landmarker.task\")\n+            options = mp.tasks.vision.FaceLandmarkerOptions(\n+                base_options=base_options,\n+                output_face_blendshapes=False,\n+                output_facial_transformation_matrixes=False,\n+                num_faces=self.max_num_faces,\n+                min_face_detection_confidence=self.min_detection_confidence\n+            )\n+            self.landmarker = mp.tasks.vision.FaceLandmarker.create_from_options(options)\n+        except Exception as e:\n+            warnings.warn(f\"Could not initialize new MediaPipe API: {e}. Falling back to old API.\")\n+            self._init_old_api()\n+    \n+    def _init_old_api(self):\n+        \"\"\"Initialize the old MediaPipe API.\"\"\"\n+        self.facemesh = mp.solutions.face_mesh.FaceMesh(\n+            static_image_mode=self.static_image_mode,\n+            max_num_faces=self.max_num_faces,\n+            refine_landmarks=self.refine_landmarks,\n+            min_detection_confidence=self.min_detection_confidence,\n+        )\n+    \n+    def process(self, image):\n+        \"\"\"Process an image and return face landmarks.\"\"\"\n+        if USE_NEW_API and hasattr(self, 'landmarker'):\n+            return self._process_new_api(image)\n+        else:\n+            return self._process_old_api(image)\n+    \n+    def _process_new_api(self, image):\n+        \"\"\"Process image using new MediaPipe API.\"\"\"\n+        try:\n+            # Convert numpy array to MediaPipe Image\n+            mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=image)\n+            \n+            # Process the image\n+            detection_result = self.landmarker.detect(mp_image)\n+            \n+            # Convert result to old API format\n+            result = MediaPipeResultWrapper(detection_result)\n+            return result\n+            \n+        except Exception as e:\n+            warnings.warn(f\"Error in new API processing: {e}. Falling back to old API.\")\n+            return self._process_old_api(image)\n+    \n+    def _process_old_api(self, image):\n+        \"\"\"Process image using old MediaPipe API.\"\"\"\n+        return self.facemesh.process(image)\n+    \n+    def __enter__(self):\n+        return self\n+    \n+    def __exit__(self, exc_type, exc_val, exc_tb):\n+        if USE_NEW_API and hasattr(self, 'landmarker'):\n+            self.landmarker.close()\n+        elif hasattr(self, 'facemesh'):\n+            self.facemesh.close()\n+\n+\n+class MediaPipeResultWrapper:\n+    \"\"\"Wrapper for MediaPipe detection results to maintain compatibility.\"\"\"\n+    \n+    def __init__(self, detection_result):\n+        self.detection_result = detection_result\n+        self.multi_face_landmarks = []\n+        \n+        if USE_NEW_API and detection_result.face_landmarks:\n+            for face_landmarks in detection_result.face_landmarks:\n+                # Convert to old API format\n+                landmark_list = landmark_pb2.NormalizedLandmarkList()\n+                for landmark in face_landmarks:\n+                    normalized_landmark = landmark_pb2.NormalizedLandmark(\n+                        x=landmark.x,\n+                        y=landmark.y,\n+                        z=landmark.z,\n+                        visibility=getattr(landmark, 'visibility', 1.0),\n+                        presence=getattr(landmark, 'presence', 1.0)\n+                    )\n+                    landmark_list.landmark.append(normalized_landmark)\n+                self.multi_face_landmarks.append(landmark_list)\n+        elif not USE_NEW_API:\n+            # For old API, just pass through\n+            self.multi_face_landmarks = detection_result.multi_face_landmarks\n \n \n def draw_pupils(image, landmark_list, drawing_spec, halfwidth: int = 2):\n@@ -95,62 +242,67 @@ def generate_annotation(\n     If min_face_size_pixels is provided and nonzero it will be used to filter faces that occupy less than this many\n     pixels in the image.\n     \"\"\"\n-    with mp_face_mesh.FaceMesh(\n-            static_image_mode=True,\n-            max_num_faces=max_faces,\n-            refine_landmarks=True,\n-            min_detection_confidence=min_confidence,\n-    ) as facemesh:\n-        img_height, img_width, img_channels = img_rgb.shape\n-        assert(img_channels == 3)\n-\n-        results = facemesh.process(img_rgb).multi_face_landmarks\n-\n-        if results is None:\n-            print(\"No faces detected in controlnet image for Mediapipe face annotator.\")\n-            return numpy.zeros_like(img_rgb)\n-\n-        # Filter faces that are too small\n-        filtered_landmarks = []\n-        for lm in results:\n-            landmarks = lm.landmark\n-            face_rect = [\n-                landmarks[0].x,\n-                landmarks[0].y,\n-                landmarks[0].x,\n-                landmarks[0].y,\n-            ]  # Left, up, right, down.\n-            for i in range(len(landmarks)):\n-                face_rect[0] = min(face_rect[0], landmarks[i].x)\n-                face_rect[1] = min(face_rect[1], landmarks[i].y)\n-                face_rect[2] = max(face_rect[2], landmarks[i].x)\n-                face_rect[3] = max(face_rect[3], landmarks[i].y)\n-            if min_face_size_pixels > 0:\n-                face_width = abs(face_rect[2] - face_rect[0])\n-                face_height = abs(face_rect[3] - face_rect[1])\n-                face_width_pixels = face_width * img_width\n-                face_height_pixels = face_height * img_height\n-                face_size = min(face_width_pixels, face_height_pixels)\n-                if face_size >= min_face_size_pixels:\n+    try:\n+        with FaceMeshWrapper(\n+                static_image_mode=True,\n+                max_num_faces=max_faces,\n+                refine_landmarks=True,\n+                min_detection_confidence=min_confidence,\n+        ) as facemesh:\n+            img_height, img_width, img_channels = img_rgb.shape\n+            assert(img_channels == 3)\n+\n+            results = facemesh.process(img_rgb)\n+\n+            if results is None or not results.multi_face_landmarks:\n+                print(\"No faces detected in controlnet image for Mediapipe face annotator.\")\n+                return numpy.zeros_like(img_rgb)\n+\n+            # Filter faces that are too small\n+            filtered_landmarks = []\n+            for lm in results.multi_face_landmarks:\n+                landmarks = lm.landmark\n+                face_rect = [\n+                    landmarks[0].x,\n+                    landmarks[0].y,\n+                    landmarks[0].x,\n+                    landmarks[0].y,\n+                ]  # Left, up, right, down.\n+                for i in range(len(landmarks)):\n+                    face_rect[0] = min(face_rect[0], landmarks[i].x)\n+                    face_rect[1] = min(face_rect[1], landmarks[i].y)\n+                    face_rect[2] = max(face_rect[2], landmarks[i].x)\n+                    face_rect[3] = max(face_rect[3], landmarks[i].y)\n+                if min_face_size_pixels > 0:\n+                    face_width = abs(face_rect[2] - face_rect[0])\n+                    face_height = abs(face_rect[3] - face_rect[1])\n+                    face_width_pixels = face_width * img_width\n+                    face_height_pixels = face_height * img_height\n+                    face_size = min(face_width_pixels, face_height_pixels)\n+                    if face_size >= min_face_size_pixels:\n+                        filtered_landmarks.append(lm)\n+                else:\n                     filtered_landmarks.append(lm)\n-            else:\n-                filtered_landmarks.append(lm)\n-\n-        # Annotations are drawn in BGR for some reason, but we don't need to flip a zero-filled image at the start.\n-        empty = numpy.zeros_like(img_rgb)\n-\n-        # Draw detected faces:\n-        for face_landmarks in filtered_landmarks:\n-            mp_drawing.draw_landmarks(\n-                empty,\n-                face_landmarks,\n-                connections=face_connection_spec.keys(),\n-                landmark_drawing_spec=None,\n-                connection_drawing_spec=face_connection_spec\n-            )\n-            draw_pupils(empty, face_landmarks, iris_landmark_spec, 2)\n \n-        # Flip BGR back to RGB.\n-        empty = reverse_channels(empty).copy()\n+            # Annotations are drawn in BGR for some reason, but we don't need to flip a zero-filled image at the start.\n+            empty = numpy.zeros_like(img_rgb)\n+\n+            # Draw detected faces:\n+            for face_landmarks in filtered_landmarks:\n+                mp_drawing.draw_landmarks(\n+                    empty,\n+                    face_landmarks,\n+                    connections=face_connection_spec.keys(),\n+                    landmark_drawing_spec=None,\n+                    connection_drawing_spec=face_connection_spec\n+                )\n+                draw_pupils(empty, face_landmarks, iris_landmark_spec, 2)\n+\n+            # Flip BGR back to RGB.\n+            empty = reverse_channels(empty).copy()\n \n-        return empty\n\\ No newline at end of file\n+            return empty\n+            \n+    except Exception as e:\n+        warnings.warn(f\"Error in generate_annotation: {e}\")\n+        return numpy.zeros_like(img_rgb)\n\\ No newline at end of file"
+    }
+  ]
+}

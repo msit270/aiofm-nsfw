@@ -1,0 +1,78 @@
+{
+ "baseline_face_box_xyxy": [
+  812,
+  282,
+  1144,
+  720
+ ],
+ "baseline_face_conf": 0.8652,
+ "note": "face box detected per image (CPU YOLO); crop metrics use the baseline box on both sides; arm det recorded; measured on the delivered 505 frame + TAP163 separately",
+ "arms": {
+  "baseline_ships": {
+   "png": "n505__HasMetadata_00003_.png",
+   "det_xyxy": [
+    812,
+    282,
+    1144,
+    720
+   ],
+   "det_conf": 0.8652,
+   "health": {
+    "flat_frac": 0.0015,
+    "median_rgb": [
+     126,
+     88,
+     67
+    ],
+    "luma_sd": 41.95
+   },
+   "face_centre_moved_px": 0.0,
+   "face_moved_flag": false
+  },
+  "blend87_050": {
+   "png": "n505__HasMetadata_00002_.png",
+   "det_xyxy": [
+    811,
+    280,
+    1145,
+    720
+   ],
+   "det_conf": 0.8648,
+   "health": {
+    "flat_frac": 0.0128,
+    "median_rgb": [
+     127,
+     91,
+     68
+    ],
+    "luma_sd": 41.78
+   },
+   "face_centre_moved_px": 1.0,
+   "face_moved_flag": false,
+   "vs_baseline_full": {
+    "psnr_db": 38.48,
+    "ssim": 0.9506,
+    "mean_abs": 2.181,
+    "max_abs": 123,
+    "pct_gt_1": 80.42,
+    "pct_gt_8": 1.96
+   },
+   "vs_baseline_face": {
+    "psnr_db": 35.19,
+    "ssim": 0.9078,
+    "mean_abs": 3.264,
+    "max_abs": 94,
+    "pct_gt_1": 88.08,
+    "pct_gt_8": 7.77
+   },
+   "vs_baseline_tap163_full": {
+    "psnr_db": 38.47,
+    "ssim": 0.9506,
+    "mean_abs": 2.182,
+    "max_abs": 123,
+    "pct_gt_1": 80.41,
+    "pct_gt_8": 1.97
+   }
+  }
+ }
+}

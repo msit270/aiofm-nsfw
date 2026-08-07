@@ -1,0 +1,18 @@
+{
+  "name": "requirements.txt",
+  "path": "requirements.txt",
+  "sha": "934fbffd871457645f11bf3891f2692c71665115",
+  "size": 532,
+  "url": "https://api.github.com/repos/Comfy-Org/ComfyUI/contents/requirements.txt?ref=v0.30.0",
+  "html_url": "https://github.com/Comfy-Org/ComfyUI/blob/v0.30.0/requirements.txt",
+  "git_url": "https://api.github.com/repos/Comfy-Org/ComfyUI/git/blobs/934fbffd871457645f11bf3891f2692c71665115",
+  "download_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/v0.30.0/requirements.txt",
+  "type": "file",
+  "content": "Y29tZnl1aS1mcm9udGVuZC1wYWNrYWdlPT0xLjQ3LjExCmNvbWZ5dWktd29y\na2Zsb3ctdGVtcGxhdGVzPT0wLjExLjI3CmNvbWZ5dWktZW1iZWRkZWQtZG9j\ncz09MC41LjkKdG9yY2gKdG9yY2hzZGUKdG9yY2h2aXNpb24KdG9yY2hhdWRp\nbwpudW1weT49MS4yNS4wCmVpbm9wcwp0cmFuc2Zvcm1lcnM+PTQuNTAuMwp0\nb2tlbml6ZXJzPj0wLjEzLjMKc2VudGVuY2VwaWVjZQpzYWZldGVuc29ycz49\nMC40LjIKYWlvaHR0cD49My4xMS44Cnlhcmw+PTEuMTguMApweXlhbWwKUGls\nbG93CnNjaXB5CnRxZG0KcHN1dGlsCmFsZW1iaWMKU1FMQWxjaGVteT49Mi4w\nLjAKZmlsZWxvY2sKYXY+PTE2LjAuMApjb21meS1raXRjaGVuPT0wLjIuMjYK\nY29tZnktYWltZG89PTAuNC4xMQpyZXF1ZXN0cwpzaW1wbGVldmFsPj0xLjAu\nMApibGFrZTMKCiNub24gZXNzZW50aWFsIGRlcGVuZGVuY2llczoKa29ybmlh\nPj0wLjcuMQpzcGFuZHJlbApweWRhbnRpY349Mi4wCnB5ZGFudGljLXNldHRp\nbmdzfj0yLjAKUHlPcGVuR0w+PTMuMS44CmNvbWZ5LWFuZ2xlCg==\n",
+  "encoding": "base64",
+  "_links": {
+    "self": "https://api.github.com/repos/Comfy-Org/ComfyUI/contents/requirements.txt?ref=v0.30.0",
+    "git": "https://api.github.com/repos/Comfy-Org/ComfyUI/git/blobs/934fbffd871457645f11bf3891f2692c71665115",
+    "html": "https://github.com/Comfy-Org/ComfyUI/blob/v0.30.0/requirements.txt"
+  }
+}

@@ -1,0 +1,123 @@
+{
+ "/workspace/nsfw-fix/results/run3/arms/R3_AB_guard_16/nTAP163__tap163_00003_.png": {
+  "mp_lips_box": [
+   1255.9,
+   1210.9,
+   1487.5,
+   1309.2
+  ],
+  "yolo_conf": 0.842,
+  "iou_vs_yolo": 0.562
+ },
+ "/workspace/nsfw-fix/results/run3/arms/R3_AB_unguard_16/nTAP163__ftap163_00007_.png": {
+  "mp_lips_box": [
+   1255.9,
+   1210.9,
+   1487.5,
+   1309.2
+  ],
+  "yolo_conf": 0.842,
+  "iou_vs_yolo": 0.562
+ },
+ "/workspace/nsfw-fix/results/run3/arms/R3_DEFAULT_16/nTAP163__tap163_00008_.png": {
+  "mp_lips_box": [
+   1256.5,
+   1211.2,
+   1488.0,
+   1307.5
+  ],
+  "yolo_conf": 0.836,
+  "iou_vs_yolo": 0.5464
+ },
+ "/workspace/nsfw-fix/results/run3/arms/R3_DUAL_16/nTAP163__tap163_00007_.png": {
+  "mp_lips_box": [
+   1255.9,
+   1210.9,
+   1487.5,
+   1309.2
+  ],
+  "yolo_conf": 0.842,
+  "iou_vs_yolo": 0.562
+ },
+ "/workspace/nsfw-fix/results/run3/arms/R3_DUAL_46/nTAP163__tap163_00009_.png": {
+  "mp_lips_box": [
+   1257.4,
+   1212.1,
+   1488.1,
+   1307.5
+  ],
+  "yolo_conf": 0.8382,
+  "iou_vs_yolo": 0.5476
+ },
+ "/workspace/nsfw-fix/results/run3/arms/R3_FORCED_guard/nTAP163__tap163_00001_.png": {
+  "mp_lips_box": [
+   1255.9,
+   1210.9,
+   1487.5,
+   1309.2
+  ],
+  "yolo_conf": 0.842,
+  "iou_vs_yolo": 0.562
+ },
+ "/workspace/nsfw-fix/results/run3/arms/R3_FORCED_unguard/nTAP163__ftap163_00006_.png": {
+  "mp_lips_box": [
+   1255.9,
+   1210.9,
+   1487.5,
+   1309.2
+  ],
+  "yolo_conf": 0.842,
+  "iou_vs_yolo": 0.562
+ },
+ "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_103/nTAP163__tap163_00005_.png": {
+  "mp_lips_box": [
+   1256.5,
+   1211.7,
+   1487.8,
+   1308.7
+  ],
+  "yolo_conf": 0.8448,
+  "iou_vs_yolo": 0.5569
+ },
+ "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_110/nTAP163__tap163_00006_.png": {
+  "mp_lips_box": [
+   1255.4,
+   1211.2,
+   1486.9,
+   1308.7
+  ],
+  "yolo_conf": 0.8448,
+  "iou_vs_yolo": 0.5565
+ },
+ "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_46/nTAP163__tap163_00004_.png": {
+  "mp_lips_box": [
+   1257.4,
+   1212.1,
+   1488.1,
+   1307.5
+  ],
+  "yolo_conf": 0.8382,
+  "iou_vs_yolo": 0.5476
+ },
+ "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_mid46/nTAP163__tap163_00002_.png": {
+  "mp_lips_box": [
+   1256.1,
+   1211.2,
+   1487.4,
+   1308.6
+  ],
+  "yolo_conf": 0.8412,
+  "iou_vs_yolo": 0.5597
+ },
+ "/workspace/nsfw-fix/results/run3/arms/R3_PC_head_103/nTAP163__ftap163_00004_.png": {
+  "mp_lips_box": [
+   1256.5,
+   1211.7,
+   1487.8,
+   1308.7
+  ],
+  "yolo_conf": 0.8448,
+  "iou_vs_yolo": 0.5569
+ },
+ "/workspace/nsfw-fix/results/run3/arms/R3_PC_mid_46/nTAP163__ftap163_00005_.png": null
+}

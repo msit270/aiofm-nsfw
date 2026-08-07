@@ -1,0 +1,106 @@
+{
+ "arm": "blend87_050",
+ "param": "#87 ImageBlend blend_factor 1.0 -> 0.5 (skin filter half strength)",
+ "baseline": false,
+ "prompt_id": "2ac0cd20-0f2f-4ac7-9aaa-4757073e72ca",
+ "client_id": "q4-blend87_050-92fef051",
+ "server_pid": 308352,
+ "boot_seconds": 10.0,
+ "wall_seconds": 270.8,
+ "exec_seconds": 270.3,
+ "status": "success",
+ "cached_nodes": [],
+ "cached": 0,
+ "error": null,
+ "error_node": null,
+ "peak_vram_mib": 21752,
+ "peak_vram_node": "505",
+ "overrides": {
+  "587:87": {
+   "blend_factor": 0.5
+  }
+ },
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00001_.png",
+   "subfolder": "q4tap",
+   "type": "output"
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00002_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "image": "n505__HasMetadata_00002_.png",
+ "graph_sha_note": "built from api_final.json (see module docstring)",
+ "health": {
+  "flat_frac": 0.0128,
+  "median_rgb": [
+   127,
+   91,
+   68
+  ],
+  "luma_sd": 41.78
+ },
+ "det": {
+  "xyxy": [
+   811,
+   280,
+   1145,
+   720
+  ],
+  "conf": 0.8648
+ },
+ "vs_baseline_face": {
+  "psnr_db": 35.19,
+  "ssim": 0.9078,
+  "mean_abs": 3.264,
+  "max_abs": 94,
+  "pct_gt_1": 88.08,
+  "pct_gt_8": 7.77
+ },
+ "vs_baseline_full": {
+  "psnr_db": 38.48,
+  "ssim": 0.9506,
+  "mean_abs": 2.181,
+  "max_abs": 123,
+  "pct_gt_1": 80.42,
+  "pct_gt_8": 1.96
+ },
+ "vram_max_by_node": {
+  "505": 21752,
+  "419": 21752,
+  "620:111": 21592,
+  "622:406": 20152,
+  "620:114": 19992,
+  "620:165": 19864,
+  "621:163": 19864,
+  "622:424": 19864,
+  "621:166": 19544,
+  "622:398": 19544,
+  "622:410": 19544,
+  "587:98": 18776,
+  "620:137": 18776,
+  "620:110": 18776,
+  "619:617": 12790,
+  "619:593": 12404,
+  "619:595": 12404,
+  "587:91": 8536,
+  "619:607": 8086,
+  "587:92": 7960,
+  "619:592": 7762,
+  "587:508": 7704,
+  "620:105": 7640,
+  "620:106": 7640,
+  "620:109": 7640,
+  "620:113": 7640,
+  "619:600": 7444,
+  "619:612": 2440,
+  "587:93": 2408,
+  "(pre-exec/model-load)": 550,
+  "619:613": 550
+ }
+}

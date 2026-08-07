@@ -1,0 +1,181 @@
+{
+  "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Subpack/compare/50c7b71a6a224734cc9b21963c6d1926816a97f1...main",
+  "html_url": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack/compare/50c7b71a6a224734cc9b21963c6d1926816a97f1...main",
+  "permalink_url": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack/compare/ltdrdata:50c7b71...ltdrdata:50c7b71",
+  "diff_url": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack/compare/50c7b71a6a224734cc9b21963c6d1926816a97f1...main.diff",
+  "patch_url": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack/compare/50c7b71a6a224734cc9b21963c6d1926816a97f1...main.patch",
+  "base_commit": {
+    "sha": "50c7b71a6a224734cc9b21963c6d1926816a97f1",
+    "node_id": "C_kwDOJ-pyFtoAKDUwYzdiNzFhNmEyMjQ3MzRjYzliMjE5NjNjNmQxOTI2ODE2YTk3ZjE",
+    "commit": {
+      "author": {
+        "name": "Dr.Lt.Data",
+        "email": "dr.lt.data@gmail.com",
+        "date": "2025-07-22T03:43:06Z"
+      },
+      "committer": {
+        "name": "Dr.Lt.Data",
+        "email": "dr.lt.data@gmail.com",
+        "date": "2025-07-22T03:43:06Z"
+      },
+      "message": "fixed: removed the `torch_whitelist` related logic and updated the ultralytics dependency to version 8.3.162 or higher\n\nhttps://github.com/ltdrdata/ComfyUI-Impact-Subpack/issues/69",
+      "tree": {
+        "sha": "299338e342f2c1af8dc0fa2dc2857a2c7d508407",
+        "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Subpack/git/trees/299338e342f2c1af8dc0fa2dc2857a2c7d508407"
+      },
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Subpack/git/commits/50c7b71a6a224734cc9b21963c6d1926816a97f1",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Subpack/commits/50c7b71a6a224734cc9b21963c6d1926816a97f1",
+    "html_url": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack/commit/50c7b71a6a224734cc9b21963c6d1926816a97f1",
+    "comments_url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Subpack/commits/50c7b71a6a224734cc9b21963c6d1926816a97f1/comments",
+    "author": {
+      "login": "ltdrdata",
+      "id": 128333288,
+      "node_id": "U_kgDOB6Y16A",
+      "avatar_url": "https://avatars.githubusercontent.com/u/128333288?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ltdrdata",
+      "html_url": "https://github.com/ltdrdata",
+      "followers_url": "https://api.github.com/users/ltdrdata/followers",
+      "following_url": "https://api.github.com/users/ltdrdata/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ltdrdata/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ltdrdata/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ltdrdata/subscriptions",
+      "organizations_url": "https://api.github.com/users/ltdrdata/orgs",
+      "repos_url": "https://api.github.com/users/ltdrdata/repos",
+      "events_url": "https://api.github.com/users/ltdrdata/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ltdrdata/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ltdrdata",
+      "id": 128333288,
+      "node_id": "U_kgDOB6Y16A",
+      "avatar_url": "https://avatars.githubusercontent.com/u/128333288?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ltdrdata",
+      "html_url": "https://github.com/ltdrdata",
+      "followers_url": "https://api.github.com/users/ltdrdata/followers",
+      "following_url": "https://api.github.com/users/ltdrdata/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ltdrdata/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ltdrdata/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ltdrdata/subscriptions",
+      "organizations_url": "https://api.github.com/users/ltdrdata/orgs",
+      "repos_url": "https://api.github.com/users/ltdrdata/repos",
+      "events_url": "https://api.github.com/users/ltdrdata/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ltdrdata/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5b4e55058ae48e18e1c6d974000461ad1e240135",
+        "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Subpack/commits/5b4e55058ae48e18e1c6d974000461ad1e240135",
+        "html_url": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack/commit/5b4e55058ae48e18e1c6d974000461ad1e240135"
+      }
+    ]
+  },
+  "merge_base_commit": {
+    "sha": "50c7b71a6a224734cc9b21963c6d1926816a97f1",
+    "node_id": "C_kwDOJ-pyFtoAKDUwYzdiNzFhNmEyMjQ3MzRjYzliMjE5NjNjNmQxOTI2ODE2YTk3ZjE",
+    "commit": {
+      "author": {
+        "name": "Dr.Lt.Data",
+        "email": "dr.lt.data@gmail.com",
+        "date": "2025-07-22T03:43:06Z"
+      },
+      "committer": {
+        "name": "Dr.Lt.Data",
+        "email": "dr.lt.data@gmail.com",
+        "date": "2025-07-22T03:43:06Z"
+      },
+      "message": "fixed: removed the `torch_whitelist` related logic and updated the ultralytics dependency to version 8.3.162 or higher\n\nhttps://github.com/ltdrdata/ComfyUI-Impact-Subpack/issues/69",
+      "tree": {
+        "sha": "299338e342f2c1af8dc0fa2dc2857a2c7d508407",
+        "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Subpack/git/trees/299338e342f2c1af8dc0fa2dc2857a2c7d508407"
+      },
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Subpack/git/commits/50c7b71a6a224734cc9b21963c6d1926816a97f1",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Subpack/commits/50c7b71a6a224734cc9b21963c6d1926816a97f1",
+    "html_url": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack/commit/50c7b71a6a224734cc9b21963c6d1926816a97f1",
+    "comments_url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Subpack/commits/50c7b71a6a224734cc9b21963c6d1926816a97f1/comments",
+    "author": {
+      "login": "ltdrdata",
+      "id": 128333288,
+      "node_id": "U_kgDOB6Y16A",
+      "avatar_url": "https://avatars.githubusercontent.com/u/128333288?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ltdrdata",
+      "html_url": "https://github.com/ltdrdata",
+      "followers_url": "https://api.github.com/users/ltdrdata/followers",
+      "following_url": "https://api.github.com/users/ltdrdata/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ltdrdata/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ltdrdata/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ltdrdata/subscriptions",
+      "organizations_url": "https://api.github.com/users/ltdrdata/orgs",
+      "repos_url": "https://api.github.com/users/ltdrdata/repos",
+      "events_url": "https://api.github.com/users/ltdrdata/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ltdrdata/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ltdrdata",
+      "id": 128333288,
+      "node_id": "U_kgDOB6Y16A",
+      "avatar_url": "https://avatars.githubusercontent.com/u/128333288?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ltdrdata",
+      "html_url": "https://github.com/ltdrdata",
+      "followers_url": "https://api.github.com/users/ltdrdata/followers",
+      "following_url": "https://api.github.com/users/ltdrdata/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ltdrdata/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ltdrdata/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ltdrdata/subscriptions",
+      "organizations_url": "https://api.github.com/users/ltdrdata/orgs",
+      "repos_url": "https://api.github.com/users/ltdrdata/repos",
+      "events_url": "https://api.github.com/users/ltdrdata/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ltdrdata/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5b4e55058ae48e18e1c6d974000461ad1e240135",
+        "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Subpack/commits/5b4e55058ae48e18e1c6d974000461ad1e240135",
+        "html_url": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack/commit/5b4e55058ae48e18e1c6d974000461ad1e240135"
+      }
+    ]
+  },
+  "status": "identical",
+  "ahead_by": 0,
+  "behind_by": 0,
+  "total_commits": 0,
+  "commits": [
+
+  ],
+  "files": [
+
+  ]
+}

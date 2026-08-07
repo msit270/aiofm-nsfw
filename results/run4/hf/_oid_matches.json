@@ -1,0 +1,290 @@
+{
+  "matches": {
+    "2407613050b809ffdff18a4ac99af83ea6b95443ecebdf80e064a79c825574a6": [
+      {
+        "repo": "Comfy-Org/z_image_turbo",
+        "path": "split_files/diffusion_models/z_image_turbo_bf16.safetensors",
+        "size": 12309866400
+      }
+    ],
+    "6c671498573ac2f7a5501502ccce8d2b08ea6ca2f661c458e708f36b36edfc5a": [
+      {
+        "repo": "Comfy-Org/z_image_turbo",
+        "path": "split_files/text_encoders/qwen_3_4b.safetensors",
+        "size": 8044982048
+      }
+    ],
+    "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38": [
+      {
+        "repo": "Comfy-Org/z_image_turbo",
+        "path": "split_files/vae/ae.safetensors",
+        "size": 335304388
+      }
+    ],
+    "7d37cb0120488dec2a061135aa3018426925318a60838c3de935c829abc88667": [
+      {
+        "repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+        "path": "split_files/diffusion_models/wan2.2_animate_14B_bf16.safetensors",
+        "size": 34549787368
+      }
+    ],
+    "5f4b6b9d3bc745a86e7bfd511f3880d90cf59c3bded9584d92c028f583fa74a3": [
+      {
+        "repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+        "path": "split_files/loras/wan2.2_animate_14B_relight_lora_bf16.safetensors",
+        "size": 1436673432
+      }
+    ],
+    "024f21de095bc8fad9809ded3e9e49a2e170dcf27075da8145ba7d60d8aab7f9": [
+      {
+        "repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+        "path": "split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors",
+        "size": 1226977424
+      },
+      {
+        "repo": "lightx2v/Wan2.2-Lightning",
+        "path": "Wan2.2-I2V-A14B-4steps-lora-rank64-Seko-V1/low_noise_model.safetensors",
+        "size": 1226977424
+      }
+    ],
+    "c3355d30191f1f066b26d93fba017ae9809dce6c627dda5f6a66eaa651204f68": [
+      {
+        "repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+        "path": "split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "size": 6735906897
+      },
+      {
+        "repo": "Comfy-Org/Wan_2.1_ComfyUI_repackaged",
+        "path": "split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "size": 6735906897
+      }
+    ],
+    "64a7ef761bfccbadbaa3da77366aac4185a6c58fa5de5f589b42a65bcc21f161": [
+      {
+        "repo": "Comfy-Org/Wan_2.1_ComfyUI_repackaged",
+        "path": "split_files/clip_vision/clip_vision_h.safetensors",
+        "size": 1264219396
+      }
+    ],
+    "0bda20598ece84b0b2f2385204e1f2e32b1fd2e2648662021be832fe1f227fab": [
+      {
+        "repo": "Kijai/WanVideo_comfy",
+        "path": "Lightx2v/lightx2v_T2V_14B_cfg_step_distill_v2_lora_rank256_bf16.safetensors",
+        "size": 2498181128
+      }
+    ],
+    "a510b5562e05efa831127bd6a6b3aecf1c4747cffdddcc0b28f88c0667ef1694": [
+      {
+        "repo": "Kijai/WanVideo_comfy",
+        "path": "Pusa/Wan21_PusaV1_LoRA_14B_rank512_bf16.safetensors",
+        "size": 4907437824
+      }
+    ],
+    "4fa971faf306cad919033d5bbe192e571dc08452f800cbf2ec3c73977c01b2cc": [
+      {
+        "repo": "Kijai/WanVideo_comfy",
+        "path": "umt5-xxl-enc-bf16.safetensors",
+        "size": 11361845464
+      }
+    ],
+    "660c6f5b1abae9dc498ac2d21e1347d2abdb0cf6c0c0c8576cd796491d9a6cdd": [
+      {
+        "repo": "comfyanonymous/flux_text_encoders",
+        "path": "clip_l.safetensors",
+        "size": 246144152
+      }
+    ],
+    "7d330da4816157540d6bb7838bf63a0f02f573fc48ca4d8de34bb0cbfd514f09": [
+      {
+        "repo": "comfyanonymous/flux_text_encoders",
+        "path": "t5xxl_fp8_e4m3fn.safetensors",
+        "size": 4893934904
+      }
+    ],
+    "ec3d4e733a771f61c052fb4856c48b336c55eaf2c65487c2a1faeb9bbda7a343": [
+      {
+        "repo": "black-forest-labs/FLUX.2-klein-4B",
+        "path": "flux-2-klein-4b.safetensors",
+        "size": 7751105712
+      }
+    ],
+    "e9476a13728cd75d8279f6ec8bad753a66a1957ca375a1464dc63b37db6e3916": [
+      {
+        "repo": "Comfy-Org/stable-diffusion-v1-5-archive",
+        "path": "v1-5-pruned-emaonly-fp16.safetensors",
+        "size": 2132696762
+      }
+    ],
+    "f6a9e7cb3a87ed65a098b096029e70150408acfafc3d695019a66b289d7719e1": [
+      {
+        "repo": "Kijai/vitpose_comfy",
+        "path": "onnx/vitpose_h_wholebody_data.bin",
+        "size": 2548958740
+      }
+    ],
+    "f21466cd6c93d0066782ad5923c14a4e6569133def212dc2895c73596c2e553b": [
+      {
+        "repo": "Kijai/vitpose_comfy",
+        "path": "onnx/vitpose_h_wholebody_model.onnx",
+        "size": 420252
+      }
+    ],
+    "89b526498a6d55f869a6ab52e3a2eb20ad45b3711c1f7de3dd9ca0b399dfd6d7": [
+      {
+        "repo": "Wan-AI/Wan2.2-Animate-14B",
+        "path": "process_checkpoint/det/yolov10m.onnx",
+        "size": 61659339
+      }
+    ],
+    "b3d9173815a4b595991c3a7a0e0e63ad821080f314a0b2a3cc31ecd7fcf2cbb8": [
+      {
+        "repo": "tianweiy/DMD2",
+        "path": "dmd2_sdxl_4step_lora_fp16.safetensors",
+        "size": 393854592
+      }
+    ],
+    "0335cf48ad654ef79fc14aa97146f0c143c499b0602b2636e2be112f4cd403cf": [
+      {
+        "repo": "Kim2091/UltraSharpV2",
+        "path": "4x-UltraSharpV2.pth",
+        "size": 140335046
+      }
+    ],
+    "0e6ac56c89068386b002b18ab4542207e2c0c431f3c4ac367ae64fece85dd680": [
+      {
+        "repo": "alibaba-pai/Wan2.2-Fun-Reward-LoRAs",
+        "path": "Wan2.2-Fun-A14B-InP-low-noise-MPS.safetensors",
+        "size": 858457436
+      }
+    ]
+  },
+  "targets": {
+    "d234c60d67cedfe69433e3934a459707c2cf43b30232d3db2becd10371d2220f": [
+      "models/checkpoints/SDXLNSFW.safetensors",
+      "models/diffusion_models/SDXLNSFW.safetensors"
+    ],
+    "e9476a13728cd75d8279f6ec8bad753a66a1957ca375a1464dc63b37db6e3916": [
+      "models/checkpoints/v1-5-pruned-emaonly-fp16.safetensors"
+    ],
+    "64a7ef761bfccbadbaa3da77366aac4185a6c58fa5de5f589b42a65bcc21f161": [
+      "models/clip_vision/IronSight_V7.safetensors"
+    ],
+    "f6a9e7cb3a87ed65a098b096029e70150408acfafc3d695019a66b289d7719e1": [
+      "models/detection/vitpose_h_wholebody_data.bin"
+    ],
+    "f21466cd6c93d0066782ad5923c14a4e6569133def212dc2895c73596c2e553b": [
+      "models/detection/vitpose_h_wholebody_model.onnx"
+    ],
+    "89b526498a6d55f869a6ab52e3a2eb20ad45b3711c1f7de3dd9ca0b399dfd6d7": [
+      "models/detection/yolov10m.onnx"
+    ],
+    "f1a2e7b4b65fa918931b9194df6dfc50ab6309ef492394c32c0da5f7ef630870": [
+      "models/diffusion_models/High.safetensors"
+    ],
+    "4e675980ea771ae64b566fa5a81cd8fbecde1a1a7ce8b6f0207e836b6f28c18e": [
+      "models/diffusion_models/HyperFleshUltrav4.safetensors"
+    ],
+    "ae436c2d8c8d19ce51d8070b3f8089aa942441aa16c1d3b22cc65263dd56f67e": [
+      "models/diffusion_models/Low.safetensors"
+    ],
+    "c7c0c6816746f21081054d5b042fb617447227fd5058cb5c2395965da2d3a791": [
+      "models/diffusion_models/Z-TurboSkinForge.safetensors"
+    ],
+    "0975d6b77b5f510b99547d6724a208e36527df654e8f6134f59ece3f9f30da58": [
+      "models/diffusion_models/flux-2.safetensors"
+    ],
+    "ec3d4e733a771f61c052fb4856c48b336c55eaf2c65487c2a1faeb9bbda7a343": [
+      "models/diffusion_models/flux4b.safetensors"
+    ],
+    "7d37cb0120488dec2a061135aa3018426925318a60838c3de935c829abc88667": [
+      "models/diffusion_models/wan2.2_animate_14B_bf16.safetensors"
+    ],
+    "2407613050b809ffdff18a4ac99af83ea6b95443ecebdf80e064a79c825574a6": [
+      "models/diffusion_models/zimage.safetensors"
+    ],
+    "baa378f5766de8fa3e5f7c845e22127e7e5e9e363d57153f15f1a0c85c96dbdf": [
+      "models/loras/DetailedNipples.safetensors"
+    ],
+    "024f21de095bc8fad9809ded3e9e49a2e170dcf27075da8145ba7d60d8aab7f9": [
+      "models/loras/FrostByte_K7.safetensors"
+    ],
+    "0e6ac56c89068386b002b18ab4542207e2c0c431f3c4ac367ae64fece85dd680": [
+      "models/loras/NovaMind_X1.safetensors"
+    ],
+    "a510b5562e05efa831127bd6a6b3aecf1c4747cffdddcc0b28f88c0667ef1694": [
+      "models/loras/PhantomWeave_R5.safetensors"
+    ],
+    "5f4b6b9d3bc745a86e7bfd511f3880d90cf59c3bded9584d92c028f583fa74a3": [
+      "models/loras/SolarFlint_L2.safetensors"
+    ],
+    "da97701b932c33e2f3ae53a889ddc9c8139bd3d5fc12be52c2400478a5d88ee1": [
+      "models/loras/VelvetPores_Flux.safetensors"
+    ],
+    "0bda20598ece84b0b2f2385204e1f2e32b1fd2e2648662021be832fe1f227fab": [
+      "models/loras/VelvetRush_Q4.safetensors"
+    ],
+    "b3d9173815a4b595991c3a7a0e0e63ad821080f314a0b2a3cc31ecd7fcf2cbb8": [
+      "models/loras/dmd2_sdxl_4step_lora_fp16.safetensors"
+    ],
+    "1fd3c728ade7e1dec52f26ab5f860e7efd57abb06f740788f13b5b68bd94edc2": [
+      "models/loras/primary_net_v2.safetensors"
+    ],
+    "fd679d15ba836077264ccd9d7137166d626577fa6ce64a982077627ee22d954f": [
+      "models/loras/x_gen_weights.safetensors"
+    ],
+    "9999e2341ceef5e136daa386eecb55cb414446a00ac2b55eb2dfd2f7c3cf8c9e": [
+      "models/sam3/sam3.pt"
+    ],
+    "4fa971faf306cad919033d5bbe192e571dc08452f800cbf2ec3c73977c01b2cc": [
+      "models/text_encoders/EchoVault_T9.safetensors"
+    ],
+    "7d330da4816157540d6bb7838bf63a0f02f573fc48ca4d8de34bb0cbfd514f09": [
+      "models/text_encoders/TitanFP8.safetensors"
+    ],
+    "660c6f5b1abae9dc498ac2d21e1347d2abdb0cf6c0c0c8576cd796491d9a6cdd": [
+      "models/text_encoders/clip_l.safetensors"
+    ],
+    "70af2493307e38df4f3957811887d037821c4cea3d4230bb7430cd78d90f1ef3": [
+      "models/text_encoders/qwen-4b-zimage-heretic-q8.gguf"
+    ],
+    "6c671498573ac2f7a5501502ccce8d2b08ea6ca2f661c458e708f36b36edfc5a": [
+      "models/text_encoders/qwen.safetensors"
+    ],
+    "c3355d30191f1f066b26d93fba017ae9809dce6c627dda5f6a66eaa651204f68": [
+      "models/text_encoders/umt5.safetensors"
+    ],
+    "ce9fe145352af12c072ee11536a3d0de9425280096c4367e7a08636f57c7fe99": [
+      "models/ultralytics/lips_v1.pt"
+    ],
+    "67e04f8d23cb3e56f94a2b892657e500184a9cceabd7cfad2adeb313c19c5b5c": [
+      "models/ultralytics/nipple.pt"
+    ],
+    "b7c38d3ecf1c743e99a0d42d64d658c203e63b39b824706c1522ebde57533a8b": [
+      "models/ultralytics/pussyV2.pt"
+    ],
+    "0335cf48ad654ef79fc14aa97146f0c143c499b0602b2636e2be112f4cd403cf": [
+      "models/upscale_models/4x-UltraSharpV2.pth"
+    ],
+    "1d1b0078fe71446e0469d8d4df59e96baa80d83cda600d68237d655830821bcc": [
+      "models/upscale_models/4x_NMKD-Superscale-SP_178000_G.pth"
+    ],
+    "a4cd3a25b00e0be949d4302fc774eb4d7f2ed5f47cdb51551e2d75fa6562e51e": [
+      "models/upscale_models/RealityGlass4x.pth"
+    ],
+    "a5812231fc936b42af08a5edba784195495d303d5b3248c24489ef0c4021fe01": [
+      "models/upscale_models/upscale1.pth"
+    ],
+    "94d368b633614958f84f335b129fd85abd30200e8fbc575b859ba6762116222b": [
+      "models/upscale_models/x1_ITF_SkinDiffDetail_Lite_v1.pth"
+    ],
+    "e027f6859a9c0f4dbfbaa9d1f27b1e5f371a5b8462e8d2d74c1ee8c44c20b1a8": [
+      "models/vae/GlassRoot_D2.safetensors"
+    ],
+    "d64f3a68e1cc4f9f4e29b6e0da38a0204fe9a49f2d4053f0ec1fa1ca02f9c4b5": [
+      "models/vae/flux2-vae.safetensors"
+    ],
+    "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38": [
+      "models/vae/variational_encoder_primary.safetensors"
+    ]
+  }
+}

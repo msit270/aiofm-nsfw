@@ -1,0 +1,7 @@
+[F_steps12] waiting for gpu lock ...
+[F_steps12] lock acquired after 408.7s
+[F_steps12] server up (pid 304147) in 10.0s
+[F_steps12] submitted aca81092-ffa5-42b6-808d-e694efcb9296
+[F_steps12] success exec=290.1s cached=[] vram_arm_peak=29752MiB imgs=5
+[F_steps12] lock released
+[F_steps16] waiting for gpu lock ...

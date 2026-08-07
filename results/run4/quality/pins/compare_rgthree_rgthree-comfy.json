@@ -1,0 +1,181 @@
+{
+  "url": "https://api.github.com/repos/rgthree/rgthree-comfy/compare/6b76ee6f2c5a007710b5a16f97c94330d6ecc871...main",
+  "html_url": "https://github.com/rgthree/rgthree-comfy/compare/6b76ee6f2c5a007710b5a16f97c94330d6ecc871...main",
+  "permalink_url": "https://github.com/rgthree/rgthree-comfy/compare/rgthree:6b76ee6...rgthree:6b76ee6",
+  "diff_url": "https://github.com/rgthree/rgthree-comfy/compare/6b76ee6f2c5a007710b5a16f97c94330d6ecc871...main.diff",
+  "patch_url": "https://github.com/rgthree/rgthree-comfy/compare/6b76ee6f2c5a007710b5a16f97c94330d6ecc871...main.patch",
+  "base_commit": {
+    "sha": "6b76ee6f2c5a007710b5a16f97c94330d6ecc871",
+    "node_id": "C_kwDOKGw-FdoAKDZiNzZlZTZmMmM1YTAwNzcxMGI1YTE2Zjk3Yzk0MzMwZDZlY2M4NzE",
+    "commit": {
+      "author": {
+        "name": "rgthree",
+        "email": "regis.gaughan@gmail.com",
+        "date": "2026-07-24T01:29:08Z"
+      },
+      "committer": {
+        "name": "rgthree",
+        "email": "regis.gaughan@gmail.com",
+        "date": "2026-07-24T01:29:38Z"
+      },
+      "message": "Update the updater script to retry branches.",
+      "tree": {
+        "sha": "dec873a1e5926b5c132dce3a841ec970ceead0b6",
+        "url": "https://api.github.com/repos/rgthree/rgthree-comfy/git/trees/dec873a1e5926b5c132dce3a841ec970ceead0b6"
+      },
+      "url": "https://api.github.com/repos/rgthree/rgthree-comfy/git/commits/6b76ee6f2c5a007710b5a16f97c94330d6ecc871",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/rgthree/rgthree-comfy/commits/6b76ee6f2c5a007710b5a16f97c94330d6ecc871",
+    "html_url": "https://github.com/rgthree/rgthree-comfy/commit/6b76ee6f2c5a007710b5a16f97c94330d6ecc871",
+    "comments_url": "https://api.github.com/repos/rgthree/rgthree-comfy/commits/6b76ee6f2c5a007710b5a16f97c94330d6ecc871/comments",
+    "author": {
+      "login": "rgthree",
+      "id": 476360,
+      "node_id": "MDQ6VXNlcjQ3NjM2MA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/476360?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rgthree",
+      "html_url": "https://github.com/rgthree",
+      "followers_url": "https://api.github.com/users/rgthree/followers",
+      "following_url": "https://api.github.com/users/rgthree/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rgthree/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rgthree/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rgthree/subscriptions",
+      "organizations_url": "https://api.github.com/users/rgthree/orgs",
+      "repos_url": "https://api.github.com/users/rgthree/repos",
+      "events_url": "https://api.github.com/users/rgthree/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rgthree/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "rgthree",
+      "id": 476360,
+      "node_id": "MDQ6VXNlcjQ3NjM2MA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/476360?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rgthree",
+      "html_url": "https://github.com/rgthree",
+      "followers_url": "https://api.github.com/users/rgthree/followers",
+      "following_url": "https://api.github.com/users/rgthree/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rgthree/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rgthree/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rgthree/subscriptions",
+      "organizations_url": "https://api.github.com/users/rgthree/orgs",
+      "repos_url": "https://api.github.com/users/rgthree/repos",
+      "events_url": "https://api.github.com/users/rgthree/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rgthree/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "e1628b0619d3c426dbd4274f36160fad0cc0a700",
+        "url": "https://api.github.com/repos/rgthree/rgthree-comfy/commits/e1628b0619d3c426dbd4274f36160fad0cc0a700",
+        "html_url": "https://github.com/rgthree/rgthree-comfy/commit/e1628b0619d3c426dbd4274f36160fad0cc0a700"
+      }
+    ]
+  },
+  "merge_base_commit": {
+    "sha": "6b76ee6f2c5a007710b5a16f97c94330d6ecc871",
+    "node_id": "C_kwDOKGw-FdoAKDZiNzZlZTZmMmM1YTAwNzcxMGI1YTE2Zjk3Yzk0MzMwZDZlY2M4NzE",
+    "commit": {
+      "author": {
+        "name": "rgthree",
+        "email": "regis.gaughan@gmail.com",
+        "date": "2026-07-24T01:29:08Z"
+      },
+      "committer": {
+        "name": "rgthree",
+        "email": "regis.gaughan@gmail.com",
+        "date": "2026-07-24T01:29:38Z"
+      },
+      "message": "Update the updater script to retry branches.",
+      "tree": {
+        "sha": "dec873a1e5926b5c132dce3a841ec970ceead0b6",
+        "url": "https://api.github.com/repos/rgthree/rgthree-comfy/git/trees/dec873a1e5926b5c132dce3a841ec970ceead0b6"
+      },
+      "url": "https://api.github.com/repos/rgthree/rgthree-comfy/git/commits/6b76ee6f2c5a007710b5a16f97c94330d6ecc871",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/rgthree/rgthree-comfy/commits/6b76ee6f2c5a007710b5a16f97c94330d6ecc871",
+    "html_url": "https://github.com/rgthree/rgthree-comfy/commit/6b76ee6f2c5a007710b5a16f97c94330d6ecc871",
+    "comments_url": "https://api.github.com/repos/rgthree/rgthree-comfy/commits/6b76ee6f2c5a007710b5a16f97c94330d6ecc871/comments",
+    "author": {
+      "login": "rgthree",
+      "id": 476360,
+      "node_id": "MDQ6VXNlcjQ3NjM2MA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/476360?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rgthree",
+      "html_url": "https://github.com/rgthree",
+      "followers_url": "https://api.github.com/users/rgthree/followers",
+      "following_url": "https://api.github.com/users/rgthree/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rgthree/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rgthree/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rgthree/subscriptions",
+      "organizations_url": "https://api.github.com/users/rgthree/orgs",
+      "repos_url": "https://api.github.com/users/rgthree/repos",
+      "events_url": "https://api.github.com/users/rgthree/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rgthree/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "rgthree",
+      "id": 476360,
+      "node_id": "MDQ6VXNlcjQ3NjM2MA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/476360?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rgthree",
+      "html_url": "https://github.com/rgthree",
+      "followers_url": "https://api.github.com/users/rgthree/followers",
+      "following_url": "https://api.github.com/users/rgthree/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rgthree/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rgthree/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rgthree/subscriptions",
+      "organizations_url": "https://api.github.com/users/rgthree/orgs",
+      "repos_url": "https://api.github.com/users/rgthree/repos",
+      "events_url": "https://api.github.com/users/rgthree/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rgthree/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "e1628b0619d3c426dbd4274f36160fad0cc0a700",
+        "url": "https://api.github.com/repos/rgthree/rgthree-comfy/commits/e1628b0619d3c426dbd4274f36160fad0cc0a700",
+        "html_url": "https://github.com/rgthree/rgthree-comfy/commit/e1628b0619d3c426dbd4274f36160fad0cc0a700"
+      }
+    ]
+  },
+  "status": "identical",
+  "ahead_by": 0,
+  "behind_by": 0,
+  "total_commits": 0,
+  "commits": [
+
+  ],
+  "files": [
+
+  ]
+}

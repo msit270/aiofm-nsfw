@@ -1,0 +1,24 @@
+{
+  "agent": "Q1 (currency)",
+  "date": "2026-08-07",
+  "purpose": "Detector-only CPU inference comparison (Q-PROTOCOL-compliant: no GPU lock taken, no pipeline renders, main server untouched)",
+  "hardware": "CPU only (ultralytics 8.4.115, mediapipe 0.10.14, /venv/main/bin/python3)",
+  "images": {
+    "finals": "results/run3/arms/*/n505__*.png + results/run3/fresh/n505__*.png (14 delivered frames, 2688x3456)",
+    "mouth_taps": "results/run3/arms/*/nTAP163__*tap163_*.png (13 mouth-stage tap frames, 2688x3456)"
+  },
+  "models": {
+    "face_yolov8m_SHIPPED": "/workspace/ComfyUI/models/ultralytics/bbox/face_yolov8m.pt sha256=717923c1... (= Bingsu/adetailer LFS oid)",
+    "face_yolov9c_CAND": "scratchpad download, sha256=d02fe493c31e1bbc6450f4dc6f1db86a02a59322ff1f6d318da0661d72ddd084 (= Bingsu/adetailer LFS oid)",
+    "hand_yolov8s_SHIPPED": "/workspace/ComfyUI/models/ultralytics/bbox/hand_yolov8s.pt sha256=70b54006...",
+    "hand_yolov9c_CAND": "scratchpad download, sha256=6f116f686ef5942fa0c1d08db481b3d7622047a97847eccfb2a264f9ce9777f2",
+    "lips_v1_SHIPPED": "/workspace/ComfyUI/models/ultralytics/bbox/lips_v1.pt sha256=ce9fe145... (byte-identical to payload of Civitai model 142240 file, zip sha256 dc37038e... matches Civitai API record)"
+  },
+  "method": "ultralytics YOLO(model)(image, conf=0.05, device='cpu'); boxes sorted by confidence. MediaPipe: mp.solutions.face_mesh.FaceMesh(static_image_mode=True, refine_landmarks=True, min_detection_confidence=0.5), lips bbox = hull of FACEMESH_LIPS landmark ids.",
+  "files": {
+    "yolo_compare_raw.json": "all detections per model per image + mean CPU s/img",
+    "mediapipe_lips_vs_yolo.json": "MediaPipe lips bbox vs lips_v1 top box IoU on the 13 taps"
+  },
+  "exclusion_note": "results/run3/arms/R3_PC_mid_46/nTAP163__ftap163_00005_.png is a crash-guard test artifact: the face region is solid black (visually confirmed). Both lips_v1 (conf>=0.05) and MediaPipe FaceMesh return no detection on it. It is a correct-rejection control, not a detector failure, and is excluded from robustness statistics.",
+  "resolution_caveat": "Inference ran on delivered 2688x3456 frames; in the pipeline the detectors see earlier-stage resolutions. Ultralytics letterboxes to imgsz 640 either way, so relative comparisons hold, but absolute confidences in-pipeline can differ (cross-check: run3 yolo_confidences.json recorded 0.9015-0.9021 for the same frames with face_yolov8m, matching this run's 0.9015-0.9028)."
+}

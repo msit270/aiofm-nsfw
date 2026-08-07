@@ -1,0 +1,181 @@
+{
+  "url": "https://api.github.com/repos/ssitu/ComfyUI_UltimateSDUpscale/compare/a5547db9e1d07d3318bb21e9e9c474f4c1e9c8df...main",
+  "html_url": "https://github.com/ssitu/ComfyUI_UltimateSDUpscale/compare/a5547db9e1d07d3318bb21e9e9c474f4c1e9c8df...main",
+  "permalink_url": "https://github.com/ssitu/ComfyUI_UltimateSDUpscale/compare/ssitu:a5547db...ssitu:a5547db",
+  "diff_url": "https://github.com/ssitu/ComfyUI_UltimateSDUpscale/compare/a5547db9e1d07d3318bb21e9e9c474f4c1e9c8df...main.diff",
+  "patch_url": "https://github.com/ssitu/ComfyUI_UltimateSDUpscale/compare/a5547db9e1d07d3318bb21e9e9c474f4c1e9c8df...main.patch",
+  "base_commit": {
+    "sha": "a5547db9e1d07d3318bb21e9e9c474f4c1e9c8df",
+    "node_id": "C_kwDOJjgkn9oAKGE1NTQ3ZGI5ZTFkMDdkMzMxOGJiMjFlOWU5YzQ3NGY0YzFlOWM4ZGY",
+    "commit": {
+      "author": {
+        "name": "ssitu",
+        "email": "ssit5568@gmail.com",
+        "date": "2026-06-22T04:04:45Z"
+      },
+      "committer": {
+        "name": "ssitu",
+        "email": "ssit5568@gmail.com",
+        "date": "2026-06-22T04:04:45Z"
+      },
+      "message": "feat: add node variant for guider",
+      "tree": {
+        "sha": "bab1996839ca9ca04ae7c862b1e69359ce041138",
+        "url": "https://api.github.com/repos/ssitu/ComfyUI_UltimateSDUpscale/git/trees/bab1996839ca9ca04ae7c862b1e69359ce041138"
+      },
+      "url": "https://api.github.com/repos/ssitu/ComfyUI_UltimateSDUpscale/git/commits/a5547db9e1d07d3318bb21e9e9c474f4c1e9c8df",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/ssitu/ComfyUI_UltimateSDUpscale/commits/a5547db9e1d07d3318bb21e9e9c474f4c1e9c8df",
+    "html_url": "https://github.com/ssitu/ComfyUI_UltimateSDUpscale/commit/a5547db9e1d07d3318bb21e9e9c474f4c1e9c8df",
+    "comments_url": "https://api.github.com/repos/ssitu/ComfyUI_UltimateSDUpscale/commits/a5547db9e1d07d3318bb21e9e9c474f4c1e9c8df/comments",
+    "author": {
+      "login": "ssitu",
+      "id": 57548627,
+      "node_id": "MDQ6VXNlcjU3NTQ4NjI3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57548627?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ssitu",
+      "html_url": "https://github.com/ssitu",
+      "followers_url": "https://api.github.com/users/ssitu/followers",
+      "following_url": "https://api.github.com/users/ssitu/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ssitu/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ssitu/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ssitu/subscriptions",
+      "organizations_url": "https://api.github.com/users/ssitu/orgs",
+      "repos_url": "https://api.github.com/users/ssitu/repos",
+      "events_url": "https://api.github.com/users/ssitu/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ssitu/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ssitu",
+      "id": 57548627,
+      "node_id": "MDQ6VXNlcjU3NTQ4NjI3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57548627?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ssitu",
+      "html_url": "https://github.com/ssitu",
+      "followers_url": "https://api.github.com/users/ssitu/followers",
+      "following_url": "https://api.github.com/users/ssitu/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ssitu/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ssitu/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ssitu/subscriptions",
+      "organizations_url": "https://api.github.com/users/ssitu/orgs",
+      "repos_url": "https://api.github.com/users/ssitu/repos",
+      "events_url": "https://api.github.com/users/ssitu/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ssitu/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "bebd5696fddd61cb0d08949a222c508898ab5577",
+        "url": "https://api.github.com/repos/ssitu/ComfyUI_UltimateSDUpscale/commits/bebd5696fddd61cb0d08949a222c508898ab5577",
+        "html_url": "https://github.com/ssitu/ComfyUI_UltimateSDUpscale/commit/bebd5696fddd61cb0d08949a222c508898ab5577"
+      }
+    ]
+  },
+  "merge_base_commit": {
+    "sha": "a5547db9e1d07d3318bb21e9e9c474f4c1e9c8df",
+    "node_id": "C_kwDOJjgkn9oAKGE1NTQ3ZGI5ZTFkMDdkMzMxOGJiMjFlOWU5YzQ3NGY0YzFlOWM4ZGY",
+    "commit": {
+      "author": {
+        "name": "ssitu",
+        "email": "ssit5568@gmail.com",
+        "date": "2026-06-22T04:04:45Z"
+      },
+      "committer": {
+        "name": "ssitu",
+        "email": "ssit5568@gmail.com",
+        "date": "2026-06-22T04:04:45Z"
+      },
+      "message": "feat: add node variant for guider",
+      "tree": {
+        "sha": "bab1996839ca9ca04ae7c862b1e69359ce041138",
+        "url": "https://api.github.com/repos/ssitu/ComfyUI_UltimateSDUpscale/git/trees/bab1996839ca9ca04ae7c862b1e69359ce041138"
+      },
+      "url": "https://api.github.com/repos/ssitu/ComfyUI_UltimateSDUpscale/git/commits/a5547db9e1d07d3318bb21e9e9c474f4c1e9c8df",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/ssitu/ComfyUI_UltimateSDUpscale/commits/a5547db9e1d07d3318bb21e9e9c474f4c1e9c8df",
+    "html_url": "https://github.com/ssitu/ComfyUI_UltimateSDUpscale/commit/a5547db9e1d07d3318bb21e9e9c474f4c1e9c8df",
+    "comments_url": "https://api.github.com/repos/ssitu/ComfyUI_UltimateSDUpscale/commits/a5547db9e1d07d3318bb21e9e9c474f4c1e9c8df/comments",
+    "author": {
+      "login": "ssitu",
+      "id": 57548627,
+      "node_id": "MDQ6VXNlcjU3NTQ4NjI3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57548627?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ssitu",
+      "html_url": "https://github.com/ssitu",
+      "followers_url": "https://api.github.com/users/ssitu/followers",
+      "following_url": "https://api.github.com/users/ssitu/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ssitu/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ssitu/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ssitu/subscriptions",
+      "organizations_url": "https://api.github.com/users/ssitu/orgs",
+      "repos_url": "https://api.github.com/users/ssitu/repos",
+      "events_url": "https://api.github.com/users/ssitu/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ssitu/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ssitu",
+      "id": 57548627,
+      "node_id": "MDQ6VXNlcjU3NTQ4NjI3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57548627?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ssitu",
+      "html_url": "https://github.com/ssitu",
+      "followers_url": "https://api.github.com/users/ssitu/followers",
+      "following_url": "https://api.github.com/users/ssitu/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ssitu/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ssitu/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ssitu/subscriptions",
+      "organizations_url": "https://api.github.com/users/ssitu/orgs",
+      "repos_url": "https://api.github.com/users/ssitu/repos",
+      "events_url": "https://api.github.com/users/ssitu/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ssitu/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "bebd5696fddd61cb0d08949a222c508898ab5577",
+        "url": "https://api.github.com/repos/ssitu/ComfyUI_UltimateSDUpscale/commits/bebd5696fddd61cb0d08949a222c508898ab5577",
+        "html_url": "https://github.com/ssitu/ComfyUI_UltimateSDUpscale/commit/bebd5696fddd61cb0d08949a222c508898ab5577"
+      }
+    ]
+  },
+  "status": "identical",
+  "ahead_by": 0,
+  "behind_by": 0,
+  "total_commits": 0,
+  "commits": [
+
+  ],
+  "files": [
+
+  ]
+}

@@ -1,0 +1,6 @@
+[A0_baseline] waiting for gpu lock ...
+[A0_baseline] lock acquired after 0.0s
+[A0_baseline] server up (pid 292663) in 10.0s
+[A0_baseline] submitted 8b31cb9c-dad2-41b2-a887-ed1b6ead601c
+[A0_baseline] success exec=313.5s cached=[] vram_arm_peak=29752MiB imgs=5
+[A0_baseline] lock released

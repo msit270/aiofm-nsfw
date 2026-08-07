@@ -1,0 +1,181 @@
+{
+  "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Pack/compare/429d0159ad429e64d2b3916e6e7be9c22d025c3c...Main",
+  "html_url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack/compare/429d0159ad429e64d2b3916e6e7be9c22d025c3c...Main",
+  "permalink_url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack/compare/ltdrdata:429d015...ltdrdata:429d015",
+  "diff_url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack/compare/429d0159ad429e64d2b3916e6e7be9c22d025c3c...Main.diff",
+  "patch_url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack/compare/429d0159ad429e64d2b3916e6e7be9c22d025c3c...Main.patch",
+  "base_commit": {
+    "sha": "429d0159ad429e64d2b3916e6e7be9c22d025c3c",
+    "node_id": "C_kwDOJQklDtoAKDQyOWQwMTU5YWQ0MjllNjRkMmIzOTE2ZTZlN2JlOWMyMmQwMjVjM2M",
+    "commit": {
+      "author": {
+        "name": "Dr.Lt.Data",
+        "email": "dr.lt.data@gmail.com",
+        "date": "2026-04-19T17:06:44Z"
+      },
+      "committer": {
+        "name": "Dr.Lt.Data",
+        "email": "dr.lt.data@gmail.com",
+        "date": "2026-04-19T17:06:44Z"
+      },
+      "message": "docs(tests): drop dev-only debug note and dead .claude/ path from e2e test docstring",
+      "tree": {
+        "sha": "9a4d9ca5fad38e5d11b485f660f6abad20788777",
+        "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Pack/git/trees/9a4d9ca5fad38e5d11b485f660f6abad20788777"
+      },
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Pack/git/commits/429d0159ad429e64d2b3916e6e7be9c22d025c3c",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Pack/commits/429d0159ad429e64d2b3916e6e7be9c22d025c3c",
+    "html_url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack/commit/429d0159ad429e64d2b3916e6e7be9c22d025c3c",
+    "comments_url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Pack/commits/429d0159ad429e64d2b3916e6e7be9c22d025c3c/comments",
+    "author": {
+      "login": "ltdrdata",
+      "id": 128333288,
+      "node_id": "U_kgDOB6Y16A",
+      "avatar_url": "https://avatars.githubusercontent.com/u/128333288?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ltdrdata",
+      "html_url": "https://github.com/ltdrdata",
+      "followers_url": "https://api.github.com/users/ltdrdata/followers",
+      "following_url": "https://api.github.com/users/ltdrdata/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ltdrdata/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ltdrdata/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ltdrdata/subscriptions",
+      "organizations_url": "https://api.github.com/users/ltdrdata/orgs",
+      "repos_url": "https://api.github.com/users/ltdrdata/repos",
+      "events_url": "https://api.github.com/users/ltdrdata/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ltdrdata/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ltdrdata",
+      "id": 128333288,
+      "node_id": "U_kgDOB6Y16A",
+      "avatar_url": "https://avatars.githubusercontent.com/u/128333288?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ltdrdata",
+      "html_url": "https://github.com/ltdrdata",
+      "followers_url": "https://api.github.com/users/ltdrdata/followers",
+      "following_url": "https://api.github.com/users/ltdrdata/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ltdrdata/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ltdrdata/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ltdrdata/subscriptions",
+      "organizations_url": "https://api.github.com/users/ltdrdata/orgs",
+      "repos_url": "https://api.github.com/users/ltdrdata/repos",
+      "events_url": "https://api.github.com/users/ltdrdata/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ltdrdata/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5bed9d5545ef430406a5d6d7233e5c0a5e75051a",
+        "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Pack/commits/5bed9d5545ef430406a5d6d7233e5c0a5e75051a",
+        "html_url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack/commit/5bed9d5545ef430406a5d6d7233e5c0a5e75051a"
+      }
+    ]
+  },
+  "merge_base_commit": {
+    "sha": "429d0159ad429e64d2b3916e6e7be9c22d025c3c",
+    "node_id": "C_kwDOJQklDtoAKDQyOWQwMTU5YWQ0MjllNjRkMmIzOTE2ZTZlN2JlOWMyMmQwMjVjM2M",
+    "commit": {
+      "author": {
+        "name": "Dr.Lt.Data",
+        "email": "dr.lt.data@gmail.com",
+        "date": "2026-04-19T17:06:44Z"
+      },
+      "committer": {
+        "name": "Dr.Lt.Data",
+        "email": "dr.lt.data@gmail.com",
+        "date": "2026-04-19T17:06:44Z"
+      },
+      "message": "docs(tests): drop dev-only debug note and dead .claude/ path from e2e test docstring",
+      "tree": {
+        "sha": "9a4d9ca5fad38e5d11b485f660f6abad20788777",
+        "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Pack/git/trees/9a4d9ca5fad38e5d11b485f660f6abad20788777"
+      },
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Pack/git/commits/429d0159ad429e64d2b3916e6e7be9c22d025c3c",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Pack/commits/429d0159ad429e64d2b3916e6e7be9c22d025c3c",
+    "html_url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack/commit/429d0159ad429e64d2b3916e6e7be9c22d025c3c",
+    "comments_url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Pack/commits/429d0159ad429e64d2b3916e6e7be9c22d025c3c/comments",
+    "author": {
+      "login": "ltdrdata",
+      "id": 128333288,
+      "node_id": "U_kgDOB6Y16A",
+      "avatar_url": "https://avatars.githubusercontent.com/u/128333288?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ltdrdata",
+      "html_url": "https://github.com/ltdrdata",
+      "followers_url": "https://api.github.com/users/ltdrdata/followers",
+      "following_url": "https://api.github.com/users/ltdrdata/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ltdrdata/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ltdrdata/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ltdrdata/subscriptions",
+      "organizations_url": "https://api.github.com/users/ltdrdata/orgs",
+      "repos_url": "https://api.github.com/users/ltdrdata/repos",
+      "events_url": "https://api.github.com/users/ltdrdata/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ltdrdata/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ltdrdata",
+      "id": 128333288,
+      "node_id": "U_kgDOB6Y16A",
+      "avatar_url": "https://avatars.githubusercontent.com/u/128333288?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ltdrdata",
+      "html_url": "https://github.com/ltdrdata",
+      "followers_url": "https://api.github.com/users/ltdrdata/followers",
+      "following_url": "https://api.github.com/users/ltdrdata/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ltdrdata/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ltdrdata/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ltdrdata/subscriptions",
+      "organizations_url": "https://api.github.com/users/ltdrdata/orgs",
+      "repos_url": "https://api.github.com/users/ltdrdata/repos",
+      "events_url": "https://api.github.com/users/ltdrdata/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ltdrdata/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5bed9d5545ef430406a5d6d7233e5c0a5e75051a",
+        "url": "https://api.github.com/repos/ltdrdata/ComfyUI-Impact-Pack/commits/5bed9d5545ef430406a5d6d7233e5c0a5e75051a",
+        "html_url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack/commit/5bed9d5545ef430406a5d6d7233e5c0a5e75051a"
+      }
+    ]
+  },
+  "status": "identical",
+  "ahead_by": 0,
+  "behind_by": 0,
+  "total_commits": 0,
+  "commits": [
+
+  ],
+  "files": [
+
+  ]
+}

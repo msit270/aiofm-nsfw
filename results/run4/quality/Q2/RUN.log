@@ -1,0 +1,15 @@
+[13:04:44] [A_cf15_baseline] waiting for gpu lock …
+[13:09:48] [A_cf15_baseline] lock acquired
+[13:09:58] [A_cf15_baseline] submitted 1fd40312-b6df-4136-840e-93e07a4fc8b8 (boot 10.0s, vram 51997 MiB)
+[13:14:29] [A_cf15_baseline] success exec=266.6s cached=[] err=None
+[13:14:31] [A_cf15_baseline] server killed and reaped
+[13:14:31] [A_cf15_baseline] lock released
+[13:14:31] [B_cf10] waiting for gpu lock …
+[13:19:19] [B_cf10] lock acquired
+[13:19:29] [B_cf10] submitted b994142a-b700-47bf-8825-609d3570a268 (boot 10.0s, vram 51997 MiB)
+[13:23:54] [B_cf10] success exec=262.0s cached=[] err=None
+[13:23:57] [B_cf10] server killed and reaped
+[13:23:57] [B_cf10] lock released
+[13:23:57] [C_cf20] waiting for gpu lock …
+[13:33:48] [C_cf20] lock acquired
+[13:33:58] [C_cf20] submitted ccec145b-afc5-40b5-89b1-727c3157f361 (boot 10.0s, vram 51441 MiB)

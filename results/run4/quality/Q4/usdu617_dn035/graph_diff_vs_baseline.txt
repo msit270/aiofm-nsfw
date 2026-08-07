@@ -1,0 +1,19 @@
+graph_diff
+  A  /workspace/nsfw-fix/results/run4/quality/Q4/baseline_ships/api_graph.json  (92 nodes after normalisation)
+  B  /workspace/nsfw-fix/results/run4/quality/Q4/usdu617_dn035/api_graph.json  (92 nodes after normalisation)
+  folding ON   _meta ignored
+
+folds applied to A: 1
+    dropped 1 folded passthrough node(s): 619:604 (INSTARAW_BooleanBypass)
+
+folds applied to B: 1
+    dropped 1 folded passthrough node(s): 619:604 (INSTARAW_BooleanBypass)
+
+CAVEATS — things this diff did NOT fold or could not reason about: 1
+  ! node 622:661 is a ImpactConditionalBranch: the name looks like it selects between inputs but it is not in the fold table, so it was NOT folded. A change that replaces it with a direct wire will show as a difference.
+
+RESULT: DIFFERENT — 1 difference(s): value_changed=1
+
+  value_changed      619:617.inputs.denoise  (UltimateSDUpscale)
+                       A: 0.25000000000000006
+                       B: 0.35

@@ -1,0 +1,181 @@
+{
+  "url": "https://api.github.com/repos/cubiq/ComfyUI_essentials/compare/9d9f4bedfc9f0321c19faf71855e228c93bd0dc9...main",
+  "html_url": "https://github.com/cubiq/ComfyUI_essentials/compare/9d9f4bedfc9f0321c19faf71855e228c93bd0dc9...main",
+  "permalink_url": "https://github.com/cubiq/ComfyUI_essentials/compare/cubiq:9d9f4be...cubiq:9d9f4be",
+  "diff_url": "https://github.com/cubiq/ComfyUI_essentials/compare/9d9f4bedfc9f0321c19faf71855e228c93bd0dc9...main.diff",
+  "patch_url": "https://github.com/cubiq/ComfyUI_essentials/compare/9d9f4bedfc9f0321c19faf71855e228c93bd0dc9...main.patch",
+  "base_commit": {
+    "sha": "9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
+    "node_id": "C_kwDOKWE-OdoAKDlkOWY0YmVkZmM5ZjAzMjFjMTlmYWY3MTg1NWUyMjhjOTNiZDBkYzk",
+    "commit": {
+      "author": {
+        "name": "cubiq",
+        "email": "matteo@elf.io",
+        "date": "2025-04-14T07:33:21Z"
+      },
+      "committer": {
+        "name": "cubiq",
+        "email": "matteo@elf.io",
+        "date": "2025-04-14T07:33:21Z"
+      },
+      "message": "maintenance mode",
+      "tree": {
+        "sha": "d6bca84b1de8830c2fe0ffdafc6ab1f08259e86b",
+        "url": "https://api.github.com/repos/cubiq/ComfyUI_essentials/git/trees/d6bca84b1de8830c2fe0ffdafc6ab1f08259e86b"
+      },
+      "url": "https://api.github.com/repos/cubiq/ComfyUI_essentials/git/commits/9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/cubiq/ComfyUI_essentials/commits/9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
+    "html_url": "https://github.com/cubiq/ComfyUI_essentials/commit/9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
+    "comments_url": "https://api.github.com/repos/cubiq/ComfyUI_essentials/commits/9d9f4bedfc9f0321c19faf71855e228c93bd0dc9/comments",
+    "author": {
+      "login": "cubiq",
+      "id": 427614,
+      "node_id": "MDQ6VXNlcjQyNzYxNA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/427614?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/cubiq",
+      "html_url": "https://github.com/cubiq",
+      "followers_url": "https://api.github.com/users/cubiq/followers",
+      "following_url": "https://api.github.com/users/cubiq/following{/other_user}",
+      "gists_url": "https://api.github.com/users/cubiq/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/cubiq/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/cubiq/subscriptions",
+      "organizations_url": "https://api.github.com/users/cubiq/orgs",
+      "repos_url": "https://api.github.com/users/cubiq/repos",
+      "events_url": "https://api.github.com/users/cubiq/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/cubiq/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "cubiq",
+      "id": 427614,
+      "node_id": "MDQ6VXNlcjQyNzYxNA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/427614?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/cubiq",
+      "html_url": "https://github.com/cubiq",
+      "followers_url": "https://api.github.com/users/cubiq/followers",
+      "following_url": "https://api.github.com/users/cubiq/following{/other_user}",
+      "gists_url": "https://api.github.com/users/cubiq/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/cubiq/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/cubiq/subscriptions",
+      "organizations_url": "https://api.github.com/users/cubiq/orgs",
+      "repos_url": "https://api.github.com/users/cubiq/repos",
+      "events_url": "https://api.github.com/users/cubiq/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/cubiq/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "33ff89fd354d8ec3ab6affb605a79a931b445d99",
+        "url": "https://api.github.com/repos/cubiq/ComfyUI_essentials/commits/33ff89fd354d8ec3ab6affb605a79a931b445d99",
+        "html_url": "https://github.com/cubiq/ComfyUI_essentials/commit/33ff89fd354d8ec3ab6affb605a79a931b445d99"
+      }
+    ]
+  },
+  "merge_base_commit": {
+    "sha": "9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
+    "node_id": "C_kwDOKWE-OdoAKDlkOWY0YmVkZmM5ZjAzMjFjMTlmYWY3MTg1NWUyMjhjOTNiZDBkYzk",
+    "commit": {
+      "author": {
+        "name": "cubiq",
+        "email": "matteo@elf.io",
+        "date": "2025-04-14T07:33:21Z"
+      },
+      "committer": {
+        "name": "cubiq",
+        "email": "matteo@elf.io",
+        "date": "2025-04-14T07:33:21Z"
+      },
+      "message": "maintenance mode",
+      "tree": {
+        "sha": "d6bca84b1de8830c2fe0ffdafc6ab1f08259e86b",
+        "url": "https://api.github.com/repos/cubiq/ComfyUI_essentials/git/trees/d6bca84b1de8830c2fe0ffdafc6ab1f08259e86b"
+      },
+      "url": "https://api.github.com/repos/cubiq/ComfyUI_essentials/git/commits/9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/cubiq/ComfyUI_essentials/commits/9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
+    "html_url": "https://github.com/cubiq/ComfyUI_essentials/commit/9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
+    "comments_url": "https://api.github.com/repos/cubiq/ComfyUI_essentials/commits/9d9f4bedfc9f0321c19faf71855e228c93bd0dc9/comments",
+    "author": {
+      "login": "cubiq",
+      "id": 427614,
+      "node_id": "MDQ6VXNlcjQyNzYxNA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/427614?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/cubiq",
+      "html_url": "https://github.com/cubiq",
+      "followers_url": "https://api.github.com/users/cubiq/followers",
+      "following_url": "https://api.github.com/users/cubiq/following{/other_user}",
+      "gists_url": "https://api.github.com/users/cubiq/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/cubiq/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/cubiq/subscriptions",
+      "organizations_url": "https://api.github.com/users/cubiq/orgs",
+      "repos_url": "https://api.github.com/users/cubiq/repos",
+      "events_url": "https://api.github.com/users/cubiq/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/cubiq/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "cubiq",
+      "id": 427614,
+      "node_id": "MDQ6VXNlcjQyNzYxNA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/427614?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/cubiq",
+      "html_url": "https://github.com/cubiq",
+      "followers_url": "https://api.github.com/users/cubiq/followers",
+      "following_url": "https://api.github.com/users/cubiq/following{/other_user}",
+      "gists_url": "https://api.github.com/users/cubiq/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/cubiq/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/cubiq/subscriptions",
+      "organizations_url": "https://api.github.com/users/cubiq/orgs",
+      "repos_url": "https://api.github.com/users/cubiq/repos",
+      "events_url": "https://api.github.com/users/cubiq/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/cubiq/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "33ff89fd354d8ec3ab6affb605a79a931b445d99",
+        "url": "https://api.github.com/repos/cubiq/ComfyUI_essentials/commits/33ff89fd354d8ec3ab6affb605a79a931b445d99",
+        "html_url": "https://github.com/cubiq/ComfyUI_essentials/commit/33ff89fd354d8ec3ab6affb605a79a931b445d99"
+      }
+    ]
+  },
+  "status": "identical",
+  "ahead_by": 0,
+  "behind_by": 0,
+  "total_commits": 0,
+  "commits": [
+
+  ],
+  "files": [
+
+  ]
+}

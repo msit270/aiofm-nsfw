@@ -1,0 +1,55 @@
+{
+    "name": "RealESRGAN_x4Plus",
+    "author": "xinntao",
+    "license": "BSD-3-Clause",
+    "tags": [
+        "compression-removal",
+        "general-upscaler",
+        "jpeg",
+        "photo",
+        "research",
+        "restoration"
+    ],
+    "description": "[Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) aims at developing Practical Algorithms for General Image/Video Restoration.\n\nReal-ESRGAN aims at developing Practical Algorithms for General Image/Video Restoration.\nWe extend the powerful ESRGAN to a practical restoration application (namely, Real-ESRGAN), which is trained with pure synthetic data.",
+    "date": "2021-07-22",
+    "architecture": "esrgan",
+    "size": [
+        "64nf",
+        "23nb"
+    ],
+    "scale": 4,
+    "inputChannels": 3,
+    "outputChannels": 3,
+    "resources": [
+        {
+            "platform": "pytorch",
+            "type": "pth",
+            "size": 67040989,
+            "sha256": "4fa0d38905f75ac06eb49a7951b426670021be3018265fd191d2125df9d682f1",
+            "urls": [
+                "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth"
+            ]
+        }
+    ],
+    "images": [
+        {
+            "type": "standalone",
+            "url": "https://github.com/xinntao/Real-ESRGAN/raw/master/assets/teaser.jpg"
+        },
+        {
+            "type": "paired",
+            "LR": "https://imgsli.com/i/b5e46848-4465-4d59-afe9-dce4d6fbe2cd.jpg",
+            "SR": "https://imgsli.com/i/ea77702b-c63d-47f5-a4aa-05f9d1e3fc3f.jpg"
+        },
+        {
+            "type": "paired",
+            "LR": "https://imgsli.com/i/19d677c6-dba9-454f-8faf-a7fdd7394bc3.jpg",
+            "SR": "https://imgsli.com/i/c6722e6b-0e3c-44b4-938b-89010dddb903.jpg"
+        },
+        {
+            "type": "paired",
+            "LR": "https://imgsli.com/i/afd3ef66-637f-44a9-a04c-9b630f65e741.jpg",
+            "SR": "https://imgsli.com/i/84317670-a22a-4f06-af38-b0afca0a8fda.jpg"
+        }
+    ]
+}

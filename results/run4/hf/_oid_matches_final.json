@@ -1,0 +1,204 @@
+{
+  "models/clip_vision/IronSight_V7.safetensors": [
+    {
+      "repo": "Comfy-Org/Wan_2.1_ComfyUI_repackaged",
+      "path": "split_files/clip_vision/clip_vision_h.safetensors",
+      "size": 1264219396,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/text_encoders/umt5.safetensors": [
+    {
+      "repo": "Comfy-Org/Wan_2.1_ComfyUI_repackaged",
+      "path": "split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "size": 6735906897,
+      "via": "lfs-sha256"
+    },
+    {
+      "repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+      "path": "split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "size": 6735906897,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/diffusion_models/wan2.2_animate_14B_bf16.safetensors": [
+    {
+      "repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+      "path": "split_files/diffusion_models/wan2.2_animate_14B_bf16.safetensors",
+      "size": 34549787368,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/loras/SolarFlint_L2.safetensors": [
+    {
+      "repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+      "path": "split_files/loras/wan2.2_animate_14B_relight_lora_bf16.safetensors",
+      "size": 1436673432,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/loras/FrostByte_K7.safetensors": [
+    {
+      "repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+      "path": "split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors",
+      "size": 1226977424,
+      "via": "lfs-sha256"
+    },
+    {
+      "repo": "lightx2v/Wan2.2-Lightning",
+      "path": "Wan2.2-I2V-A14B-4steps-lora-rank64-Seko-V1/low_noise_model.safetensors",
+      "size": 1226977424,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/checkpoints/v1-5-pruned-emaonly-fp16.safetensors": [
+    {
+      "repo": "Comfy-Org/stable-diffusion-v1-5-archive",
+      "path": "v1-5-pruned-emaonly-fp16.safetensors",
+      "size": 2132696762,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/diffusion_models/zimage.safetensors": [
+    {
+      "repo": "Comfy-Org/z_image_turbo",
+      "path": "split_files/diffusion_models/z_image_turbo_bf16.safetensors",
+      "size": 12309866400,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/text_encoders/qwen.safetensors": [
+    {
+      "repo": "Comfy-Org/z_image_turbo",
+      "path": "split_files/text_encoders/qwen_3_4b.safetensors",
+      "size": 8044982048,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/vae/variational_encoder_primary.safetensors": [
+    {
+      "repo": "Comfy-Org/z_image_turbo",
+      "path": "split_files/vae/ae.safetensors",
+      "size": 335304388,
+      "via": "lfs-sha256"
+    },
+    {
+      "repo": "black-forest-labs/FLUX.1-schnell",
+      "path": "ae.safetensors",
+      "size": 335304388,
+      "via": "git-pointer-oid"
+    }
+  ],
+  "models/loras/VelvetRush_Q4.safetensors": [
+    {
+      "repo": "Kijai/WanVideo_comfy",
+      "path": "Lightx2v/lightx2v_T2V_14B_cfg_step_distill_v2_lora_rank256_bf16.safetensors",
+      "size": 2498181128,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/loras/PhantomWeave_R5.safetensors": [
+    {
+      "repo": "Kijai/WanVideo_comfy",
+      "path": "Pusa/Wan21_PusaV1_LoRA_14B_rank512_bf16.safetensors",
+      "size": 4907437824,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/text_encoders/EchoVault_T9.safetensors": [
+    {
+      "repo": "Kijai/WanVideo_comfy",
+      "path": "umt5-xxl-enc-bf16.safetensors",
+      "size": 11361845464,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/detection/vitpose_h_wholebody_data.bin": [
+    {
+      "repo": "Kijai/vitpose_comfy",
+      "path": "onnx/vitpose_h_wholebody_data.bin",
+      "size": 2548958740,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/detection/vitpose_h_wholebody_model.onnx": [
+    {
+      "repo": "Kijai/vitpose_comfy",
+      "path": "onnx/vitpose_h_wholebody_model.onnx",
+      "size": 420252,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/upscale_models/4x-UltraSharpV2.pth": [
+    {
+      "repo": "Kim2091/UltraSharpV2",
+      "path": "4x-UltraSharpV2.pth",
+      "size": 140335046,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/detection/yolov10m.onnx": [
+    {
+      "repo": "Wan-AI/Wan2.2-Animate-14B",
+      "path": "process_checkpoint/det/yolov10m.onnx",
+      "size": 61659339,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/loras/NovaMind_X1.safetensors": [
+    {
+      "repo": "alibaba-pai/Wan2.2-Fun-Reward-LoRAs",
+      "path": "Wan2.2-Fun-A14B-InP-low-noise-MPS.safetensors",
+      "size": 858457436,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/diffusion_models/flux4b.safetensors": [
+    {
+      "repo": "black-forest-labs/FLUX.2-klein-4B",
+      "path": "flux-2-klein-4b.safetensors",
+      "size": 7751105712,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/diffusion_models/flux-2.safetensors": [
+    {
+      "repo": "black-forest-labs/FLUX.2-klein-9B",
+      "path": "flux-2-klein-9b.safetensors",
+      "size": 18157185168,
+      "via": "git-pointer-oid"
+    }
+  ],
+  "models/text_encoders/clip_l.safetensors": [
+    {
+      "repo": "comfyanonymous/flux_text_encoders",
+      "path": "clip_l.safetensors",
+      "size": 246144152,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/text_encoders/TitanFP8.safetensors": [
+    {
+      "repo": "comfyanonymous/flux_text_encoders",
+      "path": "t5xxl_fp8_e4m3fn.safetensors",
+      "size": 4893934904,
+      "via": "lfs-sha256"
+    }
+  ],
+  "models/sam3/sam3.pt": [
+    {
+      "repo": "facebook/sam3",
+      "path": "sam3.pt",
+      "size": 3450062241,
+      "via": "git-pointer-oid"
+    }
+  ],
+  "models/loras/dmd2_sdxl_4step_lora_fp16.safetensors": [
+    {
+      "repo": "tianweiy/DMD2",
+      "path": "dmd2_sdxl_4step_lora_fp16.safetensors",
+      "size": 393854592,
+      "via": "lfs-sha256"
+    }
+  ]
+}

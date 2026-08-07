@@ -1,0 +1,33 @@
+{
+ "arm": "A0_baseline",
+ "param": "BASELINE (ships): face 620:114 steps 8, denoise 0.35, euler_ancestral/kl_optimal; mouth 620:165 steps 8 den 0.35; eyes 622:406 steps 8 den 0.42 euler/beta",
+ "baseline": true,
+ "prompt_id": "8b31cb9c-dad2-41b2-a887-ed1b6ead601c",
+ "client_id": "q3-A0_baseline-d26f2294",
+ "lock_wait_s": 0.0,
+ "boot_s": 10.0,
+ "wall_seconds": 315.3,
+ "exec_seconds": 313.5,
+ "status": "success",
+ "error": null,
+ "error_node": null,
+ "execution_cached": [],
+ "vram": {
+  "gpu_peak_used_mib": 75011,
+  "arm_server_peak_mib": 29752
+ },
+ "images": [
+  "nTAP137__tap137_00001_.png",
+  "nTAP114__tap114_00001_.png",
+  "nTAP111__tap111_00001_.png",
+  "nTAP163__tap163_00001_.png",
+  "n505__HasMetadata_00001_.png"
+ ],
+ "overrides": {},
+ "detailer_log_lines": [
+  "Detailer: segment upscale for ((np.float32(176.66824), np.float32(233.17259))) | crop region (530, 699) x 1.8313348293304443 -> (970, 1280)",
+  "Detailer: segment upscale for ((np.float32(224.58838), np.float32(154.11841))) | crop region (336, 231) x 3.0482542514801025 -> (1024, 704)",
+  "Detailer: segment upscale for ((np.float32(329.10498), np.float32(433.51907))) | crop region (493, 650) x 1.5757390260696411 -> (776, 1024)",
+  "Detailer: segment upscale for ((np.int64(956), np.int64(137))) | crop region (1459, 411) x 1.3159891033931772 -> (1920, 540)"
+ ]
+}

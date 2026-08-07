@@ -1,0 +1,542 @@
+{
+ "face_yolov8m_SHIPPED": {
+  "dets": {
+   "/workspace/nsfw-fix/results/run3/arms/R3_AB_guard_16/n505__HasMetadata_00207_.png": [
+    [
+     0.9018,
+     1027.1,
+     511.5,
+     1705.6,
+     1438.8
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_AB_unguard_16/n505__HasMetadata_00206_.png": [
+    [
+     0.9018,
+     1027.1,
+     511.5,
+     1705.6,
+     1438.8
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DEFAULT_16/n505__HasMetadata_00212_.png": [
+    [
+     0.902,
+     1027.4,
+     511.9,
+     1705.5,
+     1438.9
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DUAL_16/n505__HasMetadata_00211_.png": [
+    [
+     0.9018,
+     1027.1,
+     511.5,
+     1705.6,
+     1438.8
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DUAL_46/n505__HasMetadata_00213_.png": [
+    [
+     0.9015,
+     1026.8,
+     512.0,
+     1705.4,
+     1438.9
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_FEATHER_16/n505__HasMetadata_00216_.png": [
+    [
+     0.9019,
+     1027.3,
+     511.5,
+     1705.6,
+     1438.8
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_FORCED_guard/n505__HasMetadata_00204_.png": [
+    [
+     0.9018,
+     1027.3,
+     511.5,
+     1705.5,
+     1438.7
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_103/n505__HasMetadata_00209_.png": [
+    [
+     0.9019,
+     1027.1,
+     511.6,
+     1705.5,
+     1439.1
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_110/n505__HasMetadata_00210_.png": [
+    [
+     0.9021,
+     1027.3,
+     511.8,
+     1705.5,
+     1438.9
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_46/n505__HasMetadata_00208_.png": [
+    [
+     0.9015,
+     1026.8,
+     512.0,
+     1705.4,
+     1438.9
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_mid46/n505__HasMetadata_00205_.png": [
+    [
+     0.9016,
+     1027.1,
+     512.1,
+     1705.3,
+     1438.8
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_MOUTH_ceil17/n505__HasMetadata_00214_.png": [
+    [
+     0.9025,
+     800.1,
+     695.5,
+     2228.4,
+     2684.9
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_MOUTH_ceil40/n505__HasMetadata_00215_.png": [
+    [
+     0.9028,
+     799.4,
+     695.7,
+     2228.9,
+     2686.2
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_PC_head_103/n505__HasMetadata_00203_.png": [
+    [
+     0.9019,
+     1027.1,
+     511.6,
+     1705.5,
+     1439.1
+    ]
+   ]
+  },
+  "sec_per_img_cpu": 0.39061473097120014
+ },
+ "face_yolov9c_CAND": {
+  "dets": {
+   "/workspace/nsfw-fix/results/run3/arms/R3_AB_guard_16/n505__HasMetadata_00207_.png": [
+    [
+     0.9294,
+     1023.7,
+     483.2,
+     1706.1,
+     1438.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_AB_unguard_16/n505__HasMetadata_00206_.png": [
+    [
+     0.9294,
+     1023.7,
+     483.2,
+     1706.1,
+     1438.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DEFAULT_16/n505__HasMetadata_00212_.png": [
+    [
+     0.9352,
+     1023.3,
+     483.0,
+     1706.3,
+     1438.9
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DUAL_16/n505__HasMetadata_00211_.png": [
+    [
+     0.9292,
+     1023.7,
+     483.2,
+     1706.1,
+     1438.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DUAL_46/n505__HasMetadata_00213_.png": [
+    [
+     0.9249,
+     1023.0,
+     482.3,
+     1708.2,
+     1440.9
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_FEATHER_16/n505__HasMetadata_00216_.png": [
+    [
+     0.9301,
+     1023.7,
+     483.2,
+     1706.1,
+     1438.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_FORCED_guard/n505__HasMetadata_00204_.png": [
+    [
+     0.9254,
+     1023.7,
+     482.8,
+     1706.4,
+     1438.5
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_103/n505__HasMetadata_00209_.png": [
+    [
+     0.9275,
+     1024.1,
+     483.4,
+     1706.2,
+     1438.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_110/n505__HasMetadata_00210_.png": [
+    [
+     0.9341,
+     1023.6,
+     483.2,
+     1706.3,
+     1438.7
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_46/n505__HasMetadata_00208_.png": [
+    [
+     0.9249,
+     1022.9,
+     482.3,
+     1708.2,
+     1440.9
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_mid46/n505__HasMetadata_00205_.png": [
+    [
+     0.9254,
+     1023.8,
+     483.3,
+     1706.4,
+     1438.5
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_MOUTH_ceil17/n505__HasMetadata_00214_.png": [
+    [
+     0.9297,
+     779.9,
+     681.8,
+     2219.9,
+     2701.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_MOUTH_ceil40/n505__HasMetadata_00215_.png": [
+    [
+     0.9301,
+     779.7,
+     681.9,
+     2219.1,
+     2701.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_PC_head_103/n505__HasMetadata_00203_.png": [
+    [
+     0.9275,
+     1024.1,
+     483.4,
+     1706.2,
+     1438.6
+    ]
+   ]
+  },
+  "sec_per_img_cpu": 0.40832861832209993
+ },
+ "hand_yolov8s_SHIPPED": {
+  "dets": {
+   "/workspace/nsfw-fix/results/run3/arms/R3_AB_guard_16/n505__HasMetadata_00207_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_AB_unguard_16/n505__HasMetadata_00206_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DEFAULT_16/n505__HasMetadata_00212_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DUAL_16/n505__HasMetadata_00211_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DUAL_46/n505__HasMetadata_00213_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_FEATHER_16/n505__HasMetadata_00216_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_FORCED_guard/n505__HasMetadata_00204_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_103/n505__HasMetadata_00209_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_110/n505__HasMetadata_00210_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_46/n505__HasMetadata_00208_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_mid46/n505__HasMetadata_00205_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_MOUTH_ceil17/n505__HasMetadata_00214_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_MOUTH_ceil40/n505__HasMetadata_00215_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_PC_head_103/n505__HasMetadata_00203_.png": []
+  },
+  "sec_per_img_cpu": 0.23254168033599854
+ },
+ "hand_yolov9c_CAND": {
+  "dets": {
+   "/workspace/nsfw-fix/results/run3/arms/R3_AB_guard_16/n505__HasMetadata_00207_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_AB_unguard_16/n505__HasMetadata_00206_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DEFAULT_16/n505__HasMetadata_00212_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DUAL_16/n505__HasMetadata_00211_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DUAL_46/n505__HasMetadata_00213_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_FEATHER_16/n505__HasMetadata_00216_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_FORCED_guard/n505__HasMetadata_00204_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_103/n505__HasMetadata_00209_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_110/n505__HasMetadata_00210_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_46/n505__HasMetadata_00208_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_mid46/n505__HasMetadata_00205_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_MOUTH_ceil17/n505__HasMetadata_00214_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_MOUTH_ceil40/n505__HasMetadata_00215_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_PC_head_103/n505__HasMetadata_00203_.png": []
+  },
+  "sec_per_img_cpu": 0.7081554446901593
+ },
+ "lips_v1_SHIPPED": {
+  "dets": {
+   "/workspace/nsfw-fix/results/run3/arms/R3_AB_guard_16/nTAP163__tap163_00003_.png": [
+    [
+     0.842,
+     1221.3,
+     1186.9,
+     1524.0,
+     1320.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_AB_unguard_16/nTAP163__ftap163_00007_.png": [
+    [
+     0.842,
+     1221.3,
+     1186.9,
+     1524.0,
+     1320.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DEFAULT_16/nTAP163__tap163_00008_.png": [
+    [
+     0.836,
+     1220.0,
+     1187.1,
+     1518.3,
+     1323.9
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DUAL_16/nTAP163__tap163_00007_.png": [
+    [
+     0.842,
+     1221.3,
+     1186.9,
+     1524.0,
+     1320.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DUAL_46/nTAP163__tap163_00009_.png": [
+    [
+     0.8382,
+     1219.9,
+     1186.8,
+     1519.6,
+     1321.0
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_FORCED_guard/nTAP163__tap163_00001_.png": [
+    [
+     0.842,
+     1221.3,
+     1186.9,
+     1524.0,
+     1320.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_FORCED_unguard/nTAP163__ftap163_00006_.png": [
+    [
+     0.842,
+     1221.3,
+     1186.9,
+     1524.0,
+     1320.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_103/nTAP163__tap163_00005_.png": [
+    [
+     0.8448,
+     1221.3,
+     1187.0,
+     1522.2,
+     1320.8
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_110/nTAP163__tap163_00006_.png": [
+    [
+     0.8448,
+     1220.9,
+     1186.7,
+     1523.4,
+     1320.8
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_46/nTAP163__tap163_00004_.png": [
+    [
+     0.8382,
+     1219.9,
+     1186.8,
+     1519.6,
+     1321.0
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_mid46/nTAP163__tap163_00002_.png": [
+    [
+     0.8412,
+     1221.2,
+     1187.1,
+     1523.0,
+     1320.5
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_PC_head_103/nTAP163__ftap163_00004_.png": [
+    [
+     0.8448,
+     1221.3,
+     1187.0,
+     1522.2,
+     1320.8
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_PC_mid_46/nTAP163__ftap163_00005_.png": [],
+   "/workspace/nsfw-fix/results/run3/arms/R3_AB_guard_16/n505__HasMetadata_00207_.png": [
+    [
+     0.8414,
+     1221.4,
+     1187.0,
+     1524.0,
+     1320.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_AB_unguard_16/n505__HasMetadata_00206_.png": [
+    [
+     0.8414,
+     1221.4,
+     1187.0,
+     1524.0,
+     1320.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DEFAULT_16/n505__HasMetadata_00212_.png": [
+    [
+     0.836,
+     1220.0,
+     1187.1,
+     1518.2,
+     1323.8
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DUAL_16/n505__HasMetadata_00211_.png": [
+    [
+     0.8414,
+     1221.4,
+     1187.0,
+     1524.0,
+     1320.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_DUAL_46/n505__HasMetadata_00213_.png": [
+    [
+     0.8388,
+     1220.0,
+     1186.9,
+     1519.5,
+     1321.0
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_FEATHER_16/n505__HasMetadata_00216_.png": [
+    [
+     0.8414,
+     1221.4,
+     1187.0,
+     1524.0,
+     1320.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_FORCED_guard/n505__HasMetadata_00204_.png": [
+    [
+     0.842,
+     1221.3,
+     1186.9,
+     1524.0,
+     1320.6
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_103/n505__HasMetadata_00209_.png": [
+    [
+     0.8444,
+     1221.4,
+     1186.9,
+     1522.2,
+     1320.7
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_110/n505__HasMetadata_00210_.png": [
+    [
+     0.845,
+     1221.0,
+     1186.7,
+     1523.5,
+     1320.7
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_46/n505__HasMetadata_00208_.png": [
+    [
+     0.8388,
+     1220.0,
+     1186.9,
+     1519.5,
+     1321.0
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_GUARD_mid46/n505__HasMetadata_00205_.png": [
+    [
+     0.8416,
+     1221.2,
+     1187.1,
+     1523.0,
+     1320.5
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_MOUTH_ceil17/n505__HasMetadata_00214_.png": [
+    [
+     0.8329,
+     1142.1,
+     2139.9,
+     1878.1,
+     2439.1
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_MOUTH_ceil40/n505__HasMetadata_00215_.png": [
+    [
+     0.7446,
+     1143.2,
+     2144.0,
+     1879.8,
+     2430.9
+    ]
+   ],
+   "/workspace/nsfw-fix/results/run3/arms/R3_PC_head_103/n505__HasMetadata_00203_.png": [
+    [
+     0.8444,
+     1221.4,
+     1186.9,
+     1522.2,
+     1320.7
+    ]
+   ]
+  },
+  "sec_per_img_cpu": 0.24321221422266076
+ }
+}
