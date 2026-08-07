@@ -90,3 +90,9 @@ A25. PROCESS: GPU work serialized through the orchestrator only (no agent
      final pack re-cut is gated (round-trip EQUIVALENT + fresh-tree render)
      before any "done" claim; a fresh-context verifier judges A17-A25
      before the final report.
+A26. DEPENDENCY PARITY: any dependency the shipped graph gains (pip package,
+     model file, node pack) is added to Personal-NSFW/aiofm_setup.sh in the
+     same commit that puts it in the graph, and the final fresh-tree gate
+     run proves it installs and loads. Analysis-venv tools (insightface,
+     mediapipe-in-venv for sheets) are exempt but must never be imported by
+     anything the pack ships.
