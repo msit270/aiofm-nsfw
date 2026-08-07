@@ -618,16 +618,16 @@ async function main() {
     await page.evaluate(`(${FRAME_FN})([${opt.faceHost}], 60, 1.4, null)`);
     await sleep(1800);
 
-    // 1. the state the buyer is handed: the host ships COLLAPSED, so the widget the
-    //    docs tell them to edit is not on screen at all until they expand it.
+    // 1. the state the buyer is handed. Current files ship #620 EXPANDED (polish
+    //    commit fea23a3); pre-fix files shipped it collapsed. Record which.
     const box = await page.evaluate(`(${COLLAPSE_BOX_POINT_FN})(${opt.faceHost})`);
     if (box.err) { fail('face-prompt', `#${opt.faceHost}: ${box.err}`); writeResult('fail'); await browser.close(); process.exit(1); }
     fp.host_shipped_collapsed = box.collapsed;
-    log(`face prompt     #${opt.faceHost} as shipped: collapsed=${box.collapsed}  (the buyer must expand it to reach #${opt.faceNode})`);
-    await shot(page, 'face-host-collapsed',
-      `#${opt.faceHost} "5 · Face & Mouth Detail" as the workflow ships it — collapsed=${box.collapsed}, so #${opt.faceNode} is not reachable yet`);
+    log(`face prompt     #${opt.faceHost} as shipped: collapsed=${box.collapsed}`);
+    await shot(page, 'face-host-as-shipped',
+      `#${opt.faceHost} "5 · Face & Mouth Detail" as the workflow ships it — collapsed=${box.collapsed}`);
 
-    // 2. expand it the way a buyer does — click the collapse box in the title bar
+    // 2. expand it if needed, the way a buyer does — the collapse box in the title bar
     if (box.collapsed) {
       await page.mouse.click(box.x, box.y);
       await sleep(1500);
@@ -642,56 +642,36 @@ async function main() {
       await page.evaluate(`(${FRAME_FN})([${opt.faceHost}], 60, 1.4, null)`);
       await sleep(1800);
     }
-    await shot(page, 'face-host-expanded',
-      `#${opt.faceHost} expanded; its promoted widgets, including "${promotedName}" — #${opt.faceNode}'s own text widget`);
 
-    // 3. type into the textarea the buyer types into
+    // 3. find where the buyer types. Pre-blocker-fix files promoted "106: text"
+    //    onto the host; the current file promotes NOTHING on #620, so the buyer's
+    //    route is INTO the subgraph. Try the promoted widget first so this gate
+    //    still drives old bytes, then take the real route.
     const tag = await page.evaluate(`(${TAG_TEXT_WIDGET_FN})(${opt.faceHost}, ${JSON.stringify(promotedName)}, 'face-prompt')`);
-    if (tag.err) {
-      await shot(page, 'face-widget-missing', 'the promoted face-prompt widget was not found');
-      fail('face-prompt', `#${opt.faceHost}: ${tag.err}`);
-      writeResult('fail'); await browser.close(); process.exit(1);
+    let typedInside = false;
+    if (!tag.err) {
+      fp.typed_via = 'promoted widget on the host';
+      fp.shipped_value = tag.value;
+      log(`face prompt     "${promotedName}" is a ${tag.widgetType} DOM widget, visible=${tag.visible}`);
+      if (!tag.visible) {
+        fail('face-prompt', `the "${promotedName}" textarea is not visible after expanding #${opt.faceHost}`);
+        writeResult('fail'); await browser.close(); process.exit(1);
+      }
+      const fta = page.locator('[data-gate-tag="face-prompt"]');
+      await fta.click();
+      await page.keyboard.press('Control+a');
+      await page.keyboard.press('Delete');
+      await page.keyboard.insertText(opt.facePrompt);
+      await page.keyboard.press('Tab');
+      await sleep(1200);
+    } else {
+      typedInside = true;
+      fp.typed_via = 'inside the subgraph (host promotes no widgets on current files)';
+      log(`face prompt     no promoted widget on #${opt.faceHost} (${tag.err.slice(0, 90)}...)`);
+      log(`face prompt     taking the buyer route: enter the subgraph and type on #${opt.faceNode} itself`);
     }
-    fp.shipped_value = tag.value;
-    log(`face prompt     "${promotedName}" is a ${tag.widgetType} DOM widget, visible=${tag.visible}, rect=${JSON.stringify(tag.rect)}`);
-    log(`                value as shipped: ${JSON.stringify(tag.value)}`);
-    if (!tag.visible) {
-      await shot(page, 'face-widget-not-visible', 'the promoted textarea is in the DOM but not on screen');
-      fail('face-prompt', `the "${promotedName}" textarea is not visible after expanding #${opt.faceHost}; a buyer could not click it`);
-      writeResult('fail'); await browser.close(); process.exit(1);
-    }
-    const fta = page.locator('[data-gate-tag="face-prompt"]');
-    await fta.click();
-    await page.keyboard.press('Control+a');
-    await page.keyboard.press('Delete');
-    await page.keyboard.insertText(opt.facePrompt);
-    await page.keyboard.press('Tab');   // commit on blur, same as the RPG panel
-    await sleep(1200);
 
-    // 4. read it back from BOTH the host widget and the CLIPTextEncode inside
-    const rb = await page.evaluate(`(${READ_FACE_PROMPT_FN})(${opt.faceHost}, ${opt.faceNode}, 'text')`);
-    if (rb.err) { fail('face-prompt', rb.err); writeResult('fail'); await browser.close(); process.exit(1); }
-    Object.assign(fp, rb);
-    log(`face prompt     read back from the host widget  : ${JSON.stringify((rb.promoted_value || '').slice(0, 80))}...`);
-    log(`face prompt     read back from #${opt.faceNode} ${rb.inner_node_type} "${rb.inner_node_title}" inside "${rb.subgraph_name}":`);
-    log(`                                                  ${JSON.stringify((rb.inner_value || '').slice(0, 80))}...`);
-    log(`                promoted widget and #${opt.faceNode}'s widget are the same object: ${rb.same_object}`);
-    if (rb.inner_value !== opt.facePrompt) {
-      await shot(page, 'face-prompt-not-committed', 'typed text did not reach #' + opt.faceNode);
-      fail('face-prompt', `#${opt.faceNode}.text reads ${JSON.stringify((rb.inner_value || '').slice(0, 120))} after typing, wanted the requested prompt`);
-      writeResult('fail'); await browser.close(); process.exit(1);
-    }
-    // The caption carries the actual text, so a placeholder leg can never be mistaken
-    // for a real-prompt leg by whoever reads the screenshots later.
-    await shot(page, 'face-prompt-entered-on-host',
-      `typed into "${promotedName}" on #${opt.faceHost} and read back out of #${opt.faceNode}: ` +
-      JSON.stringify(opt.facePrompt.length > 110 ? opt.facePrompt.slice(0, 110) + '…' : opt.facePrompt));
-
-    // 5. go inside and photograph #106 carrying it, so the claim is not just a log line.
-    //    Real UI path first: the "enter subgraph" button in the host's title bar, which
-    //    is only hit-tested when the node is NOT collapsed (api-gz4kgzki.js:
-    //    `n.title_buttons?.length && !n.flags.collapsed`). Its rectangle is recorded at
-    //    draw time, so it only has one once the expanded node has actually been drawn.
+    // 4. enter the subgraph — needed to TYPE on current files, and to PHOTOGRAPH on all.
     const tbtn = await page.evaluate(`(() => {
       const app = window.app, g = app.canvas.graph;
       const n = (g.nodes || g._nodes).find(x => x.id === ${opt.faceHost});
@@ -724,33 +704,69 @@ async function main() {
       enteredVia = `openSubgraph() API — the title-button click did not take (${tbtn.err || 'still at root'})`;
     }
     fp.entered_via = enteredVia;
-    log(`face prompt     entered via: ${enteredVia}`);
     const gs = await page.evaluate(`(${GRAPH_STATE_FN})()`);
     fp.inside_subgraph = gs;
     log(`face prompt     entered the subgraph: isRoot=${gs.isRoot}, "${gs.name}", ${gs.nodeCount} nodes, breadcrumb=${JSON.stringify(gs.breadcrumb)}`);
-    if (!entered.err && !gs.isRoot) {
-      const f106 = await page.evaluate(`(${FRAME_FN})([${opt.faceNode}], 40, 1.0, null, true)`);
-      await sleep(2500);
-      log(`face prompt     framed #${opt.faceNode} inside the subgraph (scale ${(f106.scale || 0).toFixed(3)})`);
-      await shot(page, 'face-prompt-on-node-106',
-        `#${opt.faceNode} "${rb.inner_node_title}" inside "${gs.name}", carrying: ` +
-        JSON.stringify(opt.facePrompt.length > 110 ? opt.facePrompt.slice(0, 110) + '…' : opt.facePrompt));
-      // back out the way a buyer does — the breadcrumb
-      const crumb = page.locator('.subgraph-breadcrumb .p-breadcrumb-item, .p-breadcrumb-item').first();
-      if (await crumb.count()) { await crumb.click().catch(() => {}); await sleep(1800); }
-      const back = await page.evaluate(`(${GRAPH_STATE_FN})()`);
-      fp.back_at_root = back.isRoot;
-      log(`face prompt     back out via the breadcrumb: isRoot=${back.isRoot}`);
-      if (!back.isRoot) {
-        fail('face-prompt', 'could not get back to the root graph after entering the subgraph');
-        writeResult('fail'); await browser.close(); process.exit(1);
-      }
-    } else {
+    if (entered.err || gs.isRoot) {
       fail('face-prompt', `could not enter the subgraph on #${opt.faceHost}: ${entered.err || 'still at root'}`);
       writeResult('fail'); await browser.close(); process.exit(1);
     }
-    // leave the canvas as it was handed over
-    await page.evaluate(`(${COLLAPSE_FN})(${opt.faceHost}, true)`);
+    const f106 = await page.evaluate(`(${FRAME_FN})([${opt.faceNode}], 40, 1.0, null, true)`);
+    await sleep(2500);
+    log(`face prompt     framed #${opt.faceNode} inside the subgraph (scale ${(f106.scale || 0).toFixed(3)})`);
+
+    if (typedInside) {
+      // 5a. type on #106's own widget — the current graph IS the subgraph here
+      const tagIn = await page.evaluate(`(${TAG_TEXT_WIDGET_FN})(${opt.faceNode}, 'text', 'face-prompt')`);
+      if (tagIn.err) {
+        await shot(page, 'face-widget-missing', 'no text widget on #' + opt.faceNode + ' inside the subgraph');
+        fail('face-prompt', `#${opt.faceNode}: ${tagIn.err}`);
+        writeResult('fail'); await browser.close(); process.exit(1);
+      }
+      fp.shipped_value = tagIn.value;
+      log(`face prompt     #${opt.faceNode}'s own "text" widget: ${tagIn.widgetType}, visible=${tagIn.visible}, shipped value ${JSON.stringify(tagIn.value)}`);
+      if (!tagIn.visible) {
+        fail('face-prompt', `#${opt.faceNode}'s textarea is not visible inside the subgraph; a buyer could not click it`);
+        writeResult('fail'); await browser.close(); process.exit(1);
+      }
+      const fta = page.locator('[data-gate-tag="face-prompt"]');
+      await fta.click();
+      await page.keyboard.press('Control+a');
+      await page.keyboard.press('Delete');
+      await page.keyboard.insertText(opt.facePrompt);
+      await page.keyboard.press('Tab');
+      await sleep(1200);
+    }
+
+    // 6. read back from the CLIPTextEncode itself (and the promoted widget when
+    //    one exists) — a log line saying "typed" is worth nothing on its own.
+    const rb = await page.evaluate(`(${READ_FACE_PROMPT_FN})(${opt.faceHost}, ${opt.faceNode}, 'text')`);
+    if (rb.err) { fail('face-prompt', rb.err); writeResult('fail'); await browser.close(); process.exit(1); }
+    Object.assign(fp, rb);
+    log(`face prompt     read back from #${opt.faceNode} ${rb.inner_node_type} "${rb.inner_node_title}" inside "${rb.subgraph_name}":`);
+    log(`                ${JSON.stringify((rb.inner_value || '').slice(0, 80))}...`);
+    if (rb.promoted_value !== null) log(`face prompt     promoted widget reads: ${JSON.stringify((rb.promoted_value || '').slice(0, 80))}...`);
+    if (rb.inner_value !== opt.facePrompt) {
+      await shot(page, 'face-prompt-not-committed', 'typed text did not reach #' + opt.faceNode);
+      fail('face-prompt', `#${opt.faceNode}.text reads ${JSON.stringify((rb.inner_value || '').slice(0, 120))} after typing, wanted the requested prompt`);
+      writeResult('fail'); await browser.close(); process.exit(1);
+    }
+    await shot(page, 'face-prompt-on-node-106',
+      `#${opt.faceNode} "${rb.inner_node_title}" inside "${gs.name}", carrying: ` +
+      JSON.stringify(opt.facePrompt.length > 110 ? opt.facePrompt.slice(0, 110) + '…' : opt.facePrompt));
+
+    // 7. back out the way a buyer does — the breadcrumb
+    const crumb = page.locator('.subgraph-breadcrumb .p-breadcrumb-item, .p-breadcrumb-item').first();
+    if (await crumb.count()) { await crumb.click().catch(() => {}); await sleep(1800); }
+    const back = await page.evaluate(`(${GRAPH_STATE_FN})()`);
+    fp.back_at_root = back.isRoot;
+    log(`face prompt     back out via the breadcrumb: isRoot=${back.isRoot}`);
+    if (!back.isRoot) {
+      fail('face-prompt', 'could not get back to the root graph after entering the subgraph');
+      writeResult('fail'); await browser.close(); process.exit(1);
+    }
+    // leave the canvas as it was handed over (respect the SHIPPED collapse state)
+    await page.evaluate(`(${COLLAPSE_FN})(${opt.faceHost}, ${fp.host_shipped_collapsed})`);
     await sleep(800);
   } else {
     log(`face prompt     not touched — #${opt.faceNode} keeps the value the workflow ships`);
