@@ -66,8 +66,11 @@ def luna_z(base_steps=8, base_cfg=1.0, face_denoise=0.35, mouth_thr=0.5,
     g.update({
         "ZU_pos": {"class_type": "CLIPTextEncode",
                    "inputs": {"text": prompt, "clip": ["620:110", 0]}},
-        "ZU_neg": {"class_type": "ConditioningZeroOut",
-                   "inputs": {"conditioning": ["ZU_pos", 0]}},
+        # empty-text encode, NOT ConditioningZeroOut: at cfg 1 the negative is
+        # never evaluated (identical output, verified by bit-compare), and at
+        # cfg > 1 ZeroOut black-frames Z-Image deterministically (batch F2).
+        "ZU_neg": {"class_type": "CLIPTextEncode",
+                   "inputs": {"text": "", "clip": ["620:110", 0]}},
     })
     g = zbase_splice(g, prompt=prompt, seed=seed, steps=base_steps,
                      cfg=base_cfg, w=w, h=h)
@@ -131,4 +134,67 @@ def final_graph(kind="luna_z", pick_list="", **kw):
             walk(s)
         for n in [n for n in g if n not in seen]:
             del g[n]
+    return g
+
+
+def photo_config(base_steps=30, base_cfg=2.0, face_denoise=0.50,
+                 face_sampler="euler_ancestral", face_scheduler="kl_optimal",
+                 prompt=BALCONY, neg=None, taps=None, seed=12345,
+                 w=896, h=1152, mouth_thr=0.5):
+    """PC — the reconciled, CHARACTER-NEUTRAL config (owner verdicts, 2026-08-08).
+
+    S3 pick: Z base 30 steps / cfg 2 (negatives LIVE at cfg>1 — ZB_neg wired
+    from the 483 negative string). S1 pick's essence (soft, photographic
+    face): the face pass repaints the crunchy 30-step crop with the smoothest
+    sampler (euler_ancestral, Q3) at a higher denoise. Body texture channel
+    (Z-USDU 617/98 res_multistep) kept exactly as the S3 winner had it.
+    Character-specific values are ARGUMENTS, never constants."""
+    g = luna_z(base_steps=base_steps, base_cfg=base_cfg,
+               face_denoise=face_denoise, mouth_thr=mouth_thr,
+               prompt=prompt, taps=taps, seed=seed, w=w, h=h)
+    g["620:114"]["inputs"]["sampler_name"] = face_sampler
+    g["620:114"]["inputs"]["scheduler"] = face_scheduler
+    # negatives live on the base pass at cfg 2: wire the owner's typed
+    # negative (483 slot 1 -> 619:605 passthrough) into ZB_neg
+    g["ZB_neg"] = {"class_type": "CLIPTextEncode",
+                   "inputs": {"text": ["619:605", 0], "clip": ["620:110", 0]}}
+    g["ZB_k"]["inputs"]["negative"] = ["ZB_neg", 0]
+    if neg is not None:
+        import json as _j
+        pb = _j.loads(g["483"]["inputs"]["prompt_batch_data"])
+        pb[0]["negative_prompt"] = neg
+        g["483"]["inputs"]["prompt_batch_data"] = _j.dumps(pb)
+    return g
+
+
+def hybrid_zusdu(base_steps=30, base_cfg=2.0, taps=None, prompt=BALCONY, seed=12345):
+    """PC-H — the LITERAL reading of the owner's two picks: Z base 30/cfg2
+    but the SDXL face treatment retained (607 + SDXL refine chain + SDXL 98),
+    i.e. the zusdu617 arm with only the base swapped. Costs SDXL residency."""
+    g = pipeline_graph(taps=(taps if taps is not None else {}),
+        overrides={"619:617": {"cfg": 1.0, "steps": 8,
+                                "sampler_name": "res_multistep",
+                                "scheduler": "simple"},
+                   "620:165": {"bbox_threshold": 0.5}},
+        rewires={("619:617", "model"): ["116", 0],
+                 ("619:617", "positive"): ["ZU_pos", 0],
+                 ("619:617", "negative"): ["ZU_neg", 0],
+                 ("619:617", "vae"): ["620:109", 0]})
+    g.update({
+        "ZU_pos": {"class_type": "CLIPTextEncode",
+                   "inputs": {"text": prompt, "clip": ["620:110", 0]}},
+        "ZU_neg": {"class_type": "CLIPTextEncode",
+                   "inputs": {"text": "", "clip": ["620:110", 0]}},
+    })
+    g = zbase_splice(g, prompt=prompt, seed=seed, steps=base_steps,
+                     cfg=base_cfg, w=w if False else 896, h=1152)
+    g["ZB_neg"] = {"class_type": "CLIPTextEncode",
+                   "inputs": {"text": ["619:605", 0], "clip": ["620:110", 0]}}
+    g["ZB_k"]["inputs"]["negative"] = ["ZB_neg", 0]
+    import json as _j
+    bv = buyer_values()
+    pb = _j.loads(bv["483"]["inputs"]["prompt_batch_data"])
+    pb[0]["positive_prompt"] = prompt
+    pb[0]["seed"] = seed
+    g["483"]["inputs"]["prompt_batch_data"] = _j.dumps(pb)
     return g
