@@ -17,7 +17,7 @@ REPO=/workspace/nsfw-fix
 PORT=31910                                   # TRACK D's own port. 18188=A, 28191=B: never touched.
 TARGET=/workspace/comfy-d-gate               # built from the tarball into a dir that was empty
 OUT="$REPO/results/gate2"
-EXPECT_ARTIFACT=29175edc581cd61d96324bd3bcedc4da36c638b90211554fa1823f4c5fe16a3e
+EXPECT_ARTIFACT=8f37692638535f004c19e93454c90f395774ca4bba737f8fb9cbf0adf21c41f5
 EXPECT_WORKFLOW=4741960602085c6277eecd5f3d25e8e023e71df842c5987714886ef2fca30d4b
 
 STAGE="${1:-}"
