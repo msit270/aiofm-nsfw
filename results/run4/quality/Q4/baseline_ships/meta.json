@@ -103,5 +103,17 @@
   "619:606": 2408,
   "(pre-exec/model-load)": 550,
   "619:613": 550
+ },
+ "texture_frame_skin": {
+  "skin_mpx": 2.8953,
+  "bright_blobs_per_mpx": 59.8,
+  "dark_pores_per_mpx": 5772.4,
+  "fine_rms": 1.755,
+  "blob_rms": 8.666
+ },
+ "vram_first_peak": {
+  "peak_mib": 22328,
+  "first_at_peak_node": "622:400",
+  "seconds_into_run": 266.8
  }
 }

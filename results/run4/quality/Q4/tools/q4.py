@@ -257,6 +257,36 @@ def render(name):
     slog = f"{TRACKQ}/server_{name}.log"
     pidfile = f"{TRACKQ}/server_19188.pid"
 
+    # pre-gate OUTSIDE the lock, but only when the lock is FREE while VRAM is
+    # low -- that is true external scarcity (e.g. a track-1 server resident
+    # without the lock) and queueing three Q drivers on flock during it is the
+    # starvation pattern the orchestrator flagged. When the lock is BUSY, the
+    # VRAM is (mostly) the holder's own arm server, which dies before the lock
+    # frees -- so the right move is to queue on the lock, not to poll VRAM.
+    # The mandatory post-acquisition re-check below is unchanged either way.
+    waited = 0
+    while True:
+        free = int(nvsmi("gpu", "memory.free"))
+        if free >= VRAM_GATE_MIB:
+            break
+        probe = open(LOCK, "w")
+        try:
+            fcntl.flock(probe, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            fcntl.flock(probe, fcntl.LOCK_UN)
+            lock_free = True
+        except BlockingIOError:
+            lock_free = False
+        finally:
+            probe.close()
+        if not lock_free:
+            print(f"[{name}] vram low ({free} MiB) but lock busy (a sibling's arm) -- queueing on the lock", flush=True)
+            break
+        print(f"[{name}] pre-gate: vram free {free} MiB < {VRAM_GATE_MIB}, lock free -- external scarcity, waiting 60 s (not holding lock)", flush=True)
+        time.sleep(60)
+        waited += 60
+        if waited > 14400:
+            raise RuntimeError("VRAM pre-gate not passed in 4 h")
+
     lk = open(LOCK, "w")
     print(f"[{name}] waiting for GPU lock ...", flush=True)
     fcntl.flock(lk, fcntl.LOCK_EX)

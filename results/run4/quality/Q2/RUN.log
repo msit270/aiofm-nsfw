@@ -13,3 +13,115 @@
 [13:23:57] [C_cf20] waiting for gpu lock …
 [13:33:48] [C_cf20] lock acquired
 [13:33:58] [C_cf20] submitted ccec145b-afc5-40b5-89b1-727c3157f361 (boot 10.0s, vram 51441 MiB)
+[13:38:33] [C_cf20] success exec=273.5s cached=[] err=None
+[13:38:36] [C_cf20] server killed and reaped
+[13:38:36] [C_cf20] lock released
+[13:38:36] [D_cf25] waiting for gpu lock …
+[13:49:45] [A_cf15_baseline] already recorded (success) — skipping
+[13:49:45] [B_cf10] already recorded (success) — skipping
+[13:49:45] [C_cf20] already recorded (success) — skipping
+[13:49:45] [D_cf25] waiting for gpu lock …
+[13:49:45] [D_cf25] lock acquired
+[13:49:45]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[13:50:45]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[13:51:45]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[13:52:45]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[13:53:45]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[13:54:45]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[13:55:45]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[13:56:45]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[13:57:45]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[13:58:45]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[13:59:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:00:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:01:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:02:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:03:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:04:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:05:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:06:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:07:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:08:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:09:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:10:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:11:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:12:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:13:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:14:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:15:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:16:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:17:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:18:46]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:19:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:20:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:21:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:22:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:23:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:24:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:25:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:26:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:27:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:28:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:29:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:30:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:31:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:32:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:33:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:34:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:35:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:36:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:37:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:38:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:39:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:40:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:41:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:42:47]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:43:48]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:44:48]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:45:48]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:46:48]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:47:48]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:48:48]   vram_free 32447 MiB < 50000 — waiting 60 s (gate may be running)
+[14:51:33] [A_cf15_baseline] already recorded (success) — skipping
+[14:51:33] [B_cf10] already recorded (success) — skipping
+[14:51:33] [C_cf20] already recorded (success) — skipping
+[14:51:33] [D_cf25] waiting for vram >= 50000 MiB (not holding the lock) …
+[14:51:33]   vram_free 32447 MiB < 50000 — waiting (gate may be running)
+[14:58:33] [D_cf25] vram ok — waiting for gpu lock …
+[15:08:51] [D_cf25] lock acquired
+[15:09:01] [D_cf25] submitted 9495d1bc-1ca0-495f-ae04-474ab782a4e3 (boot 10.0s, vram 51997 MiB)
+[15:14:27] [D_cf25] success exec=321.4s cached=[] err=None
+[15:14:30] [D_cf25] server killed and reaped
+[15:14:30] [D_cf25] lock released
+[15:14:30] [E_cf30] waiting for vram >= 50000 MiB (not holding the lock) …
+[15:14:30] [E_cf30] vram ok — waiting for gpu lock …
+[15:24:56] [E_cf30] lock acquired
+[15:25:06] [E_cf30] submitted c7256adc-d7d9-4387-8683-64645d5fba68 (boot 10.0s, vram 51997 MiB)
+[15:30:06] [E_cf30] success exec=299.9s cached=[] err=None
+[15:30:10] [E_cf30] server killed and reaped
+[15:30:10] [E_cf30] lock released
+[15:30:10] [F_cf35] waiting for vram >= 50000 MiB (not holding the lock) …
+[15:30:10] [F_cf35] vram ok — waiting for gpu lock …
+[15:40:37] [F_cf35] lock acquired
+[15:40:47] [F_cf35] submitted f70f12a0-9bf0-4cc0-b3a7-da25aa9496b9 (boot 10.0s, vram 51997 MiB)
+[15:46:07] [F_cf35] success exec=316.4s cached=[] err=None
+[15:46:10] [F_cf35] server killed and reaped
+[15:46:10] [F_cf35] lock released
+[15:46:10] [G_cf15_repeat] waiting for vram >= 50000 MiB (not holding the lock) …
+[15:46:10] [G_cf15_repeat] vram ok — waiting for gpu lock …
+[15:52:09] [A_cf15_baseline] already recorded (success) — skipping
+[15:52:09] [B_cf10] already recorded (success) — skipping
+[15:52:09] [C_cf20] already recorded (success) — skipping
+[15:52:09] [D_cf25] already recorded (success) — skipping
+[15:52:09] [E_cf30] already recorded (success) — skipping
+[15:52:09] [F_cf35] already recorded (success) — skipping
+[15:52:09] [G_cf15_repeat] waiting for vram >= 50000 MiB (not holding the lock) …
+[15:52:09]   vram_free 40033 MiB < 50000 — waiting (gate may be running)
+[16:02:10]   vram_free 44417 MiB < 50000 — waiting (gate may be running)
+[16:12:11] [G_cf15_repeat] vram ok — waiting for gpu lock …
+[16:12:11] [G_cf15_repeat] lock acquired
+[16:12:21] [G_cf15_repeat] submitted ff861471-bc90-4b23-bea1-5d35896326ce (boot 10.0s, vram 51997 MiB)
+[16:16:56] [G_cf15_repeat] success exec=270.8s cached=[] err=None
+[16:16:58] [G_cf15_repeat] server killed and reaped
+[16:16:58] [G_cf15_repeat] lock released
+[16:16:58] Q2-RUNSET-DONE

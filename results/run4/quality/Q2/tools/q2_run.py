@@ -119,15 +119,18 @@ def vram_free_mib():
     return int(r.stdout.strip().splitlines()[0])
 
 
-def wait_vram(min_mib=50000, max_wait=3600):
+def wait_vram(min_mib=50000, max_wait=3600, quiet_every=10):
     t0 = time.time()
+    n = 0
     while True:
         v = vram_free_mib()
         if v >= min_mib:
             return v
         if time.time() - t0 > max_wait:
             raise RuntimeError(f"VRAM never reached {min_mib} MiB (last {v})")
-        log(f"  vram_free {v} MiB < {min_mib} — waiting 60 s (gate may be running)")
+        if n % quiet_every == 0:
+            log(f"  vram_free {v} MiB < {min_mib} — waiting (gate may be running)")
+        n += 1
         time.sleep(60)
 
 
@@ -251,16 +254,29 @@ def run_arm(name, cf, is_base, param, base_graph):
     assert diff == expected, f"one-variable check FAILED: {diff}"
     json.dump(g, open(os.path.join(d, "api_graph.json"), "w"), indent=1)
 
+    # VRAM gate BEFORE the lock: never idle-hold the lock waiting for memory.
+    # (The first run of this driver held the lock ~1 h at 32 GiB free and
+    # starved the queue; this is the fix.)  After acquiring, re-check briefly;
+    # if memory vanished in between, release and go back to waiting.
     lockf = open(LOCK, "w")
-    log(f"[{name}] waiting for gpu lock …")
-    fcntl.flock(lockf, fcntl.LOCK_EX)
-    log(f"[{name}] lock acquired")
+    while True:
+        log(f"[{name}] waiting for vram >= 50000 MiB (not holding the lock) …")
+        wait_vram(max_wait=6 * 3600)
+        log(f"[{name}] vram ok — waiting for gpu lock …")
+        fcntl.flock(lockf, fcntl.LOCK_EX)
+        log(f"[{name}] lock acquired")
+        try:
+            v = wait_vram(max_wait=300)   # bounded re-check under the lock
+            break
+        except RuntimeError:
+            fcntl.flock(lockf, fcntl.LOCK_UN)
+            log(f"[{name}] vram fell below gate while queued — lock released, back to waiting")
     meta = {"arm": name, "param": param, "baseline": is_base,
             "bbox_crop_factor": cf, "prompt_text_620:106": BUYER60,
             "graph_diff_vs_baseline_arm": [list(x) for x in diff]}
     proc = None
     try:
-        meta["vram_free_before_boot_mib"] = wait_vram()
+        meta["vram_free_before_boot_mib"] = v
         proc, slog, boot_s = boot(name)
         meta["server_log"] = slog
         meta["boot_seconds"] = boot_s

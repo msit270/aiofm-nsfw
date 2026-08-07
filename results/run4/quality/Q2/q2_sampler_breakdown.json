@@ -1,0 +1,93 @@
+{
+ "A_cf15_baseline": {
+  "cf": 1.5,
+  "exec": 266.6,
+  "sampler_sum": 66,
+  "overhead": 200.6,
+  "face_sampler": 3,
+  "n_samplers": 14,
+  "eyes_ran": [
+   "True"
+  ],
+  "mouth_px": 1419280,
+  "lowvram_events": 0
+ },
+ "B_cf10": {
+  "cf": 1.0,
+  "exec": 262.0,
+  "sampler_sum": 64,
+  "overhead": 198.0,
+  "face_sampler": 1,
+  "n_samplers": 14,
+  "eyes_ran": [
+   "True"
+  ],
+  "mouth_px": 1390352,
+  "lowvram_events": 0
+ },
+ "C_cf20": {
+  "cf": 2.0,
+  "exec": 273.5,
+  "sampler_sum": 72,
+  "overhead": 201.5,
+  "face_sampler": 6,
+  "n_samplers": 14,
+  "eyes_ran": [
+   "True"
+  ],
+  "mouth_px": 1419280,
+  "lowvram_events": 0
+ },
+ "D_cf25": {
+  "cf": 2.5,
+  "exec": 321.4,
+  "sampler_sum": 77,
+  "overhead": 244.4,
+  "face_sampler": 11,
+  "n_samplers": 14,
+  "eyes_ran": [
+   "True"
+  ],
+  "mouth_px": 1448208,
+  "lowvram_events": 0
+ },
+ "E_cf30": {
+  "cf": 3.0,
+  "exec": 299.9,
+  "sampler_sum": 85,
+  "overhead": 214.9,
+  "face_sampler": 19,
+  "n_samplers": 14,
+  "eyes_ran": [
+   "True"
+  ],
+  "mouth_px": 1412048,
+  "lowvram_events": 0
+ },
+ "F_cf35": {
+  "cf": 3.5,
+  "exec": 316.4,
+  "sampler_sum": 93,
+  "overhead": 223.4,
+  "face_sampler": 29,
+  "n_samplers": 14,
+  "eyes_ran": [
+   "True"
+  ],
+  "mouth_px": 1421088,
+  "lowvram_events": 1
+ },
+ "G_cf15_repeat": {
+  "cf": 1.5,
+  "exec": 270.8,
+  "sampler_sum": 70,
+  "overhead": 200.8,
+  "face_sampler": 3,
+  "n_samplers": 14,
+  "eyes_ran": [
+   "True"
+  ],
+  "mouth_px": 1419280,
+  "lowvram_events": 0
+ }
+}

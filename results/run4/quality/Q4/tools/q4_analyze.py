@@ -233,17 +233,48 @@ def vram_by_node(arm):
     return out
 
 
+def first_peak_node(arm):
+    """CUDA's caching allocator does not return freed blocks to the driver, so
+    per-process nvidia-smi VRAM is a high-water mark: the LAST sample at the
+    maximum says nothing, the FIRST one does. This reports the node window in
+    which the process first came within 1% of its own maximum -- i.e. where the
+    high-water mark was actually set."""
+    d = os.path.join(Q4, arm)
+    try:
+        ws = json.load(open(os.path.join(d, "ws.json")))
+        samples = json.load(open(os.path.join(d, "vram_samples.json")))
+    except FileNotFoundError:
+        return None
+    events = [(t, n) for t, n in ws.get("events", []) if n is not None]
+    vals = [s for s in samples if s["mine_mib"] is not None]
+    if not vals or not events:
+        return None
+    peak = max(s["mine_mib"] for s in vals)
+    first = next(s for s in vals if s["mine_mib"] >= 0.99 * peak)
+    node = "(pre-exec/model-load)"
+    for t, n in events:
+        if t <= first["t"]:
+            node = n
+        else:
+            break
+    return {"peak_mib": peak, "first_at_peak_node": node,
+            "seconds_into_run": round(first["t"] - vals[0]["t"], 1)}
+
+
 def vram():
     for arm in ORDER:
         bv = vram_by_node(arm)
         if bv is None:
             continue
+        fp = first_peak_node(arm)
         mp = os.path.join(Q4, arm, "meta.json")
         m = json.load(open(mp))
         m["vram_max_by_node"] = dict(sorted(bv.items(), key=lambda kv: -kv[1]))
+        m["vram_first_peak"] = fp
         json.dump(m, open(mp, "w"), indent=1)
-        top = sorted(bv.items(), key=lambda kv: -kv[1])[:6]
-        print(f"[{arm}] top VRAM windows: " + ", ".join(f"{n}={v}MiB" for n, v in top))
+        top = sorted(bv.items(), key=lambda kv: -kv[1])[:4]
+        print(f"[{arm}] peak {fp['peak_mib']} MiB first reached at {fp['first_at_peak_node']} "
+              f"(+{fp['seconds_into_run']}s) | windows: " + ", ".join(f"{n}={v}" for n, v in top))
 
 
 USDU_RE = re.compile(r"(Canva size|Image size|Scale factor|Tile size|Tiles amount|Grid|Redraw enabled|Seams fix mode): .*")

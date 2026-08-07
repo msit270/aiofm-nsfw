@@ -1,0 +1,640 @@
+{
+ "generated": "2026-08-07 16:04",
+ "source": "/workspace/nsfw-fix/results/run4/quality/Q4",
+ "tool": "/workspace/nsfw-fix/tools/contact_sheet.py",
+ "max_width": 4000,
+ "detector": "/workspace/ComfyUI/models/ultralytics/bbox/face_yolov8m.pt",
+ "detector_error": null,
+ "face_box_xywh": [
+  768,
+  221,
+  408,
+  538
+ ],
+ "skin_box_xywh": [
+  960,
+  798,
+  300,
+  300
+ ],
+ "skin_stats": {
+  "pinned": true
+ },
+ "image_size": [
+  2688,
+  3456
+ ],
+ "sheets": [
+  {
+   "region": "face",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q4_sheets/Q4_face_sheet1of1.png",
+   "size": [
+    3004,
+    897
+   ],
+   "cols": 7,
+   "tiles": [
+    "baseline_ships",
+    "base592_steps60",
+    "blend87_050",
+    "face607_dn030",
+    "usdu617_dn015",
+    "usdu617_dn035",
+    "usdu98_tile1024"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "baseline_ships",
+     "ok": true,
+     "src_box": [
+      768,
+      221,
+      408,
+      538
+     ],
+     "sheet_at": [
+      20,
+      339,
+      408,
+      538
+     ],
+     "src_shape": [
+      538,
+      408,
+      3
+     ],
+     "sheet_shape": [
+      538,
+      408,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "base592_steps60",
+     "ok": true,
+     "src_box": [
+      768,
+      221,
+      408,
+      538
+     ],
+     "sheet_at": [
+      446,
+      339,
+      408,
+      538
+     ],
+     "src_shape": [
+      538,
+      408,
+      3
+     ],
+     "sheet_shape": [
+      538,
+      408,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "blend87_050",
+     "ok": true,
+     "src_box": [
+      768,
+      221,
+      408,
+      538
+     ],
+     "sheet_at": [
+      872,
+      339,
+      408,
+      538
+     ],
+     "src_shape": [
+      538,
+      408,
+      3
+     ],
+     "sheet_shape": [
+      538,
+      408,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "face607_dn030",
+     "ok": true,
+     "src_box": [
+      768,
+      221,
+      408,
+      538
+     ],
+     "sheet_at": [
+      1298,
+      339,
+      408,
+      538
+     ],
+     "src_shape": [
+      538,
+      408,
+      3
+     ],
+     "sheet_shape": [
+      538,
+      408,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "usdu617_dn015",
+     "ok": true,
+     "src_box": [
+      768,
+      221,
+      408,
+      538
+     ],
+     "sheet_at": [
+      1724,
+      339,
+      408,
+      538
+     ],
+     "src_shape": [
+      538,
+      408,
+      3
+     ],
+     "sheet_shape": [
+      538,
+      408,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "usdu617_dn035",
+     "ok": true,
+     "src_box": [
+      768,
+      221,
+      408,
+      538
+     ],
+     "sheet_at": [
+      2150,
+      339,
+      408,
+      538
+     ],
+     "src_shape": [
+      538,
+      408,
+      3
+     ],
+     "sheet_shape": [
+      538,
+      408,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "usdu98_tile1024",
+     "ok": true,
+     "src_box": [
+      768,
+      221,
+      408,
+      538
+     ],
+     "sheet_at": [
+      2576,
+      339,
+      408,
+      538
+     ],
+     "src_shape": [
+      538,
+      408,
+      3
+     ],
+     "sheet_shape": [
+      538,
+      408,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  },
+  {
+   "region": "skin",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q4_sheets/Q4_skin_sheet1of1.png",
+   "size": [
+    2248,
+    686
+   ],
+   "cols": 7,
+   "tiles": [
+    "baseline_ships",
+    "base592_steps60",
+    "blend87_050",
+    "face607_dn030",
+    "usdu617_dn015",
+    "usdu617_dn035",
+    "usdu98_tile1024"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "baseline_ships",
+     "ok": true,
+     "src_box": [
+      960,
+      798,
+      300,
+      300
+     ],
+     "sheet_at": [
+      20,
+      366,
+      300,
+      300
+     ],
+     "src_shape": [
+      300,
+      300,
+      3
+     ],
+     "sheet_shape": [
+      300,
+      300,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "base592_steps60",
+     "ok": true,
+     "src_box": [
+      960,
+      798,
+      300,
+      300
+     ],
+     "sheet_at": [
+      338,
+      366,
+      300,
+      300
+     ],
+     "src_shape": [
+      300,
+      300,
+      3
+     ],
+     "sheet_shape": [
+      300,
+      300,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "blend87_050",
+     "ok": true,
+     "src_box": [
+      960,
+      798,
+      300,
+      300
+     ],
+     "sheet_at": [
+      656,
+      366,
+      300,
+      300
+     ],
+     "src_shape": [
+      300,
+      300,
+      3
+     ],
+     "sheet_shape": [
+      300,
+      300,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "face607_dn030",
+     "ok": true,
+     "src_box": [
+      960,
+      798,
+      300,
+      300
+     ],
+     "sheet_at": [
+      974,
+      366,
+      300,
+      300
+     ],
+     "src_shape": [
+      300,
+      300,
+      3
+     ],
+     "sheet_shape": [
+      300,
+      300,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "usdu617_dn015",
+     "ok": true,
+     "src_box": [
+      960,
+      798,
+      300,
+      300
+     ],
+     "sheet_at": [
+      1292,
+      366,
+      300,
+      300
+     ],
+     "src_shape": [
+      300,
+      300,
+      3
+     ],
+     "sheet_shape": [
+      300,
+      300,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "usdu617_dn035",
+     "ok": true,
+     "src_box": [
+      960,
+      798,
+      300,
+      300
+     ],
+     "sheet_at": [
+      1610,
+      366,
+      300,
+      300
+     ],
+     "src_shape": [
+      300,
+      300,
+      3
+     ],
+     "sheet_shape": [
+      300,
+      300,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "usdu98_tile1024",
+     "ok": true,
+     "src_box": [
+      960,
+      798,
+      300,
+      300
+     ],
+     "sheet_at": [
+      1928,
+      366,
+      300,
+      300
+     ],
+     "src_shape": [
+      300,
+      300,
+      3
+     ],
+     "sheet_shape": [
+      300,
+      300,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  }
+ ],
+ "arms": [
+  {
+   "name": "baseline_ships",
+   "param": "BASELINE (ships) - shipped settings, no change",
+   "path": "results/run4/quality/Q4/baseline_ships/n505__HasMetadata_00003_.png",
+   "is_baseline": true,
+   "extra": "269.7 s  |  0 cached nodes  |  prompt 5d10bfda",
+   "warnings": [],
+   "det_xyxy": [
+    812.9775390625,
+    282.0129089355469,
+    1144.144775390625,
+    720.2067260742188
+   ],
+   "det_conf": 0.8652036786079407,
+   "det_status": "detected",
+   "face_box": [
+    768,
+    221,
+    408,
+    538
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "base592_steps60",
+   "param": "#592 KSampler (SDXL base gen) steps 40 -> 60 (+50%)",
+   "path": "results/run4/quality/Q4/base592_steps60/n505__HasMetadata_00003_.png",
+   "is_baseline": false,
+   "extra": "284.4 s  |  0 cached nodes  |  prompt 7a9ea26f",
+   "warnings": [],
+   "det_xyxy": [
+    796.4279174804688,
+    258.4378662109375,
+    1137.065673828125,
+    702.611572265625
+   ],
+   "det_conf": 0.8654588460922241,
+   "det_status": "detected",
+   "face_box": [
+    768,
+    221,
+    408,
+    538
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "blend87_050",
+   "param": "#87 ImageBlend blend_factor 1.0 -> 0.5 (skin filter half strength)",
+   "path": "results/run4/quality/Q4/blend87_050/n505__HasMetadata_00002_.png",
+   "is_baseline": false,
+   "extra": "270.3 s  |  0 cached nodes  |  prompt 2ac0cd20",
+   "warnings": [],
+   "det_xyxy": [
+    811.9485473632812,
+    280.77679443359375,
+    1145.2529296875,
+    720.5839233398438
+   ],
+   "det_conf": 0.8647984266281128,
+   "det_status": "detected",
+   "face_box": [
+    768,
+    221,
+    408,
+    538
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "face607_dn030",
+   "param": "#607 FaceDetailerPipe (SDXL face pass) denoise 0.45 -> 0.30",
+   "path": "results/run4/quality/Q4/face607_dn030/n505__HasMetadata_00002_.png",
+   "is_baseline": false,
+   "extra": "283.5 s  |  0 cached nodes  |  prompt 9870a8f0",
+   "warnings": [],
+   "det_xyxy": [
+    812.0885009765625,
+    284.05059814453125,
+    1142.1644287109375,
+    721.3609008789062
+   ],
+   "det_conf": 0.8652427196502686,
+   "det_status": "detected",
+   "face_box": [
+    768,
+    221,
+    408,
+    538
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "usdu617_dn015",
+   "param": "#617 UltimateSDUpscale (first, SDXL 25st cfg4.5) denoise 0.25 -> 0.15",
+   "path": "results/run4/quality/Q4/usdu617_dn015/n505__HasMetadata_00002_.png",
+   "is_baseline": false,
+   "extra": "287.1 s  |  0 cached nodes  |  prompt 10028766",
+   "warnings": [],
+   "det_xyxy": [
+    810.7337036132812,
+    278.6788635253906,
+    1144.6201171875,
+    721.5476684570312
+   ],
+   "det_conf": 0.8646616339683533,
+   "det_status": "detected",
+   "face_box": [
+    768,
+    221,
+    408,
+    538
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "usdu617_dn035",
+   "param": "#617 UltimateSDUpscale (first, SDXL 25st cfg4.5) denoise 0.25 -> 0.35",
+   "path": "results/run4/quality/Q4/usdu617_dn035/n505__HasMetadata_00003_.png",
+   "is_baseline": false,
+   "extra": "287.5 s  |  0 cached nodes  |  prompt 9bc8060e",
+   "warnings": [],
+   "det_xyxy": [
+    813.7372436523438,
+    282.7548828125,
+    1142.5523681640625,
+    719.7598266601562
+   ],
+   "det_conf": 0.8673741817474365,
+   "det_status": "detected",
+   "face_box": [
+    768,
+    221,
+    408,
+    538
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "usdu98_tile1024",
+   "param": "#98 USDU tile: whole-frame 1792x2304 (wired from #99) -> fixed 1024x1024",
+   "path": "results/run4/quality/Q4/usdu98_tile1024/n505__HasMetadata_00003_.png",
+   "is_baseline": false,
+   "extra": "289.8 s  |  0 cached nodes  |  prompt 0a9a2389",
+   "warnings": [],
+   "det_xyxy": [
+    812.2639770507812,
+    284.1804504394531,
+    1147.163330078125,
+    721.0471801757812
+   ],
+   "det_conf": 0.8659149408340454,
+   "det_status": "detected",
+   "face_box": [
+    768,
+    221,
+    408,
+    538
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ ]
+}

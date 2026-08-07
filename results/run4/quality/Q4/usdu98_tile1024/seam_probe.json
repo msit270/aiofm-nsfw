@@ -1,0 +1,32 @@
+{
+ "x=1024": {
+  "baseline_band/flank": 0.9795,
+  "tile_band/flank": 0.7003,
+  "baseline_band": 3.897,
+  "tile_band": 2.212
+ },
+ "x=2048": {
+  "baseline_band/flank": 1.0039,
+  "tile_band/flank": 0.7443,
+  "baseline_band": 1.532,
+  "tile_band": 1.091
+ },
+ "y=1024": {
+  "baseline_band/flank": 0.9837,
+  "tile_band/flank": 0.8075,
+  "baseline_band": 2.04,
+  "tile_band": 1.501
+ },
+ "y=2048": {
+  "baseline_band/flank": 1.0135,
+  "tile_band/flank": 0.8324,
+  "baseline_band": 1.696,
+  "tile_band": 1.293
+ },
+ "y=3072": {
+  "baseline_band/flank": 0.9951,
+  "tile_band/flank": 0.7353,
+  "baseline_band": 1.509,
+  "tile_band": 1.002
+ }
+}

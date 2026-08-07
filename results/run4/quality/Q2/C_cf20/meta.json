@@ -1,0 +1,92 @@
+{
+ "arm": "C_cf20",
+ "param": "bbox_crop_factor 2.0",
+ "baseline": false,
+ "bbox_crop_factor": 2.0,
+ "prompt_text_620:106": "luna, a young woman in her mid twenties with wavy auburn hair, warm hazel eyes, soft natural makeup, light freckles on her cheeks, gentle smile, photorealistic skin texture with visible pores, soft diffused studio light",
+ "graph_diff_vs_baseline_arm": [
+  [
+   "620:114",
+   "bbox_crop_factor",
+   1.5,
+   2.0
+  ]
+ ],
+ "vram_free_before_boot_mib": 51441,
+ "server_log": "/workspace/trackQ/server_Q2_C_cf20.log",
+ "boot_seconds": 10.0,
+ "prompt_id": "ccec145b-afc5-40b5-89b1-727c3157f361",
+ "client_id": "Q2-C_cf20-5236d1bb",
+ "wall_seconds": 275.4,
+ "status": "success",
+ "exec_seconds": 273.5,
+ "execution_cached": [],
+ "error": null,
+ "error_node": null,
+ "error_type": null,
+ "images": [
+  {
+   "node": "480",
+   "text": [
+    "\ud83d\udcca BATCH PREVIEW: 1 prompts\n============================================================\n\n[1] Seed: 12345\n\u2705 photorealistic portrait photograph of a young woman standing in soft window ligh...\n\u274c bad quality, worst quality, low quality, deformed, extra fingers, watermark, tex...\n"
+   ]
+  },
+  {
+   "node": "481",
+   "text": [
+    "\ud83d\udcca BATCH PREVIEW: 1 prompts\n============================================================\n\n[1] Seed: 12345\n\u2705 photorealistic portrait photograph of a young woman standing in soft window ligh...\n\u274c bad quality, worst quality, low quality, deformed, extra fingers, watermark, tex...\n"
+   ]
+  },
+  {
+   "node": "TAP163",
+   "filename": "tap163_00001_.png",
+   "subfolder": "run3",
+   "type": "output"
+  },
+  {
+   "node": "622:662",
+   "text": [
+    "True"
+   ]
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00003_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "cached_nodes": [],
+ "cold": true,
+ "image": "n505__HasMetadata_00003_.png",
+ "log_slice": [
+  "   0.2 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI-WanAnimatePreprocess",
+  "loaded completely; 49666.24 MB usable, 1560.80 MB loaded, full load: True",
+  "loaded completely; 49407.24 MB usable, 1560.80 MB loaded, full load: True",
+  "loaded completely; 49407.24 MB usable, 1560.80 MB loaded, full load: True",
+  "loaded completely; 47846.43 MB usable, 4897.05 MB loaded, full load: True",
+  "loaded completely; 39470.60 MB usable, 159.56 MB loaded, full load: True",
+  "loaded completely; 47674.87 MB usable, 4897.05 MB loaded, full load: True",
+  "0: 640x512 1 face, 4.8ms",
+  "Detailer: force inpaint",
+  "Detailer: segment upscale for ((np.float32(359.268), np.float32(495.8613))) | crop region (1077, 1487) x 1.0 -> (1077, 1487)",
+  "loaded completely; 47566.97 MB usable, 4897.05 MB loaded, full load: True",
+  "0: 640x512 (no detections), 3.2ms",
+  "loaded completely;  7672.25 MB loaded, full load: True",
+  "0: 640x512 1 face, 6.1ms",
+  "Detailer: force inpaint",
+  "Detailer: segment upscale for ((np.float32(690.8927), np.float32(921.08136))) | crop region (1381, 1842) x 1.0 -> (1381, 1842)",
+  "loaded completely; 34918.78 MB usable, 159.87 MB loaded, full load: True",
+  "loaded completely; 41059.62 MB usable, 11739.54 MB loaded, full load: True",
+  "0: 640x512 1 lips, 3.6ms",
+  "[in] value=362858 / True, 0, 1700000",
+  "Detailer: segment upscale for ((np.float32(304.89062), np.float32(132.60364))) | crop region (914, 397) x 1.978124737739563 -> (1808, 785)",
+  "0: 640x512 1 face, 5.5ms",
+  "# of Detected SEGS: 1",
+  "# of Detected SEGS: 1",
+  "# of Detected SEGS: 1",
+  "# of Detected SEGS: 1",
+  "# of Detected SEGS: 1",
+  "Detailer: segment upscale for ((np.int64(980), np.int64(154))) | crop region (1442, 462) x 1.3314975157226798 -> (1920, 615)"
+ ]
+}

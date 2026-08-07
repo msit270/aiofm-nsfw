@@ -1,0 +1,139 @@
+{
+ "arm": "usdu617_dn015",
+ "param": "#617 UltimateSDUpscale (first, SDXL 25st cfg4.5) denoise 0.25 -> 0.15",
+ "baseline": false,
+ "prompt_id": "10028766-f7e9-4b53-87da-421b17dfbbb5",
+ "client_id": "q4-usdu617_dn015-afb00375",
+ "server_pid": 324536,
+ "boot_seconds": 10.0,
+ "wall_seconds": 290.4,
+ "exec_seconds": 287.1,
+ "status": "success",
+ "cached_nodes": [],
+ "cached": 0,
+ "error": null,
+ "error_node": null,
+ "peak_vram_mib": 22072,
+ "peak_vram_node": "505",
+ "overrides": {
+  "619:617": {
+   "denoise": 0.15
+  }
+ },
+ "images": [
+  {
+   "node": "TAP163",
+   "filename": "tap163_00001_.png",
+   "subfolder": "q4tap",
+   "type": "output"
+  },
+  {
+   "node": "505",
+   "filename": "HasMetadata_00002_.png",
+   "subfolder": "Instaraw/SDXL/Metadata",
+   "type": "output"
+  }
+ ],
+ "image": "n505__HasMetadata_00002_.png",
+ "graph_sha_note": "built from api_final.json (see module docstring)",
+ "health": {
+  "flat_frac": 0.0013,
+  "median_rgb": [
+   126,
+   89,
+   68
+  ],
+  "luma_sd": 41.94
+ },
+ "det": {
+  "xyxy": [
+   810,
+   278,
+   1144,
+   721
+  ],
+  "conf": 0.8647
+ },
+ "texture_frame_skin": {
+  "skin_mpx": 2.8953,
+  "bright_blobs_per_mpx": 63.2,
+  "dark_pores_per_mpx": 5631.2,
+  "fine_rms": 1.715,
+  "blob_rms": 8.668
+ },
+ "vs_baseline_face": {
+  "psnr_db": 31.41,
+  "ssim": 0.8526,
+  "mean_abs": 4.372,
+  "max_abs": 100,
+  "pct_gt_1": 87.26,
+  "pct_gt_8": 16.08
+ },
+ "vs_baseline_full": {
+  "psnr_db": 35.81,
+  "ssim": 0.9253,
+  "mean_abs": 2.458,
+  "max_abs": 218,
+  "pct_gt_1": 79.12,
+  "pct_gt_8": 5.02
+ },
+ "log_usdu": [
+  "Canva size: 1792x2304",
+  "Image size: 1432x1840",
+  "Scale factor: 2",
+  "Tile size: 896x1152",
+  "Tiles amount: 4",
+  "Grid: 2x2",
+  "Redraw enabled: True",
+  "Seams fix mode: NONE",
+  "Canva size: 2688x3456",
+  "Image size: 1792x2304",
+  "Scale factor: 2",
+  "Tile size: 1792x2304",
+  "Tiles amount: 4",
+  "Grid: 2x2",
+  "Redraw enabled: True",
+  "Seams fix mode: NONE"
+ ],
+ "log_detailer": [
+  "Detailer: segment upscale for ((np.float32(177.07452), np.float32(231.66457))) | crop region (531, 694) x 1.8446173667907715 -> (979, 1280)",
+  "Detailer: segment upscale for ((np.float32(223.48828), np.float32(150.46301))) | crop region (335, 225) x 3.057917833328247 -> (1024, 688)",
+  "Detailer: segment upscale for ((np.float32(334.1496), np.float32(441.9595))) | crop region (501, 662) x 1.5473588705062866 -> (775, 1024)",
+  "Detailer: segment upscale for ((np.int64(941), np.int64(128))) | crop region (1458, 384) x 1.316872427983539 -> (1920, 505)"
+ ],
+ "vram_max_by_node": {
+  "505": 22072,
+  "419": 22072,
+  "620:111": 21624,
+  "622:406": 20120,
+  "620:114": 19992,
+  "621:163": 19896,
+  "TAP163": 19896,
+  "622:415": 19553,
+  "621:166": 19544,
+  "622:398": 19544,
+  "587:98": 18776,
+  "620:110": 18776,
+  "619:617": 12822,
+  "619:595": 12404,
+  "587:92": 10070,
+  "619:593": 8820,
+  "587:91": 8536,
+  "619:607": 8086,
+  "619:592": 7762,
+  "587:508": 7704,
+  "620:105": 7640,
+  "620:106": 7640,
+  "620:113": 7640,
+  "619:600": 7444,
+  "587:93": 2408,
+  "619:612": 2408,
+  "(pre-exec/model-load)": 550,
+  "619:613": 550
+ },
+ "vram_first_peak": {
+  "peak_mib": 22072,
+  "first_at_peak_node": "505",
+  "seconds_into_run": 285.1
+ }
+}

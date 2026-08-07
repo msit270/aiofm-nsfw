@@ -1,6 +1,6 @@
 {
  "arm": "A_cf15_baseline",
- "param": "bbox_crop_factor 1.5 (SHIPPED)",
+ "param": "bbox_crop_factor 1.5 \u2014 BASELINE (ships)",
  "baseline": true,
  "bbox_crop_factor": 1.5,
  "prompt_text_620:106": "luna, a young woman in her mid twenties with wavy auburn hair, warm hazel eyes, soft natural makeup, light freckles on her cheeks, gentle smile, photorealistic skin texture with visible pores, soft diffused studio light",

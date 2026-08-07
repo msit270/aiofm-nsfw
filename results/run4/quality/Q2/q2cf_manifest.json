@@ -1,0 +1,648 @@
+{
+ "generated": "2026-08-07 16:19",
+ "source": "/workspace/nsfw-fix/results/run4/quality/Q2",
+ "tool": "/workspace/nsfw-fix/tools/contact_sheet.py",
+ "max_width": 4000,
+ "detector": "/workspace/ComfyUI/models/ultralytics/bbox/face_yolov8m.pt",
+ "detector_error": null,
+ "face_box_xywh": [
+  963,
+  430,
+  802,
+  1084
+ ],
+ "skin_box_xywh": [
+  1187,
+  1110,
+  400,
+  400
+ ],
+ "skin_stats": {
+  "skin_frac": 0.9562,
+  "blur_grad": 0.8258,
+  "anchor": "face",
+  "search_region": [
+   963,
+   430,
+   802,
+   1084
+  ]
+ },
+ "image_size": [
+  2688,
+  3456
+ ],
+ "sheets": [
+  {
+   "region": "face",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q2/q2cf_face_sheet1of1.png",
+   "size": [
+    3302,
+    2826
+   ],
+   "cols": 4,
+   "tiles": [
+    "A_cf15_baseline",
+    "B_cf10",
+    "C_cf20",
+    "D_cf25",
+    "E_cf30",
+    "F_cf35",
+    "G_cf15_repeat"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "A_cf15_baseline",
+     "ok": true,
+     "src_box": [
+      963,
+      430,
+      802,
+      1084
+     ],
+     "sheet_at": [
+      20,
+      436,
+      802,
+      1084
+     ],
+     "src_shape": [
+      1084,
+      802,
+      3
+     ],
+     "sheet_shape": [
+      1084,
+      802,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "B_cf10",
+     "ok": true,
+     "src_box": [
+      963,
+      430,
+      802,
+      1084
+     ],
+     "sheet_at": [
+      840,
+      436,
+      802,
+      1084
+     ],
+     "src_shape": [
+      1084,
+      802,
+      3
+     ],
+     "sheet_shape": [
+      1084,
+      802,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "C_cf20",
+     "ok": true,
+     "src_box": [
+      963,
+      430,
+      802,
+      1084
+     ],
+     "sheet_at": [
+      1660,
+      436,
+      802,
+      1084
+     ],
+     "src_shape": [
+      1084,
+      802,
+      3
+     ],
+     "sheet_shape": [
+      1084,
+      802,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "D_cf25",
+     "ok": true,
+     "src_box": [
+      963,
+      430,
+      802,
+      1084
+     ],
+     "sheet_at": [
+      2480,
+      436,
+      802,
+      1084
+     ],
+     "src_shape": [
+      1084,
+      802,
+      3
+     ],
+     "sheet_shape": [
+      1084,
+      802,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "E_cf30",
+     "ok": true,
+     "src_box": [
+      963,
+      430,
+      802,
+      1084
+     ],
+     "sheet_at": [
+      20,
+      1722,
+      802,
+      1084
+     ],
+     "src_shape": [
+      1084,
+      802,
+      3
+     ],
+     "sheet_shape": [
+      1084,
+      802,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "F_cf35",
+     "ok": true,
+     "src_box": [
+      963,
+      430,
+      802,
+      1084
+     ],
+     "sheet_at": [
+      840,
+      1722,
+      802,
+      1084
+     ],
+     "src_shape": [
+      1084,
+      802,
+      3
+     ],
+     "sheet_shape": [
+      1084,
+      802,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "G_cf15_repeat",
+     "ok": true,
+     "src_box": [
+      963,
+      430,
+      802,
+      1084
+     ],
+     "sheet_at": [
+      1660,
+      1722,
+      802,
+      1084
+     ],
+     "src_shape": [
+      1084,
+      802,
+      3
+     ],
+     "sheet_shape": [
+      1084,
+      802,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  },
+  {
+   "region": "skin",
+   "path": "/workspace/nsfw-fix/results/run4/quality/Q2/q2cf_skin_sheet1of1.png",
+   "size": [
+    2948,
+    793
+   ],
+   "cols": 7,
+   "tiles": [
+    "A_cf15_baseline",
+    "B_cf10",
+    "C_cf20",
+    "D_cf25",
+    "E_cf30",
+    "F_cf35",
+    "G_cf15_repeat"
+   ],
+   "width_ok": true,
+   "verify": [
+    {
+     "arm": "A_cf15_baseline",
+     "ok": true,
+     "src_box": [
+      1187,
+      1110,
+      400,
+      400
+     ],
+     "sheet_at": [
+      20,
+      373,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "B_cf10",
+     "ok": true,
+     "src_box": [
+      1187,
+      1110,
+      400,
+      400
+     ],
+     "sheet_at": [
+      438,
+      373,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "C_cf20",
+     "ok": true,
+     "src_box": [
+      1187,
+      1110,
+      400,
+      400
+     ],
+     "sheet_at": [
+      856,
+      373,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "D_cf25",
+     "ok": true,
+     "src_box": [
+      1187,
+      1110,
+      400,
+      400
+     ],
+     "sheet_at": [
+      1274,
+      373,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "E_cf30",
+     "ok": true,
+     "src_box": [
+      1187,
+      1110,
+      400,
+      400
+     ],
+     "sheet_at": [
+      1692,
+      373,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "F_cf35",
+     "ok": true,
+     "src_box": [
+      1187,
+      1110,
+      400,
+      400
+     ],
+     "sheet_at": [
+      2110,
+      373,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    },
+    {
+     "arm": "G_cf15_repeat",
+     "ok": true,
+     "src_box": [
+      1187,
+      1110,
+      400,
+      400
+     ],
+     "sheet_at": [
+      2528,
+      373,
+      400,
+      400
+     ],
+     "src_shape": [
+      400,
+      400,
+      3
+     ],
+     "sheet_shape": [
+      400,
+      400,
+      3
+     ],
+     "max_abs_diff": 0
+    }
+   ]
+  }
+ ],
+ "arms": [
+  {
+   "name": "A_cf15_baseline",
+   "param": "bbox_crop_factor 1.5 \u2014 BASELINE (ships)",
+   "path": "results/run4/quality/Q2/A_cf15_baseline/n505__HasMetadata_00002_.png",
+   "is_baseline": true,
+   "extra": "266.6 s  |  0 cached nodes  |  prompt 1fd40312",
+   "warnings": [],
+   "det_xyxy": [
+    1019.4453735351562,
+    505.092529296875,
+    1707.676513671875,
+    1438.7589111328125
+   ],
+   "det_conf": 0.900016188621521,
+   "det_status": "detected",
+   "face_box": [
+    963,
+    430,
+    802,
+    1084
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "B_cf10",
+   "param": "bbox_crop_factor 1.0",
+   "path": "results/run4/quality/Q2/B_cf10/n505__HasMetadata_00004_.png",
+   "is_baseline": false,
+   "extra": "262.0 s  |  0 cached nodes  |  prompt b994142a",
+   "warnings": [],
+   "det_xyxy": [
+    1018.5587768554688,
+    513.9442749023438,
+    1709.0087890625,
+    1435.935302734375
+   ],
+   "det_conf": 0.9002764225006104,
+   "det_status": "detected",
+   "face_box": [
+    963,
+    430,
+    802,
+    1084
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "C_cf20",
+   "param": "bbox_crop_factor 2.0",
+   "path": "results/run4/quality/Q2/C_cf20/n505__HasMetadata_00003_.png",
+   "is_baseline": false,
+   "extra": "273.5 s  |  0 cached nodes  |  prompt ccec145b",
+   "warnings": [],
+   "det_xyxy": [
+    1019.1089477539062,
+    513.9031982421875,
+    1709.4134521484375,
+    1434.988525390625
+   ],
+   "det_conf": 0.8993874192237854,
+   "det_status": "detected",
+   "face_box": [
+    963,
+    430,
+    802,
+    1084
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "D_cf25",
+   "param": "bbox_crop_factor 2.5",
+   "path": "results/run4/quality/Q2/D_cf25/n505__HasMetadata_00002_.png",
+   "is_baseline": false,
+   "extra": "321.4 s  |  0 cached nodes  |  prompt 9495d1bc",
+   "warnings": [],
+   "det_xyxy": [
+    1019.3718872070312,
+    510.86456298828125,
+    1708.4599609375,
+    1434.6881103515625
+   ],
+   "det_conf": 0.9004529714584351,
+   "det_status": "detected",
+   "face_box": [
+    963,
+    430,
+    802,
+    1084
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "E_cf30",
+   "param": "bbox_crop_factor 3.0",
+   "path": "results/run4/quality/Q2/E_cf30/n505__HasMetadata_00002_.png",
+   "is_baseline": false,
+   "extra": "299.9 s  |  0 cached nodes  |  prompt c7256adc",
+   "warnings": [],
+   "det_xyxy": [
+    1019.3258666992188,
+    508.3664855957031,
+    1707.64892578125,
+    1435.4718017578125
+   ],
+   "det_conf": 0.8999159336090088,
+   "det_status": "detected",
+   "face_box": [
+    963,
+    430,
+    802,
+    1084
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "F_cf35",
+   "param": "bbox_crop_factor 3.5",
+   "path": "results/run4/quality/Q2/F_cf35/n505__HasMetadata_00002_.png",
+   "is_baseline": false,
+   "extra": "316.4 s  |  0 cached nodes  |  prompt f70f12a0",
+   "warnings": [],
+   "det_xyxy": [
+    1019.276123046875,
+    511.4299621582031,
+    1707.4498291015625,
+    1436.5010986328125
+   ],
+   "det_conf": 0.8994387984275818,
+   "det_status": "detected",
+   "face_box": [
+    963,
+    430,
+    802,
+    1084
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  },
+  {
+   "name": "G_cf15_repeat",
+   "param": "bbox_crop_factor 1.5 repeat \u2014 same-window noise control (bit-identical to baseline)",
+   "path": "results/run4/quality/Q2/G_cf15_repeat/n505__HasMetadata_00002_.png",
+   "is_baseline": false,
+   "extra": "270.8 s  |  0 cached nodes  |  prompt ff861471",
+   "warnings": [],
+   "det_xyxy": [
+    1019.4453735351562,
+    505.092529296875,
+    1707.676513671875,
+    1438.7589111328125
+   ],
+   "det_conf": 0.900016188621521,
+   "det_status": "detected",
+   "face_box": [
+    963,
+    430,
+    802,
+    1084
+   ],
+   "crop_mode": "common",
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ ]
+}

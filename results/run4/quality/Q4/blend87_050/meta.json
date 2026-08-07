@@ -102,5 +102,41 @@
   "587:93": 2408,
   "(pre-exec/model-load)": 550,
   "619:613": 550
- }
+ },
+ "texture_frame_skin": {
+  "skin_mpx": 2.8953,
+  "bright_blobs_per_mpx": 54.2,
+  "dark_pores_per_mpx": 5163.5,
+  "fine_rms": 1.675,
+  "blob_rms": 8.497
+ },
+ "vram_first_peak": {
+  "peak_mib": 21752,
+  "first_at_peak_node": "620:111",
+  "seconds_into_run": 238.4
+ },
+ "log_usdu": [
+  "Canva size: 1792x2304",
+  "Image size: 1432x1840",
+  "Scale factor: 2",
+  "Tile size: 896x1152",
+  "Tiles amount: 4",
+  "Grid: 2x2",
+  "Redraw enabled: True",
+  "Seams fix mode: NONE",
+  "Canva size: 2688x3456",
+  "Image size: 1792x2304",
+  "Scale factor: 2",
+  "Tile size: 1792x2304",
+  "Tiles amount: 4",
+  "Grid: 2x2",
+  "Redraw enabled: True",
+  "Seams fix mode: NONE"
+ ],
+ "log_detailer": [
+  "Detailer: segment upscale for ((np.float32(177.07452), np.float32(231.66457))) | crop region (531, 694) x 1.8446173667907715 -> (979, 1280)",
+  "Detailer: segment upscale for ((np.float32(224.03601), np.float32(152.90369))) | crop region (336, 229) x 3.047891139984131 -> (1024, 697)",
+  "Detailer: segment upscale for ((np.float32(332.6573), np.float32(439.86273))) | crop region (498, 659) x 1.5543001890182495 -> (774, 1024)",
+  "Detailer: segment upscale for ((np.int64(953), np.int64(140))) | crop region (1468, 420) x 1.307939030967046 -> (1920, 549)"
+ ]
 }

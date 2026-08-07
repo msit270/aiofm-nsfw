@@ -1,0 +1,407 @@
+Setting output directory to: /workspace/trackQ/output
+/venv/main/lib/python3.12/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+[ComfyUI-Manager] Using `uv` as Python module for pip operations.
+Using Python 3.12.12 environment at: /venv/main
+[START] Security scan
+[DONE] Security scan
+## ComfyUI-Manager: installing dependencies done.
+** ComfyUI startup time: 2026-08-07 15:40:38.005
+** Platform: Linux
+** Python version: 3.12.12 | packaged by conda-forge | (main, Oct 22 2025, 23:25:55) [GCC 14.3.0]
+** Python executable: /venv/main/bin/python3
+** ComfyUI Path: /workspace/ComfyUI
+** ComfyUI Base Folder Path: /workspace/ComfyUI
+** User directory: /workspace/ComfyUI/user
+** ComfyUI-Manager config path: /workspace/ComfyUI/user/__manager/config.ini
+** Log path: /workspace/ComfyUI/user/comfyui.log
+Using Python 3.12.12 environment at: /venv/main
+Using Python 3.12.12 environment at: /venv/main
+
+Prestartup times for custom nodes:
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/rgthree-comfy
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI-Easy-Use
+   0.6 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI-Manager
+
+WARNING: You need pytorch with cu130 or higher to use optimized CUDA operations.
+Found comfy_kitchen backend triton: {'available': True, 'disabled': True, 'unavailable_reason': None, 'capabilities': ['apply_rope', 'apply_rope1', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8']}
+Found comfy_kitchen backend eager: {'available': True, 'disabled': False, 'unavailable_reason': None, 'capabilities': ['apply_rope', 'apply_rope1', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'scaled_mm_nvfp4']}
+Found comfy_kitchen backend cuda: {'available': True, 'disabled': True, 'unavailable_reason': None, 'capabilities': ['apply_rope', 'apply_rope1', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8']}
+Checkpoint files will always be loaded safely.
+Total VRAM 97250 MB, total RAM 1160612 MB
+pytorch version: 2.9.1+cu128
+xformers version: 0.0.33.post2
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition : cudaMallocAsync
+Using async weight offloading with 2 streams
+Enabled pinned memory 1102581.0
+working around nvidia conv3d memory bug.
+Using xformers attention
+Python version: 3.12.12 | packaged by conda-forge | (main, Oct 22 2025, 23:25:55) [GCC 14.3.0]
+ComfyUI version: 0.15.1
+ComfyUI frontend version: 1.39.19
+[Prompt Server] web root: /venv/main/lib/python3.12/site-packages/comfyui_frontend_package/static
+### Loading: ComfyUI-Manager (V3.39.2)
+[ComfyUI-Manager] network_mode: public
+[ComfyUI-Manager] ComfyUI per-queue preview override detected (PR #11261). Manager's preview method feature is disabled. Use ComfyUI's --preview-method CLI option or 'Settings > Execution > Live preview method'.
+### ComfyUI Revision: 4802 [3dd10a59] *DETACHED | Released on '2026-02-26'
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+
+[92m[rgthree-comfy] Loaded 48 epic nodes. 🎉[0m
+
+[33m[rgthree-comfy] ComfyUI's new Node 2.0 rendering may be incompatible with some rgthree-comfy nodes and features, breaking some rendering as well as losing the ability to access a node's properties (a vital part of many nodes). It also appears to run MUCH more slowly spiking CPU usage and causing jankiness and unresponsiveness, especially with large workflows. Personally I am not planning to use the new Nodes 2.0 and, unfortunately, am not able to invest the time to investigate and overhaul rgthree-comfy where needed. If you have issues when Nodes 2.0 is enabled, I'd urge you to switch it off as well and join me in hoping ComfyUI is not planning to deprecate the existing, stable canvas rendering all together.
+[0m
+[34m[ComfyUI-Easy-Use] server: [0mv1.3.7 [92mLoaded[0m
+[34m[ComfyUI-Easy-Use] web root: [0m/workspace/ComfyUI/custom_nodes/ComfyUI-Easy-Use/web_version/v2 [92mLoaded[0m
+### Loading: ComfyUI-Impact-Pack (V8.28.3)
+[Impact Pack] Wildcard total size (0.00 MB) is within cache limit (50.00 MB). Using full cache mode.
+[Impact Pack] Wildcards loading done.
+### Loading: ComfyUI-Impact-Subpack (V1.3.5)
+[Impact Pack/Subpack] Using folder_paths to determine whitelist path: /workspace/ComfyUI/user/default/ComfyUI-Impact-Subpack/model-whitelist.txt
+[Impact Pack/Subpack] Ensured whitelist directory exists: /workspace/ComfyUI/user/default/ComfyUI-Impact-Subpack
+[Impact Pack/Subpack] Loaded 3 model(s) from whitelist: /workspace/ComfyUI/user/default/ComfyUI-Impact-Subpack/model-whitelist.txt
+[Impact Subpack] ultralytics_bbox: /workspace/ComfyUI/models/ultralytics/bbox
+[Impact Subpack] ultralytics_segm: /workspace/ComfyUI/models/ultralytics/segm
+[36;20m[/workspace/ComfyUI/custom_nodes/comfyui_controlnet_aux] | INFO -> Using ckpts path: /workspace/ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts[0m
+[36;20m[/workspace/ComfyUI/custom_nodes/comfyui_controlnet_aux] | INFO -> Using symlinks: False[0m
+[36;20m[/workspace/ComfyUI/custom_nodes/comfyui_controlnet_aux] | INFO -> Using ort providers: ['CUDAExecutionProvider', 'DirectMLExecutionProvider', 'OpenVINOExecutionProvider', 'ROCMExecutionProvider', 'CPUExecutionProvider', 'CoreMLExecutionProvider'][0m
+DWPose: Onnxruntime with acceleration providers detected
+USDU batch patches applied successfully.
+USDU batch patches applied successfully.
+[RPG Creative API] Endpoint registered: POST /instaraw/generate_creative_prompts
+[RPG Character API] Endpoint registered: POST /instaraw/generate_character_description
+[RPG Prompts API] Endpoint registered: POST /instaraw/get_random_prompts
+
+Import times for custom nodes:
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/websocket_image_save.py
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/ofmtechclip
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/ComfyMath
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI_essentials
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI-Custom-Scripts
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI-Frame-Interpolation
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI-segment-anything-2
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI_UltimateSDUpscale
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/rgthree-comfy
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI_Swwan
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/comfyui_controlnet_aux
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI-KJNodes
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI_INSTARAW
+   0.0 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI-Impact-Subpack
+   0.1 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI-Manager
+   0.1 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI-VideoHelperSuite
+   0.1 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI-Impact-Pack
+   0.2 seconds: /workspace/ComfyUI/custom_nodes/comfyui-propost
+   0.3 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI-Easy-Use
+   0.6 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI-WanAnimatePreprocess
+   1.1 seconds: /workspace/ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper
+
+Context impl SQLiteImpl.
+Will assume non-transactional DDL.
+Assets scan(roots=['models']) completed in 0.023s (created=0, skipped_existing=69, orphans_pruned=0, total_seen=69)
+Starting server
+
+To see the GUI go to: http://127.0.0.1:19188
+got prompt
+
+================================================================================
+[PROMPT BATCH PREVIEW] Total: 1 prompts
+================================================================================
+
+[1/1] Seed: 12345
+  ✅ Positive: photorealistic portrait photograph of a young woman standing in soft window light, natural skin text...
+  ❌ Negative: bad quality, worst quality, low quality, deformed, extra fingers, watermark, text
+
+================================================================================
+
+FETCH ComfyRegistry Data: 5/168
+Loads SAM model: /workspace/ComfyUI/models/sams/sam_vit_b_01ec64.pth (device:AUTO)
+model weight dtype torch.float16, manual cast: None
+model_type EPS
+Using xformers attention in VAE
+Using xformers attention in VAE
+FETCH ComfyRegistry Data: 10/168
+VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+Requested to load SDXLClipModel
+FETCH ComfyRegistry Data: 15/168
+loaded completely; 50221.55 MB usable, 1560.80 MB loaded, full load: True
+Requested to load SDXLClipModel
+loaded completely; 49962.55 MB usable, 1560.80 MB loaded, full load: True
+/venv/main/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Requested to load SDXLClipModel
+FETCH ComfyRegistry Data: 20/168
+loaded completely; 49145.24 MB usable, 1560.80 MB loaded, full load: True
+Requested to load SDXL
+loaded completely; 47532.43 MB usable, 4897.05 MB loaded, full load: True
+  0%|                                                                                                                                          | 0/40 [00:00<?, ?it/s]/venv/main/lib/python3.12/site-packages/torchsde/_brownian/brownian_interval.py:608: UserWarning: Should have tb<=t1 but got tb=14.614643096923828 and t1=14.614643.
+  warnings.warn(f"Should have {tb_name}<=t1 but got {tb_name}={tb} and t1={self._end}.")
+  2%|███▎                                                                                                                              | 1/40 [00:00<00:17,  2.17it/s]  5%|██████▌                                                                                                                           | 2/40 [00:00<00:15,  2.41it/s]  8%|█████████▊                                                                                                                        | 3/40 [00:01<00:15,  2.44it/s] 10%|█████████████                                                                                                                     | 4/40 [00:01<00:13,  2.72it/s] 12%|████████████████▎                                                                                                                 | 5/40 [00:01<00:12,  2.91it/s] 15%|███████████████████▌                                                                                                              | 6/40 [00:02<00:11,  3.01it/s]FETCH ComfyRegistry Data: 25/168
+ 18%|██████████████████████▊                                                                                                           | 7/40 [00:02<00:11,  2.84it/s] 20%|██████████████████████████                                                                                                        | 8/40 [00:02<00:11,  2.75it/s] 22%|█████████████████████████████▎                                                                                                    | 9/40 [00:03<00:10,  2.88it/s] 25%|████████████████████████████████▎                                                                                                | 10/40 [00:03<00:10,  2.99it/s] 28%|███████████████████████████████████▍                                                                                             | 11/40 [00:03<00:10,  2.85it/s] 30%|██████████████████████████████████████▋                                                                                          | 12/40 [00:04<00:09,  2.98it/s] 32%|█████████████████████████████████████████▉                                                                                       | 13/40 [00:04<00:08,  3.08it/s] 35%|█████████████████████████████████████████████▏                                                                                   | 14/40 [00:04<00:08,  3.15it/s] 38%|████████████████████████████████████████████████▍                                                                                | 15/40 [00:05<00:07,  3.18it/s] 40%|███████████████████████████████████████████████████▌                                                                             | 16/40 [00:05<00:07,  3.23it/s] 42%|██████████████████████████████████████████████████████▊                                                                          | 17/40 [00:05<00:07,  3.28it/s]FETCH ComfyRegistry Data: 30/168
+ 45%|██████████████████████████████████████████████████████████                                                                       | 18/40 [00:06<00:06,  3.31it/s] 48%|█████████████████████████████████████████████████████████████▎                                                                   | 19/40 [00:06<00:06,  3.31it/s] 50%|████████████████████████████████████████████████████████████████▌                                                                | 20/40 [00:06<00:06,  3.32it/s] 52%|███████████████████████████████████████████████████████████████████▋                                                             | 21/40 [00:06<00:05,  3.64it/s] 55%|██████████████████████████████████████████████████████████████████████▉                                                          | 22/40 [00:07<00:05,  3.25it/s] 57%|██████████████████████████████████████████████████████████████████████████▏                                                      | 23/40 [00:07<00:05,  3.27it/s] 60%|█████████████████████████████████████████████████████████████████████████████▍                                                   | 24/40 [00:07<00:04,  3.27it/s] 62%|████████████████████████████████████████████████████████████████████████████████▋                                                | 25/40 [00:08<00:04,  3.60it/s] 65%|███████████████████████████████████████████████████████████████████████████████████▊                                             | 26/40 [00:08<00:03,  3.53it/s] 68%|███████████████████████████████████████████████████████████████████████████████████████                                          | 27/40 [00:08<00:03,  3.48it/s] 70%|██████████████████████████████████████████████████████████████████████████████████████████▎                                      | 28/40 [00:08<00:03,  3.49it/s] 72%|█████████████████████████████████████████████████████████████████████████████████████████████▌                                   | 29/40 [00:09<00:02,  3.78it/s] 75%|████████████████████████████████████████████████████████████████████████████████████████████████▊                                | 30/40 [00:09<00:02,  3.66it/s] 78%|███████████████████████████████████████████████████████████████████████████████████████████████████▉                             | 31/40 [00:09<00:02,  3.91it/s] 80%|███████████████████████████████████████████████████████████████████████████████████████████████████████▏                         | 32/40 [00:09<00:02,  3.80it/s]FETCH ComfyRegistry Data: 35/168
+ 82%|██████████████████████████████████████████████████████████████████████████████████████████████████████████▍                      | 33/40 [00:10<00:01,  4.02it/s] 85%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                   | 34/40 [00:10<00:01,  3.93it/s] 88%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                | 35/40 [00:10<00:01,  4.10it/s] 90%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████             | 36/40 [00:10<00:00,  4.25it/s] 92%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎         | 37/40 [00:11<00:00,  3.96it/s] 95%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌      | 38/40 [00:11<00:00,  3.81it/s] 98%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊   | 39/40 [00:11<00:00,  4.11it/s]100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40/40 [00:11<00:00,  4.44it/s]100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40/40 [00:11<00:00,  3.38it/s]
+Requested to load AutoencoderKL
+loaded completely; 40025.91 MB usable, 159.56 MB loaded, full load: True
+FETCH ComfyRegistry Data: 40/168
+Requested to load SDXL
+loaded completely; 48230.18 MB usable, 4897.05 MB loaded, full load: True
+  0%|                                                                                                                                           | 0/4 [00:00<?, ?it/s] 25%|████████████████████████████████▊                                                                                                  | 1/4 [00:00<00:00,  6.59it/s] 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 2/4 [00:00<00:00,  6.96it/s] 75%|██████████████████████████████████████████████████████████████████████████████████████████████████▎                                | 3/4 [00:00<00:00,  6.97it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  6.96it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  6.93it/s]
+
+0: 640x512 1 face, 5.4ms
+Speed: 2.0ms preprocess, 5.4ms inference, 1.4ms postprocess per image at shape (1, 3, 640, 512)
+Detailer: force inpaint
+Detailer: segment upscale for ((np.float32(359.268), np.float32(495.8613))) | crop region (1077, 1487) x 1.0 -> (1077, 1487)
+[Impact Pack] vae encoded in 0.2s
+Requested to load SDXL
+FETCH ComfyRegistry Data: 45/168
+loaded completely; 48122.29 MB usable, 4897.05 MB loaded, full load: True
+  0%|                                                                                                                                          | 0/20 [00:00<?, ?it/s]  5%|██████▌                                                                                                                           | 1/20 [00:00<00:07,  2.56it/s] 10%|█████████████                                                                                                                     | 2/20 [00:00<00:07,  2.51it/s] 15%|███████████████████▌                                                                                                              | 3/20 [00:01<00:06,  2.51it/s] 20%|██████████████████████████                                                                                                        | 4/20 [00:01<00:06,  2.52it/s] 25%|████████████████████████████████▌                                                                                                 | 5/20 [00:01<00:05,  2.54it/s]FETCH ComfyRegistry Data: 50/168
+ 30%|███████████████████████████████████████                                                                                           | 6/20 [00:02<00:06,  2.33it/s] 35%|█████████████████████████████████████████████▌                                                                                    | 7/20 [00:02<00:05,  2.55it/s] 40%|████████████████████████████████████████████████████                                                                              | 8/20 [00:03<00:04,  2.54it/s] 45%|██████████████████████████████████████████████████████████▌                                                                       | 9/20 [00:03<00:04,  2.51it/s] 50%|████████████████████████████████████████████████████████████████▌                                                                | 10/20 [00:03<00:03,  2.51it/s] 55%|██████████████████████████████████████████████████████████████████████▉                                                          | 11/20 [00:04<00:03,  2.52it/s] 60%|█████████████████████████████████████████████████████████████████████████████▍                                                   | 12/20 [00:04<00:02,  2.72it/s] 65%|███████████████████████████████████████████████████████████████████████████████████▊                                             | 13/20 [00:04<00:02,  2.88it/s] 70%|██████████████████████████████████████████████████████████████████████████████████████████▎                                      | 14/20 [00:05<00:02,  2.76it/s] 75%|████████████████████████████████████████████████████████████████████████████████████████████████▊                                | 15/20 [00:05<00:01,  2.91it/s]FETCH ComfyRegistry Data: 55/168
+ 80%|███████████████████████████████████████████████████████████████████████████████████████████████████████▏                         | 16/20 [00:05<00:01,  3.02it/s] 85%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                   | 17/20 [00:06<00:00,  3.13it/s] 90%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████             | 18/20 [00:06<00:00,  3.16it/s] 95%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌      | 19/20 [00:06<00:00,  3.13it/s]100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [00:07<00:00,  3.39it/s]100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [00:07<00:00,  2.80it/s]
+[Impact Pack] vae decoded in 0.2s
+[USDU Batch Debug] Patched script.run() preserving batch_size=1
+[USDU Batch Debug] Patched script.run() preserving batch_size=1
+Canva size: 1792x2304
+Image size: 1432x1840
+Scale factor: 2
+Upscaling iteration 1 with scale factor 2
+FETCH ComfyRegistry Data: 60/168
+FETCH ComfyRegistry Data: 65/168
+FETCH ComfyRegistry Data: 70/168
+FETCH ComfyRegistry Data: 75/168
+FETCH ComfyRegistry Data: 80/168
+FETCH ComfyRegistry Data: 85/168
+FETCH ComfyRegistry Data: 90/168
+FETCH ComfyRegistry Data: 95/168
+FETCH ComfyRegistry Data: 100/168
+FETCH ComfyRegistry Data: 105/168
+FETCH ComfyRegistry Data: 110/168
+FETCH ComfyRegistry Data: 115/168
+FETCH ComfyRegistry Data: 120/168
+FETCH ComfyRegistry Data: 125/168
+Tile size: 896x1152
+Tiles amount: 4
+Grid: 2x2
+Redraw enabled: True
+Seams fix mode: NONE
+[USDU Batch Debug] linear_process called batch_size=1 rows=2 cols=2 total_tiles=4
+[USDU Batch Debug] linear_process called batch_size=1 rows=2 cols=2 total_tiles=4
+[USDU Batch Debug] Using original single-tile processing (batch_size=1)
+[USDU Batch Debug] Using original single-tile processing (batch_size=1)
+USDU:   0%|                                                                                                                                   | 0/4 [00:00<?, ?tile/s]
+  0%|                                                                                                                                          | 0/25 [00:00<?, ?it/s][A/venv/main/lib/python3.12/site-packages/torchsde/_brownian/brownian_interval.py:608: UserWarning: Should have tb<=t1 but got tb=0.2387683391571045 and t1=0.238768.
+  warnings.warn(f"Should have {tb_name}<=t1 but got {tb_name}={tb} and t1={self._end}.")
+
+  4%|█████▏                                                                                                                            | 1/25 [00:00<00:04,  5.50it/s][A
+  8%|██████████▍                                                                                                                       | 2/25 [00:00<00:03,  5.88it/s][A
+ 12%|███████████████▌                                                                                                                  | 3/25 [00:00<00:03,  5.56it/s][A
+ 16%|████████████████████▊                                                                                                             | 4/25 [00:00<00:03,  5.31it/s][A
+ 20%|██████████████████████████                                                                                                        | 5/25 [00:00<00:03,  5.11it/s][A
+ 24%|███████████████████████████████▏                                                                                                  | 6/25 [00:01<00:04,  4.43it/s][A
+ 28%|████████████████████████████████████▍                                                                                             | 7/25 [00:01<00:03,  4.60it/s][A
+ 32%|█████████████████████████████████████████▌                                                                                        | 8/25 [00:01<00:03,  4.74it/s][A
+ 36%|██████████████████████████████████████████████▊                                                                                   | 9/25 [00:01<00:02,  5.39it/s][A
+ 40%|███████████████████████████████████████████████████▌                                                                             | 10/25 [00:02<00:03,  4.71it/s][A
+ 44%|████████████████████████████████████████████████████████▊                                                                        | 11/25 [00:02<00:02,  4.79it/s][A
+ 48%|█████████████████████████████████████████████████████████████▉                                                                   | 12/25 [00:02<00:02,  5.42it/s][A
+ 52%|███████████████████████████████████████████████████████████████████                                                              | 13/25 [00:02<00:02,  5.32it/s][A
+ 56%|████████████████████████████████████████████████████████████████████████▏                                                        | 14/25 [00:02<00:02,  5.24it/s][A
+ 60%|█████████████████████████████████████████████████████████████████████████████▍                                                   | 15/25 [00:02<00:01,  5.18it/s][A
+ 64%|██████████████████████████████████████████████████████████████████████████████████▌                                              | 16/25 [00:03<00:01,  5.21it/s][A
+ 68%|███████████████████████████████████████████████████████████████████████████████████████▋                                         | 17/25 [00:03<00:01,  5.23it/s][A
+ 72%|████████████████████████████████████████████████████████████████████████████████████████████▉                                    | 18/25 [00:03<00:01,  5.82it/s][A
+ 76%|██████████████████████████████████████████████████████████████████████████████████████████████████                               | 19/25 [00:03<00:01,  4.94it/s][A
+ 80%|███████████████████████████████████████████████████████████████████████████████████████████████████████▏                         | 20/25 [00:03<00:01,  4.92it/s][A
+ 84%|████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                    | 21/25 [00:04<00:00,  4.97it/s][A
+ 88%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌               | 22/25 [00:04<00:00,  4.96it/s][A
+ 92%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋          | 23/25 [00:04<00:00,  5.58it/s][A
+ 96%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊     | 24/25 [00:04<00:00,  5.60it/s][A
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [00:04<00:00,  6.41it/s][A100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [00:04<00:00,  5.27it/s]
+USDU:  25%|██████████████████████████████▊                                                                                            | 1/4 [00:04<00:14,  4.93s/tile]
+  0%|                                                                                                                                          | 0/25 [00:00<?, ?it/s][A
+  4%|█████▏                                                                                                                            | 1/25 [00:00<00:04,  5.92it/s][A
+  8%|██████████▍                                                                                                                       | 2/25 [00:00<00:04,  5.27it/s][A
+ 12%|███████████████▌                                                                                                                  | 3/25 [00:00<00:04,  5.17it/s][AFETCH ComfyRegistry Data: 130/168
+
+ 16%|████████████████████▊                                                                                                             | 4/25 [00:00<00:04,  4.29it/s][A
+ 20%|██████████████████████████                                                                                                        | 5/25 [00:01<00:04,  4.49it/s][A
+ 24%|███████████████████████████████▏                                                                                                  | 6/25 [00:01<00:04,  4.74it/s][A
+ 28%|████████████████████████████████████▍                                                                                             | 7/25 [00:01<00:03,  4.80it/s][A
+ 32%|█████████████████████████████████████████▌                                                                                        | 8/25 [00:01<00:03,  4.88it/s][A
+ 36%|██████████████████████████████████████████████▊                                                                                   | 9/25 [00:01<00:03,  4.93it/s][A
+ 40%|███████████████████████████████████████████████████▌                                                                             | 10/25 [00:02<00:03,  4.93it/s][A
+ 44%|████████████████████████████████████████████████████████▊                                                                        | 11/25 [00:02<00:02,  4.93it/s][A
+ 48%|█████████████████████████████████████████████████████████████▉                                                                   | 12/25 [00:02<00:02,  4.92it/s][A
+ 52%|███████████████████████████████████████████████████████████████████                                                              | 13/25 [00:02<00:02,  4.97it/s][A
+ 56%|████████████████████████████████████████████████████████████████████████▏                                                        | 14/25 [00:02<00:02,  5.02it/s][A
+ 60%|█████████████████████████████████████████████████████████████████████████████▍                                                   | 15/25 [00:03<00:01,  5.02it/s][A
+ 64%|██████████████████████████████████████████████████████████████████████████████████▌                                              | 16/25 [00:03<00:01,  5.03it/s][A
+ 68%|███████████████████████████████████████████████████████████████████████████████████████▋                                         | 17/25 [00:03<00:01,  4.95it/s][A
+ 72%|████████████████████████████████████████████████████████████████████████████████████████████▉                                    | 18/25 [00:03<00:01,  5.01it/s][A
+ 76%|██████████████████████████████████████████████████████████████████████████████████████████████████                               | 19/25 [00:03<00:01,  4.99it/s][A
+ 80%|███████████████████████████████████████████████████████████████████████████████████████████████████████▏                         | 20/25 [00:04<00:00,  5.02it/s][A
+ 84%|████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                    | 21/25 [00:04<00:00,  5.02it/s][A
+ 88%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌               | 22/25 [00:04<00:00,  5.01it/s][A
+ 92%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋          | 23/25 [00:04<00:00,  5.63it/s][A
+ 96%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊     | 24/25 [00:04<00:00,  5.61it/s][A
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [00:04<00:00,  6.42it/s][A100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [00:04<00:00,  5.14it/s]
+USDU:  50%|█████████████████████████████████████████████████████████████▌                                                             | 2/4 [00:10<00:10,  5.15s/tile]
+  0%|                                                                                                                                          | 0/25 [00:00<?, ?it/s][A
+  4%|█████▏                                                                                                                            | 1/25 [00:00<00:04,  5.00it/s][A
+  8%|██████████▍                                                                                                                       | 2/25 [00:00<00:04,  4.97it/s][A
+ 12%|███████████████▌                                                                                                                  | 3/25 [00:00<00:04,  5.05it/s][A
+ 16%|████████████████████▊                                                                                                             | 4/25 [00:00<00:04,  4.27it/s][A
+ 20%|██████████████████████████                                                                                                        | 5/25 [00:01<00:04,  4.47it/s][A
+ 24%|███████████████████████████████▏                                                                                                  | 6/25 [00:01<00:04,  4.66it/s][A
+ 28%|████████████████████████████████████▍                                                                                             | 7/25 [00:01<00:03,  4.73it/s][A
+ 32%|█████████████████████████████████████████▌                                                                                        | 8/25 [00:01<00:03,  4.85it/s][A
+ 36%|██████████████████████████████████████████████▊                                                                                   | 9/25 [00:01<00:03,  4.89it/s][A
+ 40%|███████████████████████████████████████████████████▌                                                                             | 10/25 [00:02<00:03,  4.90it/s][A
+ 44%|████████████████████████████████████████████████████████▊                                                                        | 11/25 [00:02<00:02,  4.94it/s][A
+ 48%|█████████████████████████████████████████████████████████████▉                                                                   | 12/25 [00:02<00:02,  5.00it/s][A
+ 52%|███████████████████████████████████████████████████████████████████                                                              | 13/25 [00:02<00:02,  5.57it/s][A
+ 56%|████████████████████████████████████████████████████████████████████████▏                                                        | 14/25 [00:02<00:02,  5.48it/s][A
+ 60%|█████████████████████████████████████████████████████████████████████████████▍                                                   | 15/25 [00:03<00:01,  5.37it/s][A
+ 64%|██████████████████████████████████████████████████████████████████████████████████▌                                              | 16/25 [00:03<00:01,  5.22it/s][A
+ 68%|███████████████████████████████████████████████████████████████████████████████████████▋                                         | 17/25 [00:03<00:01,  5.18it/s][A
+ 72%|████████████████████████████████████████████████████████████████████████████████████████████▉                                    | 18/25 [00:03<00:01,  5.79it/s][A
+ 76%|██████████████████████████████████████████████████████████████████████████████████████████████████                               | 19/25 [00:03<00:01,  5.03it/s][A
+ 80%|███████████████████████████████████████████████████████████████████████████████████████████████████████▏                         | 20/25 [00:03<00:00,  5.64it/s][A
+ 84%|████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                    | 21/25 [00:04<00:00,  5.51it/s][A
+ 88%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌               | 22/25 [00:04<00:00,  5.38it/s][AFETCH ComfyRegistry Data: 135/168
+
+ 92%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋          | 23/25 [00:04<00:00,  5.97it/s][A
+ 96%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊     | 24/25 [00:04<00:00,  6.06it/s][A
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [00:04<00:00,  6.83it/s][A100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [00:04<00:00,  5.33it/s]
+USDU:  75%|████████████████████████████████████████████████████████████████████████████████████████████▎                              | 3/4 [00:15<00:05,  5.12s/tile]
+  0%|                                                                                                                                          | 0/25 [00:00<?, ?it/s][A
+  4%|█████▏                                                                                                                            | 1/25 [00:00<00:04,  4.97it/s][A
+  8%|██████████▍                                                                                                                       | 2/25 [00:00<00:04,  5.07it/s][A
+ 12%|███████████████▌                                                                                                                  | 3/25 [00:00<00:03,  6.15it/s][A
+ 16%|████████████████████▊                                                                                                             | 4/25 [00:00<00:04,  4.86it/s][A
+ 20%|██████████████████████████                                                                                                        | 5/25 [00:00<00:04,  4.93it/s][A
+ 24%|███████████████████████████████▏                                                                                                  | 6/25 [00:01<00:03,  5.63it/s][A
+ 28%|████████████████████████████████████▍                                                                                             | 7/25 [00:01<00:03,  4.81it/s][A
+ 32%|█████████████████████████████████████████▌                                                                                        | 8/25 [00:01<00:03,  4.87it/s][A
+ 36%|██████████████████████████████████████████████▊                                                                                   | 9/25 [00:01<00:03,  4.91it/s][A
+ 40%|███████████████████████████████████████████████████▌                                                                             | 10/25 [00:01<00:03,  4.93it/s][A
+ 44%|████████████████████████████████████████████████████████▊                                                                        | 11/25 [00:02<00:02,  4.96it/s][A
+ 48%|█████████████████████████████████████████████████████████████▉                                                                   | 12/25 [00:02<00:02,  4.96it/s][A
+ 52%|███████████████████████████████████████████████████████████████████                                                              | 13/25 [00:02<00:02,  4.94it/s][A
+ 56%|████████████████████████████████████████████████████████████████████████▏                                                        | 14/25 [00:02<00:02,  5.00it/s][A
+ 60%|█████████████████████████████████████████████████████████████████████████████▍                                                   | 15/25 [00:02<00:01,  5.01it/s][A
+ 64%|██████████████████████████████████████████████████████████████████████████████████▌                                              | 16/25 [00:03<00:01,  5.01it/s][A
+ 68%|███████████████████████████████████████████████████████████████████████████████████████▋                                         | 17/25 [00:03<00:01,  4.93it/s][A
+ 72%|████████████████████████████████████████████████████████████████████████████████████████████▉                                    | 18/25 [00:03<00:01,  4.99it/s][A
+ 76%|██████████████████████████████████████████████████████████████████████████████████████████████████                               | 19/25 [00:03<00:01,  4.97it/s][A
+ 80%|███████████████████████████████████████████████████████████████████████████████████████████████████████▏                         | 20/25 [00:03<00:00,  5.00it/s][A
+ 84%|████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                    | 21/25 [00:04<00:00,  5.03it/s][A
+ 88%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌               | 22/25 [00:04<00:00,  4.99it/s][A
+ 92%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋          | 23/25 [00:04<00:00,  5.59it/s][A
+ 96%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊     | 24/25 [00:04<00:00,  5.64it/s][A
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [00:04<00:00,  6.45it/s][A100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [00:04<00:00,  5.21it/s]
+USDU: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:20<00:00,  5.16s/tile][USDU Batch Debug] Patched script.run() complete, batch_size=1
+[USDU Batch Debug] Patched script.run() complete, batch_size=1
+USDU: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:20<00:00,  5.21s/tile]
+
+0: 640x512 (no detections), 3.5ms
+Speed: 1.9ms preprocess, 3.5ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 512)
+FETCH ComfyRegistry Data: 140/168
+[USDU Batch Debug] Patched script.run() preserving batch_size=1
+[USDU Batch Debug] Patched script.run() preserving batch_size=1
+Canva size: 2688x3456
+Image size: 1792x2304
+Scale factor: 2
+Upscaling iteration 1 with scale factor 2
+FETCH ComfyRegistry Data: 145/168
+FETCH ComfyRegistry Data: 150/168
+FETCH ComfyRegistry Data: 155/168
+FETCH ComfyRegistry Data: 160/168
+FETCH ComfyRegistry Data: 165/168
+FETCH ComfyRegistry Data [DONE]
+FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json [DONE]
+Tile size: 1792x2304
+Tiles amount: 4
+Grid: 2x2
+Redraw enabled: True
+Seams fix mode: NONE
+[USDU Batch Debug] linear_process called batch_size=1 rows=2 cols=2 total_tiles=4
+[USDU Batch Debug] linear_process called batch_size=1 rows=2 cols=2 total_tiles=4
+[USDU Batch Debug] Using original single-tile processing (batch_size=1)
+[USDU Batch Debug] Using original single-tile processing (batch_size=1)
+USDU:   0%|                                                                                                                                   | 0/4 [00:00<?, ?tile/s]
+  0%|                                                                                                                                           | 0/2 [00:00<?, ?it/s][A
+ 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 1/2 [00:00<00:00,  4.67it/s][A
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  4.55it/s][A100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  4.57it/s]
+USDU:  25%|██████████████████████████████▊                                                                                            | 1/4 [00:02<00:06,  2.32s/tile]
+  0%|                                                                                                                                           | 0/2 [00:00<?, ?it/s][A
+ 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 1/2 [00:00<00:00,  4.73it/s][A
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  4.55it/s][A100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  4.57it/s]
+USDU:  50%|█████████████████████████████████████████████████████████████▌                                                             | 2/4 [00:04<00:04,  2.21s/tile]
+  0%|                                                                                                                                           | 0/2 [00:00<?, ?it/s][A
+ 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 1/2 [00:00<00:00,  4.76it/s][A
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  4.58it/s][A100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  4.60it/s]
+USDU:  75%|████████████████████████████████████████████████████████████████████████████████████████████▎                              | 3/4 [00:06<00:02,  2.12s/tile]
+  0%|                                                                                                                                           | 0/2 [00:00<?, ?it/s][A
+ 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 1/2 [00:00<00:00,  4.74it/s][A
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  4.54it/s][A100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  4.57it/s]
+USDU: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:08<00:00,  2.13s/tile][USDU Batch Debug] Patched script.run() complete, batch_size=1
+[USDU Batch Debug] Patched script.run() complete, batch_size=1
+USDU: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:09<00:00,  2.41s/tile]
+Requested to load ZImageTEModel_
+loaded completely;  7672.25 MB loaded, full load: True
+CLIP/text encoder model load device: cpu, offload device: cpu, current: cpu, dtype: torch.float16
+Using xformers attention in VAE
+Using xformers attention in VAE
+VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+model weight dtype torch.bfloat16, manual cast: None
+model_type FLOW
+
+0: 640x512 1 face, 7.4ms
+Speed: 8.3ms preprocess, 7.4ms inference, 1.3ms postprocess per image at shape (1, 3, 640, 512)
+Detailer: force inpaint
+Detailer: segment upscale for ((np.float32(690.8927), np.float32(921.08136))) | crop region (2418, 3223) x 1.0 -> (2418, 3223)
+Requested to load AutoencodingEngine
+loaded completely; 17820.49 MB usable, 159.87 MB loaded, full load: True
+[Impact Pack] vae encoded in 1.0s
+Requested to load Lumina2
+loaded completely; 36996.66 MB usable, 11739.54 MB loaded, full load: True
+  0%|                                                                                                                                           | 0/8 [00:00<?, ?it/s] 12%|████████████████▍                                                                                                                  | 1/8 [00:03<00:26,  3.73s/it] 25%|████████████████████████████████▊                                                                                                  | 2/8 [00:07<00:22,  3.72s/it] 38%|█████████████████████████████████████████████████▏                                                                                 | 3/8 [00:11<00:18,  3.72s/it] 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 4/8 [00:14<00:14,  3.72s/it] 62%|█████████████████████████████████████████████████████████████████████████████████▉                                                 | 5/8 [00:18<00:11,  3.73s/it] 75%|██████████████████████████████████████████████████████████████████████████████████████████████████▎                                | 6/8 [00:22<00:07,  3.73s/it] 88%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                | 7/8 [00:26<00:03,  3.73s/it]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:29<00:00,  3.74s/it]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:29<00:00,  3.73s/it]
+Unloaded partially: 14.65 MB freed, 4882.44 MB remains loaded, 3.91 MB buffer reserved, lowvram patches: 18
+[Impact Pack] vae decoded in 1.8s
+
+0: 640x512 1 lips, 3.7ms
+Speed: 2.4ms preprocess, 3.7ms inference, 0.8ms postprocess per image at shape (1, 3, 640, 512)
+[in] value=364170 / True, 0, 1700000
+Detailer: segment upscale for ((np.float32(305.14124), np.float32(132.88245))) | crop region (915, 398) x 1.976035475730896 -> (1808, 786)
+[Impact Pack] vae encoded in 0.2s
+Requested to load Lumina2
+  0%|                                                                                                                                           | 0/8 [00:00<?, ?it/s] 12%|████████████████▍                                                                                                                  | 1/8 [00:00<00:02,  2.67it/s] 25%|████████████████████████████████▊                                                                                                  | 2/8 [00:00<00:02,  2.60it/s] 38%|█████████████████████████████████████████████████▏                                                                                 | 3/8 [00:01<00:01,  2.58it/s] 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 4/8 [00:01<00:01,  2.57it/s] 62%|█████████████████████████████████████████████████████████████████████████████████▉                                                 | 5/8 [00:01<00:01,  2.56it/s] 75%|██████████████████████████████████████████████████████████████████████████████████████████████████▎                                | 6/8 [00:02<00:00,  2.56it/s] 88%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                | 7/8 [00:02<00:00,  2.55it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:03<00:00,  2.55it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:03<00:00,  2.57it/s]
+[Impact Pack] vae decoded in 0.2s
+
+0: 640x512 1 face, 7.1ms
+Speed: 2.3ms preprocess, 7.1ms inference, 1.1ms postprocess per image at shape (1, 3, 640, 512)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1786117557.130881  336836 gl_context_egl.cc:85] Successfully initialized EGL. Major : 1 Minor: 5
+I0000 00:00:1786117557.213325  337541 gl_context.cc:357] GL version: 3.2 (OpenGL ES 3.2 NVIDIA 595.45.04), renderer: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition/PCIe/SSE2
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+W0000 00:00:1786117557.222831  337488 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1786117557.246466  337493 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+/venv/main/lib/python3.12/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
+  warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
+# of Detected SEGS: 1
+# of Detected SEGS: 1
+# of Detected SEGS: 1
+# of Detected SEGS: 1
+# of Detected SEGS: 1
+Detailer: segment upscale for ((np.int64(979), np.int64(156))) | crop region (1433, 468) x 1.3399166041488564 -> (1920, 627)
+[Impact Pack] vae encoded in 0.2s
+Requested to load Lumina2
+  0%|                                                                                                                                           | 0/8 [00:00<?, ?it/s] 12%|████████████████▍                                                                                                                  | 1/8 [00:00<00:00,  9.76it/s] 25%|████████████████████████████████▊                                                                                                  | 2/8 [00:00<00:01,  5.44it/s] 38%|█████████████████████████████████████████████████▏                                                                                 | 3/8 [00:00<00:01,  4.14it/s] 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 4/8 [00:00<00:01,  3.72it/s] 62%|█████████████████████████████████████████████████████████████████████████████████▉                                                 | 5/8 [00:01<00:00,  3.52it/s] 75%|██████████████████████████████████████████████████████████████████████████████████████████████████▎                                | 6/8 [00:01<00:00,  3.42it/s] 88%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                | 7/8 [00:01<00:00,  3.34it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:02<00:00,  3.31it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:02<00:00,  3.62it/s]
+[Impact Pack] vae decoded in 0.2s
+Prompt executed in 316.39 seconds
