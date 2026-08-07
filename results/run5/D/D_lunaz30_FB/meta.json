@@ -1,0 +1,10 @@
+{
+ "arm": "D_lunaz30_FB",
+ "batch": "D",
+ "ok": true,
+ "exec_s": 121.603,
+ "cached_nodes": 28,
+ "prompt_id": "20f5c67e-eb4e-42a0-bbea-aca5d9dcf3ad",
+ "outputs_dir": "/workspace/run5/output/D/D_lunaz30_FB",
+ "status_str": "success"
+}

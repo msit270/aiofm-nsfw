@@ -1,0 +1,10 @@
+{
+ "arm": "E_v9fix",
+ "batch": "E",
+ "ok": true,
+ "exec_s": 144.824,
+ "cached_nodes": 2,
+ "prompt_id": "d66838f8-27b4-42cb-84d2-985f40e79cae",
+ "outputs_dir": "/workspace/run5/output/E/E_v9fix",
+ "status_str": "success"
+}

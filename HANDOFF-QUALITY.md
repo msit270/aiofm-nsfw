@@ -124,3 +124,25 @@ answers it" answered YES (feet out of frame; framing control TBD).
 - C_tdd_cfg (TDD at author-recommended cfg 1.8/sgm_uniform): likeness ~flat
   (0.587), texture bands softer (faceHF 7.63, f-lap 82 vs 104). NOT adopted
   by default; sheet tile only.
+
+
+## Verifier-2 corrections adopted (results/run5/verify/phase23_verifier.md)
+
+- Texture-parity claims carry this caveat from now on: the LUNA-Z frame
+  composes the face LARGER than A0's (face height ~731 px vs ~242 px on the
+  FB comps); the HF metric is scale-normalized (face height -> 512 px before
+  banding), which mitigates but does not perfectly remove framing effects.
+  The body-texture visual check is the S3 sheet.
+- "zusdu617 = biggest single-node gain" is qualified: biggest single WIRING
+  change. The den085 WIDGET change scored higher (0.696).
+- zbref ran before (not after) the canary — deliberate ordering (fresh-server
+  first render), acceptance A12's wording was imprecise, the verifier
+  confirmed the logic sound.
+- canary3 (D close) completed after verification: max_abs_diff=0.
+- The LUNA-Z arms deliberately kept the buyer's original balcony prompt
+  ("long dark hair", no trigger) for comparability with A0; measured: the
+  LoRA overrides hair anyway (zref_B with the same prompt scored 0.81).
+  README-PERSONAL tells the owner how to prompt hair consistently.
+- Metric arch-bias control: Z-rendered stranger 0.3373 vs SDXL-rendered
+  stranger 0.3350 — architecture alone contributes ~0.002; likeness deltas
+  are identity, not texture-statistics.

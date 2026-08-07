@@ -1,0 +1,10 @@
+{
+ "arm": "A0_CU",
+ "batch": "D",
+ "ok": true,
+ "exec_s": 170.087,
+ "cached_nodes": 37,
+ "prompt_id": "fab0d2d3-0bad-4cca-9a98-42ec57f441c0",
+ "outputs_dir": "/workspace/run5/output/D/A0_CU",
+ "status_str": "success"
+}

@@ -949,6 +949,42 @@
   "D/zref_PT_12345/img/img_00001_.png": {
    "cos_to_luna": null,
    "det": null
+  },
+  "D/D_lunaz_CU/Instaraw/SDXL/Metadata/HasMetadata_00001_.png": {
+   "cos_to_luna": 0.7458733628998382,
+   "det": 0.8552200794219971
+  },
+  "D/D_lunaz_CU/T00_zbase_00001_.png": {
+   "cos_to_luna": 0.7913334167758207,
+   "det": 0.8533525466918945
+  },
+  "D/D_lunaz_CU/T02_nmkd595_00001_.png": {
+   "cos_to_luna": 0.7873495039200011,
+   "det": 0.851763129234314
+  },
+  "D/D_lunaz_CU/T05_usdu617_00001_.png": {
+   "cos_to_luna": 0.773358508028358,
+   "det": 0.8555447459220886
+  },
+  "D/D_lunaz_CU/T06_hands92_00001_.png": {
+   "cos_to_luna": 0.773358508028358,
+   "det": 0.8555447459220886
+  },
+  "D/D_lunaz_CU/T07_blend87_00001_.png": {
+   "cos_to_luna": 0.766358796537412,
+   "det": 0.855483889579773
+  },
+  "D/D_lunaz_CU/T08_usdu98_00001_.png": {
+   "cos_to_luna": 0.7411629206763701,
+   "det": 0.8544553518295288
+  },
+  "D/D_lunaz_CU/T10_zface114_00001_.png": {
+   "cos_to_luna": 0.7408888095349163,
+   "det": 0.8556929230690002
+  },
+  "D/D_lunaz_CU/T12_mouth163_00001_.png": {
+   "cos_to_luna": 0.7401453547934113,
+   "det": 0.855282723903656
   }
  }
 }
