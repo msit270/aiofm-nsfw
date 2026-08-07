@@ -48,8 +48,8 @@ guards the *detection result*, not a token count.
 
 ## The bistability moved again
 
-`R3_PC_mid_46` errored at 01:15; `R3_GUARD_mid46` (same config + guard) at
-01:40 rendered a healthy face — the coin flips arm to arm on the same process
+`R3_PC_mid_46` errored (execution_start 00:48:29 UTC); `R3_GUARD_mid46` (same
+config + guard, execution_start 01:01:25 UTC) rendered a healthy face — the coin flips arm to arm on the same process
 now, not only process to process. Nothing that claims "X reproduces" or "X is
 clean" is trustworthy here without a same-window control, and even then only
 statistically. This is why the guard's proof is the FORCED pair.
