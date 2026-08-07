@@ -44,3 +44,49 @@ A16. Texture parity claim (faceHF 10.35/bodyHF 9.66 vs ref 10.6/9.5) traces
      to tap_metrics.json rows for D_lunaz_FB and zref_B/zref_P refs;
      the caveat that framing differs between LUNA-Z and A0 is stated
      wherever parity is claimed.
+
+## Phase-4 criteria (written 2026-08-08 ~01:0x, BEFORE the work they judge:
+## batch G verdicts + agents A-F + final rebuild)
+
+A17. RECONCILIATION: both readings rendered (Z-native PC on FB/PT/CU + the
+     literal Z30+SDXL hybrid tile); the 30-vs-8-step base cost quoted in
+     seconds FROM SAMPLER LOG LINES of these arms, not whole-render deltas;
+     negative-liveness proven two ways (mechanism with a source line in
+     comfy/samplers.py + the loud-negative arm visibly changing the base
+     output) — or stated unproven.
+A18. CONSTRAINT-2 SCORING: every rendered arm's record carries a
+     "photographic read" line, explicitly labelled MY JUDGEMENT, and every
+     case where a metric and that read disagree is called out in the arm's
+     row, not silently resolved.
+A19. CHARACTER-GENERALITY: the final config document marks EVERY landed
+     setting character-general or character-specific (with default + sane
+     range for specific ones); no Luna-named text in the shipped workflow's
+     prompts, node titles, or file names; CHARACTER-SWAP-CHECKLIST.md
+     exists, is referenced from README-PERSONAL, and states that
+     generalisation is unproven (only Luna LoRAs on this pod).
+A20. HANDS (A+E): research claims carry stored source files; every rendered
+     hand arm appears on a like-for-like sheet (mediapipe hand box, equal
+     hand scale per tile); the verdict text uses constraint-2 language and
+     records which arms were rejected for over-detail regardless of metric.
+A21. MOUTH (B): before/after rendered on FB, PT, CU AND an added open-mouth
+     close-up; deletion verdict cites pixel-diff evidence per comp; the
+     lips_v1.pt licensing consequence stated factually (sellable-relevant,
+     personal-neutral).
+A22. LIGHTING (C): any lighting metric is labelled a proxy with its formula
+     stored; arms change ONE lever each; the final lighting statement
+     separates measured deltas from my read and defers the look call to the
+     owner's sheet.
+A23. BLACK RENDERS (D): every replay/toggle run recorded with server boot
+     id, graph, outcome; NO root-cause claim without a reproduced
+     discriminating experiment (toggle flips outcome); if the cause stays
+     unfound, the deliverable is the measured failure rate per mitigation,
+     stated as such.
+A24. ARCHITECTURE (F): each structural claim tagged VENDOR/REFERENCE or
+     COMMUNITY-HYPOTHESIS with stored sources; no structural change adopted
+     on authority — only via an A/B rendered on THIS graph; rejected
+     structural arms remain in the record with their evidence.
+A25. PROCESS: GPU work serialized through the orchestrator only (no agent
+     renders); every render batch canary-bracketed and black-swept; the
+     final pack re-cut is gated (round-trip EQUIVALENT + fresh-tree render)
+     before any "done" claim; a fresh-context verifier judges A17-A25
+     before the final report.
