@@ -1,0 +1,10 @@
+{
+ "arm": "H_PC1_OM",
+ "batch": "H",
+ "ok": true,
+ "exec_s": 203.951,
+ "cached_nodes": 3,
+ "prompt_id": "1680d178-4bb1-4adf-a5e9-c7ef72ad543c",
+ "outputs_dir": "/workspace/run5/output/H/H_PC1_OM",
+ "status_str": "success"
+}

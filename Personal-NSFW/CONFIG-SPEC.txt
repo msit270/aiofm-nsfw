@@ -1,0 +1,59 @@
+Z-NATIVE / PC CONFIG SPEC — every setting marked GENERAL or SPECIFIC
+====================================================================
+GENERAL  = character-general: architecture/mechanism-level, do not retune
+           per character.
+SPECIFIC = character-specific: tuned against the current test character;
+           documented default + sane range; re-check on a new LoRA
+           (see CHARACTER-SWAP-CHECKLIST.txt).
+Verdict column: measured facts are cited from results/run5/; judgement
+lines are marked (J).
+
+BASE GENERATOR (Z-Image Turbo, swappable slot)
+- model zimage.safetensors + qwen TE + ae VAE ......... GENERAL (slot design)
+- resolution 896x1152 ................................. GENERAL default
+- steps 30 / cfg 2.0 .................................. SPECIFIC-LEANING
+    default 30/2.0 (S3 verdict: denser freckling, richer texture; +10 s);
+    range: 8/1.0 (fast, cleaner-skinned) to 30/2.5.
+    On a clear-skinned character check for grit first (checklist #1).
+- sampler res_multistep / scheduler simple ............ GENERAL (vendor)
+- negative prompt: LIVE at cfg 2 (proven, 76.2% pixel steer); loses only
+  direct positive conflicts .............................. GENERAL mechanism
+- shift: default 3.0 (model default) .................. GENERAL default
+    (lighting lever; ladder measured in batch I — see notes)
+
+UPSCALE / REFINE CHAIN
+- NMKD 4x -> x0.4 lanczos (net 1.6x) .................. GENERAL structure
+    (flattens directional light ~25% — batch I tests the alternative;
+    verdict recorded after I)
+- Z tiled USDU #617: 1.25x, 8 steps, cfg 1, res_multistep/simple,
+  denoise 0.25 ......................................... GENERAL structure;
+    denoise SPECIFIC-LEANING range 0.15-0.30
+- Z tiled USDU #98: 1.5x, 8 steps, cfg 1, res_multistep/simple,
+  denoise 0.08, tile = frame ........................... GENERAL structure
+- 1x skin ESRGAN + ImageBlend factor 1.0 .............. under test (K5:
+    factor is a dead dial at 1.0 — replace semantics; 0.6 arm rendered)
+
+DETAIL PASSES (all Impact FaceDetailer-family, cfg 1 — raising cfg on
+detail passes is known-bad: guidance-distilled model)
+- FACE: euler_ancestral / kl_optimal, 8 steps ......... GENERAL (smoothest
+    sampler class; res_multistep alternative = harder/freckle-denser face,
+    S11 tile, owner's call)
+- FACE denoise 0.50 ................................... SPECIFIC
+    default 0.50 (soft-face reconciliation on the 30-step base);
+    range 0.35-0.55. Checklist #2.
+- FACE guide/max 1024, cf 1.5, thr 0.5, feather 18 .... GENERAL defaults
+- MOUTH stage ......................................... pending batch H
+    (deletion test; thr 0.5 fires but effect invisible on standard comps)
+- EYES: euler/beta, 8 steps, denoise 0.42, MediaPipe mesh GENERAL defaults
+- HANDS: pending batch J (prompt neutralization is the lead arm; the
+    shipped "Detailed hand/fingers/fingernails" prompt is the overbake
+    suspect and is SPECIFIC in any case — describe the CHARACTER's hands)
+
+CHARACTER INPUTS (always SPECIFIC, widgets, never hardcoded)
+- LoRA file + strength (default 1.0; range 0.7-1.0)
+- trigger word in prompts
+- face prompt text (placeholder ships: "TRIGGER, PROMPT FOR YOUR MODEL")
+
+PROVENANCE: every measured number above traces to results/run5/
+(likeness_scores.json, tap_metrics.json, light_metrics.json, notes/*).
+Generalisation beyond the tuning character is UNPROVEN (single-LoRA pod).
