@@ -22,7 +22,6 @@
     "Disable the whole file with --no-default-ignores. Add ad-hoc rules with --ignore-error.",
     "frontend-conversion and execution failures are never ignorable, whatever is listed here."
   ],
-
   "rules": [
     {
       "id": "optional-user-css",
@@ -84,24 +83,6 @@
       },
       "scope": "environment",
       "reason": "ComfyUI_Swwan and rgthree-comfy are both installed on this pod and both register the same extension names. Verified: 'name: \"rgthree.ImportIndividualNodes\"' appears in rgthree-comfy/web/comfyui/feature_import_individual_nodes.js AND ComfyUI_Swwan/web/js/feature_import_individual_nodes.js; rgthree.ImageComparer and rgthree.Seed collide the same way. A buyer installing only the NSFW pack has one of the two, so no collision."
-    },
-    {
-      "id": "instaraw-rpg-details-element",
-      "match": {
-        "text": "^\\[RPG\\] ERROR: detailsElement not found",
-        "url": "/extensions/ComfyUI_INSTARAW/reality_prompt_generator\\.js"
-      },
-      "scope": "product-known",
-      "reason": "REAL DEFECT, deliberately not gating. Our own pack logs console.error on a buyer's first load of the workflow. Read at OFMTech-NSFW/ComfyUI_INSTARAW/js/reality_prompt_generator.js:8280-8282: it is the else branch of 'if (detailsElement)', and the only thing it skips is detailsElement.addEventListener('toggle', updateDetailsContent) on the advanced-settings <details> panel. Execution continues straight on to attach the Generate button handler at :8284 and everything after it, so nothing is broken - the panel simply is not on the active tab (the log line immediately before it reads 'Current active tab: library', and 'Total <details> elements: 0'). Cosmetic, but our pack should not shout ERROR at a buyer for a condition it handles. One-line fix (console.error -> console.debug) in a file WS3 also touches. Written up in notes/WS2-report.md."
-    },
-    {
-      "id": "rgthree-comparer-stale-temp-images",
-      "match": {
-        "text": "^Failed to load resource",
-        "url": "/api/view\\?filename=rgthree\\.compare\\._temp_"
-      },
-      "scope": "product-known",
-      "reason": "REAL DEFECT, deliberately not gating. The shipped workflow JSON has ten rgthree.compare._temp_*.png filenames baked into its Image Comparer nodes, left over from a developer's session (verified: 10 matches for 'rgthree.compare._temp' in OFMTech-NSFW/OFMTech_NSFW.json, e.g. rgthree.compare._temp_aggxo_00001_.png). Those temp files do not exist on a fresh install, so a buyer gets six 404s the moment they open the workflow. Cosmetic - the comparer widget just shows nothing - but it is shipped dev instrumentation and the graph should not carry it. Written up in notes/WS2-report.md."
     }
   ]
 }
