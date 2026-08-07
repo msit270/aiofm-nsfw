@@ -1,0 +1,10 @@
+{
+ "arm": "H_nomouth_FB",
+ "batch": "H",
+ "ok": true,
+ "exec_s": 136.401,
+ "cached_nodes": 22,
+ "prompt_id": "68dfc8ec-b40b-4b7c-a4e0-9bdd84c8e970",
+ "outputs_dir": "/workspace/run5/output/H/H_nomouth_FB",
+ "status_str": "success"
+}
