@@ -1,0 +1,90 @@
+{
+  "url": "https://api.github.com/repos/easydiffusion/sdkit/issues/66",
+  "repository_url": "https://api.github.com/repos/easydiffusion/sdkit",
+  "labels_url": "https://api.github.com/repos/easydiffusion/sdkit/issues/66/labels{/name}",
+  "comments_url": "https://api.github.com/repos/easydiffusion/sdkit/issues/66/comments",
+  "events_url": "https://api.github.com/repos/easydiffusion/sdkit/issues/66/events",
+  "html_url": "https://github.com/easydiffusion/sdkit/issues/66",
+  "id": 2048016829,
+  "node_id": "I_kwDOIqjZAc56EkG9",
+  "number": 66,
+  "title": "Implement After Detailer's diffusers pipeline ‘asdiff’",
+  "user": {
+    "login": "davidiwharper",
+    "id": 34889997,
+    "node_id": "MDQ6VXNlcjM0ODg5OTk3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/34889997?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/davidiwharper",
+    "html_url": "https://github.com/davidiwharper",
+    "followers_url": "https://api.github.com/users/davidiwharper/followers",
+    "following_url": "https://api.github.com/users/davidiwharper/following{/other_user}",
+    "gists_url": "https://api.github.com/users/davidiwharper/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/davidiwharper/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/davidiwharper/subscriptions",
+    "organizations_url": "https://api.github.com/users/davidiwharper/orgs",
+    "repos_url": "https://api.github.com/users/davidiwharper/repos",
+    "events_url": "https://api.github.com/users/davidiwharper/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/davidiwharper/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+    {
+      "id": 4939058576,
+      "node_id": "LA_kwDOIqjZAc8AAAABJmQNkA",
+      "url": "https://api.github.com/repos/easydiffusion/sdkit/labels/enhancement",
+      "name": "enhancement",
+      "color": "a2eeef",
+      "default": true,
+      "description": "New feature or request"
+    }
+  ],
+  "state": "open",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 2,
+  "created_at": "2023-12-19T06:34:27Z",
+  "updated_at": "2024-09-26T05:58:12Z",
+  "closed_at": null,
+  "assignee": null,
+  "author_association": "NONE",
+  "issue_field_values": [
+
+  ],
+  "type": null,
+  "active_lock_reason": null,
+  "sub_issues_summary": {
+    "total": 0,
+    "completed": 0,
+    "percent_completed": 0
+  },
+  "issue_dependencies_summary": {
+    "blocked_by": 0,
+    "total_blocked_by": 0,
+    "blocking": 0,
+    "total_blocking": 0
+  },
+  "body": "**Background**\r\nAfter Detailer is a plugin that provides a major generation upgrade for Stable Diffusion, being able to fix faces, hands, and (with third party plugins) other image elements; a fair number of models on Civitai now recommend ADetailer, and I imagine that the need to implement this feature will continue to increase over time.\r\n\r\nTo my knowledge, ADetailer is currently only available for general use in the Automatic Web UI and its siblings (e.g. SD.Next). While sdkit has support for face restoration, After Detailer's post-upscale inpainting approach can give much higher quality result for faces, and deal with the dreadful hand problems that plague Stable Diffusion far more effectively than anything sdkit and its downstream end-user interfaces – most notably Easy Diffusion – have to offer.\r\n\r\n**Proposed Solution**\r\nThe developers of adetailer have released a diffusers pipeline, [asdiff](https://github.com/Bing-su/asdff). There is a very basic python/diffusers sample [in the GitHub repository](https://github.com/Bing-su/asdff/blob/main/pipelines/template.txt).\r\n\r\nIt would be most helpful to implement asdiff as an alternative filter, in a similar manner as CodeFormer. The default settings would probably be:\r\n\r\n1. Use the same checkpoint and prompts as in the original\r\n2. Do a run with face_yolov8n.pt\r\n3. Do a run with hand_yolov8n.pt\r\n\r\nIt would be helpful to integrate some of adetailer’s key options into sdkit as well as these defaults, most allowing the selection of particular models (face, hand, third-party etc.) and the controlnet model used; I suppose it would also be worth considering whether to allow the user to specify a custom checkpoint model to be used for inpainting (e.g. the -inpainting variant of the generation checkpoint). Perhaps in the future such tinkering could be exposed to Easy Diffusion users via a UI extension.\r\n\r\n**Alternatives**\r\nI am unaware of any alternatives to ADetailer (e.g. uuDetailer) that could be implemented in diffusers.\r\n\r\n**Additional Context**\r\nIf I understand sdkit/filter/codeformer/__init__.py correctly, sdkit’s codeformer implementation is somehow integrated with the upscaler. I’m not sure how this (and tiling) will work with asdiff/adetailer, which I believe prefers to fix the upscaled image. I suppose it is possible that memory requirements may mean that ADetailer is incompatible with the Low VRAM option in Easy Diffusion.\r\n\r\nAs the same checkpoint is typically used for inpainting in basic ADetailer runs (notwithstanding the reference to Counterfeit in the sample), I hope that these risks are not excessive. Perhaps ADetailer could be run on multiple tiles rather than the full image in scenarios where there is insufficient VRAM?",
+  "closed_by": null,
+  "reactions": {
+    "url": "https://api.github.com/repos/easydiffusion/sdkit/issues/66/reactions",
+    "total_count": 5,
+    "+1": 5,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/easydiffusion/sdkit/issues/66/timeline",
+  "performed_via_github_app": null,
+  "state_reason": null,
+  "pinned_comment": null
+}

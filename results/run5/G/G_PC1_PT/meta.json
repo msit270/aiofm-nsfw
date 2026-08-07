@@ -1,0 +1,10 @@
+{
+ "arm": "G_PC1_PT",
+ "batch": "G",
+ "ok": true,
+ "exec_s": 148.753,
+ "cached_nodes": 27,
+ "prompt_id": "b1afaee8-d84f-407f-9e0a-914a85b429e5",
+ "outputs_dir": "/workspace/run5/output/G/G_PC1_PT",
+ "status_str": "success"
+}

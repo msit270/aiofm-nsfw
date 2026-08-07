@@ -1,0 +1,10 @@
+{
+ "arm": "G_PC_den035_FB",
+ "batch": "G",
+ "ok": true,
+ "exec_s": 142.71,
+ "cached_nodes": 27,
+ "prompt_id": "f9ed0f94-b70b-49a0-bd92-38a473bf9f00",
+ "outputs_dir": "/workspace/run5/output/G/G_PC_den035_FB",
+ "status_str": "success"
+}

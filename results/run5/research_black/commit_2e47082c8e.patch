@@ -1,0 +1,58 @@
+From 2e47082c8ed1d1a0fe54add57f98b63433cfacbb Mon Sep 17 00:00:00 2001
+From: comfyanonymous <121283862+comfyanonymous@users.noreply.github.com>
+Date: Wed, 22 Jul 2026 12:34:27 -0700
+Subject: [PATCH] Make z image/lumina 2 models use comfy kitchen rms rope.
+ (#15036)
+
+---
+ comfy/ldm/lumina/model.py | 23 +++++++++++++++++++----
+ 1 file changed, 19 insertions(+), 4 deletions(-)
+
+diff --git a/comfy/ldm/lumina/model.py b/comfy/ldm/lumina/model.py
+index d0ee97d333b..cdf03b2b5e3 100644
+--- a/comfy/ldm/lumina/model.py
++++ b/comfy/ldm/lumina/model.py
+@@ -6,6 +6,9 @@
+ import torch.nn as nn
+ import torch.nn.functional as F
+ import comfy.ldm.common_dit
++import comfy.model_management
++import comfy.ops
++import comfy.quant_ops
+ 
+ from comfy.ldm.modules.diffusionmodules.mmdit import TimestepEmbedder
+ from comfy.ldm.modules.attention import optimized_attention_masked
+@@ -97,6 +100,7 @@ def __init__(
+         self.n_local_kv_heads = self.n_kv_heads
+         self.n_rep = self.n_local_heads // self.n_local_kv_heads
+         self.head_dim = dim // n_heads
++        self.qk_norm = qk_norm
+ 
+         self.qkv = operation_settings.get("operations").Linear(
+             dim,
+@@ -151,10 +155,21 @@ def forward(
+         xk = xk.view(bsz, seqlen, self.n_local_kv_heads, self.head_dim)
+         xv = xv.view(bsz, seqlen, self.n_local_kv_heads, self.head_dim)
+ 
+-        xq = self.q_norm(xq)
+-        xk = self.k_norm(xk)
+-
+-        xq, xk = apply_rope(xq, xk, freqs_cis)
++        if self.qk_norm and not comfy.model_management.in_training:
++            q_scale, _, q_offload_stream = comfy.ops.cast_bias_weight(self.q_norm, xq, offloadable=True)
++            k_scale, _, k_offload_stream = comfy.ops.cast_bias_weight(self.k_norm, xk, offloadable=True)
++            epsilon = self.q_norm.eps if self.q_norm.eps is not None else torch.finfo(torch.float32).eps
++            if self.n_local_heads == self.n_local_kv_heads:
++                xq, xk = comfy.quant_ops.ck.rms_rope(xq, xk, freqs_cis, q_scale, k_scale, epsilon)
++            else:
++                xq = comfy.quant_ops.ck.rms_rope1(xq, freqs_cis, q_scale, epsilon)
++                xk = comfy.quant_ops.ck.rms_rope1(xk, freqs_cis, k_scale, epsilon)
++            comfy.ops.uncast_bias_weight(self.q_norm, q_scale, None, q_offload_stream)
++            comfy.ops.uncast_bias_weight(self.k_norm, k_scale, None, k_offload_stream)
++        else:
++            xq = self.q_norm(xq)
++            xk = self.k_norm(xk)
++            xq, xk = apply_rope(xq, xk, freqs_cis)
+ 
+         n_rep = self.n_local_heads // self.n_local_kv_heads
+         if n_rep >= 1:

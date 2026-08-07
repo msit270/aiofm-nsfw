@@ -1,0 +1,2484 @@
+{
+  "sha": "ca31a3bae14dbede5366de4904dfedea2697b082",
+  "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/ca31a3bae14dbede5366de4904dfedea2697b082",
+  "tree": [
+    {
+      "path": "Beginner",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4251bbc954d59cb41e1f36412d7f49691f61cbda",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/4251bbc954d59cb41e1f36412d7f49691f61cbda"
+    },
+    {
+      "path": "Beginner/kr",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cdf4e6b5cdbdbd2cb2d85dcd6c308711ebe77098",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/cdf4e6b5cdbdbd2cb2d85dcd6c308711ebe77098"
+    },
+    {
+      "path": "Beginner/kr/basic1.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "558086c0297f682f80661b067a3de40f7bfb85ca",
+      "size": 379584,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/558086c0297f682f80661b067a3de40f7bfb85ca"
+    },
+    {
+      "path": "Beginner/kr/basic2.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7ef4f3429556dbeeaa1545c94bef4774a199c27",
+      "size": 365706,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/e7ef4f3429556dbeeaa1545c94bef4774a199c27"
+    },
+    {
+      "path": "Beginner/kr/basic3.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0cb8edc5128eb323e863eb316221c211dd732729",
+      "size": 387140,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/0cb8edc5128eb323e863eb316221c211dd732729"
+    },
+    {
+      "path": "Beginner/kr/basic4.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b58d3da30f9f1a19c2190f4ba4fd63992bbedd4b",
+      "size": 409137,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/b58d3da30f9f1a19c2190f4ba4fd63992bbedd4b"
+    },
+    {
+      "path": "Beginner/kr/basic5.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e290b01283f8c646d3cfbde4f68c1585748c3677",
+      "size": 410829,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/e290b01283f8c646d3cfbde4f68c1585748c3677"
+    },
+    {
+      "path": "Beginner/kr/beginner.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce5c5fc9141eb182079e754cdb0388ff2a0a83d0",
+      "size": 2847,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/ce5c5fc9141eb182079e754cdb0388ff2a0a83d0"
+    },
+    {
+      "path": "Beginner/kr/colab1.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9e128f981d8cce349e72b2bac7acec389e45f09",
+      "size": 142261,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/c9e128f981d8cce349e72b2bac7acec389e45f09"
+    },
+    {
+      "path": "Beginner/kr/colab2.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a25f17baa25f432a695805c1decebac66b440e79",
+      "size": 167024,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/a25f17baa25f432a695805c1decebac66b440e79"
+    },
+    {
+      "path": "Beginner/kr/colab3.JPG",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ac38a462a01f3fb5540b0e73f84185ad817dbce8",
+      "size": 130941,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/ac38a462a01f3fb5540b0e73f84185ad817dbce8"
+    },
+    {
+      "path": "Beginner/kr/colab4.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f284a3d7a32bd36c1c73b1a29668dcebe3c39ff9",
+      "size": 43283,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/f284a3d7a32bd36c1c73b1a29668dcebe3c39ff9"
+    },
+    {
+      "path": "Beginner/kr/colab5.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "907c3cddb326020c2e37743b5c5d22e0daed219b",
+      "size": 94135,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/907c3cddb326020c2e37743b5c5d22e0daed219b"
+    },
+    {
+      "path": "Beginner/kr/colab6.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f22c2e8ae7422c1f34afee5cfdba2bc9d6c973d8",
+      "size": 160920,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/f22c2e8ae7422c1f34afee5cfdba2bc9d6c973d8"
+    },
+    {
+      "path": "Beginner/kr/colab7.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b6c71714292ac48bc5dd8e91927c42b8aea697ea",
+      "size": 162347,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/b6c71714292ac48bc5dd8e91927c42b8aea697ea"
+    },
+    {
+      "path": "Beginner/kr/colab8.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50b4e1e2ca604a95f80d851c1cba2d7429fc2bf7",
+      "size": 170525,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/50b4e1e2ca604a95f80d851c1cba2d7429fc2bf7"
+    },
+    {
+      "path": "Beginner/kr/colab9.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "40058f6b9fbb90b6e3c9be1dc6d0f0e897231295",
+      "size": 218301,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/40058f6b9fbb90b6e3c9be1dc6d0f0e897231295"
+    },
+    {
+      "path": "Beginner/kr/custom1.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf763afb703cf4473f916f083d466b8c2e44ba0b",
+      "size": 470471,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/bf763afb703cf4473f916f083d466b8c2e44ba0b"
+    },
+    {
+      "path": "Beginner/kr/custom2.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4748c17fdfa68467c4311b5a040d276a9430099c",
+      "size": 377329,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/4748c17fdfa68467c4311b5a040d276a9430099c"
+    },
+    {
+      "path": "Beginner/kr/custom3.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "40f0974ddd84b79d1a577b7c4c4979e3a65fdaee",
+      "size": 404674,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/40f0974ddd84b79d1a577b7c4c4979e3a65fdaee"
+    },
+    {
+      "path": "Beginner/kr/custom4.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3854722e897422d047d6d95fd4ac6ea01be1c5e",
+      "size": 363706,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/e3854722e897422d047d6d95fd4ac6ea01be1c5e"
+    },
+    {
+      "path": "Beginner/kr/custom5.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d8836b1d681ad92bb8a96a1bbc5d3ed6dad2a04",
+      "size": 403804,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/8d8836b1d681ad92bb8a96a1bbc5d3ed6dad2a04"
+    },
+    {
+      "path": "Beginner/kr/custom6.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1c5cdc6dfc68ff8aa8cfa162b5ff8e8e00490c12",
+      "size": 438028,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/1c5cdc6dfc68ff8aa8cfa162b5ff8e8e00490c12"
+    },
+    {
+      "path": "Beginner/kr/face-model.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2b674b89c809a34096aec79de95265e5c3e9821",
+      "size": 682937,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/a2b674b89c809a34096aec79de95265e5c3e9821"
+    },
+    {
+      "path": "Beginner/kr/guide.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca47e128ef91669d1ae41918e46d8d47a6106751",
+      "size": 159,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/ca47e128ef91669d1ae41918e46d8d47a6106751"
+    },
+    {
+      "path": "Beginner/kr/image.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "37e75d46b1ae9c868248208976edbf3b7740ae5e",
+      "size": 276187,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/37e75d46b1ae9c868248208976edbf3b7740ae5e"
+    },
+    {
+      "path": "Beginner/kr/install-manager.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13ee06e2b30343013f36bc2f1fe117ee38bbd6b6",
+      "size": 46473,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/13ee06e2b30343013f36bc2f1fe117ee38bbd6b6"
+    },
+    {
+      "path": "Beginner/kr/install.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e2f34c390d3de39bd9a47aa7a372383d98f3d6e2",
+      "size": 3898,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/e2f34c390d3de39bd9a47aa7a372383d98f3d6e2"
+    },
+    {
+      "path": "Beginner/kr/linux.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f752e76f8da42a79690951795b7ee3858ccaa45",
+      "size": 84316,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/3f752e76f8da42a79690951795b7ee3858ccaa45"
+    },
+    {
+      "path": "Beginner/kr/manager-missing1.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38e918bc31d9c649b3cb46a60e419667649728d7",
+      "size": 481655,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/38e918bc31d9c649b3cb46a60e419667649728d7"
+    },
+    {
+      "path": "Beginner/kr/manager-missing2.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d88aade4b2947ca60f4c0f064c3232089b1e784",
+      "size": 512292,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/9d88aade4b2947ca60f4c0f064c3232089b1e784"
+    },
+    {
+      "path": "Beginner/kr/model1.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e79537eb691898531a27635cfa0a0c5d6b51564",
+      "size": 242743,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/6e79537eb691898531a27635cfa0a0c5d6b51564"
+    },
+    {
+      "path": "Beginner/kr/model2.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "389879d471ee6dcf837b634f336baf9e00807473",
+      "size": 242535,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/389879d471ee6dcf837b634f336baf9e00807473"
+    },
+    {
+      "path": "Beginner/kr/model3.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9e9d9b94192d85258fed69e3a998d41eed71620",
+      "size": 247740,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/b9e9d9b94192d85258fed69e3a998d41eed71620"
+    },
+    {
+      "path": "Beginner/kr/model4.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3bbcbacfb4dd3eb559759d10597a5c8a2127d67",
+      "size": 258392,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/e3bbcbacfb4dd3eb559759d10597a5c8a2127d67"
+    },
+    {
+      "path": "Beginner/kr/result1.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5d6b1203280ce48e978e7cd81d1d4480f43854bc",
+      "size": 985635,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/5d6b1203280ce48e978e7cd81d1d4480f43854bc"
+    },
+    {
+      "path": "Beginner/kr/run-edit.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d323d0b19d58bfec28b27a1a13326205afdb073d",
+      "size": 72899,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/d323d0b19d58bfec28b27a1a13326205afdb073d"
+    },
+    {
+      "path": "Beginner/kr/run.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5641b2184e5cfdf0f77f6f8cd029caeaa5ff4ed3",
+      "size": 160179,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/5641b2184e5cfdf0f77f6f8cd029caeaa5ff4ed3"
+    },
+    {
+      "path": "Beginner/kr/sdxl.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6398b68891490c28f5d2f271c0e85025b421ed3b",
+      "size": 3883,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/6398b68891490c28f5d2f271c0e85025b421ed3b"
+    },
+    {
+      "path": "Beginner/kr/sdxl1.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a339260dc1a28a1df4af5e88f63f74b381256b26",
+      "size": 506922,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/a339260dc1a28a1df4af5e88f63f74b381256b26"
+    },
+    {
+      "path": "Beginner/kr/sdxl2.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff19cbab5d9b353bfebad7d2c78cdfefca9ef4bc",
+      "size": 2540318,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/ff19cbab5d9b353bfebad7d2c78cdfefca9ef4bc"
+    },
+    {
+      "path": "Beginner/kr/sdxl3.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "65b158c4c544947f3c9da0aca9fb5ef55937a71b",
+      "size": 572680,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/65b158c4c544947f3c9da0aca9fb5ef55937a71b"
+    },
+    {
+      "path": "Beginner/kr/sdxl4.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57c2231f995218b6c1da66179203be1648059314",
+      "size": 594713,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/57c2231f995218b6c1da66179203be1648059314"
+    },
+    {
+      "path": "Beginner/kr/sdxl5.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "39c1575a046a1a9fcc2570ab861b58b99afcd420",
+      "size": 5090947,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/39c1575a046a1a9fcc2570ab861b58b99afcd420"
+    },
+    {
+      "path": "Beginner/kr/sdxl6.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47e48a7fea1fb243cf76baa97984f23f2c1ed316",
+      "size": 4267624,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/47e48a7fea1fb243cf76baa97984f23f2c1ed316"
+    },
+    {
+      "path": "Beginner/kr/sdxl7.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "daead00f19fd72733c3526b768c0603548055762",
+      "size": 651820,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/daead00f19fd72733c3526b768c0603548055762"
+    },
+    {
+      "path": "Beginner/kr/sdxl8.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f552ba99ef3f3aa691a68bdfecc0c0d1de93d264",
+      "size": 689081,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/f552ba99ef3f3aa691a68bdfecc0c0d1de93d264"
+    },
+    {
+      "path": "ComfyUI-Experimental",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ad81c9bdc6458bc2f50a640191de95f4f6edcbb5",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/ad81c9bdc6458bc2f50a640191de95f4f6edcbb5"
+    },
+    {
+      "path": "ComfyUI-Experimental/sdxl-reencode",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f23dae6a24a64d6669ff59e1089cb2a220a19c9b",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/f23dae6a24a64d6669ff59e1089cb2a220a19c9b"
+    },
+    {
+      "path": "ComfyUI-Experimental/sdxl-reencode/1pass-sdxl_base_only.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "abd5b282d28429a9bf1400f8c0dcc38012d75f28",
+      "size": 2077536,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/abd5b282d28429a9bf1400f8c0dcc38012d75f28"
+    },
+    {
+      "path": "ComfyUI-Experimental/sdxl-reencode/1pass-sdxl_base_with_refiner.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "23d078843b5bb333ec04d2c08faf5b4ffd40ee0f",
+      "size": 2060418,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/23d078843b5bb333ec04d2c08faf5b4ffd40ee0f"
+    },
+    {
+      "path": "ComfyUI-Experimental/sdxl-reencode/2pass-sdxl_base_sd15_sdxl_refiner.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dc02c47693142ce936ab3b2fd28f17a68b879ea4",
+      "size": 1939770,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/dc02c47693142ce936ab3b2fd28f17a68b879ea4"
+    },
+    {
+      "path": "ComfyUI-Experimental/sdxl-reencode/2pass-sdxl_sd15.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b80e6c8df9edb49f1ff0990e1d8b3f5e06a2aaa2",
+      "size": 1943404,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/b80e6c8df9edb49f1ff0990e1d8b3f5e06a2aaa2"
+    },
+    {
+      "path": "ComfyUI-Experimental/sdxl-reencode/exp1.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f09dc533e1e17609646b591b99654d8d94a50a19",
+      "size": 557,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/f09dc533e1e17609646b591b99654d8d94a50a19"
+    },
+    {
+      "path": "ComfyUI-Experimental/sdxl-reencode/reencode-compact.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "30be7b82dcc20381f5758b2f5d084ac381912478",
+      "size": 108953,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/30be7b82dcc20381f5758b2f5d084ac381912478"
+    },
+    {
+      "path": "ComfyUI-Experimental/sdxl-reencode/reencode-workflow.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "05766125e00ead74b0038170351a11ceee83e295",
+      "size": 150584,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/05766125e00ead74b0038170351a11ceee83e295"
+    },
+    {
+      "path": "ComfyUI-Experimental/workflow",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6b3aa964c3d7268993436522b0aeee7fed481c18",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/6b3aa964c3d7268993436522b0aeee7fed481c18"
+    },
+    {
+      "path": "ComfyUI-Experimental/workflow/free-2pass.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "afd440136455ccf13d09b27fb9a061b927ce45e9",
+      "size": 24482,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/afd440136455ccf13d09b27fb9a061b927ce45e9"
+    },
+    {
+      "path": "ComfyUI-Experimental/workflow/ksampler_advanced.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d3a73f97ec52ce81a5ddf1470c73f6ab20d1b86",
+      "size": 4892912,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/7d3a73f97ec52ce81a5ddf1470c73f6ab20d1b86"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3920b9981d0a9c6256c8a32cc451ece6ee6dbf48",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/3920b9981d0a9c6256c8a32cc451ece6ee6dbf48"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "632059ab7b544cc493d4801f33926dc7f8fcdf84",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/632059ab7b544cc493d4801f33926dc7f8fcdf84"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/2pass-1pass.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9bf151188f99d9bf766592e52530ed49fbd9518e",
+      "size": 154931,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/9bf151188f99d9bf766592e52530ed49fbd9518e"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/2pass-2pass.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7ca401697ecf82f0103611465f6f1476db4e144",
+      "size": 154660,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/c7ca401697ecf82f0103611465f6f1476db4e144"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/2pass-original.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fa4db3909363046e7fae3dbc57ae5d0d6b8fdc00",
+      "size": 153703,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/fa4db3909363046e7fae3dbc57ae5d0d6b8fdc00"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/2pass-simple.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "df87ce2515fce362dd0a2af873b732d7bc0f2d25",
+      "size": 1012000,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/df87ce2515fce362dd0a2af873b732d7bc0f2d25"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/PK_HOOK-DecDenoise-IncCFG.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a3e8763101b035a842384e51ca8703e1421d3aa",
+      "size": 864400,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/1a3e8763101b035a842384e51ca8703e1421d3aa"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/PK_HOOK-IncDenoise-DecCFG.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "800c0445d9b743374dedcd8bc10dc62c9a431041",
+      "size": 889949,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/800c0445d9b743374dedcd8bc10dc62c9a431041"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/PK_HOOK-compare.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b1fe2f8d3d1e404fa90c3ade65ec0e8cb07cef47",
+      "size": 704510,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/b1fe2f8d3d1e404fa90c3ade65ec0e8cb07cef47"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/PK_HOOK-original.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db59b6f6cba8d7a62a540849366df4bf9edc38e8",
+      "size": 267722,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/db59b6f6cba8d7a62a540849366df4bf9edc38e8"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/PK_HOOK-workflow.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9fd576aff35b4e6ea098ed035bcf1d766b72f8ff",
+      "size": 245981,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/9fd576aff35b4e6ea098ed035bcf1d766b72f8ff"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/PK_HOOK2-result.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "577ca2151fd77e30d736d804c59a67534d5b8100",
+      "size": 2801341,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/577ca2151fd77e30d736d804c59a67534d5b8100"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/PK_HOOK2-steps.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca06c433838a724002c04533374e9100d5b1c31f",
+      "size": 1258087,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/ca06c433838a724002c04533374e9100d5b1c31f"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/PreviewBridge-ContextMenu.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7e2cf223d44f957cc40840b110c334d93e61505",
+      "size": 56241,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/c7e2cf223d44f957cc40840b110c334d93e61505"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/PreviewBridge-Editor.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "343db1ac8a1e5ac6f17b9d29baa3f32dadda7d65",
+      "size": 80796,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/343db1ac8a1e5ac6f17b9d29baa3f32dadda7d65"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/PreviewBridge-Result.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7e1f877cd231465b36e1299872f29fa723021de",
+      "size": 91318,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/c7e1f877cd231465b36e1299872f29fa723021de"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/SAMDetector-dialog.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d68ab25e533be77da6f4fc4c189dc2f27350fb95",
+      "size": 90387,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/d68ab25e533be77da6f4fc4c189dc2f27350fb95"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/SAMDetector-menu.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ba97b833e1dd18c3064a907d84e7216ff655f826",
+      "size": 826679,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/ba97b833e1dd18c3064a907d84e7216ff655f826"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/SAMDetector-result.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5cca7deeabc1bc0115ec4128e7b979e318602354",
+      "size": 100878,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/5cca7deeabc1bc0115ec4128e7b979e318602354"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/TwoAdvancedSamplers-original.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14c2dde7e2ebd7b5a68d9b7bd8f4ade80c5f70e0",
+      "size": 1301906,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/14c2dde7e2ebd7b5a68d9b7bd8f4ade80c5f70e0"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/TwoAdvancedSamplers-result.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a230c016de9bf91d110bf3e61232a8bb439be7f0",
+      "size": 1283427,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/a230c016de9bf91d110bf3e61232a8bb439be7f0"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/TwoAdvancedSamplers-workflow.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d54679bec1b3edec1d4256ea668d4ef4222a58e",
+      "size": 99667,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/4d54679bec1b3edec1d4256ea668d4ef4222a58e"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/TwoSampler-original-mask.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f21a0da364062f981facfcdf0e88938ef162e57a",
+      "size": 1037686,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/f21a0da364062f981facfcdf0e88938ef162e57a"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/TwoSampler-original-no-mask.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d3053b1926198e54e9f7915b82cfd07023d009fb",
+      "size": 1037686,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/d3053b1926198e54e9f7915b82cfd07023d009fb"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/TwoSampler-result-mask.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3bc69c51205b43114123ae45d634d8fba1d5814b",
+      "size": 971769,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/3bc69c51205b43114123ae45d634d8fba1d5814b"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/TwoSampler-result-no-mask.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86956ac8d308fc875dcf0fcc2b2f99b5502d7be2",
+      "size": 929630,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/86956ac8d308fc875dcf0fcc2b2f99b5502d7be2"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/TwoSamplers-workflow.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ee2f6b9470aceecae22741f2b090d349373d924",
+      "size": 877448,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/2ee2f6b9470aceecae22741f2b090d349373d924"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/TwoSamplersUpscale-i2l1-schedule.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "87c664b75421efcd4ef5f63e5ea779b6d7f64a01",
+      "size": 3430527,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/87c664b75421efcd4ef5f63e5ea779b6d7f64a01"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/TwoSamplersUpscale-masked.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "933c6cfff26fb1f16bba6ba285d1185b05104f4d",
+      "size": 1059349,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/933c6cfff26fb1f16bba6ba285d1185b05104f4d"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/TwoSamplersUpscale-none-schedule.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "430b19e22e16ba540ec330ecca5903bded36634d",
+      "size": 3574521,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/430b19e22e16ba540ec330ecca5903bded36634d"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/TwoSamplersUpscale-original.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "216c9ab75bdfa6a9953d94699f1e9712456fa4f0",
+      "size": 950399,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/216c9ab75bdfa6a9953d94699f1e9712456fa4f0"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/TwoSamplersUpscale-schedule.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a3d553db5ba892af05b77e43bc75fb21abc7342",
+      "size": 120616,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/5a3d553db5ba892af05b77e43bc75fb21abc7342"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/TwoSamplersUpscale-single.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a43320680af2d977c77bf56b1e56ad4b15db644e",
+      "size": 3494171,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/a43320680af2d977c77bf56b1e56ad4b15db644e"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/TwoSamplersUpscale-tiled.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e51fa5674898db5373aecbfa4ac749ba426774e0",
+      "size": 122683,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/e51fa5674898db5373aecbfa4ac749ba426774e0"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/TwoSamplersUpscale-workflow.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b71ca3f34fae2c88aa64750f41f0163789433a5",
+      "size": 506225,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/0b71ca3f34fae2c88aa64750f41f0163789433a5"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/batching-detailer.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00c82738e36c5a182cede5b02e210fd3e7317db5",
+      "size": 47168,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/00c82738e36c5a182cede5b02e210fd3e7317db5"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/combination-original.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "33bf7e4e6c6fc4f4dc96e60e459103c6849061c4",
+      "size": 730731,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/33bf7e4e6c6fc4f4dc96e60e459103c6849061c4"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/combination-refined.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f495acceee3171208fcbca653d8df01d4473ce14",
+      "size": 732267,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/f495acceee3171208fcbca653d8df01d4473ce14"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/combination.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d5782cf57ae3dc11140053f2cd317eb1e2fc5a7c",
+      "size": 2508789,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/d5782cf57ae3dc11140053f2cd317eb1e2fc5a7c"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/detectors-sam.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1d435f148d06873996625c7116948c9f2ab9855e",
+      "size": 304909,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/1d435f148d06873996625c7116948c9f2ab9855e"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/detectors-simple.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e9146c714766b6132a1320b0cbfa4d03f46eb63c",
+      "size": 409846,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/e9146c714766b6132a1320b0cbfa4d03f46eb63c"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/detectors.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d8776697e8239e08830e26424c2c5aa0ce8f384",
+      "size": 316297,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/8d8776697e8239e08830e26424c2c5aa0ce8f384"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/face-swap-original.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a8486f595644bbbed57a1914e5539fa11bcaf880",
+      "size": 1298675,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/a8486f595644bbbed57a1914e5539fa11bcaf880"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/face-swap-result.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f93fbbef0fb51a4c9bf153229f3010a07168d8f",
+      "size": 1298700,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/9f93fbbef0fb51a4c9bf153229f3010a07168d8f"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/faceswap.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22f7d3f253c7808d05668a1fa0446fc367f6e0a9",
+      "size": 2552760,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/22f7d3f253c7808d05668a1fa0446fc367f6e0a9"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/hair-restyle-original.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53e5b2347dc52efe224a9023ebccb1f1d8493394",
+      "size": 1015432,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/53e5b2347dc52efe224a9023ebccb1f1d8493394"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/hair-restyle-result.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b617b5f3843cb07862fd5db85f077820b27a03e0",
+      "size": 1091772,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/b617b5f3843cb07862fd5db85f077820b27a03e0"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/imagebatch_to_imagelist.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "42551606e8d33de8c64ed3585aa2e78b3e18520f",
+      "size": 350379,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/42551606e8d33de8c64ed3585aa2e78b3e18520f"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/imagelist_to_imagebatch.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f68c708f8adfa90e3c22d58f3843bb1f173cdaee",
+      "size": 340092,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/f68c708f8adfa90e3c22d58f3843bb1f173cdaee"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/interactive-sam-original.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc3ac5516852a30be7666be32d4af0b454652ecd",
+      "size": 1275173,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/fc3ac5516852a30be7666be32d4af0b454652ecd"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/interactive-sam-result.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "050706b86eea38b028b76a5e616b89b37950b955",
+      "size": 1280959,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/050706b86eea38b028b76a5e616b89b37950b955"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/interactive-sam-select.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb01dda8a4eee99b7b43e0477213443b55fcc10a",
+      "size": 493687,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/cb01dda8a4eee99b7b43e0477213443b55fcc10a"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/interactive-sam-workflow-result.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f1a1d0facf7afa5476adcc964b54e2b233eab904",
+      "size": 554950,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/f1a1d0facf7afa5476adcc964b54e2b233eab904"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/interactive-sam-workflow.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc34351b0956ef178212a4fb72591e87da123a93",
+      "size": 611721,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/fc34351b0956ef178212a4fb72591e87da123a93"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/sam-masked.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "70389675733b2544b87281da30d35dddc3735101",
+      "size": 181347,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/70389675733b2544b87281da30d35dddc3735101"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/sam-original.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "75a8cc98ec372e811caf7ef51a5d1e6f086db1d5",
+      "size": 157480,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/75a8cc98ec372e811caf7ef51a5d1e6f086db1d5"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/sam-result.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "59f84144e3e5b1f3a21209a9a9665d72224ba454",
+      "size": 158190,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/59f84144e3e5b1f3a21209a9a9665d72224ba454"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/sam.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "482eaa283c68013dac5f7601f31d41aa294c1ac6",
+      "size": 906801,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/482eaa283c68013dac5f7601f31d41aa294c1ac6"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/simple-detector-for-ad.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8850a6adf2963a08f96e49b9c193dc98c5e401e",
+      "size": 32072,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/c8850a6adf2963a08f96e49b9c193dc98c5e401e"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/simple-original.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "367771a238330de356127321ca9c54a4de8d6306",
+      "size": 237742,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/367771a238330de356127321ca9c54a4de8d6306"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/simple-refined.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7447cae770ddb22786793232dcc3e4b5720043e",
+      "size": 237052,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/c7447cae770ddb22786793232dcc3e4b5720043e"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/simple.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f553ec7fe015a5ca9c112c4d54140403ce45d74",
+      "size": 1691906,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/9f553ec7fe015a5ca9c112c4d54140403ce45d74"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/upscale-3x.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe7ea79822268a2a0531bfbcf1c67551eededf5c",
+      "size": 1841343,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/fe7ea79822268a2a0531bfbcf1c67551eededf5c"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/upscale-original.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72217feaf7df5fe6e8b6054cbda237c629ae23f3",
+      "size": 271271,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/72217feaf7df5fe6e8b6054cbda237c629ae23f3"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/images/upscale-workflow.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d0f04be72d2bedcfa6f95110e7bddc980b41a896",
+      "size": 194384,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/d0f04be72d2bedcfa6f95110e7bddc980b41a896"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/misc",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4d67fdd66f8d49b6fc7d5497e5ed112207e4a9a2",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/4d67fdd66f8d49b6fc7d5497e5ed112207e4a9a2"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/misc/2pass-advanced.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e43a239b7133841a6e9a7bd153b58d48561be0ae",
+      "size": 685451,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/e43a239b7133841a6e9a7bd153b58d48561be0ae"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/misc/TwoAdvancedSamplersForMask.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "576db212276ad4b33419eb99604972b1db9de42f",
+      "size": 26946,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/576db212276ad4b33419eb99604972b1db9de42f"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/misc/combination-2pass-middle.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57820046a910cbf51115fcb4f359c077910d1410",
+      "size": 525917,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/57820046a910cbf51115fcb4f359c077910d1410"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/misc/combination-2pass-original.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f8c2c2f160a4a6c5d89db39ff92c04c269f0dc24",
+      "size": 524008,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/f8c2c2f160a4a6c5d89db39ff92c04c269f0dc24"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/misc/combination-2pass-result.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a76d860543d82c8a2dd702c2fc548d5cf714526b",
+      "size": 526165,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/a76d860543d82c8a2dd702c2fc548d5cf714526b"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/misc/combination.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2eb5ace0a638c61c8cde941aeed85411b167a898",
+      "size": 1218296,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/2eb5ace0a638c61c8cde941aeed85411b167a898"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/misc/old-2pass-refine.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7ce3cfb25320203184290e7dffbe2af25deb8428",
+      "size": 15729,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/7ce3cfb25320203184290e7dffbe2af25deb8428"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/misc/old-combination-2pass.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5f50674b169029ca370024f25ac1368e2768c077",
+      "size": 37324,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/5f50674b169029ca370024f25ac1368e2768c077"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d633b6ff437d122c9064d8f311a63faa3c375836",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/d633b6ff437d122c9064d8f311a63faa3c375836"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/ImpactWildcard-LBW.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d142799da9808b905d80993a4d8fde750042ca6",
+      "size": 385492,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/7d142799da9808b905d80993a4d8fde750042ca6"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/ImpactWildcard.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c23a1084cba20dc00b31d1b2d1b3a02f6969d23e",
+      "size": 14257,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/c23a1084cba20dc00b31d1b2d1b3a02f6969d23e"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/ONNX.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eeac8490031d64eb3ec984f552f64ea208d43acd",
+      "size": 837,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/eeac8490031d64eb3ec984f552f64ea208d43acd"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/PromptPerTileUpscale.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ba9a2bf57fd048fea45bb76ccd264693fbf958a",
+      "size": 4332,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/1ba9a2bf57fd048fea45bb76ccd264693fbf958a"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/TwoAdvancedSamplers.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "15fa44dead506c991099b03ae3949317781deab3",
+      "size": 1275,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/15fa44dead506c991099b03ae3949317781deab3"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/TwoSamplers.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cbc8528b7304d288ab70b682df6c85c7f15a0a6b",
+      "size": 1275,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/cbc8528b7304d288ab70b682df6c85c7f15a0a6b"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/TwoSamplersUpscale.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f52d77df16cbaad2af0fd17575bc937bb824892",
+      "size": 3281,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/3f52d77df16cbaad2af0fd17575bc937bb824892"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/advanced-simple-original.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "43ce643b6c1593f00812ac6b5d903e63da79a187",
+      "size": 127714,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/43ce643b6c1593f00812ac6b5d903e63da79a187"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/advanced-simple-refined.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e75565dd3adf772e3416106cb467bd4bafe16217",
+      "size": 127305,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/e75565dd3adf772e3416106cb467bd4bafe16217"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/advanced-simple-workflow.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b021493bd3f9718867da1c3ad838f59611a26fc8",
+      "size": 926071,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/b021493bd3f9718867da1c3ad838f59611a26fc8"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/advanced.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "410035470ff0ab39df2d72986eeff52c5aa85762",
+      "size": 3579,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/410035470ff0ab39df2d72986eeff52c5aa85762"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/basic-refine.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d79942d77c82a8162330a6659e96d5bb6fd3ba3",
+      "size": 737860,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/8d79942d77c82a8162330a6659e96d5bb6fd3ba3"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/batching-detailer.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c73a5ced80fa577fdcc1d7a8e9d7c20a9539238",
+      "size": 2051,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/0c73a5ced80fa577fdcc1d7a8e9d7c20a9539238"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/clipseg.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb91d684ffdb376fe025f977bd2ae4db1c12575b",
+      "size": 810,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/fb91d684ffdb376fe025f977bd2ae4db1c12575b"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/clipseg.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e958cbae6eaae526f51dd41300c1e9f25b8fb6e",
+      "size": 1483221,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/1e958cbae6eaae526f51dd41300c1e9f25b8fb6e"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/detailers.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dcd8d05ce2cab3f4d09bfb67766d7a9113d94a0a",
+      "size": 2773,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/dcd8d05ce2cab3f4d09bfb67766d7a9113d94a0a"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/detectors.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cec1170fd10acd864b9cf97d87b8809d7fc2b903",
+      "size": 6220,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/cec1170fd10acd864b9cf97d87b8809d7fc2b903"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/extreme-upscale-full.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e785a5658ddf548280f2c4d8947a2d880d2cf210",
+      "size": 2215540,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/e785a5658ddf548280f2c4d8947a2d880d2cf210"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/extreme-upscale-original.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "537ae5879d079d76d56fad5e574a4b5c27169a98",
+      "size": 293100,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/537ae5879d079d76d56fad5e574a4b5c27169a98"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/extreme-upscale-workflow.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f5ba78346af3255646f953f3f4f1b2ca0f89119",
+      "size": 444993,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/9f5ba78346af3255646f953f3f4f1b2ca0f89119"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/extreme-upscale-x4.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "466cc4eedfaa2e9ccae05f8590ee57364e63b09b",
+      "size": 3641813,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/466cc4eedfaa2e9ccae05f8590ee57364e63b09b"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/extreme-upscale-x8.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "07110cfadd0c95edb43d68eddc9a59c07c36dab3",
+      "size": 13407840,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/07110cfadd0c95edb43d68eddc9a59c07c36dab3"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/extreme-upscale.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "858610b867c88fbf74790f237fa723e2604fb7a4",
+      "size": 707,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/858610b867c88fbf74790f237fa723e2604fb7a4"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/impact-wildcard-encode.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "148247dbfc05d789eac5364617620bb88daafc62",
+      "size": 53829,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/148247dbfc05d789eac5364617620bb88daafc62"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/impact-wildcard-node.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0af84625c89084719cd66e2b8c3598dc61cf4440",
+      "size": 36725,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/0af84625c89084719cd66e2b8c3598dc61cf4440"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/impact-wildcard-processor.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d68a6877abdd915833b75769c508627d50356be1",
+      "size": 710997,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/d68a6877abdd915833b75769c508627d50356be1"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/inversed-switch-simple.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50b2f98e4302ecfb11987ed2d875117c1a44c1c5",
+      "size": 266521,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/50b2f98e4302ecfb11987ed2d875117c1a44c1c5"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/maskpointer-maskpointer.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1e7928aec0f1bafd46429aaaecea7425c77d58c",
+      "size": 1670606,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/a1e7928aec0f1bafd46429aaaecea7425c77d58c"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/maskpointer-original.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "16e6d463ca873345bb0afd7054b241429a95651c",
+      "size": 1284756,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/16e6d463ca873345bb0afd7054b241429a95651c"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/maskpointer-result.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01a80d0347ed9ba01160c1a17f7901494e1f3c52",
+      "size": 1275622,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/01a80d0347ed9ba01160c1a17f7901494e1f3c52"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/maskpointer.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ada552a874bf355390c783fb65a7ca1448a0369",
+      "size": 1945,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/5ada552a874bf355390c783fb65a7ca1448a0369"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/maskpointer.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae418758d54c8e0e950f6bea12c9511758cf7b25",
+      "size": 1360679,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/ae418758d54c8e0e950f6bea12c9511758cf7b25"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/mediapipe-workflow.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "07ce0349b2aac8f44e9d433143079901996faf9f",
+      "size": 549758,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/07ce0349b2aac8f44e9d433143079901996faf9f"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/mediapipe.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d7590bcbb7d72f9fffc5af63161e40e373858b8c",
+      "size": 1721,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/d7590bcbb7d72f9fffc5af63161e40e373858b8c"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/nudenet.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d2db26dc614ae9c4a7feadd9489d2da65d341538",
+      "size": 286881,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/d2db26dc614ae9c4a7feadd9489d2da65d341538"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/pipe-refine.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "837b25d784b184c337696c53677d2a8c20d136a5",
+      "size": 1439656,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/837b25d784b184c337696c53677d2a8c20d136a5"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/pk_hook.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d76be6fa2ab8ab5be06c87383f112cb6f43172e6",
+      "size": 2209,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/d76be6fa2ab8ab5be06c87383f112cb6f43172e6"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/previewbridge.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "46973f78a10281581593160593bb917970ea92b7",
+      "size": 1153,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/46973f78a10281581593160593bb917970ea92b7"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/refine-original.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9341609c70f6f6f7bf417628a6558604707519d5",
+      "size": 313895,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/9341609c70f6f6f7bf417628a6558604707519d5"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/refine-refined.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4eb48b8d371bc2a8d60486e4f58f3a3d1515ff73",
+      "size": 312916,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/4eb48b8d371bc2a8d60486e4f58f3a3d1515ff73"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/regional_sampler.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c80a6ec073233cb1e2f085e38a5373d47df6299",
+      "size": 229430,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/4c80a6ec073233cb1e2f085e38a5373d47df6299"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/regional_sampler.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d82ea049b58b3596a8ac058e9609de96561582ba",
+      "size": 7409,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/d82ea049b58b3596a8ac058e9609de96561582ba"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/sam.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eb0ec1998fc3db70a0715053cb8cea18398d296e",
+      "size": 1599,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/eb0ec1998fc3db70a0715053cb8cea18398d296e"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/sam_with_preview_bridge.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "470648c22b2f4f9d11baecb62d983bdda17f77dd",
+      "size": 1341,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/470648c22b2f4f9d11baecb62d983bdda17f77dd"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/select_on_execution.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73e71300aa9fd1d24db7fbdf604644700652374a",
+      "size": 518751,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/73e71300aa9fd1d24db7fbdf604644700652374a"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/select_on_prompt.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e99041446b9eb267a71b03fdb3f455306c8161c1",
+      "size": 519700,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/e99041446b9eb267a71b03fdb3f455306c8161c1"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/sender_receiver.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "58a3bf3d30976ece2cce025f10d61d159d7067fd",
+      "size": 627,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/58a3bf3d30976ece2cce025f10d61d159d7067fd"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/switch-simple.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "438ca97e78dab58489f154b2e37a59ba4b1619c5",
+      "size": 484602,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/438ca97e78dab58489f154b2e37a59ba4b1619c5"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/switch.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "32b54bf2e416fa293f076b018c50bffd36dbe92d",
+      "size": 2945,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/32b54bf2e416fa293f076b018c50bffd36dbe92d"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/upscale-compare.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b6b7c92a0a9b63d3644354504f64f36c6ec4e7a",
+      "size": 765728,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/8b6b7c92a0a9b63d3644354504f64f36c6ec4e7a"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/upscale-full.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e3b10d4caed3a68c589957d9cb07566884b4707",
+      "size": 831299,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/9e3b10d4caed3a68c589957d9cb07566884b4707"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/wildcard-content.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "02dfd6b495648106f70194ba63a9bbd251fe6750",
+      "size": 7356,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/02dfd6b495648106f70194ba63a9bbd251fe6750"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/wildcard-file.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61430d9a3f009deb6dbfaad53078cbe6f936be2f",
+      "size": 10818,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/61430d9a3f009deb6dbfaad53078cbe6f936be2f"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/tutorial/wildcard-folder.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c039f4737672976ea9ecd2f4cb149797f3506c46",
+      "size": 31970,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/c039f4737672976ea9ecd2f4cb149797f3506c46"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e8913e4799238164860be6bfb37029d96ef3bde9",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/e8913e4799238164860be6bfb37029d96ef3bde9"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/ListBridge.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c845699e1249ee0130e7c84d950469848ed9b8c3",
+      "size": 815321,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/c845699e1249ee0130e7c84d950469848ed9b8c3"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/MakeTileSEGS_upscale.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5af2c40e007474740d5383cf8c5d26b4f3131c2",
+      "size": 2305603,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/f5af2c40e007474740d5383cf8c5d26b4f3131c2"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/MakeTileSEGS_upscale_AnimateDiff.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9a27483cdb66185a42f8ede53c0d0a0301f2e79",
+      "size": 1845362,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/d9a27483cdb66185a42f8ede53c0d0a0301f2e79"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/MakeTileSEGS_upscale_AnimateDiff_ControlNet.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e294b3cb447251132c33a371286575ea791c84a",
+      "size": 4406420,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/5e294b3cb447251132c33a371286575ea791c84a"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/MakeTileSEGS_upscale_sdxl-lightning_ipadapter.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d20ef9320f14f10646080d47faf47cfc1fd2e325",
+      "size": 8972821,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/d20ef9320f14f10646080d47faf47cfc1fd2e325"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/PreviewDetailerHookProvider.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5b76052b6ba95073cc02e0c37bbf49c1c985f80c",
+      "size": 3771118,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/5b76052b6ba95073cc02e0c37bbf49c1c985f80c"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/TwoSamplersForMask.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff6308c2b31147e8fd38bbe15839be13a2e68d5f",
+      "size": 16394,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/ff6308c2b31147e8fd38bbe15839be13a2e68d5f"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/TwoSamplersForMaskUpscaler.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77a56bbb670bc1044299cace9985a2929536cdfe",
+      "size": 44785,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/77a56bbb670bc1044299cace9985a2929536cdfe"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/advanced-simple.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ba725fc1823d779d8983bac79c076fe579b9b033",
+      "size": 1083196,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/ba725fc1823d779d8983bac79c076fe579b9b033"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/basic-refine.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b1d9d5fccacc87a0a58e57e6e89956dd5eea96cc",
+      "size": 1699305,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/b1d9d5fccacc87a0a58e57e6e89956dd5eea96cc"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/cinemagraph.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f3a651294d74defb04e3f8358677e6908fca316",
+      "size": 1541970,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/3f3a651294d74defb04e3f8358677e6908fca316"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/clipseg.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e84fadedd233129e8fef635d8345b86859883333",
+      "size": 1756986,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/e84fadedd233129e8fef635d8345b86859883333"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/combination.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "04d1ee6528ba5c95b61fdb83919ac2b3db2180d8",
+      "size": 2821316,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/04d1ee6528ba5c95b61fdb83919ac2b3db2180d8"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/crowd-face.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72b31d1585d85b1a0c827d7ee0f6ffae762f9593",
+      "size": 5168439,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/72b31d1585d85b1a0c827d7ee0f6ffae762f9593"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/detailer-for-animatediff.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ebc4b584e5b680c064105e17eed2065d1af9899",
+      "size": 2389311,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/0ebc4b584e5b680c064105e17eed2065d1af9899"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/detailer-hook.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "066f6d73706fd22467b3a6b0cf2e6e9e78c7b8b3",
+      "size": 5530618,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/066f6d73706fd22467b3a6b0cf2e6e9e78c7b8b3"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/detailer-noise_mask_feather.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f8d9681aeb21cd87e1a42cf339381cb311c779b",
+      "size": 1540755,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/7f8d9681aeb21cd87e1a42cf339381cb311c779b"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/detailer-wildcard.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "497f8d3b372e741ed6b4de83bde807677b6494ef",
+      "size": 2811844,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/497f8d3b372e741ed6b4de83bde807677b6494ef"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/detailer-with-detail-daemon.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4ad9be578c6a664a111db76dd0f54b423b98512",
+      "size": 1897341,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/c4ad9be578c6a664a111db76dd0f54b423b98512"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/detector-labels.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fde7744e5c492fedd085070ee29c05fc1402ed5a",
+      "size": 555671,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/fde7744e5c492fedd085070ee29c05fc1402ed5a"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/dwpose-segs-handfix.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "71403499b0b40fd01b4a259b7d33563cf9e04b28",
+      "size": 2555673,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/71403499b0b40fd01b4a259b7d33563cf9e04b28"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/extreme-highscale.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec467f1484e16cee3a4726d2e599cf987c0b1f0f",
+      "size": 18264637,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/ec467f1484e16cee3a4726d2e599cf987c0b1f0f"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/faceswap.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a87f09a1e0561b5be17a0976e704a52374b14e0",
+      "size": 2763349,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/9a87f09a1e0561b5be17a0976e704a52374b14e0"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/flux-detailer.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1b444f85d68a221efc07935b3d80bc1f3661e8c8",
+      "size": 938784,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/1b444f85d68a221efc07935b3d80bc1f3661e8c8"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/flux-efficient-negative-prompt.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c840aaab065d73486714111cb705d2463f33133a",
+      "size": 1877822,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/c840aaab065d73486714111cb705d2463f33133a"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/flux-impact-ksampler.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "abfb722d13805d67bdcb30e3d6f24ef891fc9108",
+      "size": 1311772,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/abfb722d13805d67bdcb30e3d6f24ef891fc9108"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/gender-senstivie-detailer.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97bbc7a51615fec366aff959d3a2dc011c6c7251",
+      "size": 2359980,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/97bbc7a51615fec366aff959d3a2dc011c6c7251"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/hair-restyle.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7a121b149d49fd313ec318c6c57337cfde331e9",
+      "size": 4792852,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/f7a121b149d49fd313ec318c6c57337cfde331e9"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/interactive-sam.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2605858b354a314f113a8675a62d07e07f56227e",
+      "size": 23577,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/2605858b354a314f113a8675a62d07e07f56227e"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/inversed-switch.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "78d299a6dd7843588868f075c3143cce4bd56ee6",
+      "size": 1440633,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/78d299a6dd7843588868f075c3143cce4bd56ee6"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/mask_to_segs-detailer.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ffc9799cf3b6e91908ed826760b32baa526246bd",
+      "size": 530222,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/ffc9799cf3b6e91908ed826760b32baa526246bd"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/mask_to_segs.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "89cbe001b378462e1c5a374540a02316d1bdb649",
+      "size": 375874,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/89cbe001b378462e1c5a374540a02316d1bdb649"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/maskdetailer.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "95ff292a0508130b491e5aa52ede958624907b0d",
+      "size": 409059,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/95ff292a0508130b491e5aa52ede958624907b0d"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/maskpointer.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e0bb824dc7d4b73e376f0ad1719c153ffa718ad",
+      "size": 27820,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/2e0bb824dc7d4b73e376f0ad1719c153ffa718ad"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/mediapipe-detector.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "52abad51428aba81969085a690eadc711e1507e2",
+      "size": 3229927,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/52abad51428aba81969085a690eadc711e1507e2"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/meshgraphomer_dwpose_tile-segs-handfix.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d5a3b8376992e738316f5b030c095be3a6b3be83",
+      "size": 3852465,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/d5a3b8376992e738316f5b030c095be3a6b3be83"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/multibatch.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0776718ed661ebff95fec6b3185aeb31d60eb981",
+      "size": 2508703,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/0776718ed661ebff95fec6b3185aeb31d60eb981"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/multiface-control.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ede9b21e34c36e723c998ecc835a1aae14cada92",
+      "size": 1236359,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/ede9b21e34c36e723c998ecc835a1aae14cada92"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/onnx.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "916e9f65d3d252bd8f577adb948a046e8b12e66e",
+      "size": 9382,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/916e9f65d3d252bd8f577adb948a046e8b12e66e"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/pipe-refine.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "708a22ff67f71df2d405428f7c2ca6c4afc9bb3b",
+      "size": 1767235,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/708a22ff67f71df2d405428f7c2ca6c4afc9bb3b"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/pk_hook.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d402b434304ebe02d06565f284c7b8c41d8cc31e",
+      "size": 18165875,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/d402b434304ebe02d06565f284c7b8c41d8cc31e"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/pk_hook2.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50b3c5a9359085d388d1ba220954d5707db08aca",
+      "size": 46895,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/50b3c5a9359085d388d1ba220954d5707db08aca"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/preview-bridge-image.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7ddf2def3851a686993f91f891fc5dfc76eeaf7e",
+      "size": 1545901,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/7ddf2def3851a686993f91f891fc5dfc76eeaf7e"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/preview-bridge-latent.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "98609068aa3616b37046dc184f5ab50f98901ad0",
+      "size": 3664567,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/98609068aa3616b37046dc184f5ab50f98901ad0"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/prompt-per-tile.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb67208679a5c47f412da3a553c6e69d0fd72f85",
+      "size": 3903229,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/fb67208679a5c47f412da3a553c6e69d0fd72f85"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/regional-loras.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "008c8c807f27177831d6d528464ea3f3640a0c1d",
+      "size": 6609035,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/008c8c807f27177831d6d528464ea3f3640a0c1d"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/regional-sampler-img2img-sigma_factor.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5870518070b0b90fdb05fb59ef33b1fc5dd09940",
+      "size": 4769567,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/5870518070b0b90fdb05fb59ef33b1fc5dd09940"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/regional-sampler-img2img.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64b2e9d05769478193b211258d7aef538ece543d",
+      "size": 2631143,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/64b2e9d05769478193b211258d7aef538ece543d"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/regionalsampling.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a8570cf052b5e17a237cb0eeddc8d4b67cc2eee3",
+      "size": 7916077,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/a8570cf052b5e17a237cb0eeddc8d4b67cc2eee3"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/sdxl-detailer.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "35e91ccc47fedf7150d4b783a2ee60fff0005a4a",
+      "size": 3327067,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/35e91ccc47fedf7150d4b783a2ee60fff0005a4a"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/segs-detailer.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47510d5a73c393737678f1118f98450c77bdc38d",
+      "size": 1266377,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/47510d5a73c393737678f1118f98450c77bdc38d"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/segs-manipulation.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5401d2a3b9647fc92e6888dc87b1d688c5851004",
+      "size": 546748,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/5401d2a3b9647fc92e6888dc87b1d688c5851004"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/segs-merge.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "031f783fa828eac6dd2c31368b31aa64d776d1cf",
+      "size": 363634,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/031f783fa828eac6dd2c31368b31aa64d776d1cf"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/segs-picker.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7509d54c36be59e5bdc24f9784ef75839e5cc635",
+      "size": 3355615,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/7509d54c36be59e5bdc24f9784ef75839e5cc635"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/simple.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5990c4ccf8873f415ab7c6b30decda4dceda3a79",
+      "size": 1968325,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/5990c4ccf8873f415ab7c6b30decda4dceda3a79"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/switch.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c04623262cbb6f1f8a0de2cd345106d33a3c078d",
+      "size": 17319,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/c04623262cbb6f1f8a0de2cd345106d33a3c078d"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/upscale.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "612f827affd3f349d8ccc5262a3cb1971d694ec8",
+      "size": 9988564,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/612f827affd3f349d8ccc5262a3cb1971d694ec8"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/wildcard-lbw.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a8fb067f1f8f910658a0e1056827b568975406ae",
+      "size": 647794,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/a8fb067f1f8f910658a0e1056827b568975406ae"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/wildcard-prompt-styler.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7aa5bcb77e41085725a2303a6d380efdcb0f7d5",
+      "size": 2187955,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/f7aa5bcb77e41085725a2303a6d380efdcb0f7d5"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4414e1e37a97cffad694fb51903389e9d99d816d",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/4414e1e37a97cffad694fb51903389e9d99d816d"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/images",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "eedd2520b29c2136e9e9a8387527c8d9f6907fb7",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/eedd2520b29c2136e9e9a8387527c8d9f6907fb7"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/images/lora-block-weight-xyplot.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9c7ca7e5ee87fd40c94ffddea823bef4e55778a1",
+      "size": 1667943,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/9c7ca7e5ee87fd40c94ffddea823bef4e55778a1"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/images/segs-controlnet-result.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c007186952a52ec5dda823012f80aa649a6903c",
+      "size": 145674,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/8c007186952a52ec5dda823012f80aa649a6903c"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/tutorial",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b51115df6a7ff341f5285a45eccc1047838f52e7",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/b51115df6a7ff341f5285a45eccc1047838f52e7"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/tutorial/GlobalSeed.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9c5b204fd87c9f5104c787a1b61e004ca8f9e17",
+      "size": 1918,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/d9c5b204fd87c9f5104c787a1b61e004ca8f9e17"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/tutorial/LoraBlockWeight.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a004566ec286e490b67cb41cae8e3ba4e2c5c00a",
+      "size": 5350,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/a004566ec286e490b67cb41cae8e3ba4e2c5c00a"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/tutorial/SEGSControlNet.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae668701c940410aba8cf9e77e8e4dfeea419b79",
+      "size": 380,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/ae668701c940410aba8cf9e77e8e4dfeea419b79"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/tutorial/globalseed-var.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2390a7d0d3331b66bd4e4bde305debcd59b96cf9",
+      "size": 95025,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/2390a7d0d3331b66bd4e4bde305debcd59b96cf9"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/tutorial/globalseed.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c44fb386dfa905c149c6c548cec41537c042a0d6",
+      "size": 368790,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/c44fb386dfa905c149c6c548cec41537c042a0d6"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/tutorial/lora-block-info.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47d264f6cdef454963caf6a1412a53167d4094a0",
+      "size": 207304,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/47d264f6cdef454963caf6a1412a53167d4094a0"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/tutorial/lora-block-weight-test.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a668e18d5aafc4003d8f69875a5d30879423018",
+      "size": 263550,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/4a668e18d5aafc4003d8f69875a5d30879423018"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/tutorial/lora-block-weight.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9968b5767509dd8383c3da0a68ae0bd056ffe2b3",
+      "size": 731177,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/9968b5767509dd8383c3da0a68ae0bd056ffe2b3"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/tutorial/segs-controlnet.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f250453aa189d0765de443fe527a2ed725cd4218",
+      "size": 475648,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/f250453aa189d0765de443fe527a2ed725cd4218"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "dbfcf8ade1e81391c692e88079a6ebfe0846fea2",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/dbfcf8ade1e81391c692e88079a6ebfe0846fea2"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/IPAdapterModelHelper-Kolors.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68b3e738c68c6204867ace304df197da5251489c",
+      "size": 1281672,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/68b3e738c68c6204867ace304df197da5251489c"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/IPAdapterModelHelper.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "26be79d339ae882cfbf669a76e0f596e6a9ff0c0",
+      "size": 1431866,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/26be79d339ae882cfbf669a76e0f596e6a9ff0c0"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/RegionalCFG-ColorMaskToDepthMask.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d215dc120f2c050638b1c0aee3f3dc229e37848",
+      "size": 948810,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/9d215dc120f2c050638b1c0aee3f3dc229e37848"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/RegionalCFG-RegionalConditioning.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01a2f2cf45f33fd2e7d5c621fd46cb94d0823f9d",
+      "size": 1351431,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/01a2f2cf45f33fd2e7d5c621fd46cb94d0823f9d"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/Scheduled_CFGGuider.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "524149216fc991e07d193bf6d7d2a2be8c8f8eee",
+      "size": 1149116,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/524149216fc991e07d193bf6d7d2a2be8c8f8eee"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/cache-workflow1.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "368331c13876d69e8f6b69980fa9f4c5f15df9f6",
+      "size": 808511,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/368331c13876d69e8f6b69980fa9f4c5f15df9f6"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/cache-workflow2.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "78cd7545874106f74fcb12731c17cce680d67c38",
+      "size": 607244,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/78cd7545874106f74fcb12731c17cce680d67c38"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/flux-ksampler-inspire.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0375d09b31e791401b517c4eadb0d514b776fe1a",
+      "size": 811519,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/0375d09b31e791401b517c4eadb0d514b776fe1a"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/flux-regional-sampling.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66c59e24b5e7b3267194e071cc85bb369e1401ca",
+      "size": 5586038,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/66c59e24b5e7b3267194e071cc85bb369e1401ca"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/ksampler-progress.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8388b8a9319027b8b2baa2bd6476d1f3c4245614",
+      "size": 716909,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/8388b8a9319027b8b2baa2bd6476d1f3c4245614"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/latent-batch-splitter.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b87e91640520bf8e160ae134b721996d6a3eb0f6",
+      "size": 2709495,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/b87e91640520bf8e160ae134b721996d6a3eb0f6"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/named-lbw.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d65ebf60bb052cf1df61c6570805a8daa76a97ec",
+      "size": 921230,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/d65ebf60bb052cf1df61c6570805a8daa76a97ec"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/regional-conditioning-img2img.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aabf184c2b9019c8e630092f4f0e6857abb3ce9a",
+      "size": 3991097,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/aabf184c2b9019c8e630092f4f0e6857abb3ce9a"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/regional-ipadapter-faceid.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed76b070285f26b345e830fb5a59eea1b8a492d6",
+      "size": 2248100,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/ed76b070285f26b345e830fb5a59eea1b8a492d6"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/regional-ipadapter.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "81a93279c88e574a7362b6f899f3254614a4d28b",
+      "size": 2642950,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/81a93279c88e574a7362b6f899f3254614a4d28b"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/regional-sampling.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd39da16c329e54e352ce8735050ac4e00c547f0",
+      "size": 5057750,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/fd39da16c329e54e352ce8735050ac4e00c547f0"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/regional-seed.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb3c8f85124842cd6fd35541ce6a0cbccc70355b",
+      "size": 4191047,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/fb3c8f85124842cd6fd35541ce6a0cbccc70355b"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/reproduce-a1111.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7a8ec8da723a8501c5e993ceccb3c06ea8932b4",
+      "size": 2534437,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/f7a8ec8da723a8501c5e993ceccb3c06ea8932b4"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/save-load-lbw.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9145d1fb1d5704c2f615308417816a6a4c3e582b",
+      "size": 1078589,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/9145d1fb1d5704c2f615308417816a6a4c3e582b"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/seed-explorer.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77e932f5ca41c9a541810b20f01a3f1cf461d6a9",
+      "size": 3510826,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/77e932f5ca41c9a541810b20f01a3f1cf461d6a9"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/segs-controlnet.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "841caa43b4b82384c378a3df8a6c4869dbb3e7b5",
+      "size": 1994052,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/841caa43b4b82384c378a3df8a6c4869dbb3e7b5"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/variation-seed.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "56ec1d2cad133a5c85532280f88848aeb334e9d2",
+      "size": 2948975,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/56ec1d2cad133a5c85532280f88848aeb334e9d2"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/workflow-openpose-to-region-map-v2.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "820ee01d7654f4f9d4fc906cc7347b76080615df",
+      "size": 10726614,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/820ee01d7654f4f9d4fc906cc7347b76080615df"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/xyplot-lbw.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c788ea7bd66f39945c93281f11b172b1333d388",
+      "size": 3495202,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/8c788ea7bd66f39945c93281f11b172b1333d388"
+    },
+    {
+      "path": "ComfyUI-Inspire-Pack/workflow/xyplot-lbw2.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a30ac86e59c3a6135315e511ed47bc073fad3c8e",
+      "size": 7540209,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/a30ac86e59c3a6135315e511ed47bc073fad3c8e"
+    },
+    {
+      "path": "ComfyUI-Manager",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f0f1cff10401455890f4276602069e7fc038e48a",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/f0f1cff10401455890f4276602069e7fc038e48a"
+    },
+    {
+      "path": "ComfyUI-Manager/images",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1d9bb8daa5e2282359c711311df01364299ec1b1",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/1d9bb8daa5e2282359c711311df01364299ec1b1"
+    },
+    {
+      "path": "ComfyUI-Manager/images/custom-nodes.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b59c8e69bfe9b6027839c7c835b99017abcdf27d",
+      "size": 122314,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/b59c8e69bfe9b6027839c7c835b99017abcdf27d"
+    },
+    {
+      "path": "ComfyUI-Manager/images/dialog.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e6883863970b66c68420d39b7e64d9b63daf9ab8",
+      "size": 107307,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/e6883863970b66c68420d39b7e64d9b63daf9ab8"
+    },
+    {
+      "path": "ComfyUI-Manager/images/missing-list.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "679687819e187dedfcee5ce6afa619473e908fed",
+      "size": 73277,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/679687819e187dedfcee5ce6afa619473e908fed"
+    },
+    {
+      "path": "ComfyUI-Manager/images/missing-menu.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "be3b3e8356311ad2ed33bb6dfecc77ff8cc111e8",
+      "size": 178328,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/be3b3e8356311ad2ed33bb6dfecc77ff8cc111e8"
+    },
+    {
+      "path": "ComfyUI-Manager/images/models.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69fa28fd0d7f729c098f8b9b9d937c5c4d338f5",
+      "size": 167283,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/e69fa28fd0d7f729c098f8b9b9d937c5c4d338f5"
+    },
+    {
+      "path": "ComfyUI-Manager/images/portable-install.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db6280e1e1089e3c7ec4f6c4ee7e8bc90f6c3866",
+      "size": 45537,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/db6280e1e1089e3c7ec4f6c4ee7e8bc90f6c3866"
+    },
+    {
+      "path": "ComfyUI-Manager/images/share-setting.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "94aca67446da8e6267e199850a083a70fc9dcfdc",
+      "size": 26089,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/94aca67446da8e6267e199850a083a70fc9dcfdc"
+    },
+    {
+      "path": "ComfyUI-Manager/images/share.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97c0ae7de58265351e8cd4dfbb9489fedc41abb5",
+      "size": 98371,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/97c0ae7de58265351e8cd4dfbb9489fedc41abb5"
+    },
+    {
+      "path": "ComfyUI-Manager/images/snapshot.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "33269564bbd2b286994c78a92bf09905d251907b",
+      "size": 92776,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/33269564bbd2b286994c78a92bf09905d251907b"
+    },
+    {
+      "path": "ComfyUI-Manager/images/topbar.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b3aaaf6b567a09c9c3cd4b5b0aff71e5889be44",
+      "size": 3425,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/2b3aaaf6b567a09c9c3cd4b5b0aff71e5889be44"
+    },
+    {
+      "path": "ComfyUI-Workflow-Component",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1caa516b5082563c1ee29a7c142050933c52bd52",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/1caa516b5082563c1ee29a7c142050933c52bd52"
+    },
+    {
+      "path": "ComfyUI-Workflow-Component/images",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "708e6d7fa1270a43f01df7d7db1c44e667088257",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/708e6d7fa1270a43f01df7d7db1c44e667088257"
+    },
+    {
+      "path": "ComfyUI-Workflow-Component/images/face-detailer-start.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b6ff2ddd6055fd915629bab95b803cd04792386",
+      "size": 1635082,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/7b6ff2ddd6055fd915629bab95b803cd04792386"
+    },
+    {
+      "path": "ComfyUI-Workflow-Component/images/i2i.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24187ee911c640eea24b52c6b1d85ccfc4758c63",
+      "size": 1186470,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/24187ee911c640eea24b52c6b1d85ccfc4758c63"
+    },
+    {
+      "path": "ComfyUI-Workflow-Component/images/imagerefiner.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9900179d229cb06d5315cb508653bb2e8f88d6e4",
+      "size": 2222241,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/9900179d229cb06d5315cb508653bb2e8f88d6e4"
+    },
+    {
+      "path": "ComfyUI-Workflow-Component/images/sdxl.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9711b5176d50fbb54b0c42d94ff6f9671d24b185",
+      "size": 1712475,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/9711b5176d50fbb54b0c42d94ff6f9671d24b185"
+    },
+    {
+      "path": "ComfyUI-Workflow-Component/workflow",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "aeff635e5191178e095d819264b95bc4ded8a86c",
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/trees/aeff635e5191178e095d819264b95bc4ded8a86c"
+    },
+    {
+      "path": "ComfyUI-Workflow-Component/workflow/face-detailer-start.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "15b4469306f8439b6e17d8e36184b50c7851de7e",
+      "size": 858746,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/15b4469306f8439b6e17d8e36184b50c7851de7e"
+    },
+    {
+      "path": "ComfyUI-Workflow-Component/workflow/i2i.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1decfdfd441c9db97730cfa435e09f2eaae066f7",
+      "size": 2799,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/1decfdfd441c9db97730cfa435e09f2eaae066f7"
+    },
+    {
+      "path": "ComfyUI-Workflow-Component/workflow/infinite-zoom.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b6ab51485e53a210b051c4da742749e4abf871f0",
+      "size": 25822,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/b6ab51485e53a210b051c4da742749e4abf871f0"
+    },
+    {
+      "path": "ComfyUI-Workflow-Component/workflow/sdxl.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "79e88142c9b2661468c844eb1c1891a0d093bf52",
+      "size": 83341,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/79e88142c9b2661468c844eb1c1891a0d093bf52"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7cb3d743f7f70f2766746d3f206f6c8599915b5e",
+      "size": 4318,
+      "url": "https://api.github.com/repos/ltdrdata/ComfyUI-extension-tutorials/git/blobs/7cb3d743f7f70f2766746d3f206f6c8599915b5e"
+    }
+  ],
+  "truncated": false
+}

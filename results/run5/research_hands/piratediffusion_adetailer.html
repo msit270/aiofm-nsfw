@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en-US"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en-US"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="alternate" type="application/rss+xml" title="PirateDiffusion Feed" href="https://piratediffusion.com//feed/">
+<title>How to use After Detailer (Adetailer) in Stable Diffusion, our adetailer tutorial &#8211; PirateDiffusion</title>
+<meta name='robots' content='max-image-preview:large' />
+<link rel="alternate" type="application/rss+xml" title="PirateDiffusion &raquo; Feed" href="https://piratediffusion.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="PirateDiffusion &raquo; Comments Feed" href="https://piratediffusion.com/comments/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://piratediffusion.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpiratediffusion.com%2Fhow-to-use-after-detailer-adetailer%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://piratediffusion.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpiratediffusion.com%2Fhow-to-use-after-detailer-adetailer%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='ctc-blocks-core-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/assets/css/style.css?ver=5.5.2' media='all' />
+<link rel='stylesheet' id='ctc-el-email-sample-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/email-sample/style.css?ver=5.5.2' media='all' />
+<link rel='stylesheet' id='ctc-blocks-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/assets/css/style.css?ver=5.5.2' media='all' />
+<link rel='stylesheet' id='ctc-el-email-address-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/email-address/style.css?ver=5.5.2' media='all' />
+<link rel='stylesheet' id='ctc-el-phone-number-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/phone-number/style.css?ver=5.5.2' media='all' />
+<link rel='stylesheet' id='ctc-el-copy-icon-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/copy-icon/style.css?ver=5.5.2' media='all' />
+<link rel='stylesheet' id='ctc-el-blockquote-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/blockquote/style.css?ver=5.5.2' media='all' />
+<link rel='stylesheet' id='ctc-el-code-snippet-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/code-snippet/style.css?ver=5.5.2' media='all' />
+<link rel='stylesheet' id='ctc-el-message-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/message/style.css?ver=5.5.2' media='all' />
+<link rel='stylesheet' id='ctc-el-wish-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/wish/style.css?ver=5.5.2' media='all' />
+<link rel='stylesheet' id='ctc-el-shayari-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/shayari/style.css?ver=5.5.2' media='all' />
+<link rel='stylesheet' id='ctc-el-sms-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/sms/style.css?ver=5.5.2' media='all' />
+<link rel='stylesheet' id='ctc-el-deal-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/deal/style.css?ver=5.5.2' media='all' />
+<link rel='stylesheet' id='ctc-el-coupon-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/coupon/style.css?ver=5.5.2' media='all' />
+<link rel='stylesheet' id='ctc-el-ai-prompt-generator-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/ai-prompt-generator/style.css?ver=5.5.2' media='all' />
+<link rel='stylesheet' id='ctc-el-table-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/table/style.css?ver=5.5.2' media='all' />
+<link rel='stylesheet' id='ctc-el-contact-information-css' href='https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/contact-information/style.css?ver=5.5.2' media='all' />
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="ctc-term-title-style-inline-css">
+.ctc-block-controls-dropdown .components-base-control__field{margin:0 !important}
+/*# sourceURL=https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/gutenberg/blocks/term-title/css/style.css */
+</style>
+<style id="ctc-copy-button-style-inline-css">
+.wp-block-ctc-copy-button{font-size:14px;line-height:normal;padding:8px 16px;border-width:1px;border-style:solid;border-color:inherit;border-radius:4px;cursor:pointer;display:inline-block}.ctc-copy-button-textarea{display:none !important}
+/*# sourceURL=https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/gutenberg/blocks/copy-button/css/style.css */
+</style>
+<style id="ctc-copy-icon-style-inline-css">
+.wp-block-ctc-copy-icon .ctc-block-copy-icon{background:rgba(0,0,0,0);padding:0;margin:0;position:relative;cursor:pointer}.wp-block-ctc-copy-icon .ctc-block-copy-icon .check-icon{display:none}.wp-block-ctc-copy-icon .ctc-block-copy-icon svg{height:1em;width:1em}.wp-block-ctc-copy-icon .ctc-block-copy-icon::after{position:absolute;content:attr(aria-label);padding:.5em .75em;right:100%;color:#fff;background:#24292f;font-size:11px;border-radius:6px;line-height:1;right:100%;bottom:50%;margin-right:6px;-webkit-transform:translateY(50%);transform:translateY(50%)}.wp-block-ctc-copy-icon .ctc-block-copy-icon::before{content:"";top:50%;bottom:50%;left:-7px;margin-top:-6px;border:6px solid rgba(0,0,0,0);border-left-color:#24292f;position:absolute}.wp-block-ctc-copy-icon .ctc-block-copy-icon::after,.wp-block-ctc-copy-icon .ctc-block-copy-icon::before{opacity:0;visibility:hidden;-webkit-transition:opacity .2s ease-in-out,visibility .2s ease-in-out;transition:opacity .2s ease-in-out,visibility .2s ease-in-out}.wp-block-ctc-copy-icon .ctc-block-copy-icon.copied::after,.wp-block-ctc-copy-icon .ctc-block-copy-icon.copied::before{opacity:1;visibility:visible;-webkit-transition:opacity .2s ease-in-out,visibility .2s ease-in-out;transition:opacity .2s ease-in-out,visibility .2s ease-in-out}.wp-block-ctc-copy-icon .ctc-block-copy-icon.copied .check-icon{display:inline-block}.wp-block-ctc-copy-icon .ctc-block-copy-icon.copied .copy-icon{display:none !important}.ctc-copy-icon-textarea{display:none !important}
+/*# sourceURL=https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/gutenberg/blocks/copy-icon/css/style.css */
+</style>
+<style id="copy-the-code-icon-style-inline-css">
+.ctc-block-copy-icon {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    cursor: pointer;
+}
+
+.ctc-block-copy-icon .check-icon {
+    display: none;
+}
+
+.ctc-block-copy-icon svg {
+    height: 1em;
+    width: 1em;
+}
+
+.ctc-block-copy-icon::after {
+    position: absolute;
+    content: attr(aria-label);
+    padding: 0.5em 0.75em;
+    right: 100%;
+    color: white;
+    background: rgb(36, 41, 47);
+    font-size: 11px;
+    border-radius: 6px;
+    line-height: 1;
+    right: 100%;
+    bottom: 50%;
+    margin-right: 6px;
+    transform: translateY(50%);
+}
+
+.ctc-block-copy-icon::before {
+    content: '';
+    top: 50%;
+    bottom: 50%;
+    left: -7px;
+    margin-top: -6px;
+    border: 6px solid transparent;
+    border-left-color: rgb(36, 41, 47);
+    position: absolute;
+}
+
+.ctc-block-copy-icon::after,
+.ctc-block-copy-icon::before {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+
+.copied.ctc-block-copy-icon::after,
+.copied.ctc-block-copy-icon::before {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+
+.copied.ctc-block-copy-icon .check-icon {
+    display: inline-block;
+}
+
+.copied.ctc-block-copy-icon .copy-icon {
+    display: none !important;
+}
+/*# sourceURL=https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/gutenberg/blocks/icon/css/style.css */
+</style>
+<style id="ctc-social-share-style-inline-css">
+.wp-block-ctc-social-share{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:8px}.wp-block-ctc-social-share svg{height:16px;width:16px}.wp-block-ctc-social-share a{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}.wp-block-ctc-social-share a:focus{outline:none}
+/*# sourceURL=https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/gutenberg/blocks/social-share/css/style.css */
+</style>
+<link rel='stylesheet' id='roots_app-css' href='https://piratediffusion.com/wp-content/themes/stratusx/assets/css/app.css?ver=1' media='all' />
+<script id="jquery-core-js" src="https://piratediffusion.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://piratediffusion.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<link rel="https://api.w.org/" href="https://piratediffusion.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://piratediffusion.com/wp-json/wp/v2/pages/2357" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://piratediffusion.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.0.3" />
+<link rel="canonical" href="https://piratediffusion.com/how-to-use-after-detailer-adetailer/" />
+<link rel='shortlink' href='https://piratediffusion.com/?p=2357' />
+<meta name="og:url" content="https://piratediffusion.com/how-to-use-after-detailer-adetailer/" /><!--[if lt IE 9]>
+<script src="https://piratediffusion.com/wp-content/themes/stratusx/assets/js/vendor/html5shiv.min.js"></script>
+<script src="https://piratediffusion.com/wp-content/themes/stratusx/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+<meta name="generator" content="Elementor 4.2.2; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<style id="wp-custom-css">
+body > header {
+	background-color:#000 !important;
+}
+
+a {
+	color:limegreen !important;
+}
+
+a:visited {
+	color:limegreen !important;
+}
+
+body > div.wrap > div > div > section > div > div.elementor-element.elementor-element-31a45e3.e-flex.e-con-boxed.e-con.e-parent.e-lazyloaded > div > div > nav > ol, body > div.wrap > div > div > section > div > div.elementor-element.elementor-element-3f91e34.e-flex.e-con-boxed.e-con.e-parent.e-lazyloaded, body > div.wrap > div > div > section > div > div.elementor-element.elementor-element-97a29a1.e-flex.e-con-boxed.e-con.e-parent.e-lazyloaded, #comments {
+	display:none; 
+}
+</style>
+<style id="kirki-inline-styles">#logo img{max-height:100px;width:auto;}.navbar .navbar-nav{margin-top:0px;}.navbar .navbar-toggle{top:0px;}.themo_cart_icon{margin-top:calc(0px + 12px);}.navbar .navbar-nav > li > a, .navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li.active > a, .navbar .navbar-nav > li.active > a:hover, .navbar .navbar-nav > li.active > a:focus,.banner[data-transparent-header="true"].headhesive--clone .navbar-nav > li > a, .navbar .navbar-nav > li.th-accent{font-family:Lato;font-size:15px;font-weight:400;color:#333333;}.btn-cta-primary,.navbar .navbar-nav>li>a:hover:after,.navbar .navbar-nav>li.active>a:after,.navbar .navbar-nav>li.active>a:hover:after,.navbar .navbar-nav>li.active>a:focus:after,.headhesive--clone .navbar-nav > li > a:hover:after,.banner[data-transparent-header="true"].headhesive--clone .navbar-nav > li > a:hover:after,form input[type=submit],html .woocommerce a.button.alt,html .woocommerce-page a.button.alt,html .woocommerce a.button,html .woocommerce-page a.button,.woocommerce #respond input#submit.alt:hover,.woocommerce a.button.alt:hover,.woocommerce #respond input#submit.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce button.button.alt:hover,.woocommerce input.button.alt:hover,.woocommerce #respond input#submit.disabled,.woocommerce #respond input#submit:disabled,.woocommerce #respond input#submit:disabled[disabled],.woocommerce a.button.disabled,.woocommerce a.button:disabled,.woocommerce a.button:disabled[disabled],.woocommerce button.button.disabled,.woocommerce button.button:disabled,.woocommerce button.button:disabled[disabled],.woocommerce input.button.disabled,.woocommerce input.button:disabled,.woocommerce input.button:disabled[disabled],.woocommerce #respond input#submit.disabled:hover,.woocommerce #respond input#submit:disabled:hover,.woocommerce #respond input#submit:disabled[disabled]:hover,.woocommerce a.button.disabled:hover,.woocommerce a.button:disabled:hover,.woocommerce a.button:disabled[disabled]:hover,.woocommerce button.button.disabled:hover,.woocommerce button.button:disabled:hover,.woocommerce button.button:disabled[disabled]:hover,.woocommerce input.button.disabled:hover,.woocommerce input.button:disabled:hover,.woocommerce input.button:disabled[disabled]:hover,.woocommerce #respond input#submit.alt.disabled,.woocommerce #respond input#submit.alt.disabled:hover,.woocommerce #respond input#submit.alt:disabled,.woocommerce #respond input#submit.alt:disabled:hover,.woocommerce #respond input#submit.alt:disabled[disabled],.woocommerce #respond input#submit.alt:disabled[disabled]:hover,.woocommerce a.button.alt.disabled,.woocommerce a.button.alt.disabled:hover,.woocommerce a.button.alt:disabled,.woocommerce a.button.alt:disabled:hover,.woocommerce a.button.alt:disabled[disabled],.woocommerce a.button.alt:disabled[disabled]:hover,.woocommerce button.button.alt.disabled,.woocommerce button.button.alt.disabled:hover,.woocommerce button.button.alt:disabled,.woocommerce button.button.alt:disabled:hover,.woocommerce button.button.alt:disabled[disabled],.woocommerce button.button.alt:disabled[disabled]:hover,.woocommerce input.button.alt.disabled,.woocommerce input.button.alt.disabled:hover,.woocommerce input.button.alt:disabled,.woocommerce input.button.alt:disabled:hover,.woocommerce input.button.alt:disabled[disabled],.woocommerce input.button.alt:disabled[disabled]:hover,p.demo_store,.woocommerce.widget_price_filter .ui-slider .ui-slider-handle,.th-conversion form input[type=submit],.th-conversion .with_frm_style input[type=submit],.th-pricing-column.th-highlight,.search-submit,.search-submit:hover,.widget .tagcloud a:hover,.footer .tagcloud a:hover,.btn-standard-primary-form form .frm_submit input[type=submit],.btn-standard-primary-form form .frm_submit input[type=submit]:hover,.btn-ghost-primary-form form .frm_submit input[type=submit]:hover,.btn-cta-primary-form form .frm_submit input[type=submit],.btn-cta-primary-form form .frm_submit input[type=submit]:hover,.th-widget-area form input[type=submit],.th-widget-area .with_frm_style .frm_submit input[type=submit],.elementor-widget-themo-header.elementor-view-stacked .th-header-wrap .elementor-icon,.elementor-widget-themo-service-block.elementor-view-stacked .th-service-block-w .elementor-icon{background-color:#045089;}a,.accent,.navbar .navbar-nav .dropdown-menu li.active a,.navbar .navbar-nav .dropdown-menu li a:hover,.navbar .navbar-nav .dropdown-menu li.active a:hover,.page-title h1,.inner-container>h1.entry-title,.woocommerce ul.products li.product .price,.woocommerce ul.products li.product .price del,.woocommerce .single-product .product .price,.woocommerce.single-product .product .price,.woocommerce .single-product .product .price ins,.woocommerce.single-product .product .price ins,.a2c-ghost.woocommerce a.button,.th-cta .th-cta-text span,.elementor-widget-themo-info-card .th-info-card-wrap .elementor-icon-box-title,.map-info h3,.th-pkg-content h3,.th-pricing-cost,#main-flex-slider .slides h1,.th-team-member-social a i:hover,.elementor-widget-toggle .elementor-toggle .elementor-toggle-title,.elementor-widget-toggle .elementor-toggle .elementor-toggle-title.active,.elementor-widget-toggle .elementor-toggle .elementor-toggle-icon,.elementor-widget-themo-header .th-header-wrap .elementor-icon,.elementor-widget-themo-header.elementor-view-default .th-header-wrap .elementor-icon,.elementor-widget-themo-service-block .th-service-block-w .elementor-icon,.elementor-widget-themo-service-block.elementor-view-default .th-service-block-w .elementor-icon,.elementor-widget-themo-header.elementor-view-framed .th-header-wrap .elementor-icon,.elementor-widget-themo-service-block.elementor-view-framed .th-service-block-w .elementor-icon{color:#045089;}.btn-standard-primary,.btn-ghost-primary:hover,.pager li>a:hover,.pager li>span:hover,.a2c-ghost.woocommerce a.button:hover{background-color:#045089;}.btn-standard-primary,.btn-ghost-primary:hover,.pager li>a:hover,.pager li>span:hover,.a2c-ghost.woocommerce a.button:hover,.btn-standard-primary-form form .frm_submit input[type=submit],.btn-standard-primary-form form .frm_submit input[type=submit]:hover,.btn-ghost-primary-form form .frm_submit input[type=submit]:hover,.btn-ghost-primary-form form .frm_submit input[type=submit]{border-color:#045089;}.btn-ghost-primary,.btn-ghost-primary:focus,.th-portfolio-filters a.current,.a2c-ghost.woocommerce a.button,.btn-ghost-primary-form form .frm_submit input[type=submit]{color:#045089;}.btn-ghost-primary,.th-portfolio-filters a.current,.a2c-ghost.woocommerce a.button,.elementor-widget-themo-header.elementor-view-framed .th-header-wrap .elementor-icon,.elementor-widget-themo-service-block.elementor-view-framed .th-service-block-w .elementor-icon{border-color:#045089;}form select:focus,form textarea:focus,form input:focus,.th-widget-area .widget select:focus,.search-form input:focus{border-color:#045089!important;}{color:#f96d64;}.btn-cta-accent,.a2c-cta.woocommerce a.button,.a2c-cta.woocommerce a.button:hover,.btn-standard-accent-form form .frm_submit input[type=submit],.btn-standard-accent-form form .frm_submit input[type=submit]:hover,.btn-ghost-accent-form form .frm_submit input[type=submit]:hover,.btn-cta-accent-form form .frm_submit input[type=submit],.btn-cta-accent-form form .frm_submit input[type=submit]:hover{background-color:#f96d64;}body #booked-profile-page input[type=submit].button-primary,body table.booked-calendar input[type=submit].button-primary,body .booked-modal input[type=submit].button-primary,body table.booked-calendar .booked-appt-list .timeslot .timeslot-people button,body #booked-profile-page .booked-profile-appt-list .appt-block.approved .status-block{background:#f96d64!important;}body #booked-profile-page input[type=submit].button-primary,body table.booked-calendar input[type=submit].button-primary,body .booked-modal input[type=submit].button-primary,body table.booked-calendar .booked-appt-list .timeslot .timeslot-people button,.btn-standard-accent-form form .frm_submit input[type=submit],.btn-standard-accent-form form .frm_submit input[type=submit]:hover,.btn-ghost-accent-form form .frm_submit input[type=submit]:hover,.btn-ghost-accent-form form .frm_submit input[type=submit]{border-color:#f96d64!important;}.btn-standard-accent,.btn-ghost-accent:hover{background-color:#f96d64;border-color:#f96d64;}.btn-ghost-accent,.btn-ghost-accent:focus,.btn-ghost-accent-form form .frm_submit input[type=submit]{color:#f96d64;}.btn-ghost-accent{border-color:#f96d64;}.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{font-family:Lato;font-weight:400;}body,p,li{font-family:Lato;font-size:16px;font-weight:400;line-height:1.65;color:#333333;}body{background-color:#FFF;}/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6u9w4BMUTPHh7USSwaPGR_p.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6u9w4BMUTPHh7USSwiPGQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6uyw4BMUTPHjxAwXjeu.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6uyw4BMUTPHjx4wXg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6u9w4BMUTPHh6UVSwaPGR_p.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6u9w4BMUTPHh6UVSwiPGQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6u9w4BMUTPHh7USSwaPGR_p.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6u9w4BMUTPHh7USSwiPGQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6uyw4BMUTPHjxAwXjeu.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6uyw4BMUTPHjx4wXg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6u9w4BMUTPHh6UVSwaPGR_p.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6u9w4BMUTPHh6UVSwiPGQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6u9w4BMUTPHh7USSwaPGR_p.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6u9w4BMUTPHh7USSwiPGQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6uyw4BMUTPHjxAwXjeu.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6uyw4BMUTPHjx4wXg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6u9w4BMUTPHh6UVSwaPGR_p.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://piratediffusion.com/wp-content/fonts/lato/S6u9w4BMUTPHh6UVSwiPGQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}</style></head>
+
+
+<body class="wp-singular page-template-default page page-id-2357 wp-custom-logo wp-theme-stratusx elementor-default elementor-kit-12620">
+        <!-- Preloader Start -->
+        <div id="loader-wrapper">
+            <div id="loader"></div>
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+        </div>
+        <!-- Preloader End -->
+    
+
+
+
+  
+<header class="banner navbar navbar-default navbar-static-top dark-header" role="banner" >
+    	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div id="logo">
+                <a href="https://piratediffusion.com/">
+                   	                    <img  class="logo-main logo-reg" src="https://piratediffusion.com/wp-content/uploads/2026/08/pirate-diffusion-logo-wider.gif"  height='75' width='358'   alt="PirateDiffusion" />
+				</a>
+            </div>
+        </div>
+
+        
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                    </nav>
+	</div>
+</header>
+  <div class="wrap" role="document">
+  
+    <div class="content">
+
+        
+<div class="inner-container">
+	        <h1 class="entry-title">How to use After Detailer (Adetailer) in Stable Diffusion, our adetailer tutorial</h1>
+    
+	
+        <section class="content-editor">
+    <h2>How to use After Detailer (Adetailer) &#8211; SDXL and SD15 supported</h2>
+<p><img fetchpriority="high" decoding="async" class="alignnone size-full wp-image-1837" src="https://piratediffusion.com/wp-content/uploads/sites/2/2023/12/adetailer-example.jpg" alt="" width="1800" height="1200" /></p>
+<p><strong>Stable Diffusion &#8220;After Detailer&#8221;</strong>, also commonly known as <strong>Adetailer,</strong> is an automatic touch-up tool, and is similar to <a href="https://piratediffusion.com/free-image-upscaler-stable-diffusion-guide/">Facelift</a>. As the name implies, the image is first created and the software hunts down trouble spots to automatically improve them. While there are many modes of Adetailer, in our testing we&#8217;ve found that the most useful and effective deal with the face and hands.</p>
+<h3>Usage</h3>
+<pre>/render <strong>/adetailer </strong>and your prompt goes here
+
+</pre>
+<p>Simply add the /adetailer tag after /render prompt.  At the time of this guide, /adetailer is ignored on /remix but we hope to add it to img2img functions like inpaint in time.</p>
+<p>What&#8217;s going on technically</p>
+<p>After Detailer is like a tiny program with its own mini-models. The Stable Diffusion community is creating bite-sized models that target common problems like beautiful hands and faces, and other body parts. In our first release, we are using the largest &#8220;YOLO FACE&#8221; and &#8220;YOLO HANDS&#8221; models to fix these two common problems.  The software scans the image for faces and hands and redraws the problem spot, when it is at least 70% confident that it has found a match. The confidence score is not adjustable at this time, but it almost works every time as intended without complicated patterns.</p>
+<p>We will continue to evolve our implementation of Adetailer and add more models because we&#8217;re here for the enthusiasts, and we know you want more control. We&#8217;re with you. Until then, enjoy this beta release.</p>
+<h2><strong>When to use Adetailer</strong></h2>
+<p>If you don&#8217;t like the face or hands of a result, do a /showprompt on the image and add /adetailer to the prompt.</p>
+<p><strong>Use cases</strong></p>
+<p>Stable Diffusion generally has a hard time with faces that aren&#8217;t close-ups. You could use Adetailer in portraits, but it really shines on images where the faces and hands are lost, like a mid or distant group photo.</p>
+<p>Before this tool existed, a person would create an image, then use a facelift or inpaint command to improve the outputs. Inpaint is run alongside the render command, potentially saving you multiple steps and time. It is a proactive way to boost the hands and faces in an image, especially when the image is not a close-up portrait. However, when elements are too far away, they may be ignored.</p>
+<h2><strong>Before and After Example</strong></h2>
+<p>To compare the effects of Adetailer, you can render two identical prompts with the guidance, sampler, and seed values set to the same values, and include /adetailer in one of the render prompts.</p>
+<p>Let&#8217;s start with a basic control prompt <strong>without Adetailer </strong>with this prompt <a href="https://www.youtube.com/@piratediffusion">from PirateDiffusion podcast co-host Eggs Benadryl</a>:</p>
+<pre>/render /seed:126 /sampler:dpm2m /guidance:7.0 a bunch of men sitting at a table playing poker, 1800 &lt;photon&gt;</pre>
+<p>We didn&#8217;t use any good negative prompts and the image is 512&#215;512 &#8220;draft&#8221; quality, so a lot of the details are fuzzy.</p>
+<p>This image has a lot of obvious problems:</p>
+<p><img decoding="async" class="alignnone wp-image-2004 size-full" src="https://piratediffusion.com/wp-content/uploads/sites/2/2023/12/photo_2024-01-12_14-32-54.jpg" alt="" width="512" height="512" /></p>
+<p>We didn&#8217;t include <a href="https://piratediffusion.com/how-to-use-negative-embeddings-stable-diffusion/">negative inversions</a> or negative prompts on purpose, so if you notice the guy on the right has a stump for a hand and the facial details are very bad. We can fix a lot of these things by simply adding Adetailer. Of course, you&#8217;ll want to do both for absolute best results, but for the purpose of this tutorial, we won&#8217;t use any negatives.</p>
+<p>Now let&#8217;s add /adetailer.  It can be added anywhere after the /render prompt.</p>
+<p><img decoding="async" class="alignnone wp-image-2002 size-full" src="https://piratediffusion.com/wp-content/uploads/sites/2/2023/12/photo_2024-01-12_14-32-57.jpg" alt="" width="512" height="512" /><br />
+As you can see, the hands and faces are much better defined. When can then <a href="https://piratediffusion.com/free-image-upscaler-stable-diffusion-guide/">upscale this image</a> to near 4K quality with these good features and we&#8217;ll get a much better result.</p>
+<p>In some cases, Adetailer can have similar to results to HDR Latency correction, the <a href="https://piratediffusion.com/hdr-color-correction-in-stable-diffusion-with-vass/">/vass command</a>.  Use both of these commands for a &#8220;second opinion&#8221; of what beauty is supposed to be. It is subjective!</p>
+<p>Here&#8217;s Squibduck&#8217;s Saruman from the tail end of <strong><a href="https://www.youtube.com/@piratediffusion">PirateDiffusion Show Episode 6</a></strong> without Adetailer&#8230;</p>
+<pre>/render /adetailer /seed:913252 /sampler:upms /guidance:4.8 /size:704x960 ((((((((((((( &lt;sharpen:0.89&gt; ((Saruman)), certain, unfailing, infallible, unchangeable, correct, exact, right, proper /size:960x704 ))))))))))))) (unparalleled masterpiece, flawless), closeup , /steps:35 &lt;noise:0.3&gt; &lt;photon&gt; [[ lowres, worst_quality, blurry, plain background, white background, simple background , &lt;deep-negative:-1.5&gt; &lt;easy-negative:-1.5&gt; &lt;bad-hands-v5:-1&gt; , ogre, corpse, zombie, caveman, Hagrid, sapien, monkey, ape, boar, bear, dog, ugly, hideous, witch, man, masculine, male, guy, yeti, troglodyte, bro, apelike, cavewoman, bearded, lowres, worst quality, blurry, monster, goblin, orc, devil, demon, evil, Satan, dead, ghost, creepypasta, horror, scary, robot, android, unibrow, haggard, beast, ]] /images:1</pre>
+<p><img loading="lazy" decoding="async" class="alignnone wp-image-2000 size-full" src="https://piratediffusion.com/wp-content/uploads/sites/2/2023/12/photo_2024-01-12_14-29-40.jpg" alt="" width="960" height="704" /></p>
+<p>And with is pictured below.  Just add /adetailer to the original prompt</p>
+<p><img loading="lazy" decoding="async" class="alignnone wp-image-2001 size-full" src="https://piratediffusion.com/wp-content/uploads/sites/2/2023/12/photo_2024-01-12_14-29-38.jpg" alt="" width="960" height="704" /></p>
+<h3><strong>When NOT to use Adetailer</strong></h3>
+<p>If the image already has a clear face and hands, Adetailer can add many more details &#8212; which can be unwanted. The photo may end up looking overly HDR, or with too many hand veins or face wrinkles.  Use it when you need it.</p>
+<p>Consider this image for example. It was already pleasant and had good hands.  We&#8217;re manually setting seed, sampler, guidance and the model to make a 1:1 comparison.</p>
+<p><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-2005" src="https://piratediffusion.com/wp-content/uploads/sites/2/2023/12/photo_2024-01-12_14-38-46-300x300.jpg" alt="" width="300" height="300" /></p>
+<pre>/render /seed:123 /sampler:dpm2m /guidance:7 #boost A charming mother holding her face &lt;photon&gt;</pre>
+<p>And now with /adetailer added:</p>
+<p><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-2006" src="https://piratediffusion.com/wp-content/uploads/sites/2/2023/12/photo_2024-01-12_14-38-50-300x300.jpg" alt="" width="300" height="300" /></p>
+<p>The results are interesting. Her eyes did become more beautiful (subjective) but the hands are very overcooked. In this case, <em>Adetailer is overkill.  </em> Her pinky became insanely telescopic!</p>
+<p>It might have been better to <a href="https://piratediffusion.com/creating-variations-stable-diffusion/">request more variations</a> with the /remix or /more command instead, to get different facial features and hand options.</p>
+<p>&nbsp;</p>
+<h2>Frequently Asked Questions</h2>
+<p><strong>Can I use Adetailer with SDXL and Stable Diffusion 1.5?</strong></p>
+<p>Yes, as of March 2024 it accepts both</p>
+<p><strong>What is the difference between Facelift (upscalers), HighDef, and Adetailer?</strong></p>
+<ul>
+<li><strong>Adetailer</strong> is a parameters of /render. This means you can complete a rendered image with touched-up hands and faces in a single command, whereas the other touch up techniques require an additional step after the image is created. Adetailer uses a combination of detection scripts and feature-correcting mini-models such as yolo-face and yolo-hands, yolo meaning &#8220;you only look once&#8221;, a reference to its one-shot scan and replace capabilities. Each mini model is trained on many faces, hands, and clothing to apply the corrective effects.</li>
+<li><a href="https://piratediffusion.com/free-image-upscaler-stable-diffusion-guide/"><strong>Facelift</strong></a> is a different upscaling technique, more similar to the beautification feature of your smartphone.</li>
+<li><a href="https://piratediffusion.com/free-image-upscaler-stable-diffusion-guide/"><strong>HighDef</strong> </a>(or the /<a href="https://www.youtube.com/watch?time_continue=4&amp;v=XP0Bg_SAy6I">more</a> technique) is general pixel-boosting techniques with no specialization or knowledge of context. All of these techniques can be used one after another to increase the quality and detail of an image.</li>
+</ul>
+<p><b>Does Adetailer have parameters?</b></p>
+<p>The current implementation is all or nothing, with no additional parameters to set. This means that it tries to improve hands and faces on every detected match in the image, whether they are in the background or foreground.</p>
+<p>We plan on adding additional features to adetailer, such as the ability to run it multiple times, to achieve the desired result.</p>
+<p><strong>Why did Adetailer change the face or the facial expression?</strong></p>
+<p>Adetailer is a model that is trained on thousands of faces, so will very likely change your character. This can&#8217;t be helped. You can minimize the effect when training a model and reinforcing the weights with a LoRA with inpaint instead.</p>
+<p><b>Why didn&#8217;t Adetailer fix the faces or hands perfectly?</b></p>
+<p>While it can greatly improve the quality, Adetailer works best when other best practices are observed, such as using proper <a href="https://piratediffusion.com/how-to-use-negative-embeddings-stable-diffusion/">negative inversions</a>, negative prompts, and so on.</p>
+<p>There are some situations that are just harder than others. For example, a hand holding a tennis racket is easier to classify and define than a few fingers pressed into a fluffy sandwich. Certain kinds of prompts will require more work.</p>
+<p>When Adetailer fails, <a href="https://piratediffusion.com/inpainting-online-stable-diffusion-how/">try Inpaint</a> and/or try rewriting the prompt.</p>
+    </section>    
+        <!-- Comment form for pages -->
+	<div class="container">        <div class="row">
+			<div class="col-md-12">
+	        
+
+            </div>
+        </div>
+    </div><!-- /.container -->    <!-- End Comment form for pages -->
+    
+        
+                    
+    
+    </div><!-- /.inner-container -->
+    </div><!-- /.content -->
+  </div><!-- /.wrap -->
+
+  
+<div class="prefooter"></div>
+
+<footer class="footer" role="contentinfo">
+	<div class="container">
+			    </div>
+    <div class="footer-btm-bar">        
+        <div class="container">    
+            <div class="footer-copyright row">
+                <div class="col-xs-12">
+                    <p>  </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/stratusx/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id='kirki-viewport-lists'>var kirkiViewports = {"md":{"value":1200,"scale":1,"minWidth":1200,"maxWidth":1200,"title":"Desktop","icon":"desktop","activeIcon":"desktop-hover","id":"md","type":"max"},"tablet":{"value":991,"scale":1,"minWidth":991,"maxWidth":991,"title":"Tablet","icon":"tablet-default","activeIcon":"tablet-hover","type":"max","id":"tablet"},"mobileLandscape":{"value":767,"scale":1,"minWidth":767,"maxWidth":767,"title":"Landscape","icon":"phone-hr-default","activeIcon":"phone-hr-hover","type":"max","id":"mobileLandscape"},"mobile":{"value":575,"scale":1,"minWidth":575,"maxWidth":575,"title":"Mobile","icon":"phone-vr-default","activeIcon":"phone-vr-hover","type":"max","id":"mobile"}};</script><script id='kirki-variable-lists'>var kirkiCSSVariable = {"data":[{"title":"Colors","key":"color","modes":[{"title":"Default","key":"default"}],"variables":[]},{"title":"Numbers","key":"size","modes":[{"title":"Default","key":"default"}],"variables":[]},{"title":"Text Styles","key":"text-style","modes":[{"title":"Default","key":"default"}],"variables":[]},{"title":"Font Family","key":"font-family","modes":[{"title":"Default","key":"default"}],"variables":[]}]};</script><script id="kirki-api-and-nonce">
+    window.wp_kirki = {
+        ajaxUrl: "https://piratediffusion.com/wp-admin/admin-ajax.php",
+        restUrl: "https://piratediffusion.com/wp-json/",
+        siteUrl: "https://piratediffusion.com",
+        apiVersion: "v1",
+        postId: "2357",
+        nonce: "9069105c7e",
+        call_from: "",
+        templateId: "",
+        context: {"id":2357,"type":"post"}
+    };
+    </script>			<script>
+				( () => {
+					const lazyloadRunObserver = () => {
+						const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+						const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+							entries.forEach( ( entry ) => {
+								if ( entry.isIntersecting ) {
+									let lazyloadBackground = entry.target;
+									if( lazyloadBackground ) {
+										lazyloadBackground.classList.add( 'e-lazyloaded' );
+									}
+									lazyloadBackgroundObserver.unobserve( entry.target );
+								}
+							});
+						}, { rootMargin: '200px 0px 200px 0px' } );
+						lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+							lazyloadBackgroundObserver.observe( lazyloadBackground );
+						} );
+					};
+					const events = [
+						'DOMContentLoaded',
+						'elementor/lazyload/observe',
+					];
+					events.forEach( ( event ) => {
+						document.addEventListener( event, lazyloadRunObserver );
+					} );
+				} )();
+			</script>
+			<script id="ctc-lib-core-js" src="https://piratediffusion.com/wp-content/plugins/copy-the-code/assets/frontend/js/lib/ctc.js?ver=5.5.2"></script>
+<script id="ctc-blocks-core-js" src="https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/assets/js/core.js?ver=5.5.2"></script>
+<script id="ctc-el-deal-js" src="https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/deal/script.js?ver=5.5.2"></script>
+<script id="ctc-el-coupon-js" src="https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/coupon/script.js?ver=5.5.2"></script>
+<script id="ctc-el-ai-prompt-generator-js" src="https://piratediffusion.com/wp-content/plugins/copy-the-code/includes/elementor/widgets/ai-prompt-generator/script.js?ver=5.5.2"></script>
+<script id="t_vendor_footer-js" src="https://piratediffusion.com/wp-content/themes/stratusx/assets/js/vendor/vendor_footer.js?ver=1.2"></script>
+<script id="roots_main-js" src="https://piratediffusion.com/wp-content/themes/stratusx/assets/js/main.js?ver=1.3"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://piratediffusion.com/wp-includes/js/wp-emoji-release.min.js?ver=7.0.3"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://piratediffusion.com/wp-includes/js/wp-emoji-loader.min.js
+</script>
+        <script type="text/javascript">
+            function AI_responsive_widget() {
+                jQuery('object.StefanoAI-youtube-responsive').each(function () {
+                    jQuery(this).parent('.fluid-width-video-wrapper').removeClass('fluid-width-video-wrapper').removeAttr('style').css('width', '100%').css('display', 'block');
+                    jQuery(this).children('.fluid-width-video-wrapper').removeClass('fluid-width-video-wrapper').removeAttr('style').css('width', '100%').css('display', 'block');
+                    var width = jQuery(this).parent().innerWidth();
+                    var maxwidth = jQuery(this).css('max-width').replace(/px/, '');
+                    var pl = parseInt(jQuery(this).parent().css('padding-left').replace(/px/, ''));
+                    var pr = parseInt(jQuery(this).parent().css('padding-right').replace(/px/, ''));
+                    width = width - pl - pr;
+                    if (maxwidth < width) {
+                        width = maxwidth;
+                    }
+                    var ratio = jQuery(this).attr('data-ratio');
+                    if (typeof ratio == 'undefined') {
+                        ratio = 16 / 9;
+                    }
+                    jQuery(this).css('width', width + "px");
+                    jQuery(this).css('height', width / ratio + "px");
+                    jQuery(this).find('iframe').css('width', width + "px");
+                    jQuery(this).find('iframe').css('height', width / ratio + "px");
+                });
+            }
+            if (typeof jQuery !== 'undefined') {
+                jQuery(document).ready(function () {
+                    setTimeout(function () {
+                        jQuery("div[data-iframe='StefanoAI-youtube-widget-responsive']").each(function () {
+                            var iframe = jQuery("<iframe></iframe>");
+                            jQuery.each(this.attributes, function () {
+                                if (this.name == 'data-iframe' || this.name == 'data-')
+                                    return;
+                                iframe.attr(this.name.replace(/^data-/, ''), this.value);
+                            });
+                            jQuery(iframe).insertAfter(jQuery(this));
+                            jQuery(this).remove();
+                        });
+                                        AI_responsive_widget();
+                    }, 50);
+                });
+                jQuery(window).resize(function () {
+                    AI_responsive_widget();
+                });
+            }
+                </script>
+        </body>
+</html>

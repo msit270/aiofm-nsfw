@@ -1,0 +1,59 @@
+From 7c806288d5210b497cedfca0d111bb56d84a20de Mon Sep 17 00:00:00 2001
+From: rattus <46076784+rattus128@users.noreply.github.com>
+Date: Sat, 1 Aug 2026 03:44:09 +1000
+Subject: [PATCH] ops: apply the custom placeholder logic to Linux too (#15181)
+
+Windows has proven this logic works for a long time and there are
+corner cases where this materialization actual consumes real RAM
+on linux.
+
+Its not as bad as the original windows commit charge surge, but
+its still a detectable transient leak. So simplify and unify.
+---
+ comfy/ops.py | 12 ++++--------
+ 1 file changed, 4 insertions(+), 8 deletions(-)
+
+diff --git a/comfy/ops.py b/comfy/ops.py
+index 9d692dcc719..f4bdd0aef5d 100644
+--- a/comfy/ops.py
++++ b/comfy/ops.py
+@@ -464,8 +464,7 @@ class Linear(torch.nn.Linear, CastWeightBiasOp):
+ 
+         def __init__(self, in_features, out_features, bias=True, device=None, dtype=None):
+             # don't trust subclasses that BYO state dict loader to call us.
+-            if (not comfy.model_management.WINDOWS
+-                or not comfy.memory_management.aimdo_enabled
++            if (not comfy.memory_management.aimdo_enabled
+                 or type(self)._load_from_state_dict is not disable_weight_init.Linear._load_from_state_dict):
+                 super().__init__(in_features, out_features, bias, device, dtype)
+                 return
+@@ -487,8 +486,7 @@ def __init__(self, in_features, out_features, bias=True, device=None, dtype=None
+         def _load_from_state_dict(self, state_dict, prefix, local_metadata,
+                                 strict, missing_keys, unexpected_keys, error_msgs):
+ 
+-            if (not comfy.model_management.WINDOWS
+-                or not comfy.memory_management.aimdo_enabled
++            if (not comfy.memory_management.aimdo_enabled
+                 or type(self)._load_from_state_dict is not disable_weight_init.Linear._load_from_state_dict):
+                 return super()._load_from_state_dict(state_dict, prefix, local_metadata, strict,
+                                                      missing_keys, unexpected_keys, error_msgs)
+@@ -716,8 +714,7 @@ def __init__(self, num_embeddings, embedding_dim, padding_idx=None, max_norm=Non
+                      norm_type=2.0, scale_grad_by_freq=False, sparse=False, _weight=None,
+                      _freeze=False, device=None, dtype=None):
+             # don't trust subclasses that BYO state dict loader to call us.
+-            if (not comfy.model_management.WINDOWS
+-                or not comfy.memory_management.aimdo_enabled
++            if (not comfy.memory_management.aimdo_enabled
+                 or type(self)._load_from_state_dict is not disable_weight_init.Embedding._load_from_state_dict):
+                 super().__init__(num_embeddings, embedding_dim, padding_idx, max_norm,
+                                  norm_type, scale_grad_by_freq, sparse, _weight,
+@@ -744,8 +741,7 @@ def __init__(self, num_embeddings, embedding_dim, padding_idx=None, max_norm=Non
+         def _load_from_state_dict(self, state_dict, prefix, local_metadata,
+                                 strict, missing_keys, unexpected_keys, error_msgs):
+ 
+-            if (not comfy.model_management.WINDOWS
+-                or not comfy.memory_management.aimdo_enabled
++            if (not comfy.memory_management.aimdo_enabled
+                 or type(self)._load_from_state_dict is not disable_weight_init.Embedding._load_from_state_dict):
+                 return super()._load_from_state_dict(state_dict, prefix, local_metadata, strict,
+                                                      missing_keys, unexpected_keys, error_msgs)

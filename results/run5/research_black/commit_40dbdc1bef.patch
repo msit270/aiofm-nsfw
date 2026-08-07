@@ -1,0 +1,23 @@
+From 40dbdc1befec082b284eb51e12e7734e68467c50 Mon Sep 17 00:00:00 2001
+From: rattus <46076784+rattus128@users.noreply.github.com>
+Date: Wed, 5 Aug 2026 05:25:25 +1000
+Subject: [PATCH] restore SDPA non-cudnn small attention bypass (#15296)
+
+This is performance critical for ACE step.
+---
+ comfy/ops.py | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/comfy/ops.py b/comfy/ops.py
+index 077a42351c9..7cf077eeaf8 100644
+--- a/comfy/ops.py
++++ b/comfy/ops.py
+@@ -73,6 +73,8 @@ def scaled_dot_product_attention(q, k, v, *args, **kwargs):
+             ]
+ 
+             def scaled_dot_product_attention(q, k, v, *args, **kwargs):
++                if q.nelement() < 1024 * 128:  # arbitrary number, for small inputs cudnn attention seems slower
++                    return torch.nn.functional.scaled_dot_product_attention(q, k, v, *args, **kwargs)
+                 attn_mask = args[0] if len(args) > 0 else kwargs.get("attn_mask")
+                 if kwargs.get("enable_gqa", False) and attn_mask is not None and not comfy.model_management.is_nvidia():
+                     k, v = repeat_kv_for_gqa(k, v, q.shape[-3], -3)

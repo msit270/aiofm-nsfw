@@ -1,0 +1,35 @@
+From f73e8cde88794bd9568474e92f4421aa5622ff1a Mon Sep 17 00:00:00 2001
+From: comfyanonymous <121283862+comfyanonymous@users.noreply.github.com>
+Date: Wed, 29 Jul 2026 18:10:28 -0700
+Subject: [PATCH] Fallback to cudnn attention on linux if flash attention
+ doesn't work. (#15146)
+
+---
+ comfy/ops.py | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/comfy/ops.py b/comfy/ops.py
+index 5e1cce333c3..9d692dcc719 100644
+--- a/comfy/ops.py
++++ b/comfy/ops.py
+@@ -41,7 +41,7 @@ def scaled_dot_product_attention(q, k, v, *args, **kwargs):
+ 
+ 
+ try:
+-    if torch.cuda.is_available() and comfy.model_management.WINDOWS:
++    if torch.cuda.is_available():
+         from torch.nn.attention import SDPBackend, sdpa_kernel
+         import inspect
+         if "set_priority" in inspect.signature(sdpa_kernel).parameters:
+@@ -51,7 +51,10 @@ def scaled_dot_product_attention(q, k, v, *args, **kwargs):
+                 SDPBackend.MATH,
+             ]
+ 
+-            SDPA_BACKEND_PRIORITY.insert(0, SDPBackend.CUDNN_ATTENTION)
++            if comfy.model_management.WINDOWS:
++                SDPA_BACKEND_PRIORITY.insert(0, SDPBackend.CUDNN_ATTENTION)
++            else:
++                SDPA_BACKEND_PRIORITY.insert(1, SDPBackend.CUDNN_ATTENTION)
+ 
+             def scaled_dot_product_attention(q, k, v, *args, **kwargs):
+                 if q.nelement() < 1024 * 128:  # arbitrary number, for small inputs cudnn attention seems slower

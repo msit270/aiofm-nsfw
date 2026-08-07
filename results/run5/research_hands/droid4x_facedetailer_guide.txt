@@ -1,0 +1,338 @@
+
+ComfyUI FaceDetailer: The Complete Beginner's Guide 2026
+Skip to content
+							Saturday, 8 August 2026							
+  4:55 am
+Droid4x – Free Android Emulator for Windows & Mac
+Home
+About Us
+Blog
+Home
+Legal Notices:
+×
+Search
+Home
+ComfyUI FaceDetailer: The Complete Beginner’s Guide 2026
+Guide
+Guides
+How To
+ComfyUI FaceDetailer: The Complete Beginner’s Guide 2026
+Ethan Blake
+						Feb 26, 2026
+0
+If you’ve been generating AI portraits with Stable Diffusion, you know the frustration. The body looks perfect, the lighting is dramatic, but the face… the face looks like a melted wax figure.
+ComfyUI FaceDetailer fixes this automatically.
+ComfyUI FaceDetailer is a custom node for ComfyUI that automatically detects faces in AI-generated images and enhances them using advanced restoration models like CodeFormer and GFPGAN, fixing blurry facial details while preserving your original composition.
+I’ve tested FaceDetailer extensively over the past six months. After processing over 2,000 AI-generated portraits, I’ve seen it transform unusable images into portfolio-worthy pieces. The difference is night and day.
+This guide assumes zero ComfyUI knowledge. I’ll walk you through everything from installation to advanced workflows, with specific settings that work.
+Key Takeaway:
+ FaceDetailer automates the tedious process of face enhancement. Instead of manually running images through face restoration tools, it detects and fixes faces as part of your ComfyUI workflow, saving you hours of post-processing time.
+What is ComfyUI FaceDetailer?
+FaceDetailer:
+ A custom ComfyUI node created by pythongosssss that combines face detection with restoration models to automatically improve facial details in AI-generated images without manual intervention.
+FaceDetailer works in two stages. First, it detects faces in your image using a trained detection model. Then it creates a mask around each detected face and applies restoration using either CodeFormer or GFPGAN.
+This two-step approach is what makes FaceDetailer powerful. It only enhances the face areas, leaving the rest of your image untouched. Your background stays crisp. Your clothing details remain sharp. Only the problematic facial features get corrected.
+I’ve found this particularly useful for group portraits. FaceDetailer can detect and enhance multiple faces in a single pass, which would take significantly longer using manual methods.
+What You Need Before Installing FaceDetailer?
+Before diving into installation, let’s make sure your system is ready. FaceDetailer has specific requirements because it combines face detection with restoration models.
+Quick Summary:
+ You need a working ComfyUI installation, an NVIDIA GPU with at least 4GB VRAM, Python 3.10+, and the ComfyUI Manager (recommended for installation).
+System Requirements
+Component
+Minimum
+Recommended
+GPU
+NVIDIA GTX 1650 (4GB VRAM)
+NVIDIA RTX 3060 (12GB VRAM)
+RAM
+8GB
+16GB or more
+Python
+3.10
+3.10 or 3.11
+Storage
+5GB free space
+20GB+ for models
+Software Prerequisites
+You need a working ComfyUI installation before adding FaceDetailer. If you haven’t installed ComfyUI yet, I recommend the portable Windows version or the manual installation for Linux/Mac users from the 
+official ComfyUI repository
+.
+FaceDetailer also requires the restoration models. You’ll need either CodeFormer or GFPGAN models installed. These are typically placed in your ComfyUI/models/facedetect or ComfyUI/models/facerestore folders.
+Important:
+ AMD GPUs have limited support for ComfyUI. While some FaceDetailer features may work with ROCm, performance and compatibility vary significantly. An NVIDIA GPU is strongly recommended.
+How to Install FaceDetailer in ComfyUI?
+There are two ways to install FaceDetailer: using ComfyUI Manager (easier) or manual installation (more control). I’ll cover both methods.
+Method 1: Using ComfyUI Manager (Recommended)
+The ComfyUI Manager is the easiest way to install custom nodes. If you’re new to ComfyUI, start here.
+Open ComfyUI
+ and launch the web interface
+Click the Manager button
+ (usually on the right side panel)
+Click “Install Custom Nodes”
+ or search directly
+Search for “FaceDetailer”
+ in the search box
+Click Install
+ next to “ComfyUI-FaceDetailer” by pythongosssss
+Wait for installation
+ to complete (usually 10-30 seconds)
+Restart ComfyUI
+ completely
+Verify installation
+ by right-clicking in the node graph and searching for “FaceDetailer”
+If you see FaceDetailer nodes in the search results, installation was successful. The node typically appears as “FaceDetailer” under the image processing or custom node category.
+Method 2: Manual Installation
+If you prefer manual control or Manager isn’t working, use Git to install directly from the 
+official FaceDetailer GitHub repository
+.
+Navigate to your ComfyUI custom_nodes folder
+:
+ComfyUI/custom_nodes/
+Run the Git clone command
+:
+git clone https://github.com/pythongosssss/ComfyUI-FaceDetailer.git
+Wait for cloning
+ to complete
+Restart ComfyUI
+Verify by searching
+ for FaceDetailer nodes
+Installing Required Models
+FaceDetailer needs face detection and restoration models. Download these from the 
+restoration node repository
+ or HuggingFace.
+Pro Tip:
+ Place detection models in ComfyUI/models/facedetect and restoration models in ComfyUI/models/facerestore. FaceDetailer will automatically find them in these standard locations.
+Required models typically include:
+detection.pth or face detection model
+CodeFormer.pth
+GFPGAN-v1.4.pth
+Setting Up Your First FaceDetailer Workflow
+Now let’s create a working workflow. I’ll walk you through building a basic FaceDetailer setup from scratch.
+Basic Workflow Structure
+A minimal FaceDetailer workflow needs these components connected in order:
+Empty Latent Image
+ – Sets your image dimensions
+Checkpoint Loader
+ – Loads your Stable Diffusion model
+KSampler
+ – Generates the base image
+VAE Decode
+ – Converts latent to visible image
+FaceDetailer
+ – Detects and enhances faces
+Save Image
+ – Outputs the result
+Common Mistake:
+ Don’t connect your KSampler output directly to Save Image. The image must go through FaceDetailer first, or you’ll save the unenhanced version with poor face quality.
+Connecting the Nodes
+Here’s how I connect a basic workflow:
+Set up generation
+: Connect Empty Latent Image to KSampler (latent input)
+Load model
+: Connect Checkpoint Loader to KSampler (model and positive/negative conditioning)
+Decode image
+: Connect KSampler (latent output) to VAE Decode (latent input)
+Add FaceDetailer
+: Connect VAE Decode (image output) to FaceDetailer (image input)
+Save result
+: Connect FaceDetailer (image output) to Save Image (image input)
+When you run this workflow, FaceDetailer will automatically detect faces in your generated image and apply restoration before saving.
+Starting Parameters for Beginners
+For your first FaceDetailer test, use these safe default settings:
+Face detection threshold:
+ 0.5 (balances detection sensitivity)
+Face count:
+ Maximum faces to detect (start with 10)
+Restoration model:
+ CodeFormer (gentler) or GFPGAN (stronger)
+Detail strength:
+ 0.5-0.7 (lower = subtler enhancement)
+Mask dilation:
+ 4-8 pixels (expands the face processing area)
+I typically start with CodeFormer at 0.6 strength. This provides noticeable improvement without the “plastic” look that stronger settings can create.
+FaceDetailer Parameters Explained
+Understanding FaceDetailer parameters helps you get consistent results. Let me break down the most important settings based on my testing experience.
+Parameter
+What It Does
+Recommended Range
+Detection Threshold
+How confident the model must be to detect a face. Lower = detects more faces but more false positives.
+0.4 – 0.7 (start at 0.5)
+Face Count
+Maximum number of faces to process. Higher uses more VRAM.
+1 – 20 (set based on your images)
+Detail Strength
+Intensity of restoration. Higher = stronger changes but risk of artificial look.
+0.3 – 1.0 (start at 0.6)
+Mask Dilation
+Expands the face mask to include surrounding areas. Prevents sharp edges.
+0 – 20 pixels (4-8 recommended)
+Restoration Model
+Choose between CodeFormer (natural) or GFPGAN (stronger).
+CodeFormer for portraits, GFPGAN for severe issues
+Sort By
+Orders detected faces by size or confidence.
+Area (largest first) for main subjects
+When to Adjust Each Parameter
+After hundreds of tests, I’ve developed guidelines for parameter adjustments:
+Lower the detection threshold
+ when faces in profile or partially obscured aren’t being detected. I’ve gone as low as 0.3 for difficult angles, but this increases false positives.
+Increase mask dilation
+ when you see harsh transitions between enhanced faces and the background. I use 8-12 pixels for close-up portraits to ensure smooth blending.
+Reduce detail strength
+ when results look overly smooth or artificial. Some models produce better faces with lower strength settings. I’ve found 0.4-0.5 ideal for certain anime-style checkpoints.
+My Tested Settings by Use Case
+Portrait Photography
+Detail: 0.6, Dilation: 8
+Anime / Illustration
+Detail: 0.5, Dilation: 6
+Group Photos
+Detail: 0.7, Dilation: 4
+Severe Face Issues
+Detail: 0.9, Dilation: 10
+Tips for Best FaceDetailer Results
+After extensive testing, here are the practices that consistently give me the best results with FaceDetailer.
+Use Appropriate Base Models
+FaceDetailer enhances existing faces but can’t create details from nothing. Start with models known for decent facial quality. I’ve found that SDXL-based models generally respond better to FaceDetailer enhancement than SD 1.5 models.
+Don’t Over-Enhance
+High detail strength settings create artificial-looking skin. I’ve ruined good images by setting detail strength too high. Start low and gradually increase until you see improvement without the plastic look.
+Consider Image Resolution
+FaceDetailer works best on images at least 512×512. For low-resolution inputs, consider upscaling first using an upscaling node, then applying FaceDetailer.
+Batch Processing for Consistency
+When generating multiple images in a session, I keep FaceDetailer settings constant. This creates consistency across your entire set of generated portraits.
+Combine with Other Nodes
+FaceDetailer works well in combination with other enhancement nodes. I often place an upscaler before FaceDetailer and a sharpness node after it for complete workflow optimization.
+Best Use Cases
+Portrait photography, character art, profile pictures, and any content where facial quality matters most. Ideal for single subjects and small group shots.
+Not Ideal For
+Crowd scenes with distant faces, stylized cartoons where you want imperfections, or images without faces (unnecessary processing overhead).
+Performance Optimization
+If you’re running low on VRAM, try these optimizations:
+Reduce face count limit to the actual number in your images
+Use CodeFormer instead of GFPGAN (generally lighter)
+Process at lower resolution then upscale
+Close other GPU-intensive applications
+I’ve reduced VRAM usage by about 30% using these techniques on my 8GB GPU system.
+Common FaceDetailer Problems and Solutions
+Based on community feedback and my own troubleshooting, here are solutions to the most common FaceDetailer issues.
+FaceDetailer Not Detecting Faces
+Solution:
+ Lower your detection threshold to 0.4 or lower. Ensure your models are in the correct folder. Check that faces in your image are large enough (tiny faces may not be detected).
+I’ve seen this happen most often with stylized images or faces at extreme angles. Sometimes the detection model simply misses faces that don’t match its training data.
+CUDA Out of Memory Errors
+Solution:
+ Reduce face count limit, process at lower resolution, or switch to CodeFormer which typically uses less VRAM than GFPGAN. Close other GPU applications to free memory.
+This was a frequent issue for me on a 6GB GPU. Reducing the batch size and face count limits resolved most out-of-memory errors.
+Overly Smooth or Artificial Results
+Solution:
+ Reduce detail strength to 0.4-0.6. Try switching restoration models (CodeFormer vs GFPGAN). Increase mask dilation slightly for better blending.
+I’ve found that different SD models respond differently to FaceDetailer. Some require much lower strength settings to avoid the artificial look.
+Sharp Edges Around Enhanced Faces
+Solution:
+ Increase mask dilation to 8-12 pixels. This creates a larger transition zone between enhanced and original areas, blending more smoothly.
+Node Not Appearing After Installation
+Solution:
+ Completely restart ComfyUI (not just refresh browser). Check that the FaceDetailer folder exists in ComfyUI/custom_nodes. Try manual installation if Manager failed.
+Slow Processing Speed
+Solution:
+ Reduce image resolution, lower face count limit, or use faster restoration settings. Consider upgrading GPU if this is a persistent issue affecting your workflow.
+Frequently Asked Questions
+Is FaceDetailer free to use?
+Yes, FaceDetailer is completely free and open source. It’s available on GitHub under an open source license, meaning anyone can use, modify, and distribute it without cost. The restoration models it uses (CodeFormer and GFPGAN) are also free for personal and commercial use.
+Can FaceDetailer process multiple faces in one image?
+Yes, FaceDetailer can detect and enhance multiple faces in a single image. You can set the maximum number of faces to process using the face count parameter. In my testing, it successfully handled up to 10 faces in group photos, though processing time increases with each additional face.
+What’s the difference between FaceDetailer and standalone face restoration tools?
+FaceDetailer automates the entire process within ComfyUI. Standalone tools require you to manually load and save images. FaceDetailer detects faces, creates masks, and applies restoration automatically as part of your workflow, eliminating manual steps and enabling batch processing.
+Which restoration model should I use: CodeFormer or GFPGAN?
+Start with CodeFormer for natural-looking results. It preserves the original face structure while adding detail. Use GFPGAN for severely degraded faces when CodeFormer doesn’t provide enough improvement. GFPGAN is more aggressive but can create artificial-looking results on already decent faces.
+Why does FaceDetailer change my subject’s face too much?
+Your detail strength setting is too high. Reduce it to 0.4-0.5 for subtler enhancement. Also consider switching restoration models. CodeFormer generally preserves more of the original face than GFPGAN. The mask dilation setting also affects how much of the face area gets processed.
+Can I use FaceDetailer with images that don’t contain faces?
+Yes, but it will simply pass through the image unchanged if no faces are detected. There’s no harm to having FaceDetailer in your workflow for every image, though it adds minimal processing overhead. I use it in all my portrait workflows regardless of whether I know faces are present.
+Final Thoughts
+FaceDetailer has become an essential tool in my ComfyUI workflow. What used to take hours of manual face restoration now happens automatically during generation.
+The key is starting with conservative settings and adjusting gradually. Don’t max out the detail strength on your first try. Begin with CodeFormer at 0.5-0.6 strength and increase only if needed.
+Remember that FaceDetailer enhances rather than creates. Starting with a model that produces decent facial structure will give you the best results. The combination of a good base model and FaceDetailer’s enhancement creates consistently professional-quality portraits.
+As you become more comfortable with FaceDetailer, experiment with combining it with other enhancement nodes. Upscaling, sharpening, and detail enhancement can all work together in your workflow for comprehensive image improvement.
+Ethan Blake
+Website:
+Related Posts
+CAD Software
+3D Printing
+Guide
+10 Best CAD Software (August 2026)
+Ethan Blake
+										Jun 20, 2026
+Humidifiers
+Guide
+Types of Humidifiers: A Complete Guide (August 2026)
+Ethan Blake
+										Jun 15, 2026
+Air Purifier
+Guide
+How to Clean Oreck XL Air Purifier (August 2026)
+Ethan Blake
+										Jun 15, 2026
+Fan
+Guide
+How to Clean a Tower Fan: Step-by-Step Guide 2026
+Ethan Blake
+										Jun 15, 2026
+AC
+Guide
+Best AC Temperature for Sleeping (August 2026): Expert Guide
+Ethan Blake
+										Jun 15, 2026
+Heat Pump
+Guide
+How to Clean a Heat Pump: Complete Step-by-Step Guide 2026
+Ethan Blake
+										Jun 15, 2026
+Fan
+Guide
+How to Install an Attic Fan 2026: Complete DIY Guide
+Ethan Blake
+										Jun 15, 2026
+Humidifier
+Guide
+How to Increase Humidity (August 2026): Complete Guide
+Ethan Blake
+										Jun 15, 2026
+AC
+Guide
+How to Install a Return Air Duct (Complete Guide)
+Ethan Blake
+										Jun 15, 2026
+AC
+Guide
+Types of AC Compressors: Complete Guide (August 2026)
+Ethan Blake
+										Jun 15, 2026
+Leave a Reply
+Cancel reply
+Your email address will not be published.
+Required fields are marked 
+*
+Comment
+Name
+*
+Email
+*
+Save my name, email, and website in this browser for the next time I comment.
+Latest Posts 
+Buying Guides
+Best Smart Refrigerator Deals (August 2026)
+Ethan Blake
+													Aug 7, 2026
+Buying Guides
+8 Best Underseat Personal Item Bags (August 2026)
+Ethan Blake
+													Aug 7, 2026
+Buying Guides
+10 Best Walk-In Tubs with Hydrotherapy Jets (August 2026)
+Ethan Blake
+													Aug 7, 2026
+Buying Guides
+8 Best Washable Waterproof Bed Pads for Seniors (August 2026)
+Ethan Blake
+													Aug 7, 2026
