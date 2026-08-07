@@ -19,11 +19,16 @@ import aiohttp
 from aiohttp import web
 from server import PromptServer
 
-CORS_HEADERS = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
-}
+# CORS policy is the SERVER'S decision, not this pack's. Every caller of these
+# endpoints is the pack's own frontend on the same origin (root-relative
+# fetches), which needs no CORS headers at all. Hardcoding
+# Access-Control-Allow-Origin: * here let ANY website a pod user visited read
+# these responses cross-origin whenever ComfyUI ran without
+# --enable-cors-header; with the flag, ComfyUI's middleware overwrites
+# per-response headers anyway (server.py create_cors_middleware). So the
+# headers were either a leak or dead weight. Removed, together with the
+# OPTIONS handlers: both ComfyUI middlewares short-circuit OPTIONS before any
+# route handler runs, so those handlers had never executed.
 
 
 # === Gemini Integration ===
@@ -491,7 +496,7 @@ async def _generate_creative_prompts(request):
             print(f"[RPG Creative API] Using cached result: {cache_key[:8]}")
             with open(cache_file, 'r', encoding='utf-8') as f:
                 prompts = json.load(f)
-                return web.json_response({"success": True, "prompts": prompts}, headers=CORS_HEADERS)
+                return web.json_response({"success": True, "prompts": prompts})
 
         if force_regenerate:
             print(f"[RPG Creative API] Force regenerate enabled - bypassing cache for {cache_key[:8]}")
@@ -522,7 +527,7 @@ async def _generate_creative_prompts(request):
             json.dump(prompts, f, indent=2)
 
         print(f"[RPG Creative API] Generated {len(prompts)} prompts with {model}")
-        return web.json_response({"success": True, "prompts": prompts}, headers=CORS_HEADERS)
+        return web.json_response({"success": True, "prompts": prompts})
 
     except Exception as e:
         print(f"[RPG Creative API] Error: {e}")
@@ -531,7 +536,7 @@ async def _generate_creative_prompts(request):
         return web.json_response({
             "success": False,
             "error": str(e)
-        }, status=500, headers=CORS_HEADERS)
+        }, status=500)
 
 
 @PromptServer.instance.routes.post("/instaraw/generate_creative_prompts")
@@ -544,10 +549,6 @@ async def generate_creative_prompts_endpoint_slash(request):
     return await _generate_creative_prompts(request)
 
 
-@PromptServer.instance.routes.options("/instaraw/generate_creative_prompts")
-@PromptServer.instance.routes.options("/instaraw/generate_creative_prompts/")
-async def generate_creative_prompts_options(request):
-    return web.Response(headers=CORS_HEADERS)
 
 
 # === Character Description Generation ===
@@ -848,7 +849,7 @@ async def _generate_character_description(request):
             return web.json_response({
                 "success": False,
                 "error": "Either character_image or character_text must be provided"
-            }, status=400, headers=CORS_HEADERS)
+            }, status=400)
 
         # Generate cache key (include complexity and custom prompt in key)
         cache_input = character_image if character_image else character_text
@@ -862,7 +863,7 @@ async def _generate_character_description(request):
                 "description": CHARACTER_DESCRIPTION_CACHE[cache_key],
                 "cached": True,
                 "cache_key": cache_key
-            }, headers=CORS_HEADERS)
+            })
 
         # Build user prompt
         if character_image:
@@ -910,14 +911,14 @@ async def _generate_character_description(request):
             "description": description,
             "cached": False,
             "cache_key": cache_key
-        }, headers=CORS_HEADERS)
+        })
 
     except Exception as e:
         print(f"[RPG Character API] Error: {e}")
         return web.json_response({
             "success": False,
             "error": str(e)
-        }, status=500, headers=CORS_HEADERS)
+        }, status=500)
 
 
 # === Random Prompt Selection ===
@@ -1019,7 +1020,7 @@ async def _get_random_prompts(request):
             return web.json_response({
                 "success": False,
                 "error": "No prompts match the specified filters"
-            }, status=400, headers=CORS_HEADERS)
+            }, status=400)
 
         selected_count = min(count, len(filtered_prompts))
         selected_prompts = random.sample(filtered_prompts, selected_count)
@@ -1029,14 +1030,14 @@ async def _get_random_prompts(request):
         return web.json_response({
             "success": True,
             "prompts": selected_prompts
-        }, headers=CORS_HEADERS)
+        })
 
     except Exception as e:
         print(f"[RPG Prompts API] Error: {e}")
         return web.json_response({
             "success": False,
             "error": str(e)
-        }, status=500, headers=CORS_HEADERS)
+        }, status=500)
 
 
 # === Register New Endpoints ===
@@ -1050,10 +1051,6 @@ async def generate_character_description_endpoint_slash(request):
     return await _generate_character_description(request)
 
 
-@PromptServer.instance.routes.options("/instaraw/generate_character_description")
-@PromptServer.instance.routes.options("/instaraw/generate_character_description/")
-async def generate_character_description_options(request):
-    return web.Response(headers=CORS_HEADERS)
 
 
 @PromptServer.instance.routes.post("/instaraw/get_random_prompts")
@@ -1066,10 +1063,6 @@ async def get_random_prompts_endpoint_slash(request):
     return await _get_random_prompts(request)
 
 
-@PromptServer.instance.routes.options("/instaraw/get_random_prompts")
-@PromptServer.instance.routes.options("/instaraw/get_random_prompts/")
-async def get_random_prompts_options(request):
-    return web.Response(headers=CORS_HEADERS)
 
 
 print("[RPG Creative API] Endpoint registered: POST /instaraw/generate_creative_prompts")
