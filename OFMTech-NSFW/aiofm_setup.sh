@@ -1,29 +1,30 @@
 #!/bin/bash
 # =============================================================
-#  AIOFM · Character Animation v1.2
+#  AIOFM · OFM Tech NSFW
 #  One-shot setup for a fresh pod. Run it once; it is safe to re-run.
 #
-#  This pack ships ONE workflow: "AIOFM Character Animation v1.2.json".
+#  This pack ships ONE workflow: "OFMTech_NSFW.json".
 #  The script installs everything that workflow needs to open and run --
 #
-#    - the Wan 2.2 Animate 14B model, plus the VAE, CLIP vision and
-#      text encoder it loads
-#    - the five LoRAs the pipeline applies
-#    - the pose and detection models (ViTPose, YOLO) and, at the end,
-#      the RIFE and SAM2 weights that used to download mid-render
-#    - every custom node pack the graph depends on, pinned to a known
-#      revision, with their Python dependencies
+#    - the base checkpoint (LUSTIFY! GGWP V7), downloaded from Civitai
+#      with YOUR OWN free Civitai API key — its licence does not allow us
+#      to ship the file, so every install fetches its own copy, verified
+#      by SHA256 (see the LUSTIFY block below)
+#    - the Z-Image model, its Qwen text encoder and VAE, the face/hand/
+#      lips detectors, SAM, and the upscalers the graph loads
+#    - the six custom node packs the graph depends on, pinned to known
+#      revisions, with their Python dependencies, plus our own
+#      ComfyUI_INSTARAW (vendored from beside this script)
 #    - the workflow itself, into ComfyUI's own workflow list, so it is
 #      there when you open the UI
 #
-#  PROFILE=video pulls only the files this workflow uses.
-#  PROFILE=all (the default) also pulls the wider model library.
+#  PROFILE=all (the default) also pulls the wider AIOFM model library.
 #
 #  It verifies rather than assumes: downloads resume and are size-checked
-#  against the manifest, ComfyUI core is held to a minimum version, and a
-#  final pass confirms every node type the workflow references actually
-#  registered -- reading that list out of the workflow rather than from a
-#  hand-maintained list that can drift.
+#  against the manifest, the checkpoint is SHA256-verified, ComfyUI core is
+#  held to a minimum version, and a final pass confirms every node type the
+#  workflow references actually registered -- reading that list out of the
+#  workflow rather than from a hand-maintained list that can drift.
 # =============================================================
 
 set -e
