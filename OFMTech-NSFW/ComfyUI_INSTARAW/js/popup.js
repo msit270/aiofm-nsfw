@@ -526,7 +526,7 @@ class Popup extends HTMLElement {
 		var latestImage = null;
 
 		detail.urls.forEach((url, i) => {
-			console.log(url);
+			console.debug(url);
 			if (i % this.video_frames == 0) {
 				const thisImage = create('img', null, this.grid, { src: get_full_url(url) });
 				latestImage = thisImage;
@@ -630,6 +630,11 @@ class Popup extends HTMLElement {
 		}
 		if (this.state == State.FILTER || this.state == State.TEXT) {
 			if (e.key == 'Enter') {
+				// Enter must respect the same rule as the Send button. Without
+				// this guard it sent an EMPTY selection in FILTER state, which
+				// the server answers with InterruptProcessingException — the
+				// render dies and the buyer gets nothing, from one keypress.
+				if (this.send_button?.disabled) return this.eat_event(e);
 				this.send_current_state();
 				return this.eat_event(e);
 			}
@@ -689,7 +694,10 @@ class Popup extends HTMLElement {
 	}
 
 	select_unselect(n) {
-		if (n < 0 || n > this.n_images) {
+		// >= : indices run 0..n_images-1. The old `>` let the keyboard path
+		// (digit keys) pick index n_images itself — one past the end — which
+		// the server then applies to the image tensor and dies on.
+		if (n < 0 || n >= this.n_images) {
 			return;
 		}
 		const s = `${n}`;
