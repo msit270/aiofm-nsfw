@@ -95,4 +95,18 @@ RUN5_DISMISS_BOOT=1 node /workspace/nsfw-quality/tools/browser_harness/run.js \
 GRC=$?
 kill $CPID 2>/dev/null
 [[ $GRC -eq 0 ]] || { echo "x render gate failed (see $OUT/gate)"; exit 1; }
+# black-frame check (the intermittent Z NaN failure renders black regions)
+GPNG="$(find "$OUT/render" -name '*.png' | head -1)"
+[[ -n "$GPNG" ]] || { echo "x no gate render output"; exit 1; }
+/workspace/run5/venv/bin/python - "$GPNG" <<'PY'
+import sys, cv2
+sys.path.insert(0, "/workspace/run5/tools")
+from likeness import top_face
+im = cv2.imread(sys.argv[1])
+assert im is not None and im.mean() > 20, f"gate render black/degenerate (mean {im.mean():.1f})"
+f = top_face(sys.argv[1])
+assert f is not None, "no face detected in gate render (black-face NaN?)"
+print(f"  gate render healthy: mean {im.mean():.1f}, face det {f['det']:.3f}")
+PY
+[[ $? -eq 0 ]] || { echo "x gate render failed the black/face check"; exit 1; }
 echo "=== PASS: fresh-tree personal install + end-to-end render ==="
