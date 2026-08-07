@@ -1,20 +1,24 @@
 # HANDOFF.md — run 3 (2026-08-07)
 
 **Workflow `47419606…fca30d4b` · archive `29175edc…5fe16a3e` (8,153,528 B, 170
-files) · NOT yet on HuggingFace — the pod's token is read-only; publishing is
-your one manual step, below.**
+files) · PUBLISHED to `msit270/AIOFM-Pack` 2026-08-07 (HF commit `d1e7c75d`,
+owner-supplied write token) and verified from the buyer's side: etag and size
+match, the full download hashes byte-identical to the local cut, and the
+workflow inside the published archive hashes `47419606…`.**
 
-Everything else in the definition-of-done is DONE, with evidence under
+Everything in the definition-of-done is DONE, with evidence under
 `results/run3/` and the reasoning in `QUESTIONS.md` §4, `notes/R3-guard.md`,
 `notes/R3-eyes.md`.
 
 ---
 
-## The one thing only you can do
+## Publishing — DONE this run (owner-supplied token), kept for the record
 
-The pod's HF token (`/workspace/.hf_token`, named "VastAI") is **role: read**.
-It downloads fine and cannot upload — no cut has ever been published from
-here. With a WRITE token, from any machine:
+The pod's own HF token (`/workspace/.hf_token`, "VastAI") is **role: read**
+and cannot upload. The owner supplied a write token in-session
+("pack-publish-aug7"); the upload ran from the pod, the token file was deleted
+afterwards, and **the owner should revoke that token** since it passed through
+the conversation. For any future re-publish, with a write token:
 
 ```bash
 HF_TOKEN="hf_your_WRITE_token" \
@@ -34,8 +38,10 @@ curl -sS -I -H "Authorization: Bearer $HF_TOKEN" \
 #         x-linked-size: 8153528
 ```
 
-Live HF currently serves `3f6d0f2f…` (8,202,871 B) — an artifact with none of
-the graph fixes. The buyer one-liner (unchanged, the gist needed no edit):
+Verified live 2026-08-07 after the upload: the resolve URL returns
+`x-linked-etag "29175edc…"` / `x-linked-size 8153528`, replacing the old
+`3f6d0f2f…` artifact that had none of the graph fixes. The buyer one-liner
+(unchanged, the gist needed no edit):
 
 ```bash
 echo "hf_YOUR_TOKEN" > /workspace/.hf_token
