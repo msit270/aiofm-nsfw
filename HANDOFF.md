@@ -150,6 +150,19 @@ bash <(curl -sSL "https://gist.githubusercontent.com/msit270/70256ac1ebf2760e10f
 **Browser gate: all four shots pass** from the shipped tarball — zero red nodes
 across root and every subgraph, both LoRA stacks set through the widget's own
 menu, a real prompt in `#106`, finished image. `results/gate2/`, 67 artifacts.
+**But read the fourth shot narrowly:** it ran on an instance that does *not*
+reproduce the crash, with a prompt (`face_prompt_real.txt`, 46 tokens) that fails
+9/9 on one that does. It proves the workflow loads, converts and drives. It is
+**not** evidence a buyer's real prompt renders.
+
+**The `647:4 MODEL` blocker is proven gone on the *current* bytes** — not just on
+the pre-fix ones the gate tested. Real browser, workflow opened from the sidebar
+the way a buyer does, frontend UI→API conversion exercised: **exit 0, 0 failures,
+zero occurrences of the string**, 88-node API graph carrying `denoise 0.35` and
+`device cpu`. `results/browser/20260807-001734-OFMTech_NSFW_f5bed596/`. Nothing
+was submitted, so server validation and execution on these bytes stay untested
+through the browser — but the blocker was a *conversion-time* fault, which is
+exactly what this mode exercises.
 
 ## Publishing — you run this, nobody else. **Nothing was uploaded.**
 
