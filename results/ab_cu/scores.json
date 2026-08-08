@@ -1,0 +1,32 @@
+{
+ "A_base_CU/img_00001_.png": {
+  "bodyHF": 4.81,
+  "cos": 0.659,
+  "det": 0.865,
+  "faceHF": 11.76,
+  "face_lapvar": 332.0,
+  "face_px_h": 2632.0,
+  "frame_luma_sd": 54.3,
+  "frame_warmth": 57.5
+ },
+ "B_den045_CU/img_00001_.png": {
+  "bodyHF": 4.18,
+  "cos": 0.5876,
+  "det": 0.867,
+  "faceHF": 10.86,
+  "face_lapvar": 322.0,
+  "face_px_h": 2616.0,
+  "frame_luma_sd": 53.4,
+  "frame_warmth": 58.2
+ },
+ "C_s18ea_CU/img_00001_.png": {
+  "bodyHF": 4.31,
+  "cos": 0.6594,
+  "det": 0.865,
+  "faceHF": 11.23,
+  "face_lapvar": 197.0,
+  "face_px_h": 2615.0,
+  "frame_luma_sd": 54.3,
+  "frame_warmth": 57.8
+ }
+}

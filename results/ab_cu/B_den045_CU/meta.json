@@ -1,0 +1,18 @@
+{
+ "arm": "B_den045_CU",
+ "ok": true,
+ "exec_s": 183.602,
+ "prompt_id": "5134af1b-8af0-4769-99a6-aafbc9ced9a3",
+ "images": {
+  "img_00001_.png": {
+   "mean": 124.0,
+   "std": 58.86,
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

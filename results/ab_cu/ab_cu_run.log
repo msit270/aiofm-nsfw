@@ -1,0 +1,5 @@
+baseline gate PASS: A_base_CU == run-6 P_CU (modulo save prefix)
+[A_base_CU] ok exec=178.4s
+[B_den045_CU] ok exec=183.6s
+[C_s18ea_CU] ok exec=183.8s
+AB_CU done

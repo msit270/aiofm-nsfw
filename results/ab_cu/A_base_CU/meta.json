@@ -1,0 +1,18 @@
+{
+ "arm": "A_base_CU",
+ "ok": true,
+ "exec_s": 178.43,
+ "prompt_id": "04b1b521-3fb6-4b76-80ff-c3f981d2ff7b",
+ "images": {
+  "img_00001_.png": {
+   "mean": 124.79,
+   "std": 59.5,
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}
