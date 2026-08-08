@@ -14,7 +14,9 @@ set -euo pipefail
 
 REPO="${PERSONAL_REPO:-msit270/AIOFM-Personal}"
 PACK="${PACK:-/workspace/nsfw-quality/dist-personal/AIOFMTech-NSFW-Personal.tar.gz}"
-DEST_PATH="dist/AIOFMTech-NSFW-Personal.tar.gz"
+# Repo-ROOT path: matches where the owner actually uploaded v4 (2026-08-08),
+# so re-publishing overwrites the live file instead of forking a dist/ copy.
+DEST_PATH="AIOFMTech-NSFW-Personal.tar.gz"
 
 TOK="${HF_WRITE_TOKEN:-}"
 [[ -z "$TOK" && -n "${1:-}" && -s "${1:-}" ]] && TOK="$(cat "$1")"
