@@ -4,7 +4,7 @@ All numbers: results/run6/scores.json (ArcFace cos to the run-5 luna
 centroid; ZIT-to-ZIT band 0.92-0.94; faceHF/bodyHF = run-5 freckle-band
 RMS, scale-normalized). Every arm black-checked; determinism proven
 bit-identical same-boot AND cross-boot on 4 boots (R_FB x4, P_FB x2,
-stockTE x2). Single seed (12345) unless noted — deltas under ~0.03
+stockTE x2). Stage-1/composition seed 12345 in every arm (ref internal stage-2/3/4 seeds kept at vendor values; pc internal detailer seeds shipped) — deltas under ~0.03
 treated as composition noise, and said so.
 
 ## Head-to-head (same positive prompt, same seed, luna@1.0 both sides,
@@ -25,7 +25,7 @@ COZY  | .767  faceHF 12.31 body 13.73 | .728  faceHF 10.10 body 11.91
   frame drifted to a 3/4 shot (no balcony/golden-hour framing); the
   likeness loss and the framing drift travel together.
 - Ref stage-3 (896x1152) beats its own final on FB/PT/CU
-  (.817/.849/.790 vs .726/.828/.740) — the last 1344 pass COSTS
+  (.817/.850/.790 vs .726/.828/.740) — the last 1344 pass COSTS
   likeness on 3 of 4 comps (not COZY). The vendor ships it anyway.
 - Speed: ref renders in ~19-20 s; pc in 140-208 s (7-10x). Ref output
   is 27% of pc's pixels — do not credit the ref for that (step-4 list).
@@ -43,7 +43,10 @@ pc_final + lever:
 - heretic GGUF TE                         BROKEN 2/2 (black face-region
   composite; then full-frame confetti) — see black-frame rule below.
 
-MarlAI ref + lever (reverse direction):
+MarlAI ref + lever (reverse direction; these four numbers come from the
+healthy re-renders R_stockvae_first_b6 / R_stockTE_first_b7 /
+R_pcneg_FB_b3 / R_str08_first_b5 — the original arms are black, see the
+incident note; pc COZY = P_COZY_b4 for the same reason):
 - stock ae VAE (replace UltraFlux)        cos .770 (+.044)  faceHF -1.4,
   bodyHF -2.0  -> the texture gap IS the VAE, both directions.
 - stock qwen safetensors TE               cos .745 (+.019)

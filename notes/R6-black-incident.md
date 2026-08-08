@@ -96,3 +96,18 @@ NOT tested: encode-only probe; ComfyUI-GGUF version bisect; whether
 OPERATIONAL RULE for this pod until fixed: never interleave the two
 graph families in one boot when the ref-family composition will change;
 one composition per boot is always safe; re-boot clears it.
+
+
+## Final consolidated black list (verifier-reconciled, all 8 boots)
+
+12 arms, nothing else: P_COZY (pc family, sporadic, healthy on re-render)
++ 11 ref-family hard zeros: R_str08_FB, R_str08_FB_b2, R_str08_FB_b3,
+R_pcneg_FB, R_pcneg_FB_b2, R_FB_canary, R_FB_canary_b2, R_FB_canary2_b3,
+R_stockvae_FB, R_stockTE_FB, R_FB_after08_b3.
+Triggers: R_str08_FB (b1), R_str08_FB_b2, R_stockvae_FB. Sticky-after: 6.
+(The 8-arm list in the CORRECTION above was chronological, pre-boot-3.)
+Reader warning: meta.json `ok` is true even for black arms — blackness
+lives only in the `black` field / retro-scan. Early-arm metas (boot1)
+predate the corrected threshold; results/run6/scores.json rows with
+cos=None mark the same arms. P_hereticTE2_FB (confetti, mean 120) is
+correctly NOT black — corrupted, not zeroed.
