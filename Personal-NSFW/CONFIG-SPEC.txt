@@ -23,15 +23,17 @@ BASE GENERATOR (Z-Image Turbo, swappable slot)
 
 UPSCALE / REFINE CHAIN
 - NMKD 4x -> x0.4 lanczos (net 1.6x) .................. GENERAL structure
-    (flattens directional light ~25% — batch I tests the alternative;
-    verdict recorded after I)
+    (batch I: swapping to plain lanczos measured NO delivery-level
+    difference — the flattening is chain-wide, light must be generated
+    at the base; structure kept)
 - Z tiled USDU #617: 1.25x, 8 steps, cfg 1, res_multistep/simple,
   denoise 0.25 ......................................... GENERAL structure;
     denoise SPECIFIC-LEANING range 0.15-0.30
 - Z tiled USDU #98: 1.5x, 8 steps, cfg 1, res_multistep/simple,
   denoise 0.08, tile = frame ........................... GENERAL structure
-- 1x skin ESRGAN + ImageBlend factor 1.0 .............. under test (K5:
-    factor is a dead dial at 1.0 — replace semantics; 0.6 arm rendered)
+- 1x skin ESRGAN + ImageBlend factor 1.0 .............. GENERAL; K5
+    measured 0.6 as no-gain; NOTE factor 1.0 = REPLACE semantics (the
+    dial only blends below 1.0)
 
 DETAIL PASSES (all Impact FaceDetailer-family, cfg 1 — raising cfg on
 detail passes is known-bad: guidance-distilled model)
@@ -42,12 +44,15 @@ detail passes is known-bad: guidance-distilled model)
     default 0.50 (soft-face reconciliation on the 30-step base);
     range 0.35-0.55. Checklist #2.
 - FACE guide/max 1024, cf 1.5, thr 0.5, feather 18 .... GENERAL defaults
-- MOUTH stage ......................................... pending batch H
-    (deletion test; thr 0.5 fires but effect invisible on standard comps)
+- MOUTH stage: DELETED (batch H: fired only where useless; blocked by
+    its own 4M area ceiling on open-mouth comps; lips_v1.pt out of the
+    graph) ............................................ GENERAL (structure)
 - EYES: euler/beta, 8 steps, denoise 0.42, MediaPipe mesh GENERAL defaults
-- HANDS: pending batch J (prompt neutralization is the lead arm; the
-    shipped "Detailed hand/fingers/fingernails" prompt is the overbake
-    suspect and is SPECIFIC in any case — describe the CHARACTER's hands)
+- HANDS: neutral prompt ("young woman's hand, smooth soft skin, natural
+    hand, elegant fingers, neat fingernails") + guide/max 768, denoise
+    0.42, cf 1.5 ......... prompt SPECIFIC (describe YOUR character's
+    hands); guide 768 + the rest GENERAL (batch J: post-upscale ordering
+    REFUTED — hallucinated artifacts; cf 3.0 aged the hands)
 
 CHARACTER INPUTS (always SPECIFIC, widgets, never hardcoded)
 - LoRA file + strength (default 1.0; range 0.7-1.0)
@@ -57,3 +62,14 @@ CHARACTER INPUTS (always SPECIFIC, widgets, never hardcoded)
 PROVENANCE: every measured number above traces to results/run5/
 (likeness_scores.json, tap_metrics.json, light_metrics.json, notes/*).
 Generalisation beyond the tuning character is UNPROVEN (single-LoRA pod).
+
+POST-VERDICT ADDENDA (S11 + batches H/J/I/K):
+- Face pass: euler_ancestral/kl_optimal @ denoise 0.50 = the owner's S11
+  pick (cos .799). res_multistep on the face = ARCHITECTURE-SPECIFIC
+  preference: it won on the texture-poor SHIP arch (S4) and overshoots on
+  PC (S11) — see the additive-rule test in notes/L-rederive-audit.md.
+- Colormatch chain, run order, blend 1.0: every structural A/B lost or
+  tied vs PC1 (batch K) — structure kept, now evidenced.
+- Lighting: shift dial exposed at 3.0; prompt-level light guidance in
+  README (film/direction sentences; identity held, cos up to .820).
+- "Processed" test includes 2D/flat/drawn (owner definition, S11).

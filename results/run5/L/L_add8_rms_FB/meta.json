@@ -1,0 +1,10 @@
+{
+ "arm": "L_add8_rms_FB",
+ "batch": "L",
+ "ok": true,
+ "exec_s": 126.839,
+ "cached_nodes": 34,
+ "prompt_id": "98b0cc6b-804a-4056-a75b-aebd5cf97c28",
+ "outputs_dir": "/workspace/run5/output/L/L_add8_rms_FB",
+ "status_str": "success"
+}

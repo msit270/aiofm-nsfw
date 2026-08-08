@@ -12,7 +12,8 @@ CHARACTER-SPECIFIC — re-check every new character:
    freckling. On a clear-skinned character watch for: noise/grit where skin
    should be smooth, over-contrast. If seen: drop to 8/1.0 first, then try
    30/1.5.
-2. Face-pass denoise  (the Z FaceDetailer; default 0.50; range 0.35-0.55).
+2. Face-pass denoise  (the Z FaceDetailer; default 0.50 — the owner-picked
+   PC value; range 0.35-0.55).
    0.50 repaints half the face crop — tuned to soften a densely textured
    face. A softer-featured character may keep more identity at 0.35-0.40.
 3. LoRA strength    (Lora Loader Stack; default 1.00; community range for
@@ -22,7 +23,10 @@ CHARACTER-SPECIFIC — re-check every new character:
 4. Trigger word     (positive prompt): use YOUR LoRA's trigger. Measured on
    the tuning character: the LoRA dominates hair/face even without the
    trigger, but include it anyway.
-5. Skin-texture channel (the two Z tiled refine passes, res_multistep):
+5. Hands prompt (the hands detailer positive): ships neutral ("young
+   woman's hand, smooth soft skin..."). Describe YOUR character's hands;
+   never use "detailed fingers/fingernails" stacks (measured overbake).
+6. Skin-texture channel (the two Z tiled refine passes, res_multistep):
    texture intensity partly reflects the character. If a new character's
    skin reads gritty, first try the face-pass sampler tile (euler_ancestral
    is the smoothest), then denoise 0.25→0.15 on the first tiled pass.
