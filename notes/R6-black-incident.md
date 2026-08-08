@@ -52,3 +52,47 @@ WRONG. What remains reproduced 2/2 boots: R_FB + P_FB healthy ->
 str08 black on its first render -> ALL subsequent ref-family arms
 black including the exact graph healthy earlier the same boot.
 P_COZY (boot1 only so far) is a separate event pending re-render.
+
+## ISOLATION COMPLETE (boots 4-8) — deterministic repro recipe found
+
+Probe results (every arm black-checked; all evidence results/run6/):
+- boot4: P_COZY re-render HEALTHY (boot1 P_COZY black = sporadic
+  run-5-class die, 1/2 boots, NOT part of the pattern below).
+- boot5: str08 FIRST render: HEALTHY. R_FB@1.0 after it: HEALTHY.
+- boot6: stockvae first: HEALTHY; stockTE second: HEALTHY; R_FB third:
+  HEALTHY (falsifies the pure composition-change hypothesis).
+- boot7: stockTE first: HEALTHY (bit-identical to boot6's second-position
+  render — order does not change bits when healthy).
+- boot8 (decisive): R_FB@1.0 -> str08 -> R_FB, NO pc-family render in
+  the boot: ALL HEALTHY.
+
+RULE (fits all 8 boots, no counterexample):
+a ref-family render black-frames  iff
+  (a) an earlier ref-family render with a DIFFERENT model composition
+      (LoRA strength, VAE file, or TE file) ran this boot, AND
+  (b) >=1 pc-family render (different TE/VAE stack) ran BETWEEN them.
+After the first black, EVERY later ref-family render that boot is black
+(sticky, 6/6) regardless of composition. Prompt/negative text changes
+never trigger (R_pcneg healthy when unpoisoned, boot3). pc-family
+renders are never triggered by this mechanism.
+
+Reproduced instances: str08-after-P 2/2 boots; stockvae-after-P 1/1;
+plus P_hereticTE_FB (pc graph given the ref's GGUF TE) rendered a
+healthy frame with a BLACK FACE — the FaceDetailer sub-render died
+(same class as run-5's "black-faced PT arm").
+
+MECHANISM (inference, not proven): the common component in every
+triggered black is the GGUF text encoder (ComfyUI-GGUF CLIPLoaderGGUF,
+qwen heretic q8). Interleaved pc renders force its eviction (/free is
+called before every arm); the reload+re-patch path then yields NaN/zero
+conditioning -> black from the FIRST sampler step (stage1 224x288 is
+already black in every event), poisoned loader cache -> sticky until
+restart. Explains: pc immunity (safetensors TE), text-change safety
+(no reload), P_hereticTE face-black (GGUF TE + LoRA-stack clip patch),
+boots 5-8 health (no eviction between ref arms).
+NOT tested: encode-only probe; ComfyUI-GGUF version bisect; whether
+--disable-async-offload matters here. -> root-cause session items.
+
+OPERATIONAL RULE for this pod until fixed: never interleave the two
+graph families in one boot when the ref-family composition will change;
+one composition per boot is always safe; re-boot clears it.
