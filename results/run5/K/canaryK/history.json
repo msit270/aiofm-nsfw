@@ -1,0 +1,180 @@
+{
+ "prompt": [
+  40,
+  "3026ab69-72a5-4e61-b5e4-5faa56f119eb",
+  {
+   "u": {
+    "class_type": "UNETLoader",
+    "inputs": {
+     "unet_name": "zimage.safetensors",
+     "weight_dtype": "default"
+    }
+   },
+   "c": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+     "clip_name": "qwen.safetensors",
+     "type": "lumina2",
+     "device": "default"
+    }
+   },
+   "v": {
+    "class_type": "VAELoader",
+    "inputs": {
+     "vae_name": "ae.safetensors"
+    }
+   },
+   "lat": {
+    "class_type": "EmptySD3LatentImage",
+    "inputs": {
+     "width": 896,
+     "height": 1152,
+     "batch_size": 1
+    }
+   },
+   "pos": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+     "text": "luna, a young woman in her mid twenties with wavy auburn hair, warm hazel eyes, soft natural makeup, light freckles on her cheeks, gentle smile, photorealistic skin texture with visible pores, soft diffused studio light",
+     "clip": [
+      "c",
+      0
+     ]
+    }
+   },
+   "dec": {
+    "class_type": "VAEDecode",
+    "inputs": {
+     "samples": [
+      "k",
+      0
+     ],
+     "vae": [
+      "v",
+      0
+     ]
+    }
+   },
+   "save": {
+    "class_type": "SaveImage",
+    "inputs": {
+     "images": [
+      "dec",
+      0
+     ],
+     "filename_prefix": "K/canaryK/img/img"
+    }
+   },
+   "lo": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+     "lora_name": "luna.safetensors",
+     "strength_model": 1.0,
+     "model": [
+      "u",
+      0
+     ]
+    }
+   },
+   "neg": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+     "conditioning": [
+      "pos",
+      0
+     ]
+    }
+   },
+   "k": {
+    "class_type": "KSampler",
+    "inputs": {
+     "seed": 12345,
+     "steps": 8,
+     "cfg": 1.0,
+     "sampler_name": "res_multistep",
+     "scheduler": "simple",
+     "denoise": 1.0,
+     "model": [
+      "lo",
+      0
+     ],
+     "positive": [
+      "pos",
+      0
+     ],
+     "negative": [
+      "neg",
+      0
+     ],
+     "latent_image": [
+      "lat",
+      0
+     ]
+    }
+   }
+  },
+  {
+   "create_time": 1786149381346
+  },
+  [
+   "save"
+  ]
+ ],
+ "outputs": {
+  "save": {
+   "images": [
+    {
+     "filename": "img_00001_.png",
+     "subfolder": "K/canaryK/img",
+     "type": "output"
+    }
+   ]
+  }
+ },
+ "status": {
+  "status_str": "success",
+  "completed": true,
+  "messages": [
+   [
+    "execution_start",
+    {
+     "prompt_id": "3026ab69-72a5-4e61-b5e4-5faa56f119eb",
+     "timestamp": 1786149381348
+    }
+   ],
+   [
+    "execution_cached",
+    {
+     "nodes": [
+      "u",
+      "c",
+      "v",
+      "lat",
+      "pos",
+      "dec",
+      "lo",
+      "neg",
+      "k"
+     ],
+     "prompt_id": "3026ab69-72a5-4e61-b5e4-5faa56f119eb",
+     "timestamp": 1786149381348
+    }
+   ],
+   [
+    "execution_success",
+    {
+     "prompt_id": "3026ab69-72a5-4e61-b5e4-5faa56f119eb",
+     "timestamp": 1786149381459
+    }
+   ]
+  ]
+ },
+ "meta": {
+  "save": {
+   "node_id": "save",
+   "display_node": "save",
+   "parent_node": null,
+   "real_node_id": "save"
+  }
+ }
+}
