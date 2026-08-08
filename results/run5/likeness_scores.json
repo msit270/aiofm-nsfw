@@ -2661,6 +2661,30 @@
   "L/canaryL2/img/img_00001_.png": {
    "cos_to_luna": 0.9364852689604255,
    "det": 0.7594242095947266
+  },
+  "M/M_luna_CU/Personal/render_00001_.png": {
+   "cos_to_luna": 0.7894457127357455,
+   "det": 0.83348548412323
+  },
+  "M/M_luna_FB/Personal/render_00001_.png": {
+   "cos_to_luna": 0.7894457127357455,
+   "det": 0.83348548412323
+  },
+  "M/M_luna_PT/Personal/render_00001_.png": {
+   "cos_to_luna": 0.7894457127357455,
+   "det": 0.83348548412323
+  },
+  "M/M_ship_neutral/Personal/render_00001_.png": {
+   "cos_to_luna": 0.20265125666758432,
+   "det": 0.8520320653915405
+  },
+  "M/canaryM/img/img_00001_.png": {
+   "cos_to_luna": 0.9364852689604255,
+   "det": 0.7594242095947266
+  },
+  "M/canaryM2/img/img_00001_.png": {
+   "cos_to_luna": 0.9364852689604255,
+   "det": 0.7594242095947266
   }
  }
 }

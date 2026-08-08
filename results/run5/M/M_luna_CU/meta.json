@@ -1,0 +1,10 @@
+{
+ "arm": "M_luna_CU",
+ "batch": "M",
+ "ok": true,
+ "exec_s": 128.992,
+ "cached_nodes": 24,
+ "prompt_id": "91ae8dd6-d3d3-4d60-909e-42c0c28a1ebf",
+ "outputs_dir": "/workspace/run5/output/M/M_luna_CU",
+ "status_str": "success"
+}
