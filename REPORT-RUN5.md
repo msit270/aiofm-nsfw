@@ -1,119 +1,135 @@
-# Run 5 — final report (personal-max)
+# Run 5 — final report (personal-max), phase 4 complete
 
-Written for the owner, phone-readable. Every number traces to
-`results/run5/` (likeness_scores.json, tap_metrics.json, SCOREBOARD.md,
-per-arm api_graph/history). Verified twice by fresh-context verifiers
-(`results/run5/verify/phase1_verifier.md`, `phase23_verifier.md`).
+Phone-readable. Every number traces to `results/run5/` (likeness_scores.json,
+tap_metrics.json, light_metrics.json, mouth_deletion.json, Dmatrix/,
+per-arm api_graph/history). Four fresh-context verifier passes:
+`results/run5/verify/`. The phase-3 report (pre-verdict) is preserved as
+REPORT-RUN5-phase3.md.
 
 ## One sentence
 
-Your instinct was right: identity was never in the widgets — the SDXL half
-of the pipeline destroys it structurally, so I rebuilt the graph so that
-Z-Image Turbo + your luna LoRA drives every sampling pass, which takes
-likeness from 0.59 to 0.73-0.77 (reference band 0.92+), brings skin texture
-to reference level, and it is packaged as a one-command install that
-passed a fresh-tree gate end to end.
+Your S11 pick (PC1: Z-Image base at 30 steps/cfg 2 with live negatives, a
+soft euler_ancestral face pass at denoise 0.50) is now the shipped,
+character-neutral workflow — with hands fixed by prompt neutralization plus
+lower-res sampling, the mouth stage deleted on evidence, lighting moved to
+where it actually lives (the base prompt and the shift dial), every
+inherited setting re-derived or evidenced on the new architecture, and the
+whole thing cut into a one-command pack whose proof renders caught and
+fixed a real ship bug before it reached you.
 
-## What you need to look at and decide (sheets in results/run5/SHEETS/)
+## What you need to look at (results/run5/SHEETS/)
 
-1. **S1 + S2** — the winner. LUNA-Z vs the shipping pipeline, faces and all
-   three compositions. If LUNA-Z's look is right, you are done: the pack is
-   built and gated; publish per OWNER-ACTIONS-PERSONAL.md.
-2. **S3 + lunaz30 tile** — base 30-step/cfg-2 variant: denser freckles,
-   measured best likeness of the run (0.774). Taste call: default stays
-   8-step/cfg-1; switching = two widget values on the base sampler.
-3. **S9 / S8** — if you ever want the SDXL architecture back: den 0.85 gets
-   0.696-0.769 on full-body but collapses on portrait/close-up (0.41-0.49)
-   and the body/light stay SDXL. My judgement: not worth it; your eye may
-   differ.
-4. **S5/S10 hands** — Z-hands adds real texture (tendons, knuckles) but one
-   arm showed a ragged thumbnail. n=1 each way; the shipped default keeps
-   the Z hands pass. If nails misbehave in practice, say so and I'll sweep
-   the hands denoise next session.
-5. **S4/S6** — face-pass sampler pairing (taste) and the mouth fix
-   (objective, already applied at threshold 0.5).
+1. **S17** — the shipped graph's own renders, three comps + neutral. This
+   is what the pack produces. FB 0.789 / PT 0.731 / CU 0.644.
+2. **S14** — hands: the adopted combo tile (neutral prompt + 768 sampling)
+   vs everything else, like-for-like crops at last. My read: the first
+   genuinely photographic hand of the project. Your eye rules.
+3. **S18/S18b** — the ONE thing that beat your pick after you made it:
+   euler_ancestral in the tiled-refine slots (cos .809 vs .799, body
+   texture band higher). One widget-pair away; NOT applied — your call.
+4. **S15** — lighting: the film-stock sentence tile (best frame of the
+   run, cos .820) and the shift 4.5/6 tiles. Prompt-level, in README.
+5. **S12** — the close-up caveat on the 30/cfg2 base (goes blotchy on
+   face-filling comps; drop to 8/cfg1 or cfg 1.5 there). Documented in
+   README + checklist; batch I's cfg-1.5 arm was clean but not
+   close-up-tested — one arm if you want it settled.
+
+## The four defects — final state
+
+- **LIKENESS**: structural, solved by architecture. Ship 0.585 → PC 0.789
+  (FB), reference band 0.92+. The two LoRAs encode the same person
+  unevenly (lunaskye caps ~0.5); every SDXL pass repainted toward the
+  half-copy. SDXL is out of the render path entirely.
+- **PLASTIC SKIN**: solved. Ship body texture 6.8 (band) → PC 9.6 at
+  reference level (~9.5); face at reference class. The S3-pick base
+  (30/cfg2) carries the freckle density you chose.
+- **HANDS**: the shipped "Detailed hand, detailed fingers, detailed
+  fingernails" prompt was a measured CAUSE of the overbake; neutral
+  prompt + 768 sampling adopted. The reference-practice "hands after
+  upscale" idea hallucinated jewelry on this graph — refuted by render.
+- **LIGHTING**: measured for the first time. The chain flattens whatever
+  the base gives (and no downstream knob recovers it — lanczos swap and
+  colormatch re-referencing both measured no-effect). Light is GENERATED:
+  the film/direction sentences and the shift dial (now exposed) are the
+  levers; identity holds (cos up to .820).
 
 ## Proven vs my judgement
 
-PROVEN (measured, re-derived by independent verifiers):
-- Likeness chain: base 0.29 → LoRA-less TDD refine 0.16 → SDXL face pass
-  0.55 → USDU erosion → Z-face ceiling 0.58-0.70. The refine (`619:600`)
-  and hands (`587:92`) passes run with NO character LoRA in the shipped
-  graph; the base prompt carries no trigger and the wrong hair.
-- The two LoRAs encode the same person unevenly: lunaskye(SDXL) tops out
-  ~0.48-0.54 even alone; luna(ZIT) hits 0.92-0.94. Any SDXL sampling pass
-  therefore repaints toward a half-Luna. That is the whole likeness story.
-- luna does NOT work on Z-Image BASE (confetti; clean no-LoRA control) —
-  Turbo only, until you retrain.
-- Turbo at 30 steps/cfg 2 is NOT blurry for luna (no acceleration-loss
-  symptom; 0.843 same-identity, denser texture).
-- Mouth: at threshold 0.7 the lips detector finds nothing on full-body
-  renders (pass never ran); at 0.5 it fires and edits exactly the lips.
-  Applied. 0.3 adds nothing.
-- V9: naive swap degrades likeness (0.499); repaired stacks stay below V7
-  equivalents (0.708 vs 0.769). Your V7-tuned numbers do not carry, as you
-  said. V9 is installed and the slot is swappable; V7 remains the better
-  SDXL base for lunaskye TODAY.
-- The pack: workflow member == proven graph (harness round-trip EQUIVALENT);
-  that graph rendered bit-identical to the measured winner on two separate
-  server boots; fresh-tree one-command install gate PASSED: install exit 0 in 115 s,
-  V9 re-fetched from Civitai byte-exact, browser render bit-identical to
-  the measured winner (results/run5/fresh/).
-- Determinism held throughout (every canary bit-identical), and the
-  likeness metric shows no architecture bias (Z-stranger 0.337 vs
-  SDXL-stranger 0.335).
+PROVEN (measured, verifier-re-derived):
+- The additive-freckle rule you hypothesized: res_multistep adds a
+  ~constant texture increment (+0.43/+0.55 at the two base levels) — so
+  it helped the texture-poor SHIP architecture and overshoots on PC.
+  On PC it wins nowhere measurable, including its own tiled slots.
+- Sampler preference is architecture-specific (your S4 verdict did not
+  carry, exactly as you suspected).
+- Mouth stage: fired only where useless (closed mouths), blocked by its
+  own 4M area ceiling on open-mouth close-ups (91 px difference there).
+  Deleted; lips_v1.pt left the graph with it.
+- Settled-number audit on the new base: 617@0.25 confirmed (0.15 LOSES
+  likeness — the Z refine pulls toward the character), 98@0.08 near-dead,
+  eyes@0.42 flat, face steps 8 confirmed, face denoise 0.50 (your pick)
+  over the old settled 0.35.
+- Negatives are live on the base at cfg 2 (mechanism + 76.2% pixel steer
+  from a negative-only edit); they lose direct positive conflicts.
+- The proof chain: your pick → api graph → UI file (round-trip EQUIVALENT,
+  66 nodes) → browser full-render gate PASS → three distinct comp proofs.
+  The proofs CAUGHT A SHIP BUG (the base ignored the typed 483 prompt —
+  all comps rendered identical) — fixed, re-proven distinct.
+- Fresh-tree one-command install: [GATE RESULT PENDING]
+- Structural interrogation (F): run order, colormatch, blend, VAE trip,
+  double-face — every A/B lost or tied vs PC1; the structure is unchanged
+  but now evidenced. The VAE round trip and double face pass left with
+  the SDXL chain.
 
 MY JUDGEMENT (override freely):
-- LUNA-Z as the ship default (metric + my eye agree; your eye rules).
-- Keeping euler_ancestral/kl_optimal on the face pass (vendor template says
-  res_multistep/simple; Q3 says that direction adds heavy freckle character;
-  S4 is the tile).
-- Keeping the 1x SkinDiff pass and colormatch chain (measured near-no-op;
-  kept for stability).
-- Dropping the Image Comparer node from the personal workflow.
-- Face denoise 0.35 kept (identity now arrives from the base; the ladder is
-  S9 if you want more).
+- The hands combo tile reads photographic (S14) — n=1 per arm.
+- PC1's PT frame reads photographed; CU at 30/cfg2 reads processed (S12).
+- The film-sentence frame is the best-looking image of the run (S15).
+- Keeping rms in the tiled slots despite S18's metric (your S3 body
+  verdict was formed with rms there; the swap is sheeted, not applied).
 
-## The four defects, closed out
+## Character-generality (constraint 1)
 
-- LIKENESS: structural, fixed by architecture (0.59 → 0.73-0.77; the
-  remaining gap to 0.92 is resampling/composite loss, not identity drift).
-- PLASTIC SKIN: the SDXL chain never reached reference texture anywhere
-  (7.5-8.9 face / 6.1-7.5 body vs ref 10.6/9.5); LUNA-Z lands 10.3-11.5 /
-  9.5-9.7. Body skin now gets real freckle texture.
-- LIGHTING: no honest single metric (first claim was retracted by my own
-  verifier); deeper shadows + warmer directional light visible in S2 —
-  your eye decides.
-- HANDS: the pass DOES fire (Q1's zero-detection was composition-specific);
-  it ran LoRA-less on raw SDXL. Now Z-native; textured but n=1 nail
-  artifact on one arm — S5/S10, watch it in use.
+The shipped workflow is neutral: LoRA widget "None", placeholder prompts,
+nothing Luna-named anywhere in it (the vendored luna/lunaskye FILES ride
+in the pack as your content). CONFIG-SPEC.txt marks every setting
+GENERAL/SPECIFIC with defaults + ranges; CHARACTER-SWAP-CHECKLIST.txt is
+in the pack root and README points to it. Generalisation beyond Luna is
+UNPROVEN (single-LoRA pod) — the checklist is the mitigation, and
+cos-to-Luna numbers are instrument readings, not the goal.
+
+## Black renders (agent D)
+
+Same story as the pod-independent GitHub issue this project already filed
+(#15110): intermittent Z-side NaN, per-graph deterministic within a boot,
+varies across boots, ~8% of renders, both architectures, LUNA-Z/PC default
+config 5/5 clean across boots but NOT immune as a class. Research located
+three concrete mechanisms (bf16 path has NO NaN clamp upstream; xformers
+cutlass kernels on sm_120 carried every failure; ComfyUI's default
+2-stream async offload meets cuBLAS's documented multi-stream
+nondeterminism, fixed in torch 2.10). Experiment matrix:
+[D-MATRIX RESULT PENDING — arms: baseline / no-xformers /
+no-async-offload / CUBLAS workspace / fp32]
+Interim mitigation (measured all session): re-render on a fresh boot
+always cleared it; the fresh-install gate black-checks its render.
+
+## The pack
+
+`dist-personal/AIOFMTech-NSFW-Personal.tar.gz`
+sha256 80977842… (PACK.txt), 163 files. Workflow member 50b2b3ff….
+Publish + one-liner: OWNER-ACTIONS-PERSONAL.md — the live sellable gist,
+unchanged, with AIOFM_PACK_URL pointed at your hosting. Nothing sellable
+was touched at any point (builder refuses to write into dist/).
 
 ## Open items, honest
 
-- **Intermittent black Z-renders on this pod** (~7 in ~90), both
-  architectures, incl. the CURRENT shipping graph on the portrait comp
-  (2/2 boots). Per-graph deterministic within a boot; re-render on a fresh
-  boot clears it; LUNA-Z default was 5/5 clean. Strength-0.8 and
-  ZeroOut-negative theories tested and falsified. Suspect (unproven):
-  torch 2.9.1+cu128 numeric edge on Blackwell. Root-cause session
-  recommended; repro graphs preserved.
-- lunaskye is the weak link if you ever return to SDXL: 2250 steps vs
-  luna's 5000, half-fidelity ceiling. V9's card claims better LoRA
-  training; a lunaskye-on-V9 retrain would be the experiment.
-- Retraining luna on Z-Image BASE would unlock real negatives + 28-50-step
-  quality and the base model's higher diversity (vendor: Turbo is
-  "Diversity: Low"). ai-toolkit supports it.
-- V10 (Krea 2) unlocks Aug 10: needs ComfyUI ≥0.26 (this build pins
-  0.15.1). Full runbook in notes/V10-krea2-runbook.md; the base slot in
-  the personal graph is three link changes.
-- The mouth pass now runs on full-body; its output is subtle (lips-region
-  only). If you want more, the lever is mouth denoise, one arm.
-
-## The one-liner (after you publish per OWNER-ACTIONS-PERSONAL.md)
-
-    AIOFM_PACK_URL=<your-hosted-pack-url> \
-    bash <(wget -qO- <live-gist-raw-url>)
-
-Same bootstrap as the sellable, personal pack URL, nothing sellable
-touched: dist/AIOFMTech-NSFW.tar.gz, the gist, and the HF paths are
-byte-untouched by this run (the pack builder refuses to write into dist/).
+- Close-up regime for the 30/cfg2 base (S12): documented; cfg-1.5-on-CU
+  is the one untested arm that could dissolve it.
+- S18 tiled-sampler swap: metric says yes, your S3 eye said rms — decide
+  from the sheet.
+- Black-render root cause: [PENDING — see D-matrix section].
+- V10/Krea2 (unlocks Aug 10): runbook ready (notes/V10-krea2-runbook.md);
+  needs a core upgrade session.
+- Retraining luna on Z-Image BASE would unlock real negatives + the base
+  model's diversity; lunaskye is the weak link if SDXL ever returns.
+- Exclusive-region SEGS for the face/eyes overlap: deferred, low priority.
