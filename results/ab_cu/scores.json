@@ -28,5 +28,45 @@
   "face_px_h": 2615.0,
   "frame_luma_sd": 54.3,
   "frame_warmth": 57.8
+ },
+ "D_b8c10_den25/img_00001_.png": {
+  "bodyHF": null,
+  "cos": 0.7597,
+  "det": 0.856,
+  "faceHF": 11.49,
+  "face_lapvar": 311.0,
+  "face_px_h": 2653.0,
+  "frame_luma_sd": 50.7,
+  "frame_warmth": 59.2
+ },
+ "E_b8c10_den45/img_00001_.png": {
+  "bodyHF": 4.49,
+  "cos": 0.5503,
+  "det": 0.847,
+  "faceHF": 10.89,
+  "face_lapvar": 322.0,
+  "face_px_h": 2588.0,
+  "frame_luma_sd": 49.9,
+  "frame_warmth": 59.9
+ },
+ "F_b30c15_den25/img_00001_.png": {
+  "bodyHF": 5.07,
+  "cos": 0.6612,
+  "det": 0.864,
+  "faceHF": 11.89,
+  "face_lapvar": 332.0,
+  "face_px_h": 2636.0,
+  "frame_luma_sd": 53.0,
+  "frame_warmth": 57.5
+ },
+ "G_b30c15_den45/img_00001_.png": {
+  "bodyHF": 4.37,
+  "cos": 0.6217,
+  "det": 0.863,
+  "faceHF": 10.93,
+  "face_lapvar": 326.0,
+  "face_px_h": 2612.0,
+  "frame_luma_sd": 52.1,
+  "frame_warmth": 58.3
  }
 }

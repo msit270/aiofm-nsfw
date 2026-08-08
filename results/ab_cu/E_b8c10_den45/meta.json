@@ -1,0 +1,18 @@
+{
+ "arm": "E_b8c10_den45",
+ "ok": true,
+ "exec_s": 170.923,
+ "prompt_id": "2370facd-ae97-42b0-abc8-853103d49cd6",
+ "images": {
+  "img_00001_.png": {
+   "mean": 128.87,
+   "std": 55.8,
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

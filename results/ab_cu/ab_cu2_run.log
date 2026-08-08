@@ -1,0 +1,9 @@
+D_b8c10_den25: gate PASS — diffs vs P_CU are exactly [('ZB_k', 'cfg'), ('ZB_k', 'steps')]
+E_b8c10_den45: gate PASS — diffs vs P_CU are exactly [('619:617', 'denoise'), ('ZB_k', 'cfg'), ('ZB_k', 'steps')]
+F_b30c15_den25: gate PASS — diffs vs P_CU are exactly [('ZB_k', 'cfg')]
+G_b30c15_den45: gate PASS — diffs vs P_CU are exactly [('619:617', 'denoise'), ('ZB_k', 'cfg')]
+[D_b8c10_den25] ok exec=152.3s
+[E_b8c10_den45] ok exec=170.9s
+[F_b30c15_den25] ok exec=183.6s
+[G_b30c15_den45] ok exec=184.0s
+AB_CU round 2 done
