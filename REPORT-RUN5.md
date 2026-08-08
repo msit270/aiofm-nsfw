@@ -2,8 +2,9 @@
 
 Phone-readable. Every number traces to `results/run5/` (likeness_scores.json,
 tap_metrics.json, light_metrics.json, mouth_deletion.json, Dmatrix/,
-per-arm api_graph/history). Four fresh-context verifier passes:
-`results/run5/verify/`. The phase-3 report (pre-verdict) is preserved as
+per-arm api_graph/history). Four fresh-context verifier passes (`results/run5/verify/`); the final
+pass re-derived every listed number exactly and its two shipped nits
+(note text, dead lips_v1 fetch) are fixed in pack v2 a2b44dbc…. The phase-3 report (pre-verdict) is preserved as
 REPORT-RUN5-phase3.md.
 
 ## One sentence
