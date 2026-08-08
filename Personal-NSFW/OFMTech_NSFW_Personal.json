@@ -3171,8 +3171,8 @@
    "widgets_values": [
     0,
     "fixed",
-    30,
-    2.0,
+    8,
+    1.0,
     "res_multistep",
     "simple",
     1.0
