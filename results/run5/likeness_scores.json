@@ -2293,6 +2293,78 @@
   "K/canaryK2/img/img_00001_.png": {
    "cos_to_luna": 0.9364852689604255,
    "det": 0.7594242095947266
+  },
+  "L/L_add8_ea_FB/Instaraw/SDXL/Metadata/HasMetadata_00001_.png": {
+   "cos_to_luna": 0.7958809162775677,
+   "det": 0.8396613597869873
+  },
+  "L/L_add8_ea_FB/T00_zbase_00001_.png": {
+   "cos_to_luna": 0.811590695476637,
+   "det": 0.8252295255661011
+  },
+  "L/L_add8_ea_FB/T02_nmkd595_00001_.png": {
+   "cos_to_luna": 0.7956263922214363,
+   "det": 0.8195084929466248
+  },
+  "L/L_add8_ea_FB/T05_usdu617_00001_.png": {
+   "cos_to_luna": 0.7121588029284502,
+   "det": 0.8161964416503906
+  },
+  "L/L_add8_ea_FB/T06_hands92_00001_.png": {
+   "cos_to_luna": 0.7121588029284502,
+   "det": 0.8161964416503906
+  },
+  "L/L_add8_ea_FB/T07_blend87_00001_.png": {
+   "cos_to_luna": 0.7143643930154547,
+   "det": 0.8122755289077759
+  },
+  "L/L_add8_ea_FB/T08_usdu98_00001_.png": {
+   "cos_to_luna": 0.6519072222064719,
+   "det": 0.8237262964248657
+  },
+  "L/L_add8_ea_FB/T10_zface114_00001_.png": {
+   "cos_to_luna": 0.8011268183090005,
+   "det": 0.8386032581329346
+  },
+  "L/L_add8_ea_FB/T12_mouth163_00001_.png": {
+   "cos_to_luna": 0.795379321578391,
+   "det": 0.8384981155395508
+  },
+  "L/L_add8_rms_FB/Instaraw/SDXL/Metadata/HasMetadata_00001_.png": {
+   "cos_to_luna": 0.7663913017758768,
+   "det": 0.8325773477554321
+  },
+  "L/L_add8_rms_FB/T00_zbase_00001_.png": {
+   "cos_to_luna": 0.811590695476637,
+   "det": 0.8252295255661011
+  },
+  "L/L_add8_rms_FB/T02_nmkd595_00001_.png": {
+   "cos_to_luna": 0.7956263922214363,
+   "det": 0.8195084929466248
+  },
+  "L/L_add8_rms_FB/T05_usdu617_00001_.png": {
+   "cos_to_luna": 0.7121588029284502,
+   "det": 0.8161964416503906
+  },
+  "L/L_add8_rms_FB/T06_hands92_00001_.png": {
+   "cos_to_luna": 0.7121588029284502,
+   "det": 0.8161964416503906
+  },
+  "L/L_add8_rms_FB/T07_blend87_00001_.png": {
+   "cos_to_luna": 0.7143643930154547,
+   "det": 0.8122755289077759
+  },
+  "L/L_add8_rms_FB/T08_usdu98_00001_.png": {
+   "cos_to_luna": 0.6519072222064719,
+   "det": 0.8237262964248657
+  },
+  "L/L_add8_rms_FB/T10_zface114_00001_.png": {
+   "cos_to_luna": 0.761586591324044,
+   "det": 0.8311002850532532
+  },
+  "L/L_add8_rms_FB/T12_mouth163_00001_.png": {
+   "cos_to_luna": 0.7593618411851332,
+   "det": 0.8326073884963989
   }
  }
 }
