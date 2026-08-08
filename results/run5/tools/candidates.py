@@ -209,6 +209,13 @@ def pc_final(mouth="delete", hands_prompt="neutral", base_steps=30,
     mouth: "delete" | "keep"; hands_prompt: "neutral" | "ship"."""
     g = photo_config(base_steps=base_steps, base_cfg=base_cfg,
                      face_denoise=face_denoise, taps={}, seed=12345)
+    # the owner's prompt/seed UI must DRIVE the base: wire the 483 chain.
+    # (ZB_neg was wired by photo_config; the POSITIVE was not — caught by
+    # the batch-M proof renders: all three "different-comp" proofs came
+    # out bit-identical because ZB_pos held a literal.)
+    g["ZB_pos"]["inputs"]["text"] = ["619:590", 0]
+    g["ZU_pos"]["inputs"]["text"] = ["619:590", 0]
+    g["ZB_k"]["inputs"]["seed"] = ["483", 2]
     # neutral character inputs
     g["620:106"]["inputs"]["text"] = "TRIGGER, PROMPT FOR YOUR MODEL"
     g["116"]["inputs"]["lora_01"] = "None"
@@ -223,10 +230,17 @@ def pc_final(mouth="delete", hands_prompt="neutral", base_steps=30,
     if hands_prompt == "neutral":
         g["587:93"]["inputs"]["text"] = ("young woman's hand, smooth soft "
             "skin, natural hand, elegant fingers, neat fingernails")
+    # adopted hands combo (batch J): sample the hand crop at 768
+    g["587:92"]["inputs"]["guide_size"] = 768
+    g["587:92"]["inputs"]["max_size"] = 768
     for nid, kv in (extra_overrides or {}).items():
         g[nid]["inputs"].update(kv)
     for (nid, inp), src in (extra_rewires or {}).items():
         g[nid]["inputs"][inp] = src
+    # lighting dial exposed (inert at the ZImage class default 3.0)
+    g["ZBms"] = {"class_type": "ModelSamplingAuraFlow",
+                 "inputs": {"shift": 3.0, "model": ["116", 0]}}
+    g["ZB_k"]["inputs"]["model"] = ["ZBms", 0]
     g["619:603"]["inputs"]["pick_list"] = pick_list
     g["505"]["inputs"]["filename_prefix"] = "Personal/render"
     # prune unreachable (dead SDXL side etc.)

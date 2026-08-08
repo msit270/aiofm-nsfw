@@ -1,9 +1,16 @@
-AIOFMTech-NSFW-Personal.tar.gz — run-5 cut (2026-08-07)
-archive sha256 : 8573e474ecedf420a8294b2e2c7ab5737a335e3648292cdf5f3d726544cc486f
-size           : 289101521 bytes, 161 files, top-level AIOFMTech-NSFW-Personal/
-workflow member: OFMTech_NSFW_Personal.json 60894 bytes
-                 sha256 f89bb021bde60fbdd5d45b81e79222a5bc964f71dfcdef3e2f4407ac0b32c958
-installer member sha256: 99a2a78a7a3a91b8e33b2c0619c33ad1e9240ecbe626f447d282e320a47dfadd
-built by tools/build_pack_personal.sh (reproducible; dist/ write-guard active)
-The workflow member's graph == final_luna_z_api.json (harness round-trip
-EQUIVALENT) whose render is bit-identical to the measured D_lunaz_FB winner.
+AIOFMTech-NSFW-Personal.tar.gz — run-5 FINAL cut (2026-08-08, post-verdict)
+archive sha256 : 809778424d42b898eb088dda2b390c1599cd43ab3793a9e3148897a91d20cef9
+size           : 289107207 bytes, 163 files, top-level AIOFMTech-NSFW-Personal/
+workflow member: OFMTech_NSFW_Personal.json 55624 bytes (PC config, 66 nodes,
+                 character-neutral, mouth stage deleted, hands combo, shift dial)
+                 sha256 50b2b3ff863bc450528ebc52ee1457babe1508b6b82bd0a39352f13252677c1b
+installer sha256: 99a2a78a7a3a91b8e33b2c0619c33ad1e9240ecbe626f447d282e320a47dfadd
+docs in pack   : README-PERSONAL, CONFIG-SPEC (general/specific ledger),
+                 CHARACTER-SWAP-CHECKLIST
+proof chain    : owner S11 pick (PC1 ea 0.50) -> pc_final api graph ->
+                 harness round-trip EQUIVALENT (66 nodes) -> browser
+                 full-render gate PASS (face 0.909) -> M2 proofs: 3 comps
+                 render DISTINCTLY (the 483 prompt-wiring ship-bug was
+                 caught by proofs and fixed), FB cos .789 / PT .731 /
+                 CU .644 (close-up caveat documented), neutral .234.
+supersedes     : 8573e474… (the pre-verdict LUNA-Z cut — do not publish)

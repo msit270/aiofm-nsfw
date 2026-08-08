@@ -1,0 +1,10 @@
+{
+ "arm": "canaryM2a",
+ "batch": "M2",
+ "ok": true,
+ "exec_s": 0.112,
+ "cached_nodes": 9,
+ "prompt_id": "db9292a0-fd20-4cca-bb19-c3549e741f8e",
+ "outputs_dir": "/workspace/run5/output/M2/canaryM2a",
+ "status_str": "success"
+}
