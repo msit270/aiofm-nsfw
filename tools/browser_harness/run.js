@@ -728,7 +728,7 @@ async function main() {
     // The first-boot Templates modal can appear late on a cold tree; keep
     // dismissing until the sidebar is actually reachable (max ~25 s).
     const t0 = Date.now();
-    while (Date.now() - t0 < 25000) {
+    while (Date.now() - t0 < 60000) {
       const closed = await page.evaluate(() => {
         const btn = document.querySelector('.p-dialog .p-dialog-close-button, .p-dialog [data-pc-section="closebutton"]');
         if (btn) { btn.click(); return true; }
@@ -759,6 +759,18 @@ async function main() {
 
   if (opt.loadMode === 'ui') {
     try {
+      if (process.env.RUN5_DISMISS_BOOT === '1') {
+        for (let i = 0; i < 30; i++) {
+          const blocked = await page.evaluate(() => {
+            const btn = document.querySelector('.p-dialog .p-dialog-close-button, .p-dialog [data-pc-section="closebutton"]');
+            if (btn) { btn.click(); return true; }
+            return !!document.querySelector('.p-dialog-mask, .p-overlay-mask');
+          }).catch(() => false);
+          if (!blocked) break;
+          await page.keyboard.press('Escape').catch(() => {});
+          await sleep(1000);
+        }
+      }
       await page.click('[data-testid="side-toolbar"] button.workflows-tab-button', { timeout: 20000 });
       await page.waitForSelector('[data-testid="workflows-sidebar"]', { timeout: 20000 });
       const byKey = page.locator(`[data-testid="tree-node-root/${wfName}.json"]`);

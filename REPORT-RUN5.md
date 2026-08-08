@@ -75,7 +75,13 @@ PROVEN (measured, verifier-re-derived):
   66 nodes) → browser full-render gate PASS → three distinct comp proofs.
   The proofs CAUGHT A SHIP BUG (the base ignored the typed 483 prompt —
   all comps rendered identical) — fixed, re-proven distinct.
-- Fresh-tree one-command install: [GATE RESULT PENDING]
+- Fresh-tree one-command install: PASS on the final cut — exit 0 in
+  164 s via the live gist + AIOFM_PACK_URL, V9 re-fetched from Civitai
+  byte-exact, vendored LoRAs arrived, the personal workflow opened
+  through the real UI on the fresh tree and rendered end-to-end
+  (healthy, face 0.909; results/run5/fresh2/). One harness fix was
+  needed mid-gate (the first-boot Templates modal appears late on a
+  cold tree; dismissal loop extended) — a tooling fix, not a pack fix.
 - Structural interrogation (F): run order, colormatch, blend, VAE trip,
   double-face — every A/B lost or tied vs PC1; the structure is unchanged
   but now evidenced. The VAE round trip and double face pass left with

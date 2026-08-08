@@ -1,0 +1,233 @@
+Setting output directory to: /workspace/nsfw-quality/results/run5/fresh2/render
+
+Prestartup times for custom nodes:
+   0.0 seconds: /workspace/comfy-fresh6/custom_nodes/rgthree-comfy
+
+WARNING: You need pytorch with cu130 or higher to use optimized CUDA operations.
+Found comfy_kitchen backend eager: {'available': True, 'disabled': False, 'unavailable_reason': None, 'capabilities': ['apply_rope', 'apply_rope1', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'scaled_mm_nvfp4']}
+Found comfy_kitchen backend triton: {'available': True, 'disabled': True, 'unavailable_reason': None, 'capabilities': ['apply_rope', 'apply_rope1', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8']}
+Found comfy_kitchen backend cuda: {'available': True, 'disabled': True, 'unavailable_reason': None, 'capabilities': ['apply_rope', 'apply_rope1', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8']}
+Checkpoint files will always be loaded safely.
+Total VRAM 97250 MB, total RAM 126401 MB
+pytorch version: 2.9.1+cu128
+xformers version: 0.0.33.post2
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 NVIDIA RTX PRO 6000 Blackwell Server Edition : cudaMallocAsync
+Using async weight offloading with 2 streams
+Enabled pinned memory 120081.0
+working around nvidia conv3d memory bug.
+Using xformers attention
+/venv/main/lib/python3.12/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+Python version: 3.12.12 | packaged by conda-forge | (main, Oct 22 2025, 23:25:55) [GCC 14.3.0]
+ComfyUI version: 0.15.1
+ComfyUI frontend version: 1.39.19
+[Prompt Server] web root: /venv/main/lib/python3.12/site-packages/comfyui_frontend_package/static
+### Loading: ComfyUI-Impact-Pack (V8.28.3)
+[Impact Pack] Wildcard total size (0.00 MB) is within cache limit (50.00 MB). Using full cache mode.
+[Impact Pack] Wildcards loading done.
+### Loading: ComfyUI-Impact-Subpack (V1.3.5)
+[Impact Pack/Subpack] Using folder_paths to determine whitelist path: /workspace/comfy-fresh6/user/default/ComfyUI-Impact-Subpack/model-whitelist.txt
+[Impact Pack/Subpack] Ensured whitelist directory exists: /workspace/comfy-fresh6/user/default/ComfyUI-Impact-Subpack
+[Impact Pack/Subpack] Loaded 3 model(s) from whitelist: /workspace/comfy-fresh6/user/default/ComfyUI-Impact-Subpack/model-whitelist.txt
+[Impact Subpack] ultralytics_bbox: /workspace/comfy-fresh6/models/ultralytics/bbox
+[Impact Subpack] ultralytics_segm: /workspace/comfy-fresh6/models/ultralytics/segm
+[36;20m[/workspace/comfy-fresh6/custom_nodes/comfyui_controlnet_aux] | INFO -> Using ckpts path: /workspace/comfy-fresh6/custom_nodes/comfyui_controlnet_aux/ckpts[0m
+[36;20m[/workspace/comfy-fresh6/custom_nodes/comfyui_controlnet_aux] | INFO -> Using symlinks: False[0m
+[36;20m[/workspace/comfy-fresh6/custom_nodes/comfyui_controlnet_aux] | INFO -> Using ort providers: ['CUDAExecutionProvider', 'DirectMLExecutionProvider', 'OpenVINOExecutionProvider', 'ROCMExecutionProvider', 'CPUExecutionProvider', 'CoreMLExecutionProvider'][0m
+USDU batch patches applied successfully.
+USDU batch patches applied successfully.
+
+Import times for custom nodes:
+   0.0 seconds: /workspace/comfy-fresh6/custom_nodes/ComfyUI_UltimateSDUpscale
+   0.0 seconds: /workspace/comfy-fresh6/custom_nodes/rgthree-comfy
+   0.0 seconds: /workspace/comfy-fresh6/custom_nodes/comfyui_controlnet_aux
+   0.0 seconds: /workspace/comfy-fresh6/custom_nodes/ComfyUI_essentials
+   0.0 seconds: /workspace/comfy-fresh6/custom_nodes/ComfyUI_INSTARAW
+   0.1 seconds: /workspace/comfy-fresh6/custom_nodes/ComfyUI-Impact-Pack
+   0.1 seconds: /workspace/comfy-fresh6/custom_nodes/ComfyUI-Impact-Subpack
+
+Context impl SQLiteImpl.
+Will assume non-transactional DDL.
+Assets scan(roots=['models']) completed in 0.013s (created=0, skipped_existing=72, orphans_pruned=0, total_seen=73)
+Starting server
+
+To see the GUI go to: http://127.0.0.1:31980
+[DEPRECATION WARNING] Detected import of deprecated legacy API: /scripts/ui.js. This is likely caused by a custom node extension using outdated APIs. Please update your extensions or contact the extension author for an updated version.
+[DEPRECATION WARNING] Detected import of deprecated legacy API: /extensions/core/clipspace.js. This is likely caused by a custom node extension using outdated APIs. Please update your extensions or contact the extension author for an updated version.
+got prompt
+Loads SAM model: /workspace/comfy-fresh6/models/sams/sam_vit_b_01ec64.pth (device:AUTO)
+Requested to load ZImageTEModel_
+loaded completely;  7672.25 MB loaded, full load: True
+CLIP/text encoder model load device: cpu, offload device: cpu, current: cpu, dtype: torch.float16
+Using xformers attention in VAE
+Using xformers attention in VAE
+VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+model weight dtype torch.bfloat16, manual cast: None
+model_type FLOW
+/venv/main/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Requested to load Lumina2
+loaded completely; 81891.96 MB usable, 11739.54 MB loaded, full load: True
+
+[92m[rgthree-comfy] Loaded 48 epic nodes. 🎉[0m
+
+[33m[rgthree-comfy] ComfyUI's new Node 2.0 rendering may be incompatible with some rgthree-comfy nodes and features, breaking some rendering as well as losing the ability to access a node's properties (a vital part of many nodes). It also appears to run MUCH more slowly spiking CPU usage and causing jankiness and unresponsiveness, especially with large workflows. Personally I am not planning to use the new Nodes 2.0 and, unfortunately, am not able to invest the time to investigate and overhaul rgthree-comfy where needed. If you have issues when Nodes 2.0 is enabled, I'd urge you to switch it off as well and join me in hoping ComfyUI is not planning to deprecate the existing, stable canvas rendering all together.
+[0m
+DWPose: Onnxruntime with acceleration providers detected
+[RPG Creative API] Endpoint registered: POST /instaraw/generate_creative_prompts
+[RPG Character API] Endpoint registered: POST /instaraw/generate_character_description
+[RPG Prompts API] Endpoint registered: POST /instaraw/get_random_prompts
+
+================================================================================
+[PROMPT BATCH PREVIEW] Total: 1 prompts
+================================================================================
+
+[1/1] Seed: 12345
+  ✅ Positive: photorealistic portrait photograph of a young woman standing in soft window light, natural skin text...
+  ❌ Negative: bad quality, worst quality, low quality, deformed, extra fingers, watermark, text
+
+================================================================================
+
+  0%|                                                                                                                                          | 0/30 [00:00<?, ?it/s]  3%|████▎                                                                                                                             | 1/30 [00:00<00:13,  2.10it/s]  7%|████████▋                                                                                                                         | 2/30 [00:00<00:12,  2.33it/s] 10%|█████████████                                                                                                                     | 3/30 [00:01<00:11,  2.42it/s] 13%|█████████████████▎                                                                                                                | 4/30 [00:01<00:10,  2.46it/s] 17%|█████████████████████▋                                                                                                            | 5/30 [00:02<00:10,  2.49it/s] 20%|██████████████████████████                                                                                                        | 6/30 [00:02<00:09,  2.50it/s] 23%|██████████████████████████████▎                                                                                                   | 7/30 [00:02<00:09,  2.51it/s] 27%|██████████████████████████████████▋                                                                                               | 8/30 [00:03<00:08,  2.52it/s] 30%|███████████████████████████████████████                                                                                           | 9/30 [00:03<00:08,  2.52it/s] 33%|███████████████████████████████████████████                                                                                      | 10/30 [00:04<00:07,  2.52it/s] 37%|███████████████████████████████████████████████▎                                                                                 | 11/30 [00:04<00:07,  2.52it/s] 40%|███████████████████████████████████████████████████▌                                                                             | 12/30 [00:04<00:07,  2.52it/s] 43%|███████████████████████████████████████████████████████▉                                                                         | 13/30 [00:05<00:06,  2.53it/s] 47%|████████████████████████████████████████████████████████████▏                                                                    | 14/30 [00:05<00:06,  2.53it/s] 50%|████████████████████████████████████████████████████████████████▌                                                                | 15/30 [00:06<00:05,  2.53it/s] 53%|████████████████████████████████████████████████████████████████████▊                                                            | 16/30 [00:06<00:05,  2.53it/s] 57%|█████████████████████████████████████████████████████████████████████████                                                        | 17/30 [00:06<00:05,  2.52it/s] 60%|█████████████████████████████████████████████████████████████████████████████▍                                                   | 18/30 [00:07<00:04,  2.52it/s] 63%|█████████████████████████████████████████████████████████████████████████████████▋                                               | 19/30 [00:07<00:04,  2.52it/s] 67%|██████████████████████████████████████████████████████████████████████████████████████                                           | 20/30 [00:08<00:03,  2.52it/s] 70%|██████████████████████████████████████████████████████████████████████████████████████████▎                                      | 21/30 [00:08<00:03,  2.52it/s] 73%|██████████████████████████████████████████████████████████████████████████████████████████████▌                                  | 22/30 [00:08<00:03,  2.51it/s] 77%|██████████████████████████████████████████████████████████████████████████████████████████████████▉                              | 23/30 [00:09<00:02,  2.51it/s] 80%|███████████████████████████████████████████████████████████████████████████████████████████████████████▏                         | 24/30 [00:09<00:02,  2.51it/s] 83%|███████████████████████████████████████████████████████████████████████████████████████████████████████████▌                     | 25/30 [00:09<00:01,  2.51it/s] 87%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                 | 26/30 [00:10<00:01,  2.51it/s] 90%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████             | 27/30 [00:10<00:01,  2.51it/s] 93%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍        | 28/30 [00:11<00:00,  2.51it/s] 97%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋    | 29/30 [00:11<00:00,  2.50it/s]100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 30/30 [00:11<00:00,  2.50it/s]100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 30/30 [00:11<00:00,  2.50it/s]
+Requested to load AutoencodingEngine
+loaded completely; 66608.63 MB usable, 159.87 MB loaded, full load: True
+[USDU Batch Debug] Patched script.run() preserving batch_size=1
+[USDU Batch Debug] Patched script.run() preserving batch_size=1
+[USDU Batch Debug] linear_process called batch_size=1 rows=2 cols=2 total_tiles=4
+[USDU Batch Debug] linear_process called batch_size=1 rows=2 cols=2 total_tiles=4
+[USDU Batch Debug] Using original single-tile processing (batch_size=1)
+[USDU Batch Debug] Using original single-tile processing (batch_size=1)
+Canva size: 1792x2304
+Image size: 1434x1843
+Scale factor: 2
+Upscaling iteration 1 with scale factor 2
+Tile size: 896x1152
+Tiles amount: 4
+Grid: 2x2
+Redraw enabled: True
+Seams fix mode: NONE
+USDU:   0%|                                                                                                                                   | 0/4 [00:00<?, ?tile/s]
+  0%|                                                                                                                                           | 0/8 [00:00<?, ?it/s][A
+ 12%|████████████████▍                                                                                                                  | 1/8 [00:00<00:01,  4.50it/s][A
+ 25%|████████████████████████████████▊                                                                                                  | 2/8 [00:00<00:01,  4.40it/s][A
+ 38%|█████████████████████████████████████████████████▏                                                                                 | 3/8 [00:00<00:01,  4.35it/s][A
+ 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 4/8 [00:00<00:00,  4.32it/s][A
+ 62%|█████████████████████████████████████████████████████████████████████████████████▉                                                 | 5/8 [00:01<00:00,  4.31it/s][A
+ 75%|██████████████████████████████████████████████████████████████████████████████████████████████████▎                                | 6/8 [00:01<00:00,  4.30it/s][A
+ 88%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                | 7/8 [00:01<00:00,  4.29it/s][A
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  4.29it/s][A100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  4.31it/s]
+USDU:  25%|██████████████████████████████▊                                                                                            | 1/4 [00:02<00:06,  2.00s/tile]
+  0%|                                                                                                                                           | 0/8 [00:00<?, ?it/s][A
+ 12%|████████████████▍                                                                                                                  | 1/8 [00:00<00:01,  4.49it/s][A
+ 25%|████████████████████████████████▊                                                                                                  | 2/8 [00:00<00:01,  4.40it/s][A
+ 38%|█████████████████████████████████████████████████▏                                                                                 | 3/8 [00:00<00:01,  4.36it/s][A
+ 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 4/8 [00:00<00:00,  4.33it/s][A
+ 62%|█████████████████████████████████████████████████████████████████████████████████▉                                                 | 5/8 [00:01<00:00,  4.32it/s][A
+ 75%|██████████████████████████████████████████████████████████████████████████████████████████████████▎                                | 6/8 [00:01<00:00,  4.31it/s][A
+ 88%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                | 7/8 [00:01<00:00,  4.31it/s][A
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  4.30it/s][A100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  4.33it/s]
+USDU:  50%|█████████████████████████████████████████████████████████████▌                                                             | 2/4 [00:04<00:04,  2.09s/tile]
+  0%|                                                                                                                                           | 0/8 [00:00<?, ?it/s][A
+ 12%|████████████████▍                                                                                                                  | 1/8 [00:00<00:01,  4.47it/s][A
+ 25%|████████████████████████████████▊                                                                                                  | 2/8 [00:00<00:01,  4.38it/s][A
+ 38%|█████████████████████████████████████████████████▏                                                                                 | 3/8 [00:00<00:01,  4.34it/s][A
+ 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 4/8 [00:00<00:00,  4.32it/s][A
+ 62%|█████████████████████████████████████████████████████████████████████████████████▉                                                 | 5/8 [00:01<00:00,  4.31it/s][A
+ 75%|██████████████████████████████████████████████████████████████████████████████████████████████████▎                                | 6/8 [00:01<00:00,  4.31it/s][A
+ 88%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                | 7/8 [00:01<00:00,  4.30it/s][A
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  4.29it/s][A100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  4.31it/s]
+USDU:  75%|████████████████████████████████████████████████████████████████████████████████████████████▎                              | 3/4 [00:06<00:02,  2.12s/tile]
+  0%|                                                                                                                                           | 0/8 [00:00<?, ?it/s][A
+ 12%|████████████████▍                                                                                                                  | 1/8 [00:00<00:01,  4.43it/s][A
+ 25%|████████████████████████████████▊                                                                                                  | 2/8 [00:00<00:01,  4.36it/s][A
+ 38%|█████████████████████████████████████████████████▏                                                                                 | 3/8 [00:00<00:01,  4.33it/s][A
+ 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 4/8 [00:00<00:00,  4.31it/s][A
+ 62%|█████████████████████████████████████████████████████████████████████████████████▉                                                 | 5/8 [00:01<00:00,  4.30it/s][A
+ 75%|██████████████████████████████████████████████████████████████████████████████████████████████████▎                                | 6/8 [00:01<00:00,  4.29it/s][A
+ 88%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                | 7/8 [00:01<00:00,  4.28it/s][A
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  4.28it/s][A100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  4.30it/s]
+USDU: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:08<00:00,  2.14s/tile][USDU Batch Debug] Patched script.run() complete, batch_size=1
+[USDU Batch Debug] Patched script.run() complete, batch_size=1
+USDU: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:08<00:00,  2.17s/tile]
+0: 640x512 2 hands, 2.3ms
+Speed: 1.2ms preprocess, 2.3ms inference, 0.8ms postprocess per image at shape (1, 3, 640, 512)
+
+Detailer: force inpaint
+Detailer: segment upscale for ((np.float32(485.43018), np.float32(627.4785))) | crop region (729, 942) x 1.0 -> (729, 942)
+[Impact Pack] vae encoded in 0.1s
+Requested to load Lumina2
+  0%|                                                                                                                                           | 0/8 [00:00<?, ?it/s] 12%|████████████████▍                                                                                                                  | 1/8 [00:00<00:00,  7.85it/s] 25%|████████████████████████████████▊                                                                                                  | 2/8 [00:00<00:00,  7.82it/s] 38%|█████████████████████████████████████████████████▏                                                                                 | 3/8 [00:00<00:00,  7.70it/s] 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 4/8 [00:00<00:00,  7.58it/s] 62%|█████████████████████████████████████████████████████████████████████████████████▉                                                 | 5/8 [00:00<00:00,  7.58it/s] 75%|██████████████████████████████████████████████████████████████████████████████████████████████████▎                                | 6/8 [00:00<00:00,  7.52it/s] 88%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                | 7/8 [00:00<00:00,  7.51it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  7.52it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  7.58it/s]
+  0%|                                                                                                                                           | 0/8 [00:00<?, ?it/s] 12%|████████████████▍                                                                                                                  | 1/8 [00:00<00:00,  7.60it/s] 25%|████████████████████████████████▊                                                                                                  | 2/8 [00:00<00:00,  7.49it/s] 38%|█████████████████████████████████████████████████▏                                                                                 | 3/8 [00:00<00:00,  7.52it/s] 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 4/8 [00:00<00:00,  7.53it/s] 62%|█████████████████████████████████████████████████████████████████████████████████▉                                                 | 5/8 [00:00<00:00,  7.54it/s] 75%|██████████████████████████████████████████████████████████████████████████████████████████████████▎                                | 6/8 [00:00<00:00,  7.55it/s] 88%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                | 7/8 [00:00<00:00,  7.55it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  7.54it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  7.54it/s]
+[Impact Pack] vae decoded in 0.1s
+Detailer: force inpaint
+Detailer: segment upscale for ((np.float32(541.6184), np.float32(615.4606))) | crop region (812, 924) x 1.0 -> (812, 924)
+[Impact Pack] vae encoded in 0.1s
+  0%|                                                                                                                                           | 0/8 [00:00<?, ?it/s] 12%|████████████████▍                                                                                                                  | 1/8 [00:00<00:00,  7.16it/s] 25%|████████████████████████████████▊                                                                                                  | 2/8 [00:00<00:00,  7.04it/s] 38%|█████████████████████████████████████████████████▏                                                                                 | 3/8 [00:00<00:00,  6.95it/s] 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 4/8 [00:00<00:00,  6.91it/s] 62%|█████████████████████████████████████████████████████████████████████████████████▉                                                 | 5/8 [00:00<00:00,  6.91it/s] 75%|██████████████████████████████████████████████████████████████████████████████████████████████████▎                                | 6/8 [00:00<00:00,  6.88it/s] 88%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                | 7/8 [00:01<00:00,  6.87it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  6.87it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  6.90it/s]
+  0%|                                                                                                                                           | 0/8 [00:00<?, ?it/s] 12%|████████████████▍                                                                                                                  | 1/8 [00:00<00:01,  6.84it/s] 25%|████████████████████████████████▊                                                                                                  | 2/8 [00:00<00:00,  6.83it/s] 38%|█████████████████████████████████████████████████▏                                                                                 | 3/8 [00:00<00:00,  6.85it/s] 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 4/8 [00:00<00:00,  6.85it/s] 62%|█████████████████████████████████████████████████████████████████████████████████▉                                                 | 5/8 [00:00<00:00,  6.86it/s] 75%|██████████████████████████████████████████████████████████████████████████████████████████████████▎                                | 6/8 [00:00<00:00,  6.87it/s] 88%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                | 7/8 [00:01<00:00,  6.87it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  6.86it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  6.86it/s]
+[Impact Pack] vae decoded in 0.1s
+[USDU Batch Debug] Patched script.run() preserving batch_size=1
+[USDU Batch Debug] Patched script.run() preserving batch_size=1
+[USDU Batch Debug] linear_process called batch_size=1 rows=2 cols=2 total_tiles=4
+[USDU Batch Debug] linear_process called batch_size=1 rows=2 cols=2 total_tiles=4
+[USDU Batch Debug] Using original single-tile processing (batch_size=1)
+[USDU Batch Debug] Using original single-tile processing (batch_size=1)
+Canva size: 2688x3456
+Image size: 1792x2304
+Scale factor: 2
+Upscaling iteration 1 with scale factor 2
+Tile size: 1792x2304
+Tiles amount: 4
+Grid: 2x2
+Redraw enabled: True
+Seams fix mode: NONE
+USDU:   0%|                                                                                                                                   | 0/4 [00:00<?, ?tile/s]
+  0%|                                                                                                                                           | 0/2 [00:00<?, ?it/s][A
+ 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 1/2 [00:01<00:01,  1.19s/it][A
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:02<00:00,  1.20s/it][A100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:02<00:00,  1.20s/it]
+USDU:  25%|██████████████████████████████▊                                                                                            | 1/4 [00:02<00:08,  2.96s/tile]
+  0%|                                                                                                                                           | 0/2 [00:00<?, ?it/s][A
+ 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 1/2 [00:01<00:01,  1.19s/it][A
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:02<00:00,  1.20s/it][A100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:02<00:00,  1.20s/it]
+USDU:  50%|█████████████████████████████████████████████████████████████▌                                                             | 2/4 [00:06<00:06,  3.37s/tile]
+  0%|                                                                                                                                           | 0/2 [00:00<?, ?it/s][A
+ 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 1/2 [00:01<00:01,  1.20s/it][A
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:02<00:00,  1.21s/it][A100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:02<00:00,  1.21s/it]
+USDU:  75%|████████████████████████████████████████████████████████████████████████████████████████████▎                              | 3/4 [00:10<00:03,  3.51s/tile]
+  0%|                                                                                                                                           | 0/2 [00:00<?, ?it/s][A
+ 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 1/2 [00:01<00:01,  1.20s/it][A
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:02<00:00,  1.21s/it][A100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:02<00:00,  1.21s/it]
+USDU: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:13<00:00,  3.59s/tile][USDU Batch Debug] Patched script.run() complete, batch_size=1
+[USDU Batch Debug] Patched script.run() complete, batch_size=1
+USDU: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:14<00:00,  3.68s/tile]
+0: 640x512 1 face, 3.3ms
+Speed: 1.6ms preprocess, 3.3ms inference, 0.6ms postprocess per image at shape (1, 3, 640, 512)
+
+Detailer: force inpaint
+Detailer: segment upscale for ((np.float32(1026.8618), np.float32(1417.9526))) | crop region (1540, 2126) x 1.0 -> (1540, 2126)
+[Impact Pack] vae encoded in 0.3s
+Requested to load Lumina2
+  0%|                                                                                                                                           | 0/8 [00:00<?, ?it/s] 12%|████████████████▍                                                                                                                  | 1/8 [00:00<00:05,  1.20it/s] 25%|████████████████████████████████▊                                                                                                  | 2/8 [00:01<00:05,  1.19it/s] 38%|█████████████████████████████████████████████████▏                                                                                 | 3/8 [00:02<00:04,  1.18it/s] 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 4/8 [00:03<00:03,  1.18it/s] 62%|█████████████████████████████████████████████████████████████████████████████████▉                                                 | 5/8 [00:04<00:02,  1.18it/s] 75%|██████████████████████████████████████████████████████████████████████████████████████████████████▎                                | 6/8 [00:05<00:01,  1.18it/s] 88%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                | 7/8 [00:05<00:00,  1.18it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:06<00:00,  1.18it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:06<00:00,  1.18it/s]
+[Impact Pack] vae decoded in 0.4s
+
+0: 640x512 1 face, 3.6ms
+Speed: 1.9ms preprocess, 3.6ms inference, 0.7ms postprocess per image at shape (1, 3, 640, 512)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1786153472.201629   74188 gl_context_egl.cc:85] Successfully initialized EGL. Major : 1 Minor: 5
+I0000 00:00:1786153472.230192   74708 gl_context.cc:357] GL version: 3.2 (OpenGL ES 3.2 NVIDIA 580.82.07), renderer: NVIDIA RTX PRO 6000 Blackwell Server Edition/PCIe/SSE2
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+W0000 00:00:1786153472.232096   74685 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1786153472.237094   74679 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+/venv/main/lib/python3.12/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
+  warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
+# of Detected SEGS: 1
+# of Detected SEGS: 1
+# of Detected SEGS: 1
+# of Detected SEGS: 1
+# of Detected SEGS: 1
+Detailer: segment upscale for ((np.int64(961), np.int64(110))) | crop region (1407, 330) x 1.3646358527863536 -> (1920, 450)
+[Impact Pack] vae encoded in 0.1s
+Requested to load Lumina2
+  0%|                                                                                                                                           | 0/8 [00:00<?, ?it/s] 25%|████████████████████████████████▊                                                                                                  | 2/8 [00:00<00:00, 10.31it/s] 50%|█████████████████████████████████████████████████████████████████▌                                                                 | 4/8 [00:00<00:00,  7.15it/s] 62%|█████████████████████████████████████████████████████████████████████████████████▉                                                 | 5/8 [00:00<00:00,  6.69it/s] 75%|██████████████████████████████████████████████████████████████████████████████████████████████████▎                                | 6/8 [00:00<00:00,  6.39it/s] 88%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                | 7/8 [00:01<00:00,  6.21it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  6.09it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  6.54it/s]
+[Impact Pack] vae decoded in 0.1s
+Prompt executed in 150.26 seconds
