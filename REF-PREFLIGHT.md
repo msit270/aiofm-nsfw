@@ -1,4 +1,127 @@
-# REF-PREFLIGHT — reference workflow identity check (2026-08-08)
+# REF-PREFLIGHT — reference workflow identity check
+
+## RUN 6 (2026-08-08 12:2x): correct file received — PREFLIGHT PASS
+
+File: `reference/MarlAI_ImageGen_ZImage.json`
+sha256 8cccce5b0667de9c… · 151,793 bytes · uploaded 12:27
+
+### Identity
+
+A genuine Z-Image-Turbo stills workflow — flat graph, 93 nodes, no
+subgraphs. NOT home-built: it is a licensed vendor product — root notes
+read "MarlAI VIP - licensed copy / Licensed to: Stray / Issued:
+2026-06-14 / Do not redistribute", plus a "SynariAI" label node. Because
+of that license line the JSON stays UNTRACKED in git (hash above pins
+identity); analysis stays local to this pod.
+
+### Architecture (fully traced, Set/Get resolved — 20 KJNodes virtual links)
+
+One model chain feeds everything: UNETLoader `zimage.safetensors` →
+LoraLoaderModelOnly `aikozimage.safetensors` @ 0.8. One TE:
+CLIPLoaderGGUF `qwen-4b-zimage-heretic-q8.gguf` (lumina2) — an
+abliterated Qwen3-4B. One VAE everywhere: "UltraFlux VAE"
+(`diffusion_pytorch_model.safetensors`). Same positive+negative
+conditioning at every stage; negative = ~600-term Chinese anti-AI-look
+block (anti plastic-skin / influencer-face / studio-look).
+
+Progressive-upscale pyramid, portrait 7:9:
+- S1a draft: 112x144 px latent (#166) → SamplerCustom #448, euler_ancestral,
+  9 steps via FlowMatchEulerDiscreteScheduler(Custom) #507 (shift 3,
+  exponential), cfg 1, model shift 3 (#411)
+- S1b: latent x2 → 224x288 → ClownsharKSampler_Beta #408 (RES4LYF):
+  eta .52, linear/euler, beta57, 5 steps, denoise 0.7, cfg 2, bongmath,
+  perlin SharkOptions, DetailBoost 1.2 (steps 1-3), model = LoRA stack
+  (default shift 3)
+- S2: decode → re-encode (UltraFlux VAE roundtrip) → InjectLatentNoise 0.3
+  → IterativeLatentUpscale #147 x3 in 5 hops (Impact) → 672x864;
+  per-hop PixelKSampleUpscaler euler/beta 9 steps den 0.6 cfg 1,
+  model shift 6 (#88)
+- S3: LatentUpscale → 896x1152 → noise 0.4 → Clown #235: 9 steps,
+  den 0.5, cfg 1, DetailBoost 1.4, shift 7 (#455)
+- S4: LatentUpscale → 1344x1728 → noise 0.2 → Clown #428: 9 steps,
+  den 0.5, cfg 1, DetailBoost 1.2, shift 7 (#456) → SaveImage.
+FINAL OUTPUT 1344x1728 (pc_final delivers 2688-wide — note for step 4).
+
+Dead/bypassed in the file: CLIPLoader qwen_3_4b (bypassed; GGUF used),
+ModelPatchLoader Z-Image-Turbo-Fun-Controlnet-Union-2.1 (bypassed),
+VAELoader ae.safetensors (loaded, never consumed), landscape latent
+144x112 (Set, never Get), ImageResizeKJv2 448x576 → "Stage 2 Image"
+(Set, never Get — preview-only path via VAEDecode #78).
+
+### Requirements vs pod — every item resolved, nothing ambiguous left
+
+PRESENT and hash-verified byte-exact:
+- zimage.safetensors = OFFICIAL Z-Image-Turbo bf16
+  2407613050b809ff… = Comfy-Org/z_image_turbo
+  split_files/diffusion_models/z_image_turbo_bf16.safetensors ✓
+- qwen-4b-zimage-heretic-q8.gguf 70af2493307e38df… =
+  Lockout/qwen3-4b-heretic-zimage (V1, 4.28 GB) ✓
+
+FETCHED this session and hash-verified:
+- UltraFlux VAE → models/vae/diffusion_pytorch_model.safetensors
+  (filename kept exactly as the workflow references it)
+  2bf9ad685686b480b03651a8d8595951e4a5578016b8ead4af5e22d3dc9b3409
+  = Owen777/UltraFlux-v1 vae/diffusion_pytorch_model.safetensors ✓
+  Config confirms drop-in for Z-Image latents: AutoencoderKL, 16
+  latent channels, f8, scaling 0.3611 / shift 0.1159 (Flux family),
+  fine-tuned on 4K data (community-verified Z-Image compatible).
+
+NODE PACKS installed this session (were missing), pinned:
+- RES4LYF (ClownsharKSampler_Beta, SharkOptions_Beta,
+  ClownOptions_DetailBoost_Beta) — github.com/ClownsharkBatwing/RES4LYF
+  @ 26036f6 (registry: api.comfy.org/nodes/res4lyf)
+- ComfyUI-GGUF (CLIPLoaderGGUF) — github.com/city96/ComfyUI-GGUF
+  @ 6ea2651 (registry latest 1.1.10)
+- ComfyUI-EulerDiscreteScheduler (FlowMatchEulerDiscreteScheduler
+  (Custom)) — github.com/erosDiffusion/ComfyUI-EulerDiscreteScheduler
+  @ eb5bd4d (registry: erosdiffusion-eulerflowmatchingdiscretescheduler
+  v1.0.8, "Noise Free images ... with Z-Image")
+- Python deps: only pywavelets was missing (installed 1.8.0;
+  numpy verified untouched at 2.4.0)
+
+NOT NEEDED at runtime (bypassed/dead paths): qwen_3_4b.safetensors,
+the Fun-ControlNet patch (pod has a different variant of it anyway),
+ae.safetensors (present regardless).
+
+UNAVAILABLE — flagged, not silently substituted:
+- `aikozimage.safetensors` @ 0.8 — the owner's HOME character LoRA
+  (trigger "AIKZZ1L"). Does not exist on this pod and cannot be
+  fetched. The A/B therefore runs BOTH graphs with luna.safetensors
+  (the pod's ZIT-trained character LoRA) — an EXPLICIT substitution
+  that is exactly the controlled variable the brief asks for ("same
+  LoRA" both sides). Consequence: this session measures the GRAPHS,
+  not the home character; aiko-specific behavior (e.g. whether 0.8 is
+  the right strength for luna) is separately sheeted.
+
+### Version-drift caveats (vendor cut 2026-06-14, packs are HEAD)
+
+- ClownsharKSampler_Beta now takes options via one autogrow group
+  (`options_group`) instead of the file's numbered "options 2/3" slots;
+  wiring adapted at API-conversion; queue validation is the check.
+- IterativeLatentUpscale gained `vae_compression` (=8, matches the
+  file's 5th widget). Widget maps verified name-by-name against live
+  /object_info on :19188 for every RES4LYF/Impact/essentials node used.
+- RES4LYF's exact June revision is unknowable from the file; if a
+  sampler-math change since then alters output, the A/B still stands
+  (both arms render on today's code) but home-vs-here parity is
+  UNPROVEN. Stated once here, not repeated.
+
+### Runtime
+
+Work server :19188 booted (pod ComfyUI 0.15.1, torch 2.9.1+cu128,
+--disable-xformers --disable-async-offload per run-5 daily flags;
+:18188 untouched). All required backend classes load; SetNode/GetNode
+are KJNodes FRONTEND-ONLY virtual nodes — they never reach the server
+and are resolved during API conversion (expected, not a gap).
+Known pre-existing loader error for `Ideogram4PromptBuilderKJ`
+(KJNodes/frontend mismatch) — unrelated to this graph.
+
+Black-frame discipline from run 5 stays in force: every render is
+black-checked; on black, fresh-boot re-render.
+
+---
+
+# ARCHIVED — first upload (2026-08-08 12:20): wrong file
 
 ## VERDICT: WRONG FILE — comparison blocked, nothing rendered
 
