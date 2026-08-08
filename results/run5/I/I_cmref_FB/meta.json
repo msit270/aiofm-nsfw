@@ -1,0 +1,10 @@
+{
+ "arm": "I_cmref_FB",
+ "batch": "I",
+ "ok": true,
+ "exec_s": 85.815,
+ "cached_nodes": 39,
+ "prompt_id": "ec62a434-8839-41d6-9823-1f666a751f08",
+ "outputs_dir": "/workspace/run5/output/I/I_cmref_FB",
+ "status_str": "success"
+}

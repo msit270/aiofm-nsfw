@@ -1,0 +1,10 @@
+{
+ "arm": "I_lightpos_FB",
+ "batch": "I",
+ "ok": true,
+ "exec_s": 134.516,
+ "cached_nodes": 27,
+ "prompt_id": "6daf8aaf-1065-48ba-a9fd-957f5c221532",
+ "outputs_dir": "/workspace/run5/output/I/I_lightpos_FB",
+ "status_str": "success"
+}

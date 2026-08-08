@@ -1,0 +1,10 @@
+{
+ "arm": "I_negflat_FB",
+ "batch": "I",
+ "ok": true,
+ "exec_s": 137.436,
+ "cached_nodes": 27,
+ "prompt_id": "211ea430-9efd-43b0-abca-1f7ac24bf3e7",
+ "outputs_dir": "/workspace/run5/output/I/I_negflat_FB",
+ "status_str": "success"
+}
