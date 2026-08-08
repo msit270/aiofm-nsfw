@@ -1,0 +1,10 @@
+{
+ "arm": "I_film_FB",
+ "batch": "I",
+ "ok": true,
+ "exec_s": 138.348,
+ "cached_nodes": 27,
+ "prompt_id": "2d822a31-000e-4053-ac1b-ff9288c7b11f",
+ "outputs_dir": "/workspace/run5/output/I/I_film_FB",
+ "status_str": "success"
+}

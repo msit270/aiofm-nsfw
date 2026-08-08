@@ -1,0 +1,10 @@
+{
+ "arm": "I_cfg15_FB",
+ "batch": "I",
+ "ok": true,
+ "exec_s": 134.423,
+ "cached_nodes": 34,
+ "prompt_id": "f60ecad3-9afe-4013-a259-7b4e142e8398",
+ "outputs_dir": "/workspace/run5/output/I/I_cfg15_FB",
+ "status_str": "success"
+}

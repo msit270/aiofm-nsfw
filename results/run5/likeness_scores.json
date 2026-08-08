@@ -1705,6 +1705,374 @@
   "G/G_PC_rms_FB/T12_mouth163_00001_.png": {
    "cos_to_luna": 0.773479749839698,
    "det": 0.8415801525115967
+  },
+  "I/I_cfg15_FB/Instaraw/SDXL/Metadata/HasMetadata_00001_.png": {
+   "cos_to_luna": 0.778311314002924,
+   "det": 0.8376181125640869
+  },
+  "I/I_cfg15_FB/T00_zbase_00001_.png": {
+   "cos_to_luna": 0.7447465481033745,
+   "det": 0.830939531326294
+  },
+  "I/I_cfg15_FB/T02_nmkd595_00001_.png": {
+   "cos_to_luna": 0.7355404588224602,
+   "det": 0.8323080539703369
+  },
+  "I/I_cfg15_FB/T05_usdu617_00001_.png": {
+   "cos_to_luna": 0.711410059156295,
+   "det": 0.8375622034072876
+  },
+  "I/I_cfg15_FB/T06_hands92_00001_.png": {
+   "cos_to_luna": 0.711410059156295,
+   "det": 0.8375622034072876
+  },
+  "I/I_cfg15_FB/T07_blend87_00001_.png": {
+   "cos_to_luna": 0.6994047402144417,
+   "det": 0.8343247175216675
+  },
+  "I/I_cfg15_FB/T08_usdu98_00001_.png": {
+   "cos_to_luna": 0.6969380115316901,
+   "det": 0.8338403701782227
+  },
+  "I/I_cfg15_FB/T10_zface114_00001_.png": {
+   "cos_to_luna": 0.7726101005647471,
+   "det": 0.8383708000183105
+  },
+  "I/I_cfg15_FB/T12_mouth163_00001_.png": {
+   "cos_to_luna": 0.7784113743797274,
+   "det": 0.8359202742576599
+  },
+  "I/I_cfg25_FB/Instaraw/SDXL/Metadata/HasMetadata_00001_.png": {
+   "cos_to_luna": 0.797130396078878,
+   "det": 0.8353079557418823
+  },
+  "I/I_cfg25_FB/T00_zbase_00001_.png": {
+   "cos_to_luna": 0.7233126973101712,
+   "det": 0.8479300737380981
+  },
+  "I/I_cfg25_FB/T02_nmkd595_00001_.png": {
+   "cos_to_luna": 0.7230092164796081,
+   "det": 0.8460301160812378
+  },
+  "I/I_cfg25_FB/T05_usdu617_00001_.png": {
+   "cos_to_luna": 0.7534099902499584,
+   "det": 0.8507135510444641
+  },
+  "I/I_cfg25_FB/T06_hands92_00001_.png": {
+   "cos_to_luna": 0.7534099902499584,
+   "det": 0.8507135510444641
+  },
+  "I/I_cfg25_FB/T07_blend87_00001_.png": {
+   "cos_to_luna": 0.7528551504620725,
+   "det": 0.8465559482574463
+  },
+  "I/I_cfg25_FB/T08_usdu98_00001_.png": {
+   "cos_to_luna": 0.7298739459473601,
+   "det": 0.8359259366989136
+  },
+  "I/I_cfg25_FB/T10_zface114_00001_.png": {
+   "cos_to_luna": 0.8106497782488964,
+   "det": 0.8323440551757812
+  },
+  "I/I_cfg25_FB/T12_mouth163_00001_.png": {
+   "cos_to_luna": 0.8007250794293275,
+   "det": 0.8343156576156616
+  },
+  "I/I_cmref_FB/Instaraw/SDXL/Metadata/HasMetadata_00001_.png": {
+   "cos_to_luna": 0.761915338576083,
+   "det": 0.8258653879165649
+  },
+  "I/I_cmref_FB/T00_zbase_00001_.png": {
+   "cos_to_luna": 0.7325169320875846,
+   "det": 0.829264760017395
+  },
+  "I/I_cmref_FB/T02_nmkd595_00001_.png": {
+   "cos_to_luna": 0.7507867624447452,
+   "det": 0.8282992839813232
+  },
+  "I/I_cmref_FB/T05_usdu617_00001_.png": {
+   "cos_to_luna": 0.7552806105451038,
+   "det": 0.8344186544418335
+  },
+  "I/I_cmref_FB/T06_hands92_00001_.png": {
+   "cos_to_luna": 0.7552806105451038,
+   "det": 0.8344186544418335
+  },
+  "I/I_cmref_FB/T07_blend87_00001_.png": {
+   "cos_to_luna": 0.7418637882808438,
+   "det": 0.830674946308136
+  },
+  "I/I_cmref_FB/T08_usdu98_00001_.png": {
+   "cos_to_luna": 0.7285931093085892,
+   "det": 0.8193283081054688
+  },
+  "I/I_cmref_FB/T10_zface114_00001_.png": {
+   "cos_to_luna": 0.7436928701817952,
+   "det": 0.8273853063583374
+  },
+  "I/I_cmref_FB/T12_mouth163_00001_.png": {
+   "cos_to_luna": 0.7623634483688025,
+   "det": 0.8259674310684204
+  },
+  "I/I_film_FB/Instaraw/SDXL/Metadata/HasMetadata_00001_.png": {
+   "cos_to_luna": 0.8197020678778233,
+   "det": 0.886320948600769
+  },
+  "I/I_film_FB/T00_zbase_00001_.png": {
+   "cos_to_luna": 0.7232705675447056,
+   "det": 0.8901451826095581
+  },
+  "I/I_film_FB/T02_nmkd595_00001_.png": {
+   "cos_to_luna": 0.7455452399126754,
+   "det": 0.8926544189453125
+  },
+  "I/I_film_FB/T05_usdu617_00001_.png": {
+   "cos_to_luna": 0.7534775946495906,
+   "det": 0.8881456851959229
+  },
+  "I/I_film_FB/T06_hands92_00001_.png": {
+   "cos_to_luna": 0.7534775946495906,
+   "det": 0.8881456851959229
+  },
+  "I/I_film_FB/T07_blend87_00001_.png": {
+   "cos_to_luna": 0.7519852291110006,
+   "det": 0.8868366479873657
+  },
+  "I/I_film_FB/T08_usdu98_00001_.png": {
+   "cos_to_luna": 0.7112256636388358,
+   "det": 0.8903365135192871
+  },
+  "I/I_film_FB/T10_zface114_00001_.png": {
+   "cos_to_luna": 0.815515338348474,
+   "det": 0.8863896727561951
+  },
+  "I/I_film_FB/T12_mouth163_00001_.png": {
+   "cos_to_luna": 0.8234352548912105,
+   "det": 0.8863741159439087
+  },
+  "I/I_lanczos_FB/Instaraw/SDXL/Metadata/HasMetadata_00001_.png": {
+   "cos_to_luna": 0.7712658375477064,
+   "det": 0.8317693471908569
+  },
+  "I/I_lanczos_FB/T00_zbase_00001_.png": {
+   "cos_to_luna": 0.7325169320875846,
+   "det": 0.829264760017395
+  },
+  "I/I_lanczos_FB/T02_nmkd595_00001_.png": {
+   "cos_to_luna": 0.7507867624447452,
+   "det": 0.8282992839813232
+  },
+  "I/I_lanczos_FB/T05_usdu617_00001_.png": {
+   "cos_to_luna": 0.7606917177919722,
+   "det": 0.8370339274406433
+  },
+  "I/I_lanczos_FB/T06_hands92_00001_.png": {
+   "cos_to_luna": 0.7606917177919722,
+   "det": 0.8370339274406433
+  },
+  "I/I_lanczos_FB/T07_blend87_00001_.png": {
+   "cos_to_luna": 0.7559464554744891,
+   "det": 0.8331910371780396
+  },
+  "I/I_lanczos_FB/T08_usdu98_00001_.png": {
+   "cos_to_luna": 0.7215652076415852,
+   "det": 0.837668776512146
+  },
+  "I/I_lanczos_FB/T10_zface114_00001_.png": {
+   "cos_to_luna": 0.773965429757133,
+   "det": 0.8331718444824219
+  },
+  "I/I_lanczos_FB/T12_mouth163_00001_.png": {
+   "cos_to_luna": 0.7706270743854243,
+   "det": 0.8322752118110657
+  },
+  "I/I_lightpos_FB/Instaraw/SDXL/Metadata/HasMetadata_00001_.png": {
+   "cos_to_luna": 0.7406066638495177,
+   "det": 0.8774502277374268
+  },
+  "I/I_lightpos_FB/T00_zbase_00001_.png": {
+   "cos_to_luna": 0.7260441800597722,
+   "det": 0.8691756725311279
+  },
+  "I/I_lightpos_FB/T02_nmkd595_00001_.png": {
+   "cos_to_luna": 0.7283696096799779,
+   "det": 0.8734455108642578
+  },
+  "I/I_lightpos_FB/T05_usdu617_00001_.png": {
+   "cos_to_luna": 0.7597969233790699,
+   "det": 0.871557354927063
+  },
+  "I/I_lightpos_FB/T06_hands92_00001_.png": {
+   "cos_to_luna": 0.7597969233790699,
+   "det": 0.871557354927063
+  },
+  "I/I_lightpos_FB/T07_blend87_00001_.png": {
+   "cos_to_luna": 0.7431651583868246,
+   "det": 0.8666340112686157
+  },
+  "I/I_lightpos_FB/T08_usdu98_00001_.png": {
+   "cos_to_luna": 0.7341672015132356,
+   "det": 0.8761790990829468
+  },
+  "I/I_lightpos_FB/T10_zface114_00001_.png": {
+   "cos_to_luna": 0.7478925120608919,
+   "det": 0.876117467880249
+  },
+  "I/I_lightpos_FB/T12_mouth163_00001_.png": {
+   "cos_to_luna": 0.7465493004448737,
+   "det": 0.87646484375
+  },
+  "I/I_negflat_FB/Instaraw/SDXL/Metadata/HasMetadata_00001_.png": {
+   "cos_to_luna": 0.7697250632443845,
+   "det": 0.8482916355133057
+  },
+  "I/I_negflat_FB/T00_zbase_00001_.png": {
+   "cos_to_luna": 0.7061692645494274,
+   "det": 0.8386788368225098
+  },
+  "I/I_negflat_FB/T02_nmkd595_00001_.png": {
+   "cos_to_luna": 0.7068899946456518,
+   "det": 0.8418459892272949
+  },
+  "I/I_negflat_FB/T05_usdu617_00001_.png": {
+   "cos_to_luna": 0.7205977744101675,
+   "det": 0.8282140493392944
+  },
+  "I/I_negflat_FB/T06_hands92_00001_.png": {
+   "cos_to_luna": 0.7205977744101675,
+   "det": 0.8282140493392944
+  },
+  "I/I_negflat_FB/T07_blend87_00001_.png": {
+   "cos_to_luna": 0.7115804399375838,
+   "det": 0.8301709890365601
+  },
+  "I/I_negflat_FB/T08_usdu98_00001_.png": {
+   "cos_to_luna": 0.6766966107326056,
+   "det": 0.8502698540687561
+  },
+  "I/I_negflat_FB/T10_zface114_00001_.png": {
+   "cos_to_luna": 0.7610127667293585,
+   "det": 0.8494538068771362
+  },
+  "I/I_negflat_FB/T12_mouth163_00001_.png": {
+   "cos_to_luna": 0.7731555375356469,
+   "det": 0.8500165939331055
+  },
+  "I/I_shift15_FB/Instaraw/SDXL/Metadata/HasMetadata_00001_.png": {
+   "cos_to_luna": 0.7535657578865863,
+   "det": 0.8489552736282349
+  },
+  "I/I_shift15_FB/T00_zbase_00001_.png": {
+   "cos_to_luna": 0.6816464488051039,
+   "det": 0.8420783281326294
+  },
+  "I/I_shift15_FB/T02_nmkd595_00001_.png": {
+   "cos_to_luna": 0.6848178758992318,
+   "det": 0.8438277244567871
+  },
+  "I/I_shift15_FB/T05_usdu617_00001_.png": {
+   "cos_to_luna": 0.7305833998867491,
+   "det": 0.8574606776237488
+  },
+  "I/I_shift15_FB/T06_hands92_00001_.png": {
+   "cos_to_luna": 0.7305833998867491,
+   "det": 0.8574606776237488
+  },
+  "I/I_shift15_FB/T07_blend87_00001_.png": {
+   "cos_to_luna": 0.7362186141018418,
+   "det": 0.8536307215690613
+  },
+  "I/I_shift15_FB/T08_usdu98_00001_.png": {
+   "cos_to_luna": 0.7412621283608068,
+   "det": 0.8473886251449585
+  },
+  "I/I_shift15_FB/T10_zface114_00001_.png": {
+   "cos_to_luna": 0.7508524106657564,
+   "det": 0.8486887812614441
+  },
+  "I/I_shift15_FB/T12_mouth163_00001_.png": {
+   "cos_to_luna": 0.7561351602940904,
+   "det": 0.8490856885910034
+  },
+  "I/I_shift45_FB/Instaraw/SDXL/Metadata/HasMetadata_00001_.png": {
+   "cos_to_luna": 0.7840723593266464,
+   "det": 0.8589972853660583
+  },
+  "I/I_shift45_FB/T00_zbase_00001_.png": {
+   "cos_to_luna": 0.7428483128293911,
+   "det": 0.8385805487632751
+  },
+  "I/I_shift45_FB/T02_nmkd595_00001_.png": {
+   "cos_to_luna": 0.7305458750753817,
+   "det": 0.8425462245941162
+  },
+  "I/I_shift45_FB/T05_usdu617_00001_.png": {
+   "cos_to_luna": 0.7238146693627214,
+   "det": 0.8434710502624512
+  },
+  "I/I_shift45_FB/T06_hands92_00001_.png": {
+   "cos_to_luna": 0.7238146693627214,
+   "det": 0.8434710502624512
+  },
+  "I/I_shift45_FB/T07_blend87_00001_.png": {
+   "cos_to_luna": 0.7190009694270451,
+   "det": 0.8405345678329468
+  },
+  "I/I_shift45_FB/T08_usdu98_00001_.png": {
+   "cos_to_luna": 0.6622960429881347,
+   "det": 0.847008228302002
+  },
+  "I/I_shift45_FB/T10_zface114_00001_.png": {
+   "cos_to_luna": 0.7946361111852129,
+   "det": 0.8604660034179688
+  },
+  "I/I_shift45_FB/T12_mouth163_00001_.png": {
+   "cos_to_luna": 0.7814249432836915,
+   "det": 0.8593087196350098
+  },
+  "I/I_shift60_FB/Instaraw/SDXL/Metadata/HasMetadata_00001_.png": {
+   "cos_to_luna": 0.805667544379579,
+   "det": 0.8603963255882263
+  },
+  "I/I_shift60_FB/T00_zbase_00001_.png": {
+   "cos_to_luna": 0.7596310272178924,
+   "det": 0.8546286225318909
+  },
+  "I/I_shift60_FB/T02_nmkd595_00001_.png": {
+   "cos_to_luna": 0.7538043867302949,
+   "det": 0.8560003638267517
+  },
+  "I/I_shift60_FB/T05_usdu617_00001_.png": {
+   "cos_to_luna": 0.7600609009425908,
+   "det": 0.855985701084137
+  },
+  "I/I_shift60_FB/T06_hands92_00001_.png": {
+   "cos_to_luna": 0.7600609009425908,
+   "det": 0.855985701084137
+  },
+  "I/I_shift60_FB/T07_blend87_00001_.png": {
+   "cos_to_luna": 0.7693235316179796,
+   "det": 0.8539145588874817
+  },
+  "I/I_shift60_FB/T08_usdu98_00001_.png": {
+   "cos_to_luna": 0.7152264502127602,
+   "det": 0.8577190041542053
+  },
+  "I/I_shift60_FB/T10_zface114_00001_.png": {
+   "cos_to_luna": 0.7993903475833427,
+   "det": 0.8586180210113525
+  },
+  "I/I_shift60_FB/T12_mouth163_00001_.png": {
+   "cos_to_luna": 0.8123809759577527,
+   "det": 0.8586171865463257
+  },
+  "I/canaryI/img/img_00001_.png": {
+   "cos_to_luna": 0.9364852689604255,
+   "det": 0.7594242095947266
+  },
+  "I/canaryI2/img/img_00001_.png": {
+   "cos_to_luna": 0.9364852689604255,
+   "det": 0.7594242095947266
   }
  }
 }
