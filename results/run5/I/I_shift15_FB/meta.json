@@ -1,0 +1,10 @@
+{
+ "arm": "I_shift15_FB",
+ "batch": "I",
+ "ok": true,
+ "exec_s": 137.421,
+ "cached_nodes": 29,
+ "prompt_id": "2bd47eba-96de-49a4-8175-b7f64efc9187",
+ "outputs_dir": "/workspace/run5/output/I/I_shift15_FB",
+ "status_str": "success"
+}
