@@ -1,0 +1,10 @@
+{
+ "arm": "J_A2_cf30_FB",
+ "batch": "J",
+ "ok": true,
+ "exec_s": 86.508,
+ "cached_nodes": 39,
+ "prompt_id": "d50a1d6f-0542-485f-a338-30c5ba5ca03f",
+ "outputs_dir": "/workspace/run5/output/J/J_A2_cf30_FB",
+ "status_str": "success"
+}

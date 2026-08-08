@@ -1,0 +1,10 @@
+{
+ "arm": "J_A4b_polish_FB",
+ "batch": "J",
+ "ok": true,
+ "exec_s": 90.549,
+ "cached_nodes": 40,
+ "prompt_id": "a7a984d8-dc97-40de-b815-12306ce73e9a",
+ "outputs_dir": "/workspace/run5/output/J/J_A4b_polish_FB",
+ "status_str": "success"
+}

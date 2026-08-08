@@ -1,0 +1,10 @@
+{
+ "arm": "J_A1b_ahand_FB",
+ "batch": "J",
+ "ok": true,
+ "exec_s": 144.751,
+ "cached_nodes": 26,
+ "prompt_id": "d3116c1f-c1f8-4807-bca7-c491f2d781cc",
+ "outputs_dir": "/workspace/run5/output/J/J_A1b_ahand_FB",
+ "status_str": "success"
+}

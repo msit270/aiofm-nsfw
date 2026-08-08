@@ -1,0 +1,10 @@
+{
+ "arm": "J_A4_post98_FB",
+ "batch": "J",
+ "ok": true,
+ "exec_s": 84.991,
+ "cached_nodes": 40,
+ "prompt_id": "15650be0-1407-41b1-a648-85d8697551d4",
+ "outputs_dir": "/workspace/run5/output/J/J_A4_post98_FB",
+ "status_str": "success"
+}

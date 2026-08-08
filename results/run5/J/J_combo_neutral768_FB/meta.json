@@ -1,0 +1,10 @@
+{
+ "arm": "J_combo_neutral768_FB",
+ "batch": "J",
+ "ok": true,
+ "exec_s": 119.898,
+ "cached_nodes": 37,
+ "prompt_id": "26a6082d-7ba1-4adf-bcbc-56ffc18318a4",
+ "outputs_dir": "/workspace/run5/output/J/J_combo_neutral768_FB",
+ "status_str": "success"
+}

@@ -1,0 +1,10 @@
+{
+ "arm": "J_A3_dn28_FB",
+ "batch": "J",
+ "ok": true,
+ "exec_s": 84.514,
+ "cached_nodes": 40,
+ "prompt_id": "c01c5e3a-295b-45b6-b012-7693164a62b9",
+ "outputs_dir": "/workspace/run5/output/J/J_A3_dn28_FB",
+ "status_str": "success"
+}

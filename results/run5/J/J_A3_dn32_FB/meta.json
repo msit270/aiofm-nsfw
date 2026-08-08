@@ -1,0 +1,10 @@
+{
+ "arm": "J_A3_dn32_FB",
+ "batch": "J",
+ "ok": true,
+ "exec_s": 84.257,
+ "cached_nodes": 40,
+ "prompt_id": "5380606b-5c68-4cc5-8df1-5e58f51f55e9",
+ "outputs_dir": "/workspace/run5/output/J/J_A3_dn32_FB",
+ "status_str": "success"
+}

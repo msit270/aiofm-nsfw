@@ -1,0 +1,10 @@
+{
+ "arm": "J_A3g_guide768_FB",
+ "batch": "J",
+ "ok": true,
+ "exec_s": 81.394,
+ "cached_nodes": 40,
+ "prompt_id": "11e7feb9-bca6-4bd3-bd4e-3eea643323fe",
+ "outputs_dir": "/workspace/run5/output/J/J_A3g_guide768_FB",
+ "status_str": "success"
+}
