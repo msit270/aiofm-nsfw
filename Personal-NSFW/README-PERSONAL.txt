@@ -49,8 +49,9 @@ Prompting notes (measured this run, results/run5/):
 - The character LoRA overrides prompted hair colour/style; describing the
   real hair ("long straight blonde hair with dark roots, curtain bangs")
   helps the base compose consistently with what the LoRA will render.
-- Turbo runs at cfg 1 / 8 steps / res_multistep / simple everywhere.
-  Raising cfg on Z passes is wrong (guidance-distilled); the 30-step/cfg-2
-  base variant is a denser-freckle taste option (see the sheets).
-- LoRA strength stays 1.0. Strength 0.8 produced a black frame + server
-  poisoning once this run (unexplained, n=1) — treat as unsafe.
+- Detail passes run cfg 1 / 8 steps; raising cfg on the DETAIL passes is
+  wrong (guidance-distilled). Only the BASE runs cfg 2 (negatives live).
+- LoRA strength ships 1.0 (range 0.7-1.0). KNOWN POD ISSUE: intermittent
+  black frames/faces (~8% of renders on the tuning pod, cause chased in
+  results/run5/Dmatrix + REPORT) — a re-queue on a fresh server always
+  cleared it. If a render comes back black, restart ComfyUI and re-run.
