@@ -1,0 +1,10 @@
+{
+ "arm": "K1_detail_before_upscale_FB",
+ "batch": "K",
+ "ok": true,
+ "exec_s": 150.83,
+ "cached_nodes": 3,
+ "prompt_id": "b9c2d4ae-7572-49ae-8b1b-26e201fbd2df",
+ "outputs_dir": "/workspace/run5/output/K/K1_detail_before_upscale_FB",
+ "status_str": "success"
+}

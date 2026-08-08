@@ -1,0 +1,31 @@
+{
+ "prompt_id": "f19ab074-9b60-46af-902e-a79abec9c3b8",
+ "number": 46,
+ "node_errors": {
+  "KNI": {
+   "errors": [
+    {
+     "type": "value_not_in_list",
+     "message": "Value not in list",
+     "details": "schedule_for_cycle: 'simple' not in ['skip_start', 'from_start']",
+     "extra_info": {
+      "input_name": "schedule_for_cycle",
+      "input_config": [
+       [
+        "skip_start",
+        "from_start"
+       ],
+       {}
+      ],
+      "received_value": "simple"
+     }
+    }
+   ],
+   "dependent_outputs": [
+    "505",
+    "419"
+   ],
+   "class_type": "NoiseInjectionDetailerHookProvider"
+  }
+ }
+}

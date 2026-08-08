@@ -1,0 +1,10 @@
+{
+ "arm": "K8_eyes_noiseinject_FB",
+ "batch": "K",
+ "ok": false,
+ "exec_s": 133.761,
+ "cached_nodes": 34,
+ "prompt_id": "f5e18320-5fd8-43f6-bce5-6335cf97c878",
+ "outputs_dir": "/workspace/run5/output/K/K8_eyes_noiseinject_FB",
+ "status_str": "error"
+}

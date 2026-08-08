@@ -1,0 +1,111 @@
+{
+ "c": {
+  "class_type": "CLIPLoader",
+  "inputs": {
+   "clip_name": "qwen.safetensors",
+   "device": "default",
+   "type": "lumina2"
+  }
+ },
+ "dec": {
+  "class_type": "VAEDecode",
+  "inputs": {
+   "samples": [
+    "k",
+    0
+   ],
+   "vae": [
+    "v",
+    0
+   ]
+  }
+ },
+ "k": {
+  "class_type": "KSampler",
+  "inputs": {
+   "cfg": 1.0,
+   "denoise": 1.0,
+   "latent_image": [
+    "lat",
+    0
+   ],
+   "model": [
+    "lo",
+    0
+   ],
+   "negative": [
+    "neg",
+    0
+   ],
+   "positive": [
+    "pos",
+    0
+   ],
+   "sampler_name": "res_multistep",
+   "scheduler": "simple",
+   "seed": 12345,
+   "steps": 8
+  }
+ },
+ "lat": {
+  "class_type": "EmptySD3LatentImage",
+  "inputs": {
+   "batch_size": 1,
+   "height": 1152,
+   "width": 896
+  }
+ },
+ "lo": {
+  "class_type": "LoraLoaderModelOnly",
+  "inputs": {
+   "lora_name": "luna.safetensors",
+   "model": [
+    "u",
+    0
+   ],
+   "strength_model": 1.0
+  }
+ },
+ "neg": {
+  "class_type": "ConditioningZeroOut",
+  "inputs": {
+   "conditioning": [
+    "pos",
+    0
+   ]
+  }
+ },
+ "pos": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "c",
+    0
+   ],
+   "text": "luna, a young woman in her mid twenties with wavy auburn hair, warm hazel eyes, soft natural makeup, light freckles on her cheeks, gentle smile, photorealistic skin texture with visible pores, soft diffused studio light"
+  }
+ },
+ "save": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "filename_prefix": "L/canaryL/img/img",
+   "images": [
+    "dec",
+    0
+   ]
+  }
+ },
+ "u": {
+  "class_type": "UNETLoader",
+  "inputs": {
+   "unet_name": "zimage.safetensors",
+   "weight_dtype": "default"
+  }
+ },
+ "v": {
+  "class_type": "VAELoader",
+  "inputs": {
+   "vae_name": "ae.safetensors"
+  }
+ }
+}

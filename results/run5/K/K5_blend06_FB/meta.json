@@ -1,0 +1,10 @@
+{
+ "arm": "K5_blend06_FB",
+ "batch": "K",
+ "ok": true,
+ "exec_s": 83.798,
+ "cached_nodes": 40,
+ "prompt_id": "50707818-b40e-4bc3-bf01-b37cc851d7a6",
+ "outputs_dir": "/workspace/run5/output/K/K5_blend06_FB",
+ "status_str": "success"
+}

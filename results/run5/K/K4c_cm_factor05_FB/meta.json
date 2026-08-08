@@ -1,0 +1,10 @@
+{
+ "arm": "K4c_cm_factor05_FB",
+ "batch": "K",
+ "ok": true,
+ "exec_s": 84.31,
+ "cached_nodes": 40,
+ "prompt_id": "91eacab5-3277-4b2b-8cc3-050da0a9d910",
+ "outputs_dir": "/workspace/run5/output/K/K4c_cm_factor05_FB",
+ "status_str": "success"
+}

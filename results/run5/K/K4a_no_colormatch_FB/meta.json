@@ -1,0 +1,10 @@
+{
+ "arm": "K4a_no_colormatch_FB",
+ "batch": "K",
+ "ok": true,
+ "exec_s": 84.045,
+ "cached_nodes": 40,
+ "prompt_id": "9357652f-8573-41d7-9a72-893fc0e14a22",
+ "outputs_dir": "/workspace/run5/output/K/K4a_no_colormatch_FB",
+ "status_str": "success"
+}

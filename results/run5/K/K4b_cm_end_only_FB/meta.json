@@ -1,0 +1,10 @@
+{
+ "arm": "K4b_cm_end_only_FB",
+ "batch": "K",
+ "ok": true,
+ "exec_s": 82.569,
+ "cached_nodes": 40,
+ "prompt_id": "1f3bca2b-874a-4780-943d-62efdc588a2d",
+ "outputs_dir": "/workspace/run5/output/K/K4b_cm_end_only_FB",
+ "status_str": "success"
+}

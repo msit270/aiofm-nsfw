@@ -1,0 +1,10 @@
+{
+ "arm": "L_add8_ea_FB",
+ "batch": "L",
+ "ok": true,
+ "exec_s": 158.935,
+ "cached_nodes": 3,
+ "prompt_id": "df759eab-cadb-47ef-aaa0-2bd9a75f0e58",
+ "outputs_dir": "/workspace/run5/output/L/L_add8_ea_FB",
+ "status_str": "success"
+}
