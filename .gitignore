@@ -51,3 +51,13 @@ results/crash/A/arms/*/*.png
 # committed. The pixels add ~400 MB and nothing a reader needs. Same reasoning as
 # the ws4 control repeats above.
 results/crash/V/arms/V_SW_*/*.png
+
+# Oversized artifacts (GitHub hard-blocks files over 100 MB; no LFS by
+# decision). These live only on the pod. History of personal-max was
+# rewritten on 2026-08-08 to drop every version of them. sha256 of the
+# pod copies at rewrite time, so a re-fetch or re-cut can be verified:
+#   f8cdfc791a8cea4416c5d0f741ed052deef075e604aab7c0f0e52ae7e0270dcd  Personal-NSFW/loras/luna.safetensors      (162 MB, re-downloadable; hash-verified at REF-PREFLIGHT a74525f)
+#   47deda1b4886b334fa1ab84e2a056c13c0c24acb90339767097f9a5b5f50f003  Personal-NSFW/loras/lunaskye.safetensors  (177 MB, re-downloadable; hash-verified at REF-PREFLIGHT a74525f)
+#   f70c9af4425333abf3998fb2051dc3f681a743e4e348066bb10e65f4624833d7  dist-personal/AIOFMTech-NSFW-Personal.tar.gz  (276 MB, pack v3 f70c9af4 — the hash the run-5/6 reports cite; re-cuttable from this repo + the two LoRAs)
+Personal-NSFW/loras/*.safetensors
+dist-personal/*.tar.gz
