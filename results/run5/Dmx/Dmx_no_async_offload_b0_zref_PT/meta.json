@@ -1,0 +1,10 @@
+{
+ "arm": "Dmx_no_async_offload_b0_zref_PT",
+ "batch": "Dmx",
+ "ok": true,
+ "exec_s": 1.902,
+ "cached_nodes": 5,
+ "prompt_id": "bfb6c9fd-3a27-4255-a196-0bc3d656df92",
+ "outputs_dir": "/workspace/run5/output/Dmx/Dmx_no_async_offload_b0_zref_PT",
+ "status_str": "success"
+}

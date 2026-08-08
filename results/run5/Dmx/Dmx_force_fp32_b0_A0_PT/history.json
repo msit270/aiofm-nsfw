@@ -1,0 +1,2012 @@
+{
+ "prompt": [
+  4,
+  "ef61da3e-5fd3-440e-86f0-52246dd91dd2",
+  {
+   "116": {
+    "inputs": {
+     "lora_01": "luna.safetensors",
+     "strength_01": 1.0,
+     "lora_02": "None",
+     "strength_02": 0.9,
+     "lora_03": "None",
+     "strength_03": 0.9,
+     "lora_04": "None",
+     "strength_04": 1.0,
+     "model": [
+      "620:113",
+      0
+     ],
+     "clip": [
+      "620:110",
+      0
+     ]
+    },
+    "class_type": "Lora Loader Stack (rgthree)",
+    "_meta": {
+     "title": "2 \u00b7 Your ZIT LoRa  (face, mouth, eyes)"
+    }
+   },
+   "419": {
+    "inputs": {
+     "image_a": [
+      "619:601",
+      0
+     ],
+     "image_b": [
+      "622:661",
+      0
+     ]
+    },
+    "class_type": "Image Comparer (rgthree)",
+    "_meta": {
+     "title": "Before / After  -  base render  vs  finished image"
+    }
+   },
+   "480": {
+    "inputs": {
+     "prompt_list_positive": [
+      "483",
+      0
+     ],
+     "prompt_list_negative": [
+      "483",
+      1
+     ],
+     "seed_list": [
+      "483",
+      2
+     ]
+    },
+    "class_type": "INSTARAW_PromptBatchPreview",
+    "_meta": {
+     "title": "Prompts loaded"
+    }
+   },
+   "481": {
+    "inputs": {
+     "preview": "",
+     "previewMode": null,
+     "source": [
+      "480",
+      0
+     ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+     "title": "Prompt batch preview"
+    }
+   },
+   "483": {
+    "inputs": {
+     "gemini_api_key": "",
+     "grok_api_key": "",
+     "aspect_label": "",
+     "prompt_batch_data": "[{\"id\": \"default-01\", \"positive_prompt\": \"photorealistic portrait photograph of a young woman standing in soft window light, natural skin texture with visible pores, detailed eyes, detailed hands at her sides, looking at the camera, 85mm lens, shallow depth of field\", \"negative_prompt\": \"bad quality, worst quality, low quality, deformed, extra fingers, watermark, text\", \"repeat_count\": 1, \"seed\": 12345, \"seed_control\": \"fixed\", \"tags\": [], \"source_id\": \"default\"}]",
+     "sdxl_mode": false
+    },
+    "class_type": "INSTARAW_RealityPromptGenerator",
+    "_meta": {
+     "title": "1 \u00b7 YOUR PROMPTS & SEED  -  start here"
+    }
+   },
+   "505": {
+    "inputs": {
+     "filename_prefix": "Dmx/Dmx_force_fp32_b0_A0_PT/Instaraw/SDXL/Metadata/HasMetadata",
+     "images": [
+      "622:661",
+      0
+     ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+     "title": "YOUR IMAGE  -  saved to output/Instaraw/"
+    }
+   },
+   "618": {
+    "inputs": {
+     "lora_01": "lunaskye.safetensors",
+     "strength_01": 1.0,
+     "lora_02": "None",
+     "strength_02": 0.8,
+     "lora_03": "None",
+     "strength_03": 1.0,
+     "lora_04": "None",
+     "strength_04": 0.8,
+     "model": [
+      "619:613",
+      0
+     ],
+     "clip": [
+      "619:613",
+      1
+     ]
+    },
+    "class_type": "Lora Loader Stack (rgthree)",
+    "_meta": {
+     "title": "2 \u00b7 Your SDXL LoRa  (body, pose, hands)"
+    }
+   },
+   "647:625": {
+    "inputs": {
+     "value": 896
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+     "title": "Width"
+    }
+   },
+   "647:627": {
+    "inputs": {
+     "value": 1.0
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+     "title": "Base denoise (1.0 = generate from scratch)"
+    }
+   },
+   "647:628": {
+    "inputs": {
+     "value": 1152
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+     "title": "Height"
+    }
+   },
+   "647:635": {
+    "inputs": {
+     "width": [
+      "647:625",
+      0
+     ],
+     "height": [
+      "647:628",
+      0
+     ],
+     "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+     "title": "Empty Latent Image"
+    }
+   },
+   "587:99": {
+    "inputs": {
+     "image": [
+      "587:87",
+      0
+     ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+     "title": "Get Image Size"
+    }
+   },
+   "587:91": {
+    "inputs": {
+     "upscale_model": [
+      "587:90",
+      0
+     ],
+     "image": [
+      "587:92",
+      0
+     ]
+    },
+    "class_type": "ImageUpscaleWithModel",
+    "_meta": {
+     "title": "Upscale Image (using Model)"
+    }
+   },
+   "587:506": {
+    "inputs": {
+     "text": "",
+     "clip": [
+      "619:613",
+      1
+     ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+     "title": "Hand Negative Prompt"
+    }
+   },
+   "587:508": {
+    "inputs": {
+     "text": "Detailed skin, high quality",
+     "clip": [
+      "619:613",
+      1
+     ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+     "title": "Upscaler Prompt"
+    }
+   },
+   "587:509": {
+    "inputs": {
+     "text": "",
+     "clip": [
+      "619:613",
+      1
+     ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+     "title": "Upscaler Negative Prompt"
+    }
+   },
+   "587:87": {
+    "inputs": {
+     "blend_factor": 1.0,
+     "blend_mode": "normal",
+     "image1": [
+      "587:92",
+      0
+     ],
+     "image2": [
+      "587:91",
+      0
+     ]
+    },
+    "class_type": "ImageBlend",
+    "_meta": {
+     "title": "ImageBlend"
+    }
+   },
+   "587:98": {
+    "inputs": {
+     "upscale_by": 1.5,
+     "seed": 1966745044,
+     "steps": 2,
+     "cfg": 1.0,
+     "sampler_name": "lcm",
+     "scheduler": "sgm_uniform",
+     "denoise": 0.08,
+     "mode_type": "Linear",
+     "tile_width": [
+      "587:99",
+      0
+     ],
+     "tile_height": [
+      "587:99",
+      1
+     ],
+     "mask_blur": 12,
+     "tile_padding": 32,
+     "seam_fix_mode": "None",
+     "seam_fix_denoise": 1.0,
+     "seam_fix_width": 64,
+     "seam_fix_mask_blur": 12,
+     "seam_fix_padding": 16,
+     "force_uniform_tiles": true,
+     "tiled_decode": false,
+     "batch_size": 1,
+     "image": [
+      "587:87",
+      0
+     ],
+     "model": [
+      "587:97",
+      0
+     ],
+     "positive": [
+      "587:508",
+      0
+     ],
+     "negative": [
+      "587:509",
+      0
+     ],
+     "vae": [
+      "619:613",
+      2
+     ],
+     "upscale_model": [
+      "587:100",
+      0
+     ]
+    },
+    "class_type": "UltimateSDUpscale",
+    "_meta": {
+     "title": "Ultimate SD Upscale"
+    }
+   },
+   "587:97": {
+    "inputs": {
+     "lora_name": "sdxl_tdd_lora_weights.safetensors",
+     "strength_model": 1.0,
+     "strength_clip": 1.0,
+     "model": [
+      "618",
+      0
+     ],
+     "clip": [
+      "619:613",
+      1
+     ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+     "title": "4-step speed LoRA (TDD, Apache-2.0)"
+    }
+   },
+   "587:100": {
+    "inputs": {
+     "model_name": "4x-UltraSharpV2.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+     "title": "Load Upscale Model"
+    }
+   },
+   "587:89": {
+    "inputs": {
+     "model_name": "bbox/hand_yolov8s.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider",
+    "_meta": {
+     "title": "UltralyticsDetectorProvider"
+    }
+   },
+   "587:88": {
+    "inputs": {
+     "model_name": "sam_vit_b_01ec64.pth",
+     "device_mode": "AUTO"
+    },
+    "class_type": "SAMLoader",
+    "_meta": {
+     "title": "SAMLoader (Impact)"
+    }
+   },
+   "587:90": {
+    "inputs": {
+     "model_name": "x1_ITF_SkinDiffDetail_Lite_v1.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+     "title": "Load Upscale Model"
+    }
+   },
+   "587:92": {
+    "inputs": {
+     "guide_size": 1024.0,
+     "guide_size_for": true,
+     "max_size": 1024.0,
+     "seed": 1111111,
+     "steps": 30,
+     "cfg": 3.0,
+     "sampler_name": "dpmpp_2m_sde",
+     "scheduler": "karras",
+     "denoise": 0.42,
+     "feather": 9,
+     "noise_mask": true,
+     "force_inpaint": true,
+     "bbox_threshold": 0.23000000000000004,
+     "bbox_dilation": 4,
+     "bbox_crop_factor": 1.5,
+     "sam_detection_hint": "vertical-2",
+     "sam_dilation": 12,
+     "sam_threshold": 0.04000000000000001,
+     "sam_bbox_expansion": 4,
+     "sam_mask_hint_threshold": 0.7000000000000002,
+     "sam_mask_hint_use_negative": "False",
+     "drop_size": 10,
+     "wildcard": "",
+     "cycle": 2,
+     "inpaint_model": false,
+     "noise_mask_feather": 20,
+     "tiled_encode": false,
+     "tiled_decode": false,
+     "image": [
+      "619:601",
+      0
+     ],
+     "model": [
+      "619:613",
+      0
+     ],
+     "clip": [
+      "618",
+      1
+     ],
+     "vae": [
+      "619:613",
+      2
+     ],
+     "positive": [
+      "587:93",
+      0
+     ],
+     "negative": [
+      "587:506",
+      0
+     ],
+     "bbox_detector": [
+      "587:89",
+      0
+     ],
+     "sam_model_opt": [
+      "587:88",
+      0
+     ]
+    },
+    "class_type": "FaceDetailer",
+    "_meta": {
+     "title": "HandDetailer"
+    }
+   },
+   "587:93": {
+    "inputs": {
+     "text": "Detailed hand, detailed fingers, detailed fingernails, girl hand, natural skin texture,",
+     "clip": [
+      "618",
+      1
+     ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+     "title": "Hand Prompt"
+    }
+   },
+   "619:590": {
+    "inputs": {
+     "value": [
+      "483",
+      0
+     ]
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+     "title": "Positive Prompt"
+    }
+   },
+   "619:591": {
+    "inputs": {
+     "samples": [
+      "619:592",
+      0
+     ],
+     "vae": [
+      "619:613",
+      2
+     ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+     "title": "VAE Decode"
+    }
+   },
+   "619:592": {
+    "inputs": {
+     "seed": [
+      "483",
+      2
+     ],
+     "steps": 40,
+     "cfg": 4.0,
+     "sampler_name": "dpmpp_2m_sde",
+     "scheduler": "karras",
+     "denoise": [
+      "647:627",
+      0
+     ],
+     "model": [
+      "619:609",
+      0
+     ],
+     "positive": [
+      "619:599",
+      0
+     ],
+     "negative": [
+      "619:606",
+      0
+     ],
+     "latent_image": [
+      "647:635",
+      0
+     ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+     "title": "KSampler"
+    }
+   },
+   "619:593": {
+    "inputs": {
+     "upscale_model": [
+      "619:615",
+      0
+     ],
+     "image": [
+      "619:591",
+      0
+     ]
+    },
+    "class_type": "ImageUpscaleWithModel",
+    "_meta": {
+     "title": "Upscale Image (using Model)"
+    }
+   },
+   "619:594": {
+    "inputs": {
+     "pixels": [
+      "619:595",
+      0
+     ],
+     "vae": [
+      "619:613",
+      2
+     ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+     "title": "VAE Encode"
+    }
+   },
+   "619:595": {
+    "inputs": {
+     "upscale_method": "lanczos",
+     "scale_by": 0.4,
+     "image": [
+      "619:593",
+      0
+     ]
+    },
+    "class_type": "ImageScaleBy",
+    "_meta": {
+     "title": "Upscale Image By"
+    }
+   },
+   "619:596": {
+    "inputs": {
+     "samples": [
+      "619:600",
+      0
+     ],
+     "vae": [
+      "619:613",
+      2
+     ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+     "title": "VAE Decode"
+    }
+   },
+   "619:597": {
+    "inputs": {
+     "pixels": [
+      "619:607",
+      0
+     ],
+     "vae": [
+      "619:613",
+      2
+     ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+     "title": "VAE Encode"
+    }
+   },
+   "619:598": {
+    "inputs": {
+     "wildcard": "",
+     "Select to add LoRA": "Select the LoRA to add to the text",
+     "Select to add Wildcard": "Select the Wildcard to add to the text",
+     "model": [
+      "619:609",
+      0
+     ],
+     "clip": [
+      "618",
+      1
+     ],
+     "vae": [
+      "619:613",
+      2
+     ],
+     "positive": [
+      "619:599",
+      0
+     ],
+     "negative": [
+      "619:606",
+      0
+     ],
+     "refiner_model": [
+      "619:609",
+      0
+     ],
+     "refiner_clip": [
+      "618",
+      1
+     ],
+     "refiner_positive": [
+      "619:599",
+      0
+     ],
+     "refiner_negative": [
+      "619:606",
+      0
+     ],
+     "bbox_detector": [
+      "619:611",
+      0
+     ]
+    },
+    "class_type": "ToDetailerPipeSDXL",
+    "_meta": {
+     "title": "ToDetailerPipeSDXL"
+    }
+   },
+   "619:599": {
+    "inputs": {
+     "text": [
+      "619:590",
+      0
+     ],
+     "clip": [
+      "619:613",
+      1
+     ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+     "title": "PURE POSITIVE"
+    }
+   },
+   "619:600": {
+    "inputs": {
+     "add_noise": "enable",
+     "noise_seed": 578361683541099,
+     "steps": 70,
+     "cfg": 1.0,
+     "sampler_name": "lcm",
+     "scheduler": "normal",
+     "start_at_step": 66,
+     "end_at_step": 1000,
+     "return_with_leftover_noise": "disable",
+     "model": [
+      "619:610",
+      0
+     ],
+     "positive": [
+      "619:599",
+      0
+     ],
+     "negative": [
+      "619:606",
+      0
+     ],
+     "latent_image": [
+      "619:594",
+      0
+     ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+     "title": "KSampler (Advanced)"
+    }
+   },
+   "619:601": {
+    "inputs": {
+     "images": [
+      "619:603",
+      0
+     ]
+    },
+    "class_type": "INSTARAW_ImageListFromBatch",
+    "_meta": {
+     "title": "\ud83d\udcd1 INSTARAW Image List From Batch"
+    }
+   },
+   "619:602": {
+    "inputs": {
+     "images": [
+      "619:617",
+      0
+     ]
+    },
+    "class_type": "INSTARAW_BatchFromImageList",
+    "_meta": {
+     "title": "\ud83d\uddc3\ufe0f INSTARAW Batch From Image List"
+    }
+   },
+   "619:603": {
+    "inputs": {
+     "timeout": 600,
+     "ontimeout": "send none",
+     "cache_behavior": "Run selector normally",
+     "tip": "",
+     "extra1": "",
+     "extra2": "",
+     "extra3": "",
+     "pick_list_start": 0,
+     "pick_list": "0",
+     "video_frames": 1,
+     "node_identifier": 958955,
+     "images": [
+      "619:602",
+      0
+     ]
+    },
+    "class_type": "INSTARAW_ImageFilter",
+    "_meta": {
+     "title": "Image Selector - PAUSES the render until you choose"
+    }
+   },
+   "619:604": {
+    "inputs": {
+     "boolean": [
+      "619:614",
+      0
+     ],
+     "invert_input": false,
+     "input_1": [
+      "619:603",
+      0
+     ]
+    },
+    "class_type": "INSTARAW_BooleanBypass",
+    "_meta": {
+     "title": "\ud83d\udd00 INSTARAW Boolean Bypass"
+    }
+   },
+   "619:605": {
+    "inputs": {
+     "value": [
+      "483",
+      1
+     ]
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+     "title": "Negative Prompt"
+    }
+   },
+   "619:606": {
+    "inputs": {
+     "text": [
+      "619:605",
+      0
+     ],
+     "clip": [
+      "619:613",
+      1
+     ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+     "title": "PURE NEGATIVE"
+    }
+   },
+   "619:607": {
+    "inputs": {
+     "guide_size": 1280.0,
+     "guide_size_for": true,
+     "max_size": 1280.0,
+     "seed": 100097229797074,
+     "steps": 20,
+     "cfg": 3.0,
+     "sampler_name": "dpmpp_2m_sde",
+     "scheduler": "karras",
+     "denoise": 0.45,
+     "feather": 10,
+     "noise_mask": true,
+     "force_inpaint": true,
+     "bbox_threshold": 0.5,
+     "bbox_dilation": 30,
+     "bbox_crop_factor": 3.0,
+     "sam_detection_hint": "center-1",
+     "sam_dilation": 0,
+     "sam_threshold": 0.93,
+     "sam_bbox_expansion": 0,
+     "sam_mask_hint_threshold": 0.7,
+     "sam_mask_hint_use_negative": "False",
+     "drop_size": 10,
+     "refiner_ratio": 0.0,
+     "cycle": 1,
+     "inpaint_model": false,
+     "noise_mask_feather": 20,
+     "tiled_encode": false,
+     "tiled_decode": false,
+     "image": [
+      "619:596",
+      0
+     ],
+     "detailer_pipe": [
+      "619:598",
+      0
+     ]
+    },
+    "class_type": "FaceDetailerPipe",
+    "_meta": {
+     "title": "FaceDetailer (pipe)"
+    }
+   },
+   "619:608": {
+    "inputs": {
+     "sampling": "eps",
+     "zsnr": false,
+     "model": [
+      "618",
+      0
+     ]
+    },
+    "class_type": "ModelSamplingDiscrete",
+    "_meta": {
+     "title": "ModelSamplingDiscrete"
+    }
+   },
+   "619:609": {
+    "inputs": {
+     "scale": 1.0,
+     "model": [
+      "619:608",
+      0
+     ]
+    },
+    "class_type": "PerturbedAttentionGuidance",
+    "_meta": {
+     "title": "PerturbedAttentionGuidance"
+    }
+   },
+   "619:611": {
+    "inputs": {
+     "model_name": "bbox/face_yolov8m.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider",
+    "_meta": {
+     "title": "UltralyticsDetectorProvider"
+    }
+   },
+   "619:612": {
+    "inputs": {
+     "model_name": "4x-UltraSharpV2.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+     "title": "Load Upscale Model"
+    }
+   },
+   "619:614": {
+    "inputs": {
+     "value": true
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+     "title": "ENABLE IMAGE FILTERING?"
+    }
+   },
+   "619:616": {
+    "inputs": {
+     "samples": [
+      "619:597",
+      0
+     ],
+     "vae": [
+      "619:613",
+      2
+     ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+     "title": "VAE Decode"
+    }
+   },
+   "619:617": {
+    "inputs": {
+     "upscale_by": 1.2500000000000002,
+     "seed": 34651603,
+     "steps": 25,
+     "cfg": 4.5,
+     "sampler_name": "dpmpp_2m_sde",
+     "scheduler": "karras",
+     "denoise": 0.25000000000000006,
+     "mode_type": "Linear",
+     "tile_width": 896,
+     "tile_height": 1152,
+     "mask_blur": 8,
+     "tile_padding": 64,
+     "seam_fix_mode": "None",
+     "seam_fix_denoise": 0.30000000000000004,
+     "seam_fix_width": 128,
+     "seam_fix_mask_blur": 8,
+     "seam_fix_padding": 16,
+     "force_uniform_tiles": true,
+     "tiled_decode": false,
+     "batch_size": 1,
+     "image": [
+      "619:616",
+      0
+     ],
+     "model": [
+      "618",
+      0
+     ],
+     "positive": [
+      "619:599",
+      0
+     ],
+     "negative": [
+      "619:606",
+      0
+     ],
+     "vae": [
+      "619:613",
+      2
+     ],
+     "upscale_model": [
+      "619:612",
+      0
+     ]
+    },
+    "class_type": "UltimateSDUpscale",
+    "_meta": {
+     "title": "Ultimate SD Upscale"
+    }
+   },
+   "619:610": {
+    "inputs": {
+     "lora_name": "sdxl_tdd_lora_weights.safetensors",
+     "strength_model": 1.0,
+     "strength_clip": 1.0,
+     "model": [
+      "619:613",
+      0
+     ],
+     "clip": [
+      "619:613",
+      1
+     ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+     "title": "4-step speed LoRA (TDD, Apache-2.0)"
+    }
+   },
+   "619:613": {
+    "inputs": {
+     "ckpt_name": "SDXLNSFW.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+     "title": "Load Checkpoint"
+    }
+   },
+   "619:615": {
+    "inputs": {
+     "model_name": "4x_NMKD-Superscale-SP_178000_G.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+     "title": "Load Upscale Model"
+    }
+   },
+   "620:137": {
+    "inputs": {
+     "color_space": "LAB",
+     "factor": 1.0,
+     "device": "auto",
+     "batch_size": 0,
+     "image": [
+      "587:98",
+      0
+     ],
+     "reference": [
+      "587:87",
+      0
+     ]
+    },
+    "class_type": "ImageColorMatch+",
+    "_meta": {
+     "title": "\ud83d\udd27 Image Color Match"
+    }
+   },
+   "620:107": {
+    "inputs": {
+     "model_name": "bbox/face_yolov8m.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider",
+    "_meta": {
+     "title": "UltralyticsDetectorProvider"
+    }
+   },
+   "620:108": {
+    "inputs": {
+     "model_name": "sam_vit_b_01ec64.pth",
+     "device_mode": "AUTO"
+    },
+    "class_type": "SAMLoader",
+    "_meta": {
+     "title": "SAMLoader (Impact)"
+    }
+   },
+   "620:111": {
+    "inputs": {
+     "color_space": "LAB",
+     "factor": 1.0,
+     "device": "auto",
+     "batch_size": 0,
+     "image": [
+      "620:114",
+      0
+     ],
+     "reference": [
+      "620:137",
+      0
+     ]
+    },
+    "class_type": "ImageColorMatch+",
+    "_meta": {
+     "title": "\ud83d\udd27 Image Color Match"
+    }
+   },
+   "620:165": {
+    "inputs": {
+     "guide_size": 1808.0,
+     "guide_size_for": true,
+     "max_size": 1808.0,
+     "seed": 1111111,
+     "steps": 8,
+     "cfg": 1.0,
+     "sampler_name": "euler_ancestral",
+     "scheduler": "kl_optimal",
+     "denoise": 0.35,
+     "feather": 3,
+     "noise_mask": true,
+     "force_inpaint": true,
+     "bbox_threshold": 0.7,
+     "bbox_dilation": 10,
+     "bbox_crop_factor": 3.0,
+     "sam_detection_hint": "center-1",
+     "sam_dilation": 0,
+     "sam_threshold": 0.6,
+     "sam_bbox_expansion": 0,
+     "sam_mask_hint_threshold": 0.7,
+     "sam_mask_hint_use_negative": "False",
+     "drop_size": 10,
+     "wildcard": "",
+     "cycle": 1,
+     "inpaint_model": false,
+     "noise_mask_feather": 20,
+     "tiled_encode": false,
+     "tiled_decode": false,
+     "image": [
+      "620:111",
+      0
+     ],
+     "model": [
+      "116",
+      0
+     ],
+     "clip": [
+      "116",
+      1
+     ],
+     "vae": [
+      "620:109",
+      0
+     ],
+     "positive": [
+      "621:166",
+      0
+     ],
+     "negative": [
+      "621:167",
+      0
+     ],
+     "bbox_detector": [
+      "621:161",
+      0
+     ],
+     "sam_model_opt": [
+      "621:160",
+      0
+     ],
+     "detailer_hook": [
+      "620:648",
+      0
+     ]
+    },
+    "class_type": "FaceDetailer",
+    "_meta": {
+     "title": "Mouth Detailer"
+    }
+   },
+   "620:114": {
+    "inputs": {
+     "guide_size": 1024.0,
+     "guide_size_for": true,
+     "max_size": 1024.0,
+     "seed": 1111111,
+     "steps": 8,
+     "cfg": 1.0,
+     "sampler_name": "euler_ancestral",
+     "scheduler": "kl_optimal",
+     "denoise": 0.35,
+     "feather": 18,
+     "noise_mask": true,
+     "force_inpaint": true,
+     "bbox_threshold": 0.5,
+     "bbox_dilation": 10,
+     "bbox_crop_factor": 1.5,
+     "sam_detection_hint": "center-1",
+     "sam_dilation": 0,
+     "sam_threshold": 0.93,
+     "sam_bbox_expansion": 0,
+     "sam_mask_hint_threshold": 0.7,
+     "sam_mask_hint_use_negative": "False",
+     "drop_size": 10,
+     "wildcard": "",
+     "cycle": 1,
+     "inpaint_model": false,
+     "noise_mask_feather": 20,
+     "tiled_encode": false,
+     "tiled_decode": false,
+     "image": [
+      "620:137",
+      0
+     ],
+     "model": [
+      "116",
+      0
+     ],
+     "clip": [
+      "116",
+      1
+     ],
+     "vae": [
+      "620:109",
+      0
+     ],
+     "positive": [
+      "620:106",
+      0
+     ],
+     "negative": [
+      "620:105",
+      0
+     ],
+     "bbox_detector": [
+      "620:107",
+      0
+     ],
+     "sam_model_opt": [
+      "620:108",
+      0
+     ]
+    },
+    "class_type": "FaceDetailer",
+    "_meta": {
+     "title": "FaceDetailer"
+    }
+   },
+   "620:106": {
+    "inputs": {
+     "text": "luna, a young woman in her mid twenties with wavy auburn hair, warm hazel eyes, soft natural makeup, light freckles on her cheeks, gentle smile, photorealistic skin texture with visible pores, soft diffused studio light",
+     "clip": [
+      "620:110",
+      0
+     ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+     "title": "Face Detailer Prompt"
+    }
+   },
+   "620:105": {
+    "inputs": {
+     "text": "",
+     "clip": [
+      "620:110",
+      0
+     ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+     "title": "Face Detailer Negative Prompt"
+    }
+   },
+   "620:110": {
+    "inputs": {
+     "clip_name": "qwen.safetensors",
+     "type": "lumina2",
+     "device": "cpu"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+     "title": "Load CLIP"
+    }
+   },
+   "620:109": {
+    "inputs": {
+     "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+     "title": "Load VAE"
+    }
+   },
+   "620:113": {
+    "inputs": {
+     "unet_name": "zimage.safetensors",
+     "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+     "title": "Load Diffusion Model"
+    }
+   },
+   "620:648": {
+    "inputs": {
+     "target": "area(=w*h)",
+     "mode": true,
+     "min_value": 0,
+     "max_value": 4000000
+    },
+    "class_type": "SEGSRangeFilterDetailerHookProvider",
+    "_meta": {
+     "title": "Mouth size guard: drop full-frame false detections (area > 4M)"
+    }
+   },
+   "621:163": {
+    "inputs": {
+     "color_space": "LAB",
+     "factor": 1.0,
+     "device": "auto",
+     "batch_size": 0,
+     "image": [
+      "620:165",
+      0
+     ],
+     "reference": [
+      "620:111",
+      0
+     ]
+    },
+    "class_type": "ImageColorMatch+",
+    "_meta": {
+     "title": "\ud83d\udd27 Image Color Match"
+    }
+   },
+   "621:166": {
+    "inputs": {
+     "text": "realistic detailed mouth",
+     "clip": [
+      "620:110",
+      0
+     ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+     "title": "Mouth Detailer Prompt"
+    }
+   },
+   "621:167": {
+    "inputs": {
+     "text": "",
+     "clip": [
+      "620:110",
+      0
+     ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+     "title": "Mouth Detailer Negative Prompt"
+    }
+   },
+   "621:160": {
+    "inputs": {
+     "model_name": "sam_vit_b_01ec64.pth",
+     "device_mode": "AUTO"
+    },
+    "class_type": "SAMLoader",
+    "_meta": {
+     "title": "SAMLoader (Impact)"
+    }
+   },
+   "621:161": {
+    "inputs": {
+     "model_name": "bbox/lips_v1.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider",
+    "_meta": {
+     "title": "UltralyticsDetectorProvider"
+    }
+   },
+   "622:401": {
+    "inputs": {
+     "width": [
+      "622:400",
+      0
+     ],
+     "height": [
+      "622:400",
+      1
+     ],
+     "fit": "crop",
+     "method": "lanczos",
+     "image": [
+      "622:406",
+      0
+     ]
+    },
+    "class_type": "INSTARAW_ImageResizeFill",
+    "_meta": {
+     "title": "\ud83d\udcd0 INSTARAW Image Resize & Fill"
+    }
+   },
+   "622:400": {
+    "inputs": {
+     "image": [
+      "622:404",
+      0
+     ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+     "title": "Get Image Size"
+    }
+   },
+   "622:407": {
+    "inputs": {
+     "segs": [
+      "622:424",
+      0
+     ]
+    },
+    "class_type": "SegsToCombinedMask",
+    "_meta": {
+     "title": "SEGS to MASK (combined)"
+    }
+   },
+   "622:403": {
+    "inputs": {
+     "padding": 0,
+     "blur": 0,
+     "mask": [
+      "622:407",
+      0
+     ]
+    },
+    "class_type": "MaskBoundingBox+",
+    "_meta": {
+     "title": "\ud83d\udd27 Mask Bounding Box"
+    }
+   },
+   "622:404": {
+    "inputs": {
+     "width": [
+      "622:403",
+      4
+     ],
+     "height": [
+      "622:403",
+      5
+     ],
+     "x": [
+      "622:403",
+      2
+     ],
+     "y": [
+      "622:403",
+      3
+     ],
+     "image": [
+      "622:431",
+      0
+     ]
+    },
+    "class_type": "ImageCrop",
+    "_meta": {
+     "title": "Image Crop"
+    }
+   },
+   "622:399": {
+    "inputs": {
+     "image": [
+      "622:414",
+      0
+     ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+     "title": "Get Image Size"
+    }
+   },
+   "622:414": {
+    "inputs": {
+     "width": 1920,
+     "height": 1920,
+     "interpolation": "lanczos",
+     "method": "keep proportion",
+     "condition": "always",
+     "multiple_of": 0,
+     "image": [
+      "622:404",
+      0
+     ]
+    },
+    "class_type": "ImageResize+",
+    "_meta": {
+     "title": "Upscale Face Crop for Detailing"
+    }
+   },
+   "622:418": {
+    "inputs": {
+     "x": [
+      "622:403",
+      2
+     ],
+     "y": [
+      "622:403",
+      3
+     ],
+     "resize_source": false,
+     "destination": [
+      "622:431",
+      0
+     ],
+     "source": [
+      "622:401",
+      0
+     ],
+     "mask": [
+      "622:664",
+      0
+     ]
+    },
+    "class_type": "ImageCompositeMasked",
+    "_meta": {
+     "title": "ImageCompositeMasked"
+    }
+   },
+   "622:402": {
+    "inputs": {
+     "segs": [
+      "622:410",
+      0
+     ]
+    },
+    "class_type": "SegsToCombinedMask",
+    "_meta": {
+     "title": "SEGS to MASK (combined)"
+    }
+   },
+   "622:410": {
+    "inputs": {
+     "crop_factor": 3.0,
+     "bbox_fill": false,
+     "crop_min_size": 10,
+     "drop_size": 1,
+     "dilation": 0,
+     "face": false,
+     "mouth": false,
+     "left_eyebrow": false,
+     "left_eye": true,
+     "left_pupil": true,
+     "right_eyebrow": false,
+     "right_eye": true,
+     "right_pupil": true,
+     "image": [
+      "622:415",
+      0
+     ]
+    },
+    "class_type": "MediaPipeFaceMeshToSEGS",
+    "_meta": {
+     "title": "MediaPipe FaceMesh to SEGS"
+    }
+   },
+   "622:424": {
+    "inputs": {
+     "threshold": 0.6,
+     "dilation": 10,
+     "crop_factor": 3.0,
+     "drop_size": 10,
+     "labels": "all",
+     "bbox_detector": [
+      "622:426",
+      0
+     ],
+     "image": [
+      "622:431",
+      0
+     ]
+    },
+    "class_type": "BboxDetectorSEGS",
+    "_meta": {
+     "title": "BBOX Detector (SEGS)"
+    }
+   },
+   "622:408": {
+    "inputs": {
+     "combined": true,
+     "crop_factor": 3.0,
+     "bbox_fill": false,
+     "drop_size": 10,
+     "contour_fill": false,
+     "mask": [
+      "622:402",
+      0
+     ]
+    },
+    "class_type": "MaskToSEGS",
+    "_meta": {
+     "title": "MASK to SEGS"
+    }
+   },
+   "622:415": {
+    "inputs": {
+     "max_faces": 10,
+     "min_confidence": 0.2,
+     "resolution": [
+      "622:399",
+      0
+     ],
+     "image": [
+      "622:414",
+      0
+     ]
+    },
+    "class_type": "MediaPipe-FaceMeshPreprocessor",
+    "_meta": {
+     "title": "MediaPipe Face Mesh"
+    }
+   },
+   "622:406": {
+    "inputs": {
+     "guide_size": 1920.0,
+     "guide_size_for": true,
+     "max_size": 1920.0,
+     "seed": 1111112,
+     "steps": 8,
+     "cfg": 1.0,
+     "sampler_name": "euler",
+     "scheduler": "beta",
+     "denoise": 0.42,
+     "feather": 2,
+     "noise_mask": true,
+     "force_inpaint": true,
+     "wildcard": "",
+     "cycle": 1,
+     "inpaint_model": false,
+     "noise_mask_feather": 20,
+     "tiled_encode": false,
+     "tiled_decode": false,
+     "image": [
+      "622:414",
+      0
+     ],
+     "segs": [
+      "622:408",
+      0
+     ],
+     "model": [
+      "116",
+      0
+     ],
+     "clip": [
+      "620:110",
+      0
+     ],
+     "vae": [
+      "620:109",
+      0
+     ],
+     "positive": [
+      "622:398",
+      0
+     ],
+     "negative": [
+      "622:394",
+      0
+     ]
+    },
+    "class_type": "DetailerForEachDebug",
+    "_meta": {
+     "title": "DetailerDebug (SEGS)"
+    }
+   },
+   "622:426": {
+    "inputs": {
+     "model_name": "bbox/face_yolov8m.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider",
+    "_meta": {
+     "title": "UltralyticsDetectorProvider"
+    }
+   },
+   "622:431": {
+    "inputs": {
+     "images": [
+      "621:163",
+      0
+     ]
+    },
+    "class_type": "INSTARAW_ImageListFromBatch",
+    "_meta": {
+     "title": "\ud83d\udcd1 INSTARAW Image List From Batch"
+    }
+   },
+   "622:394": {
+    "inputs": {
+     "text": "",
+     "clip": [
+      "620:110",
+      0
+     ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+     "title": "Eye Negative Prompt"
+    }
+   },
+   "622:398": {
+    "inputs": {
+     "text": "perfect eyes, round pupils, round iris, symmetrical eyes, realistic eyes, perfect circles, round",
+     "clip": [
+      "620:110",
+      0
+     ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+     "title": "Eye Positive Prompt"
+    }
+   },
+   "622:660": {
+    "inputs": {
+     "segs": [
+      "622:424",
+      0
+     ]
+    },
+    "class_type": "ImpactIsNotEmptySEGS",
+    "_meta": {
+     "title": "face found?"
+    }
+   },
+   "622:661": {
+    "inputs": {
+     "cond": [
+      "622:660",
+      0
+     ],
+     "tt_value": [
+      "622:418",
+      0
+     ],
+     "ff_value": [
+      "622:431",
+      0
+     ]
+    },
+    "class_type": "ImpactConditionalBranch",
+    "_meta": {
+     "title": "eyes pass, or pass through if no face"
+    }
+   },
+   "622:662": {
+    "inputs": {
+     "preview": "",
+     "previewMode": null,
+     "source": [
+      "622:660",
+      0
+     ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+     "title": "eyes ran? False = no face found, eye detail SKIPPED"
+    }
+   },
+   "622:664": {
+    "inputs": {
+     "left": 30,
+     "top": 30,
+     "right": 30,
+     "bottom": 30,
+     "mask": [
+      "622:403",
+      0
+     ]
+    },
+    "class_type": "FeatherMask",
+    "_meta": {
+     "title": "feather the eyes composite (seam fix)"
+    }
+   }
+  },
+  {
+   "create_time": 1786155873770
+  },
+  [
+   "480",
+   "481",
+   "622:662",
+   "505",
+   "419"
+  ]
+ ],
+ "outputs": {
+  "480": {
+   "text": [
+    "\ud83d\udcca BATCH PREVIEW: 1 prompts\n============================================================\n\n[1] Seed: 12345\n\u2705 photorealistic portrait photograph of a young woman standing in soft window ligh...\n\u274c bad quality, worst quality, low quality, deformed, extra fingers, watermark, tex...\n"
+   ]
+  },
+  "481": {
+   "text": [
+    "\ud83d\udcca BATCH PREVIEW: 1 prompts\n============================================================\n\n[1] Seed: 12345\n\u2705 photorealistic portrait photograph of a young woman standing in soft window ligh...\n\u274c bad quality, worst quality, low quality, deformed, extra fingers, watermark, tex...\n"
+   ]
+  }
+ },
+ "status": {
+  "status_str": "error",
+  "completed": false,
+  "messages": [
+   [
+    "execution_start",
+    {
+     "prompt_id": "ef61da3e-5fd3-440e-86f0-52246dd91dd2",
+     "timestamp": 1786155873771
+    }
+   ],
+   [
+    "execution_cached",
+    {
+     "nodes": [
+      "116",
+      "587:100",
+      "587:89",
+      "587:88",
+      "619:612",
+      "620:108",
+      "620:105",
+      "620:110",
+      "620:109",
+      "620:113",
+      "621:167",
+      "621:160",
+      "622:394"
+     ],
+     "prompt_id": "ef61da3e-5fd3-440e-86f0-52246dd91dd2",
+     "timestamp": 1786155873804
+    }
+   ],
+   [
+    "execution_error",
+    {
+     "prompt_id": "ef61da3e-5fd3-440e-86f0-52246dd91dd2",
+     "node_id": "619:592",
+     "node_type": "KSampler",
+     "executed": [
+      "480",
+      "618",
+      "619:599",
+      "481",
+      "619:590",
+      "619:606",
+      "619:598",
+      "619:613",
+      "587:506",
+      "587:93",
+      "619:605",
+      "647:625",
+      "619:609",
+      "483",
+      "647:628",
+      "619:611",
+      "647:635",
+      "619:608",
+      "647:627"
+     ],
+     "exception_message": "No operator found for `memory_efficient_attention_forward` with inputs:\n     query       : shape=(2, 4032, 10, 64) (torch.float32)\n     key         : shape=(2, 4032, 10, 64) (torch.float32)\n     value       : shape=(2, 4032, 10, 64) (torch.float32)\n     attn_bias   : <class 'NoneType'>\n     p           : 0.0\n`fa3F@2.8.3-133-gde1584b` is not supported because:\n    requires device with capability <= (9, 0) but your GPU has capability (12, 0) (too new)\n    dtype=torch.float32 (supported: {torch.float16, torch.bfloat16})\n    requires device with capability == (8, 0) but your GPU has capability (12, 0) (too new)\n`fa2F@2.5.7-pt` is not supported because:\n    dtype=torch.float32 (supported: {torch.float16, torch.bfloat16})\n`cutlassF-pt` is not supported because:\n    requires device with capability <= (9, 0) but your GPU has capability (12, 0) (too new)\n",
+     "exception_type": "NotImplementedError",
+     "traceback": [
+      "  File \"/workspace/ComfyUI/execution.py\", line 524, in execute\n    output_data, output_ui, has_subgraph, has_pending_tasks = await get_output_data(prompt_id, unique_id, obj, input_data_all, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)\n                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/execution.py\", line 333, in get_output_data\n    return_values = await _async_map_node_over_list(prompt_id, unique_id, obj, input_data_all, obj.FUNCTION, allow_interrupt=True, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/execution.py\", line 307, in _async_map_node_over_list\n    await process_inputs(input_dict, i)\n",
+      "  File \"/workspace/ComfyUI/execution.py\", line 295, in process_inputs\n    result = f(**inputs)\n             ^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/nodes.py\", line 1593, in sample\n    return common_ksampler(model, seed, steps, cfg, sampler_name, scheduler, positive, negative, latent_image, denoise=denoise)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/nodes.py\", line 1558, in common_ksampler\n    samples = comfy.sample.sample(model, noise, steps, cfg, sampler_name, scheduler, positive, negative, latent_image,\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/sample.py\", line 66, in sample\n    samples = sampler.sample(noise, positive, negative, cfg=cfg, latent_image=latent_image, start_step=start_step, last_step=last_step, force_full_denoise=force_full_denoise, denoise_mask=noise_mask, sigmas=sigmas, callback=callback, disable_pbar=disable_pbar, seed=seed)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/samplers.py\", line 1177, in sample\n    return sample(self.model, noise, positive, negative, cfg, self.device, sampler, sigmas, self.model_options, latent_image=latent_image, denoise_mask=denoise_mask, callback=callback, disable_pbar=disable_pbar, seed=seed)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/samplers.py\", line 1067, in sample\n    return cfg_guider.sample(noise, latent_image, sampler, sigmas, denoise_mask, callback, disable_pbar, seed)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/samplers.py\", line 1049, in sample\n    output = executor.execute(noise, latent_image, sampler, sigmas, denoise_mask, callback, disable_pbar, seed, latent_shapes=latent_shapes)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/patcher_extension.py\", line 112, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/samplers.py\", line 993, in outer_sample\n    output = self.inner_sample(noise, latent_image, device, sampler, sigmas, denoise_mask, callback, disable_pbar, seed, latent_shapes=latent_shapes)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/samplers.py\", line 979, in inner_sample\n    samples = executor.execute(self, sigmas, extra_args, callback, noise, latent_image, denoise_mask, disable_pbar)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/patcher_extension.py\", line 112, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/samplers.py\", line 751, in sample\n    samples = self.sampler_function(model_k, noise, sigmas, extra_args=extra_args, callback=k_callback, disable=disable_pbar, **self.extra_options)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py\", line 120, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/k_diffusion/sampling.py\", line 840, in sample_dpmpp_2m_sde\n    denoised = model(x, sigmas[i] * s_in, **extra_args)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/samplers.py\", line 400, in __call__\n    out = self.inner_model(x, sigma, model_options=model_options, seed=seed)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/samplers.py\", line 952, in __call__\n    return self.outer_predict_noise(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/samplers.py\", line 959, in outer_predict_noise\n    ).execute(x, timestep, model_options, seed)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/patcher_extension.py\", line 112, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/samplers.py\", line 962, in predict_noise\n    return sampling_function(self.inner_model, x, timestep, self.conds.get(\"negative\", None), self.conds.get(\"positive\", None), self.cfg, model_options=model_options, seed=seed)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/samplers.py\", line 380, in sampling_function\n    out = calc_cond_batch(model, conds, x, timestep, model_options)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/samplers.py\", line 205, in calc_cond_batch\n    return _calc_cond_batch_outer(model, conds, x_in, timestep, model_options)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/samplers.py\", line 213, in _calc_cond_batch_outer\n    return executor.execute(model, conds, x_in, timestep, model_options)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/patcher_extension.py\", line 112, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/samplers.py\", line 325, in _calc_cond_batch\n    output = model.apply_model(input_x, timestep_, **c).chunk(batch_chunks)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/model_base.py\", line 170, in apply_model\n    return comfy.patcher_extension.WrapperExecutor.new_class_executor(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/patcher_extension.py\", line 112, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/model_base.py\", line 209, in _apply_model\n    model_output = self.diffusion_model(xc, t, context=context, control=control, transformer_options=transformer_options, **extra_conds)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1775, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1786, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/ldm/modules/diffusionmodules/openaimodel.py\", line 831, in forward\n    return comfy.patcher_extension.WrapperExecutor.new_class_executor(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/patcher_extension.py\", line 112, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/ldm/modules/diffusionmodules/openaimodel.py\", line 873, in _forward\n    h = forward_timestep_embed(module, h, emb, context, transformer_options, time_context=time_context, num_video_frames=num_video_frames, image_only_indicator=image_only_indicator)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/ldm/modules/diffusionmodules/openaimodel.py\", line 44, in forward_timestep_embed\n    x = layer(x, context, transformer_options)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1775, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1786, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/ldm/modules/attention.py\", line 1024, in forward\n    x = block(x, context=context[i], transformer_options=transformer_options)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1775, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1786, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/custom_nodes/ComfyUI-Easy-Use/py/modules/layer_diffuse/attension_sharing.py\", line 252, in forward\n    return func(self, x, context, transformer_options)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/ldm/modules/attention.py\", line 910, in forward\n    n = self.attn1(n, context=context_attn1, value=value_attn1, transformer_options=transformer_options)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1775, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1786, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/ldm/modules/attention.py\", line 804, in forward\n    out = optimized_attention(q, k, v, self.heads, attn_precision=self.attn_precision, transformer_options=transformer_options)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/ldm/modules/attention.py\", line 137, in wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/workspace/ComfyUI/comfy/ldm/modules/attention.py\", line 465, in attention_xformers\n    out = xformers.ops.memory_efficient_attention(q, k, v, attn_bias=mask)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/venv/main/lib/python3.12/site-packages/xformers/ops/fmha/__init__.py\", line 311, in memory_efficient_attention\n    return _memory_efficient_attention(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/venv/main/lib/python3.12/site-packages/xformers/ops/fmha/__init__.py\", line 472, in _memory_efficient_attention\n    return _memory_efficient_attention_forward(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/venv/main/lib/python3.12/site-packages/xformers/ops/fmha/__init__.py\", line 491, in _memory_efficient_attention_forward\n    op = _dispatch_fw(inp, False)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/venv/main/lib/python3.12/site-packages/xformers/ops/fmha/dispatch.py\", line 142, in _dispatch_fw\n    return _run_priority_list(\n           ^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/venv/main/lib/python3.12/site-packages/xformers/ops/fmha/dispatch.py\", line 83, in _run_priority_list\n    raise NotImplementedError(msg)\n"
+     ],
+     "current_inputs": {
+      "seed": [
+       12345
+      ],
+      "steps": [
+       40
+      ],
+      "cfg": [
+       4.0
+      ],
+      "sampler_name": [
+       "dpmpp_2m_sde"
+      ],
+      "scheduler": [
+       "karras"
+      ],
+      "denoise": [
+       1.0
+      ],
+      "model": [
+       "<comfy.model_patcher.ModelPatcher object at 0x704e21e5deb0>"
+      ],
+      "positive": [
+       "[[tensor([[[-1.6454, -0.7983,  0.8114,  ...,  0.2176,  0.4451, -0.2462],\n         [-0.2136, -0.0718, -0.0987,  ...,  0.8724,  0.5612,  0.2770],\n         [ 0.3948, -0.6290,  0.6821,  ...,  1.0294,  0.1803,  0.5568],\n         ...,\n         [ 0.9248,  0.0319, -1.1419,  ..., -0.2392, -0.2848,  0.3172],\n         [ 0.9569,  0.0428, -1.1536,  ..., -0.2791, -0.2970,  0.3033],\n         [ 1.0420,  0.6484, -1.1409,  ..., -0.1121,  0.1692,  0.6449]]]), {'pooled_output': tensor([[ 3.3428, -1.8666, -0.9129,  ...,  1.0669,  0.3170, -1.1294]])}]]"
+      ],
+      "negative": [
+       "[[tensor([[[-1.6454, -0.7983,  0.8114,  ...,  0.2176,  0.4451, -0.2462],\n         [-0.0308, -0.3975, -0.5878,  ..., -0.5194,  0.7496,  0.1365],\n         [ 0.4763, -0.1908,  0.9282,  ..., -0.6277,  0.9244, -0.4057],\n         ...,\n         [ 0.5532, -0.1148, -1.3249,  ..., -0.4321, -0.2538,  0.3685],\n         [ 0.5554, -0.1236, -1.3339,  ..., -0.4758, -0.2496,  0.3562],\n         [ 0.5785, -0.0579, -1.3267,  ..., -0.3570, -0.1450, -0.0549]]]), {'pooled_output': tensor([[ 2.3597, -1.6139, -0.5007,  ...,  1.2327, -0.5212, -0.9938]])}]]"
+      ],
+      "latent_image": [
+       "{'samples': tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.],\n          ...,\n          [0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.]],\n\n         [[0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.],\n          ...,\n          [0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.]],\n\n         [[0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.],\n          ...,\n          [0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.]],\n\n         [[0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.],\n          ...,\n          [0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.]]]]), 'downscale_ratio_spacial': 8}"
+      ]
+     },
+     "current_outputs": [
+      "587:90",
+      "619:595",
+      "587:93",
+      "619:596",
+      "619:605",
+      "622:400",
+      "587:87",
+      "619:601",
+      "622:408",
+      "647:628",
+      "621:161",
+      "622:394",
+      "620:108",
+      "619:617",
+      "647:635",
+      "621:163",
+      "587:92",
+      "622:426",
+      "587:508",
+      "620:111",
+      "620:113",
+      "618",
+      "622:410",
+      "619:604",
+      "587:506",
+      "587:91",
+      "622:664",
+      "622:431",
+      "622:418",
+      "647:625",
+      "619:609",
+      "622:401",
+      "619:603",
+      "587:99",
+      "619:597",
+      "619:614",
+      "483",
+      "619:611",
+      "116",
+      "622:414",
+      "621:166",
+      "587:100",
+      "620:107",
+      "619:593",
+      "622:403",
+      "587:509",
+      "619:610",
+      "587:98",
+      "647:627",
+      "620:106",
+      "480",
+      "619:607",
+      "481",
+      "619:590",
+      "622:415",
+      "622:407",
+      "622:402",
+      "419",
+      "620:110",
+      "587:97",
+      "619:600",
+      "619:615",
+      "587:89",
+      "622:399",
+      "619:591",
+      "619:616",
+      "619:608",
+      "622:661",
+      "587:88",
+      "619:594",
+      "619:599",
+      "622:662",
+      "619:598",
+      "505",
+      "619:606",
+      "619:613",
+      "619:592",
+      "619:612",
+      "621:160",
+      "621:167",
+      "622:424",
+      "619:602",
+      "622:404",
+      "622:398",
+      "622:406",
+      "622:660",
+      "620:114",
+      "620:105",
+      "620:165",
+      "620:648",
+      "620:137",
+      "620:109"
+     ],
+     "timestamp": 1786155877245
+    }
+   ]
+  ]
+ },
+ "meta": {
+  "480": {
+   "node_id": "480",
+   "display_node": "480",
+   "parent_node": null,
+   "real_node_id": "480"
+  },
+  "481": {
+   "node_id": "481",
+   "display_node": "481",
+   "parent_node": null,
+   "real_node_id": "481"
+  }
+ }
+}

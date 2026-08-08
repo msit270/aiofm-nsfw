@@ -1,0 +1,10 @@
+{
+ "arm": "Dmx_cublas_ws_b0_lunaz30",
+ "batch": "Dmx",
+ "ok": true,
+ "exec_s": 145.989,
+ "cached_nodes": 3,
+ "prompt_id": "0ce1e2f8-3026-498a-9416-bd73ba91d113",
+ "outputs_dir": "/workspace/run5/output/Dmx/Dmx_cublas_ws_b0_lunaz30",
+ "status_str": "success"
+}

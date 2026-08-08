@@ -1,0 +1,10 @@
+{
+ "arm": "Dmx_cublas_ws_b0_zref_P_canary",
+ "batch": "Dmx",
+ "ok": true,
+ "exec_s": 5.285,
+ "cached_nodes": 0,
+ "prompt_id": "925039e1-5fa6-4c3b-a303-7386cadd9e8b",
+ "outputs_dir": "/workspace/run5/output/Dmx/Dmx_cublas_ws_b0_zref_P_canary",
+ "status_str": "success"
+}

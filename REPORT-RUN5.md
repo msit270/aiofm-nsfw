@@ -114,11 +114,19 @@ config 5/5 clean across boots but NOT immune as a class. Research located
 three concrete mechanisms (bf16 path has NO NaN clamp upstream; xformers
 cutlass kernels on sm_120 carried every failure; ComfyUI's default
 2-stream async offload meets cuBLAS's documented multi-stream
-nondeterminism, fixed in torch 2.10). Experiment matrix:
-[D-MATRIX RESULT PENDING — arms: baseline / no-xformers /
-no-async-offload / CUBLAS workspace / fp32]
-Interim mitigation (measured all session): re-render on a fresh boot
-always cleared it; the fresh-install gate black-checks its render.
+nondeterminism, fixed in torch 2.10). Experiment matrix (results/run5/Dmatrix/): the failure DID NOT
+REPRODUCE — 40/40 probes healthy across 8 fresh boots, incl. the exact
+graphs that failed 2/2 and 3/4 earlier, under stock flags. So: no root
+cause proven, no toggle credited; the failure is an environmental,
+time-clustered die (all 7 session failures fell in one ~2-hour window;
+revised rate ~5% overall, 0% tonight). All four mitigation flags proved
+compatible; --force-fp32 standalone is INCOMPATIBLE with the installed
+xformers (pair it with --use-pytorch-cross-attention). Adopted daily-use
+recommendation: --disable-async-offload +
+CUBLAS_WORKSPACE_CONFIG=:4096:8 (mechanism-targeted, zero-cost,
+explicitly NOT a proven cure) + re-render on black (cleared 7/7 this
+session). Structural path: the V10 core-upgrade session (torch 2.10 has
+the cuBLAS thread-safety fix); re-run the matrix there.
 
 ## The pack
 
@@ -134,7 +142,8 @@ was touched at any point (builder refuses to write into dist/).
   is the one untested arm that could dissolve it.
 - S18 tiled-sampler swap: metric says yes, your S3 eye said rms — decide
   from the sheet.
-- Black-render root cause: [PENDING — see D-matrix section].
+- Black-render root cause: OPEN — non-reproduction documented; matrix +
+  mitigation flags in the D section; re-test on the torch-2.10 upgrade.
 - V10/Krea2 (unlocks Aug 10): runbook ready (notes/V10-krea2-runbook.md);
   needs a core upgrade session.
 - Retraining luna on Z-Image BASE would unlock real negatives + the base

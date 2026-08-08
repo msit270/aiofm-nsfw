@@ -1,0 +1,10 @@
+{
+ "arm": "Dmx_no_xformers_b0_zref_P_canary",
+ "batch": "Dmx",
+ "ok": true,
+ "exec_s": 5.252,
+ "cached_nodes": 0,
+ "prompt_id": "4fd4a8b5-3ebe-486c-8c6e-ae9c98bf1e11",
+ "outputs_dir": "/workspace/run5/output/Dmx/Dmx_no_xformers_b0_zref_P_canary",
+ "status_str": "success"
+}

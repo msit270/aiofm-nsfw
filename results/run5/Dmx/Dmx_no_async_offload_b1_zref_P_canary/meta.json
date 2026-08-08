@@ -1,0 +1,10 @@
+{
+ "arm": "Dmx_no_async_offload_b1_zref_P_canary",
+ "batch": "Dmx",
+ "ok": true,
+ "exec_s": 5.237,
+ "cached_nodes": 0,
+ "prompt_id": "b6c68253-413d-47d4-ae62-748e702d9e33",
+ "outputs_dir": "/workspace/run5/output/Dmx/Dmx_no_async_offload_b1_zref_P_canary",
+ "status_str": "success"
+}

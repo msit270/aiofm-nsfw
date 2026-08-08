@@ -1,0 +1,10 @@
+{
+ "arm": "Dmx_force_fp32_b0_zref_PT",
+ "batch": "Dmx",
+ "ok": false,
+ "exec_s": 2.243,
+ "cached_nodes": 5,
+ "prompt_id": "5a2d7c85-3907-4d94-9bab-4c69b1beb238",
+ "outputs_dir": "/workspace/run5/output/Dmx/Dmx_force_fp32_b0_zref_PT",
+ "status_str": "error"
+}

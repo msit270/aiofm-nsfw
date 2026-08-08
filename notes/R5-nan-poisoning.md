@@ -56,3 +56,9 @@ propagate that time. Honest current model:
   batches, black-frame sweeps after each batch, re-render failed arms.
   All likeness/texture rows in the record come from visually-verified,
   face-detected frames.
+
+
+## FINAL (matrix, 2026-08-08 ~02:3x)
+Controlled replay: 40/40 healthy across 8 fresh boots incl. all known
+failers under stock flags — non-reproduction. Verdict + adopted
+mitigations: notes/D-blackrender-verdict.md.

@@ -1,0 +1,10 @@
+{
+ "arm": "Dmx_cublas_ws_b1_zref_CU",
+ "batch": "Dmx",
+ "ok": true,
+ "exec_s": 1.907,
+ "cached_nodes": 5,
+ "prompt_id": "237d6c61-c35c-4c24-9dd7-16949f9a2b4a",
+ "outputs_dir": "/workspace/run5/output/Dmx/Dmx_cublas_ws_b1_zref_CU",
+ "status_str": "success"
+}

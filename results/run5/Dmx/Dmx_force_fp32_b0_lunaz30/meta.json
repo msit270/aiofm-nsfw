@@ -1,0 +1,10 @@
+{
+ "arm": "Dmx_force_fp32_b0_lunaz30",
+ "batch": "Dmx",
+ "ok": false,
+ "exec_s": 10.699,
+ "cached_nodes": 3,
+ "prompt_id": "aec8fdc2-a7cc-45fe-8182-3f7b20f4a375",
+ "outputs_dir": "/workspace/run5/output/Dmx/Dmx_force_fp32_b0_lunaz30",
+ "status_str": "error"
+}

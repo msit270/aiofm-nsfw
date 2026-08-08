@@ -1,0 +1,10 @@
+{
+ "arm": "Dmx_no_async_offload_b0_lunaz30",
+ "batch": "Dmx",
+ "ok": true,
+ "exec_s": 146.461,
+ "cached_nodes": 3,
+ "prompt_id": "67046f05-b604-4ee0-99b9-ec076b204210",
+ "outputs_dir": "/workspace/run5/output/Dmx/Dmx_no_async_offload_b0_lunaz30",
+ "status_str": "success"
+}

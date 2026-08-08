@@ -24,5 +24,222 @@
     "state": "healthy"
    }
   }
+ },
+ "baseline/boot1": {
+  "args": [],
+  "env": {},
+  "probes": {
+   "zref_P_canary": {
+    "exec_s": 5.3,
+    "state": "healthy"
+   },
+   "zref_PT": {
+    "exec_s": 1.9,
+    "state": "healthy"
+   },
+   "zref_CU": {
+    "exec_s": 1.9,
+    "state": "healthy"
+   },
+   "lunaz30": {
+    "exec_s": 146.5,
+    "state": "healthy"
+   },
+   "A0_PT": {
+    "exec_s": 121.1,
+    "state": "healthy"
+   }
+  }
+ },
+ "no_xformers/boot0": {
+  "args": [
+   "--use-pytorch-cross-attention"
+  ],
+  "env": {},
+  "probes": {
+   "zref_P_canary": {
+    "exec_s": 5.3,
+    "state": "healthy"
+   },
+   "zref_PT": {
+    "exec_s": 1.9,
+    "state": "healthy"
+   },
+   "zref_CU": {
+    "exec_s": 1.9,
+    "state": "healthy"
+   },
+   "lunaz30": {
+    "exec_s": 146.1,
+    "state": "healthy"
+   },
+   "A0_PT": {
+    "exec_s": 121.3,
+    "state": "healthy"
+   }
+  }
+ },
+ "no_xformers/boot1": {
+  "args": [
+   "--use-pytorch-cross-attention"
+  ],
+  "env": {},
+  "probes": {
+   "zref_P_canary": {
+    "exec_s": 5.2,
+    "state": "healthy"
+   },
+   "zref_PT": {
+    "exec_s": 1.9,
+    "state": "healthy"
+   },
+   "zref_CU": {
+    "exec_s": 1.9,
+    "state": "healthy"
+   },
+   "lunaz30": {
+    "exec_s": 145.1,
+    "state": "healthy"
+   },
+   "A0_PT": {
+    "exec_s": 121.7,
+    "state": "healthy"
+   }
+  }
+ },
+ "no_async_offload/boot0": {
+  "args": [
+   "--disable-async-offload"
+  ],
+  "env": {},
+  "probes": {
+   "zref_P_canary": {
+    "exec_s": 5.3,
+    "state": "healthy"
+   },
+   "zref_PT": {
+    "exec_s": 1.9,
+    "state": "healthy"
+   },
+   "zref_CU": {
+    "exec_s": 1.9,
+    "state": "healthy"
+   },
+   "lunaz30": {
+    "exec_s": 146.5,
+    "state": "healthy"
+   },
+   "A0_PT": {
+    "exec_s": 121.3,
+    "state": "healthy"
+   }
+  }
+ },
+ "no_async_offload/boot1": {
+  "args": [
+   "--disable-async-offload"
+  ],
+  "env": {},
+  "probes": {
+   "zref_P_canary": {
+    "exec_s": 5.2,
+    "state": "healthy"
+   },
+   "zref_PT": {
+    "exec_s": 1.9,
+    "state": "healthy"
+   },
+   "zref_CU": {
+    "exec_s": 1.9,
+    "state": "healthy"
+   },
+   "lunaz30": {
+    "exec_s": 146.2,
+    "state": "healthy"
+   },
+   "A0_PT": {
+    "exec_s": 121.6,
+    "state": "healthy"
+   }
+  }
+ },
+ "cublas_ws/boot0": {
+  "args": [],
+  "env": {
+   "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+  },
+  "probes": {
+   "zref_P_canary": {
+    "exec_s": 5.3,
+    "state": "healthy"
+   },
+   "zref_PT": {
+    "exec_s": 1.9,
+    "state": "healthy"
+   },
+   "zref_CU": {
+    "exec_s": 1.9,
+    "state": "healthy"
+   },
+   "lunaz30": {
+    "exec_s": 146.0,
+    "state": "healthy"
+   },
+   "A0_PT": {
+    "exec_s": 122.1,
+    "state": "healthy"
+   }
+  }
+ },
+ "cublas_ws/boot1": {
+  "args": [],
+  "env": {
+   "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+  },
+  "probes": {
+   "zref_P_canary": {
+    "exec_s": 5.3,
+    "state": "healthy"
+   },
+   "zref_PT": {
+    "exec_s": 1.9,
+    "state": "healthy"
+   },
+   "zref_CU": {
+    "exec_s": 1.9,
+    "state": "healthy"
+   },
+   "lunaz30": {
+    "exec_s": 144.9,
+    "state": "healthy"
+   },
+   "A0_PT": {
+    "exec_s": 121.2,
+    "state": "healthy"
+   }
+  }
+ },
+ "force_fp32/boot0": {
+  "args": [
+   "--force-fp32"
+  ],
+  "env": {},
+  "probes": {
+   "zref_P_canary": {
+    "error": "Dmx_force_fp32_b0_zref_P_canary: render failed, see /workspace/nsfw-quality/results/run5/Dmx/Dmx_force_fp32_b0_zref_P_canary/history.json"
+   },
+   "zref_PT": {
+    "error": "Dmx_force_fp32_b0_zref_PT: render failed, see /workspace/nsfw-quality/results/run5/Dmx/Dmx_force_fp32_b0_zref_PT/history.json"
+   },
+   "zref_CU": {
+    "error": "Dmx_force_fp32_b0_zref_CU: render failed, see /workspace/nsfw-quality/results/run5/Dmx/Dmx_force_fp32_b0_zref_CU/history.json"
+   },
+   "lunaz30": {
+    "error": "Dmx_force_fp32_b0_lunaz30: render failed, see /workspace/nsfw-quality/results/run5/Dmx/Dmx_force_fp32_b0_lunaz30/history.json"
+   },
+   "A0_PT": {
+    "error": "Dmx_force_fp32_b0_A0_PT: render failed, see /workspace/nsfw-quality/results/run5/Dmx/Dmx_force_fp32_b0_A0_PT/history.json"
+   }
+  }
  }
 }

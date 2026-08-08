@@ -1,0 +1,10 @@
+{
+ "arm": "Dmx_force_fp32_b0_zref_P_canary",
+ "batch": "Dmx",
+ "ok": false,
+ "exec_s": 6.69,
+ "cached_nodes": 0,
+ "prompt_id": "ba1b2b41-9e69-41fa-9a11-d722bb6fd16d",
+ "outputs_dir": "/workspace/run5/output/Dmx/Dmx_force_fp32_b0_zref_P_canary",
+ "status_str": "error"
+}

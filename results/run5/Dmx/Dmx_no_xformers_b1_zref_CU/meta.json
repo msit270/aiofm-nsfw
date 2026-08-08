@@ -1,0 +1,10 @@
+{
+ "arm": "Dmx_no_xformers_b1_zref_CU",
+ "batch": "Dmx",
+ "ok": true,
+ "exec_s": 1.911,
+ "cached_nodes": 5,
+ "prompt_id": "a27fe44e-118d-4523-bb78-590817b2e2a3",
+ "outputs_dir": "/workspace/run5/output/Dmx/Dmx_no_xformers_b1_zref_CU",
+ "status_str": "success"
+}

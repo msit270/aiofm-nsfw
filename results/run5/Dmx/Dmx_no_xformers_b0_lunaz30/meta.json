@@ -1,0 +1,10 @@
+{
+ "arm": "Dmx_no_xformers_b0_lunaz30",
+ "batch": "Dmx",
+ "ok": true,
+ "exec_s": 146.112,
+ "cached_nodes": 3,
+ "prompt_id": "1cbe9c58-2117-4f71-9a7d-7bfb38d04e11",
+ "outputs_dir": "/workspace/run5/output/Dmx/Dmx_no_xformers_b0_lunaz30",
+ "status_str": "success"
+}
