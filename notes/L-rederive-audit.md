@@ -43,3 +43,21 @@ prefers rms only on the low-texture base. If confirmed: "choose face
 sampler by the base's existing texture level" goes in CONFIG-SPEC as a
 character/composition rule, and res_multistep KEEPS its place in the tiled
 refine slots (where it feeds texture the 1.6x resample stripped).
+
+## Batch L results (2026-08-08 ~01:1x; PC1 baseline cos .799 / faceHF 9.73 / bodyHF 9.60)
+
+| lever | arms | result | verdict |
+|---|---|---|---|
+| #617 denoise | 0.15 / 0.35 | .744 / .795 | 0.25 CONFIRMED (0.15 loses likeness — the Z refine pulls TOWARD the character; starving it hurts) |
+| #98 denoise | 0.05 / 0.12 | .788 / .793 | near-dead lever; 0.08 stands |
+| eyes denoise | 0.30 / 0.55 | .793 / .800 | flat; 0.42 stands |
+| face steps | 12 | .762 | 8 RE-CONFIRMED on PC |
+| additive 2x2 | 8/1 pair | rms increment +0.43 vs +0.55 at 30/2 | ADDITIVE RULE HOLDS (≈constant increment); rms loses cos at BOTH bases on PC |
+| tiled refines ea | 617+98 -> euler_ancestral | **.809, bodyHF 9.94** | the ONE arm beating the S11 pick on metric; rms now wins NOWHERE measurable on PC. NOT silently adopted — S18 sheet for the owner (their S3 body verdict was formed with rms in these slots; HF-band proxies failed to capture that difference before) |
+
+Answer to the owner's "if res_multistep still wins somewhere, show me where":
+on the PC architecture, nowhere I measured — face (S11), and now the tiled
+slots (L_usdu_ea beats it on likeness AND body-texture band). Its S4 win
+was a property of the texture-poor SHIP architecture. The additive rule
+explains both: rms adds a ~fixed texture increment; add it only where the
+base lacks texture.

@@ -1,0 +1,10 @@
+{
+ "arm": "L_usdu_ea_FB",
+ "batch": "L",
+ "ok": true,
+ "exec_s": 150.297,
+ "cached_nodes": 23,
+ "prompt_id": "164e4b08-fd28-48ce-b976-74362e05a9b5",
+ "outputs_dir": "/workspace/run5/output/L/L_usdu_ea_FB",
+ "status_str": "success"
+}

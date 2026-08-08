@@ -1,0 +1,10 @@
+{
+ "arm": "L_eyes_dn055_FB",
+ "batch": "L",
+ "ok": true,
+ "exec_s": 84.548,
+ "cached_nodes": 40,
+ "prompt_id": "4e6762e0-0260-4b66-a0ab-2b74e888ebe0",
+ "outputs_dir": "/workspace/run5/output/L/L_eyes_dn055_FB",
+ "status_str": "success"
+}

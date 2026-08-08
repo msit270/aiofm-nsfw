@@ -1,0 +1,10 @@
+{
+ "arm": "M_ship_neutral",
+ "batch": "M",
+ "ok": true,
+ "exec_s": 140.883,
+ "cached_nodes": 3,
+ "prompt_id": "dd7385c2-fe6c-4342-9833-3d251c477781",
+ "outputs_dir": "/workspace/run5/output/M/M_ship_neutral",
+ "status_str": "success"
+}

@@ -1,0 +1,10 @@
+{
+ "arm": "canaryL2",
+ "batch": "L",
+ "ok": true,
+ "exec_s": 4.246,
+ "cached_nodes": 3,
+ "prompt_id": "7ab4a6ec-280f-4baa-8ee3-4d4aadc6ad4d",
+ "outputs_dir": "/workspace/run5/output/L/canaryL2",
+ "status_str": "success"
+}

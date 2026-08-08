@@ -1,0 +1,10 @@
+{
+ "arm": "L_98_dn012_FB",
+ "batch": "L",
+ "ok": true,
+ "exec_s": 84.551,
+ "cached_nodes": 40,
+ "prompt_id": "b6ebc7ca-2668-4e9e-9525-836298010e27",
+ "outputs_dir": "/workspace/run5/output/L/L_98_dn012_FB",
+ "status_str": "success"
+}

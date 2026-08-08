@@ -1,0 +1,10 @@
+{
+ "arm": "L_617_dn035_FB",
+ "batch": "L",
+ "ok": true,
+ "exec_s": 121.945,
+ "cached_nodes": 38,
+ "prompt_id": "a3972641-69d2-4819-a3a7-ce4d62ab47ce",
+ "outputs_dir": "/workspace/run5/output/L/L_617_dn035_FB",
+ "status_str": "success"
+}
