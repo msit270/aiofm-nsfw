@@ -760,18 +760,28 @@ async function main() {
   if (opt.loadMode === 'ui') {
     try {
       if (process.env.RUN5_DISMISS_BOOT === '1') {
-        for (let i = 0; i < 30; i++) {
-          const blocked = await page.evaluate(() => {
+        // The first-boot Templates modal can appear 60s+ after boot (async
+        // template fetch) — later than any fixed pre-click window, so a
+        // dismiss-then-click sequence has a race the modal keeps winning
+        // (it cost the fresh7 gate). Dismiss and retry the click together
+        // until the click lands (max 120 s).
+        const tClick = Date.now();
+        for (;;) {
+          await page.evaluate(() => {
             const btn = document.querySelector('.p-dialog .p-dialog-close-button, .p-dialog [data-pc-section="closebutton"]');
-            if (btn) { btn.click(); return true; }
-            return !!document.querySelector('.p-dialog-mask, .p-overlay-mask');
-          }).catch(() => false);
-          if (!blocked) break;
+            if (btn) btn.click();
+          }).catch(() => {});
           await page.keyboard.press('Escape').catch(() => {});
-          await sleep(1000);
+          try {
+            await page.click('[data-testid="side-toolbar"] button.workflows-tab-button', { timeout: 5000 });
+            break;
+          } catch (e) {
+            if (Date.now() - tClick > 120000) throw e;
+          }
         }
+      } else {
+        await page.click('[data-testid="side-toolbar"] button.workflows-tab-button', { timeout: 20000 });
       }
-      await page.click('[data-testid="side-toolbar"] button.workflows-tab-button', { timeout: 20000 });
       await page.waitForSelector('[data-testid="workflows-sidebar"]', { timeout: 20000 });
       const byKey = page.locator(`[data-testid="tree-node-root/${wfName}.json"]`);
       if (await byKey.count()) {

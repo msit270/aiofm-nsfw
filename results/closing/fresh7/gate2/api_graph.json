@@ -1,0 +1,1212 @@
+{
+  "1": {
+    "inputs": {
+      "lora_01": "None",
+      "strength_01": 1,
+      "lora_02": "None",
+      "strength_02": 0.9,
+      "lora_03": "None",
+      "strength_03": 0.9,
+      "lora_04": "None",
+      "strength_04": 1,
+      "model": [
+        "34",
+        0
+      ],
+      "clip": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "Lora Loader Stack (rgthree)",
+    "_meta": {
+      "title": "Lora Loader Stack (rgthree)"
+    }
+  },
+  "2": {
+    "inputs": {
+      "prompt_list_positive": [
+        "4",
+        0
+      ],
+      "prompt_list_negative": [
+        "4",
+        1
+      ],
+      "seed_list": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "INSTARAW_PromptBatchPreview",
+    "_meta": {
+      "title": "🔍 INSTARAW Prompt Batch Preview"
+    }
+  },
+  "3": {
+    "inputs": {
+      "preview": "",
+      "previewMode": null,
+      "source": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+      "title": "Preview as Text"
+    }
+  },
+  "4": {
+    "inputs": {
+      "gemini_api_key": "",
+      "grok_api_key": "",
+      "aspect_label": "",
+      "prompt_batch_data": "[{\"id\": \"default-01\", \"positive_prompt\": \"photorealistic portrait photograph of a young woman standing in soft window light, natural skin texture with visible pores, detailed eyes, detailed hands at her sides, looking at the camera, 85mm lens, shallow depth of field\", \"negative_prompt\": \"bad quality, worst quality, low quality, deformed, extra fingers, watermark, text\", \"repeat_count\": 1, \"seed\": 12345, \"seed_control\": \"fixed\", \"tags\": [], \"source_id\": \"default\"}]",
+      "sdxl_mode": false
+    },
+    "class_type": "INSTARAW_RealityPromptGenerator",
+    "_meta": {
+      "title": "🎲 INSTARAW Reality Prompt Generator"
+    }
+  },
+  "5": {
+    "inputs": {
+      "filename_prefix": "Personal/render",
+      "images": [
+        "56",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "model_name": "4x-UltraSharpV2.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+      "title": "Load Upscale Model"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "blend_factor": 1,
+      "blend_mode": "normal",
+      "image1": [
+        "13",
+        0
+      ],
+      "image2": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "ImageBlend",
+    "_meta": {
+      "title": "ImageBlend"
+    }
+  },
+  "9": {
+    "inputs": {
+      "model_name": "sam_vit_b_01ec64.pth",
+      "device_mode": "AUTO"
+    },
+    "class_type": "SAMLoader",
+    "_meta": {
+      "title": "SAMLoader (Impact)"
+    }
+  },
+  "10": {
+    "inputs": {
+      "model_name": "bbox/hand_yolov8s.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider",
+    "_meta": {
+      "title": "UltralyticsDetectorProvider"
+    }
+  },
+  "11": {
+    "inputs": {
+      "model_name": "x1_ITF_SkinDiffDetail_Lite_v1.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+      "title": "Load Upscale Model"
+    }
+  },
+  "12": {
+    "inputs": {
+      "upscale_model": [
+        "11",
+        0
+      ],
+      "image": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "ImageUpscaleWithModel",
+    "_meta": {
+      "title": "Upscale Image (using Model)"
+    }
+  },
+  "13": {
+    "inputs": {
+      "guide_size": 768,
+      "guide_size_for": true,
+      "max_size": 768,
+      "seed": 1111111,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "res_multistep",
+      "scheduler": "simple",
+      "denoise": 0.42,
+      "feather": 9,
+      "noise_mask": true,
+      "force_inpaint": true,
+      "bbox_threshold": 0.23000000000000004,
+      "bbox_dilation": 4,
+      "bbox_crop_factor": 1.5,
+      "sam_detection_hint": "vertical-2",
+      "sam_dilation": 12,
+      "sam_threshold": 0.04000000000000001,
+      "sam_bbox_expansion": 4,
+      "sam_mask_hint_threshold": 0.7000000000000002,
+      "sam_mask_hint_use_negative": "False",
+      "drop_size": 10,
+      "wildcard": "",
+      "cycle": 2,
+      "inpaint_model": false,
+      "noise_mask_feather": 20,
+      "tiled_encode": false,
+      "tiled_decode": false,
+      "image": [
+        "20",
+        0
+      ],
+      "model": [
+        "1",
+        0
+      ],
+      "clip": [
+        "32",
+        0
+      ],
+      "vae": [
+        "31",
+        0
+      ],
+      "positive": [
+        "14",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "bbox_detector": [
+        "10",
+        0
+      ],
+      "sam_model_opt": [
+        "9",
+        0
+      ]
+    },
+    "class_type": "FaceDetailer",
+    "_meta": {
+      "title": "FaceDetailer"
+    }
+  },
+  "14": {
+    "inputs": {
+      "text": "young woman's hand, smooth soft skin, natural hand, elegant fingers, neat fingernails",
+      "clip": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "15": {
+    "inputs": {
+      "upscale_by": 1.5,
+      "seed": 1966745044,
+      "steps": 2,
+      "cfg": 1,
+      "sampler_name": "res_multistep",
+      "scheduler": "simple",
+      "denoise": 0.08,
+      "mode_type": "Linear",
+      "tile_width": [
+        "16",
+        0
+      ],
+      "tile_height": [
+        "16",
+        1
+      ],
+      "mask_blur": 12,
+      "tile_padding": 32,
+      "seam_fix_mode": "None",
+      "seam_fix_denoise": 1,
+      "seam_fix_width": 64,
+      "seam_fix_mask_blur": 12,
+      "seam_fix_padding": 16,
+      "force_uniform_tiles": true,
+      "tiled_decode": false,
+      "batch_size": 1,
+      "image": [
+        "8",
+        0
+      ],
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "66",
+        0
+      ],
+      "negative": [
+        "65",
+        0
+      ],
+      "vae": [
+        "31",
+        0
+      ],
+      "upscale_model": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "UltimateSDUpscale",
+    "_meta": {
+      "title": "Ultimate SD Upscale"
+    }
+  },
+  "16": {
+    "inputs": {
+      "image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+      "title": "Get Image Size"
+    }
+  },
+  "17": {
+    "inputs": {
+      "value": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "String (Multiline)"
+    }
+  },
+  "18": {
+    "inputs": {
+      "upscale_model": [
+        "25",
+        0
+      ],
+      "image": [
+        "59",
+        0
+      ]
+    },
+    "class_type": "ImageUpscaleWithModel",
+    "_meta": {
+      "title": "Upscale Image (using Model)"
+    }
+  },
+  "19": {
+    "inputs": {
+      "upscale_method": "lanczos",
+      "scale_by": 0.4,
+      "image": [
+        "18",
+        0
+      ]
+    },
+    "class_type": "ImageScaleBy",
+    "_meta": {
+      "title": "Upscale Image By"
+    }
+  },
+  "20": {
+    "inputs": {
+      "images": [
+        "22",
+        0
+      ]
+    },
+    "class_type": "INSTARAW_ImageListFromBatch",
+    "_meta": {
+      "title": "📑 INSTARAW Image List From Batch"
+    }
+  },
+  "21": {
+    "inputs": {
+      "images": [
+        "26",
+        0
+      ]
+    },
+    "class_type": "INSTARAW_BatchFromImageList",
+    "_meta": {
+      "title": "🗃️ INSTARAW Batch From Image List"
+    }
+  },
+  "22": {
+    "inputs": {
+      "timeout": 600,
+      "ontimeout": "send none",
+      "cache_behavior": "Run selector normally",
+      "tip": "",
+      "extra1": "",
+      "extra2": "",
+      "extra3": "",
+      "pick_list_start": 0,
+      "pick_list": "0",
+      "video_frames": 1,
+      "node_identifier": 958955,
+      "images": [
+        "21",
+        0
+      ]
+    },
+    "class_type": "INSTARAW_ImageFilter",
+    "_meta": {
+      "title": "🎭 INSTARAW Image Filter"
+    }
+  },
+  "23": {
+    "inputs": {
+      "value": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "String (Multiline)"
+    }
+  },
+  "24": {
+    "inputs": {
+      "model_name": "4x-UltraSharpV2.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+      "title": "Load Upscale Model"
+    }
+  },
+  "25": {
+    "inputs": {
+      "model_name": "4x_NMKD-Superscale-SP_178000_G.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+      "title": "Load Upscale Model"
+    }
+  },
+  "26": {
+    "inputs": {
+      "upscale_by": 1.2500000000000002,
+      "seed": 34651603,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "res_multistep",
+      "scheduler": "simple",
+      "denoise": 0.25000000000000006,
+      "mode_type": "Linear",
+      "tile_width": 896,
+      "tile_height": 1152,
+      "mask_blur": 8,
+      "tile_padding": 64,
+      "seam_fix_mode": "None",
+      "seam_fix_denoise": 0.30000000000000004,
+      "seam_fix_width": 128,
+      "seam_fix_mask_blur": 8,
+      "seam_fix_padding": 16,
+      "force_uniform_tiles": true,
+      "tiled_decode": false,
+      "batch_size": 1,
+      "image": [
+        "19",
+        0
+      ],
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "66",
+        0
+      ],
+      "negative": [
+        "65",
+        0
+      ],
+      "vae": [
+        "31",
+        0
+      ],
+      "upscale_model": [
+        "24",
+        0
+      ]
+    },
+    "class_type": "UltimateSDUpscale",
+    "_meta": {
+      "title": "Ultimate SD Upscale"
+    }
+  },
+  "27": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "28": {
+    "inputs": {
+      "text": "TRIGGER, PROMPT FOR YOUR MODEL",
+      "clip": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "29": {
+    "inputs": {
+      "model_name": "bbox/face_yolov8m.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider",
+    "_meta": {
+      "title": "UltralyticsDetectorProvider"
+    }
+  },
+  "30": {
+    "inputs": {
+      "model_name": "sam_vit_b_01ec64.pth",
+      "device_mode": "AUTO"
+    },
+    "class_type": "SAMLoader",
+    "_meta": {
+      "title": "SAMLoader (Impact)"
+    }
+  },
+  "31": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "32": {
+    "inputs": {
+      "clip_name": "qwen.safetensors",
+      "type": "lumina2",
+      "device": "cpu"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "33": {
+    "inputs": {
+      "color_space": "LAB",
+      "factor": 1,
+      "device": "auto",
+      "batch_size": 0,
+      "image": [
+        "35",
+        0
+      ],
+      "reference": [
+        "36",
+        0
+      ]
+    },
+    "class_type": "ImageColorMatch+",
+    "_meta": {
+      "title": "🔧 Image Color Match"
+    }
+  },
+  "34": {
+    "inputs": {
+      "unet_name": "zimage.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "35": {
+    "inputs": {
+      "guide_size": 1024,
+      "guide_size_for": true,
+      "max_size": 1024,
+      "seed": 1111111,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "kl_optimal",
+      "denoise": 0.5,
+      "feather": 18,
+      "noise_mask": true,
+      "force_inpaint": true,
+      "bbox_threshold": 0.5,
+      "bbox_dilation": 10,
+      "bbox_crop_factor": 1.5,
+      "sam_detection_hint": "center-1",
+      "sam_dilation": 0,
+      "sam_threshold": 0.93,
+      "sam_bbox_expansion": 0,
+      "sam_mask_hint_threshold": 0.7,
+      "sam_mask_hint_use_negative": "False",
+      "drop_size": 10,
+      "wildcard": "",
+      "cycle": 1,
+      "inpaint_model": false,
+      "noise_mask_feather": 20,
+      "tiled_encode": false,
+      "tiled_decode": false,
+      "image": [
+        "36",
+        0
+      ],
+      "model": [
+        "1",
+        0
+      ],
+      "clip": [
+        "1",
+        1
+      ],
+      "vae": [
+        "31",
+        0
+      ],
+      "positive": [
+        "28",
+        0
+      ],
+      "negative": [
+        "27",
+        0
+      ],
+      "bbox_detector": [
+        "29",
+        0
+      ],
+      "sam_model_opt": [
+        "30",
+        0
+      ]
+    },
+    "class_type": "FaceDetailer",
+    "_meta": {
+      "title": "FaceDetailer"
+    }
+  },
+  "36": {
+    "inputs": {
+      "color_space": "LAB",
+      "factor": 1,
+      "device": "auto",
+      "batch_size": 0,
+      "image": [
+        "15",
+        0
+      ],
+      "reference": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "ImageColorMatch+",
+    "_meta": {
+      "title": "🔧 Image Color Match"
+    }
+  },
+  "37": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "38": {
+    "inputs": {
+      "text": "perfect eyes, round pupils, round iris, symmetrical eyes, realistic eyes, perfect circles, round",
+      "clip": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "39": {
+    "inputs": {
+      "image": [
+        "49",
+        0
+      ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+      "title": "Get Image Size"
+    }
+  },
+  "40": {
+    "inputs": {
+      "image": [
+        "44",
+        0
+      ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+      "title": "Get Image Size"
+    }
+  },
+  "41": {
+    "inputs": {
+      "width": [
+        "40",
+        0
+      ],
+      "height": [
+        "40",
+        1
+      ],
+      "fit": "crop",
+      "method": "lanczos",
+      "image": [
+        "45",
+        0
+      ]
+    },
+    "class_type": "INSTARAW_ImageResizeFill",
+    "_meta": {
+      "title": "📐 INSTARAW Image Resize & Fill"
+    }
+  },
+  "42": {
+    "inputs": {
+      "segs": [
+        "48",
+        0
+      ]
+    },
+    "class_type": "SegsToCombinedMask",
+    "_meta": {
+      "title": "SEGS to MASK (combined)"
+    }
+  },
+  "43": {
+    "inputs": {
+      "padding": 0,
+      "blur": 0,
+      "mask": [
+        "46",
+        0
+      ]
+    },
+    "class_type": "MaskBoundingBox+",
+    "_meta": {
+      "title": "🔧 Mask Bounding Box"
+    }
+  },
+  "44": {
+    "inputs": {
+      "width": [
+        "43",
+        4
+      ],
+      "height": [
+        "43",
+        5
+      ],
+      "x": [
+        "43",
+        2
+      ],
+      "y": [
+        "43",
+        3
+      ],
+      "image": [
+        "54",
+        0
+      ]
+    },
+    "class_type": "ImageCrop",
+    "_meta": {
+      "title": "Image Crop"
+    }
+  },
+  "45": {
+    "inputs": {
+      "guide_size": 1920,
+      "guide_size_for": true,
+      "max_size": 1920,
+      "seed": 1111112,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "beta",
+      "denoise": 0.42,
+      "feather": 2,
+      "noise_mask": true,
+      "force_inpaint": true,
+      "wildcard": "",
+      "cycle": 1,
+      "inpaint_model": false,
+      "noise_mask_feather": 20,
+      "tiled_encode": false,
+      "tiled_decode": false,
+      "image": [
+        "49",
+        0
+      ],
+      "segs": [
+        "47",
+        0
+      ],
+      "model": [
+        "1",
+        0
+      ],
+      "clip": [
+        "32",
+        0
+      ],
+      "vae": [
+        "31",
+        0
+      ],
+      "positive": [
+        "38",
+        0
+      ],
+      "negative": [
+        "37",
+        0
+      ]
+    },
+    "class_type": "DetailerForEachDebug",
+    "_meta": {
+      "title": "DetailerDebug (SEGS)"
+    }
+  },
+  "46": {
+    "inputs": {
+      "segs": [
+        "52",
+        0
+      ]
+    },
+    "class_type": "SegsToCombinedMask",
+    "_meta": {
+      "title": "SEGS to MASK (combined)"
+    }
+  },
+  "47": {
+    "inputs": {
+      "combined": true,
+      "crop_factor": 3,
+      "bbox_fill": false,
+      "drop_size": 10,
+      "contour_fill": false,
+      "mask": [
+        "42",
+        0
+      ]
+    },
+    "class_type": "MaskToSEGS",
+    "_meta": {
+      "title": "MASK to SEGS"
+    }
+  },
+  "48": {
+    "inputs": {
+      "crop_factor": 3,
+      "bbox_fill": false,
+      "crop_min_size": 10,
+      "drop_size": 1,
+      "dilation": 0,
+      "face": false,
+      "mouth": false,
+      "left_eyebrow": false,
+      "left_eye": true,
+      "left_pupil": true,
+      "right_eyebrow": false,
+      "right_eye": true,
+      "right_pupil": true,
+      "image": [
+        "50",
+        0
+      ]
+    },
+    "class_type": "MediaPipeFaceMeshToSEGS",
+    "_meta": {
+      "title": "MediaPipe FaceMesh to SEGS"
+    }
+  },
+  "49": {
+    "inputs": {
+      "width": 1920,
+      "height": 1920,
+      "interpolation": "lanczos",
+      "method": "keep proportion",
+      "condition": "always",
+      "multiple_of": 0,
+      "image": [
+        "44",
+        0
+      ]
+    },
+    "class_type": "ImageResize+",
+    "_meta": {
+      "title": "🔧 Image Resize"
+    }
+  },
+  "50": {
+    "inputs": {
+      "max_faces": 10,
+      "min_confidence": 0.2,
+      "resolution": [
+        "39",
+        0
+      ],
+      "image": [
+        "49",
+        0
+      ]
+    },
+    "class_type": "MediaPipe-FaceMeshPreprocessor",
+    "_meta": {
+      "title": "MediaPipe Face Mesh"
+    }
+  },
+  "51": {
+    "inputs": {
+      "x": [
+        "43",
+        2
+      ],
+      "y": [
+        "43",
+        3
+      ],
+      "resize_source": false,
+      "destination": [
+        "54",
+        0
+      ],
+      "source": [
+        "41",
+        0
+      ],
+      "mask": [
+        "58",
+        0
+      ]
+    },
+    "class_type": "ImageCompositeMasked",
+    "_meta": {
+      "title": "ImageCompositeMasked"
+    }
+  },
+  "52": {
+    "inputs": {
+      "threshold": 0.6,
+      "dilation": 10,
+      "crop_factor": 3,
+      "drop_size": 10,
+      "labels": "all",
+      "bbox_detector": [
+        "53",
+        0
+      ],
+      "image": [
+        "54",
+        0
+      ]
+    },
+    "class_type": "BboxDetectorSEGS",
+    "_meta": {
+      "title": "BBOX Detector (SEGS)"
+    }
+  },
+  "53": {
+    "inputs": {
+      "model_name": "bbox/face_yolov8m.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider",
+    "_meta": {
+      "title": "UltralyticsDetectorProvider"
+    }
+  },
+  "54": {
+    "inputs": {
+      "images": [
+        "33",
+        0
+      ]
+    },
+    "class_type": "INSTARAW_ImageListFromBatch",
+    "_meta": {
+      "title": "📑 INSTARAW Image List From Batch"
+    }
+  },
+  "55": {
+    "inputs": {
+      "segs": [
+        "52",
+        0
+      ]
+    },
+    "class_type": "ImpactIsNotEmptySEGS",
+    "_meta": {
+      "title": "SEGS isn't Empty"
+    }
+  },
+  "56": {
+    "inputs": {
+      "cond": [
+        "55",
+        0
+      ],
+      "tt_value": [
+        "51",
+        0
+      ],
+      "ff_value": [
+        "54",
+        0
+      ]
+    },
+    "class_type": "ImpactConditionalBranch",
+    "_meta": {
+      "title": "ImpactConditionalBranch"
+    }
+  },
+  "57": {
+    "inputs": {
+      "preview": "",
+      "previewMode": null,
+      "source": [
+        "55",
+        0
+      ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+      "title": "Preview as Text"
+    }
+  },
+  "58": {
+    "inputs": {
+      "left": 30,
+      "top": 30,
+      "right": 30,
+      "bottom": 30,
+      "mask": [
+        "43",
+        0
+      ]
+    },
+    "class_type": "FeatherMask",
+    "_meta": {
+      "title": "FeatherMask"
+    }
+  },
+  "59": {
+    "inputs": {
+      "samples": [
+        "60",
+        0
+      ],
+      "vae": [
+        "31",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "60": {
+    "inputs": {
+      "seed": [
+        "4",
+        2
+      ],
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "res_multistep",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "64",
+        0
+      ],
+      "positive": [
+        "63",
+        0
+      ],
+      "negative": [
+        "62",
+        0
+      ],
+      "latent_image": [
+        "61",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "61": {
+    "inputs": {
+      "width": 896,
+      "height": 1152,
+      "batch_size": 1
+    },
+    "class_type": "EmptySD3LatentImage",
+    "_meta": {
+      "title": "EmptySD3LatentImage"
+    }
+  },
+  "62": {
+    "inputs": {
+      "text": [
+        "23",
+        0
+      ],
+      "clip": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "63": {
+    "inputs": {
+      "text": [
+        "17",
+        0
+      ],
+      "clip": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "64": {
+    "inputs": {
+      "shift": 3,
+      "model": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingAuraFlow",
+    "_meta": {
+      "title": "ModelSamplingAuraFlow"
+    }
+  },
+  "65": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "66": {
+    "inputs": {
+      "text": [
+        "17",
+        0
+      ],
+      "clip": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  }
+}

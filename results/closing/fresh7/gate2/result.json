@@ -1,0 +1,121 @@
+{
+  "run_id": "20260808-165557-OFMTech_NSFW_Personal",
+  "status": "pass",
+  "failure_classes": [],
+  "failure_class": null,
+  "failures": [],
+  "message": "ok",
+  "url": "http://127.0.0.1:31980",
+  "workflow": "OFMTech_NSFW_Personal",
+  "mode": "execute",
+  "load_path_used": "ui",
+  "comfyui_version": "0.15.1",
+  "frontend_version": "1.39.19",
+  "prompt_posted": true,
+  "prompt_http_status": 200,
+  "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642",
+  "api_graph": "/workspace/nsfw-quality/results/closing/fresh7/gate2/api_graph.json",
+  "outputs": [
+    {
+      "filename": "render_00001_.png",
+      "subfolder": "Personal",
+      "type": "output",
+      "node": "5",
+      "path": "/workspace/ComfyUI/output/Personal/render_00001_.png",
+      "exists": false,
+      "size": null
+    }
+  ],
+  "timings_ms": {
+    "boot_ms": 3266,
+    "load_ms": 3215,
+    "submit_ms": 915,
+    "execute_ms": 138879
+  },
+  "counts": {
+    "boot_errors": 0,
+    "load_errors": 0,
+    "run_errors": 0,
+    "ignored": 5
+  },
+  "errors": [],
+  "ignored": [
+    {
+      "t_ms": 74,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "optional-user-css",
+      "ignored_reason": "user.css is ComfyUI's optional user stylesheet override, requested unconditionally on every page load by both the static path and the userdata API. It does not ship with comfyui_frontend_package (verified: no user.css under .../comfyui_frontend_package/static/) and is absent here (verified: no /workspace/ComfyUI/user/default/user.css). Verified live: GET /user.css -> 404 and GET /api/userdata/user.css -> 404. A buyer on a clean install sees both.",
+      "ignored_scope": "benign",
+      "at": "http://127.0.0.1:31980/user.css:0"
+    },
+    {
+      "t_ms": 74,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "optional-user-css",
+      "ignored_reason": "user.css is ComfyUI's optional user stylesheet override, requested unconditionally on every page load by both the static path and the userdata API. It does not ship with comfyui_frontend_package (verified: no user.css under .../comfyui_frontend_package/static/) and is absent here (verified: no /workspace/ComfyUI/user/default/user.css). Verified live: GET /user.css -> 404 and GET /api/userdata/user.css -> 404. A buyer on a clean install sees both.",
+      "ignored_scope": "benign",
+      "at": "http://127.0.0.1:31980/api/userdata/user.css:0"
+    },
+    {
+      "t_ms": 279,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "optional-subgraphs-dir",
+      "ignored_reason": "The frontend lists the user's saved subgraph-blueprint directory on boot. ComfyUI only creates it once the user saves a blueprint. Verified live: GET /api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true -> 404. A buyer on a clean install sees this.",
+      "ignored_scope": "benign",
+      "at": "http://127.0.0.1:31980/api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true:0"
+    },
+    {
+      "t_ms": 315,
+      "phase": "boot",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "optional-node-templates",
+      "ignored_reason": "comfy.templates.json holds the user's saved node templates. ComfyUI only writes it once the user saves one. Verified live: GET /api/userdata/comfy.templates.json -> 404. A buyer on a clean install sees this.",
+      "ignored_scope": "benign",
+      "at": "http://127.0.0.1:31980/api/userdata/comfy.templates.json:0"
+    },
+    {
+      "t_ms": 3375,
+      "phase": "load",
+      "kind": "console.error",
+      "severity": "ignored",
+      "origin": "comfyui-asset",
+      "product_signal": true,
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "ignored_by": "optional-workflows-index",
+      "ignored_reason": "The frontend probes for an optional per-directory workflow index file. Absent here (verified: /workspace/ComfyUI/user/default/workflows/ holds only the .json workflows themselves) and verified live -> 404. Fires on any install that has never written one, including a buyer's.",
+      "ignored_scope": "benign",
+      "at": "http://127.0.0.1:31980/api/userdata/workflows%2F.index.json:0"
+    }
+  ],
+  "ignore_rules_file": "/workspace/nsfw-quality/tools/browser_harness/ignore.json",
+  "selector": {
+    "driven": false,
+    "abandoned": false,
+    "appeared": false,
+    "images": 0,
+    "picked": null,
+    "sent_at_ms": null,
+    "foreignSeen": false,
+    "our_run_started_ms": 1786208164471
+  },
+  "artifacts_dir": "/workspace/nsfw-quality/results/closing/fresh7/gate2"
+}

@@ -1,0 +1,153 @@
+
+[1;36m=== AIOFM · OFMTech NSFW — bootstrap ===[0m
+
+  read your HuggingFace token from /workspace/.hf_token
+  downloading the pack from msit270/AIOFM-Pack …
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  275M  100  275M    0     0  4777M      0 --:--:-- --:--:-- --:--:-- 4837M
+  downloaded 276M
+  unpacked to /workspace/fresh7-dest/AIOFMTech-NSFW-Personal
+
+  handing over to the installer in /workspace/fresh7-dest/AIOFMTech-NSFW-Personal
+
+==========================================
+  AIOFM · OFM Tech NSFW — setup
+  ComfyUI dir: /workspace/comfy-fresh7
+==========================================
+  Built for this template:
+  https://cloud.vast.ai/?ref_id=638421&creator_id=638421&name=AIOFM%20ComfyUI
+
+
+[1/14] Environment
+    GPU: NVIDIA RTX PRO 6000 Blackwell Workstation Edition, 97887 MiB, 580.82.07
+    torch: 2.9.1+cu128 | cuda: 12.8
+
+      disk before:
+overlay         410G  247G  164G  61% /
+
+
+[2/14] Download accelerators
+      RAM: 123G total, 69G available  ->  workers: 4
+      ✓ SageAttention already installed
+
+
+[3/14] onnxruntime / CUDA
+      ✓ onnxruntime matches torch CUDA
+      ✓ CUDA library paths registered (ldconfig)
+
+
+[4/14] ComfyUI core version
+      ✓ ComfyUI core 0.15.1 @ 3dd10a59 (validated)
+      ✓ CLIPLoader supports the 'device' input (black-face fix will apply)
+
+
+[5/14] ComfyUI frontend (pinned 1.39.19)
+      ✓ comfyui-frontend-package already 1.39.19
+
+
+[6/14] Base checkpoint preflight (Civitai)
+      ✓ found your Civitai API key
+      ✓ Civitai still publishes the exact verified file (SHA256 match)
+      ✓ your Civitai key unlocks the download (HTTP 307)
+      ✓ disk space is sufficient for the checkpoint download
+
+[7/14] Downloading models (msit270/AIOFM-Pack, profile: all)
+      asking the Hub how much there is to fetch...
+      164.2 GB total, 0 KB still to download
+      ✓ already up to date — nothing to download
+>>> models/detection
+>>> models/checkpoints
+    get:  lustifyNSFWCheckpoint_zenithV9.safetensors  (6.5 GB from civitai.com)
+      Civitai is slower than HuggingFace — this is normally the longest single download
+      verifying SHA256 (reads the whole 6.5 GB — under a minute)
+      ✓ lustifyNSFWCheckpoint_zenithV9.safetensors installed from Civitai and SHA256-verified (LUSTIFY! ZENITH (V9))
+>>> models/clip_vision
+>>> models/diffusion_models
+>>> models/loras
+>>> models/sam3
+>>> models/text_encoders
+>>> models/ultralytics
+    bbox: done
+>>> models/sams
+>>> models/upscale_models
+>>> models/vae
+
+
+[8/14] Custom nodes (pinned)
+      ✓ rgthree-comfy @ 6b76ee6
+      ✓ ComfyUI-Impact-Pack @ 429d015
+      ✓ ComfyUI-Impact-Subpack @ 50c7b71
+      ✓ comfyui_controlnet_aux @ 95a13e2
+      ✓ ComfyUI_essentials @ 9d9f4be
+      ✓ ComfyUI_UltimateSDUpscale @ a5547db
+      ✓ ComfyUI_INSTARAW vendored @ 12afb909 (provenance marker)
+
+
+[9/14] Custom node dependencies
+      ✓ ComfyUI-Impact-Pack
+      ✓ ComfyUI-Impact-Subpack
+      ✓ comfyui_controlnet_aux
+      ✓ ComfyUI_essentials
+      ✓ ComfyUI_INSTARAW
+      ✓ mediapipe==0.10.14 already satisfied
+      ✓ opencv-python-headless==4.10.0.84 already satisfied
+      ✓ mediapipe exposes mp.solutions (controlnet_aux face mesh will load)
+
+
+[10/14] Workflow
+      ✓ OFMTech_NSFW_Personal.json installed
+      open ComfyUI and it will be in the workflow list
+
+
+[11/14] Character LoRAs (vendored)
+      ✓ luna.safetensors installed
+      ✓ lunaskye.safetensors installed
+
+
+[12/14] Integrity check
+      ✓ all sized files match the manifest
+
+
+[13/14] ViTPose GPU inference check
+      providers: ['CUDAExecutionProvider', 'CPUExecutionProvider']
+      OK — pose detection will run on the GPU
+
+
+[14/14] Workflow node check
+      ✓ all 27 node types found on disk (static check of the installed packs)
+
+
+[15/15] ComfyUI restart
+      ComfyUI expected on port 18188
+      supervisord program 'comfyui' — restarting
+      ✓ ComfyUI restarted on port 18188
+      + 19 node type(s) read from the workflow: CLIPLoader, CLIPTextEncode, EmptySD3LatentImage, FeatherMask, GetImageSize, ImageBlend, ImageCompositeMasked, ImageCrop, ImageScaleBy, ImageUpscaleWithModel, KSampler, ModelSamplingAuraFlow, PreviewAny, PrimitiveStringMultiline, SaveImage, UNETLoader, UpscaleModelLoader, VAEDecode, VAELoader
+      all 46 node types registered
+
+==========================================================
+  AIOFM · OFM Tech NSFW — setup done
+==========================================================
+  profile        : all
+  time           : 2m 03s
+  downloaded     : 6.8 GB  (~57 MB/s avg)
+  models total   : 203.3 GB in 92 files
+  free space     : 157G
+  integrity      : OK
+  comfyui core   : 0.15.1 validated
+  workflow nodes : all 46 present
+  node versions  : pinned
+  frontend       : pinned 1.39.19
+  comfyui        : restarted, nodes registered
+  log            : /workspace/setup.log
+==========================================================
+  Options:
+   PROFILE=video   — only pull the Wan video models
+   PIN_NODES=0     — track each node repo's default branch instead of
+                     the pinned commits (pinned is the default)
+   SAGE_INSTALL=0  — skip SageAttention
+   FIX_ORT=0       — leave onnxruntime alone
+   PIN_FRONTEND=0  — keep the pod image's ComfyUI frontend instead of
+                     1.39.19 (subgraph widgets are version-sensitive)
+   HF_WORKERS=N    — set the worker count manually
+==========================================================

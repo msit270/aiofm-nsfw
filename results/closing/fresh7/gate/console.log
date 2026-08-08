@@ -1,0 +1,42 @@
+[    77ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:31980/user.css
+[    78ms][boot][console.error/ignored][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[    78ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:31980/user.css net::ERR_ABORTED
+[    81ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:31980/api/userdata/user.css
+[    81ms][boot][console.error/ignored][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[    81ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:31980/api/userdata/user.css net::ERR_ABORTED
+[   284ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:31980/api/settings/Comfy.InstalledVersion net::ERR_ABORTED
+[   296ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:31980/api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true
+[   296ms][boot][console.error/ignored][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[   328ms][boot][http/warn][comfyui-asset] HTTP 404 http://127.0.0.1:31980/api/userdata/comfy.templates.json
+[   328ms][boot][console.error/ignored][comfyui-asset] Failed to load resource: the server responded with a status of 404 (Not Found)
+[   328ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:31980/api/userdata/comfy.templates.json net::ERR_ABORTED
+[   364ms][boot][console.warning/warn][comfyui-asset] [ComfyUI Notice] "scripts/widgets.js" is an internal module, not part of the public API. Future updates may break this import.
+[   368ms][boot][console.log/info][instaraw] [BIG] ========== BATCH IMAGE GENERATOR JS LOADED ==========
+[   372ms][boot][console.warning/warn][comfyui-asset] [ComfyUI Deprecated] Importing from "scripts/ui.js" is deprecated and will be removed in v1.34.
+[   373ms][boot][console.warning/warn][third-party-pack:core] [ComfyUI Notice] "extensions/core/clipspace.js" is an internal module, not part of the public API. Future updates may break this import.
+[   379ms][boot][console.warning/warn][frontend-core] [MaskEditor] ComfyApp.open_maskeditor is deprecated. Plugins should migrate to using the command system or direct node context menu integration.
+[   381ms][boot][websocket/info][unknown] open ws://127.0.0.1:31980/ws
+[   416ms][boot][console.log/info][instaraw] [BIG] PhotoSwipe CSS loaded from CDN
+[   433ms][boot][console.log/info][instaraw] [BIG] PhotoSwipe scripts loaded
+[   433ms][boot][console.log/info][instaraw] [BIG] PhotoSwipe ready
+[  1151ms][boot][console.log/info][instaraw] [BIG] Registering custom UI for BatchImageGenerator
+[  1166ms][boot][console.warning/warn][frontend-core] Use of defaultInput on required input custom_nodes.ComfyUI-Impact-Pack:ImpactSchedulerAdapter:scheduler is deprecated. Please drop the defaultInput option.
+[  1197ms][boot][console.log/info][instaraw] [BIG] Extension setup() called - loading CSS
+[  1199ms][boot][console.warning/warn][frontend-core] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "rgthree.QueueNode")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit
+[  1313ms][boot][requestfailed/warn][comfyui-asset] http://127.0.0.1:31980/api/settings/Comfy.TutorialCompleted net::ERR_ABORTED
+[  1374ms][boot][console.info/info][comfyui-asset] Autofocus processing was blocked because a document already has a focused element.
+[ 63640ms][boot][dialog/error][unknown] Templates
+All Templates
+Basics
+GENERATION TYPE
+...
+...
+CLOSED SOURCE MODELS
+...
+Model Filter
+Tasks
+Runs on
+Default

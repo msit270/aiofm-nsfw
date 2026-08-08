@@ -1,0 +1,675 @@
+[
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 0
+        }
+      },
+      "sid": "f1670fadafb346d6adfa5693e8dbd85d"
+    }
+  },
+  {
+    "type": "feature_flags",
+    "data": {
+      "supports_preview_metadata": true,
+      "max_upload_size": 104857600,
+      "extension": {
+        "manager": {
+          "supports_v4": true
+        }
+      },
+      "node_replacements": true
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 1
+        }
+      }
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 1
+        }
+      }
+    }
+  },
+  {
+    "type": "execution_start",
+    "data": {
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642",
+      "timestamp": 1786208163603
+    }
+  },
+  {
+    "type": "execution_cached",
+    "data": {
+      "nodes": [],
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642",
+      "timestamp": 1786208163624
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "4",
+      "display_node": "4",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "2",
+      "display_node": "2",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executed",
+    "data": {
+      "node": "2",
+      "display_node": "2",
+      "output": {
+        "text": [
+          "📊 BATCH PREVIEW: 1 prompts\n============================================================\n\n[1] Seed: 12345\n✅ photorealistic portrait photograph of a young woman standing in soft window ligh...\n❌ bad quality, worst quality, low quality, deformed, extra fingers, watermark, tex...\n"
+        ]
+      },
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "3",
+      "display_node": "3",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executed",
+    "data": {
+      "node": "3",
+      "display_node": "3",
+      "output": {
+        "text": [
+          "📊 BATCH PREVIEW: 1 prompts\n============================================================\n\n[1] Seed: 12345\n✅ photorealistic portrait photograph of a young woman standing in soft window ligh...\n❌ bad quality, worst quality, low quality, deformed, extra fingers, watermark, tex...\n"
+        ]
+      },
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "9",
+      "display_node": "9",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "10",
+      "display_node": "10",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "32",
+      "display_node": "32",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "7",
+      "display_node": "7",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "14",
+      "display_node": "14",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "31",
+      "display_node": "31",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "34",
+      "display_node": "34",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "1",
+      "display_node": "1",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "24",
+      "display_node": "24",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executed",
+    "data": {
+      "node": "65",
+      "display_node": "65",
+      "output": null,
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "17",
+      "display_node": "17",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "66",
+      "display_node": "66",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "61",
+      "display_node": "61",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "23",
+      "display_node": "23",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "62",
+      "display_node": "62",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executed",
+    "data": {
+      "node": "63",
+      "display_node": "63",
+      "output": null,
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "64",
+      "display_node": "64",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "60",
+      "display_node": "60",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "59",
+      "display_node": "59",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "25",
+      "display_node": "25",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "18",
+      "display_node": "18",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "19",
+      "display_node": "19",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "26",
+      "display_node": "26",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "21",
+      "display_node": "21",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "22",
+      "display_node": "22",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "20",
+      "display_node": "20",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "13",
+      "display_node": "13",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "11",
+      "display_node": "11",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "12",
+      "display_node": "12",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "8",
+      "display_node": "8",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executed",
+    "data": {
+      "node": "6",
+      "display_node": "6",
+      "output": null,
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "16",
+      "display_node": "16",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "15",
+      "display_node": "15",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "36",
+      "display_node": "36",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executed",
+    "data": {
+      "node": "30",
+      "display_node": "30",
+      "output": null,
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "29",
+      "display_node": "29",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executed",
+    "data": {
+      "node": "27",
+      "display_node": "27",
+      "output": null,
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "28",
+      "display_node": "28",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "35",
+      "display_node": "35",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "33",
+      "display_node": "33",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "54",
+      "display_node": "54",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executed",
+    "data": {
+      "node": "53",
+      "display_node": "53",
+      "output": null,
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "52",
+      "display_node": "52",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "55",
+      "display_node": "55",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "57",
+      "display_node": "57",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executed",
+    "data": {
+      "node": "57",
+      "display_node": "57",
+      "output": {
+        "text": [
+          "True"
+        ]
+      },
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "56",
+      "display_node": "56",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "46",
+      "display_node": "46",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "43",
+      "display_node": "43",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "58",
+      "display_node": "58",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "38",
+      "display_node": "38",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "44",
+      "display_node": "44",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "49",
+      "display_node": "49",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "39",
+      "display_node": "39",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "50",
+      "display_node": "50",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "48",
+      "display_node": "48",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "42",
+      "display_node": "42",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "47",
+      "display_node": "47",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "45",
+      "display_node": "45",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "40",
+      "display_node": "40",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "41",
+      "display_node": "41",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "51",
+      "display_node": "51",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "56",
+      "display_node": "56",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": "5",
+      "display_node": "5",
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "executed",
+    "data": {
+      "node": "5",
+      "display_node": "5",
+      "output": {
+        "images": [
+          {
+            "filename": "render_00001_.png",
+            "subfolder": "Personal",
+            "type": "output"
+          }
+        ]
+      },
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  },
+  {
+    "type": "execution_success",
+    "data": {
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642",
+      "timestamp": 1786208302823
+    }
+  },
+  {
+    "type": "status",
+    "data": {
+      "status": {
+        "exec_info": {
+          "queue_remaining": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "executing",
+    "data": {
+      "node": null,
+      "prompt_id": "608ac206-284f-418a-bbba-d5a3430c7642"
+    }
+  }
+]

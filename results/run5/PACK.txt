@@ -1,3 +1,26 @@
+AIOFMTech-NSFW-Personal.tar.gz — CLOSING cut v4 (2026-08-08 evening)
+archive sha256 : a122699c1df6d981653a8a4aaad129b5a9b62c07bbcff03d4525eecd4738359b
+(v4 delta vs v3 f70c9af4: D landed — base KSampler 30/2.0 -> 8/1.0, the
+ ONLY graph change (structural verify: node 60 widgets only); docs synced
+ (CONFIG-SPEC, README-PERSONAL, CHECKLIST: new default + negatives-inert-
+ at-cfg1 mechanism). Installer UNCHANGED 6d5ddd73.)
+size           : 163 files, top-level AIOFMTech-NSFW-Personal/
+workflow member: OFMTech_NSFW_Personal.json 55627 bytes
+                 sha256 752030f75c6ccd4e7ed92de0eec6282e6227cb1f24d083c676f2530794cc474f
+provenance     : owner verdict on AB_CU rounds 1-3 (results/ab_cu/,
+                 notes/CU-base-defect.md): D picked on close-up look;
+                 body cleared FB +.040 / PT -.002 / bodyHF flat.
+fresh gate     : PASS (results/closing/fresh7/) — live gist + local
+                 mirror, install exit 0 in 129s, V9 civitai fetch
+                 byte-exact, vendored LoRAs arrived, workflow installed,
+                 UI-driven end-to-end render healthy (mean 123.4, face
+                 det 0.913). First gate attempt failed on the KNOWN
+                 late-Templates-modal harness race (63s post-boot, past
+                 the run-5 dismissal window) — tooling fix in
+                 browser_harness/run.js (dismiss+click retry envelope),
+                 not a pack fix; second attempt clean.
+
+---- superseded lineage ----
 AIOFMTech-NSFW-Personal.tar.gz — run-5 FINAL cut v3 (2026-08-08)
 archive sha256 : f70c9af4425333abf3998fb2051dc3f681a743e4e348066bb10e65f4624833d7
 (v3 delta vs v2 a2b44dbc: README black-frame mitigation section only —
