@@ -51,7 +51,13 @@ Prompting notes (measured this run, results/run5/):
   helps the base compose consistently with what the LoRA will render.
 - Detail passes run cfg 1 / 8 steps; raising cfg on the DETAIL passes is
   wrong (guidance-distilled). Only the BASE runs cfg 2 (negatives live).
-- LoRA strength ships 1.0 (range 0.7-1.0). KNOWN POD ISSUE: intermittent
-  black frames/faces (~8% of renders on the tuning pod, cause chased in
-  results/run5/Dmatrix + REPORT) — a re-queue on a fresh server always
-  cleared it. If a render comes back black, restart ComfyUI and re-run.
+- LoRA strength ships 1.0 (range 0.7-1.0).
+- KNOWN ISSUE — intermittent black frames/faces (~5% on the tuning pod,
+  time-clustered; did NOT reproduce in a 40-probe controlled replay, so
+  the cause is environmental and OPEN — full story in the run-5 report).
+  Recommended daily launch (mechanism-targeted, compatibility-proven,
+  NOT a proven cure):
+    CUBLAS_WORKSPACE_CONFIG=:4096:8 python main.py --disable-async-offload
+  If a render comes back black anyway: restart ComfyUI and re-render —
+  that cleared every occurrence. Do NOT use --force-fp32 without also
+  passing --use-pytorch-cross-attention (xformers has no fp32 kernel).
