@@ -43,14 +43,18 @@ Prompting notes (measured this run, results/run5/):
   prompt; stacking dilutes.
 - The base ModelSamplingAuraFlow "shift" dial ships at 3.0 (the model
   default). 4.5-6.0 = wider tonal range/deeper shadow masses (S15 sheet).
-- Base 30 steps / cfg 2 is the shipped default (your S3 pick). KNOWN
-  CAVEAT: on close-up face-filling compositions it can go blotchy
-  (S12) — drop to 8 steps / cfg 1 for close-ups, or lower cfg to 1.5.
+- Base 8 steps / cfg 1.0 is the shipped default (AB_CU owner verdict,
+  2026-08-08: fixes the S12 close-up blotch; full-body cos +.040 and
+  portrait flat vs the old default; no prompt drift seen on the body
+  sheets). The old 30/cfg2 remains a valid body-leaning alternative
+  (denser freckling) but goes blotchy on close-ups (S12).
 - The character LoRA overrides prompted hair colour/style; describing the
   real hair ("long straight blonde hair with dark roots, curtain bangs")
   helps the base compose consistently with what the LoRA will render.
 - Detail passes run cfg 1 / 8 steps; raising cfg on the DETAIL passes is
-  wrong (guidance-distilled). Only the BASE runs cfg 2 (negatives live).
+  wrong (guidance-distilled). At the base's cfg 1.0 default, NEGATIVE
+  PROMPTS ARE INERT (ComfyUI skips the negative branch at cfg 1). Raise
+  base cfg to 1.5-2 if you need negative steering — close-up blotch risk.
 - LoRA strength ships 1.0 (range 0.7-1.0).
 - KNOWN ISSUE — intermittent black frames/faces (~5% on the tuning pod,
   time-clustered; did NOT reproduce in a 40-probe controlled replay, so
