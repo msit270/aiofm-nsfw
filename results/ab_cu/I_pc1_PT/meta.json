@@ -1,0 +1,18 @@
+{
+ "arm": "I_pc1_PT",
+ "ok": true,
+ "exec_s": 136.329,
+ "prompt_id": "1f7bb3b7-80ad-47b1-9e2c-67dab4ebbbf6",
+ "images": {
+  "img_00001_.png": {
+   "mean": 131.61,
+   "std": 59.35,
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

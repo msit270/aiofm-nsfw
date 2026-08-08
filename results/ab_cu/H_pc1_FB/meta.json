@@ -1,0 +1,18 @@
+{
+ "arm": "H_pc1_FB",
+ "ok": true,
+ "exec_s": 125.39,
+ "prompt_id": "06031872-ff03-48fc-be37-37e6e7fc7dab",
+ "images": {
+  "img_00001_.png": {
+   "mean": 101.41,
+   "std": 65.35,
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

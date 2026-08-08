@@ -1,0 +1,18 @@
+{
+ "arm": "M_b30c15den25_PT",
+ "ok": true,
+ "exec_s": 137.136,
+ "prompt_id": "0f462778-90ed-4de1-8d36-9ecf5e56f565",
+ "images": {
+  "img_00001_.png": {
+   "mean": 130.64,
+   "std": 59.48,
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

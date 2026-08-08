@@ -1,0 +1,17 @@
+H_pc1_FB: gate PASS vs P_FB — deltas NONE (verbatim PC1)
+I_pc1_PT: gate PASS vs P_PT — deltas NONE (verbatim PC1)
+J_b8c10_FB: gate PASS vs P_FB — deltas [('ZB_k', 'cfg'), ('ZB_k', 'steps')]
+K_b8c10_PT: gate PASS vs P_PT — deltas [('ZB_k', 'cfg'), ('ZB_k', 'steps')]
+L_b30c15den25_FB: gate PASS vs P_FB — deltas [('ZB_k', 'cfg')]
+M_b30c15den25_PT: gate PASS vs P_PT — deltas [('ZB_k', 'cfg')]
+N_b30c15den45_FB: gate PASS vs P_FB — deltas [('619:617', 'denoise'), ('ZB_k', 'cfg')]
+O_b30c15den45_PT: gate PASS vs P_PT — deltas [('619:617', 'denoise'), ('ZB_k', 'cfg')]
+[H_pc1_FB] ok exec=125.4s
+[I_pc1_PT] ok exec=136.3s
+[J_b8c10_FB] ok exec=115.9s
+[K_b8c10_PT] ok exec=126.5s
+[L_b30c15den25_FB] ok exec=127.5s
+[M_b30c15den25_PT] ok exec=137.1s
+[N_b30c15den45_FB] ok exec=127.0s
+[O_b30c15den45_PT] ok exec=139.0s
+AB round 3 (body) done

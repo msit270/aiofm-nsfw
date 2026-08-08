@@ -1,0 +1,18 @@
+{
+ "arm": "N_b30c15den45_FB",
+ "ok": true,
+ "exec_s": 127.015,
+ "prompt_id": "074a1e65-1b4f-4cfc-8137-6cb3f4029e91",
+ "images": {
+  "img_00001_.png": {
+   "mean": 100.13,
+   "std": 61.33,
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

@@ -1,0 +1,18 @@
+{
+ "arm": "K_b8c10_PT",
+ "ok": true,
+ "exec_s": 126.495,
+ "prompt_id": "2308ca72-2311-4146-a027-4d6193add63a",
+ "images": {
+  "img_00001_.png": {
+   "mean": 132.18,
+   "std": 57.2,
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}
