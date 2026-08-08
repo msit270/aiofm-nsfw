@@ -131,7 +131,8 @@ the cuBLAS thread-safety fix); re-run the matrix there.
 ## The pack
 
 `dist-personal/AIOFMTech-NSFW-Personal.tar.gz`
-sha256 80977842… (PACK.txt), 163 files. Workflow member 50b2b3ff….
+sha256 f70c9af4… (final v3; PACK.txt has the v1→v3 lineage), 163 files.
+Workflow member 2fd45381… (unchanged since the gated v2 graph).
 Publish + one-liner: OWNER-ACTIONS-PERSONAL.md — the live sellable gist,
 unchanged, with AIOFM_PACK_URL pointed at your hosting. Nothing sellable
 was touched at any point (builder refuses to write into dist/).

@@ -1,5 +1,7 @@
-AIOFMTech-NSFW-Personal.tar.gz — run-5 FINAL cut v2 (2026-08-08, post-verifier-4)
-archive sha256 : a2b44dbc44544bb1dab2070b547faacc4e491b0a1d98ca7a3c53acd2295a0be1
+AIOFMTech-NSFW-Personal.tar.gz — run-5 FINAL cut v3 (2026-08-08)
+archive sha256 : f70c9af4425333abf3998fb2051dc3f681a743e4e348066bb10e65f4624833d7
+(v3 delta vs v2 a2b44dbc: README black-frame mitigation section only —
+ workflow member UNCHANGED 2fd45381…, installer unchanged from v2)
 size           : 163 files, top-level AIOFMTech-NSFW-Personal/
 workflow member: OFMTech_NSFW_Personal.json 55628 bytes (PC config, 66 API
                  nodes, character-neutral, mouth deleted, hands combo, shift)
