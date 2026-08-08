@@ -1,0 +1,18 @@
+{
+ "arm": "P_hereticTE2_FB",
+ "ok": true,
+ "exec_s": 132.317,
+ "prompt_id": "957ec588-dd6e-4e98-8aec-6232f64d9a85",
+ "images": {
+  "img_00001_.png": {
+   "mean": 119.97,
+   "std": 85.65,
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

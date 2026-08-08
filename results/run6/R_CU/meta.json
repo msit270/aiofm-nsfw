@@ -1,0 +1,42 @@
+{
+ "arm": "R_CU",
+ "ok": true,
+ "exec_s": 19.257,
+ "prompt_id": "4975ca5f-7cbe-46f2-b2cf-44b17e076175",
+ "images": {
+  "img_00001_.png": {
+   "mean": 128.57,
+   "std": 56.28,
+   "size": [
+    1344,
+    1728
+   ]
+  },
+  "stage1_00001_.png": {
+   "mean": 131.33,
+   "std": 59.86,
+   "size": [
+    224,
+    288
+   ]
+  },
+  "stage2_00001_.png": {
+   "mean": 134.48,
+   "std": 61.23,
+   "size": [
+    672,
+    864
+   ]
+  },
+  "stage3_00001_.png": {
+   "mean": 131.72,
+   "std": 58.58,
+   "size": [
+    896,
+    1152
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

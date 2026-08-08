@@ -1,0 +1,18 @@
+{
+ "arm": "P_FB",
+ "ok": true,
+ "exec_s": 139.861,
+ "prompt_id": "8c6d740a-0298-4b6c-87af-3a16d2ae013b",
+ "images": {
+  "img_00001_.png": {
+   "mean": 101.41,
+   "std": 65.35,
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

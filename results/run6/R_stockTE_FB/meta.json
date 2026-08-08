@@ -1,0 +1,47 @@
+{
+ "arm": "R_stockTE_FB",
+ "ok": true,
+ "exec_s": 26.908,
+ "prompt_id": "d5cfc4ba-2ff1-497c-8431-07eb17860c7d",
+ "images": {
+  "img_00001_.png": {
+   "mean": 0.0,
+   "std": 0.0,
+   "size": [
+    1344,
+    1728
+   ]
+  },
+  "stage1_00001_.png": {
+   "mean": 0.0,
+   "std": 0.0,
+   "size": [
+    224,
+    288
+   ]
+  },
+  "stage2_00001_.png": {
+   "mean": 0.0,
+   "std": 0.0,
+   "size": [
+    672,
+    864
+   ]
+  },
+  "stage3_00001_.png": {
+   "mean": 0.0,
+   "std": 0.0,
+   "size": [
+    896,
+    1152
+   ]
+  }
+ },
+ "black": [
+  "img_00001_.png",
+  "stage1_00001_.png",
+  "stage2_00001_.png",
+  "stage3_00001_.png"
+ ],
+ "status_str": "success"
+}

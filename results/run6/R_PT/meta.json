@@ -1,0 +1,42 @@
+{
+ "arm": "R_PT",
+ "ok": true,
+ "exec_s": 19.153,
+ "prompt_id": "e6bb7036-63cb-4b7b-b6c6-26ee0c699bfb",
+ "images": {
+  "img_00001_.png": {
+   "mean": 127.56,
+   "std": 55.62,
+   "size": [
+    1344,
+    1728
+   ]
+  },
+  "stage1_00001_.png": {
+   "mean": 125.02,
+   "std": 57.64,
+   "size": [
+    224,
+    288
+   ]
+  },
+  "stage2_00001_.png": {
+   "mean": 133.92,
+   "std": 61.2,
+   "size": [
+    672,
+    864
+   ]
+  },
+  "stage3_00001_.png": {
+   "mean": 131.15,
+   "std": 59.2,
+   "size": [
+    896,
+    1152
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

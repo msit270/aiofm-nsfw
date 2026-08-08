@@ -1,0 +1,566 @@
+{
+ "105": {
+  "class_type": "LoraLoaderModelOnly",
+  "inputs": {
+   "lora_name": "luna.safetensors",
+   "model": [
+    "16",
+    0
+   ],
+   "strength_model": 1.0
+  }
+ },
+ "146": {
+  "class_type": "PixelKSampleUpscalerProvider",
+  "inputs": {
+   "cfg": 1,
+   "denoise": 0.6,
+   "model": [
+    "88",
+    0
+   ],
+   "negative": [
+    "7",
+    0
+   ],
+   "positive": [
+    "6",
+    0
+   ],
+   "sampler_name": "euler",
+   "scale_method": "nearest-exact",
+   "scheduler": "beta",
+   "seed": 997300003345911,
+   "steps": 9,
+   "tile_size": 512,
+   "use_tiled_vae": false,
+   "vae": [
+    "176",
+    0
+   ]
+  }
+ },
+ "147": {
+  "class_type": "IterativeLatentUpscale",
+  "inputs": {
+   "samples": [
+    "364",
+    0
+   ],
+   "step_mode": "simple",
+   "steps": 5,
+   "temp_prefix": "",
+   "upscale_factor": 3,
+   "upscaler": [
+    "146",
+    0
+   ],
+   "vae_compression": 8
+  }
+ },
+ "16": {
+  "class_type": "UNETLoader",
+  "inputs": {
+   "unet_name": "zimage.safetensors",
+   "weight_dtype": "default"
+  }
+ },
+ "164": {
+  "class_type": "CLIPLoaderGGUF",
+  "inputs": {
+   "clip_name": "qwen-4b-zimage-heretic-q8.gguf",
+   "type": "lumina2"
+  }
+ },
+ "166": {
+  "class_type": "EmptySD3LatentImage",
+  "inputs": {
+   "batch_size": 1,
+   "height": 144,
+   "width": 112
+  }
+ },
+ "176": {
+  "class_type": "VAELoader",
+  "inputs": {
+   "vae_name": "diffusion_pytorch_model.safetensors"
+  }
+ },
+ "231": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "filename_prefix": "R6/R_pcneg_FB_b2/stage3",
+   "images": [
+    "237",
+    0
+   ]
+  }
+ },
+ "232": {
+  "class_type": "SharkOptions_Beta",
+  "inputs": {
+   "channelwise_cfg": false,
+   "denoise_alt": 1,
+   "noise_type_init": "perlin",
+   "options": [
+    "233",
+    0
+   ],
+   "s_noise_init": 1
+  }
+ },
+ "233": {
+  "class_type": "ClownOptions_DetailBoost_Beta",
+  "inputs": {
+   "end_step": 3,
+   "eta": 0.5,
+   "method": "model",
+   "mode": "hard",
+   "start_step": 1,
+   "weight": 1.4
+  }
+ },
+ "235": {
+  "class_type": "ClownsharKSampler_Beta",
+  "inputs": {
+   "bongmath": true,
+   "cfg": 1,
+   "denoise": 0.5,
+   "eta": 0.52,
+   "latent_image": [
+    "252",
+    0
+   ],
+   "model": [
+    "455",
+    0
+   ],
+   "negative": [
+    "7",
+    0
+   ],
+   "options": [
+    "232",
+    0
+   ],
+   "positive": [
+    "6",
+    0
+   ],
+   "sampler_mode": "standard",
+   "sampler_name": "linear/euler",
+   "scheduler": "beta57",
+   "seed": 690238116536147,
+   "steps": 9,
+   "steps_to_run": 9
+  }
+ },
+ "237": {
+  "class_type": "VAEDecode",
+  "inputs": {
+   "samples": [
+    "235",
+    0
+   ],
+   "vae": [
+    "176",
+    0
+   ]
+  }
+ },
+ "252": {
+  "class_type": "InjectLatentNoise+",
+  "inputs": {
+   "latent": [
+    "454",
+    0
+   ],
+   "noise_seed": 690238116536147,
+   "noise_strength": 0.4,
+   "normalize": "false"
+  }
+ },
+ "364": {
+  "class_type": "InjectLatentNoise+",
+  "inputs": {
+   "latent": [
+    "419",
+    0
+   ],
+   "noise_seed": 997300003345911,
+   "noise_strength": 0.3,
+   "normalize": "false"
+  }
+ },
+ "408": {
+  "class_type": "ClownsharKSampler_Beta",
+  "inputs": {
+   "bongmath": true,
+   "cfg": 2,
+   "denoise": 0.7,
+   "eta": 0.52,
+   "latent_image": [
+    "449",
+    0
+   ],
+   "model": [
+    "105",
+    0
+   ],
+   "negative": [
+    "7",
+    0
+   ],
+   "options": [
+    "409",
+    0
+   ],
+   "positive": [
+    "6",
+    0
+   ],
+   "sampler_mode": "standard",
+   "sampler_name": "linear/euler",
+   "scheduler": "beta57",
+   "seed": 12345,
+   "steps": 5,
+   "steps_to_run": 5
+  }
+ },
+ "409": {
+  "class_type": "SharkOptions_Beta",
+  "inputs": {
+   "channelwise_cfg": false,
+   "denoise_alt": 1,
+   "noise_type_init": "perlin",
+   "options": [
+    "410",
+    0
+   ],
+   "s_noise_init": 1
+  }
+ },
+ "410": {
+  "class_type": "ClownOptions_DetailBoost_Beta",
+  "inputs": {
+   "end_step": 3,
+   "eta": 0.5,
+   "method": "model",
+   "mode": "hard",
+   "start_step": 1,
+   "weight": 1.2
+  }
+ },
+ "411": {
+  "class_type": "ModelSamplingAuraFlow",
+  "inputs": {
+   "model": [
+    "105",
+    0
+   ],
+   "shift": 3
+  }
+ },
+ "419": {
+  "class_type": "VAEEncode",
+  "inputs": {
+   "pixels": [
+    "451",
+    0
+   ],
+   "vae": [
+    "176",
+    0
+   ]
+  }
+ },
+ "423": {
+  "class_type": "SharkOptions_Beta",
+  "inputs": {
+   "channelwise_cfg": false,
+   "denoise_alt": 1,
+   "noise_type_init": "perlin",
+   "options": [
+    "427",
+    0
+   ],
+   "s_noise_init": 1
+  }
+ },
+ "425": {
+  "class_type": "InjectLatentNoise+",
+  "inputs": {
+   "latent": [
+    "438",
+    0
+   ],
+   "noise_seed": 84193764227348,
+   "noise_strength": 0.2,
+   "normalize": "false"
+  }
+ },
+ "427": {
+  "class_type": "ClownOptions_DetailBoost_Beta",
+  "inputs": {
+   "end_step": 3,
+   "eta": 0.5,
+   "method": "model",
+   "mode": "hard",
+   "start_step": 1,
+   "weight": 1.2
+  }
+ },
+ "428": {
+  "class_type": "ClownsharKSampler_Beta",
+  "inputs": {
+   "bongmath": true,
+   "cfg": 1,
+   "denoise": 0.5,
+   "eta": 0.52,
+   "latent_image": [
+    "425",
+    0
+   ],
+   "model": [
+    "456",
+    0
+   ],
+   "negative": [
+    "7",
+    0
+   ],
+   "options": [
+    "423",
+    0
+   ],
+   "positive": [
+    "6",
+    0
+   ],
+   "sampler_mode": "standard",
+   "sampler_name": "linear/euler",
+   "scheduler": "beta57",
+   "seed": 84193764227348,
+   "steps": 9,
+   "steps_to_run": 9
+  }
+ },
+ "430": {
+  "class_type": "VAEDecode",
+  "inputs": {
+   "samples": [
+    "428",
+    0
+   ],
+   "vae": [
+    "176",
+    0
+   ]
+  }
+ },
+ "438": {
+  "class_type": "LatentUpscale",
+  "inputs": {
+   "crop": "disabled",
+   "height": 1728,
+   "samples": [
+    "235",
+    0
+   ],
+   "upscale_method": "nearest-exact",
+   "width": 1344
+  }
+ },
+ "445": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "filename_prefix": "R6/R_pcneg_FB_b2/img",
+   "images": [
+    "430",
+    0
+   ]
+  }
+ },
+ "447": {
+  "class_type": "SamplerEulerAncestral",
+  "inputs": {
+   "eta": 1,
+   "s_noise": 1
+  }
+ },
+ "448": {
+  "class_type": "SamplerCustom",
+  "inputs": {
+   "add_noise": true,
+   "cfg": 1,
+   "latent_image": [
+    "166",
+    0
+   ],
+   "model": [
+    "411",
+    0
+   ],
+   "negative": [
+    "7",
+    0
+   ],
+   "noise_seed": 12345,
+   "positive": [
+    "6",
+    0
+   ],
+   "sampler": [
+    "447",
+    0
+   ],
+   "sigmas": [
+    "507",
+    0
+   ]
+  }
+ },
+ "449": {
+  "class_type": "LatentUpscaleBy",
+  "inputs": {
+   "samples": [
+    "448",
+    0
+   ],
+   "scale_by": 2,
+   "upscale_method": "nearest-exact"
+  }
+ },
+ "451": {
+  "class_type": "VAEDecode",
+  "inputs": {
+   "samples": [
+    "408",
+    0
+   ],
+   "vae": [
+    "176",
+    0
+   ]
+  }
+ },
+ "453": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "filename_prefix": "R6/R_pcneg_FB_b2/stage1",
+   "images": [
+    "451",
+    0
+   ]
+  }
+ },
+ "454": {
+  "class_type": "LatentUpscale",
+  "inputs": {
+   "crop": "disabled",
+   "height": 1152,
+   "samples": [
+    "147",
+    0
+   ],
+   "upscale_method": "nearest-exact",
+   "width": 896
+  }
+ },
+ "455": {
+  "class_type": "ModelSamplingAuraFlow",
+  "inputs": {
+   "model": [
+    "105",
+    0
+   ],
+   "shift": 7
+  }
+ },
+ "456": {
+  "class_type": "ModelSamplingAuraFlow",
+  "inputs": {
+   "model": [
+    "105",
+    0
+   ],
+   "shift": 7
+  }
+ },
+ "507": {
+  "class_type": "FlowMatchEulerDiscreteScheduler (Custom)",
+  "inputs": {
+   "base_image_seq_len": 256,
+   "base_shift": 0.5,
+   "device": "auto",
+   "end_at_step": 9999,
+   "invert_sigmas": "disable",
+   "max_image_seq_len": 8192,
+   "max_shift": 1.15,
+   "num_train_timesteps": 1000,
+   "shift": 3,
+   "shift_terminal": 0,
+   "start_at_step": 0,
+   "steps": 9,
+   "stochastic_sampling": "disable",
+   "time_shift_type": "exponential",
+   "use_beta_sigmas": "disable",
+   "use_dynamic_shifting": "disable",
+   "use_exponential_sigmas": "disable",
+   "use_karras_sigmas": "disable"
+  }
+ },
+ "6": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "164",
+    0
+   ],
+   "text": "photorealistic full body photograph of a young woman with long dark hair standing on a hotel balcony at golden hour, wearing a black silk slip dress, natural skin texture with visible pores and freckles, shot on 85mm, shallow depth of field"
+  }
+ },
+ "7": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "164",
+    0
+   ],
+   "text": "bad quality, worst quality, low quality, deformed, extra fingers, watermark, text"
+  }
+ },
+ "78": {
+  "class_type": "VAEDecode",
+  "inputs": {
+   "samples": [
+    "147",
+    0
+   ],
+   "vae": [
+    "176",
+    0
+   ]
+  }
+ },
+ "80": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "filename_prefix": "R6/R_pcneg_FB_b2/stage2",
+   "images": [
+    "78",
+    0
+   ]
+  }
+ },
+ "88": {
+  "class_type": "ModelSamplingAuraFlow",
+  "inputs": {
+   "model": [
+    "105",
+    0
+   ],
+   "shift": 6
+  }
+ }
+}

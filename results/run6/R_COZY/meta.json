@@ -1,0 +1,42 @@
+{
+ "arm": "R_COZY",
+ "ok": true,
+ "exec_s": 19.574,
+ "prompt_id": "4fe21b4c-a106-4b12-95d1-2e384405c82f",
+ "images": {
+  "img_00001_.png": {
+   "mean": 114.36,
+   "std": 52.25,
+   "size": [
+    1344,
+    1728
+   ]
+  },
+  "stage1_00001_.png": {
+   "mean": 119.13,
+   "std": 65.55,
+   "size": [
+    224,
+    288
+   ]
+  },
+  "stage2_00001_.png": {
+   "mean": 119.49,
+   "std": 56.7,
+   "size": [
+    672,
+    864
+   ]
+  },
+  "stage3_00001_.png": {
+   "mean": 118.0,
+   "std": 53.9,
+   "size": [
+    896,
+    1152
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

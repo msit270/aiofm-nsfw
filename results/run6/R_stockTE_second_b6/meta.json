@@ -1,0 +1,42 @@
+{
+ "arm": "R_stockTE_second_b6",
+ "ok": true,
+ "exec_s": 27.511,
+ "prompt_id": "168e2432-4d48-4299-9a88-814be5ab19fe",
+ "images": {
+  "img_00001_.png": {
+   "mean": 110.51,
+   "std": 55.15,
+   "size": [
+    1344,
+    1728
+   ]
+  },
+  "stage1_00001_.png": {
+   "mean": 107.46,
+   "std": 73.26,
+   "size": [
+    224,
+    288
+   ]
+  },
+  "stage2_00001_.png": {
+   "mean": 115.1,
+   "std": 59.6,
+   "size": [
+    672,
+    864
+   ]
+  },
+  "stage3_00001_.png": {
+   "mean": 113.24,
+   "std": 57.59,
+   "size": [
+    896,
+    1152
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

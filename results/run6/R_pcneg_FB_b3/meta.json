@@ -1,0 +1,42 @@
+{
+ "arm": "R_pcneg_FB_b3",
+ "ok": true,
+ "exec_s": 47.392,
+ "prompt_id": "49a04b6b-54ae-4c71-bd7f-b80605ed7c86",
+ "images": {
+  "img_00001_.png": {
+   "mean": 110.62,
+   "std": 56.25,
+   "size": [
+    1344,
+    1728
+   ]
+  },
+  "stage1_00001_.png": {
+   "mean": 106.32,
+   "std": 72.59,
+   "size": [
+    224,
+    288
+   ]
+  },
+  "stage2_00001_.png": {
+   "mean": 114.31,
+   "std": 60.62,
+   "size": [
+    672,
+    864
+   ]
+  },
+  "stage3_00001_.png": {
+   "mean": 113.12,
+   "std": 58.27,
+   "size": [
+    896,
+    1152
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

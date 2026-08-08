@@ -1,0 +1,18 @@
+{
+ "arm": "P_shift67_FB",
+ "ok": true,
+ "exec_s": 146.312,
+ "prompt_id": "4caaee44-8677-4f56-903f-992b175521df",
+ "images": {
+  "img_00001_.png": {
+   "mean": 101.11,
+   "std": 64.98,
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

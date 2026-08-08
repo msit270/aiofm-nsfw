@@ -1,0 +1,18 @@
+{
+ "arm": "P_COZY_b4",
+ "ok": true,
+ "exec_s": 206.539,
+ "prompt_id": "163b1080-0a00-481f-9738-fb1191bbf8e3",
+ "images": {
+  "img_00001_.png": {
+   "mean": 108.28,
+   "std": 62.1,
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

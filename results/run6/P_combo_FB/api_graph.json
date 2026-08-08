@@ -1,0 +1,1208 @@
+{
+ "116": {
+  "_meta": {
+   "title": "2 \u00b7 Your ZIT LoRa  (face, mouth, eyes)"
+  },
+  "class_type": "Lora Loader Stack (rgthree)",
+  "inputs": {
+   "clip": [
+    "620:110",
+    0
+   ],
+   "lora_01": "luna.safetensors",
+   "lora_02": "None",
+   "lora_03": "None",
+   "lora_04": "None",
+   "model": [
+    "620:113",
+    0
+   ],
+   "strength_01": 1,
+   "strength_02": 0.9,
+   "strength_03": 0.9,
+   "strength_04": 1
+  }
+ },
+ "480": {
+  "_meta": {
+   "title": "Prompts loaded"
+  },
+  "class_type": "INSTARAW_PromptBatchPreview",
+  "inputs": {
+   "prompt_list_negative": [
+    "483",
+    1
+   ],
+   "prompt_list_positive": [
+    "483",
+    0
+   ],
+   "seed_list": [
+    "483",
+    2
+   ]
+  }
+ },
+ "481": {
+  "_meta": {
+   "title": "Prompt batch preview"
+  },
+  "class_type": "PreviewAny",
+  "inputs": {
+   "preview": "",
+   "previewMode": null,
+   "source": [
+    "480",
+    0
+   ]
+  }
+ },
+ "483": {
+  "_meta": {
+   "title": "1 \u00b7 YOUR PROMPTS & SEED  -  start here"
+  },
+  "class_type": "INSTARAW_RealityPromptGenerator",
+  "inputs": {
+   "aspect_label": "",
+   "gemini_api_key": "",
+   "grok_api_key": "",
+   "prompt_batch_data": "[{\"id\": \"default-01\", \"positive_prompt\": \"photorealistic full body photograph of a young woman with long dark hair standing on a hotel balcony at golden hour, wearing a black silk slip dress, natural skin texture with visible pores and freckles, shot on 85mm, shallow depth of field\", \"negative_prompt\": \"\\u52a8\\u6f2b\\u98ce, \\u4e8c\\u6b21\\u5143, \\u6f2b\\u753b\\u98ce, \\u63d2\\u753b\\u98ce, \\u5361\\u901a\\u98ce, Q\\u7248, \\u624b\\u7ed8\\u98ce, \\u6c34\\u5f69\\u753b, \\u7d20\\u63cf\\u98ce, \\u7ebf\\u7a3f, \\u8349\\u56fe, \\u5199\\u5b9e\\u6cb9\\u753b, \\u6cb9\\u753b\\u98ce, \\u7248\\u753b\\u98ce, \\u50cf\\u7d20\\u753b, pixel art, \\u70b9\\u9635\\u753b, low poly, voxel, blueprint, \\u7ebf\\u6846\\u56fe, 3D\\u6e32\\u67d3, 3D\\u6a21\\u578b, CG\\u6e32\\u67d3, CG\\u98ce\\u683c, \\u6e38\\u620f\\u6a21\\u578b, \\u6e38\\u620f\\u89d2\\u8272, \\u865a\\u62df\\u5f62\\u8c61, vtuber\\u98ce, VTuber\\u98ce, cyberpunk, \\u8d5b\\u535a\\u670b\\u514b\\u98ce, vaporwave, synthwave, glitch art, \\u8d5b\\u535a\\u98ce, \\u9713\\u8679\\u8d5b\\u535a\\u670b\\u514b\\u98ce, \\u4f4e\\u6e05\\u6670\\u5ea6, \\u4f4e\\u5206\\u8fa8\\u7387, \\u6a21\\u7cca, \\u865a\\u7126, \\u5bf9\\u7126\\u5931\\u8d25, \\u5931\\u7126, \\u5931\\u771f, \\u566a\\u70b9\\u4e25\\u91cd, \\u8fc7\\u5ea6\\u566a\\u70b9, JPEG\\u4f2a\\u5f71, \\u538b\\u7f29\\u4f2a\\u5f71, \\u8fc7\\u5ea6\\u538b\\u7f29, \\u62c9\\u4e1d\\u4f2a\\u5f71, \\u8272\\u5f69\\u6ea2\\u51fa, \\u989c\\u8272\\u65ad\\u5c42, \\u504f\\u8272\\u4e25\\u91cd, \\u8fc7\\u5ea6\\u9510\\u5316, \\u8fc7\\u5ea6\\u964d\\u566a, \\u8fc7\\u5ea6HDR, HDR\\u98ce, \\u5149\\u6655, \\u7206\\u8fb9, \\u8fc7\\u66dd\\u9ad8\\u5149, \\u6b7b\\u9ed1\\u9634\\u5f71, \\u8f6e\\u5ed3\\u53d1\\u5149, \\u8fb9\\u7f18\\u53d1\\u5149, \\u952f\\u9f7f, \\u7c97\\u7cd9\\u7ec6\\u8282, \\u5149\\u5f71\\u4e0d\\u771f\\u5b9e, \\u4e0d\\u771f\\u5b9e\\u53cd\\u5c04, \\u4e0d\\u771f\\u5b9e\\u5149\\u5f71, \\u7f51\\u7ea2\\u8138, AI\\u7f51\\u7ea2\\u8138, \\u7f51\\u7ea2\\u6a21\\u677f\\u8138, \\u6a21\\u677f\\u8138, \\u9ed8\\u8ba4\\u4eba\\u8138\\u6a21\\u677f, \\u9ed8\\u8ba4\\u98ce\\u683c\\u4eba\\u8138, \\u5343\\u4eba\\u4e00\\u9762, \\u5343\\u7bc7\\u4e00\\u5f8b\\u7684\\u8138, \\u540c\\u4e00\\u5f20\\u8138, \\u7edf\\u4e00\\u8138\\u578b, \\u7edf\\u4e00\\u4e94\\u5b98, \\u6807\\u51c6\\u5316\\u8138, \\u5b8c\\u7f8e\\u5bf9\\u79f0\\u8138, \\u9ec4\\u91d1\\u6bd4\\u4f8b\\u8138, \\u5b8c\\u7f8e\\u65e0\\u7455\\u7684\\u8138, \\u786c\\u51f9\\u7cbe\\u81f4\\u8138, \\u5047\\u7cbe\\u81f4\\u8138, \\u7edf\\u4e00\\u74dc\\u5b50\\u8138, \\u7edf\\u4e00\\u5c16\\u4e0b\\u5df4, \\u7edf\\u4e00\\u9ad8\\u9f3b\\u6881, \\u7edf\\u4e00\\u53cc\\u773c\\u76ae, \\u5a03\\u5a03\\u8138, Barbie\\u8138, \\u5047\\u5a03\\u5a03\\u8138, \\u8fc7\\u5ea6\\u5c11\\u5973\\u611f\\u8138, \\u4e0d\\u81ea\\u7136\\u5e7c\\u6001\\u8138, \\u7edf\\u4e00\\u5973\\u795e\\u8138, \\u795e\\u4ed9\\u989c\\u503c\\u6a21\\u677f, \\u7f8e\\u989c\\u6ee4\\u955c, \\u8fc7\\u5ea6\\u78e8\\u76ae, \\u78e8\\u76ae\\u8fc7\\u5ea6, \\u78e8\\u76ae\\u6ee4\\u955c, \\u78e8\\u76ae\\u76ae\\u80a4, \\u73bb\\u7483\\u76ae, \\u73bb\\u7483\\u76ae\\u80a4, \\u74f7\\u5a03\\u5a03\\u76ae\\u80a4, \\u201c\\u5b8c\\u7f8e\\u76ae\\u80a4\\u201d, \\u8fc7\\u5ea6\\u7f8e\\u767d, \\u8fc7\\u66dd\\u9ad8\\u5149\\u5728\\u76ae\\u80a4\\u4e0a, \\u5931\\u771f\\u76ae\\u80a4, \\u4e0d\\u771f\\u5b9e\\u76ae\\u80a4\\u7eb9\\u7406, \\u865a\\u5047\\u76ae\\u80a4\\u7eb9\\u7406, \\u5851\\u6599\\u8d28\\u611f\\u76ae\\u80a4, \\u8721\\u50cf\\u8138, \\u5047\\u8138, \\u5047\\u76ae\\u80a4, \\u8fc7\\u5ea6\\u4fee\\u56fe, \\u8fc7\\u5ea6\\u6db2\\u5316, \\u6db2\\u5316\\u53d8\\u5f62, \\u4fee\\u56fe\\u75d5\\u8ff9, \\u8fc7\\u5ea6\\u7626\\u8138, \\u8fc7\\u5ea6\\u5c16\\u8138, \\u8fc7\\u5ea6\\u5927\\u773c, \\u4e0d\\u771f\\u5b9e\\u4e94\\u5b98\\u6bd4\\u4f8b, \\u4e0d\\u771f\\u5b9e\\u5934\\u8eab\\u6bd4, \\u4e0d\\u81ea\\u7136\\u8eab\\u4f53\\u6bd4\\u4f8b, PS\\u75d5\\u8ff9\\u660e\\u663e, \\u8fc7\\u5ea6\\u6ee4\\u955c, \\u5f71\\u697c\\u98ce, \\u5199\\u771f\\u68da\\u98ce, \\u5199\\u771f\\u68da\\u6253\\u5149, \\u5f71\\u697c\\u7cbe\\u4fee, \\u201c\\u7cbe\\u4fee\\u5927\\u7247\\u201d, \\u68da\\u62cd\\u5927\\u7247, \\u68da\\u62cd\\u5927\\u7247\\u98ce, \\u6742\\u5fd7\\u5c01\\u9762\\u98ce, \\u65f6\\u5c1a\\u6742\\u5fd7\\u68da\\u62cd\\u98ce, glamour, idol poster, idol promo, KOL\\u5934\\u50cf, KOL\\u98ce, \\u4e3b\\u64ad\\u8138, \\u76f4\\u64ad\\u8138, \\u76f4\\u64ad\\u95f4\\u6ee4\\u955c, \\u5e7f\\u544a\\u786c\\u7167, \\u5f3a\\u70c8\\u5546\\u4e1a\\u5e7f\\u544a\\u611f, \\u5546\\u4e1a\\u56fe\\u5e93\\u6a21\\u677f\\u98ce, \\u8fc7\\u5ea6\\u65f6\\u5c1a\\u5927\\u7247\\u611f, \\u5938\\u5f20\\u68da\\u62cd\\u611f, \\u8fc7\\u5ea6\\u9ad8\\u7ea7\\u611f, \\u7edf\\u4e00\\u6d77\\u62a5\\u98ce, \\u901a\\u7528\\u5e7f\\u544a\\u6a21\\u7279\\u611f, \\u81ea\\u62cd\\u98ce, \\u81ea\\u62cd\\u611f, \\u81ea\\u62cd\\u6746\\u89c6\\u89d2, \\u624b\\u673a\\u524d\\u7f6e\\u6444\\u50cf\\u5934, \\u8fc7\\u8fd1\\u5e7f\\u89d2\\u7578\\u53d8, \\u5927\\u5934\\u7578\\u53d8, \\u9c7c\\u773c\\u7578\\u53d8, \\u8d85\\u5e7f\\u89d2\\u7578\\u53d8, \\u9ad8\\u4e3e\\u624b\\u673a\\u4fef\\u62cd, \\u4f4e\\u89d2\\u5ea6\\u4ef0\\u62cd\\u5938\\u5f20\\u7578\\u53d8, \\u76f4\\u64ad\\u6ee4\\u955c, \\u81ea\\u62cd\\u6ee4\\u955c, \\u7f8e\\u989c\\u76f8\\u673a, \\u7f51\\u7ea2\\u81ea\\u62cd, \\u81ea\\u62cd\\u7f8e\\u989c, \\u6296\\u97f3\\u6ee4\\u955c, \\u5feb\\u624b\\u6ee4\\u955c, \\u793e\\u4ea4\\u5e73\\u53f0\\u7f51\\u7ea2\\u6ee4\\u955c, \\u7edf\\u4e00\\u7f51\\u7ea2\\u81ea\\u62cd\\u6a21\\u677f, stock photo, \\u5e93\\u5b58\\u7167\\u7247\\u611f, \\u5178\\u578bstock photo, \\u901a\\u7528\\u56fe\\u5e93\\u6a21\\u7279, \\u5546\\u4e1a\\u56fe\\u5e93\\u98ce, \\u5343\\u7bc7\\u4e00\\u5f8b\\u56fe\\u5e93\\u6a21\\u7279, \\u8fc7\\u4e8e\\u523b\\u610f\\u7684\\u6446\\u62cd, \\u50f5\\u786c\\u59ff\\u52bf, \\u50f5\\u786c\\u8868\\u60c5, \\u5851\\u6599\\u7b11\\u5bb9, \\u5047\\u7b11, \\u865a\\u5047\\u7684\\u8868\\u60c5, \\u50f5\\u5c38\\u8138, \\u50f5\\u786c\\u7684\\u773c\\u795e, \\u8fc7\\u5ea6\\u6446\\u62cd\\u59ff\\u52bf, \\u7edf\\u4e00\\u59ff\\u52bf, \\u91cd\\u590d\\u59ff\\u52bf, \\u7edf\\u4e00\\u6784\\u56fe, \\u5e7f\\u544a\\u6a21\\u677f, \\u901a\\u7528\\u6d77\\u62a5\\u80cc\\u666f, \\u901a\\u7528\\u5e7f\\u544a\\u80cc\\u666f, template background, AI\\u611f\\u5f88\\u5f3a, \\u4e00\\u773c\\u770b\\u51fa\\u662fAI\\u56fe, \\u4eba\\u5de5\\u75d5\\u8ff9, \\u4e0d\\u81ea\\u7136, \\u865a\\u5047\\u80cc\\u666f, \\u5047\\u666f\\u6df1, \\u8fc7\\u5ea6\\u666f\\u6df1\\u865a\\u5316, \\u80cc\\u666f\\u4e71\\u7cdf\\u7cdf, \\u4f4e\\u8d28\\u91cf, \\u4f4e\\u7ec6\\u8282, \\u8349\\u7387\\u7ec6\\u8282, \\u4e0d\\u771f\\u5b9e, \\u975e\\u7167\\u7247, \\u975e\\u6444\\u5f71, \\u975e\\u81ea\\u7136\\u5149, \\u5047\\u5149\\u6e90, \\u4e0d\\u81ea\\u7136\\u9ad8\\u5149, \\u8fc7\\u5ea6\\u9510\\u5316\\u7ebf\\u6761, \\u8f6e\\u5ed3\\u8fc7\\u786c, \\u8fb9\\u7f18\\u8fc7\\u786c, \\u8f6e\\u5ed3\\u4e0d\\u5e72\\u51c0, \\u566a\\u70b9\\u5757\\u72b6\\u611f, \\u6a21\\u62df\\u98ce\\u683c\\u800c\\u4e0d\\u662f\\u5b9e\\u9645\\u7167\\u7247\", \"repeat_count\": 1, \"seed\": 12345, \"seed_control\": \"fixed\", \"tags\": [], \"source_id\": \"default\"}]",
+   "sdxl_mode": false
+  }
+ },
+ "505": {
+  "_meta": {
+   "title": "YOUR IMAGE  -  saved to output/Instaraw/"
+  },
+  "class_type": "SaveImage",
+  "inputs": {
+   "filename_prefix": "R6/P_combo_FB/img",
+   "images": [
+    "622:661",
+    0
+   ]
+  }
+ },
+ "587:100": {
+  "_meta": {
+   "title": "Load Upscale Model"
+  },
+  "class_type": "UpscaleModelLoader",
+  "inputs": {
+   "model_name": "4x-UltraSharpV2.pth"
+  }
+ },
+ "587:506": {
+  "_meta": {
+   "title": "Hand Negative Prompt"
+  },
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "620:110",
+    0
+   ],
+   "text": ""
+  }
+ },
+ "587:87": {
+  "_meta": {
+   "title": "ImageBlend"
+  },
+  "class_type": "ImageBlend",
+  "inputs": {
+   "blend_factor": 1,
+   "blend_mode": "normal",
+   "image1": [
+    "587:92",
+    0
+   ],
+   "image2": [
+    "587:91",
+    0
+   ]
+  }
+ },
+ "587:88": {
+  "_meta": {
+   "title": "SAMLoader (Impact)"
+  },
+  "class_type": "SAMLoader",
+  "inputs": {
+   "device_mode": "AUTO",
+   "model_name": "sam_vit_b_01ec64.pth"
+  }
+ },
+ "587:89": {
+  "_meta": {
+   "title": "UltralyticsDetectorProvider"
+  },
+  "class_type": "UltralyticsDetectorProvider",
+  "inputs": {
+   "model_name": "bbox/hand_yolov8s.pt"
+  }
+ },
+ "587:90": {
+  "_meta": {
+   "title": "Load Upscale Model"
+  },
+  "class_type": "UpscaleModelLoader",
+  "inputs": {
+   "model_name": "x1_ITF_SkinDiffDetail_Lite_v1.pth"
+  }
+ },
+ "587:91": {
+  "_meta": {
+   "title": "Upscale Image (using Model)"
+  },
+  "class_type": "ImageUpscaleWithModel",
+  "inputs": {
+   "image": [
+    "587:92",
+    0
+   ],
+   "upscale_model": [
+    "587:90",
+    0
+   ]
+  }
+ },
+ "587:92": {
+  "_meta": {
+   "title": "HandDetailer"
+  },
+  "class_type": "FaceDetailer",
+  "inputs": {
+   "bbox_crop_factor": 1.5,
+   "bbox_detector": [
+    "587:89",
+    0
+   ],
+   "bbox_dilation": 4,
+   "bbox_threshold": 0.23000000000000004,
+   "cfg": 1.0,
+   "clip": [
+    "620:110",
+    0
+   ],
+   "cycle": 2,
+   "denoise": 0.42,
+   "drop_size": 10,
+   "feather": 9,
+   "force_inpaint": true,
+   "guide_size": 768,
+   "guide_size_for": true,
+   "image": [
+    "619:601",
+    0
+   ],
+   "inpaint_model": false,
+   "max_size": 768,
+   "model": [
+    "116",
+    0
+   ],
+   "negative": [
+    "587:506",
+    0
+   ],
+   "noise_mask": true,
+   "noise_mask_feather": 20,
+   "positive": [
+    "587:93",
+    0
+   ],
+   "sam_bbox_expansion": 4,
+   "sam_detection_hint": "vertical-2",
+   "sam_dilation": 12,
+   "sam_mask_hint_threshold": 0.7000000000000002,
+   "sam_mask_hint_use_negative": "False",
+   "sam_model_opt": [
+    "587:88",
+    0
+   ],
+   "sam_threshold": 0.04000000000000001,
+   "sampler_name": "res_multistep",
+   "scheduler": "simple",
+   "seed": 1111111,
+   "steps": 8,
+   "tiled_decode": false,
+   "tiled_encode": false,
+   "vae": [
+    "620:109",
+    0
+   ],
+   "wildcard": ""
+  }
+ },
+ "587:93": {
+  "_meta": {
+   "title": "Hand Prompt"
+  },
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "620:110",
+    0
+   ],
+   "text": "young woman's hand, smooth soft skin, natural hand, elegant fingers, neat fingernails"
+  }
+ },
+ "587:98": {
+  "_meta": {
+   "title": "Ultimate SD Upscale"
+  },
+  "class_type": "UltimateSDUpscale",
+  "inputs": {
+   "batch_size": 1,
+   "cfg": 1.0,
+   "denoise": 0.08,
+   "force_uniform_tiles": true,
+   "image": [
+    "587:87",
+    0
+   ],
+   "mask_blur": 12,
+   "mode_type": "Linear",
+   "model": [
+    "MS7",
+    0
+   ],
+   "negative": [
+    "ZU_neg",
+    0
+   ],
+   "positive": [
+    "ZU_pos",
+    0
+   ],
+   "sampler_name": "res_multistep",
+   "scheduler": "simple",
+   "seam_fix_denoise": 1,
+   "seam_fix_mask_blur": 12,
+   "seam_fix_mode": "None",
+   "seam_fix_padding": 16,
+   "seam_fix_width": 64,
+   "seed": 1966745044,
+   "steps": 2,
+   "tile_height": [
+    "587:99",
+    1
+   ],
+   "tile_padding": 32,
+   "tile_width": [
+    "587:99",
+    0
+   ],
+   "tiled_decode": false,
+   "upscale_by": 1.5,
+   "upscale_model": [
+    "587:100",
+    0
+   ],
+   "vae": [
+    "620:109",
+    0
+   ]
+  }
+ },
+ "587:99": {
+  "_meta": {
+   "title": "Get Image Size"
+  },
+  "class_type": "GetImageSize",
+  "inputs": {
+   "image": [
+    "587:87",
+    0
+   ]
+  }
+ },
+ "619:590": {
+  "_meta": {
+   "title": "Positive Prompt"
+  },
+  "class_type": "PrimitiveStringMultiline",
+  "inputs": {
+   "value": [
+    "483",
+    0
+   ]
+  }
+ },
+ "619:593": {
+  "_meta": {
+   "title": "Upscale Image (using Model)"
+  },
+  "class_type": "ImageUpscaleWithModel",
+  "inputs": {
+   "image": [
+    "ZB_dec",
+    0
+   ],
+   "upscale_model": [
+    "619:615",
+    0
+   ]
+  }
+ },
+ "619:595": {
+  "_meta": {
+   "title": "Upscale Image By"
+  },
+  "class_type": "ImageScaleBy",
+  "inputs": {
+   "image": [
+    "619:593",
+    0
+   ],
+   "scale_by": 0.4,
+   "upscale_method": "lanczos"
+  }
+ },
+ "619:601": {
+  "_meta": {
+   "title": "\ud83d\udcd1 INSTARAW Image List From Batch"
+  },
+  "class_type": "INSTARAW_ImageListFromBatch",
+  "inputs": {
+   "images": [
+    "619:603",
+    0
+   ]
+  }
+ },
+ "619:602": {
+  "_meta": {
+   "title": "\ud83d\uddc3\ufe0f INSTARAW Batch From Image List"
+  },
+  "class_type": "INSTARAW_BatchFromImageList",
+  "inputs": {
+   "images": [
+    "619:617",
+    0
+   ]
+  }
+ },
+ "619:603": {
+  "_meta": {
+   "title": "Image Selector - PAUSES the render until you choose"
+  },
+  "class_type": "INSTARAW_ImageFilter",
+  "inputs": {
+   "cache_behavior": "Run selector normally",
+   "extra1": "",
+   "extra2": "",
+   "extra3": "",
+   "images": [
+    "619:602",
+    0
+   ],
+   "node_identifier": 958955,
+   "ontimeout": "send none",
+   "pick_list": "0",
+   "pick_list_start": 0,
+   "timeout": 600,
+   "tip": "",
+   "video_frames": 1
+  }
+ },
+ "619:605": {
+  "_meta": {
+   "title": "Negative Prompt"
+  },
+  "class_type": "PrimitiveStringMultiline",
+  "inputs": {
+   "value": [
+    "483",
+    1
+   ]
+  }
+ },
+ "619:612": {
+  "_meta": {
+   "title": "Load Upscale Model"
+  },
+  "class_type": "UpscaleModelLoader",
+  "inputs": {
+   "model_name": "4x-UltraSharpV2.pth"
+  }
+ },
+ "619:615": {
+  "_meta": {
+   "title": "Load Upscale Model"
+  },
+  "class_type": "UpscaleModelLoader",
+  "inputs": {
+   "model_name": "4x_NMKD-Superscale-SP_178000_G.pth"
+  }
+ },
+ "619:617": {
+  "_meta": {
+   "title": "Ultimate SD Upscale"
+  },
+  "class_type": "UltimateSDUpscale",
+  "inputs": {
+   "batch_size": 1,
+   "cfg": 1.0,
+   "denoise": 0.45,
+   "force_uniform_tiles": true,
+   "image": [
+    "619:595",
+    0
+   ],
+   "mask_blur": 8,
+   "mode_type": "Linear",
+   "model": [
+    "MS6",
+    0
+   ],
+   "negative": [
+    "ZU_neg",
+    0
+   ],
+   "positive": [
+    "ZU_pos",
+    0
+   ],
+   "sampler_name": "res_multistep",
+   "scheduler": "simple",
+   "seam_fix_denoise": 0.30000000000000004,
+   "seam_fix_mask_blur": 8,
+   "seam_fix_mode": "None",
+   "seam_fix_padding": 16,
+   "seam_fix_width": 128,
+   "seed": 34651603,
+   "steps": 8,
+   "tile_height": 1152,
+   "tile_padding": 64,
+   "tile_width": 896,
+   "tiled_decode": false,
+   "upscale_by": 1.2500000000000002,
+   "upscale_model": [
+    "619:612",
+    0
+   ],
+   "vae": [
+    "620:109",
+    0
+   ]
+  }
+ },
+ "620:105": {
+  "_meta": {
+   "title": "Face Detailer Negative Prompt"
+  },
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "620:110",
+    0
+   ],
+   "text": ""
+  }
+ },
+ "620:106": {
+  "_meta": {
+   "title": "Face Detailer Prompt"
+  },
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "620:110",
+    0
+   ],
+   "text": "luna, a young woman in her mid twenties with wavy auburn hair, warm hazel eyes, soft natural makeup, light freckles on her cheeks, gentle smile, photorealistic skin texture with visible pores, soft diffused studio light"
+  }
+ },
+ "620:107": {
+  "_meta": {
+   "title": "UltralyticsDetectorProvider"
+  },
+  "class_type": "UltralyticsDetectorProvider",
+  "inputs": {
+   "model_name": "bbox/face_yolov8m.pt"
+  }
+ },
+ "620:108": {
+  "_meta": {
+   "title": "SAMLoader (Impact)"
+  },
+  "class_type": "SAMLoader",
+  "inputs": {
+   "device_mode": "AUTO",
+   "model_name": "sam_vit_b_01ec64.pth"
+  }
+ },
+ "620:109": {
+  "_meta": {
+   "title": "Load VAE"
+  },
+  "class_type": "VAELoader",
+  "inputs": {
+   "vae_name": "ae.safetensors"
+  }
+ },
+ "620:110": {
+  "_meta": {
+   "title": "Load CLIP"
+  },
+  "class_type": "CLIPLoader",
+  "inputs": {
+   "clip_name": "qwen.safetensors",
+   "device": "cpu",
+   "type": "lumina2"
+  }
+ },
+ "620:111": {
+  "_meta": {
+   "title": "\ud83d\udd27 Image Color Match"
+  },
+  "class_type": "ImageColorMatch+",
+  "inputs": {
+   "batch_size": 0,
+   "color_space": "LAB",
+   "device": "auto",
+   "factor": 1,
+   "image": [
+    "620:114",
+    0
+   ],
+   "reference": [
+    "620:137",
+    0
+   ]
+  }
+ },
+ "620:113": {
+  "_meta": {
+   "title": "Load Diffusion Model"
+  },
+  "class_type": "UNETLoader",
+  "inputs": {
+   "unet_name": "zimage.safetensors",
+   "weight_dtype": "default"
+  }
+ },
+ "620:114": {
+  "_meta": {
+   "title": "FaceDetailer"
+  },
+  "class_type": "FaceDetailer",
+  "inputs": {
+   "bbox_crop_factor": 1.5,
+   "bbox_detector": [
+    "620:107",
+    0
+   ],
+   "bbox_dilation": 10,
+   "bbox_threshold": 0.5,
+   "cfg": 1,
+   "clip": [
+    "116",
+    1
+   ],
+   "cycle": 1,
+   "denoise": 0.5,
+   "drop_size": 10,
+   "feather": 18,
+   "force_inpaint": true,
+   "guide_size": 1024,
+   "guide_size_for": true,
+   "image": [
+    "620:137",
+    0
+   ],
+   "inpaint_model": false,
+   "max_size": 1024,
+   "model": [
+    "116",
+    0
+   ],
+   "negative": [
+    "620:105",
+    0
+   ],
+   "noise_mask": true,
+   "noise_mask_feather": 20,
+   "positive": [
+    "620:106",
+    0
+   ],
+   "sam_bbox_expansion": 0,
+   "sam_detection_hint": "center-1",
+   "sam_dilation": 0,
+   "sam_mask_hint_threshold": 0.7,
+   "sam_mask_hint_use_negative": "False",
+   "sam_model_opt": [
+    "620:108",
+    0
+   ],
+   "sam_threshold": 0.93,
+   "sampler_name": "euler_ancestral",
+   "scheduler": "kl_optimal",
+   "seed": 1111111,
+   "steps": 8,
+   "tiled_decode": false,
+   "tiled_encode": false,
+   "vae": [
+    "620:109",
+    0
+   ],
+   "wildcard": ""
+  }
+ },
+ "620:137": {
+  "_meta": {
+   "title": "\ud83d\udd27 Image Color Match"
+  },
+  "class_type": "ImageColorMatch+",
+  "inputs": {
+   "batch_size": 0,
+   "color_space": "LAB",
+   "device": "auto",
+   "factor": 1,
+   "image": [
+    "587:98",
+    0
+   ],
+   "reference": [
+    "587:87",
+    0
+   ]
+  }
+ },
+ "622:394": {
+  "_meta": {
+   "title": "Eye Negative Prompt"
+  },
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "620:110",
+    0
+   ],
+   "text": ""
+  }
+ },
+ "622:398": {
+  "_meta": {
+   "title": "Eye Positive Prompt"
+  },
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "620:110",
+    0
+   ],
+   "text": "perfect eyes, round pupils, round iris, symmetrical eyes, realistic eyes, perfect circles, round"
+  }
+ },
+ "622:399": {
+  "_meta": {
+   "title": "Get Image Size"
+  },
+  "class_type": "GetImageSize",
+  "inputs": {
+   "image": [
+    "622:414",
+    0
+   ]
+  }
+ },
+ "622:400": {
+  "_meta": {
+   "title": "Get Image Size"
+  },
+  "class_type": "GetImageSize",
+  "inputs": {
+   "image": [
+    "622:404",
+    0
+   ]
+  }
+ },
+ "622:401": {
+  "_meta": {
+   "title": "\ud83d\udcd0 INSTARAW Image Resize & Fill"
+  },
+  "class_type": "INSTARAW_ImageResizeFill",
+  "inputs": {
+   "fit": "crop",
+   "height": [
+    "622:400",
+    1
+   ],
+   "image": [
+    "622:406",
+    0
+   ],
+   "method": "lanczos",
+   "width": [
+    "622:400",
+    0
+   ]
+  }
+ },
+ "622:402": {
+  "_meta": {
+   "title": "SEGS to MASK (combined)"
+  },
+  "class_type": "SegsToCombinedMask",
+  "inputs": {
+   "segs": [
+    "622:410",
+    0
+   ]
+  }
+ },
+ "622:403": {
+  "_meta": {
+   "title": "\ud83d\udd27 Mask Bounding Box"
+  },
+  "class_type": "MaskBoundingBox+",
+  "inputs": {
+   "blur": 0,
+   "mask": [
+    "622:407",
+    0
+   ],
+   "padding": 0
+  }
+ },
+ "622:404": {
+  "_meta": {
+   "title": "Image Crop"
+  },
+  "class_type": "ImageCrop",
+  "inputs": {
+   "height": [
+    "622:403",
+    5
+   ],
+   "image": [
+    "622:431",
+    0
+   ],
+   "width": [
+    "622:403",
+    4
+   ],
+   "x": [
+    "622:403",
+    2
+   ],
+   "y": [
+    "622:403",
+    3
+   ]
+  }
+ },
+ "622:406": {
+  "_meta": {
+   "title": "DetailerDebug (SEGS)"
+  },
+  "class_type": "DetailerForEachDebug",
+  "inputs": {
+   "cfg": 1,
+   "clip": [
+    "620:110",
+    0
+   ],
+   "cycle": 1,
+   "denoise": 0.42,
+   "feather": 2,
+   "force_inpaint": true,
+   "guide_size": 1920,
+   "guide_size_for": true,
+   "image": [
+    "622:414",
+    0
+   ],
+   "inpaint_model": false,
+   "max_size": 1920,
+   "model": [
+    "116",
+    0
+   ],
+   "negative": [
+    "622:394",
+    0
+   ],
+   "noise_mask": true,
+   "noise_mask_feather": 20,
+   "positive": [
+    "622:398",
+    0
+   ],
+   "sampler_name": "euler",
+   "scheduler": "beta",
+   "seed": 1111112,
+   "segs": [
+    "622:408",
+    0
+   ],
+   "steps": 8,
+   "tiled_decode": false,
+   "tiled_encode": false,
+   "vae": [
+    "620:109",
+    0
+   ],
+   "wildcard": ""
+  }
+ },
+ "622:407": {
+  "_meta": {
+   "title": "SEGS to MASK (combined)"
+  },
+  "class_type": "SegsToCombinedMask",
+  "inputs": {
+   "segs": [
+    "622:424",
+    0
+   ]
+  }
+ },
+ "622:408": {
+  "_meta": {
+   "title": "MASK to SEGS"
+  },
+  "class_type": "MaskToSEGS",
+  "inputs": {
+   "bbox_fill": false,
+   "combined": true,
+   "contour_fill": false,
+   "crop_factor": 3,
+   "drop_size": 10,
+   "mask": [
+    "622:402",
+    0
+   ]
+  }
+ },
+ "622:410": {
+  "_meta": {
+   "title": "MediaPipe FaceMesh to SEGS"
+  },
+  "class_type": "MediaPipeFaceMeshToSEGS",
+  "inputs": {
+   "bbox_fill": false,
+   "crop_factor": 3,
+   "crop_min_size": 10,
+   "dilation": 0,
+   "drop_size": 1,
+   "face": false,
+   "image": [
+    "622:415",
+    0
+   ],
+   "left_eye": true,
+   "left_eyebrow": false,
+   "left_pupil": true,
+   "mouth": false,
+   "right_eye": true,
+   "right_eyebrow": false,
+   "right_pupil": true
+  }
+ },
+ "622:414": {
+  "_meta": {
+   "title": "Upscale Face Crop for Detailing"
+  },
+  "class_type": "ImageResize+",
+  "inputs": {
+   "condition": "always",
+   "height": 1920,
+   "image": [
+    "622:404",
+    0
+   ],
+   "interpolation": "lanczos",
+   "method": "keep proportion",
+   "multiple_of": 0,
+   "width": 1920
+  }
+ },
+ "622:415": {
+  "_meta": {
+   "title": "MediaPipe Face Mesh"
+  },
+  "class_type": "MediaPipe-FaceMeshPreprocessor",
+  "inputs": {
+   "image": [
+    "622:414",
+    0
+   ],
+   "max_faces": 10,
+   "min_confidence": 0.2,
+   "resolution": [
+    "622:399",
+    0
+   ]
+  }
+ },
+ "622:418": {
+  "_meta": {
+   "title": "ImageCompositeMasked"
+  },
+  "class_type": "ImageCompositeMasked",
+  "inputs": {
+   "destination": [
+    "622:431",
+    0
+   ],
+   "mask": [
+    "622:664",
+    0
+   ],
+   "resize_source": false,
+   "source": [
+    "622:401",
+    0
+   ],
+   "x": [
+    "622:403",
+    2
+   ],
+   "y": [
+    "622:403",
+    3
+   ]
+  }
+ },
+ "622:424": {
+  "_meta": {
+   "title": "BBOX Detector (SEGS)"
+  },
+  "class_type": "BboxDetectorSEGS",
+  "inputs": {
+   "bbox_detector": [
+    "622:426",
+    0
+   ],
+   "crop_factor": 3,
+   "dilation": 10,
+   "drop_size": 10,
+   "image": [
+    "622:431",
+    0
+   ],
+   "labels": "all",
+   "threshold": 0.6
+  }
+ },
+ "622:426": {
+  "_meta": {
+   "title": "UltralyticsDetectorProvider"
+  },
+  "class_type": "UltralyticsDetectorProvider",
+  "inputs": {
+   "model_name": "bbox/face_yolov8m.pt"
+  }
+ },
+ "622:431": {
+  "_meta": {
+   "title": "\ud83d\udcd1 INSTARAW Image List From Batch"
+  },
+  "class_type": "INSTARAW_ImageListFromBatch",
+  "inputs": {
+   "images": [
+    "620:111",
+    0
+   ]
+  }
+ },
+ "622:660": {
+  "_meta": {
+   "title": "face found?"
+  },
+  "class_type": "ImpactIsNotEmptySEGS",
+  "inputs": {
+   "segs": [
+    "622:424",
+    0
+   ]
+  }
+ },
+ "622:661": {
+  "_meta": {
+   "title": "eyes pass, or pass through if no face"
+  },
+  "class_type": "ImpactConditionalBranch",
+  "inputs": {
+   "cond": [
+    "622:660",
+    0
+   ],
+   "ff_value": [
+    "622:431",
+    0
+   ],
+   "tt_value": [
+    "622:418",
+    0
+   ]
+  }
+ },
+ "622:662": {
+  "_meta": {
+   "title": "eyes ran? False = no face found, eye detail SKIPPED"
+  },
+  "class_type": "PreviewAny",
+  "inputs": {
+   "preview": "",
+   "previewMode": null,
+   "source": [
+    "622:660",
+    0
+   ]
+  }
+ },
+ "622:664": {
+  "_meta": {
+   "title": "feather the eyes composite (seam fix)"
+  },
+  "class_type": "FeatherMask",
+  "inputs": {
+   "bottom": 30,
+   "left": 30,
+   "mask": [
+    "622:403",
+    0
+   ],
+   "right": 30,
+   "top": 30
+  }
+ },
+ "MS6": {
+  "class_type": "ModelSamplingAuraFlow",
+  "inputs": {
+   "model": [
+    "116",
+    0
+   ],
+   "shift": 6
+  }
+ },
+ "MS7": {
+  "class_type": "ModelSamplingAuraFlow",
+  "inputs": {
+   "model": [
+    "116",
+    0
+   ],
+   "shift": 7
+  }
+ },
+ "ZB_dec": {
+  "class_type": "VAEDecode",
+  "inputs": {
+   "samples": [
+    "ZB_k",
+    0
+   ],
+   "vae": [
+    "620:109",
+    0
+   ]
+  }
+ },
+ "ZB_k": {
+  "class_type": "KSampler",
+  "inputs": {
+   "cfg": 2.0,
+   "denoise": 1.0,
+   "latent_image": [
+    "ZB_lat",
+    0
+   ],
+   "model": [
+    "ZBms",
+    0
+   ],
+   "negative": [
+    "ZB_neg",
+    0
+   ],
+   "positive": [
+    "ZB_pos",
+    0
+   ],
+   "sampler_name": "res_multistep",
+   "scheduler": "simple",
+   "seed": [
+    "483",
+    2
+   ],
+   "steps": 30
+  }
+ },
+ "ZB_lat": {
+  "class_type": "EmptySD3LatentImage",
+  "inputs": {
+   "batch_size": 1,
+   "height": 1152,
+   "width": 896
+  }
+ },
+ "ZB_neg": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "620:110",
+    0
+   ],
+   "text": [
+    "619:605",
+    0
+   ]
+  }
+ },
+ "ZB_pos": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "620:110",
+    0
+   ],
+   "text": [
+    "619:590",
+    0
+   ]
+  }
+ },
+ "ZBms": {
+  "class_type": "ModelSamplingAuraFlow",
+  "inputs": {
+   "model": [
+    "116",
+    0
+   ],
+   "shift": 3.0
+  }
+ },
+ "ZU_neg": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "620:110",
+    0
+   ],
+   "text": ""
+  }
+ },
+ "ZU_pos": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "620:110",
+    0
+   ],
+   "text": [
+    "619:590",
+    0
+   ]
+  }
+ }
+}

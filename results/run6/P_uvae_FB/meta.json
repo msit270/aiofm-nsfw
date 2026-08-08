@@ -1,0 +1,18 @@
+{
+ "arm": "P_uvae_FB",
+ "ok": true,
+ "exec_s": 140.944,
+ "prompt_id": "b875328a-92d2-410b-af81-54b355d3d0c1",
+ "images": {
+  "img_00001_.png": {
+   "mean": 100.18,
+   "std": 67.14,
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

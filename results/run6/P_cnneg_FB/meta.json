@@ -1,0 +1,18 @@
+{
+ "arm": "P_cnneg_FB",
+ "ok": true,
+ "exec_s": 163.131,
+ "prompt_id": "c8bf1c17-2d2c-4abb-811b-fd9a71797b24",
+ "images": {
+  "img_00001_.png": {
+   "mean": 94.09,
+   "std": 63.38,
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

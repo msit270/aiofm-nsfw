@@ -1,0 +1,18 @@
+{
+ "arm": "P_CU",
+ "ok": true,
+ "exec_s": 207.746,
+ "prompt_id": "59ab7ffe-9cf9-4436-807c-8818e0699b39",
+ "images": {
+  "img_00001_.png": {
+   "mean": 124.79,
+   "std": 59.5,
+   "size": [
+    2688,
+    3456
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

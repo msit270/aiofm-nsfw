@@ -1,0 +1,42 @@
+{
+ "arm": "R_stockvae_first_b6",
+ "ok": true,
+ "exec_s": 20.42,
+ "prompt_id": "e8575efe-1302-42f9-8965-3d1fac168af0",
+ "images": {
+  "img_00001_.png": {
+   "mean": 105.83,
+   "std": 51.06,
+   "size": [
+    1344,
+    1728
+   ]
+  },
+  "stage1_00001_.png": {
+   "mean": 104.83,
+   "std": 66.19,
+   "size": [
+    224,
+    288
+   ]
+  },
+  "stage2_00001_.png": {
+   "mean": 109.51,
+   "std": 54.22,
+   "size": [
+    672,
+    864
+   ]
+  },
+  "stage3_00001_.png": {
+   "mean": 108.23,
+   "std": 52.56,
+   "size": [
+    896,
+    1152
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

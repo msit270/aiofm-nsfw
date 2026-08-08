@@ -1,0 +1,42 @@
+{
+ "arm": "R_stockTE_first_b7",
+ "ok": true,
+ "exec_s": 28.175,
+ "prompt_id": "c72eef28-e8fa-450d-ae55-fe2c62dffc0b",
+ "images": {
+  "img_00001_.png": {
+   "mean": 110.51,
+   "std": 55.15,
+   "size": [
+    1344,
+    1728
+   ]
+  },
+  "stage1_00001_.png": {
+   "mean": 107.46,
+   "std": 73.26,
+   "size": [
+    224,
+    288
+   ]
+  },
+  "stage2_00001_.png": {
+   "mean": 115.1,
+   "std": 59.6,
+   "size": [
+    672,
+    864
+   ]
+  },
+  "stage3_00001_.png": {
+   "mean": 113.24,
+   "std": 57.59,
+   "size": [
+    896,
+    1152
+   ]
+  }
+ },
+ "black": [],
+ "status_str": "success"
+}

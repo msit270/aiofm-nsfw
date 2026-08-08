@@ -1,0 +1,47 @@
+{
+ "arm": "R_pcneg_FB",
+ "ok": true,
+ "exec_s": 18.134,
+ "prompt_id": "0acd3ab5-81b9-4914-a6b6-1125ec0fe774",
+ "images": {
+  "img_00001_.png": {
+   "mean": 0.0,
+   "std": 0.0,
+   "size": [
+    1344,
+    1728
+   ]
+  },
+  "stage1_00001_.png": {
+   "mean": 0.0,
+   "std": 0.0,
+   "size": [
+    224,
+    288
+   ]
+  },
+  "stage2_00001_.png": {
+   "mean": 0.0,
+   "std": 0.0,
+   "size": [
+    672,
+    864
+   ]
+  },
+  "stage3_00001_.png": {
+   "mean": 0.0,
+   "std": 0.0,
+   "size": [
+    896,
+    1152
+   ]
+  }
+ },
+ "black": [
+  "img_00001_.png",
+  "stage1_00001_.png",
+  "stage2_00001_.png",
+  "stage3_00001_.png"
+ ],
+ "status_str": "success"
+}

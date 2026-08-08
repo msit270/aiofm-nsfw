@@ -1,0 +1,47 @@
+{
+ "arm": "R_FB_canary_b2",
+ "ok": true,
+ "exec_s": 18.715,
+ "prompt_id": "601600f6-90c1-4da8-ba28-b0160378519e",
+ "images": {
+  "img_00001_.png": {
+   "mean": 0.0,
+   "std": 0.0,
+   "size": [
+    1344,
+    1728
+   ]
+  },
+  "stage1_00001_.png": {
+   "mean": 0.0,
+   "std": 0.0,
+   "size": [
+    224,
+    288
+   ]
+  },
+  "stage2_00001_.png": {
+   "mean": 0.0,
+   "std": 0.0,
+   "size": [
+    672,
+    864
+   ]
+  },
+  "stage3_00001_.png": {
+   "mean": 0.0,
+   "std": 0.0,
+   "size": [
+    896,
+    1152
+   ]
+  }
+ },
+ "black": [
+  "img_00001_.png",
+  "stage1_00001_.png",
+  "stage2_00001_.png",
+  "stage3_00001_.png"
+ ],
+ "status_str": "success"
+}
