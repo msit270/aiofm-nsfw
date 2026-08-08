@@ -1,0 +1,28 @@
+{
+ "baseline/boot0": {
+  "args": [],
+  "env": {},
+  "probes": {
+   "zref_P_canary": {
+    "exec_s": 5.2,
+    "state": "healthy"
+   },
+   "zref_PT": {
+    "exec_s": 1.9,
+    "state": "healthy"
+   },
+   "zref_CU": {
+    "exec_s": 1.9,
+    "state": "healthy"
+   },
+   "lunaz30": {
+    "exec_s": 144.8,
+    "state": "healthy"
+   },
+   "A0_PT": {
+    "exec_s": 121.5,
+    "state": "healthy"
+   }
+  }
+ }
+}

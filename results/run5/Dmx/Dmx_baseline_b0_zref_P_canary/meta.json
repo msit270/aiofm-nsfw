@@ -1,0 +1,10 @@
+{
+ "arm": "Dmx_baseline_b0_zref_P_canary",
+ "batch": "Dmx",
+ "ok": true,
+ "exec_s": 5.222,
+ "cached_nodes": 0,
+ "prompt_id": "f347bb76-6370-41f1-a1da-d3b900526329",
+ "outputs_dir": "/workspace/run5/output/Dmx/Dmx_baseline_b0_zref_P_canary",
+ "status_str": "success"
+}

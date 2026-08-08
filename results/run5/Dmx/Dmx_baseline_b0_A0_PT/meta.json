@@ -1,0 +1,10 @@
+{
+ "arm": "Dmx_baseline_b0_A0_PT",
+ "batch": "Dmx",
+ "ok": true,
+ "exec_s": 121.505,
+ "cached_nodes": 23,
+ "prompt_id": "09cd4e1e-f8e2-48a1-8cbd-180da2612f35",
+ "outputs_dir": "/workspace/run5/output/Dmx/Dmx_baseline_b0_A0_PT",
+ "status_str": "success"
+}

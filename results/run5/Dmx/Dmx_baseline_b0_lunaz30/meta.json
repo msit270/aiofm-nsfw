@@ -1,0 +1,10 @@
+{
+ "arm": "Dmx_baseline_b0_lunaz30",
+ "batch": "Dmx",
+ "ok": true,
+ "exec_s": 144.814,
+ "cached_nodes": 3,
+ "prompt_id": "73f55309-919a-49b9-97a6-f63c2f9d7a13",
+ "outputs_dir": "/workspace/run5/output/Dmx/Dmx_baseline_b0_lunaz30",
+ "status_str": "success"
+}

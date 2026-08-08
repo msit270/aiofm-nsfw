@@ -1230,7 +1230,7 @@ dl "$REPO/umt5.safetensors" "$COMFYUI_DIR/models/text_encoders"
 # models/ultralytics
 # ============================================
 echo ">>> models/ultralytics"
-dl "$REPO/lips_v1.pt" "$COMFYUI_DIR/models/ultralytics"
+# lips_v1.pt fetch removed: the personal workflow deleted the mouth stage
 dl "$REPO/nipple.pt" "$COMFYUI_DIR/models/ultralytics"
 dl "$REPO/pussyV2.pt" "$COMFYUI_DIR/models/ultralytics"
 

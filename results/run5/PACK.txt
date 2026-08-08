@@ -1,10 +1,18 @@
-AIOFMTech-NSFW-Personal.tar.gz — run-5 FINAL cut (2026-08-08, post-verdict)
-archive sha256 : 809778424d42b898eb088dda2b390c1599cd43ab3793a9e3148897a91d20cef9
-size           : 289107207 bytes, 163 files, top-level AIOFMTech-NSFW-Personal/
-workflow member: OFMTech_NSFW_Personal.json 55624 bytes (PC config, 66 nodes,
-                 character-neutral, mouth stage deleted, hands combo, shift dial)
-                 sha256 50b2b3ff863bc450528ebc52ee1457babe1508b6b82bd0a39352f13252677c1b
-installer sha256: 99a2a78a7a3a91b8e33b2c0619c33ad1e9240ecbe626f447d282e320a47dfadd
+AIOFMTech-NSFW-Personal.tar.gz — run-5 FINAL cut v2 (2026-08-08, post-verifier-4)
+archive sha256 : a2b44dbc44544bb1dab2070b547faacc4e491b0a1d98ca7a3c53acd2295a0be1
+size           : 163 files, top-level AIOFMTech-NSFW-Personal/
+workflow member: OFMTech_NSFW_Personal.json 55628 bytes (PC config, 66 API
+                 nodes, character-neutral, mouth deleted, hands combo, shift)
+                 sha256 2fd453816159cd29ce4df124734bb316c5a01516f4e9c68dcc94a6db41844644
+installer sha256: 6d5ddd73a7b6725a1f8174e212d849884c594d66e882de1f15b800ef1a4426f9
+v2 delta vs 80977842 (verifier-4 nits, both non-semantic to the render path):
+  - MarkdownNote text corrected (one LoRA stack, not two)
+  - installer no longer fetches the dead lips_v1.pt
+  Gate carry-over: the API graph is byte-unchanged (pc_final_api.json);
+  MarkdownNote is frontend-only and never enters the converted graph; the
+  installer delta removes one dl line (syntax-checked). The EQUIVALENT +
+  browser + fresh-tree gate results for 80977842 carry to this cut modulo
+  those two members; no render-path bytes changed.
 docs in pack   : README-PERSONAL, CONFIG-SPEC (general/specific ledger),
                  CHARACTER-SWAP-CHECKLIST
 proof chain    : owner S11 pick (PC1 ea 0.50) -> pc_final api graph ->

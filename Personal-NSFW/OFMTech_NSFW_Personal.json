@@ -3453,7 +3453,7 @@
    "outputs": [],
    "properties": {},
    "widgets_values": [
-    "# OFMTech NSFW Personal (PC)\nFlat personal build. Prompt: INSTARAW_RealityPromptGenerator. LoRAs: the two Lora Loader Stack nodes. Face prompt: the CLIPTextEncode fed into the Z face detailer."
+    "# OFMTech NSFW Personal (PC)\nFlat personal build. Prompt: INSTARAW_RealityPromptGenerator. Character LoRA: the Lora Loader Stack node. Face prompt: the CLIPTextEncode fed into the Z face detailer."
    ]
   }
  ],

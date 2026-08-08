@@ -1,0 +1,10 @@
+{
+ "arm": "Dmx_baseline_b1_zref_PT",
+ "batch": "Dmx",
+ "ok": true,
+ "exec_s": 1.896,
+ "cached_nodes": 5,
+ "prompt_id": "963dc8fd-c9f1-4b05-9133-edb1a00c4b55",
+ "outputs_dir": "/workspace/run5/output/Dmx/Dmx_baseline_b1_zref_PT",
+ "status_str": "success"
+}
