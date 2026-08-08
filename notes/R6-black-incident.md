@@ -35,3 +35,20 @@ Data points vs the run-5 dossier (notes/D-blackrender-verdict.md):
    occurrence within a boot (per family?)".
 Mitigation applied: fresh boot (boot2), re-render with canary brackets
 (batch1b), black-check every arm — per run-5 protocol.
+
+## CORRECTION (same session, retro-scan with fixed detector)
+
+The original blackcheck threshold (mean<2 AND std<2) MISSED one event:
+P_COZY (pc graph, cozy prompt, boot1) is black too — mean 3.01 (the pc
+chain's ESRGAN/USDU/colormatch post-processing lifts a black base frame
+slightly off zero). Detector now mean<8 & std<6; full retro-scan of all
+arms confirms the complete black list is: P_COZY, R_str08_FB(+_b2),
+R_pcneg_FB(+_b2), R_FB_canary(+_b2).
+
+Corrected boot1 timeline: the FIRST black was P_COZY (pc family),
+BEFORE R_str08. P_cnneg_FB (pc family) was healthy again after it.
+So boot1 saw blacks in BOTH families; the claim "pc arms immune" is
+WRONG. What remains reproduced 2/2 boots: R_FB + P_FB healthy ->
+str08 black on its first render -> ALL subsequent ref-family arms
+black including the exact graph healthy earlier the same boot.
+P_COZY (boot1 only so far) is a separate event pending re-render.
